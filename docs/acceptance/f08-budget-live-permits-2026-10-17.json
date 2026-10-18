@@ -1,0 +1,704 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-17",
+  "timezone": "Asia/Shanghai",
+  "status": "SCOPED_F08_COMPOSITE_PASSED_NATIVE_DEFERRED",
+  "passed": true,
+  "composite": true,
+  "requiredCasesPassed": 69,
+  "requiredCasesFailed": 0,
+  "verifiedUniqueCaseNames": 72,
+  "actualTestExecutions": 73,
+  "actualPassedExecutions": 72,
+  "historicalFailedExecutions": 1,
+  "scope": "Retained 68 unchanged passing cases from R2 plus corrected failed case and 3 adjacent health cases in R3. Not one continuous all-green 69-case run; not full crate, whole V1, Native, installer or M4 acceptance.",
+  "source": {
+    "frozenFilesPerAttempt": 845,
+    "rustInputCount": 47,
+    "currentRustMatched": 47,
+    "r2ProjectionStillEqual": 46,
+    "onlyR3Change": "one existing pet cursor test function; production and shared fixtures unchanged",
+    "mainSourceGuardsHeld": false
+  },
+  "testGroups": {
+    "newCoreBudgetCases": 20,
+    "pureGateAndQueueCases": 18,
+    "pairedClockCases": 2,
+    "petReadCases": 7,
+    "existingBudgetNotificationCases": 5,
+    "priorFunctionalRegressions": 17,
+    "addedAdjacentHealthCases": 3
+  },
+  "firstCompileFailure": {
+    "cargoExitCode": 101,
+    "testsExecuted": 0,
+    "job": {
+      "argv": [
+        "C:/Users/Administrator/AppData/Local/Programs/Python/Python312/python.exe",
+        "-B",
+        "D:\\project\\宠物\\output\\implementation\\budget-f08-check-20261017\\compile_worker.py",
+        "--phase",
+        "positive-f08"
+      ],
+      "cwd": "D:\\project\\宠物\\output\\implementation\\budget-f08-check-20261017\\positive-f08",
+      "ownershipId": "e45ac713-d67e-4386-afcd-fea92b7a8528",
+      "startedAtUtc": "2026-10-17T03:05:53.325792+00:00",
+      "timeoutSeconds": 600,
+      "cleanupTimeoutSeconds": 5,
+      "createdSuspended": true,
+      "assignedBeforeResume": true,
+      "resumed": true,
+      "timedOut": true,
+      "cleanupVerified": true,
+      "status": "timed-out",
+      "errors": [],
+      "sawRootExitedWithActiveDescendants": true,
+      "rootExitedWithActiveDescendantsObservation": {
+        "elapsedSeconds": 92.2065268997103,
+        "root": {
+          "creationFileTimeDecimal": "134366799533271744",
+          "exitFileTimeDecimal": "134366800455130368",
+          "exitCode": 101,
+          "waitSignaled": true,
+          "exited": true
+        },
+        "job": {
+          "totalProcesses": 14,
+          "activeProcesses": 1,
+          "totalTerminatedProcesses": 0
+        }
+      },
+      "compilerRootZeroArtifactCleanupPolicy": true,
+      "naturalWholeJobCompletion": false,
+      "processId": 45772,
+      "root": {
+        "creationFileTimeDecimal": "134366799533271744",
+        "exitFileTimeDecimal": "134366800455130368",
+        "exitCode": 101,
+        "waitSignaled": true,
+        "exited": true
+      },
+      "job": {
+        "totalProcesses": 14,
+        "activeProcesses": 0,
+        "totalTerminatedProcesses": 0
+      },
+      "handleInheritance": "explicit stdin/stdout/stderr only",
+      "globalEnumeration": false,
+      "finishedAtUtc": "2026-10-17T03:15:53.336556+00:00",
+      "elapsedSeconds": 600.0103756999597,
+      "cpuWindowReleaseVerified": true
+    },
+    "reason": "Rust dangerous_implicit_autorefs in subscription failure cleanup; unused today warning also removed.",
+    "explanation": "Cargo failed first; original owner observed resident descendants until its 600-second budget, then cleaned. Not natural completion and not a successful compile."
+  },
+  "r2": {
+    "passed": 68,
+    "failed": 1,
+    "actualFailedNames": [
+      "core::pet::tests::pet_cursor_scope_cleanup_restart_and_decimal_precision_are_explicit"
+    ],
+    "compilerJob": {
+      "argv": [
+        "C:/Users/Administrator/AppData/Local/Programs/Python/Python312/python.exe",
+        "-B",
+        "D:\\project\\宠物\\output\\implementation\\budget-f08-check-20261017-r2\\compile_worker.py",
+        "--phase",
+        "positive-f08"
+      ],
+      "cwd": "D:\\project\\宠物\\output\\implementation\\budget-f08-check-20261017-r2\\positive-f08",
+      "ownershipId": "3774df3f-cffc-48ab-9dfa-c504c16acf38",
+      "startedAtUtc": "2026-10-17T03:16:17.909732+00:00",
+      "timeoutSeconds": 600,
+      "cleanupTimeoutSeconds": 5,
+      "createdSuspended": true,
+      "assignedBeforeResume": true,
+      "resumed": true,
+      "timedOut": false,
+      "cleanupVerified": true,
+      "status": "compiled-root-zero-owned-descendants-cleaned",
+      "errors": [],
+      "sawRootExitedWithActiveDescendants": true,
+      "rootExitedWithActiveDescendantsObservation": {
+        "elapsedSeconds": 70.95621770014986,
+        "root": {
+          "creationFileTimeDecimal": "134366805779113418",
+          "exitFileTimeDecimal": "134366806488599379",
+          "exitCode": 0,
+          "waitSignaled": true,
+          "exited": true
+        },
+        "job": {
+          "totalProcesses": 15,
+          "activeProcesses": 2,
+          "totalTerminatedProcesses": 0
+        }
+      },
+      "compilerRootZeroArtifactCleanupPolicy": true,
+      "naturalWholeJobCompletion": false,
+      "processId": 7900,
+      "root": {
+        "creationFileTimeDecimal": "134366805779113418",
+        "exitFileTimeDecimal": "134366806488599379",
+        "exitCode": 0,
+        "waitSignaled": true,
+        "exited": true
+      },
+      "job": {
+        "totalProcesses": 15,
+        "activeProcesses": 0,
+        "totalTerminatedProcesses": 0
+      },
+      "handleInheritance": "explicit stdin/stdout/stderr only",
+      "globalEnumeration": false,
+      "finishedAtUtc": "2026-10-17T03:17:28.867015+00:00",
+      "elapsedSeconds": 70.95729279983789,
+      "cpuWindowReleaseVerified": true
+    },
+    "testJob": {
+      "argv": [
+        "D:\\project\\宠物\\output\\implementation\\budget-f08-check-20261017-r2\\positive-f08\\fixture-tests.exe",
+        "--exact",
+        "--test-threads=1",
+        "budget_clock::tests::nested_overrides_restore_and_do_not_leak_to_other_threads",
+        "budget_clock::tests::deadline_requires_both_clocks_to_be_representable",
+        "core::pet::tests::pet_pulse_matches_snapshot_and_never_reads_unused_fact_tables",
+        "core::pet::tests::pet_feed_priority_overflow_and_every_observed_sequence_are_consumed_once",
+        "core::pet::tests::budget_pet_prompts_require_a_current_permit_and_consume_invalid_arrivals_without_writes",
+        "core::pet::tests::pet_cursor_scope_cleanup_restart_and_decimal_precision_are_explicit",
+        "core::pet::tests::pet_pulse_chrono_freshness_midnight_and_unknown_watermarks_match_existing_rules",
+        "core::pet::tests::pet_details_trust_cache_latest_null_and_scope_rejection_keep_snapshot_semantics",
+        "core::pet::tests::pet_v5_backfill_preserves_inbox_and_last_ddl_failure_rolls_back_and_recovers",
+        "notification_gate::tests::strong_session_messages_override_lagging_queries_and_unblock_requires_known_state",
+        "notification_gate::tests::unknown_native_state_and_every_hard_boundary_prevent_epoch_aba",
+        "notification_gate::tests::invalidate_keeps_availability_but_exhausted_epoch_stays_closed",
+        "notification_gate::tests::permit_clone_has_shared_revocation_and_uses_the_injected_budget_clock",
+        "notification_gate::tests::both_utc_and_monotonic_deadlines_are_exclusive_and_never_extended",
+        "notification_gate::tests::clock_rollback_and_native_epoch_change_permanently_revoke_clones",
+        "notification_gate::tests::rollback_after_issuance_but_below_a_shared_high_watermark_cannot_revive",
+        "notification_gate::tests::missing_budget_permit_is_dropped_without_removing_completion",
+        "notification_gate::tests::queued_budget_cannot_survive_suspend_resume_during_merge_or_throttle",
+        "notification_gate::tests::native_change_during_com_preparation_rebuilds_only_surviving_completion",
+        "notification_gate::tests::expiry_during_com_preparation_is_suppressed_and_never_submitted_or_failed",
+        "notification_gate::tests::utc_rollback_inside_com_preparation_after_issued_time_suppresses_budget",
+        "notification_gate::tests::final_native_or_dnd_denial_after_preparation_is_suppressed_not_failed",
+        "notification_gate::tests::preparation_failure_separates_newly_stale_budget_from_actual_failed_completion",
+        "notification_gate::tests::submission_failure_is_attempted_once_and_is_not_replayed",
+        "notification_gate::tests::windows_expiration_ticks_use_1601_epoch_and_preserve_subsecond_precision",
+        "core::queries::budget::tests::midnight_first_live_crossing_claims_once_and_duplicate_or_clear_does_not_refill",
+        "core::queries::budget::tests::saving_or_editing_over_existing_same_day_usage_is_history_only",
+        "core::queries::budget::tests::last_moment_save_or_new_version_cannot_borrow_an_old_rollover_certificate",
+        "core::queries::budget::tests::restart_explicit_history_and_long_gap_do_not_turn_the_first_batch_into_live_alerts",
+        "core::queries::budget::tests::a_measured_future_day_basis_is_not_replaced_by_zero",
+        "core::queries::budget::tests::a_pause_epoch_change_blocks_rollover_and_invalidates_an_unclaimed_budget_alert",
+        "core::queries::budget::tests::source_identity_and_project_remapping_do_not_replay_other_usage",
+        "core::queries::budget::tests::root_turn_keeps_its_task_period_and_explicit_child_total_across_midnight",
+        "core::queries::budget::tests::same_day_saved_actual_baseline_allows_only_subsequent_fresh_crossing",
+        "core::queries::budget::tests::historical_delta_plus_insufficient_fresh_delta_cannot_borrow_any_live_flag",
+        "core::queries::budget::tests::pre_mutex_host_sample_cannot_borrow_resumed_epoch_or_wait_beyond_lifetime",
+        "core::queries::budget::tests::handled_period_survives_clear_and_a_conflict_drop_below_then_recross",
+        "core::queries::budget::tests::paused_history_backlog_does_not_block_a_committed_live_crossing",
+        "core::queries::budget::tests::unrelated_missing_source_does_not_block_a_committed_live_crossing",
+        "core::queries::budget::tests::disabled_or_absent_budget_path_never_reads_fact_detail_tables",
+        "core::queries::budget::tests::a_fourteen_second_old_fresh_event_expires_after_its_original_last_second",
+        "core::queries::budget::tests::clock_rollback_or_skew_cannot_rearm_from_a_lower_ordinary_anchor",
+        "core::queries::budget::tests::a_fresh_append_before_the_previous_scan_finished_is_still_new_live_usage",
+        "core::queries::budget::tests::a_stable_forward_clock_domain_can_rebuild_a_measured_new_version_baseline",
+        "core::queries::budget::tests::dnd_enable_then_disable_revokes_claimed_and_unclaimed_budget_permits",
+        "core::adapter::tool_state_tests::tool_state_plain_output_and_later_begin_preserve_command_failure",
+        "core::adapter::tool_state_tests::tool_state_plain_output_preserves_mcp_error",
+        "core::adapter::tool_state_tests::tool_state_older_explicit_end_upgrades_unknown_output",
+        "core::adapter::tool_state_tests::tool_state_output_before_call_retains_result_and_fills_name",
+        "core::adapter::tool_state_tests::tool_state_unmarked_or_false_error_output_remains_unknown",
+        "core::adapter::tool_state_tests::tool_state_conflicting_terminal_results_remain_unknown_in_either_order",
+        "core::adapter::tool_state_tests::tool_state_call_identity_stays_separate_across_sources_and_fork_ordinals",
+        "core::adapter::tool_state_tests::tool_state_duplicate_and_equal_time_begin_preserve_one_terminal_fact",
+        "core::queries::session_scope_tests::dated_timed_turn_without_usage_keeps_its_session_and_timing",
+        "core::queries::session_scope_tests::fact_selected_sessions_preserve_source_model_project_and_root_intersections",
+        "core::queries::session_scope_tests::dated_tool_only_session_keeps_navigation_without_inferred_model_or_turn",
+        "core::queries::session_scope_tests::invalid_date_filters_are_rejected_consistently_before_snapshot_or_export",
+        "core::tests::all_fact_views_honor_project_model_provider_and_root_filters_and_missing_root_usage_is_related",
+        "core::tests::per_source_health_is_unfiltered_has_real_success_watermark_and_preserves_unsupported_capability",
+        "core::tests::structured_tool_result_metadata_is_retained_but_body_and_spoofed_stdout_are_not",
+        "core::queries::usage_dashboard::tests::strict_requests_reject_invalid_pages_qualities_and_unbounded_dates",
+        "core::queries::usage_dashboard::tests::existing_overview_and_full_filter_contract_are_preserved",
+        "core::tests::budget_identity_is_per_rule_version_scope_local_day_and_tier_not_usage_event",
+        "core::tests::live_budget_crossing_claims_once_and_cleared_inbox_does_not_refill_same_threshold",
+        "core::tests::root_task_budget_includes_explicit_children_across_days_and_never_other_source_same_ids",
+        "core::tests::notification_claim_is_atomic_preserves_refinement_and_never_replays_on_restart",
+        "core::tests::do_not_disturb_suppresses_live_notification_persistently_instead_of_delaying_it",
+        "notification_gate::tests::expired_full_budget_queue_admits_new_completion_and_restarts_merge_window",
+        "notification_gate::tests::surviving_completion_keeps_merge_window_and_only_current_full_queue_overflows"
+      ],
+      "cwd": "D:\\project\\宠物\\output\\implementation\\budget-f08-check-20261017-r2\\positive-f08",
+      "ownershipId": "1e8093fa-9d4a-402a-9d5b-5a46b717cc95",
+      "startedAtUtc": "2026-10-17T03:17:28.879973+00:00",
+      "timeoutSeconds": 120,
+      "cleanupTimeoutSeconds": 5,
+      "createdSuspended": true,
+      "assignedBeforeResume": true,
+      "resumed": true,
+      "timedOut": false,
+      "cleanupVerified": true,
+      "status": "nonzero-exit",
+      "errors": [],
+      "sawRootExitedWithActiveDescendants": false,
+      "rootExitedWithActiveDescendantsObservation": null,
+      "compilerRootZeroArtifactCleanupPolicy": false,
+      "naturalWholeJobCompletion": true,
+      "processId": 69192,
+      "root": {
+        "creationFileTimeDecimal": "134366806495520675",
+        "exitFileTimeDecimal": "134366807254825345",
+        "exitCode": 101,
+        "waitSignaled": true,
+        "exited": true
+      },
+      "job": {
+        "totalProcesses": 2,
+        "activeProcesses": 0,
+        "totalTerminatedProcesses": 0
+      },
+      "handleInheritance": "explicit stdin/stdout/stderr only",
+      "globalEnumeration": false,
+      "finishedAtUtc": "2026-10-17T03:18:45.490457+00:00",
+      "elapsedSeconds": 76.61028479970992,
+      "cpuWindowReleaseVerified": true
+    }
+  },
+  "r3": {
+    "passed": 4,
+    "failed": 0,
+    "actualPassNames": [
+      "core::pet::tests::pet_cursor_scope_cleanup_restart_and_decimal_precision_are_explicit",
+      "core::queries::health_tests::fresh_source_is_unknown_until_a_completed_check",
+      "core::queries::health_tests::malformed_collector_counts_and_timestamps_never_open_source_health",
+      "core::queries::health_tests::pet_scope_tracks_health_transitions_and_stays_stable_for_new_tokens"
+    ],
+    "compilerJob": {
+      "argv": [
+        "C:/Users/Administrator/AppData/Local/Programs/Python/Python312/python.exe",
+        "-B",
+        "D:\\project\\宠物\\output\\implementation\\budget-f08-check-20261017-r3\\compile_worker.py",
+        "--phase",
+        "positive-f08"
+      ],
+      "cwd": "D:\\project\\宠物\\output\\implementation\\budget-f08-check-20261017-r3\\positive-f08",
+      "ownershipId": "1d7307ca-208c-4aa0-bfa8-6c86cf0c7883",
+      "startedAtUtc": "2026-10-17T03:22:08.222421+00:00",
+      "timeoutSeconds": 600,
+      "cleanupTimeoutSeconds": 5,
+      "createdSuspended": true,
+      "assignedBeforeResume": true,
+      "resumed": true,
+      "timedOut": false,
+      "cleanupVerified": true,
+      "status": "compiled-root-zero-owned-descendants-cleaned",
+      "errors": [],
+      "sawRootExitedWithActiveDescendants": true,
+      "rootExitedWithActiveDescendantsObservation": {
+        "elapsedSeconds": 21.499601500108838,
+        "root": {
+          "creationFileTimeDecimal": "134366809282236052",
+          "exitFileTimeDecimal": "134366809497168529",
+          "exitCode": 0,
+          "waitSignaled": true,
+          "exited": true
+        },
+        "job": {
+          "totalProcesses": 15,
+          "activeProcesses": 2,
+          "totalTerminatedProcesses": 0
+        }
+      },
+      "compilerRootZeroArtifactCleanupPolicy": true,
+      "naturalWholeJobCompletion": false,
+      "processId": 50584,
+      "root": {
+        "creationFileTimeDecimal": "134366809282236052",
+        "exitFileTimeDecimal": "134366809497168529",
+        "exitCode": 0,
+        "waitSignaled": true,
+        "exited": true
+      },
+      "job": {
+        "totalProcesses": 15,
+        "activeProcesses": 0,
+        "totalTerminatedProcesses": 0
+      },
+      "handleInheritance": "explicit stdin/stdout/stderr only",
+      "globalEnumeration": false,
+      "finishedAtUtc": "2026-10-17T03:22:29.722359+00:00",
+      "elapsedSeconds": 21.500218200031668,
+      "cpuWindowReleaseVerified": true
+    },
+    "testJob": {
+      "argv": [
+        "D:\\project\\宠物\\output\\implementation\\budget-f08-check-20261017-r3\\positive-f08\\fixture-tests.exe",
+        "--exact",
+        "--test-threads=1",
+        "core::pet::tests::pet_cursor_scope_cleanup_restart_and_decimal_precision_are_explicit",
+        "core::queries::health_tests::fresh_source_is_unknown_until_a_completed_check",
+        "core::queries::health_tests::malformed_collector_counts_and_timestamps_never_open_source_health",
+        "core::queries::health_tests::pet_scope_tracks_health_transitions_and_stays_stable_for_new_tokens"
+      ],
+      "cwd": "D:\\project\\宠物\\output\\implementation\\budget-f08-check-20261017-r3\\positive-f08",
+      "ownershipId": "8ac7168f-4681-43f0-89d1-917cdf6cc482",
+      "startedAtUtc": "2026-10-17T03:22:29.735714+00:00",
+      "timeoutSeconds": 120,
+      "cleanupTimeoutSeconds": 5,
+      "createdSuspended": true,
+      "assignedBeforeResume": true,
+      "resumed": true,
+      "timedOut": false,
+      "cleanupVerified": true,
+      "status": "completed",
+      "errors": [],
+      "sawRootExitedWithActiveDescendants": false,
+      "rootExitedWithActiveDescendantsObservation": null,
+      "compilerRootZeroArtifactCleanupPolicy": false,
+      "naturalWholeJobCompletion": true,
+      "processId": 64908,
+      "root": {
+        "creationFileTimeDecimal": "134366809503538602",
+        "exitFileTimeDecimal": "134366809560747082",
+        "exitCode": 0,
+        "waitSignaled": true,
+        "exited": true
+      },
+      "job": {
+        "totalProcesses": 2,
+        "activeProcesses": 0,
+        "totalTerminatedProcesses": 0
+      },
+      "handleInheritance": "explicit stdin/stdout/stderr only",
+      "globalEnumeration": false,
+      "finishedAtUtc": "2026-10-17T03:22:36.101841+00:00",
+      "elapsedSeconds": 6.36589889973402,
+      "cpuWindowReleaseVerified": true
+    }
+  },
+  "fixtureCorrection": "A real Core.scan establishes the full known-health baseline; only RFC3339 checkedAt then issues change. All 29 original assertions remain; one prerequisite assertion added. Production health rejection is unchanged.",
+  "guards": {
+    "r1": {
+      "sourceCount": 845,
+      "guardedCount": 852,
+      "postChecksPassed": true,
+      "allHandlesClosed": true,
+      "errors": [
+        "RuntimeError('first compile failed; no automatic retry')"
+      ]
+    },
+    "r2": {
+      "sourceCount": 845,
+      "guardedCount": 853,
+      "postChecksPassed": true,
+      "allHandlesClosed": true,
+      "errors": [
+        "RuntimeError('actual exact-case outcome differs from declared expectation')"
+      ]
+    },
+    "r3": {
+      "sourceCount": 845,
+      "guardedCount": 853,
+      "postChecksPassed": true,
+      "allHandlesClosed": true,
+      "errors": []
+    }
+  },
+  "requiredNames": [
+    "budget_clock::tests::deadline_requires_both_clocks_to_be_representable",
+    "budget_clock::tests::nested_overrides_restore_and_do_not_leak_to_other_threads",
+    "core::adapter::tool_state_tests::tool_state_call_identity_stays_separate_across_sources_and_fork_ordinals",
+    "core::adapter::tool_state_tests::tool_state_conflicting_terminal_results_remain_unknown_in_either_order",
+    "core::adapter::tool_state_tests::tool_state_duplicate_and_equal_time_begin_preserve_one_terminal_fact",
+    "core::adapter::tool_state_tests::tool_state_older_explicit_end_upgrades_unknown_output",
+    "core::adapter::tool_state_tests::tool_state_output_before_call_retains_result_and_fills_name",
+    "core::adapter::tool_state_tests::tool_state_plain_output_and_later_begin_preserve_command_failure",
+    "core::adapter::tool_state_tests::tool_state_plain_output_preserves_mcp_error",
+    "core::adapter::tool_state_tests::tool_state_unmarked_or_false_error_output_remains_unknown",
+    "core::pet::tests::budget_pet_prompts_require_a_current_permit_and_consume_invalid_arrivals_without_writes",
+    "core::pet::tests::pet_cursor_scope_cleanup_restart_and_decimal_precision_are_explicit",
+    "core::pet::tests::pet_details_trust_cache_latest_null_and_scope_rejection_keep_snapshot_semantics",
+    "core::pet::tests::pet_feed_priority_overflow_and_every_observed_sequence_are_consumed_once",
+    "core::pet::tests::pet_pulse_chrono_freshness_midnight_and_unknown_watermarks_match_existing_rules",
+    "core::pet::tests::pet_pulse_matches_snapshot_and_never_reads_unused_fact_tables",
+    "core::pet::tests::pet_v5_backfill_preserves_inbox_and_last_ddl_failure_rolls_back_and_recovers",
+    "core::queries::budget::tests::a_fourteen_second_old_fresh_event_expires_after_its_original_last_second",
+    "core::queries::budget::tests::a_fresh_append_before_the_previous_scan_finished_is_still_new_live_usage",
+    "core::queries::budget::tests::a_measured_future_day_basis_is_not_replaced_by_zero",
+    "core::queries::budget::tests::a_pause_epoch_change_blocks_rollover_and_invalidates_an_unclaimed_budget_alert",
+    "core::queries::budget::tests::a_stable_forward_clock_domain_can_rebuild_a_measured_new_version_baseline",
+    "core::queries::budget::tests::clock_rollback_or_skew_cannot_rearm_from_a_lower_ordinary_anchor",
+    "core::queries::budget::tests::disabled_or_absent_budget_path_never_reads_fact_detail_tables",
+    "core::queries::budget::tests::dnd_enable_then_disable_revokes_claimed_and_unclaimed_budget_permits",
+    "core::queries::budget::tests::handled_period_survives_clear_and_a_conflict_drop_below_then_recross",
+    "core::queries::budget::tests::historical_delta_plus_insufficient_fresh_delta_cannot_borrow_any_live_flag",
+    "core::queries::budget::tests::last_moment_save_or_new_version_cannot_borrow_an_old_rollover_certificate",
+    "core::queries::budget::tests::midnight_first_live_crossing_claims_once_and_duplicate_or_clear_does_not_refill",
+    "core::queries::budget::tests::paused_history_backlog_does_not_block_a_committed_live_crossing",
+    "core::queries::budget::tests::pre_mutex_host_sample_cannot_borrow_resumed_epoch_or_wait_beyond_lifetime",
+    "core::queries::budget::tests::restart_explicit_history_and_long_gap_do_not_turn_the_first_batch_into_live_alerts",
+    "core::queries::budget::tests::root_turn_keeps_its_task_period_and_explicit_child_total_across_midnight",
+    "core::queries::budget::tests::same_day_saved_actual_baseline_allows_only_subsequent_fresh_crossing",
+    "core::queries::budget::tests::saving_or_editing_over_existing_same_day_usage_is_history_only",
+    "core::queries::budget::tests::source_identity_and_project_remapping_do_not_replay_other_usage",
+    "core::queries::budget::tests::unrelated_missing_source_does_not_block_a_committed_live_crossing",
+    "core::queries::session_scope_tests::dated_timed_turn_without_usage_keeps_its_session_and_timing",
+    "core::queries::session_scope_tests::dated_tool_only_session_keeps_navigation_without_inferred_model_or_turn",
+    "core::queries::session_scope_tests::fact_selected_sessions_preserve_source_model_project_and_root_intersections",
+    "core::queries::session_scope_tests::invalid_date_filters_are_rejected_consistently_before_snapshot_or_export",
+    "core::queries::usage_dashboard::tests::existing_overview_and_full_filter_contract_are_preserved",
+    "core::queries::usage_dashboard::tests::strict_requests_reject_invalid_pages_qualities_and_unbounded_dates",
+    "core::tests::all_fact_views_honor_project_model_provider_and_root_filters_and_missing_root_usage_is_related",
+    "core::tests::budget_identity_is_per_rule_version_scope_local_day_and_tier_not_usage_event",
+    "core::tests::do_not_disturb_suppresses_live_notification_persistently_instead_of_delaying_it",
+    "core::tests::live_budget_crossing_claims_once_and_cleared_inbox_does_not_refill_same_threshold",
+    "core::tests::notification_claim_is_atomic_preserves_refinement_and_never_replays_on_restart",
+    "core::tests::per_source_health_is_unfiltered_has_real_success_watermark_and_preserves_unsupported_capability",
+    "core::tests::root_task_budget_includes_explicit_children_across_days_and_never_other_source_same_ids",
+    "core::tests::structured_tool_result_metadata_is_retained_but_body_and_spoofed_stdout_are_not",
+    "notification_gate::tests::both_utc_and_monotonic_deadlines_are_exclusive_and_never_extended",
+    "notification_gate::tests::clock_rollback_and_native_epoch_change_permanently_revoke_clones",
+    "notification_gate::tests::expired_full_budget_queue_admits_new_completion_and_restarts_merge_window",
+    "notification_gate::tests::expiry_during_com_preparation_is_suppressed_and_never_submitted_or_failed",
+    "notification_gate::tests::final_native_or_dnd_denial_after_preparation_is_suppressed_not_failed",
+    "notification_gate::tests::invalidate_keeps_availability_but_exhausted_epoch_stays_closed",
+    "notification_gate::tests::missing_budget_permit_is_dropped_without_removing_completion",
+    "notification_gate::tests::native_change_during_com_preparation_rebuilds_only_surviving_completion",
+    "notification_gate::tests::permit_clone_has_shared_revocation_and_uses_the_injected_budget_clock",
+    "notification_gate::tests::preparation_failure_separates_newly_stale_budget_from_actual_failed_completion",
+    "notification_gate::tests::queued_budget_cannot_survive_suspend_resume_during_merge_or_throttle",
+    "notification_gate::tests::rollback_after_issuance_but_below_a_shared_high_watermark_cannot_revive",
+    "notification_gate::tests::strong_session_messages_override_lagging_queries_and_unblock_requires_known_state",
+    "notification_gate::tests::submission_failure_is_attempted_once_and_is_not_replayed",
+    "notification_gate::tests::surviving_completion_keeps_merge_window_and_only_current_full_queue_overflows",
+    "notification_gate::tests::unknown_native_state_and_every_hard_boundary_prevent_epoch_aba",
+    "notification_gate::tests::utc_rollback_inside_com_preparation_after_issued_time_suppresses_budget",
+    "notification_gate::tests::windows_expiration_ticks_use_1601_epoch_and_preserve_subsecond_precision"
+  ],
+  "verifiedNames": [
+    "budget_clock::tests::deadline_requires_both_clocks_to_be_representable",
+    "budget_clock::tests::nested_overrides_restore_and_do_not_leak_to_other_threads",
+    "core::adapter::tool_state_tests::tool_state_call_identity_stays_separate_across_sources_and_fork_ordinals",
+    "core::adapter::tool_state_tests::tool_state_conflicting_terminal_results_remain_unknown_in_either_order",
+    "core::adapter::tool_state_tests::tool_state_duplicate_and_equal_time_begin_preserve_one_terminal_fact",
+    "core::adapter::tool_state_tests::tool_state_older_explicit_end_upgrades_unknown_output",
+    "core::adapter::tool_state_tests::tool_state_output_before_call_retains_result_and_fills_name",
+    "core::adapter::tool_state_tests::tool_state_plain_output_and_later_begin_preserve_command_failure",
+    "core::adapter::tool_state_tests::tool_state_plain_output_preserves_mcp_error",
+    "core::adapter::tool_state_tests::tool_state_unmarked_or_false_error_output_remains_unknown",
+    "core::pet::tests::budget_pet_prompts_require_a_current_permit_and_consume_invalid_arrivals_without_writes",
+    "core::pet::tests::pet_cursor_scope_cleanup_restart_and_decimal_precision_are_explicit",
+    "core::pet::tests::pet_details_trust_cache_latest_null_and_scope_rejection_keep_snapshot_semantics",
+    "core::pet::tests::pet_feed_priority_overflow_and_every_observed_sequence_are_consumed_once",
+    "core::pet::tests::pet_pulse_chrono_freshness_midnight_and_unknown_watermarks_match_existing_rules",
+    "core::pet::tests::pet_pulse_matches_snapshot_and_never_reads_unused_fact_tables",
+    "core::pet::tests::pet_v5_backfill_preserves_inbox_and_last_ddl_failure_rolls_back_and_recovers",
+    "core::queries::budget::tests::a_fourteen_second_old_fresh_event_expires_after_its_original_last_second",
+    "core::queries::budget::tests::a_fresh_append_before_the_previous_scan_finished_is_still_new_live_usage",
+    "core::queries::budget::tests::a_measured_future_day_basis_is_not_replaced_by_zero",
+    "core::queries::budget::tests::a_pause_epoch_change_blocks_rollover_and_invalidates_an_unclaimed_budget_alert",
+    "core::queries::budget::tests::a_stable_forward_clock_domain_can_rebuild_a_measured_new_version_baseline",
+    "core::queries::budget::tests::clock_rollback_or_skew_cannot_rearm_from_a_lower_ordinary_anchor",
+    "core::queries::budget::tests::disabled_or_absent_budget_path_never_reads_fact_detail_tables",
+    "core::queries::budget::tests::dnd_enable_then_disable_revokes_claimed_and_unclaimed_budget_permits",
+    "core::queries::budget::tests::handled_period_survives_clear_and_a_conflict_drop_below_then_recross",
+    "core::queries::budget::tests::historical_delta_plus_insufficient_fresh_delta_cannot_borrow_any_live_flag",
+    "core::queries::budget::tests::last_moment_save_or_new_version_cannot_borrow_an_old_rollover_certificate",
+    "core::queries::budget::tests::midnight_first_live_crossing_claims_once_and_duplicate_or_clear_does_not_refill",
+    "core::queries::budget::tests::paused_history_backlog_does_not_block_a_committed_live_crossing",
+    "core::queries::budget::tests::pre_mutex_host_sample_cannot_borrow_resumed_epoch_or_wait_beyond_lifetime",
+    "core::queries::budget::tests::restart_explicit_history_and_long_gap_do_not_turn_the_first_batch_into_live_alerts",
+    "core::queries::budget::tests::root_turn_keeps_its_task_period_and_explicit_child_total_across_midnight",
+    "core::queries::budget::tests::same_day_saved_actual_baseline_allows_only_subsequent_fresh_crossing",
+    "core::queries::budget::tests::saving_or_editing_over_existing_same_day_usage_is_history_only",
+    "core::queries::budget::tests::source_identity_and_project_remapping_do_not_replay_other_usage",
+    "core::queries::budget::tests::unrelated_missing_source_does_not_block_a_committed_live_crossing",
+    "core::queries::health_tests::fresh_source_is_unknown_until_a_completed_check",
+    "core::queries::health_tests::malformed_collector_counts_and_timestamps_never_open_source_health",
+    "core::queries::health_tests::pet_scope_tracks_health_transitions_and_stays_stable_for_new_tokens",
+    "core::queries::session_scope_tests::dated_timed_turn_without_usage_keeps_its_session_and_timing",
+    "core::queries::session_scope_tests::dated_tool_only_session_keeps_navigation_without_inferred_model_or_turn",
+    "core::queries::session_scope_tests::fact_selected_sessions_preserve_source_model_project_and_root_intersections",
+    "core::queries::session_scope_tests::invalid_date_filters_are_rejected_consistently_before_snapshot_or_export",
+    "core::queries::usage_dashboard::tests::existing_overview_and_full_filter_contract_are_preserved",
+    "core::queries::usage_dashboard::tests::strict_requests_reject_invalid_pages_qualities_and_unbounded_dates",
+    "core::tests::all_fact_views_honor_project_model_provider_and_root_filters_and_missing_root_usage_is_related",
+    "core::tests::budget_identity_is_per_rule_version_scope_local_day_and_tier_not_usage_event",
+    "core::tests::do_not_disturb_suppresses_live_notification_persistently_instead_of_delaying_it",
+    "core::tests::live_budget_crossing_claims_once_and_cleared_inbox_does_not_refill_same_threshold",
+    "core::tests::notification_claim_is_atomic_preserves_refinement_and_never_replays_on_restart",
+    "core::tests::per_source_health_is_unfiltered_has_real_success_watermark_and_preserves_unsupported_capability",
+    "core::tests::root_task_budget_includes_explicit_children_across_days_and_never_other_source_same_ids",
+    "core::tests::structured_tool_result_metadata_is_retained_but_body_and_spoofed_stdout_are_not",
+    "notification_gate::tests::both_utc_and_monotonic_deadlines_are_exclusive_and_never_extended",
+    "notification_gate::tests::clock_rollback_and_native_epoch_change_permanently_revoke_clones",
+    "notification_gate::tests::expired_full_budget_queue_admits_new_completion_and_restarts_merge_window",
+    "notification_gate::tests::expiry_during_com_preparation_is_suppressed_and_never_submitted_or_failed",
+    "notification_gate::tests::final_native_or_dnd_denial_after_preparation_is_suppressed_not_failed",
+    "notification_gate::tests::invalidate_keeps_availability_but_exhausted_epoch_stays_closed",
+    "notification_gate::tests::missing_budget_permit_is_dropped_without_removing_completion",
+    "notification_gate::tests::native_change_during_com_preparation_rebuilds_only_surviving_completion",
+    "notification_gate::tests::permit_clone_has_shared_revocation_and_uses_the_injected_budget_clock",
+    "notification_gate::tests::preparation_failure_separates_newly_stale_budget_from_actual_failed_completion",
+    "notification_gate::tests::queued_budget_cannot_survive_suspend_resume_during_merge_or_throttle",
+    "notification_gate::tests::rollback_after_issuance_but_below_a_shared_high_watermark_cannot_revive",
+    "notification_gate::tests::strong_session_messages_override_lagging_queries_and_unblock_requires_known_state",
+    "notification_gate::tests::submission_failure_is_attempted_once_and_is_not_replayed",
+    "notification_gate::tests::surviving_completion_keeps_merge_window_and_only_current_full_queue_overflows",
+    "notification_gate::tests::unknown_native_state_and_every_hard_boundary_prevent_epoch_aba",
+    "notification_gate::tests::utc_rollback_inside_com_preparation_after_issued_time_suppresses_budget",
+    "notification_gate::tests::windows_expiration_ticks_use_1601_epoch_and_preserve_subsecond_precision"
+  ],
+  "oldAlgorithmNegativeControlRun": false,
+  "limitations": [
+    "No product, installer, CLI, bridge or model execution.",
+    "No real Native/WinRT initial state, power/session resume or notification delivery acceptance.",
+    "No new frontend/browser test run, new installation, performance or complete M4 qualification.",
+    "C30 remains unchanged and excludes these source fixes; current v6 has no walking gait.",
+    "Already submitted OS notifications cannot be retracted by a later permit check."
+  ],
+  "sealedC30VerifiedUnchanged": [
+    {
+      "path": "output/build-candidates/c30-v6-foundation-20261017/token-meow.exe",
+      "bytes": 87722496,
+      "sha256": "7B9B5FF5777E5D0E50BAF2179DBADBAB4A8628870284CD490DE354C258EE717E",
+      "executed": false
+    },
+    {
+      "path": "output/build-candidates/c30-v6-foundation-20261017/TokenMeow_0.1.0_x64-setup.exe",
+      "bytes": 78179437,
+      "sha256": "5731124416DD1C16F80A8741930CD0C08C6133B918AC0197D23284BBD24F991C",
+      "executed": false
+    },
+    {
+      "path": "output/build-candidates/c30-v6-foundation-20261017/ledger_audit.exe",
+      "bytes": 3826688,
+      "sha256": "E907E66432580289CA6A3C55958CD177DC64A4D4B2CA4AFCC3F9A85050DB3F9C",
+      "executed": false
+    }
+  ],
+  "evidence": [
+    {
+      "path": "output/implementation/budget-f08-check-20261017/positive-f08/source-manifest.json",
+      "bytes": 192783,
+      "sha256": "B70561F216FB3C831BE9C679D0457A103F1B7AAE8FA7BB64D7CBEEEBE8931883"
+    },
+    {
+      "path": "output/implementation/budget-f08-check-20261017/positive-f08/compile-execution.json",
+      "bytes": 1796,
+      "sha256": "D1F8AB42AC21980B08570CD57466229B547C288BE13CEAD47DDAB205E4832953"
+    },
+    {
+      "path": "output/implementation/budget-f08-check-20261017/positive-f08/guards-result.json",
+      "bytes": 195,
+      "sha256": "F3477AAA722A619C63418B37CAD7C198517C70BF4A21FB428487A2AF4B377159"
+    },
+    {
+      "path": "output/implementation/budget-f08-check-20261017/positive-f08/cargo-result.json",
+      "bytes": 455,
+      "sha256": "090003EFD1339B879C72AFB12E1ED2D62BE03E3DFAEC65729BBA71E4A67A96C1"
+    },
+    {
+      "path": "output/implementation/budget-f08-check-20261017/positive-f08/first-failure.json",
+      "bytes": 105,
+      "sha256": "E1153828479C82E0D54D0FE063ACBC344DA8BCCF2C9D67A9826A1A07F6037485"
+    },
+    {
+      "path": "output/implementation/budget-f08-check-20261017-r2/positive-f08/source-manifest.json",
+      "bytes": 193223,
+      "sha256": "54F5797674467C78E0E2E09BF458D87C655385FD6235953253B753A319A5F7CC"
+    },
+    {
+      "path": "output/implementation/budget-f08-check-20261017-r2/positive-f08/compile-execution.json",
+      "bytes": 1834,
+      "sha256": "C0C3DD24D10F1E9C2A13556DA2A9B1C8CB0CC3B0D1D2D388C68E1EA0C225A81A"
+    },
+    {
+      "path": "output/implementation/budget-f08-check-20261017-r2/positive-f08/guards-result.json",
+      "bytes": 214,
+      "sha256": "983B93D729650496C3E9DC103803EEDE9DB08DB31E7B88526117FA6D6C76F85A"
+    },
+    {
+      "path": "output/implementation/budget-f08-check-20261017-r2/positive-f08/cargo-result.json",
+      "bytes": 456,
+      "sha256": "D26D218D597A450865F9ED929FDFD81ACED8A3AD89B9779EDEBC22904C1BEC19"
+    },
+    {
+      "path": "output/implementation/budget-f08-check-20261017-r2/positive-f08/tests-execution.json",
+      "bytes": 8617,
+      "sha256": "41B0F7C869D041DEBCC574D5A64B3ABD771D7F347488742C787BE80E8512CCE1"
+    },
+    {
+      "path": "output/implementation/budget-f08-check-20261017-r2/positive-f08/first-failure.json",
+      "bytes": 124,
+      "sha256": "5DBB93804A9F963DFF8731FED566B8409AB3073AFE951DAB6D0FAF415D4F4BE7"
+    },
+    {
+      "path": "output/implementation/budget-f08-check-20261017-r2/positive-f08/first-test-failure.json",
+      "bytes": 252,
+      "sha256": "1A2E0C35659FC12E05137E89FCF2F211B2838374946FB5C3B0F07112C6B4EC37"
+    },
+    {
+      "path": "output/implementation/budget-f08-check-20261017-r2/positive-f08/tests.stdout.log",
+      "bytes": 8159,
+      "sha256": "57B19616EA29EA0922B09765D4ACF3A20F65712810821F9C0EAACADE279F3F9F"
+    },
+    {
+      "path": "output/implementation/budget-f08-check-20261017-r3/positive-f08/source-manifest.json",
+      "bytes": 179497,
+      "sha256": "D13E20B749F1A112DA81A9E095BCEBDE339DBC4C0239B79D7D957C18F34E31AD"
+    },
+    {
+      "path": "output/implementation/budget-f08-check-20261017-r3/positive-f08/compile-execution.json",
+      "bytes": 1837,
+      "sha256": "E45299CB7D6FAB66206720E167432004F5586B3FC14DF816D484F0841A79B85D"
+    },
+    {
+      "path": "output/implementation/budget-f08-check-20261017-r3/positive-f08/guards-result.json",
+      "bytes": 127,
+      "sha256": "97A81FACCED837F7595FA36D037F98F979409113995287C40CFF3689729B7DE2"
+    },
+    {
+      "path": "output/implementation/budget-f08-check-20261017-r3/positive-f08/cargo-result.json",
+      "bytes": 456,
+      "sha256": "80DE1DF390187C5BEA97CCDDD1E28774CBB2B37694812CD319F525BCC274F9F8"
+    },
+    {
+      "path": "output/implementation/budget-f08-check-20261017-r3/positive-f08/tests-execution.json",
+      "bytes": 1748,
+      "sha256": "55E4E6E4C6BF345567DEB21D971A9B1580D2A5A578B6F637A561083E5F49D13F"
+    },
+    {
+      "path": "output/implementation/budget-f08-check-20261017-r3/positive-f08/tests.stdout.log",
+      "bytes": 519,
+      "sha256": "4E8612E4BDFDCFA6FDE81806BF09BE4506B9D45A61A95E856F44C6DDEA932746"
+    },
+    {
+      "path": "output/implementation/budget-f08-check-20261017-r3/positive-f08/result.json",
+      "bytes": 1403,
+      "sha256": "7C6E94EF2CE526BEAD38F825A551C9132D0F73DDD843D2E0DAAED9FF2030C58E"
+    },
+    {
+      "path": "output/implementation/budget-f08-check-20261017-r3/retained-scope.json",
+      "bytes": 466,
+      "sha256": "C97B92E309D9E0EC6F2C846F8BC8F5625619A72C159096BA50920FF4B79CD087"
+    },
+    {
+      "path": "output/implementation/budget-f08-check-20261017-r3/fixture.patch",
+      "bytes": 1992,
+      "sha256": "6DD6489397838BA50F7A2B9059B13A63D815426E2FE1630C27551BCAB4FFF438"
+    },
+    {
+      "path": "output/implementation/budget-f08-check-20261017-r2/overlay-manifest.json",
+      "bytes": 1025,
+      "sha256": "61527B4FBC1677F578F1697C8F918397F871CCCB2C3DAEE8B10B711265140AE4"
+    },
+    {
+      "path": "output/implementation/budget-f08-check-20261017-r2/control-origin.json",
+      "bytes": 488,
+      "sha256": "4E4B2399202DEBFFA91C9CC0D8F85279B93C7A6F00A6B9038737D9C8DC00CFB9"
+    }
+  ]
+}

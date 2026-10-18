@@ -1,0 +1,242 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-15T15:17:36.107408+00:00",
+  "scope": "Controlled snapshot-only allocation diagnostic using the preserved C12 production rlib and three fresh processes/private closed-database clones; not a product acceptance result",
+  "candidateExeSha256": "23D9C9C45392A1106796340491FB2AB9679DEC8FB00ACDA64440411F327D6ED3",
+  "frozenCoreRlib": {
+    "path": "D:\\project\\宠物\\output\\performance\\c12-rlib-baseline-20261015-6966c23024b64f5dbfc4808202a054e1\\libtoken_meow_lib-8cd002f2d338a421.rlib",
+    "sha256": "E1DBC93E11B80DAB1B8E8771AB13BBD742540FEC5C96594A3A24DA81D6EF1174",
+    "features": [
+      "custom-protocol"
+    ],
+    "staleTopLevelRlibUsed": false,
+    "allThreeFrozenLibrariesDigestVerified": true
+  },
+  "baselineDatabase": {
+    "path": "D:\\project\\宠物\\output\\performance\\fullraw-c12-72aa034ae5514e11a4c2452c853d458d\\data\\ledger.sqlite3",
+    "bytes": 153272320,
+    "sha256": "5311F8CC93518D36E5860A2BD5730EDE86E5E9C883467C2B5CEC7F856325746A",
+    "walBytesAtCopy": 0,
+    "sha256AfterDiagnostic": "5311F8CC93518D36E5860A2BD5730EDE86E5E9C883467C2B5CEC7F856325746A",
+    "originalUnchanged": true,
+    "responseCountFromPriorReadOnlyIntegrityAudit": 24082
+  },
+  "cloneInputs": [
+    {
+      "mode": "none",
+      "path": "D:\\project\\宠物\\output\\performance\\c12-snapshot-only-20261015-ledger\\clones\\none\\ledger.sqlite3",
+      "bytes": 153272320,
+      "sha256": "5311F8CC93518D36E5860A2BD5730EDE86E5E9C883467C2B5CEC7F856325746A"
+    },
+    {
+      "mode": "full",
+      "path": "D:\\project\\宠物\\output\\performance\\c12-snapshot-only-20261015-ledger\\clones\\full\\ledger.sqlite3",
+      "bytes": 153272320,
+      "sha256": "5311F8CC93518D36E5860A2BD5730EDE86E5E9C883467C2B5CEC7F856325746A"
+    },
+    {
+      "mode": "today",
+      "path": "D:\\project\\宠物\\output\\performance\\c12-snapshot-only-20261015-ledger\\clones\\today\\ledger.sqlite3",
+      "bytes": 153272320,
+      "sha256": "5311F8CC93518D36E5860A2BD5730EDE86E5E9C883467C2B5CEC7F856325746A"
+    }
+  ],
+  "method": {
+    "processes": 3,
+    "eachFresh": true,
+    "snapshotCallsByMode": {
+      "none": 0,
+      "full": 1,
+      "today": 1
+    },
+    "openCallsPerMode": 1,
+    "scanCalls": 0,
+    "accountCalls": 0,
+    "uiStarted": false,
+    "sourceLogReads": 0,
+    "onlyClonedDataMayBeWrittenByCoreOpenShutdown": true,
+    "sample": "K32GetProcessMemoryInfo PROCESS_MEMORY_COUNTERS_EX.PrivateUsage, sampled approximately every 2ms in a background thread",
+    "afterDropDelayMilliseconds": 750,
+    "serialization": "serde_json::to_writer into a counting writer; output payload not buffered/persisted/printed",
+    "todayQuery": "from/to=2026-10-15 Asia/Shanghai",
+    "noWarmupOrRepetition": true
+  },
+  "results": [
+    {
+      "mode": "none",
+      "processId": 52816,
+      "coreOpenMs": 1.7794,
+      "snapshotMs": null,
+      "serializedBytes": null,
+      "beforeSnapshotPrivateMiB": 0.9140625,
+      "snapshotSampledPeakMiB": null,
+      "processSampledPeakMiB": 0.9140625,
+      "afterSnapshotPrivateMiB": 0.9140625,
+      "afterDropPrivateMiB": 0.9140625,
+      "sampleCount": 535,
+      "sampleErrors": 0
+    },
+    {
+      "mode": "full",
+      "processId": 49336,
+      "coreOpenMs": 1.5762,
+      "snapshotMs": 1962.8644,
+      "serializedBytes": 16464124,
+      "beforeSnapshotPrivateMiB": 0.91796875,
+      "snapshotSampledPeakMiB": 348.15234375,
+      "processSampledPeakMiB": 348.15234375,
+      "afterSnapshotPrivateMiB": 100.78515625,
+      "afterDropPrivateMiB": 7.18359375,
+      "sampleCount": 1372,
+      "sampleErrors": 0
+    },
+    {
+      "mode": "today",
+      "processId": 628,
+      "coreOpenMs": 1.6799,
+      "snapshotMs": 1362.1227000000001,
+      "serializedBytes": 2102070,
+      "beforeSnapshotPrivateMiB": 0.93359375,
+      "snapshotSampledPeakMiB": 347.09765625,
+      "processSampledPeakMiB": 347.09765625,
+      "afterSnapshotPrivateMiB": 22.93359375,
+      "afterDropPrivateMiB": 6.74609375,
+      "sampleCount": 1095,
+      "sampleErrors": 0
+    }
+  ],
+  "interpretation": {
+    "measured": "A today-only query retains much less returned data but reaches almost the same roughly 347-348MiB sampled Core snapshot peak as an all-history query. The no-snapshot process stays below 1MiB in this harness.",
+    "supportedInference": "This isolates large transient allocation within the existing public Core snapshot path on this database and supports the static finding that full response JSON is materialized before date filtering.",
+    "notProven": [
+      "Unique allocation owner/stack",
+      "A memory leak",
+      "That all native application memory or the entire observed 622MiB failure has one cause",
+      "Performance or correctness after a production change",
+      "Continuous allocation maximum",
+      "Whole native/desktop/release qualification"
+    ]
+  },
+  "retainedFailures": [
+    {
+      "attempt": "compile-first",
+      "exitCode": 1,
+      "reason": "LNK1181 windows.0.53.0.lib not found",
+      "log": "compile-first.stderr.log"
+    },
+    {
+      "attempt": "compile-second",
+      "exitCode": 1,
+      "reason": "Native imports found; frozen release LTO object linking failed with unresolved symbols/LNK1136",
+      "log": "compile-second.stderr.log"
+    },
+    {
+      "attempt": "initial-three-process-run",
+      "exitCodeEach": 1,
+      "reason": "Diagnostic source-path guard referenced a nonexistent fullraw-run/source directory; all three rejected before Core::open. Corrected only the external harness/marker to the exact private sourceRoot in the import plan.",
+      "log": "results.json"
+    }
+  ],
+  "successfulCompile": {
+    "attempt": "compile-fourth",
+    "exitCode": 0,
+    "elapsedSeconds": 13.57799999974668,
+    "commandRecord": "compile-fourth.json",
+    "flags": "rustc -C opt-level=3 -C lto=thin -C codegen-units=1 -C embed-bitcode=yes; preserved rlib externs and actual cached native library search paths",
+    "productionSourceRecompiled": false
+  },
+  "evidence": [
+    {
+      "path": "output/performance/c12-snapshot-only-20261015-ledger/plan.json",
+      "bytes": 3046,
+      "sha256": "6A30716A27BCA9AAB12E199FA3E3CEFAF8F335349A778EC96EE8CB16599E9977"
+    },
+    {
+      "path": "output/performance/c12-snapshot-only-20261015-ledger/source-input-correction.json",
+      "bytes": 452,
+      "sha256": "6FCE9E9C4D0631DA2283B69FA969F8979129A8FB457443A6199A95921F541F3F"
+    },
+    {
+      "path": "output/performance/c12-snapshot-only-20261015-ledger/compile-first.json",
+      "bytes": 1395,
+      "sha256": "E0F0D5A5AE3991681AB6974286076A46C35B7A55FF937821CBEBD688B4142ABF"
+    },
+    {
+      "path": "output/performance/c12-snapshot-only-20261015-ledger/compile-first.stdout.log",
+      "bytes": 0,
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "path": "output/performance/c12-snapshot-only-20261015-ledger/compile-first.stderr.log",
+      "bytes": 7730,
+      "sha256": "B15AE524E345D0EF2AEC11938A6AF7BC87A24EFC4D39B59831F493B4D0224336"
+    },
+    {
+      "path": "output/performance/c12-snapshot-only-20261015-ledger/compile-second.json",
+      "bytes": 1782,
+      "sha256": "C41643B4FE0098F9F67F9DB797C70654D284EC70802A91484EE038A7227126CC"
+    },
+    {
+      "path": "output/performance/c12-snapshot-only-20261015-ledger/compile-second.stdout.log",
+      "bytes": 0,
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "path": "output/performance/c12-snapshot-only-20261015-ledger/compile-second.stderr.log",
+      "bytes": 26025,
+      "sha256": "01E57E4D5949085CA6724B7E6D23FFB2FB40F1A8ED478D9C290262429329B5CE"
+    },
+    {
+      "path": "output/performance/c12-snapshot-only-20261015-ledger/compile-third.json",
+      "bytes": 1877,
+      "sha256": "F380CA6A48AC4D5E42F83D09A6F71D5AE922461E5FCB0D3E1DBD59532BCAB7D6"
+    },
+    {
+      "path": "output/performance/c12-snapshot-only-20261015-ledger/compile-fourth.json",
+      "bytes": 1915,
+      "sha256": "4D7BCC3450F222F5FAD3894EF20A7724A1F3DDAD6428A92F7D03506845DAD24E"
+    },
+    {
+      "path": "output/performance/c12-snapshot-only-20261015-ledger/snapshot-diagnostic.rs",
+      "bytes": 6482,
+      "sha256": "8B66038E49CE6CCD30FD107CC891E04238D9BAB84F9192E3E302D5CAAE7C2378"
+    },
+    {
+      "path": "output/performance/c12-snapshot-only-20261015-ledger/snapshot-diagnostic.exe",
+      "bytes": 2777600,
+      "sha256": "B7726F0768E72852963EBC97ED4524081CC72C17F5A3031A11B9AC7B57AFB843"
+    },
+    {
+      "path": "output/performance/c12-snapshot-only-20261015-ledger/results.json",
+      "bytes": 986,
+      "sha256": "A53809F6946120C07D2E86CC952B28B6FF9F96E329C8CCC752492BC8E008B333"
+    },
+    {
+      "path": "output/performance/c12-snapshot-only-20261015-ledger/results-corrected.json",
+      "bytes": 4116,
+      "sha256": "B3874A337989EE9BE1A375D0033C62F005BB4CD4E83ADC8678A10A071927031B"
+    },
+    {
+      "path": "output/performance/c12-snapshot-only-20261015-ledger/none-corrected.result.json",
+      "bytes": 1133,
+      "sha256": "E955FE0FFF7A504C3EF8439457D1A30827FA929949067BB782C6A586CCFB8FD5"
+    },
+    {
+      "path": "output/performance/c12-snapshot-only-20261015-ledger/full-corrected.result.json",
+      "bytes": 1170,
+      "sha256": "844606D637DF64AC9D4F8C5CAA5B12756EC09289B8BA4B45DCECD3AB8290719A"
+    },
+    {
+      "path": "output/performance/c12-snapshot-only-20261015-ledger/today-corrected.result.json",
+      "bytes": 1176,
+      "sha256": "108AD6058104ECA76E40EECDDFD46A332CD82CE58DD828400F6329D45677D163"
+    }
+  ],
+  "qualification": {
+    "diagnosticExecuted": true,
+    "productTestsPassedClaimed": false,
+    "wholeM4Qualified": false,
+    "nativeMemoryGateQualified": false
+  },
+  "productionSourceEditedByThisDiagnostic": false
+}

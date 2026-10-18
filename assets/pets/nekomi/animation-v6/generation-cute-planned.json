@@ -1,0 +1,201 @@
+{
+  "method": "builtin image_gen, original-byte copies only",
+  "assets": [
+    {
+      "pose": "shy",
+      "frame": "enter",
+      "targetPath": "D:\\project\\宠物\\assets\\pets\\nekomi\\animation-v6\\clips\\shy\\enter.png",
+      "promptPath": "D:\\project\\宠物\\assets\\pets\\nekomi\\animation-v6\\prompts\\cute\\shy-enter.txt",
+      "promptSha256": "df1c9be7bc636b819ee0871721f74c4e7067df2b38d858f9fa2ace8269a8e6a5",
+      "referencePaths": [
+        "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v5-natural-tail\\shy.png"
+      ],
+      "referenceSha256": [
+        "58702f963888360a923b62633a8d9a2c21ae828dbe7372696720bcdbe641359b"
+      ],
+      "status": "prepared"
+    },
+    {
+      "pose": "shy",
+      "frame": "accent",
+      "targetPath": "D:\\project\\宠物\\assets\\pets\\nekomi\\animation-v6\\clips\\shy\\accent.png",
+      "promptPath": "D:\\project\\宠物\\assets\\pets\\nekomi\\animation-v6\\prompts\\cute\\shy-accent.txt",
+      "promptSha256": "989720b1855f5cbc66160efbbe74ececb80804bb14267e913ebadf89a48944e4",
+      "referencePaths": [
+        "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v5-natural-tail\\shy.png"
+      ],
+      "referenceSha256": [
+        "58702f963888360a923b62633a8d9a2c21ae828dbe7372696720bcdbe641359b"
+      ],
+      "status": "prepared"
+    },
+    {
+      "pose": "affection",
+      "frame": "enter",
+      "targetPath": "D:\\project\\宠物\\assets\\pets\\nekomi\\animation-v6\\clips\\affection\\enter.png",
+      "promptPath": "D:\\project\\宠物\\assets\\pets\\nekomi\\animation-v6\\prompts\\cute\\affection-enter.txt",
+      "promptSha256": "491aebf2d6d4c44d74c144bd882726258bd66f54edd4ffa37c91126b9b6cd0dd",
+      "referencePaths": [
+        "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v5-natural-tail\\affection.png"
+      ],
+      "referenceSha256": [
+        "f018661a8d4b05eaff868a8ee429ed509266a844c9ea0edcd9c955093ee600d9"
+      ],
+      "status": "prepared"
+    },
+    {
+      "pose": "affection",
+      "frame": "accent",
+      "targetPath": "D:\\project\\宠物\\assets\\pets\\nekomi\\animation-v6\\clips\\affection\\accent.png",
+      "promptPath": "D:\\project\\宠物\\assets\\pets\\nekomi\\animation-v6\\prompts\\cute\\affection-accent.txt",
+      "promptSha256": "26b52bd8f76f929ed74c58b315ba3b53049e85e821d2cbe81791b490ecb56600",
+      "referencePaths": [
+        "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v5-natural-tail\\affection.png"
+      ],
+      "referenceSha256": [
+        "f018661a8d4b05eaff868a8ee429ed509266a844c9ea0edcd9c955093ee600d9"
+      ],
+      "status": "prepared"
+    },
+    {
+      "pose": "stretch",
+      "frame": "enter",
+      "targetPath": "D:\\project\\宠物\\assets\\pets\\nekomi\\animation-v6\\clips\\stretch\\enter.png",
+      "promptPath": "D:\\project\\宠物\\assets\\pets\\nekomi\\animation-v6\\prompts\\cute\\stretch-enter.txt",
+      "promptSha256": "de06987cac5317a37cd755ae37073eb8e39546d31f8d2b282ccc96e04fe0f556",
+      "referencePaths": [
+        "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v5-natural-tail\\stretch.png"
+      ],
+      "referenceSha256": [
+        "597c35b4ceaa1fc6ccc077b8e3d7a4745988fd6646ccf7b813d3b941399e4b46"
+      ],
+      "status": "prepared"
+    },
+    {
+      "pose": "stretch",
+      "frame": "accent",
+      "targetPath": "D:\\project\\宠物\\assets\\pets\\nekomi\\animation-v6\\clips\\stretch\\accent.png",
+      "promptPath": "D:\\project\\宠物\\assets\\pets\\nekomi\\animation-v6\\prompts\\cute\\stretch-accent.txt",
+      "promptSha256": "8f416d4b7a20bfcc6f2ee783630c39d22cabc0de343623ca4c994e100cb630e6",
+      "referencePaths": [
+        "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v5-natural-tail\\stretch.png"
+      ],
+      "referenceSha256": [
+        "597c35b4ceaa1fc6ccc077b8e3d7a4745988fd6646ccf7b813d3b941399e4b46"
+      ],
+      "status": "prepared"
+    },
+    {
+      "pose": "wink",
+      "frame": "enter",
+      "targetPath": "D:\\project\\宠物\\assets\\pets\\nekomi\\animation-v6\\clips\\wink\\enter.png",
+      "promptPath": "D:\\project\\宠物\\assets\\pets\\nekomi\\animation-v6\\prompts\\cute\\wink-enter.txt",
+      "promptSha256": "e894c3875bdaabac13d7ca2b687fc15f448edc5c293274fa244e8e916ed7a1b4",
+      "referencePaths": [
+        "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v5-natural-tail\\wink.png"
+      ],
+      "referenceSha256": [
+        "d1920435d7b3f1f36b1dc8b7fb5cc2dfac9d15e5c1680d10c6f9d75840728737"
+      ],
+      "status": "prepared"
+    },
+    {
+      "pose": "wink",
+      "frame": "accent",
+      "targetPath": "D:\\project\\宠物\\assets\\pets\\nekomi\\animation-v6\\clips\\wink\\accent.png",
+      "promptPath": "D:\\project\\宠物\\assets\\pets\\nekomi\\animation-v6\\prompts\\cute\\wink-accent.txt",
+      "promptSha256": "7253efd73b9afb57aaccbbff81336fda7b0266e19c440a5bc50ecc8e4d35c80e",
+      "referencePaths": [
+        "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v5-natural-tail\\wink.png"
+      ],
+      "referenceSha256": [
+        "d1920435d7b3f1f36b1dc8b7fb5cc2dfac9d15e5c1680d10c6f9d75840728737"
+      ],
+      "status": "prepared"
+    },
+    {
+      "pose": "happy",
+      "frame": "enter",
+      "targetPath": "D:\\project\\宠物\\assets\\pets\\nekomi\\animation-v6\\clips\\happy\\enter.png",
+      "promptPath": "D:\\project\\宠物\\assets\\pets\\nekomi\\animation-v6\\prompts\\cute\\happy-enter.txt",
+      "promptSha256": "bbe74cce7ffc97e46763feebcd658e8d03628eb1db8dc9fbd01e478237aa9244",
+      "referencePaths": [
+        "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v5-natural-tail\\happy.png"
+      ],
+      "referenceSha256": [
+        "67894210ffafe8d82367dd38d0dbd46cd738f0d4d1bc3c941d5d64d1b6ab8900"
+      ],
+      "status": "prepared"
+    },
+    {
+      "pose": "happy",
+      "frame": "accent",
+      "targetPath": "D:\\project\\宠物\\assets\\pets\\nekomi\\animation-v6\\clips\\happy\\accent.png",
+      "promptPath": "D:\\project\\宠物\\assets\\pets\\nekomi\\animation-v6\\prompts\\cute\\happy-accent.txt",
+      "promptSha256": "58e0b723fff24d7a4c03d216e2aff469aec9af8d0ecf6c9b735bac5629814357",
+      "referencePaths": [
+        "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v5-natural-tail\\happy.png"
+      ],
+      "referenceSha256": [
+        "67894210ffafe8d82367dd38d0dbd46cd738f0d4d1bc3c941d5d64d1b6ab8900"
+      ],
+      "status": "prepared"
+    },
+    {
+      "pose": "bow",
+      "frame": "enter",
+      "targetPath": "D:\\project\\宠物\\assets\\pets\\nekomi\\animation-v6\\clips\\bow\\enter.png",
+      "promptPath": "D:\\project\\宠物\\assets\\pets\\nekomi\\animation-v6\\prompts\\cute\\bow-enter.txt",
+      "promptSha256": "eeb65016996172948189545152305242d0dfbc6030a2d10885c78e3c7220689f",
+      "referencePaths": [
+        "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v5-natural-tail\\bow.png"
+      ],
+      "referenceSha256": [
+        "717c6783d18c5d58d6ccea4e1a117cf3877c5583440445969f260889882197a7"
+      ],
+      "status": "prepared"
+    },
+    {
+      "pose": "bow",
+      "frame": "accent",
+      "targetPath": "D:\\project\\宠物\\assets\\pets\\nekomi\\animation-v6\\clips\\bow\\accent.png",
+      "promptPath": "D:\\project\\宠物\\assets\\pets\\nekomi\\animation-v6\\prompts\\cute\\bow-accent.txt",
+      "promptSha256": "63c91a345b350184db9f3b1a34ac5c28d4e1bad2c639b22d1b6d6167b16041c8",
+      "referencePaths": [
+        "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v5-natural-tail\\bow.png"
+      ],
+      "referenceSha256": [
+        "717c6783d18c5d58d6ccea4e1a117cf3877c5583440445969f260889882197a7"
+      ],
+      "status": "prepared"
+    },
+    {
+      "pose": "hug-tail",
+      "frame": "enter",
+      "targetPath": "D:\\project\\宠物\\assets\\pets\\nekomi\\animation-v6\\clips\\hug-tail\\enter.png",
+      "promptPath": "D:\\project\\宠物\\assets\\pets\\nekomi\\animation-v6\\prompts\\cute\\hug-tail-enter.txt",
+      "promptSha256": "10d0c7ef5ed4ce163421cc541d7cb117a539b78a8e817b7df89b90eed814145e",
+      "referencePaths": [
+        "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v5-natural-tail\\hug-tail.png"
+      ],
+      "referenceSha256": [
+        "28f5729c95e5a3762bac9e6d463857d8ebecd7c80d2b92eea1af58016d6a0902"
+      ],
+      "status": "prepared"
+    },
+    {
+      "pose": "hug-tail",
+      "frame": "accent",
+      "targetPath": "D:\\project\\宠物\\assets\\pets\\nekomi\\animation-v6\\clips\\hug-tail\\accent.png",
+      "promptPath": "D:\\project\\宠物\\assets\\pets\\nekomi\\animation-v6\\prompts\\cute\\hug-tail-accent.txt",
+      "promptSha256": "a0068ba91f9ec00229908113be95dfaaecc86dce3e94c0e4b9df308140234190",
+      "referencePaths": [
+        "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v5-natural-tail\\hug-tail.png"
+      ],
+      "referenceSha256": [
+        "28f5729c95e5a3762bac9e6d463857d8ebecd7c80d2b92eea1af58016d6a0902"
+      ],
+      "status": "prepared"
+    }
+  ]
+}

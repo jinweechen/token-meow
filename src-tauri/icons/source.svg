@@ -1,0 +1,17 @@
+<!-- Original TokenMeow geometric cat icon, drawn locally for this project.
+     No external image, font, stock asset, or named character is used. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+  <circle cx="128" cy="128" r="124" fill="#7664ee"/>
+  <path d="M40 38 96 74 45 113Z M216 38 160 74 211 113Z" fill="#fff6ea"/>
+  <path d="m54 59 36 23-34 10Z m148 0-36 23 34 10Z" fill="#f4a0bc"/>
+  <ellipse cx="128" cy="143" rx="94" ry="78" fill="#fff6ea"/>
+  <g fill="#3e3366">
+    <ellipse cx="86" cy="139" rx="10" ry="18"/>
+    <ellipse cx="170" cy="139" rx="10" ry="18"/>
+  </g>
+  <g fill="#f4a0bc">
+    <ellipse cx="66" cy="167" rx="20" ry="10"/>
+    <ellipse cx="190" cy="167" rx="20" ry="10"/>
+  </g>
+  <path d="M108 170c5 10 14 9 20 1 6 8 15 9 20-1m-20-3v5" fill="none" stroke="#3e3366" stroke-width="6" stroke-linecap="round"/>
+</svg>

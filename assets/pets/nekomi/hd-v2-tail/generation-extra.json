@@ -1,0 +1,301 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-16",
+  "generator": "builtin image_gen",
+  "scope": "Tail-only visual edits of shy and bow; hd-v1, hug-tail candidate, runtime source and manifests untouched.",
+  "commonInvariants": {
+    "file": "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v2-tail\\prompts\\tail-invariants.txt",
+    "sha256": "4f8c3a5072cf56237f951b50ea3c628c4b9685080bb825c4dbc63db7ac3c6634",
+    "bytes": 1905,
+    "includedInEachExactPrompt": true
+  },
+  "tailConstructionReference": {
+    "file": "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v2-tail\\idle.png",
+    "sha256": "fe67324e29f217a7b3793012ca395a510eb6c9cd0b0407dd3a630be1c1855e1d",
+    "bytes": 1896303,
+    "size": [
+      1024,
+      1536
+    ],
+    "mode": "RGBA",
+    "bboxByAlphaThreshold": {
+      "1": [
+        0,
+        17,
+        1008,
+        1536
+      ],
+      "16": [
+        114,
+        92,
+        997,
+        1453
+      ],
+      "128": [
+        115,
+        92,
+        996,
+        1452
+      ],
+      "250": [
+        127,
+        95,
+        993,
+        1451
+      ]
+    },
+    "edgeMaxAlpha": {
+      "top": 0,
+      "bottom": 1,
+      "left": 1,
+      "right": 0
+    },
+    "role": "Only tail structure/occlusion reference; not a replacement pose"
+  },
+  "poses": [
+    {
+      "pose": "shy",
+      "output": {
+        "file": "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v2-tail\\shy.png",
+        "sha256": "7b71bec3c1d9f81588fc299092c5565f0298fb2a1a766b99a92f95b115b9e32d",
+        "bytes": 1900606,
+        "size": [
+          1024,
+          1536
+        ],
+        "mode": "RGBA",
+        "bboxByAlphaThreshold": {
+          "1": [
+            65,
+            20,
+            996,
+            1460
+          ],
+          "16": [
+            124,
+            40,
+            988,
+            1422
+          ],
+          "128": [
+            124,
+            41,
+            986,
+            1421
+          ],
+          "250": [
+            128,
+            42,
+            984,
+            1420
+          ]
+        },
+        "edgeMaxAlpha": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "visibleHeightAtAlpha16": 1382,
+        "visibleMarginsAtAlpha16": {
+          "left": 124,
+          "top": 40,
+          "right": 36,
+          "bottom": 114
+        },
+        "sourceOriginal": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14289-f0b5-7113-b2b9-40aa19554575\\exec-b7ba1bce-fcef-4333-916e-63918e7347dd.png",
+        "sourceSha256": "7b71bec3c1d9f81588fc299092c5565f0298fb2a1a766b99a92f95b115b9e32d",
+        "byteIdenticalCopyVerified": true,
+        "pixelsModifiedByCode": false
+      },
+      "editTarget": {
+        "file": "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v1\\shy.png",
+        "sha256": "a12948612b207480bd49b5259e1df9d749a6cc73e2fec5300c0ce003d41c0c28",
+        "bytes": 1909180,
+        "size": [
+          1024,
+          1536
+        ],
+        "mode": "RGBA",
+        "bboxByAlphaThreshold": {
+          "1": [
+            41,
+            19,
+            1004,
+            1520
+          ],
+          "16": [
+            124,
+            67,
+            997,
+            1452
+          ],
+          "128": [
+            125,
+            68,
+            995,
+            1451
+          ],
+          "250": [
+            139,
+            71,
+            993,
+            1450
+          ]
+        },
+        "edgeMaxAlpha": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "role": "Exact original named pose"
+      },
+      "prompt": {
+        "file": "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v2-tail\\prompts\\shy.txt",
+        "sha256": "bf6fc36b1299db278e2ca0f618d41d45310069486c5c0cb7cc4d78dacef222d5",
+        "bytes": 3007,
+        "exactPrompt": "Asset: shy pose tail construction repair.\nImage 1 is hd-v1/shy.png, the sole pose edit target. Preserve her head tilt, open green eyes, small shy smile, cheek-touching hand and relaxed downward hand EXACTLY in their current gestures. Do not borrow the idle arm pose. Image 2 is hd-v2-tail/idle.png, ONLY the accepted tail silhouette, volume transition and skirt occlusion reference.\n\nUse case: precise-object-edit. Input image 1 is the exact edit target for this named pose. Input image 2 (hd-v2-tail/idle.png) is ONLY the accepted tail-construction visual reference, not an instruction to replace the target pose.\nChange only the tail silhouette and how it emerges behind the skirt. Preserve target expression, face/head scale, hair, paired small daisy hair clips, arm/hand gesture, fingers, small chest bow, ivory bodice, natural mint waistline, skirt flowers/ruffles, legs and nearly parallel forward-facing shoes.\nOne tail is anchored invisibly at the posterior center of the low pelvis near the coccyx, below the waist, with a discreet rear garment outlet hidden from front view. Its root must remain covered by the skirt. Show a continuous slender BUT VOLUMETRIC furred proximal segment emerging from behind the skirt at viewer right, then a gradual transition into the white fluffy tail. The narrower root is an exposed silhouette under occlusion, not a string attached to a pillow. Match the natural continuous comma/U curve of reference image2. Leave a readable gap from the thigh after emerging; no apparent origin on thigh, knee, hand, front dress or side waist. Skirt and legs occlude rear tail where overlapping; no tail crossing in front of legs. One soft tapered tip only. No severed root, abrupt wide stump, closed ring, duplicate tail, hair-tail fusion or giant fox brush.\nThis reference is an artistic construction choice, not a medical claim. Preserve the original complete figure, 1024x1536 native RGBA, visible character height>=1200px, safe edge margins, no crop. Preserve transparency; no background, floor, shadow, halo, text, guides, inset or extra figures. Do not change hands to fix the tail; no digit forks/extra fingers or inward-pointing shoes. Raw low-alpha RGB preview haze is not by itself a compositing failure. Do not modify PNG pixels programmatically.\n\nPose-specific change: Replace the old oversized bulbous tail beginning beside the right thigh with the reference's slimmer, continuous tail. Keep the proximal root concealed behind the rear skirt. Show a narrow but volumetric segment emerging from behind the viewer-right rear skirt edge; it curves out clear of the thigh and smoothly thickens into the upward-curled fluffy white cat tail. Match the reference's graceful open comma curve and restrained volume, adapted to this existing shy pose. The lower curve must be clean and continuous, with one upper tapered tip, and should not resemble a separately attached cushion. Keep every other part of image 1 unchanged. Fit the complete tail safely within the canvas.\n",
+        "savedBeforeCall": true
+      },
+      "generation": {
+        "attempts": 1,
+        "transparentBackground": true,
+        "referencedImages": [
+          "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v1\\shy.png",
+          "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v2-tail\\idle.png"
+        ]
+      },
+      "visualReview": {
+        "status": "initial-native-review-pass-awaiting-root-light-dark-review",
+        "tail": "The former broad stump beside the thigh is replaced by a slender volumetric segment emerging under rear skirt occlusion, widening smoothly into an open upward-curled white cat tail with one tip. No clear disconnected piece, duplicate tail, front-leg crossing or sharp join found in native output.",
+        "preserved": "Cheek-touching hand, relaxed hanging hand, tilted face and open green eyes preserved. Bodice, waistline, floral skirt, tights and near-parallel shoes preserved.",
+        "framing": "Complete native figure. Composition shifts upward about 28px relative to hd-v1; visible height remains essentially unchanged at 1382px.",
+        "alpha": "Original RGBA untouched. Numeric edge and bbox checks passed visible-content framing. Dark/light compositing remains for root review.",
+        "limits": "Visual finding is scoped to the generated pose. This does not establish runtime integration or acceptance of hug-tail."
+      }
+    },
+    {
+      "pose": "bow",
+      "output": {
+        "file": "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v2-tail\\bow.png",
+        "sha256": "ce150b60853bbc512b564482655c471dc1dc85dcec8b49a1342bafdb39145b26",
+        "bytes": 1927938,
+        "size": [
+          1024,
+          1536
+        ],
+        "mode": "RGBA",
+        "bboxByAlphaThreshold": {
+          "1": [
+            0,
+            8,
+            1006,
+            1516
+          ],
+          "16": [
+            96,
+            58,
+            989,
+            1456
+          ],
+          "128": [
+            97,
+            58,
+            987,
+            1456
+          ],
+          "250": [
+            111,
+            60,
+            985,
+            1455
+          ]
+        },
+        "edgeMaxAlpha": {
+          "top": 0,
+          "bottom": 0,
+          "left": 1,
+          "right": 0
+        },
+        "visibleHeightAtAlpha16": 1398,
+        "visibleMarginsAtAlpha16": {
+          "left": 96,
+          "top": 58,
+          "right": 35,
+          "bottom": 80
+        },
+        "sourceOriginal": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14289-f0b5-7113-b2b9-40aa19554575\\exec-a76ef1d9-7c4c-4485-834f-9f5f45887afb.png",
+        "sourceSha256": "ce150b60853bbc512b564482655c471dc1dc85dcec8b49a1342bafdb39145b26",
+        "byteIdenticalCopyVerified": true,
+        "pixelsModifiedByCode": false
+      },
+      "editTarget": {
+        "file": "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v1\\bow.png",
+        "sha256": "cf28613909ce3c94d8598ad8210ba77024a7b7d8b7d2acebc7d9942b7f61b287",
+        "bytes": 1943071,
+        "size": [
+          1024,
+          1536
+        ],
+        "mode": "RGBA",
+        "bboxByAlphaThreshold": {
+          "1": [
+            45,
+            51,
+            1012,
+            1516
+          ],
+          "16": [
+            97,
+            59,
+            997,
+            1456
+          ],
+          "128": [
+            98,
+            60,
+            996,
+            1455
+          ],
+          "250": [
+            110,
+            63,
+            994,
+            1454
+          ]
+        },
+        "edgeMaxAlpha": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "role": "Exact original named pose"
+      },
+      "prompt": {
+        "file": "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v2-tail\\prompts\\bow.txt",
+        "sha256": "2434a9f05feaaa2e5f54051b5584e21f886ede383a59eb0170f3806166d31c14",
+        "bytes": 3008,
+        "exactPrompt": "Asset: bow pose tail construction repair.\nImage 1 is hd-v1/bow.png, the sole pose edit target. Preserve the gentle forward upper-body bow, closed eyes, smile, hands softly overlapped in front of the skirt, sleeve positions, original leg stance and forward parallel shoes EXACTLY. Do not borrow the idle expression or arm pose. Image 2 is hd-v2-tail/idle.png, ONLY the accepted tail silhouette, volume transition and skirt occlusion reference.\n\nUse case: precise-object-edit. Input image 1 is the exact edit target for this named pose. Input image 2 (hd-v2-tail/idle.png) is ONLY the accepted tail-construction visual reference, not an instruction to replace the target pose.\nChange only the tail silhouette and how it emerges behind the skirt. Preserve target expression, face/head scale, hair, paired small daisy hair clips, arm/hand gesture, fingers, small chest bow, ivory bodice, natural mint waistline, skirt flowers/ruffles, legs and nearly parallel forward-facing shoes.\nOne tail is anchored invisibly at the posterior center of the low pelvis near the coccyx, below the waist, with a discreet rear garment outlet hidden from front view. Its root must remain covered by the skirt. Show a continuous slender BUT VOLUMETRIC furred proximal segment emerging from behind the skirt at viewer right, then a gradual transition into the white fluffy tail. The narrower root is an exposed silhouette under occlusion, not a string attached to a pillow. Match the natural continuous comma/U curve of reference image2. Leave a readable gap from the thigh after emerging; no apparent origin on thigh, knee, hand, front dress or side waist. Skirt and legs occlude rear tail where overlapping; no tail crossing in front of legs. One soft tapered tip only. No severed root, abrupt wide stump, closed ring, duplicate tail, hair-tail fusion or giant fox brush.\nThis reference is an artistic construction choice, not a medical claim. Preserve the original complete figure, 1024x1536 native RGBA, visible character height>=1200px, safe edge margins, no crop. Preserve transparency; no background, floor, shadow, halo, text, guides, inset or extra figures. Do not change hands to fix the tail; no digit forks/extra fingers or inward-pointing shoes. Raw low-alpha RGB preview haze is not by itself a compositing failure. Do not modify PNG pixels programmatically.\n\nPose-specific change: Replace the old overly broad tail that seems to start beside the right thigh with the reference's slimmer continuous white cat tail. Adapt its concealed rear-pelvis attachment to this bowed pose: skirt covers the true root, then a visible slim three-dimensional furred segment emerges behind the viewer-right rear skirt side, bends clear of the thigh, and smoothly thickens into the open upward comma curve. Preserve the reference's restrained tail volume and one soft tapered upper tip. The tail must not begin at the knee, hand or front hem. Keep every other part of image 1 unchanged. Fit the complete tail safely within the canvas.\n",
+        "savedBeforeCall": true
+      },
+      "generation": {
+        "attempts": 1,
+        "transparentBackground": true,
+        "referencedImages": [
+          "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v1\\bow.png",
+          "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v2-tail\\idle.png"
+        ]
+      },
+      "visualReview": {
+        "status": "initial-native-review-pass-awaiting-root-light-dark-review",
+        "tail": "The former broad stump beside the thigh is replaced by a slender volumetric segment emerging under rear skirt occlusion, widening smoothly into an open upward-curled white cat tail with one tip. No clear disconnected piece, duplicate tail, front-leg crossing or sharp join found in native output.",
+        "preserved": "Closed eyes, bowed upper body, natural overlapped hands, bodice/waist/skirt and forward near-parallel shoes preserved.",
+        "framing": "Complete native figure with essentially unchanged framing; visible height 1398px.",
+        "alpha": "Original RGBA untouched. Numeric edge and bbox checks passed visible-content framing. Dark/light compositing remains for root review.",
+        "limits": "Visual finding is scoped to the generated pose. This does not establish runtime integration or acceptance of hug-tail."
+      }
+    }
+  ]
+}

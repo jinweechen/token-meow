@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "title": "小柚 · 侧身步态研究",
+  "status": "study-not-approved-for-integration",
+  "sideStudy": {
+    "path": "side-model-study.png",
+    "status": "G1-side-view-structure-intent-passed",
+    "notes": [
+      "第 4 版仅通过侧视结构意图检查：头、躯干与鞋朝右；完整髋膝踝链可追踪。",
+      "A 为后骨盆尾根，B 为邻接的服装开口，C 为裙后尾段开始可见的位置。C 不是尾根或开口。",
+      "近远髋点的少量偏移只是图解标记，不可照搬为真实关节间距或落脚间距。",
+      "尚未作为透明成品或高清动画帧验收。"
+    ]
+  },
+  "candidate": {
+    "path": "candidates/walk-blocking-sheet-v1.png",
+    "status": "G2-not-approved",
+    "columns": 4,
+    "rows": 2,
+    "cellWidth": 384,
+    "cellHeight": 512,
+    "frameDurationMs": 160,
+    "frames": [
+      {"id": "01", "label": "接触 A · 未验收", "nearLeg": "意图为前伸接触；该格可作为接触姿势研究。", "farLeg": "后侧支撑。单格不能证明足部在移动播放时不滑。"},
+      {"id": "02", "label": "下降 A · 未验收", "nearLeg": "意图为承重缓冲，须与统一骨盆高度和支撑轨迹复核。", "farLeg": "意图为离地回收。01—04 的手臂未随步态充分变化。"},
+      {"id": "03", "label": "经过 A · 未验收", "nearLeg": "意图为支撑腿。", "farLeg": "意图为弯膝经过；与 07 的抬膝高度不对称。"},
+      {"id": "04", "label": "上升 A · 需重画", "nearLeg": "青色髋点落在灰色大腿区域，近腿根部身份不清。", "farLeg": "灰色大腿覆盖近侧根部，出现层级反转。"},
+      {"id": "05", "label": "接触 B · 未验收", "nearLeg": "意图为后侧推蹬；第二排整体基线与第一排不一致。", "farLeg": "意图为前伸接触；可保留接触意图，不能据此接受整段。"},
+      {"id": "06", "label": "下降 B · 需重画", "nearLeg": "应离地后收，但髋部和灰色大腿遮挡混淆；同侧手臂还发生分段变色。", "farLeg": "应持续承重，当前根部层级不可信。"},
+      {"id": "07", "label": "经过 B · 需重画", "nearLeg": "抬膝过高，与 03 不对称；近腿根部身份仍不清。", "farLeg": "支撑腿与近腿根部发生层级反转。"},
+      {"id": "08", "label": "上升 B · 需重画", "nearLeg": "前伸准备接触，但同侧手臂也向前，首尾摆臂衔接错误。", "farLeg": "意图为后侧支撑，脚跟到前掌的过渡仍需补证。"}
+    ],
+    "notes": [
+      "G2 未通过：04 / 06 / 07 近远腿身份和遮挡错误，08 同侧手脚同向。",
+      "整表第 2 次修订又把 04 的两腿都画成青色，未选用；完整失败原图保留。",
+      "06 单帧重画保留了正确的动作意图，但两个髋点过度分开、承重缓冲不足，仍待修正。",
+      "第二排基线偏移约 14 源像素，整轮不能靠裁切或自动对齐掩盖漂移。",
+      "按固定 4×2 网格裁切显示，每格 384×512；没有逐帧平移、缩放或对齐。"
+    ]
+  },
+  "mechanics": {"path":"mechanics.html","status":"engineering-reference-only","notes":["固定骨长、肢体身份和支撑脚世界坐标的技术参考，不代表人物画稿通过。","未实现脚跟到前掌滚动、服装、头发或尾巴。"]},
+  "reviewHistory": [
+    {"path":"candidates/side-model-study-v1.png","result":"退回：髋点与尾根被遮挡，骨链不清"},
+    {"path":"candidates/side-model-study-v2.png","result":"退回：尾部开口错误地画在裙缘，尾根偏高"},
+    {"path":"candidates/side-model-study-v3.png","result":"退回：尾根仍高，近远髋点前后分离过大"},
+    {"path":"side-model-study.png","result":"仅 G1 侧视结构意图通过"},
+    {"path":"candidates/walk-blocking-sheet-v1.png","result":"G2 未通过，详见逐格说明"},
+    {"path":"candidates/walk-blocking-sheet-v2.png","result":"G2 未通过，04 双腿误着色，06 / 07 未修复"},
+    {"path":"candidates/06-down-b-single-v1.png","result":"意图参考，非合格动作帧：髋距约 100 px、缓冲不足"}
+  ],
+  "productionReadiness": {"characterG2":false,"hd1200":false,"cleanAlpha":false,"runtimeIntegration":false,"exportPackage":false}
+}

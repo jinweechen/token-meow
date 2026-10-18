@@ -1,0 +1,7 @@
+IMAGE 1 is the EDIT TARGET: frame 03 (teal planted leg, gray swinging leg).
+IMAGE 2 is ONLY THE EXACT LOWER-BODY POSE GEOMETRY REFERENCE: frame07 (gray planted leg, teal swinging leg).
+Correct image1 so its TWO LEG JOINT POSITIONS and SHOE ANGLES exactly match the corresponding straight and bent leg geometry in image2, while preserving image1's head, torso, arms, 03 label, white page and baseline. Do not add another character.
+Straight supporting leg in final03 remains NEAR TEAL; bent passing leg becomes FAR GRAY.
+Use reference2's BENT leg hip/knee/ankle/heel/toe positions but draw that chain in GRAY BEHIND the vertical teal supporting leg. Crucially the gray ankle is around x558,y1234 and gray shoe extends about x480..660 at y1260..1340, NOT far back at x400. It is fine and REQUIRED for the teal shin to HIDE the middle portion of that gray ankle/shoe. Do not move the far foot backward just to show its full outline. Partial occlusion is correct.
+The planted teal leg uses reference2's vertical support-leg position and unchanged flat shoe on y1447. Rebuild intersection outlines correctly: teal vertical leg IN FRONT, gray bent leg BEHIND. Both hip centers nearly overlap in one compact pelvis, no detached knees.
+This is a symmetric half-cycle passing pose: same geometry, opposite limb roles, correctly recomputed front/back occlusion. Do not swap whole-limb identity elsewhere. Keep image1 teal near arm and gray far arm unchanged. No new diagrams, no transparency, no layout changes.

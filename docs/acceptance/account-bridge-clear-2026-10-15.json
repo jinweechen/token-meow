@@ -1,0 +1,30 @@
+{
+  "observedOn": "2026-10-15",
+  "profile": "release",
+  "features": [
+    "custom-protocol"
+  ],
+  "targetDirectory": "D:\\DevCache\\cargo-token-meow",
+  "scope": "one new production AccountBridge cache-clear test; previously passed unrelated tests retained separately",
+  "command": "cargo test --manifest-path src-tauri/Cargo.toml --release --features custom-protocol --offline --target-dir D:\\DevCache\\cargo-token-meow --lib account_bridge::tests::clearing_cached_data_drops_account_facts_without_switching_source_or_cancel_handle -- --exact",
+  "passed": 1,
+  "failed": 0,
+  "filteredOut": 65,
+  "compileSeconds": 0.56,
+  "testSeconds": 0,
+  "source": {
+    "path": "src-tauri/src/account_bridge.rs",
+    "sha256": "38e0b261ef18e8f05e780da323bf09fc199da223453ad9f9fe8128dc1bb651d4"
+  },
+  "asserted": [
+    "snapshot quota/usage/account identity and observation reset",
+    "failure backoff reset",
+    "source root retained",
+    "same cancellation Arc retained, including already-cancelled flag",
+    "subsequent cancelled refresh remains unavailable and no transport starts"
+  ],
+  "limitations": [
+    "No real account RPC is sent.",
+    "Not native, installed or release performance qualification."
+  ]
+}

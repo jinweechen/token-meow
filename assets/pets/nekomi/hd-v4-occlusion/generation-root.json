@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-16",
+  "generator": "builtin image_gen",
+  "pixelPostProcessing": false,
+  "scope": "One idle pose correcting sleeve-tail tangency and rear-skirt occlusion",
+  "status": "scoped-single-idle-occlusion-review-complete; not-a-complete-pose-pack",
+  "assets": [
+    {
+      "pose": "idle",
+      "file": "idle.png",
+      "sourceOriginalPath": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14280-254e-70f3-ba61-b34c813b8e3a\\exec-9a67ccb0-a24a-4a09-9305-f344394ee8ee.png",
+      "sha256": "fd13e13bbfa1a58083d7047b6819f76eaf0c1d2ee16fba43483c54f0f894a3ea",
+      "prompt": "prompts/idle.txt",
+      "promptSha256": "768fcfcc823f865a8ba23311a90ac22d8fe5e4001a1abea20fe4f8e87c730223",
+      "referencePaths": [
+        "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v4-occlusion\\reference\\before-idle.png"
+      ],
+      "referenceSha256": "832a67cdfcc42bc32287096b57d8511613e0130855931208be71cc13eb0febe8",
+      "originalBytesVerified": true
+    }
+  ],
+  "limits": [
+    "Only the idle pose is revised in this folder.",
+    "Hidden center-back opening remains an intended design, not proven by frontal pixels.",
+    "Full twelve-pose pack is not complete or approved; no renderer changes."
+  ]
+}

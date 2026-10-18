@@ -1,0 +1,14 @@
+{
+  "date": "2026-10-18",
+  "status": "baseline-complete-with-known-variations",
+  "userPriority": "不需要那么完美，加快速度",
+  "strictOriginalPlanStatus": "retained; no blanket G0-G5 approval",
+  "masters": "front-v2/right-v3/back-v4 selected for production baseline",
+  "walk": "8 phases, starting/turning/return sequence, actual 1x and 0.5x playback",
+  "twelveActions": "12 full clip sequences with entry/body/exit/returnToIdle",
+  "layeredMaterials": "28 retained front + 18 new side + 4 replacement hands",
+  "nativeNewImages": 56,
+  "selectedTotalPngs": 103,
+  "formalWholeRunQualification": "not claimed",
+  "notes": "See DELIVERY-20261018.txt and delivery-manifest-v11.json for exact evidence and retained limitations."
+}

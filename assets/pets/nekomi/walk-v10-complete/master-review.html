@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>侧走母稿复核</title>
+  <style>
+    :root{font-family:system-ui,"Microsoft YaHei",sans-serif;color:#2d4035;background:#f1f3ee;font-synthesis:none}*{box-sizing:border-box}[hidden]{display:none!important}body{margin:0}main{max-width:1640px;margin:auto;padding:26px 24px 40px}h1{font-size:27px;margin:0 0 9px}h2{font-size:18px;margin:0}h3{font-size:14px;margin:0}p{margin:0;line-height:1.7}.intro{font-size:14px;color:#667462}.toolbar{display:flex;align-items:center;flex-wrap:wrap;gap:13px 20px;margin:20px 0 15px;padding:14px 16px;background:#fff;border:1px solid #d5ded2;border-radius:10px}label{display:flex;align-items:center;gap:8px;font-size:13px}select,button{font:inherit;color:#35523d;background:#fff;border:1px solid #bfcfbe;border-radius:6px;padding:7px 10px}button{cursor:pointer}button:disabled,select:disabled{opacity:.5;cursor:default}input[type=checkbox]{accent-color:#397c51;width:16px;height:16px}a{color:#35734a;text-underline-offset:3px;font-size:12px}button:focus-visible,select:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid #bb9650;outline-offset:3px}.status,.summary{font-size:13px;line-height:1.7;color:#64735f}.summary{margin-bottom:14px}.cards{display:grid;grid-template-columns:minmax(0,1fr);gap:19px;max-width:1040px;margin:auto}.cards.compare{grid-template-columns:repeat(2,minmax(0,1fr));max-width:none}.card{min-width:0;border:1px solid #d2dccf;border-radius:11px;overflow:hidden;background:#fff}.card-head{padding:15px 16px 12px}.version-line{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px}.badge{font-size:11px;background:#f4ead2;color:#826421;border-radius:20px;padding:4px 8px}.file-link{display:block;margin-top:8px;overflow-wrap:anywhere}.review-notes{padding:0 16px 13px;font-size:13px;line-height:1.75;color:#65715f}.review-notes p+p{margin-top:3px}.surface{background-color:#fbfcf9;background-image:linear-gradient(45deg,#e4e9e0 25%,transparent 25%),linear-gradient(-45deg,#e4e9e0 25%,transparent 25%),linear-gradient(45deg,transparent 75%,#e4e9e0 75%),linear-gradient(-45deg,transparent 75%,#e4e9e0 75%);background-size:22px 22px;background-position:0 0,0 11px,11px -11px,-11px 0}body.light .surface{background:#faf7ed}body.dark .surface{background:#232a26}.full-stage{height:clamp(400px,72vh,900px);overflow:auto;border-block:1px solid #e0e6dc}.full-space{display:grid;place-items:center;min-width:100%;min-height:100%;width:max-content;height:max-content;padding:12px}.image-plane{position:relative;flex:none}.image-plane img{display:block;width:100%;height:100%;max-width:none}.details{display:grid;grid-template-columns:minmax(0,1fr);gap:15px;padding:16px}.detail-title{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:7px}.detail-title span{font-size:11px;color:#7a8475}.detail-window{position:relative;width:100%;overflow:hidden;border:1px solid #d6dfd1;border-radius:7px}.detail-plane{position:absolute;left:0;top:0;transform-origin:0 0}.detail-plane img{display:block;width:100%;height:100%;max-width:none}.placeholder{padding:36px 16px;text-align:center;color:#7b806e;font-size:13px}.error{background:#fff0e8;border:1px solid #e1bba8;border-radius:8px;color:#915236;padding:13px 15px;font-size:13px;line-height:1.7;margin-bottom:15px}.foot{margin-top:16px;font-size:12px;color:#76816e;line-height:1.7}.card-error{padding:16px;color:#8c5b34;font-size:13px}.cards.compare .full-stage{height:clamp(400px,68vh,840px)}@media(max-width:700px){main{padding:20px 12px 28px}h1{font-size:24px}.toolbar{gap:12px;padding:12px}.cards.compare{grid-template-columns:minmax(0,1fr)}.card-head{padding:13px 12px 10px}.review-notes{padding:0 12px 12px}.details{padding:12px}.full-stage,.cards.compare .full-stage{height:65vh;min-height:400px}}
+  </style>
+</head>
+<body class="checker">
+  <main>
+    <header><h1 id="title">侧走母稿复核</h1><div class="intro" id="intro">正在读取版本清单…</div></header>
+    <div class="toolbar">
+      <label>当前版本 <select id="version" disabled></select></label>
+      <label>背景 <select id="background"><option value="checker">透明棋盘</option><option value="light">浅色</option><option value="dark">深色</option></select></label>
+      <label>整图大小 <select id="size"><option value="fit">适合窗口</option><option value="character-1200">人物约 1200 px 高</option></select></label>
+      <label><input id="compare" type="checkbox">同尺度前后对比</label>
+      <label id="comparisonLabel" hidden>对比版本 <select id="comparison" disabled></select></label>
+      <button id="reload" type="button">刷新版本</button>
+    </div>
+    <p class="summary" id="summary" role="status">尚未加载母稿。</p>
+    <div class="error" id="error" role="alert" hidden></div>
+    <section class="cards" id="cards" aria-label="母稿与局部复核"></section>
+    <p class="foot">原始 1024×1536 PNG 直接显示；局部仅用视窗放大，原图不变。前后对比使用相同缩放比例，均不表示已通过复核。</p>
+  </main>
+  <script>
+    'use strict';
+    const $ = id => document.getElementById(id);
+    const statusLabels = {'needs-revision':'待修改 / 待复核','pending-review':'待复核','reviewed-candidate':'候选稿 · 待复核'};
+    let model = null, versions = [], cardViews = [], loadEpoch = 0;
+    const assetUrl = path => new URL(path, location.href).href;
+    function notes(target, lines) {
+      target.replaceChildren();
+      for (const line of lines || []) { const p = document.createElement('p'); p.textContent = line; target.append(p); }
+    }
+    function validate(data) {
+      if (data.schemaVersion !== 1 || data.canvas?.width !== 1024 || data.canvas?.height !== 1536 || !Array.isArray(data.versions) || !data.versions.length) throw Error('母稿清单格式或画幅不符。');
+      if (!Number.isFinite(data.referenceCharacterHeight) || data.referenceCharacterHeight <= 0) throw Error('人物参考高度无效。');
+      const ids = new Set();
+      for (const item of data.versions) {
+        if (typeof item.id !== 'string' || !item.id || ids.has(item.id) || typeof item.path !== 'string' || !item.path.startsWith('candidates/') || item.path.includes('..') || !item.path.toLowerCase().endsWith('.png')) throw Error('版本名称或 PNG 路径无效。');
+        ids.add(item.id);
+      }
+      if (!Array.isArray(data.focusRegions) || !data.focusRegions.length) throw Error('缺少局部视窗。');
+      for (const region of data.focusRegions) {
+        if (![region.x,region.y,region.width,region.height].every(Number.isFinite) || region.x < 0 || region.y < 0 || region.width <= 0 || region.height <= 0 || region.x + region.width > 1024 || region.y + region.height > 1536) throw Error('局部视窗范围无效。');
+      }
+    }
+    function readImage(item) {
+      return new Promise(resolve => {
+        const image = new Image();
+        image.onload = async () => {
+          try { if (image.decode) await image.decode(); } catch { return resolve({...item, available:false, reason:'PNG 解码失败'}); }
+          resolve({...item, available:image.naturalWidth === 1024 && image.naturalHeight === 1536, reason:'画幅不符', loadedUrl:image.src});
+        };
+        image.onerror = () => resolve({...item, available:false, reason:'文件尚未存在或未加载'});
+        image.src = assetUrl(item.path) + '?review=' + Date.now();
+      });
+    }
+    function fillSelect(select, selectedId) {
+      select.replaceChildren();
+      for (const item of versions) {
+        const option = document.createElement('option'); option.value = item.id; option.textContent = item.label || item.id; select.append(option);
+      }
+      select.value = versions.some(item => item.id === selectedId) ? selectedId : versions[0].id;
+      select.disabled = false;
+    }
+    function imageElement(item, alt) {
+      const image = new Image(); image.src = item.loadedUrl; image.alt = alt; image.width = 1024; image.height = 1536; image.draggable = false; return image;
+    }
+    function makeCard(item, role) {
+      const root = document.createElement('article'); root.className = 'card';
+      const head = document.createElement('div'); head.className = 'card-head';
+      const line = document.createElement('div'); line.className = 'version-line';
+      const heading = document.createElement('h2'); heading.textContent = role + ' · ' + (item.label || item.id);
+      const badge = document.createElement('span'); badge.className = 'badge'; badge.textContent = statusLabels[item.reviewStatus] || '待复核';
+      line.append(heading,badge);
+      const link = document.createElement('a'); link.className = 'file-link'; link.href = item.loadedUrl; link.textContent = item.path + ' · 原始 PNG'; link.target = '_blank'; link.rel = 'noopener';
+      head.append(line,link);
+      const review = document.createElement('div'); review.className = 'review-notes'; notes(review,item.reviewNotes);
+      const stage = document.createElement('div'); stage.className = 'full-stage surface'; stage.setAttribute('aria-label',item.id + ' 整图');
+      const space = document.createElement('div'); space.className = 'full-space';
+      const plane = document.createElement('div'); plane.className = 'image-plane'; plane.append(imageElement(item,item.label || item.id)); space.append(plane); stage.append(space);
+      const details = document.createElement('div'); details.className = 'details';
+      const detailViews = [];
+      for (const region of model.focusRegions) {
+        const section = document.createElement('section');
+        const title = document.createElement('div'); title.className = 'detail-title';
+        const label = document.createElement('h3'); label.textContent = region.label || region.id;
+        const hint = document.createElement('span'); hint.textContent = '同一原图 · 局部放大'; title.append(label,hint);
+        const window = document.createElement('div'); window.className = 'detail-window surface'; window.style.aspectRatio = region.width + ' / ' + region.height;
+        const detailPlane = document.createElement('div'); detailPlane.className = 'detail-plane'; detailPlane.style.width = '1024px'; detailPlane.style.height = '1536px'; detailPlane.append(imageElement(item,(item.label || item.id) + ' · ' + region.label)); window.append(detailPlane);
+        section.append(title,window); details.append(section); detailViews.push({window,plane:detailPlane,region});
+      }
+      root.append(head,review,stage,details); $('cards').append(root);
+      return {stage,plane,details:detailViews};
+    }
+    function layout() {
+      if (!cardViews.length) return;
+      const scale = $('size').value === 'character-1200' ? 1200 / model.referenceCharacterHeight : Math.min(...cardViews.map(card => Math.min((card.stage.clientWidth - 24) / 1024,(card.stage.clientHeight - 24) / 1536)));
+      for (const card of cardViews) {
+        card.plane.style.width = (1024 * scale) + 'px'; card.plane.style.height = (1536 * scale) + 'px';
+        for (const detail of card.details) {
+          const detailScale = detail.window.clientWidth / detail.region.width;
+          detail.plane.style.transform = 'matrix(' + [detailScale,0,0,detailScale,-detail.region.x * detailScale,-detail.region.y * detailScale].join(',') + ')';
+        }
+      }
+    }
+    function render() {
+      if (!model || !versions.length) return;
+      $('cards').replaceChildren(); cardViews = [];
+      const compare = $('compare').checked && versions.length > 1;
+      $('comparisonLabel').hidden = !compare; $('cards').classList.toggle('compare',compare);
+      const current = versions.find(item => item.id === $('version').value) || versions[0];
+      if (compare && $('comparison').value === current.id) $('comparison').value = versions.find(item => item.id !== current.id).id;
+      if (compare) cardViews.push(makeCard(versions.find(item => item.id === $('comparison').value),'对比稿'));
+      cardViews.push(makeCard(current,'当前稿'));
+      $('summary').textContent = (compare ? '两版同尺度显示 · ' : '') + '当前 ' + current.id + ' · ' + (statusLabels[current.reviewStatus] || '待复核') + ' · ' + ($('size').value === 'character-1200' ? '人物参考高度约 1200 px，可滚动查看整图。' : '整图适合窗口；下方查看尾根、双手和双鞋。');
+      requestAnimationFrame(layout);
+    }
+    async function load() {
+      const epoch = ++loadEpoch, previous = $('version').value, previousComparison = $('comparison').value;
+      $('reload').disabled = true; $('version').disabled = true; $('comparison').disabled = true; $('error').hidden = true; $('summary').textContent = '正在检查已存在的母稿…';
+      try {
+        const response = await fetch('master-review.json',{cache:'no-store'});
+        if (!response.ok) throw Error('母稿清单读取失败：HTTP ' + response.status);
+        const data = await response.json(); validate(data);
+        const loaded = await Promise.all(data.versions.map(readImage));
+        if (epoch !== loadEpoch) return;
+        model = data; versions = loaded.filter(item => item.available);
+        if (!versions.length) throw Error('清单中的母稿尚未加载成功。');
+        $('title').textContent = data.title || '侧走母稿复核'; document.title = $('title').textContent; notes($('intro'),data.reviewNotes);
+        fillSelect($('version'),previous || data.defaultVersion); fillSelect($('comparison'),previousComparison || data.defaultComparison);
+        $('compare').disabled = versions.length < 2;
+        render();
+        const absent = loaded.filter(item => !item.available);
+        if (absent.length) $('summary').append(' 未列入选择：' + absent.map(item => item.id + '（' + item.reason + '）').join('、') + '。');
+      } catch (error) {
+        if (epoch !== loadEpoch) return;
+        model = null; versions = []; cardViews = []; $('cards').replaceChildren(); $('error').hidden = false; $('error').textContent = error.message; $('summary').textContent = '母稿未就绪。';
+      } finally { if (epoch === loadEpoch) $('reload').disabled = false; }
+    }
+    $('version').onchange = render; $('comparison').onchange = render; $('compare').onchange = render; $('size').onchange = render;
+    $('background').onchange = () => document.body.className = $('background').value;
+    $('reload').onclick = load;
+    window.addEventListener('resize',layout);
+    load();
+  </script>
+</body>
+</html>

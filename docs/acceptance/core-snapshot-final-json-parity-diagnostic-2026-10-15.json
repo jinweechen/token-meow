@@ -1,0 +1,194 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-15T16:00:00.326036+00:00",
+  "scope": "Controlled public Core snapshot comparison only: final frozen release library 01337D6A (queries B3B4 / adapter A52) versus preserved C12 baseline; not native desktop memory, speed or whole M4 qualification",
+  "finalLibrary": {
+    "path": "D:\\project\\宠物\\output\\performance\\c13-final-core-validation-20261015-437a4d50d515462fb21dd05ed3c8b970\\frozen-release-lib\\libtoken_meow_lib-8cd002f2d338a421.rlib",
+    "sha256": "01337D6AC10DE4D0A8AB94F6D862BB9E821A3218937B66FA6B26D7F795B59F0E"
+  },
+  "ownerLibraryReceipt": "output/performance/c13-final-core-validation-20261015-437a4d50d515462fb21dd05ed3c8b970/receipt.json",
+  "oldEvidence": "docs/acceptance/core-snapshot-json-parity-diagnostic-2026-10-15.json",
+  "oldLibrarySha256": "E1DBC93E11B80DAB1B8E8771AB13BBD742540FEC5C96594A3A24DA81D6EF1174",
+  "oldEvidencePreserved": true,
+  "finalSources": {
+    "queriesSha256": "B3B4D18118E60E44B91F34EA3C86E386A818A16306C01BCB0D4A9B5020C55047",
+    "adapterSha256": "A52EA212121030DE6777B7B597B9055B7B8F4EDBC9C850730EC60F1C98F8EBDD",
+    "coreOwnerRecordedPrefix": "FE7",
+    "testsOwnerRecordedPrefix": "DCCC"
+  },
+  "database": {
+    "original": "output/performance/fullraw-c12-72aa034ae5514e11a4c2452c853d458d/data/ledger.sqlite3",
+    "bytes": 153272320,
+    "sha256Before": "5311F8CC93518D36E5860A2BD5730EDE86E5E9C883467C2B5CEC7F856325746A",
+    "sha256After": "5311F8CC93518D36E5860A2BD5730EDE86E5E9C883467C2B5CEC7F856325746A",
+    "unchanged": true,
+    "freshClones": [
+      {
+        "mode": "full",
+        "path": "D:\\project\\宠物\\output\\performance\\c13-final-library-verification-20261016-c5498643a71f42e18cb77c1701498fd7\\snapshot-profile\\clones\\full\\ledger.sqlite3",
+        "bytes": 153272320,
+        "sha256": "5311F8CC93518D36E5860A2BD5730EDE86E5E9C883467C2B5CEC7F856325746A"
+      },
+      {
+        "mode": "today",
+        "path": "D:\\project\\宠物\\output\\performance\\c13-final-library-verification-20261016-c5498643a71f42e18cb77c1701498fd7\\snapshot-profile\\clones\\today\\ledger.sqlite3",
+        "bytes": 153272320,
+        "sha256": "5311F8CC93518D36E5860A2BD5730EDE86E5E9C883467C2B5CEC7F856325746A"
+      }
+    ],
+    "closedSourceDbWalBytes": 0
+  },
+  "method": {
+    "freshFinalProcesses": 2,
+    "oneOpenAndSnapshotPerProcess": true,
+    "scanCalls": 0,
+    "accountCalls": 0,
+    "sourceLogReads": 0,
+    "desktopUiStarted": false,
+    "queryModes": {
+      "full": {},
+      "today": {
+        "from": "2026-10-15",
+        "to": "2026-10-15"
+      }
+    },
+    "wrapperChange": "only replaces wrapper query day lookup with literal 2026-10-15; no output fields omitted/normalized",
+    "oldWrapperSha256": "24361DEC00D75A5BFDADD5F064EE2B54A218CDF67EAA63E66A7A9A4C66BCC453",
+    "finalWrapperSha256": "EC967760DA106E02756C5B99F7A59C01229887352164073099C098A6C6CA8CAE",
+    "comparison": "Entire serde_json::Value is serialized through the same serde_json ordering to a CountingWriter + SHA256, retaining every field and array order. No returned snapshot payload is persisted or printed.",
+    "omittedFields": [],
+    "normalizedDynamicFields": [],
+    "sampler": "Win32 K32GetProcessMemoryInfo PrivateUsage sampled at nominal 2ms plus phase endpoints; sampled maximum is not a continuous allocation maximum.",
+    "tauriOverlays": "The standalone public Core API excludes desktop-added account/desktop overlay fields."
+  },
+  "comparison": [
+    {
+      "mode": "full",
+      "oldQueryDay": "2026-10-15",
+      "queryDay": "2026-10-15",
+      "oldSha256": "49179b5d58d317249648d5ff3bcd33bef34bf8311f37b09afb19202f5851f737",
+      "finalSha256": "49179b5d58d317249648d5ff3bcd33bef34bf8311f37b09afb19202f5851f737",
+      "completeJsonEqual": true,
+      "oldBytes": 16464124,
+      "finalBytes": 16464124,
+      "oldSampledPeakMiB": 348.109375,
+      "finalSampledPeakMiB": 84.72265625,
+      "oldSnapshotMs": 2188.356,
+      "finalSnapshotMs": 1251.8987
+    },
+    {
+      "mode": "today",
+      "oldQueryDay": "2026-10-15",
+      "queryDay": "2026-10-15",
+      "oldSha256": "cbd7742e1ab08f292fefa4dd6259314ab49ee6ba0fbf19fa2e773b4a564b55f2",
+      "finalSha256": "cbd7742e1ab08f292fefa4dd6259314ab49ee6ba0fbf19fa2e773b4a564b55f2",
+      "completeJsonEqual": true,
+      "oldBytes": 2102070,
+      "finalBytes": 2102070,
+      "oldSampledPeakMiB": 347.1171875,
+      "finalSampledPeakMiB": 20.30859375,
+      "oldSnapshotMs": 1602.7552,
+      "finalSnapshotMs": 913.4138
+    }
+  ],
+  "finalRuns": [
+    {
+      "mode": "full",
+      "processId": 47884,
+      "startedAt": "2026-10-15T15:58:21.429884+00:00",
+      "finishedAt": "2026-10-15T15:58:24.378342+00:00",
+      "exitCode": 0,
+      "sampleErrors": 0,
+      "sampleCount": 1078,
+      "result": {
+        "accountCalls": 0,
+        "afterDropPrivateBytes": 5443584,
+        "afterOpenPrivateBytes": 995328,
+        "afterSnapshotPrivateBytes": 88838144,
+        "beforeOpenPrivateBytes": 737280,
+        "beforeSnapshotPrivateBytes": 995328,
+        "canonicalSnapshotSha256": "49179b5d58d317249648d5ff3bcd33bef34bf8311f37b09afb19202f5851f737",
+        "claim": "controlled Core snapshot comparison only; not a native-app memory qualification or allocation attribution",
+        "coreOpenMs": 1.8313,
+        "countSerializationMs": 28.1384,
+        "dataDirectory": "\\\\?\\D:\\project\\宠物\\output\\performance\\c13-final-library-verification-20261016-c5498643a71f42e18cb77c1701498fd7\\snapshot-profile\\clones\\full",
+        "desktopStarted": false,
+        "kind": "snapshot-only-diagnostic",
+        "mode": "full",
+        "processId": 47884,
+        "queryLocalDay": "2026-10-15",
+        "sampleCount": 1078,
+        "sampleErrors": 0,
+        "sampleMilliseconds": 2,
+        "sampledPeakSnapshotPrivateBytes": 88838144,
+        "scanCalls": 0,
+        "serializationCountingWriterWithoutPayloadBuffer": true,
+        "serializedBytes": 16464124,
+        "snapshotMs": 1251.8987,
+        "sourceLogReads": 0,
+        "wholeProcessSampledPeakPrivateBytes": 88838144
+      }
+    },
+    {
+      "mode": "today",
+      "processId": 50180,
+      "startedAt": "2026-10-15T15:58:24.593647+00:00",
+      "finishedAt": "2026-10-15T15:58:26.800335+00:00",
+      "exitCode": 0,
+      "sampleErrors": 0,
+      "sampleCount": 921,
+      "result": {
+        "accountCalls": 0,
+        "afterDropPrivateBytes": 5177344,
+        "afterOpenPrivateBytes": 974848,
+        "afterSnapshotPrivateBytes": 17629184,
+        "beforeOpenPrivateBytes": 692224,
+        "beforeSnapshotPrivateBytes": 974848,
+        "canonicalSnapshotSha256": "cbd7742e1ab08f292fefa4dd6259314ab49ee6ba0fbf19fa2e773b4a564b55f2",
+        "claim": "controlled Core snapshot comparison only; not a native-app memory qualification or allocation attribution",
+        "coreOpenMs": 2.0526,
+        "countSerializationMs": 4.8618999999999994,
+        "dataDirectory": "\\\\?\\D:\\project\\宠物\\output\\performance\\c13-final-library-verification-20261016-c5498643a71f42e18cb77c1701498fd7\\snapshot-profile\\clones\\today",
+        "desktopStarted": false,
+        "kind": "snapshot-only-diagnostic",
+        "mode": "today",
+        "processId": 50180,
+        "queryLocalDay": "2026-10-15",
+        "sampleCount": 921,
+        "sampleErrors": 0,
+        "sampleMilliseconds": 2,
+        "sampledPeakSnapshotPrivateBytes": 21295104,
+        "scanCalls": 0,
+        "serializationCountingWriterWithoutPayloadBuffer": true,
+        "serializedBytes": 2102070,
+        "snapshotMs": 913.4138,
+        "sourceLogReads": 0,
+        "wholeProcessSampledPeakPrivateBytes": 21295104
+      }
+    }
+  ],
+  "evidence": {
+    "directory": "output\\performance\\c13-final-library-verification-20261016-c5498643a71f42e18cb77c1701498fd7",
+    "compile": "output\\performance\\c13-final-library-verification-20261016-c5498643a71f42e18cb77c1701498fd7\\snapshot-profile\\compile-final.json",
+    "compileReceiptSha256": "23014387AC0F8687F2A86F6D9162185C5CD4FADC3B5A20E0ABB1AD0DAAFD0504",
+    "results": "output\\performance\\c13-final-library-verification-20261016-c5498643a71f42e18cb77c1701498fd7\\snapshot-profile\\results.json",
+    "resultsSha256": "3A86F67C6E816A0F185DB2D7D76C574A381F80F28649F0DC45385DCEC50DA850",
+    "exeSha256": "5C38F7D581B85D7D8BF457A73DE8EC629E87D1CD28B7237691F91319C7859AE1",
+    "driverSha256": "7A3BBD78184CAE5EB66F4A102DDC8D9B68224BF81B52CA6D8EA0D7BA4A5ECC7E"
+  },
+  "result": {
+    "completeJsonParity": true,
+    "twoFreshProcessesSucceeded": true,
+    "scopeQualified": "controlled-Core-snapshot-subscope-only",
+    "nativeResourceGateClaimed": false,
+    "strictSpeedGateClaimed": false,
+    "fullImportCompletedClaimed": false
+  },
+  "limits": [
+    "The baseline contains the preserved partial C12 import, not a newly completed full raw import.",
+    "Later adapter merge behavior is exercised by the separate public API fixture run; this no-scan diagnostic only reads stored facts.",
+    "Per-process snapshot allocation improvement does not establish the only cause of the earlier whole-app 622.10546875 MiB failure.",
+    "Elapsed times are descriptive only, not a controlled native performance acceptance; unrelated-project build activity was previously observed.",
+    "Earlier C12 failure and ED3 stage diagnostic receipts remain unchanged."
+  ]
+}

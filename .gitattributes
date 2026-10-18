@@ -1,0 +1,8 @@
+# Asset/provenance manifests contain SHA-256 bindings to the exact source bytes.
+# Preserve the original line endings on every platform, including Windows.
+* -text
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.webp binary
+*.ico binary

@@ -1,0 +1,335 @@
+{
+  "format": "nekomi-hd-rear-outlet-generation-provenance-v1",
+  "generatedWith": "built-in image_gen.imagegen",
+  "recordedAt": "2026-10-16T20:21:32.356089+08:00",
+  "pixelPostProcessing": false,
+  "originalGeneratedPngBytesPreserved": true,
+  "scope": "Four tail-route revisions. Initial and selected inputs use each exact hd-v1 pose plus accepted hd-v3-rear-outlet idle. No v2 tail reference was used, and hd-v1/v2/src were not modified.",
+  "assets": [
+    {
+      "pose": "affection",
+      "file": "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v3-rear-outlet\\affection.png",
+      "sourceOriginalPath": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14300-0b89-7203-9229-f4f2b07417b4\\exec-1872d069-2176-48cd-b608-b445bbe42fa9.png",
+      "prompt": "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v3-rear-outlet\\prompts\\affection.txt",
+      "referencePaths": [
+        "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v1\\affection.png",
+        "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v3-rear-outlet\\idle.png"
+      ],
+      "referenceSha256": [
+        "eb002e7bf7e5824c6e087ef54019a5956dd6d036b297274503ccb15c24b8171c",
+        "2d722617b4f36772f3785b5bb206c79f61631ed4c99847ef76f51f915607d40e"
+      ],
+      "promptSha256": "cfb3647d9a7f49e8e587907c9abf428d78a3678b3d9a43f92dc5b1a6723ddd6b",
+      "completeSharedInvariantsIncluded": true,
+      "sha256": "c0dab7bc35a974c53e9f76bb00e2ddfae4b52d3a577e61174f844fd36ac58f79",
+      "sourceSha256": "c0dab7bc35a974c53e9f76bb00e2ddfae4b52d3a577e61174f844fd36ac58f79",
+      "byteIdenticalToGeneratedSource": true,
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "bytes": 1920653,
+      "alphaBounds": {
+        "1": [
+          69,
+          17,
+          1000,
+          1516
+        ],
+        "16": [
+          87,
+          28,
+          989,
+          1436
+        ],
+        "128": [
+          88,
+          28,
+          988,
+          1435
+        ],
+        "250": [
+          94,
+          31,
+          986,
+          1434
+        ]
+      },
+      "bboxConvention": "left, top, right-exclusive, bottom-exclusive",
+      "visibleCharacterHeight": 1408,
+      "visibleMargins": {
+        "left": 87,
+        "top": 28,
+        "right": 35,
+        "bottom": 100
+      },
+      "maxEdgeAlpha": 0,
+      "maxEdgeAlphaBySide": {
+        "top": 0,
+        "bottom": 0,
+        "left": 0,
+        "right": 0
+      },
+      "edgePixelsAlpha16": 0,
+      "nativeImageReviewStatus": "no-clear-structural-regression-observed",
+      "visualReview": {
+        "posePreservation": "Open-eye warm smile, chest hand and opposite hanging hand retained. No visible new finger branch or extra digit; natural waist seam and forward shoes retained.",
+        "tail": "First visible proximal volume appears behind lower hair and forearm at upper/middle skirt level; it flows outward then downward in an open C. Old root beside thigh below hem is absent. Tail has continuous full volume, not a pointed disconnected root."
+      },
+      "realCompositeReviewStatus": "pending-root-unified-browser-review"
+    },
+    {
+      "pose": "stretch",
+      "file": "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v3-rear-outlet\\stretch.png",
+      "sourceOriginalPath": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14300-0b89-7203-9229-f4f2b07417b4\\exec-4a9066ca-02b8-4d2b-921c-31c0f3c5e9ff.png",
+      "prompt": "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v3-rear-outlet\\prompts\\stretch.txt",
+      "referencePaths": [
+        "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v1\\stretch.png",
+        "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v3-rear-outlet\\idle.png"
+      ],
+      "referenceSha256": [
+        "773eb3b5134a2a441ff820826713982d2764cc18c7508733ae8700bbf1e5f6b3",
+        "2d722617b4f36772f3785b5bb206c79f61631ed4c99847ef76f51f915607d40e"
+      ],
+      "promptSha256": "c466bba81abe5624c13e350e9d2c9f425745f503ba1d50295c24b6eb514634e2",
+      "completeSharedInvariantsIncluded": true,
+      "sha256": "2d4958e67a3256a79b5be4d3364a8b924d4cd0f2aec21b3d099dd81a8ca5c467",
+      "sourceSha256": "2d4958e67a3256a79b5be4d3364a8b924d4cd0f2aec21b3d099dd81a8ca5c467",
+      "byteIdenticalToGeneratedSource": true,
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "bytes": 1910977,
+      "alphaBounds": {
+        "1": [
+          0,
+          0,
+          1002,
+          1474
+        ],
+        "16": [
+          100,
+          39,
+          970,
+          1471
+        ],
+        "128": [
+          101,
+          40,
+          968,
+          1470
+        ],
+        "250": [
+          107,
+          42,
+          966,
+          1469
+        ]
+      },
+      "bboxConvention": "left, top, right-exclusive, bottom-exclusive",
+      "visibleCharacterHeight": 1432,
+      "visibleMargins": {
+        "left": 100,
+        "top": 39,
+        "right": 54,
+        "bottom": 65
+      },
+      "maxEdgeAlpha": 1,
+      "maxEdgeAlphaBySide": {
+        "top": 1,
+        "bottom": 0,
+        "left": 1,
+        "right": 0
+      },
+      "edgePixelsAlpha16": 0,
+      "nativeImageReviewStatus": "no-clear-structural-regression-observed",
+      "visualReview": {
+        "posePreservation": "Closed-eye yawn, overhead human fist and other fist near mouth retained. Entire raised arm, hands, ears and feet visible.",
+        "tail": "Tail is first visible near upper skirt behind lower viewer-right hair/skirt contour, then curves outward and downward. Clear lower-skirt/thigh region replaces old low U-root. Some early segment is occluded by skirt and hair, consistent with a rear route."
+      },
+      "realCompositeReviewStatus": "pending-root-unified-browser-review"
+    },
+    {
+      "pose": "wink",
+      "file": "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v3-rear-outlet\\wink.png",
+      "sourceOriginalPath": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14300-0b89-7203-9229-f4f2b07417b4\\exec-98a010dc-5728-4785-b113-94f4852420d8.png",
+      "prompt": "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v3-rear-outlet\\prompts\\wink.txt",
+      "referencePaths": [
+        "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v1\\wink.png",
+        "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v3-rear-outlet\\idle.png"
+      ],
+      "referenceSha256": [
+        "ab4e892a85c9231250aad076dbd05bee722676b67f1cbaf904fef9b117085415",
+        "2d722617b4f36772f3785b5bb206c79f61631ed4c99847ef76f51f915607d40e"
+      ],
+      "promptSha256": "ef373a5dcc3edfa0f2efee5ddf015479f946dd9f2eb8c0a6ffe171a3292f9c4a",
+      "completeSharedInvariantsIncluded": true,
+      "sha256": "04bd9a34e6604356f56ad01c2df57912ef6d30806c235db38d3784bac9d4df8f",
+      "sourceSha256": "04bd9a34e6604356f56ad01c2df57912ef6d30806c235db38d3784bac9d4df8f",
+      "byteIdenticalToGeneratedSource": true,
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "bytes": 1907992,
+      "alphaBounds": {
+        "1": [
+          55,
+          19,
+          1014,
+          1504
+        ],
+        "16": [
+          95,
+          42,
+          977,
+          1451
+        ],
+        "128": [
+          95,
+          43,
+          975,
+          1450
+        ],
+        "250": [
+          107,
+          45,
+          974,
+          1449
+        ]
+      },
+      "bboxConvention": "left, top, right-exclusive, bottom-exclusive",
+      "visibleCharacterHeight": 1409,
+      "visibleMargins": {
+        "left": 95,
+        "top": 42,
+        "right": 47,
+        "bottom": 85
+      },
+      "maxEdgeAlpha": 0,
+      "maxEdgeAlphaBySide": {
+        "top": 0,
+        "bottom": 0,
+        "left": 0,
+        "right": 0
+      },
+      "edgePixelsAlpha16": 0,
+      "nativeImageReviewStatus": "no-clear-structural-regression-observed",
+      "visualReview": {
+        "posePreservation": "Single-eye wink, hand resting on waist and opposite relaxed hanging hand retained. Original finger overlaps and forward shoes preserved without apparent structural regression.",
+        "tail": "First visible tail segment is at upper/middle skirt height behind forearm/lower hair; it is volumetric and continues into an open downward C. Under-hem thigh-side root is deleted."
+      },
+      "realCompositeReviewStatus": "pending-root-unified-browser-review"
+    },
+    {
+      "pose": "happy",
+      "file": "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v3-rear-outlet\\happy.png",
+      "sourceOriginalPath": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14300-0b89-7203-9229-f4f2b07417b4\\exec-323a51d3-7d92-42c5-b096-43c5eb95c169.png",
+      "prompt": "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v3-rear-outlet\\prompts\\happy.txt",
+      "referencePaths": [
+        "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v1\\happy.png",
+        "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v3-rear-outlet\\idle.png"
+      ],
+      "referenceSha256": [
+        "8ea7b980d272902862aeae101d2f6e0b21f0b42720aece42af9886e23f05643a",
+        "2d722617b4f36772f3785b5bb206c79f61631ed4c99847ef76f51f915607d40e"
+      ],
+      "promptSha256": "b5fbc66fb8003d5e947b6aa310cb64c73dc0e56251d6c28685ab7e8e5bc5a6cc",
+      "completeSharedInvariantsIncluded": true,
+      "sha256": "12441a4677dd45c0b79e6a4e3445405b755bda9eb1ba837b9b7880640ff1e6d5",
+      "sourceSha256": "12441a4677dd45c0b79e6a4e3445405b755bda9eb1ba837b9b7880640ff1e6d5",
+      "byteIdenticalToGeneratedSource": true,
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "bytes": 1840565,
+      "alphaBounds": {
+        "1": [
+          41,
+          47,
+          1006,
+          1458
+        ],
+        "16": [
+          117,
+          91,
+          983,
+          1456
+        ],
+        "128": [
+          118,
+          92,
+          981,
+          1455
+        ],
+        "250": [
+          120,
+          94,
+          979,
+          1454
+        ]
+      },
+      "bboxConvention": "left, top, right-exclusive, bottom-exclusive",
+      "visibleCharacterHeight": 1365,
+      "visibleMargins": {
+        "left": 117,
+        "top": 91,
+        "right": 41,
+        "bottom": 80
+      },
+      "maxEdgeAlpha": 0,
+      "maxEdgeAlphaBySide": {
+        "top": 0,
+        "bottom": 0,
+        "left": 0,
+        "right": 0
+      },
+      "edgePixelsAlpha16": 0,
+      "nativeImageReviewStatus": "no-clear-structural-regression-observed",
+      "visualReview": {
+        "posePreservation": "Crescent smiling eyes, small open smile, four fingers plus side thumb waving, and opposite hanging hand retained. Selected attempt restores framing near original happy size without observed hand regression.",
+        "tail": "Substantial first visible tail segment is above the lower green skirt stripe behind lower hair/forearm. One continuous outward-then-down C ends in a soft taper; the under-hem region beside the thigh is clear."
+      },
+      "realCompositeReviewStatus": "pending-root-unified-browser-review",
+      "selectedAttempt": 2,
+      "attempts": [
+        {
+          "attempt": 1,
+          "sourceOriginalPath": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14300-0b89-7203-9229-f4f2b07417b4\\exec-c531eb5d-5afe-4ee7-ae84-f4cb3d13f0f5.png",
+          "prompt": "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v3-rear-outlet\\prompts\\happy-attempt1.txt",
+          "referencePaths": [
+            "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v1\\happy.png",
+            "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v3-rear-outlet\\idle.png"
+          ],
+          "sha256": "82431b51562c17e33933b73ef1c9e802ea2de32636235fe252912de926b5d821",
+          "selected": false,
+          "reason": "Tail route and hands were usable but figure was enlarged relative to the original happy framing: top margin 10 px, visible height 1449 px."
+        },
+        {
+          "attempt": 2,
+          "sourceOriginalPath": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14300-0b89-7203-9229-f4f2b07417b4\\exec-323a51d3-7d92-42c5-b096-43c5eb95c169.png",
+          "prompt": "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v3-rear-outlet\\prompts\\happy.txt",
+          "referencePaths": [
+            "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v1\\happy.png",
+            "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v3-rear-outlet\\idle.png"
+          ],
+          "sha256": "12441a4677dd45c0b79e6a4e3445405b755bda9eb1ba837b9b7880640ff1e6d5",
+          "selected": true,
+          "reason": "Same required high side-emerging rear-outlet route with restored framing: top91/right41/bottom80 px, visible height1365 px; no observed gesture or hand regression."
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "A frontal illustration cannot expose the hidden posterior attachment itself; acceptance concerns a coherent high first-visible segment and rear occlusion.",
+    "Generative editing preserves the intended pose and visible details but does not guarantee pixel-identical preservation outside the requested tail area.",
+    "Final browser light/dark compositing and cross-pose display alignment are coordinated by the root agent; this report records native-image review only.",
+    "Affection top alpha16 margin is28px, with no alpha16 edge contact; report the actual framing rather than claiming uniform margins."
+  ]
+}

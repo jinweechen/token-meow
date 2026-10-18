@@ -1,0 +1,368 @@
+{
+  "schemaVersion": 1,
+  "recordedAtUtc": "2026-10-15T20:25:52.444042+00:00",
+  "kind": "C16-query-lifecycle-browser-IPC-scoped-independent-audit",
+  "status": "passed-scoped-browser-IPC-observations",
+  "executor": "/root",
+  "readonlyAuditor": "/root/ledger",
+  "scope": "Existing Browser IPC fixture records for real final React App, bridge.ts and existing ViewRefreshLoop; synthetic four-row returned DTOs and synthetic visibility/runtime events. No new browser/test/product execution by auditor.",
+  "candidate": {
+    "buildReceipt": "output/build-candidates/c16-query-lifecycle-20261016/build-receipt.json",
+    "buildReceiptSha256": "63D3985F1BA9983BFD9246467A82115DAF1CD20B3D8295DCF0C6153439351A03",
+    "exeSha256FromRetainedBuildReceipt": "3FAA533A847BB011F85A4E63D9CFF769F9C0CD8EBF0199DD7C4550995937580B",
+    "binaryNotLaunchedOrRehashedByAuditor": true,
+    "bundleExecutionProvenByBrowser": false,
+    "AppSha256": "B000BBA0342A0FE43176793642FEFEC5A6392850372E47DECEA4C7602106C8E2",
+    "originalStageManifestSha256": "52CD22D203128563D3F91378B6166A9E73D607CB0B2A560F6DFDD76A119099BC",
+    "originalStageAppSha256": "D122B78BAD466514F9E50D4BE4349DC697D1D3FA33F000DC5F0400EFAB8C83C1",
+    "stagedToFinalAppDelta": {
+      "onlyCopyReplacement": true,
+      "removed": [
+        "统计范围更新中，等待此范围的查询结果；上一范围数字暂不展示。",
+        "查询完成不代表来源已有新的采集。"
+      ],
+      "added": "正在更新所选范围的数据…",
+      "originalStageAndTargetedReceiptsUnchanged": true
+    },
+    "threeInputStages": {
+      "filesEach": 568,
+      "allRowsBytesAndShaEqual": true,
+      "sourceDriftEach": [],
+      "beforeSha256": "2E85DEA8897A6E0F46DBB766C3E6594EA90566F2E1F80ED64873DCD4FE51B9D6",
+      "afterAppSha256": "0E8DF16197BFE10DBD185F496B267240ABE1444D4EE43BF21821AC0E11404AB4",
+      "afterSha256": "5D866A7077E1D550FB8BB42B348723679A273E36D061150C5F0EF6E554C030D1"
+    },
+    "changesFromC15": [
+      "src/App.tsx",
+      "src/shared/contracts.test.ts",
+      "src/shared/filters.ts",
+      "src/shared/queryLifecycle.test.ts",
+      "src/shared/queryLifecycle.ts",
+      "src/shared/sessionFilter.test.ts"
+    ],
+    "RustContractAssetsDependenciesLegalUnchangedFromC15": true,
+    "legalManifestSha256": "BF837CE89CD74AAF1D64FE3D202E1DC4F06F949DEF661DB8697C61AC7356FD36",
+    "legalResourcesRetained": 467,
+    "currentSmallSourceBindings": [
+      {
+        "path": "src/App.tsx",
+        "currentSha256": "B000BBA0342A0FE43176793642FEFEC5A6392850372E47DECEA4C7602106C8E2",
+        "stagedSha256": "D122B78BAD466514F9E50D4BE4349DC697D1D3FA33F000DC5F0400EFAB8C83C1",
+        "matchesCandidateManifest": true
+      },
+      {
+        "path": "src/shared/filters.ts",
+        "currentSha256": "234E32D604BBD78D150262B3E6467BD3EFEB3A27EE434153CBAE33EB42AD07E1",
+        "stagedSha256": "234E32D604BBD78D150262B3E6467BD3EFEB3A27EE434153CBAE33EB42AD07E1",
+        "matchesCandidateManifest": true
+      },
+      {
+        "path": "src/shared/contracts.test.ts",
+        "currentSha256": "58314E8896750F4796F223974216E35C27D849C878F9BA4F68BF0B42B477C377",
+        "stagedSha256": "58314E8896750F4796F223974216E35C27D849C878F9BA4F68BF0B42B477C377",
+        "matchesCandidateManifest": true
+      },
+      {
+        "path": "src/shared/queryLifecycle.ts",
+        "currentSha256": "038E7A90164F55DE99C20981EDC300A38393977EB6CF3E63AB2D13E013E0072A",
+        "stagedSha256": "038E7A90164F55DE99C20981EDC300A38393977EB6CF3E63AB2D13E013E0072A",
+        "matchesCandidateManifest": true
+      },
+      {
+        "path": "src/shared/queryLifecycle.test.ts",
+        "currentSha256": "77D547D22EAF520977847D85FE2E77E03786E0A0597CB04FBF799DD50ED59BCF",
+        "stagedSha256": "77D547D22EAF520977847D85FE2E77E03786E0A0597CB04FBF799DD50ED59BCF",
+        "matchesCandidateManifest": true
+      },
+      {
+        "path": "src/shared/sessionFilter.test.ts",
+        "currentSha256": "79059299B377373747F71601B03B21F093DC2F2379C3E0653B74B4C60C663EE1",
+        "stagedSha256": "79059299B377373747F71601B03B21F093DC2F2379C3E0653B74B4C60C663EE1",
+        "matchesCandidateManifest": true
+      }
+    ]
+  },
+  "auditChecks": {
+    "candidate_three_stage568_zero_drift": true,
+    "candidate_receipt_exact_manifests": true,
+    "only_reviewed_six_frontend_paths_differ_from_C15": true,
+    "six_current_sources_match_candidate": true,
+    "final_App_delta_is_only_one_copy_replacement": true,
+    "original_browser_fixture_bytes_unchanged": true,
+    "official_mock_entry_before_real_App": true,
+    "final_fixture_error_arrays_empty_and_no_held_reply": true,
+    "main_default7_pet_default1": true,
+    "main_late_replies_both_directions_mask_old_values": true,
+    "today_boundaries_forward_and_rollback": true,
+    "thirty_day_boundaries_forward_and_rollback": true,
+    "custom_preserved_with_no_queries_during_three_synthetic_hidden_modes": true,
+    "automatic_hidden_resume_preserves_source_session_and_rebinds_dates": true,
+    "selected_source_B_same_thread_is_explicit": true,
+    "tools_B_actual_snapshot": true,
+    "inbox_B_actual_snapshot": true,
+    "stale_wrong_inbox_snapshot_is_tools_not_counted": true,
+    "empty_results_keep_explicit_clearable_selection": true,
+    "clearing_session_and_switching_source_remove_old_detail_scope": true,
+    "private_option_text_hides_fixture_title_path_and_thread": true,
+    "late_old_scope_cannot_repopulate_current_Inbox": true,
+    "csv_uses_current_query_while_old_all_scope_is_held": true,
+    "pet_today_clock_boundaries_and_late_card_mask": true,
+    "all_console_errors_warnings_preserved": true,
+    "three_setup_guard_failures_preserved": true,
+    "retained_targeted15_receipt_matches": true,
+    "owner_original_targeted_command_exit_and_stdout_match": true,
+    "owner_cleanup_metadata_matches_close_log": true
+  },
+  "auditDiscrepancies": [],
+  "environment": {
+    "officialMock": "@tauri-apps/api2.11.1 mockIPC(callback,{shouldMockEvents:true}) and mockWindows before import(/src/main.tsx)",
+    "fixtureSnapshotHasQueryEcho": false,
+    "lateRepliesResolveOriginalCapturedSnapshot": true,
+    "fixedDateOnly": true,
+    "timers": "Existing App/ViewRefreshLoop3000ms scheduler remains actual; no timer acceleration or new polling loop asserted",
+    "fixtureSources": 2,
+    "sameRawThreadIdAcrossBothSources": "same-thread",
+    "authoredResponseRows": 4,
+    "actualCoreOrAccountServiceCalls": 0,
+    "historicalPromptsEligible": false,
+    "workCareEnabled": false,
+    "reducedMotion": true,
+    "scopeBannerPresent": true
+  },
+  "demonstrated": [
+    {
+      "area": "F01 automatic preset lifecycle",
+      "evidence": [
+        "main-late-replies-result.log",
+        "main-today-boundaries-result.log",
+        "main-30day-boundaries-result.log",
+        "main-automatic-resume-result.log"
+      ],
+      "claim": "Main7/today/30day and pet today bind current Shanghai dates under forward/rollback fixed Date; old replies are fenced and old-scope numeric views are masked until current reply."
+    },
+    {
+      "area": "Custom and synthetic visibility",
+      "evidence": [
+        "main-custom-visibility-result.log",
+        "main-custom-visibility.js"
+      ],
+      "claim": "For each synthetic native-visible, runtime-paused and document-hidden branch, snapshot call count remained70/71/72 respectively across the scripted3300ms wait and ledger emit. Custom10/15 bounds persisted on recovery. This is not Windows lock/suspend evidence."
+    },
+    {
+      "area": "F04 global source+session entry",
+      "evidence": [
+        "main-selected-b-result.log",
+        "tools-b.snapshot.log",
+        "inbox-b-actual.snapshot.log",
+        "inbox-empty-selection-result.log",
+        "inbox-cleared-query-result.log",
+        "source-switch-cleared-result.log"
+      ],
+      "claim": "sourceB+same-thread is explicit in real bridge query, overview renders1.2K/2 recorded responses, tool table has2 fixture rows and actual Inbox has2B articles. Empty results retain selected identity; clear removes thread but keeps source, source switch clears stale detail filters."
+    },
+    {
+      "area": "Privacy and stale source reply",
+      "evidence": [
+        "privacy-options-result.log",
+        "filter-late-reply-privacy-result.log"
+      ],
+      "claim": "Visible option text omits artificial private title/path/thread ID, while encoded option values preserve identity. Old all-source reply cannot repopulate current held B Inbox; pending has0articles, settled2."
+    },
+    {
+      "area": "CSV query plumbing/cancellation UI only",
+      "evidence": [
+        "csv-current-scope-pending-result.log",
+        "main-final-observations.log"
+      ],
+      "claim": "Recorded export_csv159 carries currentB/thread/from10-10/to10-16 while old all-source snapshot158 remains held; null fixture return does not show saved success. Actual button click is executor-reported; retained IPC/DOM values independently reviewed. No Save dialog or file existed in this fixture."
+    },
+    {
+      "area": "Pet small card",
+      "evidence": [
+        "setup-pet-result.log",
+        "pet-card-before.snapshot.log",
+        "pet-dates-and-late-card-result.log",
+        "pet-card-current-pending.png",
+        "pet-card-current-settled.png"
+      ],
+      "claim": "Today switches10/15↔10/16, pending old-reply settlement shows更新中 for stats/inbox count; current10/16 settles990/38.9%, latestTTFT remains未提供. Browser transparent computed backgrounds do not prove OS transparency."
+    }
+  ],
+  "screenshotsIndependentlyViewed": [
+    {
+      "file": "inbox-empty-selection.png",
+      "reviewer": "/root/ledger via view_image",
+      "observation": "Inbox visibly empty, source2 and explicit selected-session label retained; no claim this screenshot proves privacy mode."
+    },
+    {
+      "file": "pet-card-current-pending.png",
+      "reviewer": "/root/ledger via view_image",
+      "observation": "Small card numeric/TTFT/inbox fields show更新中; account remains来源未提供."
+    },
+    {
+      "file": "pet-card-current-settled.png",
+      "reviewer": "/root/ledger via view_image",
+      "observation": "Small card shows today990/cache38.9%/TTFT未提供/inbox2; account remains来源未提供."
+    }
+  ],
+  "retainedUnsuccessfulAttempts": {
+    "setupGuardFailures": [
+      "setup-main-final-copy-result.log",
+      "setup-main-final-copy-retry-result.log",
+      "setup-main-final-copy-diagnostic-result.log"
+    ],
+    "cause": "Unique exact /src/main.tsx guard rejected Vite timestamp query. Diagnostic retained actual/src/main.tsx?t=1792094910467; fixed setup allows only optional?t=digits and requires exactly one entry; real main module is not replaced recursively.",
+    "wrongInboxSnapshot": {
+      "file": "inbox-b.snapshot.log",
+      "actuallyTools": true,
+      "identicalTo": "tools-b.snapshot.log",
+      "countedAsInboxProof": false,
+      "executorReportedCause": "two stale Playwright refs; actual full Inbox snapshot subsequently captured separately"
+    },
+    "buildFinalizationHelper": {
+      "file": "output/build-candidates/c16-query-lifecycle-20261016/artifact-finalization-first-attempt.json",
+      "scope": "Retained receipt-only timestamp alias NameError after successful builds; not treated as a browser/product failure or source change."
+    }
+  },
+  "consoleAndFinalState": {
+    "mainConsole": {
+      "errors": 3,
+      "warnings": 19
+    },
+    "petConsole": {
+      "errors": 3,
+      "warnings": 1
+    },
+    "errorCategory": "Retained Vite HMR websocket ERR_BLOCKED_BY_LOCAL_NETWORK_ACCESS_CHECKS and connect failure; not suppressed.",
+    "warningCategory": "Retained official Tauri mock callback-ID warnings; README documents installed eventId/id unlisten mismatch. No production subscription/leak claim derives from mock callback counts.",
+    "mainFinalFixtureErrors": [],
+    "petFinalFixtureErrors": [],
+    "mainFinalPending": [],
+    "petFinalPending": [],
+    "finalMainCalls": 181,
+    "finalPetCalls": 31,
+    "warningFreeClaimed": false
+  },
+  "retainedTargetedEvidence": {
+    "receipt": "docs/acceptance/c16-query-lifecycle-targeted-2026-10-16.json",
+    "sha256": "EDEED67BC17097F64A4E2794C38C0FD7DB5155ECCC5F5EB87F861D4FC2E370B0",
+    "passed": 15,
+    "newCases": 8,
+    "retainedCases": 7,
+    "rerunByThisAuditor": false,
+    "typecheckExecutionMetadata": "output/implementation/c16-query-lifecycle-d47b5cccd46b417e87c951fbe799b8fd/typecheck-execution.json",
+    "typecheckEvidenceSupplement": "output/implementation/c16-query-lifecycle-d47b5cccd46b417e87c951fbe799b8fd/typecheck-audit-supplement.json",
+    "emptySuccessfulTypecheckOutputNotFabricated": true,
+    "finalB000BeforeBuildTypecheck": "C16 build receipt separately records fresh beforeBuild tsc/Vite exit0; this audit did not rerun.",
+    "originalExecutionSupplement": {
+      "path": "output/implementation/c16-query-lifecycle-d47b5cccd46b417e87c951fbe799b8fd/targeted-execution-final-copy.json",
+      "sha256": "032465E94275B447F344EFA54A169478D6635896A668380C275C8FCF1B8BD77A",
+      "originalToolChunk": "a96d3d",
+      "exactCommand": "node node_modules/tsx/dist/cli.mjs --test src/shared/queryLifecycle.test.ts src/shared/sessionFilter.test.ts src/shared/contracts.test.ts src/shared/viewRefreshLoop.test.ts",
+      "exitCode": 0,
+      "noRerun": true
+    }
+  },
+  "cleanup": {
+    "browserCloseLog": "Browser 'c16-query-20261016' closed",
+    "browserCloseOwnerTool": "root reported e7e599",
+    "ViteOwnerTool": "root reported CtrlC tool57cfde, process66167 exit1",
+    "cleanupExecutedByAuditor": false,
+    "ownerOriginalExecutionReceipt": {
+      "path": "output/playwright/c16-query-integration-20261016/cleanup-receipt.json",
+      "sha256": "9DFDA0D40E3FEFF3E5F0243E931252622BFCDEF8197B33AD3F219E9F027D9D56",
+      "closeCommandExitCode": 0,
+      "devServerExitCode": 1,
+      "allDescendantProcessExitIndependentlyProven": false
+    }
+  },
+  "evidenceSha256": {
+    "docs/acceptance/c16-query-lifecycle-targeted-2026-10-16.json": "EDEED67BC17097F64A4E2794C38C0FD7DB5155ECCC5F5EB87F861D4FC2E370B0",
+    "output/build-candidates/c16-query-lifecycle-20261016/artifact-finalization-first-attempt.json": "0128710AE429607FED3885D3830EC9199700D600EFDA10C19C502E1629FEB85B",
+    "output/build-candidates/c16-query-lifecycle-20261016/build-receipt.json": "63D3985F1BA9983BFD9246467A82115DAF1CD20B3D8295DCF0C6153439351A03",
+    "output/build-candidates/c16-query-lifecycle-20261016/production-inputs-after-app.json": "0E8DF16197BFE10DBD185F496B267240ABE1444D4EE43BF21821AC0E11404AB4",
+    "output/build-candidates/c16-query-lifecycle-20261016/production-inputs-after.json": "5D866A7077E1D550FB8BB42B348723679A273E36D061150C5F0EF6E554C030D1",
+    "output/build-candidates/c16-query-lifecycle-20261016/production-inputs-before.json": "2E85DEA8897A6E0F46DBB766C3E6594EA90566F2E1F80ED64873DCD4FE51B9D6",
+    "output/implementation/c16-query-lifecycle-d47b5cccd46b417e87c951fbe799b8fd/applied-receipt.json": "EDF84E27A7AE2CDB3CA747A084987098FEB7A69C7B893B7B0F75A5D4DC9AACB0",
+    "output/implementation/c16-query-lifecycle-d47b5cccd46b417e87c951fbe799b8fd/changes.patch": "6DCC67D852DCA30BA26C3ECE7D345EBE8B4B5DA38150F3856DE1FDBB5C2637C0",
+    "output/implementation/c16-query-lifecycle-d47b5cccd46b417e87c951fbe799b8fd/manifest.json": "52CD22D203128563D3F91378B6166A9E73D607CB0B2A560F6DFDD76A119099BC",
+    "output/implementation/c16-query-lifecycle-d47b5cccd46b417e87c951fbe799b8fd/targeted-tests.log": "4485B9A0CF541A2CDD9632FC9EC217D7617D649A0A111EA21B6C5EF4A7F9EC6B",
+    "output/implementation/c16-query-lifecycle-d47b5cccd46b417e87c951fbe799b8fd/typecheck-audit-supplement.json": "C83C381CB93A9F938D4974CA4D89452AE6B23A3A9E861FEC4D99AED06BA69796",
+    "output/implementation/c16-query-lifecycle-d47b5cccd46b417e87c951fbe799b8fd/typecheck-execution.json": "37F2B7EA0DDA32FA54C6FE98167496E82E7A0BC0B21803D755E0C8E62215C767",
+    "output/playwright/c16-query-integration-20261016/automatic-preset-boundaries.js": "44150A6AD50BF5B872161D00F84A58B3BE842AD1ECDC661EB5989B3CA3CB9452",
+    "output/playwright/c16-query-integration-20261016/bootstrap.js": "1569B5B135C7E2B975321D78EBE7C0CDBD2A84BF4088C23ADC4F167DEECBADAB",
+    "output/playwright/c16-query-integration-20261016/browser-close.log": "84C57F80ADBAED0A5D29749FF8F576A8D2F3CCF36251A1324D40C0E6B602AAC8",
+    "output/playwright/c16-query-integration-20261016/cleanup-receipt.json": "9DFDA0D40E3FEFF3E5F0243E931252622BFCDEF8197B33AD3F219E9F027D9D56",
+    "output/playwright/c16-query-integration-20261016/csv-current-scope-pending-result.log": "2B039638F92DC5AD59C58D12D2BB20DACAA017E99136775625F0B8A6A52AEA5D",
+    "output/playwright/c16-query-integration-20261016/filter-late-reply-privacy-result.log": "0527CBC04AC60EFFB87CD04DE062A3DE7B80B4B9F682769BD3449CE8991DD94E",
+    "output/playwright/c16-query-integration-20261016/filter-late-reply-privacy.js": "646A15B39A312790BDB0835922357A106DEB4C480E767FE31C8157963E91623E",
+    "output/playwright/c16-query-integration-20261016/inbox-b-actual.snapshot.log": "33F095D168513CB5942C68967B295BE6CD37917D7B1EEB88DBE36B092EB28D64",
+    "output/playwright/c16-query-integration-20261016/inbox-b.snapshot.log": "770DE22A8469A37DA9E1457CE82CF213142601EAC6EB1E3ECE7EB932DD4B1CB2",
+    "output/playwright/c16-query-integration-20261016/inbox-clear-selection.log": "9CD547815A36FCF4A1D3FCFDA87ED91C241A53B4D9E398E032EE672C18FA5B11",
+    "output/playwright/c16-query-integration-20261016/inbox-cleared-query-result.log": "BC2EEF0ECD3C4FC7DCCB6250FF9F075364A17B698AD60B69A5C8B5F15D2AA0A9",
+    "output/playwright/c16-query-integration-20261016/inbox-empty-selection-result.log": "DB564C007623C159177C21459035DB9B242FA822667E79B213469D4A4FDB49C9",
+    "output/playwright/c16-query-integration-20261016/inbox-empty-selection.js": "7BA964641BAEAD2DB1F37C7E4ED18D3EAE65B545326BD47DE3087D3E0A7E91E1",
+    "output/playwright/c16-query-integration-20261016/inbox-empty-selection.png": "F8C4E27CDCF1D9926B435C45826BC99C1D04EC56EDFC8EC2CBDCAEAF72A31E87",
+    "output/playwright/c16-query-integration-20261016/main-30day-boundaries-result.log": "1F74560B82C99C9ED394F76B3FB405D81B0EEDFAD18ACBB26EF22941C5228A4E",
+    "output/playwright/c16-query-integration-20261016/main-automatic-resume-result.log": "FFA20F159B93CD810B96624C3D9BCD2FA557919072836C3E4FD945783BDC5E70",
+    "output/playwright/c16-query-integration-20261016/main-automatic-resume.js": "7E3A551D388F77CA440FBCC0C8170D23DB0FF45D49094ADD92B6D8F24F6170BE",
+    "output/playwright/c16-query-integration-20261016/main-before-midnight.snapshot.log": "5DA416BEDB026FA79A23D21532B765D4C09C941B501E8AADF710421368B13438",
+    "output/playwright/c16-query-integration-20261016/main-console.log": "9EC53D367978CCD79E71F8C8266235D25101C9DDEF19CA526F092B8D0289D2DD",
+    "output/playwright/c16-query-integration-20261016/main-custom-visibility-result.log": "70898AA1AEC1326441197D8AF8EC988ED2419B5338FE6AAF02C46D0A7ED74B72",
+    "output/playwright/c16-query-integration-20261016/main-custom-visibility.js": "5A41F539F98A686A965CBF2A33887FE8DBEEB94D919AFCCC4A5916ED05FBC338",
+    "output/playwright/c16-query-integration-20261016/main-final-copy-before-filters.snapshot.log": "93A898E86B0A608EC80872E7072894A520B02EC175B0A79BB27DE32FD7757C2E",
+    "output/playwright/c16-query-integration-20261016/main-final-observations.log": "376376AF52145ABFF58986CDD143CD7F173172971A1378C9A5CC2FBF16F8177E",
+    "output/playwright/c16-query-integration-20261016/main-late-replies-result.log": "C021FD081197652A8261F17DC668A8D4656E3A46B474E0E1429EB774E73036F7",
+    "output/playwright/c16-query-integration-20261016/main-late-replies.js": "7FF7E972E68BC40DF3EDC64B2348293DC4D42BCFB55D42A23303D5AAA2EF67C9",
+    "output/playwright/c16-query-integration-20261016/main-midnight-result.log": "CF4F78B656BAF661E1E5A6EE3E5A2F5CB3CA8D628D7671F3A98C357E0A069F77",
+    "output/playwright/c16-query-integration-20261016/main-midnight.js": "F3145DF2785F38D21A862A4B9C7E3662252124974D1FCEE62329905AA09F8289",
+    "output/playwright/c16-query-integration-20261016/main-select-b.log": "2086A518DFE6ADA5DD338A3867AD47AD5F31447D41EC2BF2E30EC5F2058FDC76",
+    "output/playwright/c16-query-integration-20261016/main-selected-b-result.log": "F1A032DBC7F164CAF32B4E34468933668A32709F28F7AFD2798A3D170C8C973A",
+    "output/playwright/c16-query-integration-20261016/main-today-before-result.log": "20C2A8FBBB8929248BB97184425B92312BDC36A0C19A57F705537D9A3BB406A7",
+    "output/playwright/c16-query-integration-20261016/main-today-boundaries-result.log": "BBECD7D34096C3B7978535F28EBB7E0B898E47914B899FE3EE0B4D34F75C759F",
+    "output/playwright/c16-query-integration-20261016/main-today-click.log": "EEE3EE19E526DAA97AFA7C1B4CFEAA8EF2BECCDABC913CA961D715CCF71C0BB0",
+    "output/playwright/c16-query-integration-20261016/pet-card-before.snapshot.log": "D377FF0643EDAC5019A11A9BEA61A0D2FBAA87E421FDA67A08D2B3405D23FACE",
+    "output/playwright/c16-query-integration-20261016/pet-card-current-pending.png": "ABA7B2013C9AFB089F98AD76DC8BF2E63167E7540C2B973B052995FB712A6B47",
+    "output/playwright/c16-query-integration-20261016/pet-card-current-settled.png": "559C11CD53D4EA83539F2ABDE4C9315115BCCB8A2D395387C4341CBAEE6DFC98",
+    "output/playwright/c16-query-integration-20261016/pet-console.log": "9CBEB488F48D1E7FA856FC41C4DBADE699F920A0ACFC6B0BB7DA31BAA7548FDF",
+    "output/playwright/c16-query-integration-20261016/pet-dates-and-late-card-result.log": "DE884157FCA085F0CC6579FFB27EA2617DC961B592DD9E133FCA78ECE2B9D6AE",
+    "output/playwright/c16-query-integration-20261016/pet-dates-and-late-card.js": "21A2A6460BD4EE4E47F33A87F96D35AD3B95511CCAF7B8296C82FBB96C132A7C",
+    "output/playwright/c16-query-integration-20261016/pet-final-observations.log": "EB317009E9A4F4B3F2E3E9F1F69172511EF1E95526EFFDD3F3732462A498069D",
+    "output/playwright/c16-query-integration-20261016/preparation-receipt.json": "B4BADA149463399C9AA08C4B685075810171DBD7F6282A26991473250AA80CEE",
+    "output/playwright/c16-query-integration-20261016/privacy-options-result.log": "6EF345325B2D0D2885399B71D76413C3EC9AD37E71EC2FCE7070103481FB7203",
+    "output/playwright/c16-query-integration-20261016/README.md": "1EAF3F0EC8FB878674E7770B7D65C82B3929D19549086200CF8D72BA5D2F2390",
+    "output/playwright/c16-query-integration-20261016/setup-main-final-copy-diagnostic-result.log": "C4E4352EA39C132244DC1036D38A44EAF65AEC10F07AE6122FB05E2B585A2826",
+    "output/playwright/c16-query-integration-20261016/setup-main-final-copy-fixed-result.log": "D58EC6ED57FCF348BFCEA526AB507201577C27C45FD442956981BB236B7638AB",
+    "output/playwright/c16-query-integration-20261016/setup-main-final-copy-result.log": "46819E7E9482F64878D3DFE07D368FA0260961176ED26FC190EAADFDA16063BC",
+    "output/playwright/c16-query-integration-20261016/setup-main-final-copy-retry-result.log": "46819E7E9482F64878D3DFE07D368FA0260961176ED26FC190EAADFDA16063BC",
+    "output/playwright/c16-query-integration-20261016/setup-main-result.log": "4CA11ACFAA6365B7C448D02D8A3104D3EDC3EBD6B0F57C8740543F53033379AB",
+    "output/playwright/c16-query-integration-20261016/setup-main.js": "C146B5975695C29F92F72A59420D8A5EE166217FA56B07A7ACC4E73F744E890F",
+    "output/playwright/c16-query-integration-20261016/setup-pet-result.log": "75665A991B585DBD8BFF07A515D2D88EB48FBEF903EC9ECA4120FB2DC76AAF8C",
+    "output/playwright/c16-query-integration-20261016/setup-pet.js": "8EC40343BC8635D5EC928128AFCF89A0C213294B08E49F0ABA27CBF27B7DF471",
+    "output/playwright/c16-query-integration-20261016/source-switch-cleared-result.log": "7BDB521B18E4B556777602115F3A6A48622BFDADD35818AA0376083CA5CD6171",
+    "output/playwright/c16-query-integration-20261016/tools-b.snapshot.log": "770DE22A8469A37DA9E1457CE82CF213142601EAC6EB1E3ECE7EB932DD4B1CB2",
+    "output/implementation/c16-query-lifecycle-d47b5cccd46b417e87c951fbe799b8fd/targeted-execution-final-copy.json": "032465E94275B447F344EFA54A169478D6635896A668380C275C8FCF1B8BD77A"
+  },
+  "wholeF04CompleteClaimed": false,
+  "wholeM4Qualified": false,
+  "CoreOrRustQualifiedByThisReceipt": false,
+  "NativeOrOperatingSystemQualified": false,
+  "actualCsvSaveOrFileQualified": false,
+  "accountQualified": false,
+  "resourceOrLatencyQualified": false,
+  "limitations": [
+    "Browser uses authored finite DTOs, official mock IPC and synthetic events; it does not validate Rust/Core filtering or source collection.",
+    "Clock Date is synthetic and timers run normally; not a real continuous operating-system midnight, sleep or Windows visibility test.",
+    "F04 primary/subagent global classification remains unimplemented/unverified and is outside these two repairs; existing local tabs are not counted as global completion.",
+    "Candidate is linked by source manifests/build receipt; this dev-browser source execution is not a native EXE/bundle/installer launch.",
+    "Actual CSV click is root execution provenance plus recorded export IPC; cancellation null is a fixture, not native dialog cancellation/no-write or CSV byte/Excel proof.",
+    "Setup failures, wrong-page snapshot, all console errors/warnings and prior C15deadline/C14memory/C13lifecycle failures remain unchanged.",
+    "No new350/600MiB, idleCPU, warm startup, visibleincrementP95, native30+30, installed upgrade/uninstall or whole-release qualification."
+  ],
+  "authoringProvenanceSupplement": {
+    "receivedBeforeFinalAuditDelivery": true,
+    "initialAuditDraftPreservedAt": "output/playwright/c16-query-integration-20261016/independent-browser-audit-initial-before-provenance.json",
+    "initialAuditDraftSha256": "6338896EEC83EFAB6889240EA772BE8591AEEBF355CA870A565B2C493951B85F",
+    "newEvidence": "Two small root original-execution metadata receipts arrived after initial authoring. No test/browser/cleanup rerun, prior source/unit/build/failure receipt modified."
+  }
+}

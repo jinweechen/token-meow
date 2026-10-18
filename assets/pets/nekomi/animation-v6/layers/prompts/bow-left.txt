@@ -1,0 +1,4 @@
+Use case: background-extraction / precise-object-edit.
+Input image 1 is the exact edit target and master coordinate reference.
+Create ONE isolated production rig layer as a transparent PNG. Keep the exact original 1024 x 1536 canvas, scale, front camera and ORIGINAL PIXEL POSITION. Do not crop, zoom, recenter or enlarge the isolated piece to fill the canvas. The empty remaining canvas must be truly transparent. Preserve delicate polished anime linework, exact colors and shape of this character. No labels, guides, shadows or background. This will be stacked with other same-canvas layers.
+ONLY the small green ribbon bow ornament on the LEFT SIDE OF IMAGE, with one centered small white daisy and yellow center. Exact original twin-loop bow with two ribbon tails and matching folds. Its silhouette approx x257..362,y202..309. No hair strands, no ears, no face, no other bow or parts. Do not alter design, flower petal count or ribbon style. One complete hair ornament.

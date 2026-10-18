@@ -1,0 +1,186 @@
+{
+  "schemaVersion": 1,
+  "recordedAtUtc": "2026-10-15T20:06:39.5976992Z",
+  "kind": "c16-query-lifecycle-global-session-targeted-validation",
+  "status": "targeted-unit-log-passed-typecheck-owner-reported",
+  "scope": "Guarded six-path frontend application; fixed-clock query state and existing scheduler/filter unit tests only; independent read-only log/source audit",
+  "executionOwner": "/root",
+  "readonlyAuditor": "/root/frontend",
+  "applicationReceipt": {
+    "path": "output/implementation/c16-query-lifecycle-d47b5cccd46b417e87c951fbe799b8fd/applied-receipt.json",
+    "sha256": "EDF84E27A7AE2CDB3CA747A084987098FEB7A69C7B893B7B0F75A5D4DC9AACB0",
+    "reportedExpectedSha256": "EDF84E27A7AE2CDB3CA747A084987098FEB7A69C7B893B7B0F75A5D4DC9AACB0",
+    "ownerRecordedBeforeAndDependencyGuards": true
+  },
+  "frozenManifest": {
+    "path": "output/implementation/c16-query-lifecycle-d47b5cccd46b417e87c951fbe799b8fd/manifest.json",
+    "sha256": "52CD22D203128563D3F91378B6166A9E73D607CB0B2A560F6DFDD76A119099BC",
+    "modified": false,
+    "historicalPreparedStatusRetained": true
+  },
+  "frozenPatch": {
+    "path": "output/implementation/c16-query-lifecycle-d47b5cccd46b417e87c951fbe799b8fd/changes.patch",
+    "sha256": "6DCC67D852DCA30BA26C3ECE7D345EBE8B4B5DA38150F3856DE1FDBB5C2637C0",
+    "modified": false
+  },
+  "currentProductionSourceBindings": [
+    {
+      "path": "src/App.tsx",
+      "sha256": "D122B78BAD466514F9E50D4BE4349DC697D1D3FA33F000DC5F0400EFAB8C83C1",
+      "stagedSha256": "D122B78BAD466514F9E50D4BE4349DC697D1D3FA33F000DC5F0400EFAB8C83C1",
+      "matchesStaged": true
+    },
+    {
+      "path": "src/shared/filters.ts",
+      "sha256": "234E32D604BBD78D150262B3E6467BD3EFEB3A27EE434153CBAE33EB42AD07E1",
+      "stagedSha256": "234E32D604BBD78D150262B3E6467BD3EFEB3A27EE434153CBAE33EB42AD07E1",
+      "matchesStaged": true
+    },
+    {
+      "path": "src/shared/contracts.test.ts",
+      "sha256": "58314E8896750F4796F223974216E35C27D849C878F9BA4F68BF0B42B477C377",
+      "stagedSha256": "58314E8896750F4796F223974216E35C27D849C878F9BA4F68BF0B42B477C377",
+      "matchesStaged": true
+    },
+    {
+      "path": "src/shared/queryLifecycle.ts",
+      "sha256": "038E7A90164F55DE99C20981EDC300A38393977EB6CF3E63AB2D13E013E0072A",
+      "stagedSha256": "038E7A90164F55DE99C20981EDC300A38393977EB6CF3E63AB2D13E013E0072A",
+      "matchesStaged": true
+    },
+    {
+      "path": "src/shared/queryLifecycle.test.ts",
+      "sha256": "77D547D22EAF520977847D85FE2E77E03786E0A0597CB04FBF799DD50ED59BCF",
+      "stagedSha256": "77D547D22EAF520977847D85FE2E77E03786E0A0597CB04FBF799DD50ED59BCF",
+      "matchesStaged": true
+    },
+    {
+      "path": "src/shared/sessionFilter.test.ts",
+      "sha256": "79059299B377373747F71601B03B21F093DC2F2379C3E0653B74B4C60C663EE1",
+      "stagedSha256": "79059299B377373747F71601B03B21F093DC2F2379C3E0653B74B4C60C663EE1",
+      "matchesStaged": true
+    }
+  ],
+  "typecheck": {
+    "reportedExitCode": 0,
+    "reporter": "/root",
+    "reportSource": "Parent task message confirming typecheck exit0 after guarded application",
+    "command": null,
+    "stdoutLog": "output/implementation/c16-query-lifecycle-d47b5cccd46b417e87c951fbe799b8fd/typecheck.log",
+    "stdoutLogPresentAtReadonlyAudit": false,
+    "stdoutLogIndependentlyRead": false,
+    "rerunByAuditor": false,
+    "limitation": "typecheck.log was absent at read-only audit; no command/empty-success stdout was fabricated. Exit0 is owner-reported, not independently reconstructed."
+  },
+  "unitTests": {
+    "log": "output/implementation/c16-query-lifecycle-d47b5cccd46b417e87c951fbe799b8fd/targeted-tests.log",
+    "sha256": "4485B9A0CF541A2CDD9632FC9EC217D7617D649A0A111EA21B6C5EF4A7F9EC6B",
+    "command": null,
+    "commandLimitation": "Exact invocation and process exit code are not embedded in this stdout log; owner reported the four named module execution.",
+    "modules": [
+      "src/shared/queryLifecycle.test.ts",
+      "src/shared/sessionFilter.test.ts",
+      "src/shared/contracts.test.ts",
+      "src/shared/viewRefreshLoop.test.ts"
+    ],
+    "testCount": 15,
+    "passed": 15,
+    "failed": 0,
+    "cancelled": 0,
+    "skipped": 0,
+    "todo": 0,
+    "durationMs": 519.588,
+    "newTargetedCases": 8,
+    "existingCases": 7,
+    "namesIndependentlyRead": [
+      {
+        "name": "root selection includes null/self roots, excludes known children and scopes identical short ids by source",
+        "durationMs": 17.2013
+      },
+      {
+        "name": "project identity stays stable when labels are private, same basename is not a lookup identity",
+        "durationMs": 0.9872
+      },
+      {
+        "name": "session details do not mix same thread ids from separate sources",
+        "durationMs": 1.2159
+      },
+      {
+        "name": "CSV cancel is silent, successful filename is explicit, object contract drift never claims success",
+        "durationMs": 0.5861
+      },
+      {
+        "name": "query lifecycle defaults pair the pet today and main seven-day period with their Shanghai ranges",
+        "durationMs": 17.1893
+      },
+      {
+        "name": "automatic presets follow forward midnight and clock rollback without losing filters",
+        "durationMs": 4.1007
+      },
+      {
+        "name": "custom dates stay explicit across resume and rollback, then a selected preset returns to the current day",
+        "durationMs": 0.5984
+      },
+      {
+        "name": "late replies are fenced by effective query plus generation, and old numbers are not ready under new dates",
+        "durationMs": 1.6079
+      },
+      {
+        "name": "hidden or suspended recovery reuses one view timer, rejects the old reply and immediately queries the resumed day",
+        "durationMs": 1.7579
+      },
+      {
+        "name": "session selection uses source and thread identity, clears incompatible target filters and preserves explicit dates",
+        "durationMs": 2.0226
+      },
+      {
+        "name": "observed session options keep independent same ids and retain a private clearable selected option after empty results",
+        "durationMs": 16.199
+      },
+      {
+        "name": "global session scope and later export queries share the current identity and fence an older source reply",
+        "durationMs": 2.4846
+      },
+      {
+        "name": "production visible view scheduler owns one interval, stops hidden queries and refreshes once on recovery",
+        "durationMs": 1.3763
+      },
+      {
+        "name": "production scheduler does not launch overlapping full snapshot requests",
+        "durationMs": 0.2907
+      },
+      {
+        "name": "resume during an in-flight query schedules exactly one current-state refresh",
+        "durationMs": 0.307
+      }
+    ],
+    "rerunByAuditor": false
+  },
+  "demonstratedUnitScope": [
+    "Main7/pet1 selected period and Asia/Shanghai query bounds agree",
+    "Automatic1/7/30 presets reconcile forward day and rollback while preserving valid scope; custom dates stay explicit",
+    "Full query/revision/serial fence rejects old replies and keeps old accepted scope unready under changed date/filter",
+    "Existing view scheduler has one timer, stops hidden requests, refreshes after recovery and does not overlap scheduled snapshots",
+    "Session source+thread identity, incompatible filter clearing, empty-result selected fallback, private text labels and shared snapshot/export query",
+    "Retained root null/self inclusion, stable project identity, source-scoped session details and CSV cancellation contract cases"
+  ],
+  "notDemonstrated": [
+    "Actual React hook/DOM/bridge integration; root owns upcoming separate Browser IPC fixture check",
+    "Production Core filters or date arithmetic through Rust; no SQL/query was executed by this audit",
+    "Native midnight/suspend/visibility, real source changes, actual CSV file/dialog, Windows notifications or external chat navigation",
+    "Main/subagent global role filtering; it remains outside these two repairs",
+    "Final bundle/native candidate or350/600MiB/CPU/latency/release qualification"
+  ],
+  "noAdditionalExecutionByAuditor": {
+    "tests": true,
+    "typecheck": true,
+    "build": true,
+    "productOrService": true,
+    "browserOrGui": true,
+    "sqlOrProductQuery": true
+  },
+  "browserHarnessPreparation": "output/playwright/c16-query-integration-20261016/preparation-receipt.json",
+  "productionModifiedByThisAudit": false,
+  "wholeF04CompleteClaimed": false,
+  "wholeM4Qualified": false
+}

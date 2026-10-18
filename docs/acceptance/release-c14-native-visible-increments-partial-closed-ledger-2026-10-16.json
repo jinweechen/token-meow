@@ -1,0 +1,196 @@
+{
+  "schemaVersion": 1,
+  "kind": "c14-partial-native-increment-closed-ledger-supplement",
+  "recordedAtUtc": "2026-10-15T17:47:22.902962+00:00",
+  "status": "closed-ledger3-response-oracle-and-normal-exit-subscope-only",
+  "originalPartialP95Qualified": false,
+  "priorReceipts": {
+    "docs\\acceptance\\release-c14-native-visible-increments-partial-2026-10-16.json": {
+      "sha256": "977873F1E5E13C04E6FA50C9E736A3747804E39365051411ABB5DFC38D606825",
+      "unchanged": true
+    },
+    "docs\\acceptance\\release-c14-native-visible-increments-partial-clarification-2026-10-16.json": {
+      "sha256": "43AF6640809B546B5F63D468F24CA55C7656D9F95FCED65EE7EA1357CDA51EEF",
+      "unchanged": true
+    }
+  },
+  "candidate": {
+    "path": "D:\\project\\宠物\\output\\build-candidates\\c14-renderer-lifecycle-csv-single-flight-20261016\\token-meow.exe",
+    "sha256": "DA9C519E13FF9E8D60C2A485C7C314B6EDD3862FD82D33DF016DC943F6D4AE17",
+    "processId": 65192,
+    "processCreationUtc": "2026-10-15T17:41:06.3413272Z"
+  },
+  "evidence": {
+    "output\\performance\\incremental-d7a8bc3ba8b044e7a971028de4f56cc4\\normal-exit-and-root-visual-review.json": {
+      "bytes": 1180,
+      "sha256": "9DCFA11B793563C4F1B153380D23D6206EC0EED16A7962021F174C45993C30B5"
+    },
+    "output\\performance\\incremental-d7a8bc3ba8b044e7a971028de4f56cc4\\data\\desktop-metrics.json": {
+      "bytes": 2436,
+      "sha256": "BDAB114E70BF5D09427D99BBF6C5100E9E2D9DBBCE0F8EA0A7AEE13A68A6CFBE"
+    },
+    "output\\performance\\incremental-d7a8bc3ba8b044e7a971028de4f56cc4\\fixture.json": {
+      "bytes": 796,
+      "sha256": "0A75684B7211AEAA29ADC5A7B7F19367D56F37885A0891BA35B4B47612C3B19A"
+    },
+    "output\\performance\\incremental-d7a8bc3ba8b044e7a971028de4f56cc4\\launch.json": {
+      "bytes": 990,
+      "sha256": "88765DFCA805EE4BC8ED1CB7A1BA31CECC2C173FE1ED0CD6382D6B6CAF15BBAD"
+    },
+    "output\\performance\\incremental-d7a8bc3ba8b044e7a971028de4f56cc4\\native-screenshot-increments.jsonl": {
+      "bytes": 7107,
+      "sha256": "8BD4CA82ECDB1C7C08F44325823849CDFB06381B61CE84F32071B0AF75A6CFAA"
+    },
+    "output\\performance\\incremental-d7a8bc3ba8b044e7a971028de4f56cc4\\source\\sessions\\token-meow-p95.jsonl": {
+      "bytes": 2994,
+      "sha256": "487CF322AA3DD45EB73C37F933583E81F3E94E3A8870B72EDBF008BD3A43257C"
+    }
+  },
+  "closedLedger": {
+    "readOnly": true,
+    "immutable": true,
+    "walBytesBefore": 0,
+    "sha256Before": "41104F5E14B0C3801CD8562F4E492669A908CCF2A5CADEA6F8938AECCA220484",
+    "sha256After": "41104F5E14B0C3801CD8562F4E492669A908CCF2A5CADEA6F8938AECCA220484",
+    "integrityCheck": [
+      "ok"
+    ],
+    "responseCount": 3,
+    "responseIds": [
+      "p95-5cb36822-8d7e-49a7-9a47-960475eb299b-1",
+      "p95-5cb36822-8d7e-49a7-9a47-960475eb299b-2",
+      "response-one"
+    ],
+    "sourceOracle": {
+      "input": 2800,
+      "output": 400,
+      "cacheRead": 800,
+      "cacheWrite": 100,
+      "reasoning": 100,
+      "total": 3200
+    },
+    "persistedSixMetricSums": {
+      "input": 2800,
+      "output": 400,
+      "cacheRead": 800,
+      "cacheWrite": 100,
+      "reasoning": 100,
+      "total": 3200
+    },
+    "sourceId": "0eacb4b7e4ade8143a1ce64ee730e4ea7597ad68b5c7326f3773d8fc679ec9d8",
+    "sourceFileBytes": 2994,
+    "sourceCursorOffset": 2994,
+    "generation": 0,
+    "caughtUp": true,
+    "sourceSha256Before": "487CF322AA3DD45EB73C37F933583E81F3E94E3A8870B72EDBF008BD3A43257C",
+    "sourceSha256After": "487CF322AA3DD45EB73C37F933583E81F3E94E3A8870B72EDBF008BD3A43257C",
+    "sourceWrittenByAuditor": false,
+    "collectorTotalNewResponses": 3,
+    "collectorPendingFiles": 0,
+    "collectorIssues": 0
+  },
+  "normalExit": {
+    "actualNativeReviewer": "/root",
+    "menuExitAndOsSkyAbsenceProvidedByRoot": true,
+    "auditorPerformedLiveOsOrUiQuery": false,
+    "record": {
+      "recordedUtc": "2026-10-15T17:46:06.6390023Z",
+      "processId": 65192,
+      "processCreationUtc": "2026-10-15T17:41:06.3413272Z",
+      "exitRequestedUtc": "2026-10-15T17:45:22.055Z",
+      "method": "Root actual pet right-click, explicit own-menu activation+refresh, then Exit at89,309 from displayed current menu",
+      "shutdown": {
+        "accountFinished": true,
+        "at": "2026-10-15T17:45:22.501061400+00:00",
+        "deadlineReached": false,
+        "scannerFinished": true,
+        "stage": "exit-ready",
+        "waitMs": 227.2116
+      },
+      "remainingAppProcesses": [],
+      "skyOwnedWindowsAfter": 0,
+      "sourceSha256After": "487CF322AA3DD45EB73C37F933583E81F3E94E3A8870B72EDBF008BD3A43257C",
+      "binarySha256After": "DA9C519E13FF9E8D60C2A485C7C314B6EDD3862FD82D33DF016DC943F6D4AE17",
+      "status": "native-P95-partial-not-qualified",
+      "visualReviewer": "/root",
+      "visualConfirmedResponses": [
+        2
+      ],
+      "baselineResponses": 1,
+      "event2": "Actual screenshot was an occluding other-application Settings surface, so its count was not confirmed. The expired observation remains a failure; diagnostic UIA2 and collector3 do not substitute for pixels.",
+      "csvActionsPerformed": 0
+    },
+    "persistedMetricsShutdownMatches": true,
+    "waitMs": 227.2116
+  },
+  "p95Boundary": {
+    "eventsConfirmed": 1,
+    "eventsRequired": 20,
+    "p95UpperMs": null,
+    "qualified": false,
+    "event2ActualVisibleCount": null,
+    "persistedDiagnosticUiaCount": 2,
+    "persistedCollectorCount": 3,
+    "laterUia3Asserted": false,
+    "noProductMeteringFailureInferred": true
+  },
+  "csvActionsPerformed": 0,
+  "checks": {
+    "passed": 38,
+    "names": [
+      "same PID and creation persisted exit binding",
+      "root recorded actual OS and Sky absence",
+      "actual shutdown both workers ready before deadline",
+      "actual wait retained and no CSV claim",
+      "closed source unchanged after normal exit",
+      "three unique authored native response IDs",
+      "independent six-field3/3200 source oracle",
+      "closed WAL absent or empty before immutable read",
+      "closed SQLite integrity ok",
+      "exact source-to-ledger response identity set",
+      "source thread retained response-one",
+      "exact valid source value response-one input",
+      "exact valid source value response-one output",
+      "exact valid source value response-one cacheRead",
+      "exact valid source value response-one cacheWrite",
+      "exact valid source value response-one reasoning",
+      "exact valid source value response-one total",
+      "source thread retained p95-5cb36822-8d7e-49a7-9a47-960475eb299b-1",
+      "exact valid source value p95-5cb36822-8d7e-49a7-9a47-960475eb299b-1 input",
+      "exact valid source value p95-5cb36822-8d7e-49a7-9a47-960475eb299b-1 output",
+      "exact valid source value p95-5cb36822-8d7e-49a7-9a47-960475eb299b-1 cacheRead",
+      "exact valid source value p95-5cb36822-8d7e-49a7-9a47-960475eb299b-1 cacheWrite",
+      "exact valid source value p95-5cb36822-8d7e-49a7-9a47-960475eb299b-1 reasoning",
+      "exact valid source value p95-5cb36822-8d7e-49a7-9a47-960475eb299b-1 total",
+      "source thread retained p95-5cb36822-8d7e-49a7-9a47-960475eb299b-2",
+      "exact valid source value p95-5cb36822-8d7e-49a7-9a47-960475eb299b-2 input",
+      "exact valid source value p95-5cb36822-8d7e-49a7-9a47-960475eb299b-2 output",
+      "exact valid source value p95-5cb36822-8d7e-49a7-9a47-960475eb299b-2 cacheRead",
+      "exact valid source value p95-5cb36822-8d7e-49a7-9a47-960475eb299b-2 cacheWrite",
+      "exact valid source value p95-5cb36822-8d7e-49a7-9a47-960475eb299b-2 reasoning",
+      "exact valid source value p95-5cb36822-8d7e-49a7-9a47-960475eb299b-2 total",
+      "all six persisted sums equal authored oracle",
+      "one enabled exact authored source",
+      "one exact registered source file",
+      "exact LF cursor length and generation0",
+      "source file caught_up true",
+      "immutable audit leaves DB source WAL unchanged",
+      "final collector3 no pending or issues"
+    ]
+  },
+  "auditorActions": {
+    "applicationLaunched": false,
+    "uiOperated": false,
+    "cargoExecuted": false,
+    "rawLogLargeHash": false,
+    "dbOrSourceWritten": false
+  },
+  "limitations": [
+    "Only this closed small authored fixture3 native responses/six metric fields and observed normal exit are covered.",
+    "P95 remains original not-qualified1/20; SQL3/3200 does not retroactively confirm occluded pixels.",
+    "Normal menu/OS/Sky absence is root direct observation; independent audit verifies stored binding/metrics and closed DB only.",
+    "No nativeCSV was attempted; no export claim.",
+    "No lifecycle30+30, full4.275GB import, resident350/idleCPU, startup, installer or wholeM4 qualification."
+  ],
+  "wholeM4Qualified": false
+}

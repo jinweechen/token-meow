@@ -1,0 +1,11 @@
+{
+  "tool": "built-in image_gen.imagegen",
+  "prompt": "../prompts/master-right-v1.txt",
+  "inputs": ["master-front-v2.png", "turnaround-side-hair-bow-v4-length.png"],
+  "output": "master-right-v1.png",
+  "originalGeneratedPath": "C:/Users/Administrator/.codex/generated_images/01a148a3-42fd-7200-9a55-f8a2b93cf502/exec-751fd74c-3a85-48ff-b794-7b19b5511831.png",
+  "transparentBackgroundRequested": true,
+  "reviewStatus": "rejected-as-right-profile-master",
+  "issues": ["view too frontal with two visible eyes", "tail opening hidden", "hair accessory frontal again"],
+  "unusedNextPrompt": "../prompts/master-right-v2-profile.txt"
+}

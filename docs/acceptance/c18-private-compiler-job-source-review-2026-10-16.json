@@ -1,0 +1,280 @@
+{
+  "schemaVersion": 1,
+  "recordedAtUtc": "2026-10-15T22:45:22.1062923Z",
+  "dateAsiaShanghai": "2026-10-16",
+  "reviewer": "desktop subagent",
+  "status": "final-private-plan-source-reviewed-no-remaining-material-blocker-for-controlled-validation",
+  "method": "Read-only complete review of6748 Job module/controller/validation and metadata, followed by exact two-delta comparison and manifest verification of724C final leaf. No imports of authored helpers, WinAPI lookup/probe, syntax check, child process, rustc, Cargo, SQL, original DB hash/copy or app/browser was executed.",
+  "scope": "Private diagnostic compiler ownership and the carried two-process selected-field plan; not production source or Native/performance acceptance.",
+  "finalPlan": {
+    "directory": "output/performance/c18-pet-read-model-plan-reviewed-4b7fbd0ae0904b3faeaafdc529353e021",
+    "manifest": {
+      "path": "output/performance/c18-pet-read-model-plan-reviewed-4b7fbd0ae0904b3faeaafdc529353e021/plan-manifest.json",
+      "sha256": "724C376F2C8D37F8EC6A87244D84342A0733C27D8697F183D044EA5603AE693D",
+      "bytes": 3251
+    },
+    "preparation": {
+      "path": "output/performance/c18-pet-read-model-plan-reviewed-4b7fbd0ae0904b3faeaafdc529353e021/preparation.json",
+      "sha256": "E07B63EB99B85ACFA3D8487DA2971F4E2350F4AEFDBCAF434BBE022DD335DB2C",
+      "bytes": 948
+    },
+    "delta": {
+      "path": "output/performance/c18-pet-read-model-plan-reviewed-4b7fbd0ae0904b3faeaafdc529353e021/reviewfix-delta.json",
+      "sha256": "6CECFF76E4140CC772BEC628F04CD7B4394E6E35FD7C284F4E8188F0811FD8E4",
+      "bytes": 2160
+    },
+    "candidateUnreleasedBinding": {
+      "path": "output/performance/c18-pet-read-model-plan-reviewed-4b7fbd0ae0904b3faeaafdc529353e021/bindings.candidate-unreleased.json",
+      "sha256": "F4DFFDC6D3D473A51EB65448CB59B479EBDAD22105F326CEA84E844E774EC69B",
+      "bytes": 3087
+    }
+  },
+  "reviewedFrozenFiles": [
+    {
+      "path": "output/performance/c18-pet-read-model-plan-reviewed-4b7fbd0ae0904b3faeaafdc529353e021/PLAN.md",
+      "sha256": "59FAB65F5928728729817608901EAB78159BBB931AAF08D7A606910FBC1AE7C6",
+      "bytes": 12170
+    },
+    {
+      "path": "output/performance/c18-pet-read-model-plan-reviewed-4b7fbd0ae0904b3faeaafdc529353e021/pet-read-model-diagnostic.rs",
+      "sha256": "4BA209235F07B4910CAA4D1CF8DC39DAA9D21ABD217D1BB39703787F705C6327",
+      "bytes": 18248
+    },
+    {
+      "path": "output/performance/c18-pet-read-model-plan-reviewed-4b7fbd0ae0904b3faeaafdc529353e021/run-owned-diagnostic.py",
+      "sha256": "94889084E155D018A1D22949DA3E8A12F6DC87269AD30A6AB3B03FB16B512DAA",
+      "bytes": 18368
+    },
+    {
+      "path": "output/performance/c18-pet-read-model-plan-reviewed-4b7fbd0ae0904b3faeaafdc529353e021/bindings.template.json",
+      "sha256": "C01CA9B0EEA92011703120ED395AD307A37AF1FC44F4EF0CC763DDBF789708D6",
+      "bytes": 1894
+    },
+    {
+      "path": "output/performance/c18-pet-read-model-plan-reviewed-4b7fbd0ae0904b3faeaafdc529353e021/compiler_job.py",
+      "sha256": "477348143F0218B06923FED7CAA4739264A8F394D965B61B6EDF56F5439DB05A",
+      "bytes": 13604
+    },
+    {
+      "path": "output/performance/c18-pet-read-model-plan-reviewed-4b7fbd0ae0904b3faeaafdc529353e021/validate-compiler-job.py",
+      "sha256": "7383582032A5FD3E8E85583D552827D3EC7FC1A8542F0145775990EA2B0F0760",
+      "bytes": 4144
+    },
+    {
+      "path": "output/performance/c18-pet-read-model-plan-reviewed-4b7fbd0ae0904b3faeaafdc529353e021/reviewfix-delta.json",
+      "sha256": "6CECFF76E4140CC772BEC628F04CD7B4394E6E35FD7C284F4E8188F0811FD8E4",
+      "bytes": 2160
+    },
+    {
+      "path": "output/performance/c18-pet-read-model-plan-reviewed-4b7fbd0ae0904b3faeaafdc529353e021/provenance/c18-build-receipt.json",
+      "sha256": "935018D2DB0308295C45E20F7A17C019025EE6DB651FCA6AD580ECB7C51E450D",
+      "bytes": 37759
+    },
+    {
+      "path": "output/performance/c18-pet-read-model-plan-reviewed-4b7fbd0ae0904b3faeaafdc529353e021/provenance/c18-link-provenance.json",
+      "sha256": "9DEAF4A5E9B18034097C42327917CAD135C1A6B0AE3CDE8BB74E0C4D1D1EA36A",
+      "bytes": 8373
+    },
+    {
+      "path": "output/performance/c18-pet-read-model-plan-reviewed-4b7fbd0ae0904b3faeaafdc529353e021/provenance/chrono-fingerprint.json",
+      "sha256": "E415A3FB82765DCAB13A88F5301770D0B1ED687A52AEED45956C568C96A57338",
+      "bytes": 1059
+    },
+    {
+      "path": "output/performance/c18-pet-read-model-plan-reviewed-4b7fbd0ae0904b3faeaafdc529353e021/provenance/original-independent-review.json",
+      "sha256": "385426545FD3E5C106F2A3842B315C832522BA514CE147FD69A24F32A39DF50B",
+      "bytes": 10339
+    },
+    {
+      "path": "output/performance/c18-pet-read-model-plan-reviewed-4b7fbd0ae0904b3faeaafdc529353e021/provenance/original-plan-manifest.json",
+      "sha256": "E27D2C5A0539C3E6FC9ED51D91E05A317ED2B64E0EE052C86D1E8D86D4A33133",
+      "bytes": 866
+    },
+    {
+      "path": "output/performance/c18-pet-read-model-plan-reviewed-4b7fbd0ae0904b3faeaafdc529353e021/provenance/reviewfix-first-plan-manifest.json",
+      "sha256": "67481416D512EFD728932A7ABC538B3ECB38B196446D3F5081045F72E13D0A8B",
+      "bytes": 2719
+    },
+    {
+      "path": "output/performance/c18-pet-read-model-plan-reviewed-4b7fbd0ae0904b3faeaafdc529353e021/provenance/reviewfix-first-preparation.json",
+      "sha256": "79FC6ABE5B00DD19B022E4B07E7E54860C6F52A1785C78C0E015E91EF58156F4",
+      "bytes": 1352
+    },
+    {
+      "path": "output/performance/c18-pet-read-model-plan-reviewed-4b7fbd0ae0904b3faeaafdc529353e021/provenance/serde_json-fingerprint.json",
+      "sha256": "CBBBB6FF842B37C8E8859A2BA0D19FB99A3A635440B9282216CCC755D8FF14F3",
+      "bytes": 854
+    },
+    {
+      "path": "output/performance/c18-pet-read-model-plan-reviewed-4b7fbd0ae0904b3faeaafdc529353e021/provenance/sha2-fingerprint.json",
+      "sha256": "960988840EB4D6436BD05C2B06C7263FC365E274E91ADBBD91FC621645AA58BB",
+      "bytes": 689
+    },
+    {
+      "path": "output/performance/c18-pet-read-model-plan-reviewed-4b7fbd0ae0904b3faeaafdc529353e021/provenance/token_meow_lib-fingerprint.json",
+      "sha256": "51883C5C2762722B75A6DDD21116AF1E18949D59FA9871E99F403ABEA8364155",
+      "bytes": 1201
+    }
+  ],
+  "frozenInputCount": 17,
+  "sourceDrift": [],
+  "qualification": {
+    "sourceReviewOnly": true,
+    "staticMaterialBlockerRemaining": false,
+    "runtimeCompilerOwnershipPassed": false,
+    "controlledChildrenExecuted": false,
+    "controlledValidationPassed": false,
+    "compilerExecuted": false,
+    "originalDatabaseReadOrHashed": false,
+    "clonesCreated": false,
+    "coreExecuted": false,
+    "applicationExecuted": false,
+    "cpuWindowReleaseProved": false,
+    "performanceQualified": false,
+    "NativePassed": false,
+    "fullImportPassed": false,
+    "M4Passed": false
+  },
+  "resolvedStageFindings": [
+    {
+      "id": "C18-DIAG-COMPILE-TIMEOUT-DESCENDANTS",
+      "originalReview": {
+        "path": "docs/acceptance/c18-pet-diagnostic-plan-source-review-2026-10-16.json",
+        "sha256": "385426545FD3E5C106F2A3842B315C832522BA514CE147FD69A24F32A39DF50B",
+        "bytes": 10339
+      },
+      "originalManifestSha256": "E27D2C5A0539C3E6FC9ED51D91E05A317ED2B64E0EE052C86D1E8D86D4A33133",
+      "status": "statically-remedied-runtime-validation-pending",
+      "evidence": "compiler_job.py owns an unnamed kill-on-close Job configured before CreateProcessW(CREATE_SUSPENDED|CREATE_NO_WINDOW|EXTENDED_STARTUPINFO_PRESENT), assigns that still-suspended root before ResumeThread, and waits for same-root exit plus Job active0. Timeouts/errors terminate only the owned Job or still-suspended unassigned root and preserve unverified cleanup as failure. Original E27 source/review remain unchanged."
+    },
+    {
+      "id": "C18-DIAG-EARLY-ROOT-CASE-EXERCISE",
+      "previousManifestSha256": "67481416D512EFD728932A7ABC538B3ECB38B196446D3F5081045F72E13D0A8B",
+      "status": "statically-remedied-runtime-exercise-pending",
+      "evidence": "Final observe records the first same-handle root-exited and Job activeProcesses>0 state, retaining exact root creation/exit times and Job counts. The early-root validation case and future diagnostic controller both require sawRootExitedWithActiveDescendants is True. Final active0 alone cannot substitute for this branch exercise."
+    },
+    {
+      "id": "C18-DIAG-CHILD-NO-WINDOW",
+      "status": "statically-explicit-runtime-validation-pending",
+      "evidence": "The private Python parent fixture now passes creationflags=subprocess.CREATE_NO_WINDOW to its child Popen; it no longer relies on no-console inheritance assumptions."
+    },
+    {
+      "id": "C18-DIAG-FDOPEN-FAILURE-CLEANUP",
+      "status": "static-defensive-caveat-remedied",
+      "evidence": "The transferred descriptor is explicitly os.close(fd) if os.fdopen raises. The raw Win32 handle remains closed on earlier identity/open_osfhandle failures."
+    }
+  ],
+  "materialFindingsOpen": [],
+  "inspectedBoundaries": [
+    {
+      "area": "Compiler startup and inheritance",
+      "source": "compiler_job.py",
+      "lines": [
+        175,
+        226
+      ],
+      "result": "Only explicit existing executable path and owned cwd, no shell. STARTUPINFOEX contains exactly stdin/stdout/stderr; parent inherit flags are restored in finally. Job/process/thread handles are created privately; no breakaway flags or global PID/thread/command-line enumeration."
+    },
+    {
+      "area": "Root identity and descendant exit",
+      "source": "compiler_job.py",
+      "lines": [
+        115,
+        174
+      ],
+      "result": "GetProcessTimes and WaitForSingleObject use the originally returned process handle, eliminating PID-reuse substitution. creation/exit FILETIME are exact decimal strings. Cleanup requires observed root exit and assigned Job active0; same-handle signal/exit time are retained as evidence."
+    },
+    {
+      "area": "Failure and bounded cleanup",
+      "source": "compiler_job.py",
+      "lines": [
+        219,
+        265
+      ],
+      "result": "A180s compiler bound and5s cleanup confirmation are separate. TerminateJobObject failure, wait/query failure, pre-assignment termination failure or unresolved activity keeps cleanupVerified false, CPU release unverified and status failed. Kill-on-close is not misrepresented as observed exit. CloseHandle failures are appended as errors; controller rejects them."
+    },
+    {
+      "area": "Validation admission",
+      "source": "run-owned-diagnostic.py",
+      "lines": [
+        150,
+        197
+      ],
+      "result": "Future compilation requires a hashed receipt belonging to this exact plan, exact compiler module and validation-script hashes, exactly three named passed cases, per-case hashed raw results, assignment, root exit and active0. Early-root additionally requires its intermediate descendant-live observation. Candidate binding remains explicitly unreleased and validation path/hash null."
+    },
+    {
+      "area": "Three authored fixture cases",
+      "source": "validate-compiler-job.py",
+      "lines": [
+        27,
+        69
+      ],
+      "result": "Only create-new private marker/logs and three own Python parent/child sleep cases: normal, timeout, root-exits-before-child. A child marker plus Job total>=2 prevents a root-only pass; mismatches preserve first failure and block later compilation. These cases are authored and unexecuted."
+    },
+    {
+      "area": "Original read guard and clones",
+      "source": "run-owned-diagnostic.py",
+      "lines": [
+        79,
+        119,
+        254,
+        337
+      ],
+      "result": "Original DB/WAL still use same GENERIC_READ/FILE_SHARE_READ handles with exact metadata/hash/WAL0 finally verification; two create-new clones are the sole Core targets. No sqlite3/controller original SQL or source log body read. Original405MB partial-input scope is unchanged."
+    },
+    {
+      "area": "Selected fields and resources",
+      "source": "pet-read-model-diagnostic.rs",
+      "lines": [
+        197,
+        218,
+        271,
+        347
+      ],
+      "result": "No new full-Snapshot serialization buffer. Exactly A baselinePulse/validCursorPulse/Details versus B same-day Snapshot; current-day candidate counts explicitly limit zero-sample claims. PrivateUsage and raw CPU counters remain descriptive with sampler/boundary caveats. Whole-helper async peak and phase endpoint peaks are not allocator maxima or whole-App gates."
+    }
+  ],
+  "provenanceMetadataReview": {
+    "source": "Only frozen small JSON metadata, not actual rlib byte rehash",
+    "buildReceiptSha256": "935018D2DB0308295C45E20F7A17C019025EE6DB651FCA6AD580ECB7C51E450D",
+    "libraryReceiptSha256": "9DEAF4A5E9B18034097C42327917CAD135C1A6B0AE3CDE8BB74E0C4D1D1EA36A",
+    "frozenSourcesAndAfterManifestMatchBuild": true,
+    "fourDirectLibraryDeclarationsMatchLinkProvenance": true,
+    "tokenMeowFingerprintHasExactCustomProtocol": true,
+    "serdeJsonSha2ChronoDependencyFingerprintValuesMatch": true,
+    "productionProfileIdsConsistent": true,
+    "actualLibrariesRehashedByReviewer": false,
+    "actualLibrariesFrozenForDiagnostic": false,
+    "requiredBeforeRealCompile": "Future execution must validate and freeze declared actual library bytes and current native/transitive link paths; this source review does not replace that admission."
+  },
+  "pending": [
+    "Root must explicitly release the CPU window and authorize only the three controlled private child cases before any diagnostic compile.",
+    "Controlled validation must genuinely pass against these exact frozen hashes, including intermediate early-root observation. Static source review is not a test pass, not runtime cleanup proof and not CPU release.",
+    "Then supply new bindings.frozen.json tied to the actual validation receipt and immutable724C plan. Current candidate-unreleased metadata deliberately cannot admit execution.",
+    "Compile/run failures, timeout and cleanup-unverified results must remain retained. No successful retry selection, date substitution or scope normalization.",
+    "ActualA/B execution, original same-handle posthash/WAL0 and exact selected-field comparison still remain unperformed. Even a future match stays descriptive-only with full-import/Native/M4 false."
+  ],
+  "references": [
+    {
+      "path": "output/performance/c18-pet-read-model-plan-3a3cce86a6f54f7eaa6c34bc94d4d3d9/plan-manifest.json",
+      "sha256": "E27D2C5A0539C3E6FC9ED51D91E05A317ED2B64E0EE052C86D1E8D86D4A33133",
+      "bytes": 866
+    },
+    {
+      "path": "output/performance/c18-pet-read-model-plan-reviewfix-8d72d4fa925143ce87428d157cc9e697/plan-manifest.json",
+      "sha256": "67481416D512EFD728932A7ABC538B3ECB38B196446D3F5081045F72E13D0A8B",
+      "bytes": 2719
+    },
+    {
+      "path": "docs/acceptance/c18-pet-diagnostic-plan-source-review-2026-10-16.json",
+      "sha256": "385426545FD3E5C106F2A3842B315C832522BA514CE147FD69A24F32A39DF50B",
+      "bytes": 10339
+    }
+  ],
+  "limitations": [
+    "No actual Windows API/FFI/runtime behavior was exercised; layout/handle-lifetime reasoning still needs the declared controlled validation.",
+    "The complete original and6748 stages remain frozen. The final724C deltas close only the reported static paths, without erasing earlier findings.",
+    "No production script/source, resource-job sampler, candidate, thresholds or gate were modified by this reviewer.",
+    "Current-day empty/null projections, if observed later, cannot prove nonzero cache/TTFT behavior; candidate counts must be reported without changing day/input."
+  ]
+}

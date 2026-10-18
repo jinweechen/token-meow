@@ -1,0 +1,392 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-16",
+  "generator": "builtin image_gen",
+  "collection": "hd-v4-occlusion",
+  "scope": "Only shy/bow/hug-tail generation prompts and provenance. Shy/bow delivered as candidates; hug-tail rejected after one targeted retry.",
+  "plannedPoseCount": 3,
+  "candidatePoseCount": 2,
+  "rejectedPoseCount": 1,
+  "commonInvariants": {
+    "path": "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v4-occlusion\\prompts\\unified-invariants.txt",
+    "sha256": "01af937fd4fde88810a9718eea80d5f8cd11a08e68af7f3c8e8a02c6e2b76de1",
+    "note": "Full common text included in shy/bow prompts. Hug-tail is the separately requested new low-hands cradling design with the same hidden-base and lower-side-occlusion principle."
+  },
+  "assets": [
+    {
+      "pose": "shy",
+      "file": "shy.png",
+      "sourceOriginalPath": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14289-f0b5-7113-b2b9-40aa19554575\\exec-c2506027-3960-4d4a-bf51-850e552b4d83.png",
+      "prompt": "prompts/shy.txt",
+      "promptSha256": "3bbe2332dda664b5066f133b01020622869698f9f99f1392dda7150dddd91035",
+      "referencePaths": [
+        "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v3-rear-outlet\\shy.png",
+        "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v4-occlusion\\idle.png"
+      ],
+      "references": [
+        {
+          "path": "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v3-rear-outlet\\shy.png",
+          "sha256": "4e71e39d9a615c0c2d57cd3c1e94eeb9eb3b8db3315ace0f3ac7529a76aa7c8f",
+          "role": "exact pose target"
+        },
+        {
+          "path": "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v4-occlusion\\idle.png",
+          "sha256": "fd13e13bbfa1a58083d7047b6819f76eaf0c1d2ee16fba43483c54f0f894a3ea",
+          "role": "accepted v4 tail/occlusion reference"
+        }
+      ],
+      "sha256": "150e435437012d30f63d03042f3e0934cf957d48b6937f929115ff25dc8a9736",
+      "bytes": 1902488,
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "bboxByAlphaThreshold": {
+        "1": [
+          0,
+          0,
+          1000,
+          1536
+        ],
+        "16": [
+          94,
+          4,
+          924,
+          1466
+        ],
+        "128": [
+          94,
+          5,
+          923,
+          1465
+        ],
+        "250": [
+          95,
+          6,
+          922,
+          1464
+        ]
+      },
+      "visibleHeightAtAlpha16": 1462,
+      "edgeMaxAlpha": {
+        "top": 2,
+        "bottom": 1,
+        "left": 1,
+        "right": 0
+      },
+      "visibleMarginsAtAlpha16": {
+        "top": 4,
+        "bottom": 70,
+        "left": 94,
+        "right": 100
+      },
+      "byteIdenticalCopyVerified": true,
+      "pixelsModifiedByCode": false,
+      "status": "candidate-awaiting-unified-browser-qa",
+      "exactPrompt": "Asset: shy desktop-pet pose with unified v4 tail occlusion.\nImage1: hd-v3-rear-outlet/shy.png, exact pose edit target.\nImage2: hd-v4-occlusion/idle.png, accepted tail and cloth-occlusion reference only.\n\nUse case: precise-object-edit.\nImage1 is the EXACT POSE TARGET; image2 is the ACCEPTED TAIL/OCCLUSION MASTER ONLY. Keep image1's expression, face identity, head and body scale, ears, long silver-lavender hair, small paired daisy clips, arms, hand gesture and fingers, ivory-and-mint full outfit, natural waistline, skirt flowers/ruffles, legs and green forward-facing shoes. Do not copy image2's idle pose or expression.\nReplace only image1's entire old tail with the same moderate fluffy white tail and natural hanging pose as image2. Copy the reference's DEPTH AND CLOTH OCCLUSION, not just its curve.\nThe tail passes through the established hidden rear dress opening and stays outside the BACK of the skirt. In this front view the true base and the whole upstream section are INVISIBLE behind the body and solid skirt. Only the MIDDLE and DISTAL tail are visible after clearing the LOWER SIDE skirt contour on viewer-right. The cloth/ruffle edge is unmistakably IN FRONT of the upstream tail; tail outlines disappear behind that cloth edge rather than ending in a point or a cut surface. No hole on front, side or hem.\nRemove any visible tail beside a sleeve/cuff, upper skirt, waist bow, palm or long hair. NEVER expose a tubular proximal section next to an arm. Where a hand hangs at skirt side, the first visible tail must be BELOW its fingertips with a clear visible separation, about25-40px. The sleeve/hand silhouette cannot continue into tail fur. This exact error was rejected by the user. Preserve all hands rather than redesigning them.\nThe visible middle tail then drapes gently outward and downward in a soft elongated S; modest lateral spread, no rigid wide C, large U, loop or giant fox brush. Match image2's moderately slender rounded fur volume, about65-100px wide in this native1024x1536 drawing, tapering gently to a single soft distal tip near mid/lower calf. No tail beside or between thighs that looks like it grows from a leg. Keep a readable background gap from legs. One tail only, complete continuous visible silhouette, no floating segment.\nFor this pose adjust the occluding point to its actual skirt position rather than blindly copying pixel coordinates. The tail's true attachment is intentionally hidden; do not force it into view. Make the displayed portion fit the original full-body pose naturally while preserving overall character scale.\nNative1024x1536 RGBA with genuine transparency, full figure, visible character height at least1200px, safe uncut outline at all edges. No floor, shadow, background, halo, labels, guides, inset or extra character. No programmatic pixel modification.\n\n\nKeep the target's viewer-left hand gently touching the cheek, viewer-right relaxed hand, tilted face, green eyes, small shy smile and every finger. The high tail beside the viewer-right sleeve is the defect: delete it ENTIRELY, leaving the sleeve, cuff, hand and hair clearly separated from any fur. Replace it with the reference's lower, slim hanging middle/distal tail that begins under occlusion behind the lower side skirt, below the target's hanging fingertips with about 25–40px clear separation. The true root and upstream tail remain completely invisible, including beside the waist and upper skirt. Do not alter the full closed clothing.\nPreserve proportions and pose. Slightly pull back the whole composition if needed to give the currently tight top ear at least about 30px safe margin, while keeping visible character height over 1200px. No cropping or added background.\n",
+      "attempts": [
+        {
+          "attempt": 1,
+          "mode": "edit",
+          "exactPrompt": "Asset: shy desktop-pet pose with unified v4 tail occlusion.\nImage1: hd-v3-rear-outlet/shy.png, exact pose edit target.\nImage2: hd-v4-occlusion/idle.png, accepted tail and cloth-occlusion reference only.\n\nUse case: precise-object-edit.\nImage1 is the EXACT POSE TARGET; image2 is the ACCEPTED TAIL/OCCLUSION MASTER ONLY. Keep image1's expression, face identity, head and body scale, ears, long silver-lavender hair, small paired daisy clips, arms, hand gesture and fingers, ivory-and-mint full outfit, natural waistline, skirt flowers/ruffles, legs and green forward-facing shoes. Do not copy image2's idle pose or expression.\nReplace only image1's entire old tail with the same moderate fluffy white tail and natural hanging pose as image2. Copy the reference's DEPTH AND CLOTH OCCLUSION, not just its curve.\nThe tail passes through the established hidden rear dress opening and stays outside the BACK of the skirt. In this front view the true base and the whole upstream section are INVISIBLE behind the body and solid skirt. Only the MIDDLE and DISTAL tail are visible after clearing the LOWER SIDE skirt contour on viewer-right. The cloth/ruffle edge is unmistakably IN FRONT of the upstream tail; tail outlines disappear behind that cloth edge rather than ending in a point or a cut surface. No hole on front, side or hem.\nRemove any visible tail beside a sleeve/cuff, upper skirt, waist bow, palm or long hair. NEVER expose a tubular proximal section next to an arm. Where a hand hangs at skirt side, the first visible tail must be BELOW its fingertips with a clear visible separation, about25-40px. The sleeve/hand silhouette cannot continue into tail fur. This exact error was rejected by the user. Preserve all hands rather than redesigning them.\nThe visible middle tail then drapes gently outward and downward in a soft elongated S; modest lateral spread, no rigid wide C, large U, loop or giant fox brush. Match image2's moderately slender rounded fur volume, about65-100px wide in this native1024x1536 drawing, tapering gently to a single soft distal tip near mid/lower calf. No tail beside or between thighs that looks like it grows from a leg. Keep a readable background gap from legs. One tail only, complete continuous visible silhouette, no floating segment.\nFor this pose adjust the occluding point to its actual skirt position rather than blindly copying pixel coordinates. The tail's true attachment is intentionally hidden; do not force it into view. Make the displayed portion fit the original full-body pose naturally while preserving overall character scale.\nNative1024x1536 RGBA with genuine transparency, full figure, visible character height at least1200px, safe uncut outline at all edges. No floor, shadow, background, halo, labels, guides, inset or extra character. No programmatic pixel modification.\n\n\nKeep the target's viewer-left hand gently touching the cheek, viewer-right relaxed hand, tilted face, green eyes, small shy smile and every finger. The high tail beside the viewer-right sleeve is the defect: delete it ENTIRELY, leaving the sleeve, cuff, hand and hair clearly separated from any fur. Replace it with the reference's lower, slim hanging middle/distal tail that begins under occlusion behind the lower side skirt, below the target's hanging fingertips with about 25–40px clear separation. The true root and upstream tail remain completely invisible, including beside the waist and upper skirt. Do not alter the full closed clothing.\nPreserve proportions and pose. Slightly pull back the whole composition if needed to give the currently tight top ear at least about 30px safe margin, while keeping visible character height over 1200px. No cropping or added background.\n",
+          "sourceOriginalPath": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14289-f0b5-7113-b2b9-40aa19554575\\exec-c2506027-3960-4d4a-bf51-850e552b4d83.png",
+          "sha256": "150e435437012d30f63d03042f3e0934cf957d48b6937f929115ff25dc8a9736",
+          "referencePaths": [
+            "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v3-rear-outlet\\shy.png",
+            "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v4-occlusion\\idle.png"
+          ],
+          "result": "generated-candidate"
+        }
+      ],
+      "visualReview": {
+        "tail": "The previous waist/upper-skirt tail is removed. The whole true base/upstream section is invisible; only a slim hanging middle/distal segment clears the lower side skirt under cloth occlusion. No clear leg, sleeve or side-waist origin found in native review.",
+        "pose": "Viewer-left cheek-touching hand, relaxed viewer-right hand, tilt and expression preserved. First visible tail begins below the hanging fingertips with visible separation.",
+        "framing": "Complete native figure, visible height1462px. Top visible margin remains only4px despite requested extra margin; not fully comfortable framing. Maximum top-edge alpha2. Parent must assess tight margin.",
+        "handsFeetCostume": "No clear new digit fork, extra finger, costume shift or inward-shoe change found in full native review; close browser QA pending.",
+        "status": "candidate only, not final acceptance"
+      }
+    },
+    {
+      "pose": "bow",
+      "file": "bow.png",
+      "sourceOriginalPath": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14289-f0b5-7113-b2b9-40aa19554575\\exec-fb3c2c8e-6dd4-429d-a20f-5c42c726ba3f.png",
+      "prompt": "prompts/bow.txt",
+      "promptSha256": "19fd8cdf4069dba89177f0384b43b9b8662351eb09e39e3a3a6e13f668d746b6",
+      "referencePaths": [
+        "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v3-rear-outlet\\bow.png",
+        "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v4-occlusion\\idle.png"
+      ],
+      "references": [
+        {
+          "path": "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v3-rear-outlet\\bow.png",
+          "sha256": "f2fe46a99b8b2b9f4e64252514984c5f8de425a83eb9ec6319e3be82156329a3",
+          "role": "exact pose target"
+        },
+        {
+          "path": "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v4-occlusion\\idle.png",
+          "sha256": "fd13e13bbfa1a58083d7047b6819f76eaf0c1d2ee16fba43483c54f0f894a3ea",
+          "role": "accepted v4 tail/occlusion reference"
+        }
+      ],
+      "sha256": "32581a96af57bb6ab27e76bb3cfac43d049e346c05302cc1f7d1ee109c4c07cc",
+      "bytes": 1888303,
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "bboxByAlphaThreshold": {
+        "1": [
+          25,
+          15,
+          996,
+          1516
+        ],
+        "16": [
+          89,
+          47,
+          932,
+          1449
+        ],
+        "128": [
+          90,
+          47,
+          931,
+          1448
+        ],
+        "250": [
+          91,
+          48,
+          928,
+          1447
+        ]
+      },
+      "visibleHeightAtAlpha16": 1402,
+      "edgeMaxAlpha": {
+        "top": 0,
+        "bottom": 0,
+        "left": 0,
+        "right": 0
+      },
+      "visibleMarginsAtAlpha16": {
+        "top": 47,
+        "bottom": 87,
+        "left": 89,
+        "right": 92
+      },
+      "byteIdenticalCopyVerified": true,
+      "pixelsModifiedByCode": false,
+      "status": "candidate-awaiting-unified-browser-qa",
+      "exactPrompt": "Asset: bow desktop-pet pose with unified v4 tail occlusion.\nImage1: hd-v3-rear-outlet/bow.png, exact pose edit target.\nImage2: hd-v4-occlusion/idle.png, accepted tail and cloth-occlusion reference only.\n\nUse case: precise-object-edit.\nImage1 is the EXACT POSE TARGET; image2 is the ACCEPTED TAIL/OCCLUSION MASTER ONLY. Keep image1's expression, face identity, head and body scale, ears, long silver-lavender hair, small paired daisy clips, arms, hand gesture and fingers, ivory-and-mint full outfit, natural waistline, skirt flowers/ruffles, legs and green forward-facing shoes. Do not copy image2's idle pose or expression.\nReplace only image1's entire old tail with the same moderate fluffy white tail and natural hanging pose as image2. Copy the reference's DEPTH AND CLOTH OCCLUSION, not just its curve.\nThe tail passes through the established hidden rear dress opening and stays outside the BACK of the skirt. In this front view the true base and the whole upstream section are INVISIBLE behind the body and solid skirt. Only the MIDDLE and DISTAL tail are visible after clearing the LOWER SIDE skirt contour on viewer-right. The cloth/ruffle edge is unmistakably IN FRONT of the upstream tail; tail outlines disappear behind that cloth edge rather than ending in a point or a cut surface. No hole on front, side or hem.\nRemove any visible tail beside a sleeve/cuff, upper skirt, waist bow, palm or long hair. NEVER expose a tubular proximal section next to an arm. Where a hand hangs at skirt side, the first visible tail must be BELOW its fingertips with a clear visible separation, about25-40px. The sleeve/hand silhouette cannot continue into tail fur. This exact error was rejected by the user. Preserve all hands rather than redesigning them.\nThe visible middle tail then drapes gently outward and downward in a soft elongated S; modest lateral spread, no rigid wide C, large U, loop or giant fox brush. Match image2's moderately slender rounded fur volume, about65-100px wide in this native1024x1536 drawing, tapering gently to a single soft distal tip near mid/lower calf. No tail beside or between thighs that looks like it grows from a leg. Keep a readable background gap from legs. One tail only, complete continuous visible silhouette, no floating segment.\nFor this pose adjust the occluding point to its actual skirt position rather than blindly copying pixel coordinates. The tail's true attachment is intentionally hidden; do not force it into view. Make the displayed portion fit the original full-body pose naturally while preserving overall character scale.\nNative1024x1536 RGBA with genuine transparency, full figure, visible character height at least1200px, safe uncut outline at all edges. No floor, shadow, background, halo, labels, guides, inset or extra character. No programmatic pixel modification.\n\n\nKeep the original closed eyes, gentle smile, slight forward bow and both naturally overlapped hands in front of the skirt, with every finger and sleeve position preserved. The tail currently visible near the waist bow and upper skirt is the defect: remove that whole high tail completely. Only the same restrained, downward-draping middle/distal portion as image2 may appear from behind this pose's LOWER SIDE skirt/ruffle on viewer-right. The cloth edge occludes all upstream tail and the actual root, with no visible fur at the waist bow, sleeves, hands or upper skirt. Keep the exposed tail separate from legs with clear background space. Keep all closed clothing, face and shoes unchanged.\n",
+      "attempts": [
+        {
+          "attempt": 1,
+          "mode": "edit",
+          "exactPrompt": "Asset: bow desktop-pet pose with unified v4 tail occlusion.\nImage1: hd-v3-rear-outlet/bow.png, exact pose edit target.\nImage2: hd-v4-occlusion/idle.png, accepted tail and cloth-occlusion reference only.\n\nUse case: precise-object-edit.\nImage1 is the EXACT POSE TARGET; image2 is the ACCEPTED TAIL/OCCLUSION MASTER ONLY. Keep image1's expression, face identity, head and body scale, ears, long silver-lavender hair, small paired daisy clips, arms, hand gesture and fingers, ivory-and-mint full outfit, natural waistline, skirt flowers/ruffles, legs and green forward-facing shoes. Do not copy image2's idle pose or expression.\nReplace only image1's entire old tail with the same moderate fluffy white tail and natural hanging pose as image2. Copy the reference's DEPTH AND CLOTH OCCLUSION, not just its curve.\nThe tail passes through the established hidden rear dress opening and stays outside the BACK of the skirt. In this front view the true base and the whole upstream section are INVISIBLE behind the body and solid skirt. Only the MIDDLE and DISTAL tail are visible after clearing the LOWER SIDE skirt contour on viewer-right. The cloth/ruffle edge is unmistakably IN FRONT of the upstream tail; tail outlines disappear behind that cloth edge rather than ending in a point or a cut surface. No hole on front, side or hem.\nRemove any visible tail beside a sleeve/cuff, upper skirt, waist bow, palm or long hair. NEVER expose a tubular proximal section next to an arm. Where a hand hangs at skirt side, the first visible tail must be BELOW its fingertips with a clear visible separation, about25-40px. The sleeve/hand silhouette cannot continue into tail fur. This exact error was rejected by the user. Preserve all hands rather than redesigning them.\nThe visible middle tail then drapes gently outward and downward in a soft elongated S; modest lateral spread, no rigid wide C, large U, loop or giant fox brush. Match image2's moderately slender rounded fur volume, about65-100px wide in this native1024x1536 drawing, tapering gently to a single soft distal tip near mid/lower calf. No tail beside or between thighs that looks like it grows from a leg. Keep a readable background gap from legs. One tail only, complete continuous visible silhouette, no floating segment.\nFor this pose adjust the occluding point to its actual skirt position rather than blindly copying pixel coordinates. The tail's true attachment is intentionally hidden; do not force it into view. Make the displayed portion fit the original full-body pose naturally while preserving overall character scale.\nNative1024x1536 RGBA with genuine transparency, full figure, visible character height at least1200px, safe uncut outline at all edges. No floor, shadow, background, halo, labels, guides, inset or extra character. No programmatic pixel modification.\n\n\nKeep the original closed eyes, gentle smile, slight forward bow and both naturally overlapped hands in front of the skirt, with every finger and sleeve position preserved. The tail currently visible near the waist bow and upper skirt is the defect: remove that whole high tail completely. Only the same restrained, downward-draping middle/distal portion as image2 may appear from behind this pose's LOWER SIDE skirt/ruffle on viewer-right. The cloth edge occludes all upstream tail and the actual root, with no visible fur at the waist bow, sleeves, hands or upper skirt. Keep the exposed tail separate from legs with clear background space. Keep all closed clothing, face and shoes unchanged.\n",
+          "sourceOriginalPath": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14289-f0b5-7113-b2b9-40aa19554575\\exec-fb3c2c8e-6dd4-429d-a20f-5c42c726ba3f.png",
+          "sha256": "32581a96af57bb6ab27e76bb3cfac43d049e346c05302cc1f7d1ee109c4c07cc",
+          "referencePaths": [
+            "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v3-rear-outlet\\bow.png",
+            "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v4-occlusion\\idle.png"
+          ],
+          "result": "generated-candidate"
+        }
+      ],
+      "visualReview": {
+        "tail": "The previous waist/upper-skirt tail is removed. The whole true base/upstream section is invisible; only a slim hanging middle/distal segment clears the lower side skirt under cloth occlusion. No clear leg, sleeve or side-waist origin found in native review.",
+        "pose": "Closed eyes, gentle forward bow and overlapped hands preserved. No tail beside hands or waist bow.",
+        "framing": "Complete native figure, visible height1402px, top margin47px, edge alpha0.",
+        "handsFeetCostume": "No clear new digit fork, extra finger, costume shift or inward-shoe change found in full native review; close browser QA pending.",
+        "status": "candidate only, not final acceptance"
+      }
+    },
+    {
+      "pose": "hug-tail",
+      "file": null,
+      "sourceOriginalPath": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14289-f0b5-7113-b2b9-40aa19554575\\exec-8bfee14f-e807-4e7b-8e3e-9798eaa5195a.png",
+      "prompt": "prompts/hug-tail.txt",
+      "promptSha256": "15ff32557aa0a9951b2600b73e9f2a979b782f433f24a9ae4c937ef78ddf38b4",
+      "referencePaths": [
+        "C:\\Users\\Administrator\\.codex\\generated_images\\01a14289-f0b5-7113-b2b9-40aa19554575\\exec-a54f0b57-5e79-4bcd-9da7-427d28a01791.png",
+        "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v4-occlusion\\idle.png"
+      ],
+      "sha256": "592c30ef305e6f47c13e658072ce10a4fb09e299fdba7cbc2cfac168785a8f1b",
+      "bytes": 1969468,
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "bboxByAlphaThreshold": {
+        "1": [
+          0,
+          0,
+          962,
+          1536
+        ],
+        "16": [
+          84,
+          4,
+          938,
+          1507
+        ],
+        "128": [
+          85,
+          5,
+          938,
+          1506
+        ],
+        "250": [
+          86,
+          7,
+          936,
+          1505
+        ]
+      },
+      "visibleHeightAtAlpha16": 1503,
+      "edgeMaxAlpha": {
+        "top": 3,
+        "bottom": 1,
+        "left": 1,
+        "right": 0
+      },
+      "visibleMarginsAtAlpha16": {
+        "top": 4,
+        "bottom": 29,
+        "left": 84,
+        "right": 86
+      },
+      "pixelsModifiedByCode": false,
+      "status": "rejected-not-delivered",
+      "exactPrompt": "Use case: precise-object-edit.\nAsset: repair the missing tail connection in the new low cradling pose.\nImage1 is the exact EDIT TARGET: the newly generated fully dressed catgirl with both hands low in front cradling the white tail tip.\nImage2 is hd-v4-occlusion/idle.png, only the accepted tail thickness and lower-side skirt occlusion reference.\n\nKEEP image1's face, hair, complete ivory/mint costume, waistline, pose, both hands and fingers, legs and shoes. Repair only the white tail's missing middle connection. Currently the hands hold a disconnected fluffy object. That is WRONG. Add the missing substantial continuous tail section; it must be plainly visible.\n\nConcrete route in image1's 1024x1536 composition: the real base and all upstream tail are hidden behind the body and skirt. The first visible middle section emerges from BEHIND the LOWER viewer-right skirt/ruffle edge, around the outer lower-right dress contour near x=810,y=970. Both fur outlines disappear behind the cloth, without a cut surface or point. From that occluded starting area, the visible fur curves outward into the clear background around x=880,y=980, then turns smoothly UP and LEFT toward the existing viewer-right supporting hand around x=750,y=875. This middle arc MUST be fully drawn and easy to follow, rather than hidden by the front skirt or omitted. It continues through the existing cradled tail to the ONE soft tapered tip near the viewer-left supporting hand. There is only one tip; the upstream end disappears under cloth. These coordinates are composition guidance, not text or marks to draw.\n\nShow the fur going through the natural palm support, not attaching to the palm. Keep a small readable background gap between most of the new outside arc and the dress. The skirt edge occludes the start only; the rest of the visible arc is continuous and in front of or beside the skirt on its way to the hands. No tail at the waist, side waist bow, upper side body, sleeve or cuff. Keep the hidden base entirely hidden.\n\nMaintain a moderately slender fluffy white CAT tail, around 80–110px wide in the exposed middle, smoothly narrowing toward the single held tip. Not a pillow, fox brush, disconnected scarf, broken floating piece, closed ring or second tail. Do not omit the connecting section again. Preserve the natural fingers, no added digits or fused hands. Preserve closed full clothing and forward nearly parallel shoes.\nOne complete native1024x1536 transparent RGBA character, visible height at least1200px, uncut outline. No background, floor, shadows, halo, captions, diagrams or extra figures. No programmatic pixel modifications.\n",
+      "attempts": [
+        {
+          "attempt": 1,
+          "mode": "RGBA",
+          "referencePaths": [
+            "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v4-occlusion\\idle.png"
+          ],
+          "referenceHashes": [
+            "fd13e13bbfa1a58083d7047b6819f76eaf0c1d2ee16fba43483c54f0f894a3ea"
+          ],
+          "exactPrompt": "Use case: identity-preserve.\nAsset: one new full-body hug-tail desktop-pet pose.\nSOLE reference image: hd-v4-occlusion/idle.png. Use its exact fully dressed character identity, head/body proportions, face, silver-white hair, cat ears, daisy hair clips, ivory-and-mint dress, waist ribbon, floral skirt with ruffled hem, opaque white tights, green Mary Jane shoes, and the accepted hidden-tail-base design. Create a NEW gentle pose; do not reproduce the previous upright pillow-like hugging design.\n\nPose: The character stands comfortably, with a small three-quarter turn toward viewer-left while her friendly green-eyed face remains readable. Both arms are lowered naturally. Her two small hands gently cradle the moderately slender white tail in front of the lower waist/upper skirt, palms supporting it from below at two nearby positions. The hands are at low height, never chest or cheek height. Natural rounded fingers and thumbs, no forced splayed gesture, no branches or extra digits. Shoes remain forward and nearly parallel; complete closed clothing stays unchanged.\n\nTail path and depth: The actual base AND the entire upstream section stay completely invisible behind her body and the solid back of her skirt, exactly the occlusion principle in the reference. There is NO tail beside the waist, waist bows, upper side body, sleeve or cuff. Show the middle segment only after it clears the lower viewer-right skirt side, with that cloth/ruffle edge clearly in FRONT of its hidden upstream end. From there the one continuous slim white tail curves gently FORWARD and UP in a graceful open diagonal J arc across the front of the skirt to her cupped hands. Its single soft tapered distal tip rests near the viewer-left hand. A viewer must be able to follow the exposed fur continuously from the occluding lower side skirt edge, along the arc, into the supporting hands and to ONE tip. The held tip does not touch the face or chest.\n\nThe tail is a fluffy white CAT tail about 65–100px wide at native size, modestly rounded, not a broad fox brush or a pillow. One end is hidden by the skirt, the other end is the sole visible tip. No detached scarf with two pointed ends, no closed ring, no large U loop, no second tail, no cuts or gaps. No tail origin on a hand, sleeve, waist, hair or leg. The fur is visually distinct from smooth hair and cloth, and the hands gently hold it rather than turning into it.\n\nOutput ONE complete independent character in exact native1024x1536 RGBA with genuine transparency. Keep visible character height at least1200px and comfortable margins around all ears, hair, fingers, tail and shoes. No floor, shadows, background, halo, captions, diagrams or extra figures. Do not modify PNG pixels programmatically.\n",
+          "sourceOriginalPath": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14289-f0b5-7113-b2b9-40aa19554575\\exec-a54f0b57-5e79-4bcd-9da7-427d28a01791.png",
+          "sha256": "9979e9f238e0cd7ccab7f664ad639fd89e93bd3fc8947777cb89d4ec608ca17d",
+          "bytes": 1920544,
+          "width": 1024,
+          "height": 1536,
+          "bboxByAlphaThreshold": {
+            "1": [
+              39,
+              0,
+              988,
+              1520
+            ],
+            "16": [
+              115,
+              5,
+              938,
+              1506
+            ],
+            "128": [
+              115,
+              6,
+              937,
+              1505
+            ],
+            "250": [
+              118,
+              9,
+              930,
+              1504
+            ]
+          },
+          "visibleHeightAtAlpha16": 1501,
+          "edgeMaxAlpha": {
+            "top": 3,
+            "bottom": 0,
+            "left": 0,
+            "right": 0
+          },
+          "visibleMarginsAtAlpha16": {
+            "top": 5,
+            "bottom": 30,
+            "left": 115,
+            "right": 86
+          },
+          "result": "rejected",
+          "reason": "Hands cradle a standalone fluffy piece; the required continuous middle tail path from lower side skirt is entirely omitted."
+        },
+        {
+          "attempt": 2,
+          "mode": "RGBA",
+          "referencePaths": [
+            "C:\\Users\\Administrator\\.codex\\generated_images\\01a14289-f0b5-7113-b2b9-40aa19554575\\exec-a54f0b57-5e79-4bcd-9da7-427d28a01791.png",
+            "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v4-occlusion\\idle.png"
+          ],
+          "referenceHashes": [
+            "9979e9f238e0cd7ccab7f664ad639fd89e93bd3fc8947777cb89d4ec608ca17d",
+            "fd13e13bbfa1a58083d7047b6819f76eaf0c1d2ee16fba43483c54f0f894a3ea"
+          ],
+          "exactPrompt": "Use case: precise-object-edit.\nAsset: repair the missing tail connection in the new low cradling pose.\nImage1 is the exact EDIT TARGET: the newly generated fully dressed catgirl with both hands low in front cradling the white tail tip.\nImage2 is hd-v4-occlusion/idle.png, only the accepted tail thickness and lower-side skirt occlusion reference.\n\nKEEP image1's face, hair, complete ivory/mint costume, waistline, pose, both hands and fingers, legs and shoes. Repair only the white tail's missing middle connection. Currently the hands hold a disconnected fluffy object. That is WRONG. Add the missing substantial continuous tail section; it must be plainly visible.\n\nConcrete route in image1's 1024x1536 composition: the real base and all upstream tail are hidden behind the body and skirt. The first visible middle section emerges from BEHIND the LOWER viewer-right skirt/ruffle edge, around the outer lower-right dress contour near x=810,y=970. Both fur outlines disappear behind the cloth, without a cut surface or point. From that occluded starting area, the visible fur curves outward into the clear background around x=880,y=980, then turns smoothly UP and LEFT toward the existing viewer-right supporting hand around x=750,y=875. This middle arc MUST be fully drawn and easy to follow, rather than hidden by the front skirt or omitted. It continues through the existing cradled tail to the ONE soft tapered tip near the viewer-left supporting hand. There is only one tip; the upstream end disappears under cloth. These coordinates are composition guidance, not text or marks to draw.\n\nShow the fur going through the natural palm support, not attaching to the palm. Keep a small readable background gap between most of the new outside arc and the dress. The skirt edge occludes the start only; the rest of the visible arc is continuous and in front of or beside the skirt on its way to the hands. No tail at the waist, side waist bow, upper side body, sleeve or cuff. Keep the hidden base entirely hidden.\n\nMaintain a moderately slender fluffy white CAT tail, around 80–110px wide in the exposed middle, smoothly narrowing toward the single held tip. Not a pillow, fox brush, disconnected scarf, broken floating piece, closed ring or second tail. Do not omit the connecting section again. Preserve the natural fingers, no added digits or fused hands. Preserve closed full clothing and forward nearly parallel shoes.\nOne complete native1024x1536 transparent RGBA character, visible height at least1200px, uncut outline. No background, floor, shadows, halo, captions, diagrams or extra figures. No programmatic pixel modifications.\n",
+          "sourceOriginalPath": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14289-f0b5-7113-b2b9-40aa19554575\\exec-8bfee14f-e807-4e7b-8e3e-9798eaa5195a.png",
+          "sha256": "592c30ef305e6f47c13e658072ce10a4fb09e299fdba7cbc2cfac168785a8f1b",
+          "bytes": 1969468,
+          "width": 1024,
+          "height": 1536,
+          "bboxByAlphaThreshold": {
+            "1": [
+              0,
+              0,
+              962,
+              1536
+            ],
+            "16": [
+              84,
+              4,
+              938,
+              1507
+            ],
+            "128": [
+              85,
+              5,
+              938,
+              1506
+            ],
+            "250": [
+              86,
+              7,
+              936,
+              1505
+            ]
+          },
+          "visibleHeightAtAlpha16": 1503,
+          "edgeMaxAlpha": {
+            "top": 3,
+            "bottom": 1,
+            "left": 1,
+            "right": 0
+          },
+          "visibleMarginsAtAlpha16": {
+            "top": 4,
+            "bottom": 29,
+            "left": 84,
+            "right": 86
+          },
+          "result": "rejected",
+          "reason": "Added extension becomes a second free tapered endpoint. Neither end disappears behind the skirt; it still reads as a two-ended detached furry scarf. The requested occluded upstream connection is absent."
+        }
+      ],
+      "visualReview": {
+        "tail": "FAILED after one targeted retry. Does not meet continuity and hidden upstream endpoint requirements.",
+        "pose": "Low hands and a new slight-turn fully dressed pose were generated, but that does not qualify the tail result.",
+        "delivery": "No hug-tail.png copied into v4 to avoid representing a rejected image as complete. Both original generated PNGs retained at sourceOriginalPath in attempts.",
+        "nextAction": "Stopped generation and reported failure to parent; do not count as completed pose."
+      }
+    }
+  ],
+  "verification": {
+    "copiedPngSourceHashesEqual": true,
+    "finalPromptFilesMatchActualCalls": true,
+    "oldVersionsModified": false,
+    "rendererModified": false,
+    "rootPreviewModified": false,
+    "onlyRequestedPathsWritten": true,
+    "browserQa": "pending parent"
+  }
+}

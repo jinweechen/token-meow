@@ -1,0 +1,691 @@
+{
+  "schemaVersion": 1,
+  "recordedAtUtc": "2026-10-16T01:43:44.215158+00:00",
+  "dateAsiaShanghai": "2026-10-16",
+  "status": "core-schema6-scoped-composite-passed-with-retained-first-failures",
+  "scope": "schema6 retention event-time indexes and full Core compatibility via one79-case batch plus one repaired exact; authored fixtures only",
+  "counts": {
+    "actualListed": 114,
+    "distinctCoreCases": 79,
+    "totalCoreCaseExecutions": 80,
+    "originalBatchPassed": 78,
+    "originalBatchFailed": 1,
+    "freshExactPassed": 1,
+    "retainedFirstRealTestFailures": 1,
+    "nonCoreListedNotExecuted": 35,
+    "productTestProcesses": 2,
+    "newSingle79CasePassingBatch": false,
+    "attemptedCompilerStages": 4,
+    "actualCargoLaunches": 3,
+    "constructorRejectedBeforeChildStages": 1
+  },
+  "caseEvidence": {
+    "retained78PassedNames": [
+      "core::adapter::capability_report_tests::capability_metadata_is_version_scoped_and_does_not_claim_live_rpc_success",
+      "core::adapter::capability_report_tests::registered_source_snapshot_preserves_declaration_and_runtime_boundaries",
+      "core::adapter::lifecycle_order_regression_tests::explicit_terminal_result_is_order_independent_of_later_usage_metadata",
+      "core::adapter::lifecycle_order_regression_tests::newer_known_result_ignores_older_explicit_and_later_generic_without_refreshing_delivery",
+      "core::pet::tests::pet_cursor_scope_cleanup_restart_and_decimal_precision_are_explicit",
+      "core::pet::tests::pet_details_trust_cache_latest_null_and_scope_rejection_keep_snapshot_semantics",
+      "core::pet::tests::pet_feed_priority_overflow_and_every_observed_sequence_are_consumed_once",
+      "core::pet::tests::pet_pulse_chrono_freshness_midnight_and_unknown_watermarks_match_existing_rules",
+      "core::pet::tests::pet_pulse_matches_snapshot_and_never_reads_unused_fact_tables",
+      "core::pet::tests::pet_v5_backfill_preserves_inbox_and_last_ddl_failure_rolls_back_and_recovers",
+      "core::queries::allocation_parity_tests::filtered_snapshot_keeps_metadata_from_unselected_rows_and_all_output_arrays",
+      "core::queries::retention_boundary_tests::timezone_order_is_chronological_and_invalid_boundary_leaves_facts_untouched",
+      "core::queries::retention_boundary_tests::wider_retention_cannot_reimport_new_old_copy_but_explicit_history_can",
+      "core::tests::a_valid_response_identity_with_missing_usage_still_counts_as_recorded_not_trusted_metered",
+      "core::tests::agent_kind_contract::agent_kind_conflicting_parents_and_user_child_evidence_are_sticky_and_bounded",
+      "core::tests::agent_kind_contract::agent_kind_existing_v3_parent_is_read_without_fake_migration_and_root_requires_positive_end",
+      "core::tests::agent_kind_contract::agent_kind_file_scopes_native_legacy_fact_views_and_csv_but_not_global_state",
+      "core::tests::agent_kind_contract::agent_kind_late_file_metadata_and_reopen_keep_v3_facts_and_cursor_identity",
+      "core::tests::agent_kind_contract::agent_kind_same_thread_id_is_source_scoped_and_illegal_queries_fail_for_csv",
+      "core::tests::agent_kind_contract::agent_kind_version_whitelist_unknown_taxonomy_and_directory_channel_are_explicit",
+      "core::tests::aggregate_quota_and_context_snapshots_cannot_manufacture_response_rows_or_tokens",
+      "core::tests::all_fact_views_honor_project_model_provider_and_root_filters_and_missing_root_usage_is_related",
+      "core::tests::before_commit_failure_rolls_back_facts_and_cursor_after_commit_restart_is_idempotent",
+      "core::tests::budget_identity_is_per_rule_version_scope_local_day_and_tier_not_usage_event",
+      "core::tests::byte_cursor_waits_for_split_utf8_complete_line",
+      "core::tests::cache_ratio_uses_only_valid_subset_and_reports_input_coverage",
+      "core::tests::cancellation_does_not_commit_a_partial_record",
+      "core::tests::cancelled_history_survives_restart_and_requires_explicit_reimport_while_live_remains_active",
+      "core::tests::chat_target_requires_exact_source_membership_registered_adapter_and_plain_uuid",
+      "core::tests::child_inherits_parent_history_without_reassigning_parent_usage_or_notifying_child",
+      "core::tests::clear_watermark_prevents_automatic_refill_but_explicit_history_import_is_possible",
+      "core::tests::codex_native_does_not_allow_metering_revisions",
+      "core::tests::completion_refinement_updates_one_record_and_preserves_read_and_delivery",
+      "core::tests::conflicting_identity_excludes_whole_fact_and_never_overwrites_original",
+      "core::tests::cross_source_suspicion_excludes_exact_range_until_copy_evidence_resolves_it",
+      "core::tests::csv_blocks_formulas_newlines_and_can_anonymize_project",
+      "core::tests::do_not_disturb_suppresses_live_notification_persistently_instead_of_delaying_it",
+      "core::tests::file_growth_with_restored_mtime_is_still_collected",
+      "core::tests::fixture_native_and_cumulative_are_not_added_twice",
+      "core::tests::global_activity_is_unfiltered_counts_root_tasks_and_rejects_future_activity",
+      "core::tests::independent_live_legacy_cursor_needs_its_own_baseline_then_full_history_fills_only_proven_gap",
+      "core::tests::independent_namespaces_same_short_id_are_separate_legitimate_usage",
+      "core::tests::legacy_resets_and_model_switches_create_gaps_not_fake_delta",
+      "core::tests::live_budget_crossing_claims_once_and_cleared_inbox_does_not_refill_same_threshold",
+      "core::tests::locked_source_recovers_after_release_while_another_source_progresses",
+      "core::tests::malformed_complete_record_does_not_stop_other_records_or_store_body",
+      "core::tests::metadata_enrichment_does_not_change_usage_identity",
+      "core::tests::migration_takes_backup_and_keeps_existing_settings_and_source_identity",
+      "core::tests::missing_zero_invalid_and_unknown_are_distinct",
+      "core::tests::nonempty_physical_key_is_never_overwritten_when_same_path_is_replaced",
+      "core::tests::notification_claim_is_atomic_preserves_refinement_and_never_replays_on_restart",
+      "core::tests::oversized_directory_is_rejected_before_any_partial_metadata_write",
+      "core::tests::oversized_half_line_makes_bounded_progress_then_recovers_following_valid_line",
+      "core::tests::paused_history_keeps_old_cursor_but_collects_new_files_and_old_file_tail_without_recount",
+      "core::tests::per_source_health_is_unfiltered_has_real_success_watermark_and_preserves_unsupported_capability",
+      "core::tests::query_index_contract::query_index_and_source_reuse_keep_snapshots_csv_and_global_health_semantics",
+      "core::tests::query_index_contract::query_index_fresh_schema_and_newer_schema_rejection_do_not_create_backups_or_rewrite_data",
+      "core::tests::query_index_contract::query_index_last_ddl_failure_rolls_back_every_pending_generation_and_backup_can_recover",
+      "core::tests::query_index_contract::query_index_v3_committed_wal_backup_retains_facts_cursors_preferences_and_reopen_is_idempotent",
+      "core::tests::rejects_data_source_path_overlap_before_writing_any_database",
+      "core::tests::repeat_copy_archive_and_restart_preserve_exact_totals",
+      "core::tests::retention_index_contract::retention_v6_last_ddl_failure_rolls_back_all_pending_generations_and_backup_recovers",
+      "core::tests::retention_index_contract::retention_v6_upgrade_preserves_v5_wal_facts_cursors_settings_and_reopen_is_idempotent",
+      "core::tests::root_task_budget_includes_explicit_children_across_days_and_never_other_source_same_ids",
+      "core::tests::second_semantics_fixture_normalizes_exclusive_input_and_never_double_adds_cache_subtypes",
+      "core::tests::settings_core_values_win_legacy_migration_but_defaults_do_not_block_missing_keys",
+      "core::tests::source_registration_selection_relocation_and_restart_keep_stable_identities",
+      "core::tests::static_head_files_do_not_starve_older_history_or_a_second_source",
+      "core::tests::structured_tool_result_metadata_is_retained_but_body_and_spoofed_stdout_are_not",
+      "core::tests::truncate_and_replace_same_path_start_new_physical_identity_without_double_usage",
+      "core::tests::turn_thread_attribution_contract::turn_thread_attribution_is_unique_source_scoped_and_independent_of_composite_index",
+      "core::tests::v1_migration_ddl_failure_rolls_back_and_readable_backup_recovers_original_metering",
+      "core::tests::v1_migration_preserves_existing_native_facts_physical_cursor_and_replay_after_restart",
+      "core::tests::v1_migration_verified_file_keeps_physical_id_and_cursor_when_archived",
+      "core::tests::v1_unverified_truncated_or_replaced_file_never_adopts_the_old_physical_id",
+      "core::tests::v3_context_adds_live_cursor_without_resetting_history_and_both_survive_archive_and_truncate",
+      "core::tests::verified_stream_revision_never_accepts_late_partial_over_final",
+      "core::tests::work_care_settings_defaults_validation_atomicity_and_restart_round_trip"
+    ],
+    "originalFailedName": "core::tests::retention_index_contract::retention_delete_plans_use_time_searches_and_preserve_strict_cutoff_and_inbox_cascade",
+    "freshExactOutcome": [
+      [
+        "core::tests::retention_index_contract::retention_delete_plans_use_time_searches_and_preserve_strict_cutoff_and_inbox_cascade",
+        "ok"
+      ]
+    ],
+    "originalBatchExecution": {
+      "argv": [
+        "D:\\project\\宠物\\output\\implementation\\c19-retention-validation-plan-guardfix-44f497aa42e249aa953088c16e4fd219\\compiled-core-tests.exe",
+        "core::",
+        "--test-threads=1"
+      ],
+      "cwd": "D:\\project\\宠物\\output\\implementation\\c19-retention-validation-plan-guardfix-44f497aa42e249aa953088c16e4fd219",
+      "ownershipId": "6f26a978-a160-484c-8589-33a6747a31c6",
+      "startedAtUtc": "2026-10-16T01:25:02.521846+00:00",
+      "timeoutSeconds": 600,
+      "cleanupTimeoutSeconds": 5,
+      "createdSuspended": true,
+      "assignedBeforeResume": true,
+      "resumed": true,
+      "timedOut": false,
+      "cleanupVerified": true,
+      "status": "nonzero-exit",
+      "errors": [],
+      "sawRootExitedWithActiveDescendants": false,
+      "rootExitedWithActiveDescendantsObservation": null,
+      "compilerRootZeroArtifactCleanupPolicy": false,
+      "naturalWholeJobCompletion": true,
+      "processId": 63396,
+      "root": {
+        "creationFileTimeDecimal": "134365875025242759",
+        "exitFileTimeDecimal": "134365877626041036",
+        "exitCode": 101,
+        "waitSignaled": true,
+        "exited": true
+      },
+      "job": {
+        "totalProcesses": 2,
+        "activeProcesses": 0,
+        "totalTerminatedProcesses": 0
+      },
+      "handleInheritance": "explicit stdin/stdout/stderr only",
+      "globalEnumeration": false,
+      "finishedAtUtc": "2026-10-16T01:29:22.613516+00:00",
+      "elapsedSeconds": 260.09134389972314,
+      "cpuWindowReleaseVerified": true
+    },
+    "freshExactExecution": {
+      "argv": [
+        "D:\\project\\宠物\\output\\implementation\\c19-retention-validation-plan-failed-only-29c1dd82121b493f9eff0134faeaedb7\\compiled-core-tests.exe",
+        "core::tests::retention_index_contract::retention_delete_plans_use_time_searches_and_preserve_strict_cutoff_and_inbox_cascade",
+        "--exact",
+        "--test-threads=1"
+      ],
+      "cwd": "D:\\project\\宠物\\output\\implementation\\c19-retention-validation-plan-failed-only-29c1dd82121b493f9eff0134faeaedb7",
+      "ownershipId": "6382d662-6d1b-4dff-848f-cd9c85f71e29",
+      "startedAtUtc": "2026-10-16T01:41:26.080699+00:00",
+      "timeoutSeconds": 600,
+      "cleanupTimeoutSeconds": 5,
+      "createdSuspended": true,
+      "assignedBeforeResume": true,
+      "resumed": true,
+      "timedOut": false,
+      "cleanupVerified": true,
+      "status": "completed",
+      "errors": [],
+      "sawRootExitedWithActiveDescendants": true,
+      "rootExitedWithActiveDescendantsObservation": {
+        "elapsedSeconds": 85.83205399988219,
+        "root": {
+          "creationFileTimeDecimal": "134365884860824432",
+          "exitFileTimeDecimal": "134365885719105793",
+          "exitCode": 0,
+          "waitSignaled": true,
+          "exited": true
+        },
+        "job": {
+          "totalProcesses": 2,
+          "activeProcesses": 1,
+          "totalTerminatedProcesses": 0
+        }
+      },
+      "compilerRootZeroArtifactCleanupPolicy": false,
+      "naturalWholeJobCompletion": true,
+      "processId": 55724,
+      "root": {
+        "creationFileTimeDecimal": "134365884860824432",
+        "exitFileTimeDecimal": "134365885719105793",
+        "exitCode": 0,
+        "waitSignaled": true,
+        "exited": true
+      },
+      "job": {
+        "totalProcesses": 2,
+        "activeProcesses": 0,
+        "totalTerminatedProcesses": 0
+      },
+      "handleInheritance": "explicit stdin/stdout/stderr only",
+      "globalEnumeration": false,
+      "finishedAtUtc": "2026-10-16T01:42:51.938564+00:00",
+      "elapsedSeconds": 85.85721080005169,
+      "cpuWindowReleaseVerified": true
+    }
+  },
+  "compilationHistory": [
+    {
+      "stage": "first180",
+      "outcome": "actual-Cargo-whole-Job-timeout",
+      "execution": {
+        "argv": [
+          "C:\\Users\\Administrator\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "D:\\project\\宠物\\output\\implementation\\c19-retention-validation-plan-reviewed-0b987494bb734fe3926c1222436ba9d5\\compile-wrapper.py",
+          "--owned-cargo-wrapper"
+        ],
+        "cwd": "D:\\project\\宠物\\output\\implementation\\c19-retention-validation-plan-reviewed-0b987494bb734fe3926c1222436ba9d5",
+        "ownershipId": "903f4ff4-e457-47b6-831d-28138c22dfcd",
+        "startedAtUtc": "2026-10-16T01:08:50.514199+00:00",
+        "timeoutSeconds": 180,
+        "cleanupTimeoutSeconds": 5,
+        "createdSuspended": true,
+        "assignedBeforeResume": true,
+        "resumed": true,
+        "timedOut": true,
+        "cleanupVerified": true,
+        "status": "timed-out",
+        "errors": [],
+        "sawRootExitedWithActiveDescendants": false,
+        "rootExitedWithActiveDescendantsObservation": null,
+        "compilerRootZeroArtifactCleanupPolicy": true,
+        "naturalWholeJobCompletion": false,
+        "processId": 36620,
+        "root": {
+          "creationFileTimeDecimal": "134365865305154848",
+          "exitFileTimeDecimal": "134365867105197661",
+          "exitCode": 3758096385,
+          "waitSignaled": true,
+          "exited": true
+        },
+        "job": {
+          "totalProcesses": 9,
+          "activeProcesses": 0,
+          "totalTerminatedProcesses": 0
+        },
+        "handleInheritance": "explicit stdin/stdout/stderr only",
+        "globalEnumeration": false,
+        "finishedAtUtc": "2026-10-16T01:11:50.543075+00:00",
+        "elapsedSeconds": 180.02847479982302,
+        "cpuWindowReleaseVerified": true
+      },
+      "testCasesExecuted": 0,
+      "preserved": true
+    },
+    {
+      "stage": "second600",
+      "outcome": "pre-api-constructor-rejected-timeout600",
+      "execution": null,
+      "JobCreated": false,
+      "childCreated": false,
+      "CargoLaunched": false,
+      "testCasesExecuted": 0,
+      "error": "artifact cleanup policy is compiler-only and owned-leaf only",
+      "preserved": true
+    },
+    {
+      "stage": "third-guardfix600",
+      "outcome": "compiled-root-zero-owned-descendants-cleaned",
+      "execution": {
+        "argv": [
+          "C:\\Users\\Administrator\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "D:\\project\\宠物\\output\\implementation\\c19-retention-validation-plan-guardfix-44f497aa42e249aa953088c16e4fd219\\compile-wrapper.py",
+          "--owned-cargo-wrapper"
+        ],
+        "cwd": "D:\\project\\宠物\\output\\implementation\\c19-retention-validation-plan-guardfix-44f497aa42e249aa953088c16e4fd219",
+        "ownershipId": "8e45fe4d-0656-4626-8da5-c609d5bf29fe",
+        "startedAtUtc": "2026-10-16T01:22:57.633040+00:00",
+        "timeoutSeconds": 600,
+        "cleanupTimeoutSeconds": 5,
+        "createdSuspended": true,
+        "assignedBeforeResume": true,
+        "resumed": true,
+        "timedOut": false,
+        "cleanupVerified": true,
+        "status": "compiled-root-zero-owned-descendants-cleaned",
+        "errors": [],
+        "sawRootExitedWithActiveDescendants": true,
+        "rootExitedWithActiveDescendantsObservation": {
+          "elapsedSeconds": 67.06195170013234,
+          "root": {
+            "creationFileTimeDecimal": "134365873776339764",
+            "exitFileTimeDecimal": "134365874446788467",
+            "exitCode": 0,
+            "waitSignaled": true,
+            "exited": true
+          },
+          "job": {
+            "totalProcesses": 11,
+            "activeProcesses": 1,
+            "totalTerminatedProcesses": 0
+          }
+        },
+        "compilerRootZeroArtifactCleanupPolicy": true,
+        "naturalWholeJobCompletion": false,
+        "processId": 30540,
+        "root": {
+          "creationFileTimeDecimal": "134365873776339764",
+          "exitFileTimeDecimal": "134365874446788467",
+          "exitCode": 0,
+          "waitSignaled": true,
+          "exited": true
+        },
+        "job": {
+          "totalProcesses": 11,
+          "activeProcesses": 0,
+          "totalTerminatedProcesses": 0
+        },
+        "handleInheritance": "explicit stdin/stdout/stderr only",
+        "globalEnumeration": false,
+        "finishedAtUtc": "2026-10-16T01:24:04.695650+00:00",
+        "elapsedSeconds": 67.06235680030659,
+        "cpuWindowReleaseVerified": true
+      },
+      "harness": {
+        "sha256": "9F10A283A372DDB14E3E1A8C444F84057B4C986FB0152CF7D06BCF0F960C7ABF",
+        "bytes": 6415360,
+        "compileExecutionSha256": "1F80FBFB1C21A88BCBE1562C86982254B9B10BC586F2775AA321EE6DE9D07196",
+        "wrapperResultSha256": "7DB8B554E59CEB2D9BBA7DEB6FA07AFFE42FD411BE45B3FE9480B73305E3C9E9",
+        "postformatInputsSha256": "141B847E378B85E9BA4EC0FEED5627DEB5BF499E1C5C6679AF5F45E534A04DFD",
+        "naturalWholeJobCompletion": false,
+        "status": "compiled-root-zero-owned-descendants-cleaned",
+        "cleanupVerified": true
+      },
+      "notNaturalWholeJobCompletion": true,
+      "descendantImageOrCauseInferred": false
+    },
+    {
+      "stage": "fourth-failed-only600",
+      "outcome": "compiled-root-zero-owned-descendants-cleaned",
+      "execution": {
+        "argv": [
+          "C:\\Users\\Administrator\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "D:\\project\\宠物\\output\\implementation\\c19-retention-validation-plan-failed-only-29c1dd82121b493f9eff0134faeaedb7\\compile-wrapper.py",
+          "--owned-cargo-wrapper"
+        ],
+        "cwd": "D:\\project\\宠物\\output\\implementation\\c19-retention-validation-plan-failed-only-29c1dd82121b493f9eff0134faeaedb7",
+        "ownershipId": "48b7f6c1-cb22-48b6-9f1f-611328309580",
+        "startedAtUtc": "2026-10-16T01:39:56.506720+00:00",
+        "timeoutSeconds": 600,
+        "cleanupTimeoutSeconds": 5,
+        "createdSuspended": true,
+        "assignedBeforeResume": true,
+        "resumed": true,
+        "timedOut": false,
+        "cleanupVerified": true,
+        "status": "compiled-root-zero-owned-descendants-cleaned",
+        "errors": [],
+        "sawRootExitedWithActiveDescendants": true,
+        "rootExitedWithActiveDescendantsObservation": {
+          "elapsedSeconds": 55.51241879956797,
+          "root": {
+            "creationFileTimeDecimal": "134365883965075398",
+            "exitFileTimeDecimal": "134365884520034719",
+            "exitCode": 0,
+            "waitSignaled": true,
+            "exited": true
+          },
+          "job": {
+            "totalProcesses": 11,
+            "activeProcesses": 1,
+            "totalTerminatedProcesses": 0
+          }
+        },
+        "compilerRootZeroArtifactCleanupPolicy": true,
+        "naturalWholeJobCompletion": false,
+        "processId": 13012,
+        "root": {
+          "creationFileTimeDecimal": "134365883965075398",
+          "exitFileTimeDecimal": "134365884520034719",
+          "exitCode": 0,
+          "waitSignaled": true,
+          "exited": true
+        },
+        "job": {
+          "totalProcesses": 11,
+          "activeProcesses": 0,
+          "totalTerminatedProcesses": 0
+        },
+        "handleInheritance": "explicit stdin/stdout/stderr only",
+        "globalEnumeration": false,
+        "finishedAtUtc": "2026-10-16T01:40:52.019166+00:00",
+        "elapsedSeconds": 55.512872299645096,
+        "cpuWindowReleaseVerified": true
+      },
+      "harness": {
+        "sha256": "87221A97950CC8788F013909F22A0CAA351606BE0347741A2E29FA6681599005",
+        "bytes": 6415872,
+        "compileExecutionSha256": "3D6D807A5486628A6A1DEDC193B025C5CF7E770E642D83C910644884EF1A8BA3",
+        "wrapperResultSha256": "8934AB4BD12CD55B0D9E7F8D8A34C6BB268BBD6F23E252147350039A02D4FDE1",
+        "postformatInputsSha256": "D340D3EE629B989DCE885AF31146974B14BD999D867C07B2D3882ACD6298E071",
+        "naturalWholeJobCompletion": false,
+        "status": "compiled-root-zero-owned-descendants-cleaned",
+        "cleanupVerified": true
+      },
+      "notNaturalWholeJobCompletion": true,
+      "descendantImageOrCauseInferred": false
+    }
+  ],
+  "oracleCorrection": {
+    "onlyChangedPath": "src-tauri/src/core/retention_index_tests.rs",
+    "correction": "accept legal USING INDEX or USING COVERING INDEX; require time range SEARCH and reject SCAN; no product implementation modification",
+    "firstFailureActualPlanner": "SEARCH inbox_events USING COVERING INDEX inbox_event_time (event_time<?)",
+    "retentionLateOldCascadeAssertionsUnchanged": true,
+    "beforeBindingSha256": "141B847E378B85E9BA4EC0FEED5627DEB5BF499E1C5C6679AF5F45E534A04DFD",
+    "afterBindingSha256": "D340D3EE629B989DCE885AF31146974B14BD999D867C07B2D3882ACD6298E071",
+    "unchangedSmallInputs": 29,
+    "totalSmallInputs": 30,
+    "currentAfterSourceHashesMatch": true,
+    "oldBatchPostBindingPreserved": true,
+    "completeAppBuildInputBindingClaimed": false
+  },
+  "auxiliaryValidation": {
+    "pureArtifactGuard": {
+      "cases": 8,
+      "apiOrChildInvoked": false,
+      "moduleSha256": "EF123B117164C675691DCD8B3308619CA34FA575A615042AE75FA3F04965EC5F",
+      "countedAsProductCases": false
+    },
+    "rustfmtSyntheticScopeProbe": {
+      "cases": 2,
+      "missingChildWithoutFlagNonzeroIsExpected": true,
+      "countedAsProductCases": false
+    },
+    "formattingReexecutedForRetryLeaves": false
+  },
+  "qualification": {
+    "compositeCoreContractPassed": true,
+    "singleFresh79BatchPassed": false,
+    "wholeCratePassed": false,
+    "NativePassed": false,
+    "ReleasePassed": false,
+    "M4Passed": false,
+    "performanceThresholdPassed": false,
+    "AppOrCliBuiltOrRun": false,
+    "realSourceOrDatabaseRead": false
+  },
+  "limitations": [
+    "79 distinct cases use78 retained passes plus1 fresh exact; original one-test failure and compiler failures remain in history.",
+    "Compiler root0 followed by scoped owned Job cleanup is not natural completion and does not identify the remaining descendant.",
+    "Pure guard and formatter probes are auxiliary checks, not extra product cases.",
+    "Only small source/log metadata were read to assemble this receipt; no test/build/SQL/PE/raw-source execution or hashing occurs in the generator.",
+    "No native application/installer/CLI, user database migration, full raw import, memory/CPU/startup/P95 or whole M4 qualification is established."
+  ],
+  "evidence": [
+    {
+      "path": "output/implementation/c19-retention-validation-plan-reviewed-0b987494bb734fe3926c1222436ba9d5/plan-manifest.json",
+      "bytes": 1871,
+      "sha256": "8821BADEC5CCA58D5B4BB69060967E536288B396FDF363FCCD04C8CB89B06261"
+    },
+    {
+      "path": "output/implementation/c19-retention-validation-plan-reviewed-0b987494bb734fe3926c1222436ba9d5/compiler.execution.json",
+      "bytes": 1467,
+      "sha256": "9285B29B994A0F96AF59105873FEA1F0FE53ECFC82482F831F70B9F7E3A13040"
+    },
+    {
+      "path": "output/implementation/c19-retention-validation-plan-reviewed-0b987494bb734fe3926c1222436ba9d5/validation-first-failure.json",
+      "bytes": 129,
+      "sha256": "0A4E74568979FA32DF25CDC9918A230B07192FC5D95DC441A3F7C8B9F6C95E13"
+    },
+    {
+      "path": "output/implementation/c19-retention-validation-plan-reviewed-0b987494bb734fe3926c1222436ba9d5/cargo.stdout.jsonl",
+      "bytes": 387743,
+      "sha256": "06972CE0804319DDE7694A8D2AC6A48C907BE7309F49EFC198BDA0FD18BFC3C2"
+    },
+    {
+      "path": "output/implementation/c19-retention-validation-plan-reviewed-0b987494bb734fe3926c1222436ba9d5/cargo.stderr.log",
+      "bytes": 61,
+      "sha256": "5B3031D0C726874AB7251FC653FB45945F7999CC0526105AA8CBE2AACE64257A"
+    },
+    {
+      "path": "output/implementation/c19-retention-validation-plan-reviewed-0b987494bb734fe3926c1222436ba9d5/rustfmt-capability.json",
+      "bytes": 2036,
+      "sha256": "8D9FB7E635502F6EC2A921B6C0732888F3BFEFCF700BA80EB44C28D50241F9A9"
+    },
+    {
+      "path": "output/implementation/c19-retention-validation-plan-reviewed-0b987494bb734fe3926c1222436ba9d5/format-decision.json",
+      "bytes": 1769,
+      "sha256": "5C14C17AE8B41E0E4000B71753AAD6B2F5D7268D52488CA841E9C1A71A6BF20D"
+    },
+    {
+      "path": "output/implementation/c19-retention-validation-plan-reviewed-0b987494bb734fe3926c1222436ba9d5/formatter.execution.json",
+      "bytes": 1518,
+      "sha256": "B171EA72C3070D2AC4D07987090BAA3164D886E15C88CD5269954C479DC860EF"
+    },
+    {
+      "path": "output/implementation/c19-retention-validation-plan-retry-870f1bb8fa684e369a734c41f8a3354b/plan-manifest.json",
+      "bytes": 2338,
+      "sha256": "CC9EB5B44525B291F05B49CF08A4B8EAE7A84318BC159F8F19E09399FBDC0B68"
+    },
+    {
+      "path": "output/implementation/c19-retention-validation-plan-retry-870f1bb8fa684e369a734c41f8a3354b/execution-release.json",
+      "bytes": 1343,
+      "sha256": "0D48E37BBF6B3253BC8877C368913D96ECB78CD360086E108BAFE23E1369A9F3"
+    },
+    {
+      "path": "output/implementation/c19-retention-validation-plan-retry-870f1bb8fa684e369a734c41f8a3354b/validation-first-failure.json",
+      "bytes": 117,
+      "sha256": "9DEA6D7853FAE92BF41AADCA1776D659604274BDA9A9094D04714383833658CE"
+    },
+    {
+      "path": "output/implementation/c19-retention-validation-plan-guardfix-44f497aa42e249aa953088c16e4fd219/plan-manifest.json",
+      "bytes": 2817,
+      "sha256": "9743509EAA42A51F3D2ADBC4736591D63B2202976DA96315ADF746FEE09D653A"
+    },
+    {
+      "path": "output/implementation/c19-retention-validation-plan-guardfix-44f497aa42e249aa953088c16e4fd219/pure-artifact-guard-result.json",
+      "bytes": 1992,
+      "sha256": "990685E946D89764F8AC131BF3EFB97B4266362A1FE0842641EAD0A1D86C38AC"
+    },
+    {
+      "path": "output/implementation/c19-retention-validation-plan-guardfix-44f497aa42e249aa953088c16e4fd219/owned_job.py",
+      "bytes": 15653,
+      "sha256": "EF123B117164C675691DCD8B3308619CA34FA575A615042AE75FA3F04965EC5F"
+    },
+    {
+      "path": "output/implementation/c19-retention-validation-plan-guardfix-44f497aa42e249aa953088c16e4fd219/compiler.execution.json",
+      "bytes": 1843,
+      "sha256": "1F80FBFB1C21A88BCBE1562C86982254B9B10BC586F2775AA321EE6DE9D07196"
+    },
+    {
+      "path": "output/implementation/c19-retention-validation-plan-guardfix-44f497aa42e249aa953088c16e4fd219/compile-wrapper-result.json",
+      "bytes": 2489,
+      "sha256": "7DB8B554E59CEB2D9BBA7DEB6FA07AFFE42FD411BE45B3FE9480B73305E3C9E9"
+    },
+    {
+      "path": "output/implementation/c19-retention-validation-plan-guardfix-44f497aa42e249aa953088c16e4fd219/compiled-harness.frozen.json",
+      "bytes": 513,
+      "sha256": "D0FF322BC92B66EB409521C730CA569E0F2ECD24BB21D223BE27EBCB4B743488"
+    },
+    {
+      "path": "output/implementation/c19-retention-validation-plan-guardfix-44f497aa42e249aa953088c16e4fd219/cargo-return.json",
+      "bytes": 438,
+      "sha256": "22C4C862DD4A52731504BFECFAEC49428D0FE95F7E7ACD3E4619389999C5413E"
+    },
+    {
+      "path": "output/implementation/c19-retention-validation-plan-guardfix-44f497aa42e249aa953088c16e4fd219/cargo.stdout.jsonl",
+      "bytes": 388573,
+      "sha256": "F97405715BBBBE8F641DCB45AC78E9B950A28CB5A15E6C79F5D79CAB8790CB20"
+    },
+    {
+      "path": "output/implementation/c19-retention-validation-plan-guardfix-44f497aa42e249aa953088c16e4fd219/cargo.stderr.log",
+      "bytes": 124,
+      "sha256": "98BCECEE66C83FB624EDE594A15F76C9A44D270182DD1067FF54EB65A762C2A8"
+    },
+    {
+      "path": "output/implementation/c19-retention-validation-plan-guardfix-44f497aa42e249aa953088c16e4fd219/actual-test-selection.json",
+      "bytes": 11451,
+      "sha256": "EFD4DAA4B465F4C0450954B14594FA2AE5ED917D57BF24EC31BA04B77F252832"
+    },
+    {
+      "path": "output/implementation/c19-retention-validation-plan-guardfix-44f497aa42e249aa953088c16e4fd219/core-tests.execution.json",
+      "bytes": 1389,
+      "sha256": "45D4A31D3FFE6071080D3905B028EB930557FAD1E118549F083BB08D0CCE73EE"
+    },
+    {
+      "path": "output/implementation/c19-retention-validation-plan-guardfix-44f497aa42e249aa953088c16e4fd219/core-tests.stdout.log",
+      "bytes": 10376,
+      "sha256": "B2A9FA21EFE5D07E599CAAEE82861164A9DA9C79B6A8949E7CB77D10A690091F"
+    },
+    {
+      "path": "output/implementation/c19-retention-validation-plan-guardfix-44f497aa42e249aa953088c16e4fd219/core-tests.stderr.log",
+      "bytes": 0,
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "path": "output/implementation/c19-retention-validation-plan-guardfix-44f497aa42e249aa953088c16e4fd219/failed-batch-post-binding-review.json",
+      "bytes": 506,
+      "sha256": "D985A5B837EE04A7ABAAD40C68AFA4ED1BF3DD41571953D984BE722B708F501D"
+    },
+    {
+      "path": "output/implementation/c19-retention-validation-plan-guardfix-44f497aa42e249aa953088c16e4fd219/inputs.postformat.frozen.json",
+      "bytes": 5519,
+      "sha256": "141B847E378B85E9BA4EC0FEED5627DEB5BF499E1C5C6679AF5F45E534A04DFD"
+    },
+    {
+      "path": "output/implementation/c19-retention-index-v6-cab9ae5644f742a896f5cc731c630499/covering-plan-fix/before.json",
+      "bytes": 505,
+      "sha256": "96577729B1913E0D3847C2115E6986AC14D3B910E1717A41F580B835B5E59100"
+    },
+    {
+      "path": "output/implementation/c19-retention-index-v6-cab9ae5644f742a896f5cc731c630499/covering-plan-fix/before.rs",
+      "bytes": 16721,
+      "sha256": "5CF7B17851150ED3005C3ED0F12A14681D49095F5F1FD0872E60083046F29A8C"
+    },
+    {
+      "path": "output/implementation/c19-retention-index-v6-cab9ae5644f742a896f5cc731c630499/covering-plan-fix/after.rs",
+      "bytes": 16902,
+      "sha256": "0D6F640C52D4F213289CD12D31135BF84DD7179B3A645A1D9905A80D01D42C2B"
+    },
+    {
+      "path": "output/implementation/c19-retention-index-v6-cab9ae5644f742a896f5cc731c630499/covering-plan-fix/inputs.after-oracle-fix.frozen.json",
+      "bytes": 6155,
+      "sha256": "D340D3EE629B989DCE885AF31146974B14BD999D867C07B2D3882ACD6298E071"
+    },
+    {
+      "path": "output/implementation/c19-retention-validation-plan-failed-only-29c1dd82121b493f9eff0134faeaedb7/plan-manifest.json",
+      "bytes": 3298,
+      "sha256": "08A5F3205A22DDA0F4C06A112C8DC94EC8F4233EEBF97DF9B4D7C224F55492FE"
+    },
+    {
+      "path": "output/implementation/c19-retention-validation-plan-failed-only-29c1dd82121b493f9eff0134faeaedb7/execution-release.json",
+      "bytes": 1098,
+      "sha256": "B422E77C576A101B5097441F962D19173B58679DE4AAF4B921D55B1FE3AE7D11"
+    },
+    {
+      "path": "output/implementation/c19-retention-validation-plan-failed-only-29c1dd82121b493f9eff0134faeaedb7/compiler.execution.json",
+      "bytes": 1850,
+      "sha256": "3D6D807A5486628A6A1DEDC193B025C5CF7E770E642D83C910644884EF1A8BA3"
+    },
+    {
+      "path": "output/implementation/c19-retention-validation-plan-failed-only-29c1dd82121b493f9eff0134faeaedb7/compile-wrapper-result.json",
+      "bytes": 2495,
+      "sha256": "8934AB4BD12CD55B0D9E7F8D8A34C6BB268BBD6F23E252147350039A02D4FDE1"
+    },
+    {
+      "path": "output/implementation/c19-retention-validation-plan-failed-only-29c1dd82121b493f9eff0134faeaedb7/compiled-harness.frozen.json",
+      "bytes": 513,
+      "sha256": "F10F2370223F9753B3AD22581A1196615BC22E0CDE6040306941EE1BB2F83D7F"
+    },
+    {
+      "path": "output/implementation/c19-retention-validation-plan-failed-only-29c1dd82121b493f9eff0134faeaedb7/cargo-return.json",
+      "bytes": 438,
+      "sha256": "22C4C862DD4A52731504BFECFAEC49428D0FE95F7E7ACD3E4619389999C5413E"
+    },
+    {
+      "path": "output/implementation/c19-retention-validation-plan-failed-only-29c1dd82121b493f9eff0134faeaedb7/cargo.stdout.jsonl",
+      "bytes": 388573,
+      "sha256": "1F6D8E62B31C91D705A0BA0C2153867E4AA975C54A8D4D327833C5176F5188ED"
+    },
+    {
+      "path": "output/implementation/c19-retention-validation-plan-failed-only-29c1dd82121b493f9eff0134faeaedb7/cargo.stderr.log",
+      "bytes": 124,
+      "sha256": "E8CAA2932123255AF17006FD444F57E49B2A733AB9FE64184DA08605EBE96F01"
+    },
+    {
+      "path": "output/implementation/c19-retention-validation-plan-failed-only-29c1dd82121b493f9eff0134faeaedb7/actual-test-selection.json",
+      "bytes": 11451,
+      "sha256": "EFD4DAA4B465F4C0450954B14594FA2AE5ED917D57BF24EC31BA04B77F252832"
+    },
+    {
+      "path": "output/implementation/c19-retention-validation-plan-failed-only-29c1dd82121b493f9eff0134faeaedb7/harness-list.execution.json",
+      "bytes": 1365,
+      "sha256": "9DB7A350F82FDFECF1452991753C3DC955BF0ECFAD0D991CA41F61E46ACA9A05"
+    },
+    {
+      "path": "output/implementation/c19-retention-validation-plan-failed-only-29c1dd82121b493f9eff0134faeaedb7/failed-core-test.execution.json",
+      "bytes": 1870,
+      "sha256": "DBEF73A24FA6C5069C0F1CDF914CCB85DCF4C9E723115900B65A8B1B19FB4E5C"
+    },
+    {
+      "path": "output/implementation/c19-retention-validation-plan-failed-only-29c1dd82121b493f9eff0134faeaedb7/failed-core-test.stdout.log",
+      "bytes": 252,
+      "sha256": "A4538358F0156FEE1BB37B874A84297A08695A65F525879EBC28F8F5C2579BBF"
+    },
+    {
+      "path": "output/implementation/c19-retention-validation-plan-failed-only-29c1dd82121b493f9eff0134faeaedb7/failed-core-test.stderr.log",
+      "bytes": 0,
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "path": "output/implementation/c19-retention-validation-plan-failed-only-29c1dd82121b493f9eff0134faeaedb7/validation-result.json",
+      "bytes": 1236,
+      "sha256": "088C17E7EBCF008CCF44D85C9E1F2345BC101C5ED177F63CF60223EE8A401A1A"
+    },
+    {
+      "path": "output/implementation/c19-retention-validation-plan-failed-only-29c1dd82121b493f9eff0134faeaedb7/inputs.postformat.frozen.json",
+      "bytes": 6155,
+      "sha256": "D340D3EE629B989DCE885AF31146974B14BD999D867C07B2D3882ACD6298E071"
+    },
+    {
+      "path": "output/implementation/c19-retention-validation-plan-failed-only-29c1dd82121b493f9eff0134faeaedb7/retained-batch-evidence.json",
+      "bytes": 14617,
+      "sha256": "F44116BEC3D14D78334E21FE65D639F035A38036DF196E36C507A08D7A387F00"
+    }
+  ],
+  "generator": {
+    "path": "output/implementation/c19-retention-composite-receipt-plan-9fd7244e570d4743b5881ebd1020a00d/generate-once.py",
+    "sha256": "345A9D8129B4A088167BA64DAFF12C926F0095F4F6F86DC92EE1FDCBF5AD2E0C"
+  }
+}

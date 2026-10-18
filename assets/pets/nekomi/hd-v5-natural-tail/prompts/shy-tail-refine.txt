@@ -1,0 +1,6 @@
+Use case: precise-object-edit.
+Edit image 1 only in its visible tail. Image 2 is the exact final slender-tail master.
+The tail in image 1 is STILL TOO THICK and has retained the old broad brush shape. Replace it with the actual thin cylindrical CAT tail from image 2, preserving the shy gesture and all other identity details exactly.
+At this 1024x1536 canvas, the visible tail shaft should be about 40 to 50 pixels wide, roughly HALF the width of the current tail in image 1. A nearly constant slender rounded shaft gradually narrows into a small rounded tip. Subtle short fur, no large feather/spindle bulge at the bottom. Keep the proximal root hidden behind the rear skirt; a narrow segment appears below the viewer-right hem, falls diagonally outward gently and ends with one small soft bend near mid-calf. Maintain the readable open gap from the calf. Do not extend tail toward the hand or lateral waist, do not add an extra tail.
+Keep the face, cheek-touching hand, other relaxed hand, hair, cat ears, dress, legs, parallel shoes and full-body pose unchanged. Preserve the detailed rendering and anatomy. No fingers added or removed.
+Native 1024x1536 transparent PNG. Actual clean alpha transparency, no halo, colored haze, glow, backdrop, floor shadow, text or watermark. Complete ears, hair, feet and tail within the canvas.

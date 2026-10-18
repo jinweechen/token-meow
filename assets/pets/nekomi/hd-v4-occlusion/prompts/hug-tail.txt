@@ -1,0 +1,13 @@
+Use case: precise-object-edit.
+Asset: repair the missing tail connection in the new low cradling pose.
+Image1 is the exact EDIT TARGET: the newly generated fully dressed catgirl with both hands low in front cradling the white tail tip.
+Image2 is hd-v4-occlusion/idle.png, only the accepted tail thickness and lower-side skirt occlusion reference.
+
+KEEP image1's face, hair, complete ivory/mint costume, waistline, pose, both hands and fingers, legs and shoes. Repair only the white tail's missing middle connection. Currently the hands hold a disconnected fluffy object. That is WRONG. Add the missing substantial continuous tail section; it must be plainly visible.
+
+Concrete route in image1's 1024x1536 composition: the real base and all upstream tail are hidden behind the body and skirt. The first visible middle section emerges from BEHIND the LOWER viewer-right skirt/ruffle edge, around the outer lower-right dress contour near x=810,y=970. Both fur outlines disappear behind the cloth, without a cut surface or point. From that occluded starting area, the visible fur curves outward into the clear background around x=880,y=980, then turns smoothly UP and LEFT toward the existing viewer-right supporting hand around x=750,y=875. This middle arc MUST be fully drawn and easy to follow, rather than hidden by the front skirt or omitted. It continues through the existing cradled tail to the ONE soft tapered tip near the viewer-left supporting hand. There is only one tip; the upstream end disappears under cloth. These coordinates are composition guidance, not text or marks to draw.
+
+Show the fur going through the natural palm support, not attaching to the palm. Keep a small readable background gap between most of the new outside arc and the dress. The skirt edge occludes the start only; the rest of the visible arc is continuous and in front of or beside the skirt on its way to the hands. No tail at the waist, side waist bow, upper side body, sleeve or cuff. Keep the hidden base entirely hidden.
+
+Maintain a moderately slender fluffy white CAT tail, around 80–110px wide in the exposed middle, smoothly narrowing toward the single held tip. Not a pillow, fox brush, disconnected scarf, broken floating piece, closed ring or second tail. Do not omit the connecting section again. Preserve the natural fingers, no added digits or fused hands. Preserve closed full clothing and forward nearly parallel shoes.
+One complete native1024x1536 transparent RGBA character, visible height at least1200px, uncut outline. No background, floor, shadows, halo, captions, diagrams or extra figures. No programmatic pixel modifications.

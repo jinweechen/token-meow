@@ -1,0 +1,68 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-15T13:44:14.5833108Z",
+  "scope": "actual Windows current-user silent CLI installer subset; owned isolated destination, no application launch or shortcuts",
+  "applicationVersion": "0.1.0",
+  "installerSha256": "884964DC41015CB9A4912ACC22E49854076B6A93064E0306EF0A82E19E28EAAD",
+  "executableSha256": "C11DD01F757FFD0E6F07FB6926A334E48D7A19BFB3C083CCDEC3E05441AA05C2",
+  "legalManifestSha256": "F8D64B145872004BD8CFB85EEDB777C3179D60324E8566620002661A26CB5BE6",
+  "nativeInstallerSubset": "passed",
+  "checks": {
+    "cleanInstallExitZero": true,
+    "installedExeAndLegalHashesMatch": true,
+    "sameVersionReinstallRelocation": true,
+    "ownedExactRegSzAutorunMigration": true,
+    "customEmptyRegSzPreserved": true,
+    "customBinaryPreserved": true,
+    "customEmptyExpandSzPreserved": true,
+    "ordinaryUninstallExitZero": true,
+    "ordinaryUninstallRemovesExeRegistrationOwnedAutorun": true,
+    "ordinaryUninstallPreservesPreexistingAppdataAndOwnedMarker": true,
+    "controlledMarkerAndProductPreferenceRestored": true
+  },
+  "retainedFailure": {
+    "path": "D:\\project\\宠物\\output\\performance\\installer-b69661d067744a34bee6711945936d40\\relocation-preparation-failure.json",
+    "reason": "Read-only registry key preparation failed; first relocation cannot prove autostart migration; subsequent independently arranged B-to-C rerun passed",
+    "originalNullReceipt": "D:\\project\\宠物\\output\\performance\\installer-b69661d067744a34bee6711945936d40\\same-version-relocation.json"
+  },
+  "evidence": [
+    {
+      "path": "D:\\project\\宠物\\output\\performance\\installer-b69661d067744a34bee6711945936d40\\preflight.json",
+      "sha256": "7A08234D5BBDD62302903B9553E6F14ECDD92C576C45801E518B2EE5CDAE9317"
+    },
+    {
+      "path": "D:\\project\\宠物\\output\\performance\\installer-b69661d067744a34bee6711945936d40\\clean-install.json",
+      "sha256": "CEA8FF9574B2BEE4B92D8516D48DE290BE8487DE749E5EA0AF2CA67E3F644D8E"
+    },
+    {
+      "path": "D:\\project\\宠物\\output\\performance\\installer-b69661d067744a34bee6711945936d40\\relocation-preparation-failure.json",
+      "sha256": "6262883F37C91CE590A808B801BDA07B3B07F24884E3222C6BCAD76A4134C353"
+    },
+    {
+      "path": "D:\\project\\宠物\\output\\performance\\installer-b69661d067744a34bee6711945936d40\\same-version-relocation-b-to-c.json",
+      "sha256": "BD09AB0AA2024F2744EE0C52A94E7229A5CD41A801CC51A8F38EC7DB60209C04"
+    },
+    {
+      "path": "D:\\project\\宠物\\output\\performance\\installer-b69661d067744a34bee6711945936d40\\custom-run-values.json",
+      "sha256": "F4D9D5417B2B1C27064243144F053DD7837BD17265960CEA02AEC5DD0ABB66CA"
+    },
+    {
+      "path": "D:\\project\\宠物\\output\\performance\\installer-b69661d067744a34bee6711945936d40\\uninstall-retain-data.json",
+      "sha256": "B10DBE43AFB75EF2E93264BC222DFA9885FBCDE58C15FE6382563154B7F81F49"
+    },
+    {
+      "path": "D:\\project\\宠物\\output\\performance\\installer-b69661d067744a34bee6711945936d40\\owned-test-arrangement-cleanup.json",
+      "sha256": "C132D3ECD27AA9970E97C93DBFC069366037941779B5F1745A391235AA4F83CB"
+    }
+  ],
+  "notQualified": [
+    "older-version installer upgrade",
+    "migration and recovery of existing metering facts",
+    "GUI installer and shortcuts/AppUserModelID toast identity",
+    "delete-appdata uninstall option",
+    "WebView2 missing bootstrapper scenario",
+    "whole M4 release acceptance"
+  ],
+  "wholeM4Qualified": false,
+  "privacy": "No actual Codex source, auth/config or user ledger was modified; test marker created only in existing app runtime cache and removed after retained-data check."
+}

@@ -1,0 +1,46 @@
+{
+  "date": "2026-10-16",
+  "scope": "Tail construction for this stylized fully dressed catgirl; artistic design references, not anatomical certification",
+  "previousBasis": "Earlier HD hand/feet/waist checks did not include a source-grounded tail construction study. Research was performed only after the user asked.",
+  "sources": [
+    {
+      "url": "https://tips.clip-studio.com/en-us/articles/9115",
+      "author": "MsRedNebula",
+      "section": "Tails",
+      "usedFor": "A character tail follows the continuation of the spine near the coccyx; silhouette choices remain artistic."
+    },
+    {
+      "url": "https://tips.clip-studio.com/en-us/articles/9077",
+      "author": "chainsawgirl",
+      "section": "Animal features; Kemonomimi",
+      "usedFor": "Distinguish functional anatomy-inspired construction from aesthetic stylization; references guide plausible structure."
+    },
+    {
+      "url": "https://tips.clip-studio.com/en-us/articles/10621",
+      "author": ".avi.",
+      "section": "Cats",
+      "usedFor": "Begin with a continuous body-to-tail curve and construct fur on top."
+    },
+    {
+      "url": "https://tips.clip-studio.com/en-us/articles/1745",
+      "author": "GraceGit",
+      "section": "Preparing 3D Figure Turnaround; Sketching",
+      "usedFor": "Use front/side/back references to keep chibi character construction consistent."
+    }
+  ],
+  "projectDesignDecisions": [
+    "Anchor tail in posterior midline of low pelvis below natural waist; keep actual attachment covered in front views.",
+    "A discreet center-back clothing outlet is this project's design choice, not a universal requirement stated by all sources.",
+    "A smaller exposed proximal tail segment must retain volume and transition gradually into fur; this does not mean real tail bone becomes thicker toward the tip.",
+    "Front views need readable overlap and a continuous implied route, not a fully visible root.",
+    "Hug-tail must route from rear body around skirt side to front and hands, without a second pointed lower tail end.",
+    "Final frontal illustration cannot independently prove hidden attachment position; reference sheet records intended construction."
+  ],
+  "reference": {
+    "file": "reference/tail-construction.png",
+    "original": "C:/Users/Administrator/.codex/generated_images/01a14280-254e-70f3-ba61-b34c813b8e3a/exec-d6502bb7-44fc-4cb5-a329-80b65798a65c.png",
+    "status": "schematic design reference; guides show intended hidden route, not final sprite artwork",
+    "initialCandidate": "output/imagegen/hd-tail-review-20261016/construction-candidate-01.png",
+    "initialCandidateIssue": "Front hidden-route guide had an unnecessary self-loop and was replaced."
+  }
+}

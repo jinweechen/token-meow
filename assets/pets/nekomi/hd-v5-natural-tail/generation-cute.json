@@ -1,0 +1,398 @@
+{
+  "schemaVersion": 1,
+  "generator": "builtin image_gen",
+  "pixelPostProcessing": false,
+  "assets": [
+    {
+      "pose": "affection",
+      "prompt": "prompts/affection-repair.txt",
+      "referencePaths": [
+        "D:/project/宠物/assets/pets/nekomi/hd-v5-natural-tail/rejected/affection-thick-tail.png",
+        "D:/project/宠物/assets/pets/nekomi/hd-v5-natural-tail/idle.png"
+      ],
+      "selfReview": {
+        "decision": "go",
+        "conclusion": "双手侧背面轻靠胸；尾巴已针对性减细、圆钝收尾，与腿保持可读间隔；独立reviewer对该最终SHA通过。"
+      },
+      "file": "affection.png",
+      "sourceOriginalPath": "C:/Users/Administrator/.codex/generated_images/01a146a1-41cf-7542-89f6-01a5d4b564f7/exec-a4c2553f-7936-497d-92d8-1e6c18be426d.png",
+      "sha256": "f018661a8d4b05eaff868a8ee429ed509266a844c9ea0edcd9c955093ee600d9",
+      "promptSha256": "d181879ed61ca8efefe2aad1d9a5c42e7163f21ba596858332fae373d493185b",
+      "originalBytesVerified": true,
+      "technicalCheck": {
+        "size": [
+          1024,
+          1536
+        ],
+        "mode": "RGBA",
+        "alpha16BBox": [
+          71,
+          9,
+          970,
+          1498
+        ],
+        "visibleHeight": 1489,
+        "alphaRange": [
+          0,
+          254
+        ],
+        "edgeMaxAlpha": 1,
+        "realTransparency": true,
+        "weakEdgeResidueWarning": true,
+        "passes": true
+      },
+      "referenceHashes": [
+        {
+          "path": "D:/project/宠物/assets/pets/nekomi/hd-v5-natural-tail/rejected/affection-thick-tail.png",
+          "sha256": "b9ab5f5bd979a451e5e6f14e7a3f15d793360e5fcd30ac830215914b4a60883d"
+        },
+        {
+          "path": "D:/project/宠物/assets/pets/nekomi/hd-v5-natural-tail/idle.png",
+          "sha256": "1dc3f07e64139e7b4b641399ea9f2920d210940795acfeb9cab9cb8600ee54f3"
+        }
+      ],
+      "independentReview": {
+        "decision": "go",
+        "sha256": "f018661a8d4b05eaff868a8ee429ed509266a844c9ea0edcd9c955093ee600d9",
+        "report": "D:\\project\\宠物\\output\\imagegen\\hd-v5-design-20261017\\independent-review.json",
+        "limitations": [
+          "Tail root is hidden and cannot independently prove garment opening.",
+          "Comparison of width is visual, not a skeleton or pixel segmentation measurement."
+        ]
+      }
+    },
+    {
+      "pose": "stretch",
+      "prompt": "prompts/stretch-repair.txt",
+      "referencePaths": [
+        "D:/project/宠物/assets/pets/nekomi/hd-v5-natural-tail/rejected/stretch-thick-tail.png",
+        "D:/project/宠物/assets/pets/nekomi/hd-v5-natural-tail/idle.png"
+      ],
+      "selfReview": {
+        "decision": "go",
+        "conclusion": "高举松拳、遮嘴手五指结构可读；前向站姿，尾巴已减细并圆钝收尾；独立reviewer对该最终SHA通过。"
+      },
+      "file": "stretch.png",
+      "sourceOriginalPath": "C:/Users/Administrator/.codex/generated_images/01a146a1-41cf-7542-89f6-01a5d4b564f7/exec-3cefce70-8e65-45db-b7ab-b0744a0b7e28.png",
+      "sha256": "597c35b4ceaa1fc6ccc077b8e3d7a4745988fd6646ccf7b813d3b941399e4b46",
+      "promptSha256": "24d3977b6457e37bf246e775ea740c5d4877fadf6c68651b18ec3e29b0d16a54",
+      "originalBytesVerified": true,
+      "technicalCheck": {
+        "size": [
+          1024,
+          1536
+        ],
+        "mode": "RGBA",
+        "alpha16BBox": [
+          91,
+          13,
+          959,
+          1490
+        ],
+        "visibleHeight": 1477,
+        "alphaRange": [
+          0,
+          254
+        ],
+        "edgeMaxAlpha": 1,
+        "realTransparency": true,
+        "weakEdgeResidueWarning": true,
+        "passes": true
+      },
+      "referenceHashes": [
+        {
+          "path": "D:/project/宠物/assets/pets/nekomi/hd-v5-natural-tail/rejected/stretch-thick-tail.png",
+          "sha256": "9572d9cca7329772ee74551a6d1036e1556d1529659f5498735488d3730868ed"
+        },
+        {
+          "path": "D:/project/宠物/assets/pets/nekomi/hd-v5-natural-tail/idle.png",
+          "sha256": "1dc3f07e64139e7b4b641399ea9f2920d210940795acfeb9cab9cb8600ee54f3"
+        }
+      ],
+      "independentReview": {
+        "decision": "go",
+        "sha256": "597c35b4ceaa1fc6ccc077b8e3d7a4745988fd6646ccf7b813d3b941399e4b46",
+        "report": "D:\\project\\宠物\\output\\imagegen\\hd-v5-design-20261017\\independent-review.json",
+        "limitations": [
+          "Tail shaft-width estimate is visual."
+        ]
+      }
+    },
+    {
+      "pose": "wink",
+      "prompt": "prompts/wink-hand-repair.txt",
+      "referencePaths": [
+        "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v5-natural-tail\\rejected\\wink-angular-hanging-hand.png"
+      ],
+      "selfReview": {
+        "decision": "candidate-for-final-independent-review",
+        "conclusion": "垂手改为背面放松下垂、拇指分开和长指柔和并拢，无原先三角孔洞与交叉折线；六朵裙花、前向脚、细尾和顶部留白保持，待独立局部放大最终复核。"
+      },
+      "file": "wink.png",
+      "sourceOriginalPath": "C:/Users/Administrator/.codex/generated_images/01a146a1-41cf-7542-89f6-01a5d4b564f7/exec-2252907a-e549-4395-9460-2f746d2c6b9d.png",
+      "sha256": "d1920435d7b3f1f36b1dc8b7fb5cc2dfac9d15e5c1680d10c6f9d75840728737",
+      "promptSha256": "58d9f6a4e48d5fe32267032e1c5cc6feadb80e092090af36829e51d98a909d4f",
+      "originalBytesVerified": true,
+      "technicalCheck": {
+        "size": [
+          1024,
+          1536
+        ],
+        "mode": "RGBA",
+        "alpha16BBox": [
+          95,
+          37,
+          954,
+          1469
+        ],
+        "visibleHeight": 1432,
+        "alphaRange": [
+          0,
+          254
+        ],
+        "edgeMaxAlpha": 0,
+        "realTransparency": true,
+        "weakEdgeResidueWarning": false,
+        "passes": true
+      },
+      "referenceHashes": [
+        {
+          "path": "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v5-natural-tail\\rejected\\wink-angular-hanging-hand.png",
+          "sha256": "f72394cbe14b6e63694d3a973a75ccc414eae40fa3a4d53aee691c9c56aa5229"
+        }
+      ],
+      "independentReview": {
+        "decision": "go",
+        "sha256": "d1920435d7b3f1f36b1dc8b7fb5cc2dfac9d15e5c1680d10c6f9d75840728737",
+        "report": "D:\\project\\宠物\\output\\imagegen\\hd-v5-design-20261017\\independent-review.json",
+        "limitations": [
+          "The relaxed fingers overlap; five widely separated fingertips are not expected for this gesture.",
+          "This is visual acceptance of a stylized static illustration, not a skeletal or animation-continuity verification."
+        ]
+      }
+    },
+    {
+      "pose": "happy",
+      "prompt": "prompts/happy.txt",
+      "referencePaths": [
+        "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v5-natural-tail\\idle.png",
+        "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v5-natural-tail\\reference\\turnaround-before-belt.png"
+      ],
+      "selfReview": {
+        "decision": "go",
+        "conclusion": "独立reviewer左右手分开窗口放大确认松拳手指与拇指关系正常，前向略外展鞋头、膝间隙、六朵花和细尾通过。"
+      },
+      "file": "happy.png",
+      "sourceOriginalPath": "C:/Users/Administrator/.codex/generated_images/01a146a1-41cf-7542-89f6-01a5d4b564f7/exec-3c1a177f-c02b-4240-92ab-b6a4948d11b5.png",
+      "sha256": "67894210ffafe8d82367dd38d0dbd46cd738f0d4d1bc3c941d5d64d1b6ab8900",
+      "promptSha256": "4e68e14f38300f08a0e870cf078167317b2a8b306fb342a1319ec0e93092423d",
+      "originalBytesVerified": true,
+      "technicalCheck": {
+        "size": [
+          1024,
+          1536
+        ],
+        "mode": "RGBA",
+        "alpha16BBox": [
+          82,
+          6,
+          971,
+          1499
+        ],
+        "visibleHeight": 1493,
+        "alphaRange": [
+          0,
+          254
+        ],
+        "edgeMaxAlpha": 2,
+        "realTransparency": true,
+        "weakEdgeResidueWarning": true,
+        "passes": true
+      },
+      "referenceHashes": [
+        {
+          "path": "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v5-natural-tail\\idle.png",
+          "sha256": "1dc3f07e64139e7b4b641399ea9f2920d210940795acfeb9cab9cb8600ee54f3"
+        },
+        {
+          "path": "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v5-natural-tail\\reference\\turnaround-before-belt.png",
+          "sha256": "67d9acfaa0f8cc6ddf0f7489ee62785f35022a15133885934e3ad17635dfc31f"
+        }
+      ],
+      "referenceProvenanceNote": "Generation used reference/turnaround.png before its belt repair. The exact input bytes are now preserved as reference/turnaround-before-belt.png. Source creation time 05:39:05 preceded turnaround replacement at 05:40:18.",
+      "independentReview": {
+        "decision": "go",
+        "sha256": "67894210ffafe8d82367dd38d0dbd46cd738f0d4d1bc3c941d5d64d1b6ab8900",
+        "report": "D:\\project\\宠物\\output\\imagegen\\hd-v5-design-20261017\\independent-review.json",
+        "limitations": [
+          "Top margin is small (reported alpha16 approximately6px), with intact ear contour in the viewed source."
+        ]
+      }
+    }
+  ],
+  "rejectedAttempts": [
+    {
+      "pose": "affection",
+      "file": "rejected/affection-thick-tail.png",
+      "sourceOriginalPath": "C:/Users/Administrator/.codex/generated_images/01a146a1-41cf-7542-89f6-01a5d4b564f7/exec-e21c9039-069e-4b2c-864f-3facbed14033.png",
+      "prompt": "prompts/affection.txt",
+      "reason": "尾巴中段与末段过粗，独立视觉复核拒绝。",
+      "sha256": "b9ab5f5bd979a451e5e6f14e7a3f15d793360e5fcd30ac830215914b4a60883d",
+      "promptSha256": "27417640706745269c5d8a372487b37cbae41797d7f103eaae092ee030991934",
+      "originalBytesVerified": true,
+      "referencePaths": [
+        "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v5-natural-tail\\idle.png",
+        "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v5-natural-tail\\reference\\turnaround-before-belt.png",
+        "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v1\\affection.png"
+      ],
+      "referenceHashes": [
+        {
+          "path": "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v5-natural-tail\\idle.png",
+          "sha256": "1dc3f07e64139e7b4b641399ea9f2920d210940795acfeb9cab9cb8600ee54f3"
+        },
+        {
+          "path": "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v5-natural-tail\\reference\\turnaround-before-belt.png",
+          "sha256": "67d9acfaa0f8cc6ddf0f7489ee62785f35022a15133885934e3ad17635dfc31f"
+        },
+        {
+          "path": "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v1\\affection.png",
+          "sha256": "eb002e7bf7e5824c6e087ef54019a5956dd6d036b297274503ccb15c24b8171c"
+        }
+      ]
+    },
+    {
+      "pose": "stretch",
+      "file": "rejected/stretch-thick-tail.png",
+      "sourceOriginalPath": "C:/Users/Administrator/.codex/generated_images/01a146a1-41cf-7542-89f6-01a5d4b564f7/exec-16fd5294-5ab5-4f39-a6ab-aff9543920b8.png",
+      "prompt": "prompts/stretch.txt",
+      "reason": "尾巴中段与末段过粗，独立视觉复核拒绝。",
+      "sha256": "9572d9cca7329772ee74551a6d1036e1556d1529659f5498735488d3730868ed",
+      "promptSha256": "fac345071f7a5909eb43c680a59cc3cde53c37779bd1db26ed57b856bae44134",
+      "originalBytesVerified": true,
+      "referencePaths": [
+        "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v5-natural-tail\\idle.png",
+        "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v5-natural-tail\\reference\\turnaround-before-belt.png"
+      ],
+      "referenceHashes": [
+        {
+          "path": "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v5-natural-tail\\idle.png",
+          "sha256": "1dc3f07e64139e7b4b641399ea9f2920d210940795acfeb9cab9cb8600ee54f3"
+        },
+        {
+          "path": "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v5-natural-tail\\reference\\turnaround-before-belt.png",
+          "sha256": "67d9acfaa0f8cc6ddf0f7489ee62785f35022a15133885934e3ad17635dfc31f"
+        }
+      ]
+    },
+    {
+      "pose": "wink",
+      "file": "rejected/wink-knees-flower-tail.png",
+      "sourceOriginalPath": "C:/Users/Administrator/.codex/generated_images/01a146a1-41cf-7542-89f6-01a5d4b564f7/exec-19c8e165-54a5-4460-8c15-2a927f934669.png",
+      "prompt": "prompts/wink.txt",
+      "reason": "膝相挤、右脚内转、花组数量漂移与尾巴体量偏大。",
+      "sha256": "2c7f6d2cbb272759055d6d53f37d34cd8e342aae9a44d21d13faf612799aac5a",
+      "promptSha256": "371b63d8d2cbb8c1a8f76b219a246ebd0247332514e3bc69c67692329aab0389",
+      "originalBytesVerified": true,
+      "referencePaths": [
+        "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v5-natural-tail\\idle.png",
+        "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v5-natural-tail\\reference\\turnaround-before-belt.png"
+      ],
+      "referenceHashes": [
+        {
+          "path": "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v5-natural-tail\\idle.png",
+          "sha256": "1dc3f07e64139e7b4b641399ea9f2920d210940795acfeb9cab9cb8600ee54f3"
+        },
+        {
+          "path": "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v5-natural-tail\\reference\\turnaround-before-belt.png",
+          "sha256": "67d9acfaa0f8cc6ddf0f7489ee62785f35022a15133885934e3ad17635dfc31f"
+        }
+      ]
+    },
+    {
+      "pose": "wink",
+      "file": "rejected/wink-extra-flower.png",
+      "sourceOriginalPath": "C:/Users/Administrator/.codex/generated_images/01a146a1-41cf-7542-89f6-01a5d4b564f7/exec-7b3942e5-1c8c-4071-90fd-a0caa2f38848.png",
+      "prompt": "prompts/wink-repair.txt",
+      "reason": "腿脚和尾型修复，但左侧保留一朵多余小花。",
+      "sha256": "0d181dbd8e5d991cc5d572b048a531a6436f9ce594e01ff1da79d50f76bb6d07",
+      "promptSha256": "37e7b83fc40035840cede532ea26e84b410ad048819a9822bff93380ebcf3a83",
+      "originalBytesVerified": true,
+      "referencePaths": [
+        "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v5-natural-tail\\rejected\\wink-knees-flower-tail.png",
+        "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v5-natural-tail\\idle.png"
+      ],
+      "referenceHashes": [
+        {
+          "path": "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v5-natural-tail\\rejected\\wink-knees-flower-tail.png",
+          "sha256": "2c7f6d2cbb272759055d6d53f37d34cd8e342aae9a44d21d13faf612799aac5a"
+        },
+        {
+          "path": "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v5-natural-tail\\idle.png",
+          "sha256": "1dc3f07e64139e7b4b641399ea9f2920d210940795acfeb9cab9cb8600ee54f3"
+        }
+      ]
+    },
+    {
+      "pose": "wink",
+      "file": "rejected/wink-tight-frame.png",
+      "sourceOriginalPath": "C:/Users/Administrator/.codex/generated_images/01a146a1-41cf-7542-89f6-01a5d4b564f7/exec-be74e5ed-5748-4920-8087-94a0b07163a6.png",
+      "prompt": "prompts/wink-flower-repair.txt",
+      "reason": "视觉结构通过，但耳尖仅1px余量，root要求原生重构图留白。",
+      "sha256": "db641af4cf5fd20d37feef59acc1a8cf60708be76ce0020d99251df8dcd7ee77",
+      "promptSha256": "f060271beb216dd9334470ba47bffdaf15a701894f5d196c197265c20f01ac1e",
+      "originalBytesVerified": true,
+      "referencePaths": [
+        "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v5-natural-tail\\rejected\\wink-extra-flower.png"
+      ],
+      "referenceHashes": [
+        {
+          "path": "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v5-natural-tail\\rejected\\wink-extra-flower.png",
+          "sha256": "0d181dbd8e5d991cc5d572b048a531a6436f9ce594e01ff1da79d50f76bb6d07"
+        }
+      ]
+    },
+    {
+      "pose": "wink",
+      "prompt": "prompts/wink-framing.txt",
+      "referencePaths": [
+        "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v5-natural-tail\\rejected\\wink-tight-frame.png"
+      ],
+      "file": "rejected/wink-angular-hanging-hand.png",
+      "sourceOriginalPath": "C:/Users/Administrator/.codex/generated_images/01a146a1-41cf-7542-89f6-01a5d4b564f7/exec-8e5b9bec-6ebf-4a38-93bb-cb2222f635d5.png",
+      "sha256": "f72394cbe14b6e63694d3a973a75ccc414eae40fa3a4d53aee691c9c56aa5229",
+      "promptSha256": "90f00ab400a6abb657dfabf65399cad380b3e39575e5e700610858b6f07ad418",
+      "originalBytesVerified": true,
+      "technicalCheck": {
+        "size": [
+          1024,
+          1536
+        ],
+        "mode": "RGBA",
+        "alpha16BBox": [
+          95,
+          37,
+          954,
+          1469
+        ],
+        "visibleHeight": 1432,
+        "alphaRange": [
+          0,
+          254
+        ],
+        "edgeMaxAlpha": 0,
+        "realTransparency": true,
+        "weakEdgeResidueWarning": false,
+        "passes": true
+      },
+      "referenceHashes": [
+        {
+          "path": "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v5-natural-tail\\rejected\\wink-tight-frame.png",
+          "sha256": "db641af4cf5fd20d37feef59acc1a8cf60708be76ce0020d99251df8dcd7ee77"
+        }
+      ],
+      "reason": "独立放大检查发现垂手指间尖三角和机械折线，需要局部重画垂手。"
+    }
+  ],
+  "status": "independent-visual-review-complete",
+  "reviewStatusNote": "Each selected current PNG SHA received explicit independent reviewer go. Producer self-review and rejected-attempt history are retained as historical records."
+}

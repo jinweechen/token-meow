@@ -1,0 +1,46 @@
+[
+  {
+    "id": "bow/hold",
+    "source": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14ad5-c365-7233-8895-9cecddb69f66\\exec-7791bf7f-d525-4e0f-a4ed-c356b3c8bb4d.png",
+    "destination": "D:/project/宠物/assets/pets/nekomi/walk-v10-complete/actions-v11/bow/hold.png",
+    "prompt": "Generate one full-body transparent 1024x1536 animation keyframe of the EXACT referenced cat-girl. Preserve face identity, lavender-white detailed curls, twin small green daisy bows, green sailor collar, cream floral dress with natural waist belt, white tights, green Mary Janes and one slender cat tail attached behind the pelvis. Same camera, native crisp anime drawing, no text, background, glow, floor or cast shadow. Hands have plausible fingers and continuous shoulder-elbow-wrist chains. Keep all body parts in frame. This is an actual pose redraw, not merely changing the face.\nFRONT-VIEW polite full bow: hinge torso forward about 30 degrees AT THE HIPS, upper body and head lower together, neck aligned with spine, eyes gently closed. Hands meet naturally in front of lower abdomen, one resting over the other; elbows slightly bent. Both feet remain planted in the original front-view positions near y1480. Long hair falls slightly forward with gravity; skirt folds respond to the bent torso. Do not show an upright body with only a lowered chin.",
+    "promptPath": "D:/project/宠物/assets/pets/nekomi/walk-v10-complete/prompts/v11-action-bow-hold.txt",
+    "inputs": [
+      "D:/project/宠物/assets/pets/nekomi/walk-v10-complete/model-reference/master-front-v2.png"
+    ],
+    "review": "candidate pending sequence continuity"
+  },
+  {
+    "id": "stretch/hold",
+    "source": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14ad5-c365-7233-8895-9cecddb69f66\\exec-9bffbd50-c70e-437b-a4e8-b38f094da3a1.png",
+    "destination": "D:/project/宠物/assets/pets/nekomi/walk-v10-complete/actions-v11/stretch/hold.png",
+    "prompt": "Generate one full-body transparent 1024x1536 animation keyframe of the EXACT referenced cat-girl. Preserve face identity, lavender-white detailed curls, twin small green daisy bows, green sailor collar, cream floral dress with natural waist belt, white tights, green Mary Janes and one slender cat tail attached behind the pelvis. Same camera, native crisp anime drawing, no text, background, glow, floor or cast shadow. Hands have plausible fingers and continuous shoulder-elbow-wrist chains. Keep all body parts in frame. This is an actual pose redraw, not merely changing the face.\nFRONT-VIEW comfortable morning stretch: shoulders rise and upper ribcage gently extends, both elbows bend outward beside the head, loosely closed relaxed hands near the cat ears and inside the canvas. Gentle spinal extension, chin slightly raised, sleepy closed eyes and a small yawn. Feet remain flat at original positions near y1480. Arms are normal length, shoulders and sleeves lift coherently. No jumping and no isolated arm stretching without torso movement.",
+    "promptPath": "D:/project/宠物/assets/pets/nekomi/walk-v10-complete/prompts/v11-action-stretch-hold.txt",
+    "inputs": [
+      "D:/project/宠物/assets/pets/nekomi/walk-v10-complete/model-reference/master-front-v2.png"
+    ],
+    "review": "candidate pending sequence continuity"
+  },
+  {
+    "id": "hug-tail/reach",
+    "source": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14ad5-c365-7233-8895-9cecddb69f66\\exec-bd077c48-e7b7-4fb3-addc-dd0b6ad2cab6.png",
+    "destination": "D:/project/宠物/assets/pets/nekomi/walk-v10-complete/actions-v11/hug-tail/reach.png",
+    "prompt": "Generate one full-body transparent 1024x1536 animation keyframe of the EXACT referenced cat-girl. Preserve face identity, lavender-white detailed curls, twin small green daisy bows, green sailor collar, cream floral dress with natural waist belt, white tights, green Mary Janes and one slender cat tail attached behind the pelvis. Same camera, native crisp anime drawing, no text, background, glow, floor or cast shadow. Hands have plausible fingers and continuous shoulder-elbow-wrist chains. Keep all body parts in frame. This is an actual pose redraw, not merely changing the face.\nFRONT-VIEW first reaching phase before holding her tail: both knees stable and feet planted at the original locations. Look gently toward her tail on screen-right. Lower both forearms toward the tail; screen-right hand is just about to touch the tail from below and screen-left hand reaches across the lower skirt but has not yet lifted it. Tail still hangs from the posterior pelvis, with its distal half curling softly toward the two hands. Natural little bend at hips, no sleeve-tail fusion.",
+    "promptPath": "D:/project/宠物/assets/pets/nekomi/walk-v10-complete/prompts/v11-action-hug-tail-reach.txt",
+    "inputs": [
+      "D:/project/宠物/assets/pets/nekomi/walk-v10-complete/model-reference/master-front-v2.png"
+    ],
+    "review": "candidate pending sequence continuity"
+  },
+  {
+    "id": "sleep/lowering",
+    "source": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14ad5-c365-7233-8895-9cecddb69f66\\exec-7b12227d-79bd-47eb-a782-379b4cdbdcca.png",
+    "destination": "D:/project/宠物/assets/pets/nekomi/walk-v10-complete/actions-v11/sleep/lowering.png",
+    "prompt": "Generate one full-body transparent 1024x1536 animation keyframe of the EXACT referenced cat-girl. Preserve face identity, lavender-white detailed curls, twin small green daisy bows, green sailor collar, cream floral dress with natural waist belt, white tights, green Mary Janes and one slender cat tail attached behind the pelvis. Same camera, native crisp anime drawing, no text, background, glow, floor or cast shadow. Hands have plausible fingers and continuous shoulder-elbow-wrist chains. Keep all body parts in frame. This is an actual pose redraw, not merely changing the face.\nFRONT/very slight three-quarter transitional sitting-down pose: she bends both knees and hips into a controlled low crouch on the way to sitting, feet planted, heels grounded. Upper body leans slightly forward for balance, hands hover close to knees, sleepy half-closed eyes. Head and torso are visibly lower than standing; do not shrink the character. Dress drapes over the bent thighs, hair descends around shoulders, tail curves behind and to screen-right without crossing a leg. Bare transparent background, no chair or cushion.",
+    "promptPath": "D:/project/宠物/assets/pets/nekomi/walk-v10-complete/prompts/v11-action-sleep-lowering.txt",
+    "inputs": [
+      "D:/project/宠物/assets/pets/nekomi/walk-v10-complete/model-reference/master-front-v2.png"
+    ],
+    "review": "candidate pending sequence continuity"
+  }
+]

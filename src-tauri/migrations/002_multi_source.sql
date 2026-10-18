@@ -1,0 +1,18 @@
+ALTER TABLE source_instances ADD COLUMN client_kind TEXT NOT NULL DEFAULT 'codex';
+ALTER TABLE source_instances ADD COLUMN enabled INTEGER NOT NULL DEFAULT 1;
+ALTER TABLE source_instances ADD COLUMN environment TEXT NOT NULL DEFAULT 'windows-local';
+ALTER TABLE source_files ADD COLUMN source_id TEXT NOT NULL DEFAULT '';
+ALTER TABLE source_files ADD COLUMN channel_id TEXT NOT NULL DEFAULT '';
+ALTER TABLE source_files ADD COLUMN os_file_key TEXT NOT NULL DEFAULT '';
+CREATE TABLE collection_channels(id TEXT PRIMARY KEY,source_id TEXT NOT NULL,kind TEXT NOT NULL,adapter_version TEXT NOT NULL,data TEXT NOT NULL);
+CREATE TABLE source_capabilities(id TEXT PRIMARY KEY,source_id TEXT NOT NULL,data TEXT NOT NULL);
+CREATE TABLE usage_aggregates(id TEXT PRIMARY KEY,source_id TEXT NOT NULL,event_time TEXT NOT NULL,data TEXT NOT NULL);
+CREATE TABLE context_snapshots(id TEXT PRIMARY KEY,source_id TEXT NOT NULL,event_time TEXT NOT NULL,data TEXT NOT NULL);
+CREATE TABLE timing_observations(id TEXT PRIMARY KEY,source_id TEXT NOT NULL,event_time TEXT NOT NULL,data TEXT NOT NULL);
+CREATE TABLE account_bindings(id TEXT PRIMARY KEY,source_id TEXT NOT NULL,data TEXT NOT NULL);
+CREATE TABLE fact_observations(id TEXT PRIMARY KEY,fact_id TEXT NOT NULL,source_id TEXT NOT NULL,channel_id TEXT NOT NULL,event_time TEXT NOT NULL,digest TEXT NOT NULL);
+CREATE TABLE fact_aliases(alias TEXT PRIMARY KEY,fact_id TEXT NOT NULL,evidence TEXT NOT NULL);
+CREATE TABLE excluded_facts(fact_id TEXT PRIMARY KEY,reason TEXT NOT NULL);
+CREATE INDEX files_source ON source_files(source_id);
+CREATE INDEX observations_fact ON fact_observations(fact_id);
+PRAGMA user_version=2;

@@ -1,0 +1,599 @@
+{
+  "format": "nekomi-independent-hd-source-pack-v1",
+  "createdAt": "2026-10-16T08:53:46.213828+00:00",
+  "poseCount": 12,
+  "targetCharacterDisplayHeight": 1200,
+  "generationMode": "built-in image_gen.imagegen",
+  "pixelPostProcessing": false,
+  "status": "HD source artwork generated and visually reviewed; not integrated into the desktop renderer",
+  "preview": "preview.html",
+  "visualReview": "visual-review.json",
+  "assets": [
+    {
+      "pose": "idle",
+      "file": "idle.png",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "bytes": 1901008,
+      "sha256": "f1d2c01a123ff0616612d11f5ddba7055f93405b7c3273f640438652ce02962d",
+      "alphaBounds": {
+        "1": [
+          25,
+          35,
+          1000,
+          1536
+        ],
+        "16": [
+          114,
+          91,
+          993,
+          1452
+        ],
+        "128": [
+          114,
+          92,
+          992,
+          1451
+        ],
+        "250": [
+          124,
+          95,
+          991,
+          1450
+        ]
+      },
+      "visibleCharacterHeight": 1361,
+      "maxEdgeAlpha": 1,
+      "edgePixelsAlpha16": 0,
+      "passesNativeHeight": true,
+      "passesEdge": true,
+      "labelZh": "站立",
+      "generation": {
+        "originalGeneratedFile": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14280-254e-70f3-ba61-b34c813b8e3a\\exec-5541a44c-2338-4ed4-be1d-497b7e187289.png",
+        "generationReport": "generation-root.json"
+      },
+      "prompt": "prompts/idle.txt",
+      "suggestedDisplayScaleFor1200pxCharacter": 0.881705,
+      "displayScaleNote": "Display metadata only; PNG pixels remain unchanged. Align feet and overall body scale when integrating."
+    },
+    {
+      "pose": "active",
+      "file": "active.png",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "bytes": 1919345,
+      "sha256": "a5e69f390c4d567bac00b5117e3762474e40b6b278ab5ca21679802340872cfc",
+      "alphaBounds": {
+        "1": [
+          0,
+          15,
+          1000,
+          1536
+        ],
+        "16": [
+          113,
+          91,
+          994,
+          1453
+        ],
+        "128": [
+          114,
+          92,
+          992,
+          1452
+        ],
+        "250": [
+          125,
+          95,
+          991,
+          1451
+        ]
+      },
+      "visibleCharacterHeight": 1362,
+      "maxEdgeAlpha": 1,
+      "edgePixelsAlpha16": 0,
+      "passesNativeHeight": true,
+      "passesEdge": true,
+      "labelZh": "招手",
+      "generation": {
+        "originalGeneratedFile": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14280-254e-70f3-ba61-b34c813b8e3a\\exec-4d245285-e914-419c-bc1a-d787c23818ed.png",
+        "generationReport": "generation-root.json"
+      },
+      "prompt": "prompts/active.txt",
+      "suggestedDisplayScaleFor1200pxCharacter": 0.881057,
+      "displayScaleNote": "Display metadata only; PNG pixels remain unchanged. Align feet and overall body scale when integrating."
+    },
+    {
+      "pose": "complete",
+      "file": "complete.png",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "bytes": 1973274,
+      "sha256": "43b0bca6f4aca7211f66f78e331dcfd2ebe1f7f92d9ed6fc85e85cfb5bc7fd9b",
+      "alphaBounds": {
+        "1": [
+          0,
+          44,
+          1014,
+          1502
+        ],
+        "16": [
+          89,
+          47,
+          1003,
+          1458
+        ],
+        "128": [
+          90,
+          47,
+          1001,
+          1457
+        ],
+        "250": [
+          100,
+          49,
+          999,
+          1456
+        ]
+      },
+      "visibleCharacterHeight": 1411,
+      "maxEdgeAlpha": 1,
+      "edgePixelsAlpha16": 0,
+      "passesNativeHeight": true,
+      "passesEdge": true,
+      "labelZh": "庆祝",
+      "generation": {
+        "originalGeneratedFile": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14280-254e-70f3-ba61-b34c813b8e3a\\exec-6d2fabd5-f1e5-4baf-b59a-d8cebd349f1c.png",
+        "generationReport": "generation-root.json"
+      },
+      "prompt": "prompts/complete.txt",
+      "suggestedDisplayScaleFor1200pxCharacter": 0.850461,
+      "displayScaleNote": "Display metadata only; PNG pixels remain unchanged. Align feet and overall body scale when integrating."
+    },
+    {
+      "pose": "alert",
+      "file": "alert.png",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "bytes": 1958280,
+      "sha256": "8640829380318ac26e5f5def3376c5399b6ab6964dc614f53428182b3eef100b",
+      "alphaBounds": {
+        "1": [
+          43,
+          23,
+          1021,
+          1517
+        ],
+        "16": [
+          108,
+          51,
+          994,
+          1455
+        ],
+        "128": [
+          109,
+          51,
+          993,
+          1454
+        ],
+        "250": [
+          121,
+          55,
+          991,
+          1453
+        ]
+      },
+      "visibleCharacterHeight": 1404,
+      "maxEdgeAlpha": 0,
+      "edgePixelsAlpha16": 0,
+      "passesNativeHeight": true,
+      "passesEdge": true,
+      "labelZh": "警觉",
+      "generation": {
+        "originalGeneratedFile": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14280-254e-70f3-ba61-b34c813b8e3a\\exec-8f77d176-87a1-47aa-af90-b0bce50e027d.png",
+        "generationReport": "generation-root.json"
+      },
+      "prompt": "prompts/alert.txt",
+      "suggestedDisplayScaleFor1200pxCharacter": 0.854701,
+      "displayScaleNote": "Display metadata only; PNG pixels remain unchanged. Align feet and overall body scale when integrating."
+    },
+    {
+      "pose": "sleep",
+      "file": "sleep.png",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "bytes": 1922022,
+      "sha256": "ca1751662ff2238e9dc24b505d12c3a4083b4906370e62aab317419d97816686",
+      "alphaBounds": {
+        "1": [
+          0,
+          23,
+          1004,
+          1478
+        ],
+        "16": [
+          111,
+          42,
+          993,
+          1453
+        ],
+        "128": [
+          112,
+          43,
+          992,
+          1453
+        ],
+        "250": [
+          126,
+          45,
+          991,
+          1451
+        ]
+      },
+      "visibleCharacterHeight": 1411,
+      "maxEdgeAlpha": 1,
+      "edgePixelsAlpha16": 0,
+      "passesNativeHeight": true,
+      "passesEdge": true,
+      "labelZh": "困倦",
+      "generation": {
+        "originalGeneratedFile": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14280-254e-70f3-ba61-b34c813b8e3a\\exec-5fb61767-26e7-4d84-b58b-35640fb7dd67.png",
+        "generationReport": "generation-root.json"
+      },
+      "prompt": "prompts/sleep.txt",
+      "suggestedDisplayScaleFor1200pxCharacter": 0.850461,
+      "displayScaleNote": "Display metadata only; PNG pixels remain unchanged. Align feet and overall body scale when integrating."
+    },
+    {
+      "pose": "shy",
+      "file": "shy.png",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "bytes": 1909180,
+      "sha256": "a12948612b207480bd49b5259e1df9d749a6cc73e2fec5300c0ce003d41c0c28",
+      "alphaBounds": {
+        "1": [
+          41,
+          19,
+          1004,
+          1520
+        ],
+        "16": [
+          124,
+          67,
+          997,
+          1452
+        ],
+        "128": [
+          125,
+          68,
+          995,
+          1451
+        ],
+        "250": [
+          139,
+          71,
+          993,
+          1450
+        ]
+      },
+      "visibleCharacterHeight": 1385,
+      "maxEdgeAlpha": 0,
+      "edgePixelsAlpha16": 0,
+      "passesNativeHeight": true,
+      "passesEdge": true,
+      "labelZh": "害羞",
+      "generation": {
+        "originalGeneratedFile": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14289-f0b5-7113-b2b9-40aa19554575\\exec-16db8507-ca75-4567-ad18-9e5bb58ffbdb.png",
+        "generationReport": "generation-extra.json"
+      },
+      "prompt": "prompts/shy.txt",
+      "suggestedDisplayScaleFor1200pxCharacter": 0.866426,
+      "displayScaleNote": "Display metadata only; PNG pixels remain unchanged. Align feet and overall body scale when integrating."
+    },
+    {
+      "pose": "affection",
+      "file": "affection.png",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "bytes": 1993313,
+      "sha256": "eb002e7bf7e5824c6e087ef54019a5956dd6d036b297274503ccb15c24b8171c",
+      "alphaBounds": {
+        "1": [
+          33,
+          16,
+          999,
+          1500
+        ],
+        "16": [
+          89,
+          49,
+          996,
+          1466
+        ],
+        "128": [
+          90,
+          50,
+          994,
+          1465
+        ],
+        "250": [
+          100,
+          51,
+          992,
+          1463
+        ]
+      },
+      "visibleCharacterHeight": 1417,
+      "maxEdgeAlpha": 0,
+      "edgePixelsAlpha16": 0,
+      "passesNativeHeight": true,
+      "passesEdge": true,
+      "labelZh": "亲昵",
+      "generation": {
+        "originalGeneratedFile": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14300-0b89-7203-9229-f4f2b07417b4\\exec-000a6413-f4d1-46f4-a4e8-7dd0442412f9.png",
+        "generationReport": "generation-cute.json"
+      },
+      "prompt": "prompts/affection.txt",
+      "suggestedDisplayScaleFor1200pxCharacter": 0.84686,
+      "displayScaleNote": "Display metadata only; PNG pixels remain unchanged. Align feet and overall body scale when integrating."
+    },
+    {
+      "pose": "stretch",
+      "file": "stretch.png",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "bytes": 1960476,
+      "sha256": "773eb3b5134a2a441ff820826713982d2764cc18c7508733ae8700bbf1e5f6b3",
+      "alphaBounds": {
+        "1": [
+          33,
+          20,
+          1010,
+          1500
+        ],
+        "16": [
+          99,
+          47,
+          998,
+          1468
+        ],
+        "128": [
+          100,
+          47,
+          996,
+          1467
+        ],
+        "250": [
+          110,
+          50,
+          993,
+          1466
+        ]
+      },
+      "visibleCharacterHeight": 1421,
+      "maxEdgeAlpha": 0,
+      "edgePixelsAlpha16": 0,
+      "passesNativeHeight": true,
+      "passesEdge": true,
+      "labelZh": "伸懒腰",
+      "generation": {
+        "originalGeneratedFile": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14300-0b89-7203-9229-f4f2b07417b4\\exec-ed65bf19-92a2-4340-adff-1dcd7859e304.png",
+        "generationReport": "generation-cute.json"
+      },
+      "prompt": "prompts/stretch.txt",
+      "suggestedDisplayScaleFor1200pxCharacter": 0.844476,
+      "displayScaleNote": "Display metadata only; PNG pixels remain unchanged. Align feet and overall body scale when integrating."
+    },
+    {
+      "pose": "wink",
+      "file": "wink.png",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "bytes": 1940362,
+      "sha256": "ab4e892a85c9231250aad076dbd05bee722676b67f1cbaf904fef9b117085415",
+      "alphaBounds": {
+        "1": [
+          87,
+          25,
+          1006,
+          1498
+        ],
+        "16": [
+          94,
+          41,
+          996,
+          1450
+        ],
+        "128": [
+          95,
+          42,
+          995,
+          1449
+        ],
+        "250": [
+          108,
+          44,
+          993,
+          1447
+        ]
+      },
+      "visibleCharacterHeight": 1409,
+      "maxEdgeAlpha": 0,
+      "edgePixelsAlpha16": 0,
+      "passesNativeHeight": true,
+      "passesEdge": true,
+      "labelZh": "眨眼",
+      "generation": {
+        "originalGeneratedFile": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14300-0b89-7203-9229-f4f2b07417b4\\exec-a21b56fb-721b-4bb7-b68a-6c152a150c0c.png",
+        "generationReport": "generation-cute.json"
+      },
+      "prompt": "prompts/wink.txt",
+      "suggestedDisplayScaleFor1200pxCharacter": 0.851668,
+      "displayScaleNote": "Display metadata only; PNG pixels remain unchanged. Align feet and overall body scale when integrating."
+    },
+    {
+      "pose": "happy",
+      "file": "happy.png",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "bytes": 1897026,
+      "sha256": "8ea7b980d272902862aeae101d2f6e0b21f0b42720aece42af9886e23f05643a",
+      "alphaBounds": {
+        "1": [
+          0,
+          17,
+          1023,
+          1536
+        ],
+        "16": [
+          119,
+          106,
+          991,
+          1455
+        ],
+        "128": [
+          120,
+          107,
+          990,
+          1454
+        ],
+        "250": [
+          126,
+          110,
+          989,
+          1453
+        ]
+      },
+      "visibleCharacterHeight": 1349,
+      "maxEdgeAlpha": 1,
+      "edgePixelsAlpha16": 0,
+      "passesNativeHeight": true,
+      "passesEdge": true,
+      "labelZh": "开心",
+      "generation": {
+        "originalGeneratedFile": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14300-0b89-7203-9229-f4f2b07417b4\\exec-ea6dc6eb-ee56-4ccd-8004-5ddbc4a5dce5.png",
+        "generationReport": "generation-cute.json"
+      },
+      "prompt": "prompts/happy.txt",
+      "suggestedDisplayScaleFor1200pxCharacter": 0.889548,
+      "displayScaleNote": "Display metadata only; PNG pixels remain unchanged. Align feet and overall body scale when integrating."
+    },
+    {
+      "pose": "bow",
+      "file": "bow.png",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "bytes": 1943071,
+      "sha256": "cf28613909ce3c94d8598ad8210ba77024a7b7d8b7d2acebc7d9942b7f61b287",
+      "alphaBounds": {
+        "1": [
+          45,
+          51,
+          1012,
+          1516
+        ],
+        "16": [
+          97,
+          59,
+          997,
+          1456
+        ],
+        "128": [
+          98,
+          60,
+          996,
+          1455
+        ],
+        "250": [
+          110,
+          63,
+          994,
+          1454
+        ]
+      },
+      "visibleCharacterHeight": 1397,
+      "maxEdgeAlpha": 0,
+      "edgePixelsAlpha16": 0,
+      "passesNativeHeight": true,
+      "passesEdge": true,
+      "labelZh": "鞠躬",
+      "generation": {
+        "originalGeneratedFile": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14289-f0b5-7113-b2b9-40aa19554575\\exec-bc41a818-5f34-4a79-927b-a87b24dacdca.png",
+        "generationReport": "generation-extra.json"
+      },
+      "prompt": "prompts/bow.txt",
+      "suggestedDisplayScaleFor1200pxCharacter": 0.858984,
+      "displayScaleNote": "Display metadata only; PNG pixels remain unchanged. Align feet and overall body scale when integrating."
+    },
+    {
+      "pose": "hug-tail",
+      "file": "hug-tail.png",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "bytes": 1803116,
+      "sha256": "6a570731fd3b93bd58a797ef076979f2693b6a7f092a5ae6536f473263cd4f60",
+      "alphaBounds": {
+        "1": [
+          123,
+          1,
+          1004,
+          1495
+        ],
+        "16": [
+          127,
+          10,
+          941,
+          1474
+        ],
+        "128": [
+          128,
+          10,
+          940,
+          1473
+        ],
+        "250": [
+          139,
+          13,
+          931,
+          1472
+        ]
+      },
+      "visibleCharacterHeight": 1464,
+      "maxEdgeAlpha": 0,
+      "edgePixelsAlpha16": 0,
+      "passesNativeHeight": true,
+      "passesEdge": true,
+      "labelZh": "抱尾巴",
+      "generation": {
+        "originalGeneratedFile": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14289-f0b5-7113-b2b9-40aa19554575\\exec-88dcb1ad-4fab-45a2-afb7-bdce86241313.png",
+        "generationReport": "generation-extra.json"
+      },
+      "prompt": "prompts/hug-tail.txt",
+      "suggestedDisplayScaleFor1200pxCharacter": 0.819672,
+      "displayScaleNote": "Display metadata only; PNG pixels remain unchanged. Align feet and overall body scale when integrating."
+    }
+  ],
+  "compositionNotes": [
+    "Independent pose files retain native canvas placement. Their visible heights vary from 1349 to 1464 pixels; display integration should normalize character scale and foot baseline.",
+    "hug-tail has 10 pixels of visible top margin, with no visible contour touching an image edge.",
+    "Only greeting poses active/happy show an open palm facing the viewer."
+  ],
+  "scopeExclusions": [
+    "No desktop HD-loader implementation",
+    "No animation-transition or native-window acceptance",
+    "No change to active v5 atlas"
+  ]
+}

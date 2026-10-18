@@ -1,0 +1,60 @@
+{
+  "status": "candidate-known-issues",
+  "tool": "built-in image_gen",
+  "transparent_background": true,
+  "originalPath": "C:/Users/Administrator/.codex/generated_images/01a148ad-080e-7062-8576-ca95b7a366b3/exec-d02e9980-ce30-4e11-842f-fd66c1c4f3a5.png",
+  "workspacePath": "D:/project/宠物/assets/pets/nekomi/walk-v10-complete/model-reference/master-back-v3.png",
+  "inputImages": [
+    {
+      "order": 1,
+      "path": "D:/project/宠物/assets/pets/nekomi/walk-v10-complete/model-reference/master-back-v2.png",
+      "role": "edit target"
+    },
+    {
+      "order": 2,
+      "path": "D:/project/宠物/assets/pets/nekomi/walk-v10-complete/model-reference/master-front-v2.png",
+      "role": "proportional registration authority"
+    }
+  ],
+  "promptPath": "D:/project/宠物/assets/pets/nekomi/walk-v10-complete/prompts/master-back-v3.txt",
+  "prompt": "Use case: precise-object-edit\nAsset type: corrected transparent 1024x1536 MASTER BACK character.\nImage 1 is the edit target. Image 2 is the front master for proportional registration.\nChange only the waist/tail-root structure described here. Preserve head, hair, rear collar, shoulder-arm-hand chains, relaxed fingers, legs, shoes, skirt pattern, hem and rendering from Image 1.\nPlace the plain green waistband center at y695, its top around y681 and bottom around y709. Extend the cream bodice smoothly beneath the rear collar to meet that band. Keep the sleeves and shoulders fixed. The rear waistband remains plain green with no ornament.\nThe essential correction is the tail opening. Restore uninterrupted cream skirt fabric over the OLD high opening around y770. Draw the NEW small tail opening centered at (512,850). VISUAL ANCHOR: the NEW opening sits directly BETWEEN the TWO LARGE GREEN SKIRT DAISIES, at approximately the SAME HEIGHT as the UPPER HALF of those two large flowers. There must be about 150 pixels of cream skirt between the green waistband and the tail opening. Move the actual anatomical tail attachment to this lower posterior-pelvis point; do not leave a second connection above it.\nNew port size: only 40 pixels wide and 30 pixels high, a tiny rounded cream-bound eyelet. Its upper edge is about y835, lower edge about y865. Show a short 32px-thick white-lavender furred root exiting it down to about y890; then the ONE continuous tail gradually becomes softly fuller and curves downward toward viewer-left. The tail ends at y1320–1360 as before. Draw the furred root and visible small opening rim clearly. Replace the previous oversized tail ring and upper tail completely. The result has one small pelvis opening and one continuous tail only.\nMaintain a natural central hair window revealing the new root and cream panel, retain all long curls. Keep hand and sleeve silhouettes entirely separate from tail.\nThe skirt lower ruffles stay around y1070–1110, shoe soles y1480, ear tops y15–30. Rear hair bow backs remain green with no backwards white flowers. Native clean high-resolution detail.\nTrue alpha transparency outside the character. No background, ground, cast shadow, glow, text, watermark or guide marks.",
+  "validation": "pending visual review, not animation acceptance",
+  "visualReview": [
+    "Native targeted redraw lowered tail port to approximately y810; inner furred root is narrower and continuous.",
+    "Root window, green ribbon backs, plain rear belt, connected arm chains and hand-tail separation are readable.",
+    "Tail port still above target y850; outer binding remains larger than requested.",
+    "Waist remains approximately y675, about 10-20px above front-v2.",
+    "Requires independent review and cross-view registration; not approved."
+  ],
+  "metadata": {
+    "size": [
+      1024,
+      1536
+    ],
+    "mode": "RGBA",
+    "alphaExtrema": [
+      0,
+      254
+    ],
+    "fullyTransparentPixels": 810044,
+    "nonzeroAlphaPixels": 762820,
+    "alphaGreaterThan127BBox": [
+      88,
+      10,
+      937,
+      1484
+    ],
+    "outsideAlphaSamples": {
+      "(0, 0)": 0,
+      "(0, 500)": 0,
+      "(0, 750)": 0,
+      "(1023, 750)": 0,
+      "(50, 100)": 0,
+      "(512, 1510)": 0
+    }
+  },
+  "workspaceSHA256": "a56910db404f77546005a63ba998d7f5a8b15d17f0b7d4b0a32e118daf4e90d1",
+  "originalSHA256": "a56910db404f77546005a63ba998d7f5a8b15d17f0b7d4b0a32e118daf4e90d1",
+  "byteCopyVerified": true,
+  "promptFileMatchesExactPrompt": true
+}

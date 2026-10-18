@@ -1,0 +1,66 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "TokenMeow",
+  "version": "0.1.0",
+  "identifier": "local.tokenmeow.desktop",
+  "build": {
+    "beforeDevCommand": "pnpm dev",
+    "devUrl": "http://localhost:1420",
+    "beforeBuildCommand": "pnpm build",
+    "frontendDist": "../dist"
+  },
+  "app": {
+    "withGlobalTauri": false,
+    "windows": [
+      {
+        "label": "main",
+        "title": "Token 喵 · 本地用量账本",
+        "width": 1240,
+        "height": 820,
+        "minWidth": 780,
+        "minHeight": 480,
+        "center": true,
+        "visible": false,
+        "focus": false
+      },
+      {
+        "label": "pet",
+        "title": "Token 喵",
+        "url": "index.html?window=pet",
+        "width": 280,
+        "height": 340,
+        "resizable": false,
+        "decorations": false,
+        "transparent": true,
+        "shadow": false,
+        "alwaysOnTop": true,
+        "skipTaskbar": true,
+        "visible": false,
+        "focus": false
+      }
+    ],
+    "security": {
+      "csp": "default-src 'self'; connect-src 'self' ipc: http://ipc.localhost https://models.dev; img-src 'self' asset: http://asset.localhost data: blob:; style-src 'self' 'unsafe-inline'; font-src 'self'; script-src 'self'; object-src 'none'; base-uri 'self'; frame-src 'none'"
+    }
+  },
+  "bundle": {
+    "active": true,
+    "targets": ["nsis"],
+    "shortDescription": "本地只读 Codex 用量账本与二次元猫娘桌宠",
+    "longDescription": "Token 喵只读采集本机 Codex 日志，展示有来源的用量、时间、收件箱和数据健康。统计与动画本地运行，不调用模型推理。",
+    "category": "Utility",
+    "resources": { "../output/distribution-licenses/": "licenses/" },
+    "icon": ["icons/32x32.png", "icons/128x128.png", "icons/icon.ico"],
+    "windows": {
+      "allowDowngrades": false,
+      "webviewInstallMode": { "type": "downloadBootstrapper", "silent": true },
+      "nsis": {
+        "template": "windows/installer.nsi",
+        "installerHooks": "windows/installer-hooks.nsh",
+        "displayLanguageSelector": false,
+        "languages": ["SimpChinese"],
+        "installMode": "currentUser"
+      }
+    }
+  }
+}

@@ -1,0 +1,97 @@
+{
+  "schemaVersion": 1,
+  "coordinateSystem": "view-relative near=A and far=B; top-left origin source pixels",
+  "measurementMethod": "manual image inspection; empty values are not measured",
+  "frames": [
+    {
+      "id": "01-contact-a",
+      "sha256": null,
+      "near": {
+        "heel": null,
+        "toe": null,
+        "contact": null
+      },
+      "far": {
+        "heel": null,
+        "toe": null,
+        "contact": null
+      },
+      "notes": "PENDING visual measurement"
+    },
+    {
+      "id": "02-support-a",
+      "sha256": null,
+      "near": {
+        "heel": null,
+        "toe": null,
+        "contact": null
+      },
+      "far": {
+        "heel": null,
+        "toe": null,
+        "contact": null
+      },
+      "notes": "PENDING visual measurement"
+    },
+    {
+      "id": "03-passing-b",
+      "sha256": null,
+      "near": {
+        "heel": null,
+        "toe": null,
+        "contact": null
+      },
+      "far": {
+        "heel": null,
+        "toe": null,
+        "contact": null
+      },
+      "notes": "PENDING visual measurement"
+    },
+    {
+      "id": "04-contact-b",
+      "sha256": null,
+      "near": {
+        "heel": null,
+        "toe": null,
+        "contact": null
+      },
+      "far": {
+        "heel": null,
+        "toe": null,
+        "contact": null
+      },
+      "notes": "PENDING visual measurement"
+    },
+    {
+      "id": "05-support-b",
+      "sha256": null,
+      "near": {
+        "heel": null,
+        "toe": null,
+        "contact": null
+      },
+      "far": {
+        "heel": null,
+        "toe": null,
+        "contact": null
+      },
+      "notes": "PENDING visual measurement"
+    },
+    {
+      "id": "06-passing-a",
+      "sha256": null,
+      "near": {
+        "heel": null,
+        "toe": null,
+        "contact": null
+      },
+      "far": {
+        "heel": null,
+        "toe": null,
+        "contact": null
+      },
+      "notes": "PENDING visual measurement"
+    }
+  ]
+}

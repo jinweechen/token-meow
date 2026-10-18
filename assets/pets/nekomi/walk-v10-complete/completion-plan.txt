@@ -1,0 +1,87 @@
+完整素材完成计划｜2026-10-17｜Asia/Shanghai
+总状态：pending。此处所有交付项、动作阶段与动作片段均为 pending。
+
+目标范围
+统一三视与朝右动作母稿；侧走八基础相位及必要补间；原十二动作逐项专项研究和修订；同一模型的分层制作素材；各自的视觉、动作、装配、来源和显示检查。
+范围不缩小为只补齐八张侧走 PNG。八相位数量不代表动画已经自然。
+
+完成判据
+- 所有交付项与阶段初始化为 pending；本计划不授予任何素材新的通过结论。
+- 文件齐全、PNG 数量、1024×1536 尺寸、RGBA、SHA 或原图字节一致均不能单独使状态 complete。
+- 完成判断必须具有对应要求的实际视觉、动作与装配证据，且受影响问题已闭环。
+- 保留原始成功、失败、拒绝、撤回及缺证记录；修复后新增对应复核，不覆盖原结论。
+- 历史证据复用只能标记 retained-historical-scope；须核对当前文件、母稿条件、时长、顺序和装配数据适用范围。
+- PNG、姿势、模型设计、播放顺序、时长、定位或枢轴发生变化后，复核受影响范围。
+- 八相位是基础工作分解，不是固定八张即足够的自然动画承诺。
+- 透明分层 PNG 和定位数据的交付名称为分层制作素材，不等于完成 PSD、Live2D、Spine 绑定工程。
+
+一、统一三视与朝右动作母稿｜pending
+- 正面母稿｜pending：确认统一比例、五官、发型、双发结、服装、手脚和尾巴设计。
+- 清楚侧面母稿｜pending：侧面头颅、颈胸背、骨盆、髋膝踝及鞋体一致；不强行露出全部远侧饰件或手指。
+- 背面母稿｜pending：背面腰带、发饰朝向、服装接缝与后骨盆正中尾根相互一致。
+- 朝右动作母稿｜pending：固定解剖右侧为近侧、左侧为远侧；鞋体朝向、地面透视、骨链及近远遮挡一起成立。；尾巴从后骨盆正中经背后小开口伸出；投影重叠时遮住远左臂手，近右臂层级自然。
+- 跨视图统一｜pending：复核头身比例、四肢长度、腰骨盆位置、衣裙结构、花纹、头饰与尾根，不仅检查饰件局部。
+母稿同样执行适用的 G0–G5；先形成一致模型，再扩展动作。
+
+二、侧走｜pending
+- 01-contact-near｜pending：近右脚接触，远左腿在后推蹬
+- 02-near-flat-recovery｜pending：近右腿接受体重，远左腿离地回收
+- 03-far-passing｜pending：近右腿支撑，远左脚经过
+- 04-near-toe-far-reach｜pending：近右脚抬跟支撑，远左脚前摆
+- 05-contact-far｜pending：远左脚接触，近右腿在后推蹬
+- 06-far-flat-recovery｜pending：远左腿接受体重，近右腿离地回收
+- 07-near-passing｜pending：远左腿支撑，近右脚经过
+- 08-far-toe-near-reach｜pending：远左脚抬跟支撑，近右脚前摆并连续进入 01
+- 足部接触与空间｜pending：按母稿相机确认实际鞋跟/前掌支点与地面透视，不沿用失效的严格平行鞋或统一单地线。
+- 完整原速与慢速循环｜pending：以真实 PNG 检查 01→08→01 多轮；逐帧复核经过相位、半周期左右身份与首尾接缝。；补足运动需要的中间帧和时长；不复制首帧造成额外停顿，不用全图归一化掩盖漂移。
+- 移动动作的位移与支撑｜pending：在素材预览中检查身体位移与支撑脚局部运动的对应关系；本项不修改运行时。
+- 进入、循环、退出与返回｜pending：明确行走进入、主体循环、退出及返回待机的实际画稿与时间关系。
+进入 pending；主体/循环 pending；退出 pending；返回待机 pending。
+
+三、每个动作的 G0–G5｜全部 pending
+- G0 对应动作专项研究｜pending：明确动作意图、视角、支撑与表演；记录直接相关的实际参考及观察事实。；既有参考只在条件未变时按 retained-historical-scope 注明复用，不用通用研究替代专项研究。
+- G1 统一模型与结构关键姿势｜pending：按统一母稿确定比例、解剖左右、近远身份、隐藏骨链及前后遮挡。；头、身体、裙袖、手脚、饰件与尾根连接在同一视图中成立。
+- G2 粗动作连续性｜pending：按预期时长检查进入、主体或循环、退出及返回待机；原速、慢速与逐帧检查。；移动动作另查身体位移与支撑接触；结构不成立时返回 G1。
+- G3 实际高清素材｜pending：使用对应已复核姿势完成原生高清绘制；人物图不得用程序裁切、形变、抠图、拼接或骨架示意替代。；逐图复核手指、关节链、服装图案、尾根、轮廓及跨帧设计一致性。
+- G4 实际显示与局部检查｜pending：用实际 PNG 检查桌宠预期显示尺寸及人物约 1200 px 高两档。；实际检查透明棋盘、浅色、深色背景，以及手指、尾根、遮挡与鞋子局部；像素元数据不代替视觉检查。
+- G5 完整动作与交付｜pending：检查进入、主体或循环、退出、返回待机、相邻帧与循环接缝。；序列帧与分层制作素材分别验证，保留失败与补测边界，绑定当前文件、顺序、时长和装配数据 SHA。
+
+四、原十二动作｜逐项 pending
+- idle／待机｜pending；G0–G5 各 pending；进入/主体或循环/退出/返回待机各 pending。研究重点：眨眼、呼吸与稳定站立重心；眨眼节奏独立于短循环。
+- active／活跃｜pending；G0–G5 各 pending；进入/主体或循环/退出/返回待机各 pending。研究重点：先确定专注观察或身体兴奋的具体表演，再定幅度。
+- alert／提醒｜pending；G0–G5 各 pending；进入/主体或循环/退出/返回待机各 pending。研究重点：注意力转移与短促预备；明确看、转头或举手的次序。
+- complete／完成｜pending；G0–G5 各 pending；进入/主体或循环/退出/返回待机各 pending。研究重点：庆祝的预备、强调与收势；选用跳跃时补齐蹬地、腾空、落地。
+- happy／开心｜pending；G0–G5 各 pending；进入/主体或循环/退出/返回待机各 pending。研究重点：表情与躯干配合；明确无位移开心或带跳跃庆祝。
+- wink／眨眼互动｜pending；G0–G5 各 pending；进入/主体或循环/退出/返回待机各 pending。研究重点：眼睑闭合、嘴角与轻微头倾，保持脸部体积。
+- affection／亲近｜pending；G0–G5 各 pending；进入/主体或循环/退出/返回待机各 pending。研究重点：明确接近、歪头、招手等意图，伸手时检查透视与肩肘链。
+- shy／害羞｜pending；G0–G5 各 pending；进入/主体或循环/退出/返回待机各 pending。研究重点：收肩、视线、手位及稳定支撑，不只靠持续内扣膝或内八。
+- bow／鞠躬｜pending；G0–G5 各 pending；进入/主体或循环/退出/返回待机各 pending。研究重点：髋部折叠、躯干倾斜、颈部跟随、重心与长发滞后。
+- stretch／伸懒腰｜pending；G0–G5 各 pending；进入/主体或循环/退出/返回待机各 pending。研究重点：肩胛、肩肘、胸廓和腰协同，明确脚是否踮起。
+- hug-tail／抱尾｜pending；G0–G5 各 pending；进入/主体或循环/退出/返回待机各 pending。研究重点：双手托持与接触、尾巴连接和弧线，避免袖手腹部穿模。
+- sleep／睡眠｜pending；G0–G5 各 pending；进入/主体或循环/退出/返回待机各 pending。研究重点：明确站睡、坐睡或躺睡及支撑面，包含入睡、安定与呼吸。
+旧关键帧是否可复用，逐项核对统一母稿和新要求；原历史只能标记 retained-historical-scope，不直接抵作当前完成。
+
+五、分层制作素材｜pending
+- 部件与补画｜pending：按动作需要分出近远上臂/前臂/手、近远大腿/小腿/鞋、躯干、前后裙片、前后发、头饰及适当尾根/尾段。；补足被遮挡连接区域；手型与表情替换件按动作实际需要准备。
+- 定位与层级｜pending：记录共同画布、坐标系、近远/解剖侧别、父级、z 顺序、枢轴、遮挡和必要定位数据。；角色身份与序列帧相同；保留生成器原生 PNG，不用程序变形替代部件绘制。
+- 实际装配检查｜pending：逐层开关并与母稿同尺度对比，检查头颈、肩、袖腕、髋膝踝、裙片开口和尾根衔接。
+- 实际动作范围检查｜pending：在所需动作范围内检查关节重叠、变动遮挡、表情互斥与缺口，不能把历史 ±3° 正面小摆动外推成侧走通过。
+- 分层实际展示｜pending：装配后的同一角色分别检查桌宠预期尺寸与约 1200 px 高、透明棋盘/浅色/深色背景及手脚尾根局部。
+
+六、来源、显示、证据与最终对账｜pending
+- 来源与原始字节｜pending：逐项记录输出版本、内置 imagegen 原路径、实际输入及 SHA、精确提示词及 SHA、透明请求与输出元数据。；验证项目文件与生成原图字节一致；代码原生姿势示意单独标识，不计为人物成品。
+- 复核与失败追溯｜pending：记录具体检查范围、实际观察、通过或未通过项和证据位置；保留旧失败及后来修复，避免合成成一次未发生的全套通过。
+- 序列素材实际显示｜pending：所有最终动作检查桌宠预期尺寸与人物约 1200 px 高两档，以及棋盘/浅色/深色背景。
+- 最终范围对账｜pending：统一母稿、侧走、十二动作、分层、装配、来源和显示检查逐项有实际证据后再判断完成。；资产交付与运行时接入、安装包、发布验收分别报告。
+
+七、历史证据保留｜仅 retained-historical-scope
+- retained-historical-scope：38 张原十二动作有限局部关键帧及原时长/顺序复核；不覆盖完整进入退出、行走或新母稿。 记录：assets/pets/nekomi/animation-v6/animation-manifest.json；output/imagegen/animation-v6-20261017/visual-review.json
+- retained-historical-scope：28 张正面分层、表情替换与原 ±3°/±1° 小幅装配检查；不覆盖侧走、膝肘大幅关节运动或完成绑定。 记录：assets/pets/nekomi/animation-v6/LIVE2D-HANDOFF.txt；output/imagegen/animation-v6-20261017/visual-review-root.json；output/imagegen/animation-v6-20261017/layer-motion-review.json
+- retained-historical-scope：旧三视存在；本轮腰带与发饰局部修订、来源和元数据，不代表全模型通过。 记录：assets/pets/nekomi/hd-v5-natural-tail/reference/turnaround.png；assets/pets/nekomi/walk-v10-complete/model-reference/integrity.json；assets/pets/nekomi/walk-v10-complete/model-reference/integrity-v4.json
+- retained-historical-scope：保留不通过、结构/遮挡/地面透视错误、未调用提示词、缺失帧和未完成分层的原始记录。 记录：assets/pets/nekomi/walk-v10-complete/REVIEW-20261017-SPATIAL-REJECTED.txt；output/imagegen/walk-v10-complete-20261017/first-three-review.txt；assets/pets/nekomi/walk-v10-complete/HANDOFF-20261017.txt；assets/pets/nekomi/walk-v10-complete/STATUS-20261017.txt
+- retained-historical-scope：对应封存时版本的字节、PNG 与提示词映射，不替代后续新增或修订图的复核。 记录：assets/pets/nekomi/walk-v10-complete/integrity-v2.json；assets/pets/nekomi/walk-v10-complete/generation-manifest-v2.json
+
+执行边界
+本计划仅管理素材和素材复核；不修改 src/Rust/桌宠运行时，不提交推送。
+保留旧版、成功证据、失败证据及缺证说明。不得因文件齐全、数量达标或 manifest 的 approved 自动记 complete。
+两种素材各自验收；透明 PNG 与定位数据只称分层制作素材，不称已经完成 Live2D/Spine 绑定工程。

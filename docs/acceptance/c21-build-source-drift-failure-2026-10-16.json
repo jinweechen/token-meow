@@ -1,0 +1,232 @@
+{
+  "schema": "c21-candidate-source-drift-failure-v1",
+  "recordedAtUtc": "2026-10-16T05:21:48.133262+00:00",
+  "status": "FAILED_SOURCE_SEAL_AFTER_INNER_TAURI_EXIT0",
+  "candidate": "output/build-candidates/c21-resource-state-sync-20261016",
+  "scope": "C21 candidate build attempt only. Successful inner Tauri/NSIS command is not a completed stable-input candidate build; outer wrapper failed after after-app source capture. No retry, product run, CLI build, archive, packaging qualification or final build/link seal claimed.",
+  "inner": {
+    "command": "pnpm exec tauri build --bundles nsis --ci",
+    "elapsedSeconds": 210.3343635,
+    "exitCode": 0,
+    "error": null,
+    "startedAtUtc": "2026-10-16T05:05:34.7699110Z",
+    "finishedAtUtc": "2026-10-16T05:09:05.1083781Z",
+    "applicationStarted": false,
+    "installerExecuted": false,
+    "cliExecuted": false,
+    "nsisBundleCompletion": "reported in tauri-build.log; not executed or archived as a qualified candidate"
+  },
+  "outer": {
+    "ownershipId": "e8b4a53c-17fb-4f70-8c28-a793dd2dd405",
+    "processId": 43796,
+    "startedAtUtc": "2026-10-16T05:05:34.160708+00:00",
+    "finishedAtUtc": "2026-10-16T05:09:06.150144+00:00",
+    "elapsedSeconds": 211.98931369977072,
+    "timeoutSeconds": 600,
+    "cleanupTimeoutSeconds": 5,
+    "createdSuspended": true,
+    "assignedBeforeResume": true,
+    "resumed": true,
+    "timedOut": false,
+    "cleanupVerified": true,
+    "status": "nonzero-exit",
+    "naturalWholeJobCompletion": true,
+    "root": {
+      "creationFileTimeDecimal": "134366007341619393",
+      "exitFileTimeDecimal": "134366009461167439",
+      "exitCode": 1,
+      "waitSignaled": true,
+      "exited": true
+    },
+    "job": {
+      "totalProcesses": 47,
+      "activeProcesses": 0,
+      "totalTerminatedProcesses": 0
+    },
+    "errors": [],
+    "sawRootExitedWithActiveDescendants": true,
+    "rootExitedWithActiveDescendantsObservation": {
+      "elapsedSeconds": 211.96375819994137,
+      "root": {
+        "creationFileTimeDecimal": "134366007341619393",
+        "exitFileTimeDecimal": "134366009461167439",
+        "exitCode": 1,
+        "waitSignaled": true,
+        "exited": true
+      },
+      "job": {
+        "totalProcesses": 47,
+        "activeProcesses": 1,
+        "totalTerminatedProcesses": 0
+      }
+    }
+  },
+  "failure": {
+    "stage": "production-inputs-after-app capture before artifact archive",
+    "baselineProductionInputCount": 583,
+    "afterAppEnumeratedCount": 593,
+    "afterAppProductionCount": 589,
+    "afterAppSeparatelyClassifiedDraftCount": 4,
+    "productionDriftPathCount": 10,
+    "productionDriftPaths": [
+      "assets/pets/nekomi/character-anatomy-v5.png",
+      "assets/pets/nekomi/imagegen-prompt-anatomy-v5.txt",
+      "assets/pets/nekomi/imagegen-prompt-anime-v5-core-initial.txt",
+      "assets/pets/nekomi/imagegen-prompt-anime-v5-cute-initial.txt",
+      "assets/pets/nekomi/manifest-anime-v5.json",
+      "assets/pets/nekomi/provenance-anime-v4.json",
+      "assets/pets/nekomi/provenance.json",
+      "src/features/pet/builtinSkin.ts",
+      "src/shared/atlasRegistry.test.ts",
+      "src/shared/windowAtlasOwner.test.ts"
+    ],
+    "additionalGateFailure": "exact-583-production-inventory-required",
+    "afterAppManifestSha256": "ADD5D54CD633464E8E3276A888AD950A6627A7A3D0F44C2F78F1D96054DA8EA7",
+    "nonRuntimeDraftPathsAtThisFailedC21Capture": [
+      "assets/pets/nekomi/character-anime-v5-core.png",
+      "assets/pets/nekomi/character-anime-v5-cute.png",
+      "assets/pets/nekomi/imagegen-prompt-anime-v5-core.txt",
+      "assets/pets/nekomi/imagegen-prompt-anime-v5-cute.txt"
+    ],
+    "classificationBoundary": "The four raw v5 atlas/prompt paths were classified separately by the already frozen C21 capture rule. This describes this failed historical capture only; it does not authorize exclusion from a later active-v5 C22 production scope.",
+    "fileWriterOrOperatorInferred": false,
+    "sourcesRestoredExcludedOrGateRelaxed": false
+  },
+  "notReached": {
+    "archive": true,
+    "sameSourceCliBuild": true,
+    "packagingVerification": true,
+    "finalBuildReceipt": true,
+    "linkProvenance": true,
+    "absentKnownOutputNames": [
+      "artifacts-before-example.json",
+      "app-owned-wrapper-result.json",
+      "example-owned-build-start.json",
+      "example-owned-job.execution.json",
+      "prepare-example-build-execution.json",
+      "production-inputs-after.json",
+      "artifacts-final.json",
+      "build-receipt.json",
+      "link-provenance.json",
+      "build-process-cleanup.json",
+      "token-meow.exe",
+      "TokenMeow_0.1.0_x64-setup.exe",
+      "ledger_audit.exe"
+    ],
+    "absenceScope": "Only these expected create-new records/artifacts in this candidate directory; no global process/filesystem enumeration"
+  },
+  "retainedQualification": {
+    "finalRustTargetedReceipt": "docs/acceptance/c21-bridge-environment-targeted-2026-10-16.json",
+    "sha256": "A2F2D9CCFFE4BDD2D3A83A27C182074A2CE166A53620C7E546BE2D6270ABD032",
+    "bridgeNamedPassed": 32,
+    "desktopNamedPassed": 14,
+    "core79Rerun": false,
+    "scope": "Rust targeted evidence remains attributed to47BE/DF7; not evidence of stable v5 frontend inputs, candidate build success or Native behavior."
+  },
+  "currentActualThreeMdUnchanged": [
+    {
+      "path": "docs/acceptance/v0.3-验收追踪.md",
+      "bytes": 35134,
+      "sha256": "662F0570BA8A9FD95C374E8E9D5DFA868D938ABC251809896BCF6297EBBC83C3"
+    },
+    {
+      "path": "docs/release/0.1.0/候选发布说明与已知限制.md",
+      "bytes": 67911,
+      "sha256": "4773DA758814975BB04A1404ECAD90115E1F30138E90B46FB006612BE5DD5516"
+    },
+    {
+      "path": "docs/release/0.1.0/使用说明.md",
+      "bytes": 17637,
+      "sha256": "CB7A4900361543FF2E481BCF86E58EB3E03E53B753C814F39A714CFEB868272A"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "output/build-candidates/c21-resource-state-sync-20261016/candidate-binding.json",
+      "bytes": 959,
+      "sha256": "3856B65D4719BA2DB627D80F2967EFF6C275C7BBFE16577557611889F1BBB4E2"
+    },
+    {
+      "path": "output/build-candidates/c21-resource-state-sync-20261016/candidate-helper-manifest.json",
+      "bytes": 1617,
+      "sha256": "4A7941B4CC23863D6ADB6C4A1D44F627F4CF20C79133005EC8AC1A1ECDB1C2CE"
+    },
+    {
+      "path": "output/build-candidates/c21-resource-state-sync-20261016/qualification-inputs.json",
+      "bytes": 35695,
+      "sha256": "6FD33C51F4DA9213DD46A7663B9EF75E1A7AD5B95D5EFA2A32377EB1F3898A87"
+    },
+    {
+      "path": "output/build-candidates/c21-resource-state-sync-20261016/app-owned-build-start.json",
+      "bytes": 137,
+      "sha256": "4FDCDDA99E9B5D41BED99BF16DF133E1B2AEE9B668A9CA5DC9FDC3CFD1D3ABDA"
+    },
+    {
+      "path": "output/build-candidates/c21-resource-state-sync-20261016/tauri-build-execution.json",
+      "bytes": 543,
+      "sha256": "D9E3305CF8A0BD9DBBBF1EE1A6B5F851F784734EDE09E42BD3882946B1083CA1"
+    },
+    {
+      "path": "output/build-candidates/c21-resource-state-sync-20261016/tauri-build.log",
+      "bytes": 1905,
+      "sha256": "474251301E4C992FDCA17898B308F7633A3D9EC5DA48890F9840E7BCF27551CA"
+    },
+    {
+      "path": "output/build-candidates/c21-resource-state-sync-20261016/app-owned-job.execution.json",
+      "bytes": 1797,
+      "sha256": "8CCA1139853EE85F06E68324142BFA650589DD57662B20E2AFDD783C438855AA"
+    },
+    {
+      "path": "output/build-candidates/c21-resource-state-sync-20261016/app-owner.stdout.log",
+      "bytes": 2757,
+      "sha256": "6D91327F04855AB6D2BDA6EFBA5D0008D93D91ADA78E646CD55D3549F002E771"
+    },
+    {
+      "path": "output/build-candidates/c21-resource-state-sync-20261016/app-owner.stderr.log",
+      "bytes": 710,
+      "sha256": "AB9C8C282FC4995B2A6D437E10EEF422CDC7D9CE60F9C984E0539BE72A373241"
+    },
+    {
+      "path": "output/build-candidates/c21-resource-state-sync-20261016/production-inputs-before.json",
+      "bytes": 124825,
+      "sha256": "CF1F697DAC3C392F698CF9723668F10974548BB9EBCB9E3C949CF080B31467B1"
+    },
+    {
+      "path": "output/build-candidates/c21-resource-state-sync-20261016/production-inputs-after-app.json",
+      "bytes": 127088,
+      "sha256": "ADD5D54CD633464E8E3276A888AD950A6627A7A3D0F44C2F78F1D96054DA8EA7"
+    },
+    {
+      "path": "output/build-candidates/c21-resource-state-sync-20261016/run-owned-build.py",
+      "bytes": 6090,
+      "sha256": "9F84A48A031C8A7BBCE713EA69B005FDA331914E6C1CF023EE6220552C76F4CD"
+    },
+    {
+      "path": "output/build-candidates/c21-resource-state-sync-20261016/capture-inputs.py",
+      "bytes": 6549,
+      "sha256": "4CD4B7B0A5DB1910032B74DE7E3D6BF3B4847D4A5A7735980DE1F656493506B7"
+    },
+    {
+      "path": "output/implementation/c21-build-plan-resource-state-sync-feee7fc8ba8b4c2ba2b6404655a50415/plan-manifest.json",
+      "bytes": 2740,
+      "sha256": "7F69B38962C0C2F6C53CAF719389B00AB5D4374792ECB627C33A36757EF55BD8"
+    },
+    {
+      "path": "output/implementation/c21-build-plan-resource-state-sync-feee7fc8ba8b4c2ba2b6404655a50415/root-build-plan-review.json",
+      "bytes": 1260,
+      "sha256": "3C97122C7515EFA0AACD5BEA472E3BD672DDD4C97AF48AF0E28FCB07C4A9F6A0"
+    },
+    {
+      "path": "output/implementation/c21-build-plan-resource-state-sync-feee7fc8ba8b4c2ba2b6404655a50415/execution-release.json",
+      "bytes": 903,
+      "sha256": "026EFC763F56F2E0136EE63450C17E391DDE091D6D7FA4BD6D89BE6B05977D84"
+    }
+  ],
+  "evidenceCount": 16,
+  "M4Complete": false,
+  "rootTerminalOwnerExitCode": 1,
+  "rootTerminalSessionReportedByRoot": 64667,
+  "authorPolledRootSession": false,
+  "authorExecutedBuildOrProducts": false,
+  "largeBinaryRehashedByAuthor": false
+}

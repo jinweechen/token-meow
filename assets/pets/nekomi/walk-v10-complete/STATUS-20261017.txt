@@ -1,0 +1,20 @@
+素材状态｜2026-10-17
+
+当前先纠正三视母稿，尚无完整模型或步态通过结论。
+
+旧三视确实存在：../hd-v5-natural-tail/reference/turnaround.png。此前未把它作为当前统一设计与验收母稿；不能再说从未画过三视，也不能因文件存在就认定模型已通过。
+
+本轮 model-reference/：
+- turnaround-rear-waist-v1：在旧三视候选上修订背面腰带。
+- turnaround-rear-accessories-v2：修订背面发饰朝向，保留背面腰带修订。
+- turnaround-side-hair-bow-v3：继续修订侧面发结朝向。
+- turnaround-side-hair-bow-v4-length：保留侧面发结转向，缩短侧面垂带以对应正面长度。已用实际PNG浏览器预览，截图 output/playwright/nekomi-turnaround-accessories-v4.png；这只支持饰件局部静态复核。
+这些是腰带与饰件的局部修订。比例、四肢结构、各视图一致性与空间遮挡仍需复核，不能称全模型、动画母稿或完整动画已通过。
+
+来源与完整性：各版本 *-source.json 保存原输出、输入与提示词；model-reference/integrity.json 记录 PNG 元数据、SHA256 和生成原图逐字节匹配。
+
+步态候选 v7-midline 输入 v5，v8-low-root 输入 v7；两张仍未通过，未选入 frames。candidates/ 同名 *-source.json 已补充来源。v9-small-waist-bow 只有提示词，未调用生成。
+
+frames/ 仍为原有 01–05 五张未通过候选，06、07、08 实际 PNG 仍缺。八帧统一修订、慢速连续循环检查及侧走分层素材均未完成；历史 v6 正面分层不等于本轮侧走分层。
+
+本次只更新记录，保留历史 REVIEW、integrity-v2 与 generation-manifest-v2；未改图片、frames、sequence、预览 HTML 或桌宠运行时。

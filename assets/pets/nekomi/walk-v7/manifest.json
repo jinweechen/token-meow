@@ -1,0 +1,471 @@
+{
+  "schemaVersion": 1,
+  "assetType": "six-frame-painted-walk-cycle",
+  "status": "withdrawn",
+  "generator": "builtin image_gen",
+  "pixelPostProcessing": false,
+  "direction": "screen-right",
+  "directionLabel": "朝画面右侧行进",
+  "canvas": [
+    1024,
+    1536
+  ],
+  "coordinateSystem": "top-left origin, x right, y down, source pixel units",
+  "sharedTransform": {
+    "scale": 1,
+    "translation": [
+      0,
+      0
+    ],
+    "anchor": [
+      512,
+      1490
+    ]
+  },
+  "groundY": 1469,
+  "footNaming": "view-relative: A=near, B=far; not anatomical left/right",
+  "sequence": [
+    {
+      "frame": "01-contact-a",
+      "durationMs": 160
+    },
+    {
+      "frame": "02-support-a",
+      "durationMs": 160
+    },
+    {
+      "frame": "03-passing-b",
+      "durationMs": 160
+    },
+    {
+      "frame": "04-contact-b",
+      "durationMs": 160
+    },
+    {
+      "frame": "05-support-b",
+      "durationMs": 160
+    },
+    {
+      "frame": "06-passing-a",
+      "durationMs": 160
+    }
+  ],
+  "travelTest": {
+    "nativePixelsPerSecond": 120,
+    "testOnly": true,
+    "note": "Nominal visualization speed; root must calibrate against observed stance foot displacement. Not runtime movement acceptance."
+  },
+  "limitations": [
+    "Six discrete painted walk poses; no dense in-between animation or runtime integration."
+  ],
+  "groundLines": {
+    "near": 1469,
+    "far": 1455
+  },
+  "groundLineNote": "Historical measurements from withdrawn three-quarter-view drafts only; not accepted contact targets or two physical floor heights. A new side-profile cycle must be measured again and must not reuse these draft ground lines. No per-frame registration.",
+  "reviewStatus": "withdrawn-reworking-side-profile",
+  "sequenceSha256": "d7e922a1d3b75fd7e20b7965dccee3cad2ba562235d284130b75ce44fc5d9f06",
+  "cycleDurationMs": 960,
+  "frames": [
+    {
+      "id": "01-contact-a",
+      "path": "frames/01-contact-a.png",
+      "exists": true,
+      "errors": [],
+      "warnings": [
+        "Low-alpha edge residue requires visual compositing review"
+      ],
+      "sha256": "0686a118a3431273186dd8b25d5a7ad4c608b00e5ac1a4dc2a8160f80b570297",
+      "bytes": 2013463,
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "format": "PNG",
+      "imageFrameCount": 1,
+      "bitDepth": 8,
+      "colorType": 6,
+      "alphaRange": [
+        0,
+        254
+      ],
+      "transparentPixels": 790220,
+      "visiblePixels16": 753795,
+      "visibleBounds16": [
+        56,
+        15,
+        962,
+        1470
+      ],
+      "edgeMaxAlpha": 1,
+      "visibleHeight16": 1455,
+      "visibleWidth16": 906,
+      "margins16": {
+        "left": 56,
+        "top": 15,
+        "right": 62,
+        "bottom": 66
+      },
+      "sourcePath": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14280-254e-70f3-ba61-b34c813b8e3a\\exec-6cf4dd5e-a67c-474d-8036-163397bead75.png",
+      "sourceSha256": "0686a118a3431273186dd8b25d5a7ad4c608b00e5ac1a4dc2a8160f80b570297",
+      "sourceBytesEqual": true,
+      "promptPath": "D:\\project\\宠物\\assets\\pets\\nekomi\\walk-v7\\prompts\\01-contact-a-r3.txt",
+      "promptSha256": "487900d5ecfacb4185a2888c8cb43a2842ef8000f99eb54c6d91b77173b99b5a",
+      "references": [
+        {
+          "path": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14280-254e-70f3-ba61-b34c813b8e3a\\exec-401dfa1d-45a0-4252-87ff-67c5d194350e.png",
+          "sha256": "9ec1fa834920f84232ea2317725a2b61c7716d685da782aaf51beb4246b91ad6"
+        }
+      ]
+    },
+    {
+      "id": "02-support-a",
+      "path": "frames/02-support-a.png",
+      "exists": true,
+      "errors": [],
+      "warnings": [],
+      "sha256": "d16d66e8d4d3ae21d492f1f387e01656b81955e1a2862a830e7683ee56b95e89",
+      "bytes": 2033197,
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "format": "PNG",
+      "imageFrameCount": 1,
+      "bitDepth": 8,
+      "colorType": 6,
+      "alphaRange": [
+        0,
+        254
+      ],
+      "transparentPixels": 801931,
+      "visiblePixels16": 747563,
+      "visibleBounds16": [
+        56,
+        15,
+        962,
+        1473
+      ],
+      "edgeMaxAlpha": 0,
+      "visibleHeight16": 1458,
+      "visibleWidth16": 906,
+      "margins16": {
+        "left": 56,
+        "top": 15,
+        "right": 62,
+        "bottom": 63
+      },
+      "sourcePath": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14280-254e-70f3-ba61-b34c813b8e3a\\exec-eba3accf-f8b1-48e9-977d-615aa045f8d9.png",
+      "sourceSha256": "d16d66e8d4d3ae21d492f1f387e01656b81955e1a2862a830e7683ee56b95e89",
+      "sourceBytesEqual": true,
+      "promptPath": "D:\\project\\宠物\\assets\\pets\\nekomi\\walk-v7\\prompts\\02-support-a.txt",
+      "promptSha256": "4b100dbeffdf660e67a05d060fde1f5bec476af580f2f7962766f35b03fcd740",
+      "references": [
+        {
+          "path": "D:\\project\\宠物\\assets\\pets\\nekomi\\walk-v7\\frames\\01-contact-a.png",
+          "sha256": "0686a118a3431273186dd8b25d5a7ad4c608b00e5ac1a4dc2a8160f80b570297"
+        }
+      ]
+    },
+    {
+      "id": "03-passing-b",
+      "path": "frames/03-passing-b.png",
+      "exists": true,
+      "errors": [],
+      "warnings": [
+        "Low-alpha edge residue requires visual compositing review"
+      ],
+      "sha256": "06e5d42fad1751b97993879a33bd054c2b3418cf9603ccccad0894dfb85ee051",
+      "bytes": 2042854,
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "format": "PNG",
+      "imageFrameCount": 1,
+      "bitDepth": 8,
+      "colorType": 6,
+      "alphaRange": [
+        0,
+        254
+      ],
+      "transparentPixels": 799919,
+      "visiblePixels16": 750141,
+      "visibleBounds16": [
+        56,
+        15,
+        963,
+        1479
+      ],
+      "edgeMaxAlpha": 1,
+      "visibleHeight16": 1464,
+      "visibleWidth16": 907,
+      "margins16": {
+        "left": 56,
+        "top": 15,
+        "right": 61,
+        "bottom": 57
+      },
+      "sourcePath": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14280-254e-70f3-ba61-b34c813b8e3a\\exec-4caf119b-bdc3-4755-a40c-a56113989e76.png",
+      "sourceSha256": "06e5d42fad1751b97993879a33bd054c2b3418cf9603ccccad0894dfb85ee051",
+      "sourceBytesEqual": true,
+      "promptPath": "D:\\project\\宠物\\assets\\pets\\nekomi\\walk-v7\\prompts\\03-passing-b-r2.txt",
+      "promptSha256": "a1297f7ec2cecfd0fb0ed9fb288273cd83d39cb7eb6c5d8c98bc9a42f1a2ff1d",
+      "references": [
+        {
+          "path": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14280-254e-70f3-ba61-b34c813b8e3a\\exec-56b88c1a-f611-4be4-9f8b-cc45b1a0ec02.png",
+          "sha256": "586132f9d0a1f702b81d3b825099ae01ad9bba629565c6209ccc0e8ff2ebc4e6"
+        },
+        {
+          "path": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14280-254e-70f3-ba61-b34c813b8e3a\\exec-d54a433e-08d8-42fc-87b7-689b7f1b56ae.png",
+          "sha256": "41c1a98aaa882a82d81cea4f64bbd5f0324968c1b16531a7872cf25ac9b7bb08"
+        }
+      ]
+    },
+    {
+      "id": "04-contact-b",
+      "path": "frames/04-contact-b.png",
+      "exists": true,
+      "errors": [],
+      "warnings": [
+        "Low-alpha edge residue requires visual compositing review"
+      ],
+      "sha256": "e9c62b52bcec3bbc80cf9652adb2ca2825e2c78124c4ac93718c746b59ec3d26",
+      "bytes": 2041207,
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "format": "PNG",
+      "imageFrameCount": 1,
+      "bitDepth": 8,
+      "colorType": 6,
+      "alphaRange": [
+        0,
+        254
+      ],
+      "transparentPixels": 786362,
+      "visiblePixels16": 758638,
+      "visibleBounds16": [
+        56,
+        15,
+        963,
+        1487
+      ],
+      "edgeMaxAlpha": 1,
+      "visibleHeight16": 1472,
+      "visibleWidth16": 907,
+      "margins16": {
+        "left": 56,
+        "top": 15,
+        "right": 61,
+        "bottom": 49
+      },
+      "sourcePath": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14280-254e-70f3-ba61-b34c813b8e3a\\exec-619d6064-ccab-4501-8c83-2aa36a7c12ec.png",
+      "sourceSha256": "e9c62b52bcec3bbc80cf9652adb2ca2825e2c78124c4ac93718c746b59ec3d26",
+      "sourceBytesEqual": true,
+      "promptPath": "D:\\project\\宠物\\assets\\pets\\nekomi\\walk-v7\\prompts\\04-contact-b-r2.txt",
+      "promptSha256": "29140797186a972a04c6b456ff000a1d5074356dd5b5a4658b27c20cd80a902a",
+      "references": [
+        {
+          "path": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14280-254e-70f3-ba61-b34c813b8e3a\\exec-d54a433e-08d8-42fc-87b7-689b7f1b56ae.png",
+          "sha256": "41c1a98aaa882a82d81cea4f64bbd5f0324968c1b16531a7872cf25ac9b7bb08"
+        }
+      ]
+    },
+    {
+      "id": "05-support-b",
+      "path": "frames/05-support-b.png",
+      "exists": true,
+      "errors": [],
+      "warnings": [],
+      "sha256": "3029633487952981e5697d50f53f9b330e537057a7151333a855d92cc4390440",
+      "bytes": 2039131,
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "format": "PNG",
+      "imageFrameCount": 1,
+      "bitDepth": 8,
+      "colorType": 6,
+      "alphaRange": [
+        0,
+        254
+      ],
+      "transparentPixels": 799790,
+      "visiblePixels16": 745750,
+      "visibleBounds16": [
+        57,
+        15,
+        964,
+        1481
+      ],
+      "edgeMaxAlpha": 0,
+      "visibleHeight16": 1466,
+      "visibleWidth16": 907,
+      "margins16": {
+        "left": 57,
+        "top": 15,
+        "right": 60,
+        "bottom": 55
+      },
+      "sourcePath": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14280-254e-70f3-ba61-b34c813b8e3a\\exec-a4504334-bbcd-48ff-976a-6ce326fb789b.png",
+      "sourceSha256": "3029633487952981e5697d50f53f9b330e537057a7151333a855d92cc4390440",
+      "sourceBytesEqual": true,
+      "promptPath": "D:\\project\\宠物\\assets\\pets\\nekomi\\walk-v7\\prompts\\05-support-b.txt",
+      "promptSha256": "ca4d09d30644758e6ef2f2115bbc65d5b3ebdf3a04c57539e094124cfeb5d73b",
+      "references": [
+        {
+          "path": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14280-254e-70f3-ba61-b34c813b8e3a\\exec-d54a433e-08d8-42fc-87b7-689b7f1b56ae.png",
+          "sha256": "41c1a98aaa882a82d81cea4f64bbd5f0324968c1b16531a7872cf25ac9b7bb08"
+        }
+      ]
+    },
+    {
+      "id": "06-passing-a",
+      "path": "frames/06-passing-a.png",
+      "exists": true,
+      "errors": [],
+      "warnings": [],
+      "sha256": "907fc150e1c7a8c80834ee5836175d9ae421b064dca70cbbc4d1cc0e88a721a7",
+      "bytes": 2014227,
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "format": "PNG",
+      "imageFrameCount": 1,
+      "bitDepth": 8,
+      "colorType": 6,
+      "alphaRange": [
+        0,
+        254
+      ],
+      "transparentPixels": 805622,
+      "visiblePixels16": 741414,
+      "visibleBounds16": [
+        56,
+        15,
+        971,
+        1465
+      ],
+      "edgeMaxAlpha": 0,
+      "visibleHeight16": 1450,
+      "visibleWidth16": 915,
+      "margins16": {
+        "left": 56,
+        "top": 15,
+        "right": 53,
+        "bottom": 71
+      },
+      "sourcePath": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14280-254e-70f3-ba61-b34c813b8e3a\\exec-6cdb73cd-dbf0-45c9-88cc-db6179dfc0ec.png",
+      "sourceSha256": "907fc150e1c7a8c80834ee5836175d9ae421b064dca70cbbc4d1cc0e88a721a7",
+      "sourceBytesEqual": true,
+      "promptPath": "D:\\project\\宠物\\assets\\pets\\nekomi\\walk-v7\\prompts\\06-passing-a.txt",
+      "promptSha256": "9ce93fb84c5b5a4ab7301e0e574b013800850148bb63b1f2ec826547c60c6371",
+      "references": [
+        {
+          "path": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14280-254e-70f3-ba61-b34c813b8e3a\\exec-d54a433e-08d8-42fc-87b7-689b7f1b56ae.png",
+          "sha256": "41c1a98aaa882a82d81cea4f64bbd5f0324968c1b16531a7872cf25ac9b7bb08"
+        }
+      ]
+    }
+  ],
+  "footLandmarks": {
+    "schemaVersion": 1,
+    "coordinateSystem": "view-relative near=A and far=B; top-left origin source pixels",
+    "measurementMethod": "manual image inspection; empty values are not measured",
+    "frames": [
+      {
+        "id": "01-contact-a",
+        "sha256": null,
+        "near": {
+          "heel": null,
+          "toe": null,
+          "contact": null
+        },
+        "far": {
+          "heel": null,
+          "toe": null,
+          "contact": null
+        },
+        "notes": "PENDING visual measurement"
+      },
+      {
+        "id": "02-support-a",
+        "sha256": null,
+        "near": {
+          "heel": null,
+          "toe": null,
+          "contact": null
+        },
+        "far": {
+          "heel": null,
+          "toe": null,
+          "contact": null
+        },
+        "notes": "PENDING visual measurement"
+      },
+      {
+        "id": "03-passing-b",
+        "sha256": null,
+        "near": {
+          "heel": null,
+          "toe": null,
+          "contact": null
+        },
+        "far": {
+          "heel": null,
+          "toe": null,
+          "contact": null
+        },
+        "notes": "PENDING visual measurement"
+      },
+      {
+        "id": "04-contact-b",
+        "sha256": null,
+        "near": {
+          "heel": null,
+          "toe": null,
+          "contact": null
+        },
+        "far": {
+          "heel": null,
+          "toe": null,
+          "contact": null
+        },
+        "notes": "PENDING visual measurement"
+      },
+      {
+        "id": "05-support-b",
+        "sha256": null,
+        "near": {
+          "heel": null,
+          "toe": null,
+          "contact": null
+        },
+        "far": {
+          "heel": null,
+          "toe": null,
+          "contact": null
+        },
+        "notes": "PENDING visual measurement"
+      },
+      {
+        "id": "06-passing-a",
+        "sha256": null,
+        "near": {
+          "heel": null,
+          "toe": null,
+          "contact": null
+        },
+        "far": {
+          "heel": null,
+          "toe": null,
+          "contact": null
+        },
+        "notes": "PENDING visual measurement"
+      }
+    ]
+  },
+  "visualReview": {
+    "reviewedFrameCount": 0,
+    "currentSequenceApproved": false,
+    "path": "visual-review.json"
+  }
+}

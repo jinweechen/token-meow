@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>小柚侧走 · 骨架运动工程示意</title>
+  <style>
+    :root{font-family:system-ui,"Microsoft YaHei",sans-serif;background:#eef2ef;color:#253c34;font-synthesis:none}*{box-sizing:border-box}body{margin:0}header{padding:22px clamp(16px,4vw,42px);background:#183d30;color:#fff}h1{font-size:23px;margin:0 0 8px}header p{font-size:13px;margin:0;color:#d9e8df;line-height:1.7}.notice{padding:13px clamp(16px,4vw,42px);background:#fff0d9;color:#7e4712;font-size:14px;font-weight:650;line-height:1.7;border-bottom:1px solid #dfb47c}.toolbar{display:flex;flex-wrap:wrap;align-items:center;gap:10px;background:#fff;padding:14px clamp(16px,4vw,42px);border-bottom:1px solid #d0dcd4}button,select,input{font:inherit}button,select{padding:8px 10px;background:#fff;color:#234d3a;border:1px solid #b9ccc0;border-radius:6px}button{cursor:pointer}button.primary{background:#235c42;color:#fff}button:disabled{opacity:.45;cursor:default}button:focus-visible,select:focus-visible,a:focus-visible{outline:3px solid #d99b30;outline-offset:3px}.toolbar label{display:flex;align-items:center;gap:5px;font-size:13px}main{max-width:1480px;margin:auto;padding:22px;display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:20px}.card{background:#fff;padding:17px;border:1px solid #cbd8cf;border-radius:10px;min-width:0}.card h2{font-size:16px;margin:0 0 12px}.scene{background:#fafcfb;border:1px solid #d0dcd4;border-radius:8px;overflow:hidden}.scene svg{display:block;width:100%;height:auto}.legend{display:flex;gap:16px;align-items:center;flex-wrap:wrap;font-size:13px;margin-bottom:10px}.near{color:#087f99}.far{color:#707b85}.phase{font-weight:650}.phases{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin-top:13px}.phases button{font-size:12px;text-align:left;line-height:1.6}.phases button[aria-pressed="true"]{color:#fff;background:#245e43}.hint{color:#607365;font-size:12px;line-height:1.75}.readout{display:grid;grid-template-columns:1fr auto;gap:8px;font-size:12px;line-height:1.6;margin:12px 0}.readout dd{margin:0;font-variant-numeric:tabular-nums;text-align:right}.readout dt{color:#5b7062}.status{background:#edf6f0;border:1px solid #bad2c1;padding:9px;font-size:12px;border-radius:7px;line-height:1.7}.status.fail{color:#9a3528;background:#fff0eb;border-color:#e6b1a8}.table{width:100%;border-collapse:collapse;font-size:12px;line-height:1.7}.table th,.table td{border-bottom:1px solid #e2e9e3;padding:6px 2px;text-align:left}.table th{color:#627367;font-weight:500}.notes{padding-left:18px;font-size:12px;color:#5b6f61;line-height:1.75}.notes li+li{margin-top:5px}details{margin-top:13px}summary{font-size:13px;cursor:pointer}a{color:#286447}.error{grid-column:1/-1;padding:14px;background:#fff0eb;border:1px solid #e2aaa0;color:#94392b;border-radius:8px}.error[hidden]{display:none}.aside{display:flex;flex-direction:column;gap:16px}.export{margin-top:12px;width:100%}footer{max-width:1480px;margin:auto;padding:0 22px 24px;font-size:12px;color:#617667;line-height:1.7}.mono{font-family:ui-monospace,Consolas,monospace;font-variant-numeric:tabular-nums}@media(max-width:1050px){main{grid-template-columns:1fr}.aside{display:grid;grid-template-columns:1fr 1fr}}@media(max-width:650px){main{padding:14px}.aside{display:flex}.phases{grid-template-columns:repeat(2,1fr)}h1{font-size:20px}}
+  </style>
+</head>
+<body>
+  <header><h1>小柚侧走 · 骨架运动工程示意</h1><p>固定近远腿身份，检查运动关系；工程腿长与髋高不是角色 Q 版比例，不用于重新定义人物外形。</p></header>
+  <div class="notice">骨架运动示意，非人物动画成品或验收。数值检查只约束此示意，不代表人物 PNG 或步态观感通过。</div>
+  <div class="toolbar">
+    <button id="play" class="primary" disabled>播放示意</button><button id="reset" disabled>回到起点</button>
+    <label>显示 <select id="sampling"><option value="continuous">连续技术插值</option><option value="keys">8 个关键相位</option></select></label>
+    <label>测试 <select id="space"><option value="inplace">原地循环</option><option value="travel">向右行进</option></select></label>
+    <label>速度 <select id="speed"><option value="1">原速</option><option value="0.5">慢速 ½</option><option value="0.25">慢速 ¼</option></select></label>
+    <label><input id="trails" type="checkbox" checked> 足部轨迹</label>
+    <label><input id="labels" type="checkbox" checked> 关节标注</label>
+  </div>
+  <main>
+    <div id="error" class="error" role="alert" hidden></div>
+    <section class="card">
+      <div class="legend"><span class="near">● N 近腿 / 近臂</span><span class="far">● F 远腿 / 远臂</span><span>朝右 →</span><span id="phase" class="phase">正在读取模型…</span></div>
+      <div class="scene"><svg id="scene" viewBox="0 0 1100 560" role="img" aria-label="侧身行走骨架技术示意，近腿青色，远腿灰色"></svg></div>
+      <div id="phases" class="phases" aria-label="8 个关键相位"></div>
+      <p id="modeNote" class="hint"></p>
+      <p class="hint">脚保持水平，尚未实现足跟—足掌—脚趾滚动。体块只表示结构，未画裙装；双腿投影重叠会直接显示。</p>
+    </section>
+    <div class="aside">
+      <section class="card">
+        <h2>当前距离与接触</h2>
+        <table class="table"><thead><tr><th>骨段</th><th class="near">近侧 N</th><th class="far">远侧 F</th></tr></thead><tbody><tr><td>髋 → 膝</td><td id="nearUpper">—</td><td id="farUpper">—</td></tr><tr><td>膝 → 踝</td><td id="nearLower">—</td><td id="farLower">—</td></tr><tr><td>膝屈曲</td><td id="nearFlex">—</td><td id="farFlex">—</td></tr><tr><td>状态</td><td id="nearContact">—</td><td id="farContact">—</td></tr><tr><td>足底离地</td><td id="nearLift">—</td><td id="farLift">—</td></tr></tbody></table>
+        <dl class="readout"><dt>周期 / 当前相位</dt><dd id="time">—</dd><dt>身体世界 x</dt><dd id="worldX">—</dd><dt>身体行进速度</dt><dd id="rootSpeed">—</dd><dt>当前最大腿段误差</dt><dd id="currentError">—</dd><dt>支撑脚世界接触 x</dt><dd id="contactX">—</dd></dl>
+      </section>
+      <section class="card">
+        <h2>数值检查 · 仅此模型</h2><div id="validation" class="status">等待检查</div>
+        <dl class="readout"><dt>最大骨段长度误差</dt><dd id="lengthError">—</dd><dt>支撑脚世界滑动速度</dt><dd id="stanceSlip">—</dd><dt>身体 / 支撑局部速度误差</dt><dd id="speedError">—</dd><dt>循环位置接缝</dt><dd id="positionSeam">—</dd><dt>循环单侧速度接缝</dt><dd id="velocitySeam">—</dd><dt>支撑期膝屈曲</dt><dd id="stanceFlex">—</dd><dt>摆动期膝屈曲</dt><dd id="swingFlex">—</dd><dt>最大伸展 / 直腿全长</dt><dd id="extensionRatio">—</dd><dt>距离完全伸直的最小余量</dt><dd id="extensionMargin">—</dd><dt>近 / 远腿独立关键姿势</dt><dd id="uniquePoses">—</dd></dl>
+        <p class="hint">膝屈曲 0° 表示完全伸直。前弯按髋踝连线的分支检查，膝不必始终位于髋的屏幕右侧。世界约束与屏幕观感分开判断。</p>
+        <button id="export" class="export" disabled>导出数据 JSON（含连续采样）</button>
+      </section>
+      <section class="card">
+        <h2>参考参数</h2><ul id="parameters" class="notes"></ul>
+        <details><summary>模型限制与未实现部分</summary><ul id="limitations" class="notes"></ul></details>
+      </section>
+    </div>
+  </main>
+  <footer>数据：<a href="mechanics.json">mechanics.json</a> · <a href="mechanics-reference-svg/eight-phase-reference.svg">8 相位 SVG 技术参考</a> · <a href="mechanics-review-history/REVISION-NOTES.txt">蹲姿问题与修正记录</a> · <a href="preview.html">返回人物粗稿研究</a>。工程长度不是角色 Q 版比例，也不是临床步态结论。</footer>
+  <script src="mechanics-core.js"></script>
+  <script>
+    'use strict';
+    const $=id=>document.getElementById(id), M=window.WalkMechanics;
+    const COLORS={near:'#087f99',far:'#808a93'}, SCALE=300, FLOOR=500;
+    const BODY_STATE={rising:'身体上升',falling:'身体下降',apex:'身体最高点',trough:'身体最低点'};
+    let config=null,validation=null,time=0,playing=false,last=0,raf=0;
+    const fmt=value=>value===0?'0':Math.abs(value)<0.001?value.toExponential(2):value.toFixed(3);
+    const dist=(a,b)=>Math.hypot(a.x-b.x,a.y-b.y);
+    function pause(){playing=false;cancelAnimationFrame(raf);raf=0;last=0;$('play').textContent='播放示意';}
+    function reset(){pause();time=0;render();}
+    function list(id,values){$(id).replaceChildren(...values.map(value=>{const li=document.createElement('li');li.textContent=value;return li;}));}
+    function render(){
+      if(!config)return;
+      const analytic=M.sample(time,config), frame=$('sampling').value==='keys'?M.discreteSample(time,config):analytic;
+      const travel=$('space').value==='travel', camera=travel?Math.max(0,frame.root.x-2.2):frame.root.x;
+      const origin=travel?180:550, sx=p=>origin+(p.x-camera)*SCALE, sy=p=>FLOOR-p.y*SCALE;
+      const n=v=>Number(v).toFixed(3), coord=p=>`${n(sx(p))},${n(sy(p))}`;
+      const path=(points,attr='')=>`<polyline points="${points.map(coord).join(' ')}" fill="none" ${attr}/>`;
+      const circle=(p,r,fill,stroke='none',width=1)=>`<circle cx="${n(sx(p))}" cy="${n(sy(p))}" r="${r}" fill="${fill}" stroke="${stroke}" stroke-width="${width}"/>`;
+      const text=(p,label,dx=8,dy=-8,color='#4b6256',anchor='start')=>`<text x="${n(sx(p)+dx)}" y="${n(sy(p)+dy)}" fill="${color}" font-family="system-ui,sans-serif" font-size="13" text-anchor="${anchor}" paint-order="stroke" stroke="#fafcfb" stroke-width="3">${label}</text>`;
+      let svg='<rect width="1100" height="560" fill="#fafcfb"/>';
+      const gridCamera=travel?camera:0,minWorld=gridCamera-origin/SCALE,maxWorld=gridCamera+(1100-origin)/SCALE;
+      for(let gx=Math.floor(minWorld*4)/4;gx<=maxWorld;gx+=0.25){const p={x:travel?gx:gx+frame.root.x,y:0};svg+=`<line x1="${n(sx(p))}" y1="35" x2="${n(sx(p))}" y2="500" stroke="#e5ece7" stroke-width="1"/><text x="${n(sx(p))}" y="523" text-anchor="middle" fill="#7b8e81" font-size="11">${gx.toFixed(2)}</text>`;}
+      svg+='<line x1="0" y1="500" x2="1100" y2="500" stroke="#9cae9f" stroke-width="2"/><text x="14" y="546" fill="#738779" font-size="12">地面 y=0；刻度单位 m（工程参考）</text>';
+      if($('trails').checked){for(const id of ['far','near']){const points=[];const cycle=Math.floor(frame.totalPhase);for(let i=0;i<=160;i++){const f=M.sample((cycle+i/160)*config.cycleSeconds,config);const p=f.legs[id].ankle;points.push(travel?p:{x:p.x-f.root.x+frame.root.x,y:p.y});}svg+=path(points,`stroke="${COLORS[id]}" stroke-width="2" stroke-dasharray="5 5" opacity=".45"`);}}
+      // Draw order is fixed for every phase. No sorting by screen x or ankle position.
+      function arm(id){const a=frame.arms[id];return path([a.shoulder,a.elbow,a.wrist],`stroke="${COLORS[id]}" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"`)+circle(a.elbow,4,'#fff',COLORS[id],2)+circle(a.wrist,5,COLORS[id]);}
+      function leg(id){const l=frame.legs[id];let out=path([l.hip,l.knee,l.ankle],`stroke="${COLORS[id]}" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"`);out+=path([l.ankle,l.heel,l.toe,l.ankle],`stroke="${COLORS[id]}" stroke-width="4" stroke-linejoin="round"`);for(const key of ['hip','knee','ankle'])out+=circle(l[key],5,'#fff',COLORS[id],2);for(const key of ['heel','toe'])out+=circle(l[key],3,COLORS[id]);if(l.stance){out+=path([{x:l.heel.x,y:-.012},{x:l.toe.x,y:-.012}],`stroke="${COLORS[id]}" stroke-width="3"`);}return out;}
+      svg+=arm('far')+leg('far');
+      svg+=path([frame.root,frame.shoulder],'stroke="#d4dccc" stroke-width="45" stroke-linecap="round"');
+      svg+=path([frame.root,frame.shoulder],'stroke="#8a9c80" stroke-width="2" stroke-dasharray="4 4"');
+      svg+=circle(frame.head,config.headRadius*SCALE,'#e5e9dd','#889b7e',2);
+      const nose={x:frame.head.x+config.headRadius+.025,y:frame.head.y-.01};
+      svg+=path([{x:frame.head.x+config.headRadius*.8,y:frame.head.y+.025},nose,{x:frame.head.x+config.headRadius*.8,y:frame.head.y-.025}],'stroke="#889b7e" stroke-width="2"');
+      svg+=circle({x:frame.head.x+config.headRadius*.45,y:frame.head.y+.025},2.5,'#65775c');
+      svg+=leg('near')+arm('near');
+      svg+=circle(frame.root,7,'#fff','#637458',2);
+      if($('labels').checked){for(const id of ['far','near']){const l=frame.legs[id],prefix=id==='near'?'N':'F',side=id==='near'?1:-1;for(const [key,label] of [['hip','髋'],['knee','膝'],['ankle','踝'],['heel','跟'],['toe','趾']]){const dy=key==='heel'?18:key==='toe'?-12:-10;svg+=text(l[key],`${prefix}·${label}`,side*11,dy,COLORS[id],side>0?'start':'end');}}}
+      svg+=`<text x="16" y="25" fill="#5e7667" font-size="13">${travel?'世界轨迹；向右移动，随后镜头跟随':'局部轨迹；身体横向固定'}</text>`;
+      $('scene').innerHTML=svg;
+      const key=M.frameIndex(frame.phase);$('phase').textContent=`${key+1} / 8 · ${M.PHASES[key].name} · ${BODY_STATE[frame.bodyVerticalState]}`;
+      [...$('phases').children].forEach((button,i)=>button.setAttribute('aria-pressed',String(i===key)));
+      $('time').textContent=`${frame.cycle+1} / ${(frame.phase*100).toFixed(1)}%`;$('worldX').textContent=`${frame.root.x.toFixed(3)} m`;$('rootSpeed').textContent=`${frame.rootSpeed.toFixed(3)} m/s`;
+      const contacts=[];let error=0;
+      for(const id of ['near','far']){const l=frame.legs[id],reach=dist(l.hip,l.ankle),flex=180-Math.acos(Math.max(-1,Math.min(1,(config.upperLeg**2+config.lowerLeg**2-reach**2)/(2*config.upperLeg*config.lowerLeg))))*180/Math.PI;$(id+'Upper').textContent=`${dist(l.hip,l.knee).toFixed(3)} m`;$(id+'Lower').textContent=`${dist(l.knee,l.ankle).toFixed(3)} m`;$(id+'Flex').textContent=`${flex.toFixed(1)}°`;$(id+'Contact').textContent=l.stance?'支撑':'摆动';$(id+'Lift').textContent=`${(l.heel.y*1000).toFixed(1)} mm`;error=Math.max(error,Math.abs(l.errors.upperLength),Math.abs(l.errors.lowerLength));if(l.stance)contacts.push(`${id==='near'?'N':'F'} ${l.contactWorld.x.toFixed(3)}`);}
+      $('currentError').textContent=`${fmt(error*1000)} mm`;$('contactX').textContent=contacts.join(' / ')+' m';
+      $('modeNote').textContent=($('sampling').value==='keys'?'8 相位按真实相位间隔停格显示，会有离散跳动。':'连续模式用平滑足部轨迹与双骨段 IK 求解，不是人物图像补帧。')+(travel?' 身体先向右移动，视野不足后镜头跟随；接触点按世界坐标检查。':' 原地模式仅去除整体横向位移，支撑脚会相对身体向后移动。');
+    }
+    function tick(now){if(!playing)return;if(last)time+=Math.min((now-last)/1000,.1)*Number($('speed').value);last=now;render();raf=requestAnimationFrame(tick);}
+    function exportData(){const data=M.dataset(config,true);const blob=new Blob([JSON.stringify(data,null,2)+'\n'],{type:'application/json;charset=utf-8'});const url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='walk-v8-mechanics-data.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);}
+    async function initialize(){try{if(!M)throw Error('模型脚本未加载。');const response=await fetch('mechanics.json',{cache:'no-store'});if(!response.ok)throw Error(`读取 mechanics.json 失败：HTTP ${response.status}`);const data=await response.json();if(data.schemaVersion!==1)throw Error('不支持的数据版本。');config=M.parameters(data.parameters);validation=M.validate(config);const v=validation.metrics;$('validation').textContent=`${validation.passed?'数值约束通过':'数值约束未通过'} · ${validation.sampleCount} 个采样点。范围仅限此骨架模型，不是人物动画验收。`;$('validation').classList.toggle('fail',!validation.passed);$('lengthError').textContent=fmt(v.maximumSegmentLengthError*1000)+' mm';$('stanceSlip').textContent=fmt(v.maximumStanceWorldSpeed)+' m/s';$('speedError').textContent=fmt(v.maximumLocalStanceSpeedMismatch)+' m/s';$('positionSeam').textContent=fmt(v.maximumLocalCyclePositionSeam*1000)+' mm';$('velocitySeam').textContent=fmt(v.maximumOneSidedVelocityJumpAtLoop)+' m/s';$('uniquePoses').textContent=`${v.nearDistinctKeyPoses} / ${v.farDistinctKeyPoses}`;
+      $('stanceFlex').textContent=v.kneeFlexionDegrees.stance.map(x=>x.toFixed(1)).join('–')+'°';$('swingFlex').textContent=v.kneeFlexionDegrees.swing.map(x=>x.toFixed(1)).join('–')+'°';$('extensionRatio').textContent=(v.maximumLegExtensionRatio*100).toFixed(2)+'%';$('extensionMargin').textContent=(v.minimumRemainingExtension*1000).toFixed(2)+' mm';
+      list('parameters',[`周期 ${config.cycleSeconds.toFixed(2)} s；同一脚步幅 ${config.strideLength.toFixed(2)} m；整体速度 ${(config.strideLength/config.cycleSeconds).toFixed(3)} m/s。`,`每腿支撑 ${Math.round(config.stanceFraction*100)}%，摆动 ${Math.round((1-config.stanceFraction)*100)}%；两腿相差半周期。`,`大腿 / 小腿各 ${config.upperLeg.toFixed(2)} / ${config.lowerLeg.toFixed(2)} m；髋中心平均高 ${config.hipHeight.toFixed(3)} m。`,`摆脚最高离地 ${(config.swingClearance*100).toFixed(1)} cm；身体起伏 ±${(config.bodyBob*1000).toFixed(0)} mm，最高点位于支撑中段。`,`手臂摆幅 ±${config.armSwingDegrees}°；同侧手臂在落脚接触时后摆。`,`8 相位包含 ${v.distinctUnlabelledKeyGeometry} 种无标签几何；对称半周期可重合，两腿身份仍各自连续。`]);list('limitations',M.LIMITATIONS);
+      $('phases').replaceChildren(...M.PHASES.map((p,i)=>{const button=document.createElement('button');button.type='button';button.textContent=`${i+1} · ${p.name} (${(p.phase*100).toFixed(1)}%)`;button.setAttribute('aria-pressed',String(i===0));button.onclick=()=>{pause();time=p.phase*config.cycleSeconds;render();};return button;}));$('play').disabled=!validation.passed;$('reset').disabled=false;$('export').disabled=false;render();
+    }catch(error){$('error').hidden=false;$('error').textContent=error.message+' 请通过本地 HTTP 服务打开页面。';}}
+    $('play').onclick=()=>{if(playing){pause();return;}if(!config)return;playing=true;last=0;$('play').textContent='暂停示意';raf=requestAnimationFrame(tick);};$('reset').onclick=reset;$('speed').onchange=()=>{last=0;};for(const id of ['sampling','space','trails','labels'])$(id).onchange=render;$('export').onclick=exportData;document.addEventListener('visibilitychange',()=>{if(document.hidden)pause();});initialize();
+  </script>
+</body>
+</html>

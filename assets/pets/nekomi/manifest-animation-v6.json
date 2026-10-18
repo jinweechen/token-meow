@@ -1,0 +1,1161 @@
+{
+  "schema_version": 2,
+  "skin_id": "nekomi-animation-v6",
+  "renderer_kind": "builtin-animation-clips",
+  "author": "Token 喵项目设计 · OpenAI imagegen AI 辅助生成",
+  "source": "AI-assisted，2026-10-17；38 张原生透明 PNG、12 个有限局部关键帧动作。12 张 base 为 hd-v5-natural-tail 原图的逐字节复制，新增帧保留生成器原始字节；来源和提示词见 animation-v6/generation-root.json、generation-cute.json 及 prompts/。逐帧技术和视觉复查归档在 output/imagegen/animation-v6-20261017；本清单不包含拆分图层、完整动作间过渡或行走步态。",
+  "license": "LicenseRef-Project-Owned",
+  "attribution": "小柚 · v6 局部关键帧动画 · AI 辅助生成内置资源",
+  "source_archive": {
+    "manifest": {
+      "path": "assets/pets/nekomi/animation-v6/animation-manifest.json",
+      "sha256": "5a68b8619090fcda9cb512f35e84fa6afde53a9d4ba465ebc0c70079dc91c8ef"
+    },
+    "generation": [
+      {
+        "path": "assets/pets/nekomi/animation-v6/generation-root.json",
+        "sha256": "cf9d44e5f8a42e30567335e81224b1d29189cb882618d2670a997fe8b803deed"
+      },
+      {
+        "path": "assets/pets/nekomi/animation-v6/generation-cute.json",
+        "sha256": "51530a87907563c5cf87177e37ac38dfbc8a1a9ada23a7a34cf87e657cedc8fa"
+      }
+    ],
+    "base_pack": "assets/pets/nekomi/hd-v5-natural-tail/",
+    "review_archive": "output/imagegen/animation-v6-20261017/"
+  },
+  "variants": {
+    "idle": [
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ],
+    "tap": [
+      7,
+      6,
+      9,
+      12,
+      10,
+      11,
+      8
+    ]
+  },
+  "actions": {
+    "idle": {
+      "start": 200,
+      "loop": 6000,
+      "end": 200,
+      "fallback": "static",
+      "frames": {
+        "start": 0,
+        "loop": 0,
+        "end": 0
+      }
+    },
+    "active": {
+      "start": 200,
+      "loop": 1800,
+      "end": 200,
+      "fallback": "idle",
+      "frames": {
+        "start": 1,
+        "loop": 1,
+        "end": 1
+      }
+    },
+    "complete": {
+      "start": 250,
+      "loop": 1500,
+      "end": 250,
+      "fallback": "idle",
+      "frames": {
+        "start": 2,
+        "loop": 2,
+        "end": 2
+      }
+    },
+    "alert": {
+      "start": 250,
+      "loop": 2200,
+      "end": 250,
+      "fallback": "idle",
+      "frames": {
+        "start": 3,
+        "loop": 3,
+        "end": 3
+      }
+    },
+    "sleep": {
+      "start": 300,
+      "loop": 7000,
+      "end": 300,
+      "fallback": "idle",
+      "frames": {
+        "start": 4,
+        "loop": 4,
+        "end": 4
+      }
+    }
+  },
+  "static_pose": "idle",
+  "frames": [
+    {
+      "id": "idle/base",
+      "path": "assets/pets/nekomi/animation-v6/clips/idle/base.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 1897997,
+      "sha256": "1dc3f07e64139e7b4b641399ea9f2920d210940795acfeb9cab9cb8600ee54f3",
+      "bounds": [
+        93,
+        9,
+        947,
+        1455
+      ]
+    },
+    {
+      "id": "idle/enter",
+      "path": "assets/pets/nekomi/animation-v6/clips/idle/enter.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 1900239,
+      "sha256": "cf09dfcf3fdf5ae04c6ba54b59a6c43c7c419e020d12eb26e5c47aa6b40f6fe4",
+      "bounds": [
+        94,
+        9,
+        947,
+        1456
+      ]
+    },
+    {
+      "id": "idle/accent",
+      "path": "assets/pets/nekomi/animation-v6/clips/idle/accent.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 1931607,
+      "sha256": "a230a90036cc6581498f3aa8e7399cd280677e55f4733fd128189399530095ae",
+      "bounds": [
+        94,
+        9,
+        947,
+        1456
+      ]
+    },
+    {
+      "id": "active/base",
+      "path": "assets/pets/nekomi/animation-v6/clips/active/base.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 1954202,
+      "sha256": "5c36c72372418ca6e904c46d795f5e4b11094a1ce527393b70d2949b26ae651d",
+      "bounds": [
+        82,
+        9,
+        954,
+        1456
+      ]
+    },
+    {
+      "id": "active/enter",
+      "path": "assets/pets/nekomi/animation-v6/clips/active/enter.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 1944259,
+      "sha256": "3f564b553bc3cd2304d86d905e941e5f58a6c10f16d00c4270e8b460b15a7c85",
+      "bounds": [
+        82,
+        9,
+        954,
+        1457
+      ]
+    },
+    {
+      "id": "active/accent",
+      "path": "assets/pets/nekomi/animation-v6/clips/active/accent.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 1947323,
+      "sha256": "032c9fcffb9556145bd40ab9240716c95bdfe71cfe7e5e47506f3ec49a360de5",
+      "bounds": [
+        82,
+        9,
+        953,
+        1457
+      ]
+    },
+    {
+      "id": "complete/base",
+      "path": "assets/pets/nekomi/animation-v6/clips/complete/base.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 1925353,
+      "sha256": "99ac410ecefc9a334f5c374be52b82219856414468d55316020b8c3c9716b77b",
+      "bounds": [
+        92,
+        9,
+        952,
+        1478
+      ]
+    },
+    {
+      "id": "complete/enter",
+      "path": "assets/pets/nekomi/animation-v6/clips/complete/enter.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 1914423,
+      "sha256": "dd285c7794a438e5a1c6db9515d56c9f8213adc72de127106dc35a2cf43cb02c",
+      "bounds": [
+        93,
+        9,
+        953,
+        1481
+      ]
+    },
+    {
+      "id": "complete/accent",
+      "path": "assets/pets/nekomi/animation-v6/clips/complete/accent.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 1918026,
+      "sha256": "0f7ead60ccbe9e06ae747bea6c309a503385c8d9c9ba7d8c0b8925c0d4abf9b0",
+      "bounds": [
+        93,
+        9,
+        953,
+        1479
+      ]
+    },
+    {
+      "id": "alert/base",
+      "path": "assets/pets/nekomi/animation-v6/clips/alert/base.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 2000182,
+      "sha256": "3f760e7a72b410cb139d1fe26ef12ea9922f9b581b441d37d5cc19969bb38a44",
+      "bounds": [
+        83,
+        7,
+        951,
+        1505
+      ]
+    },
+    {
+      "id": "alert/enter",
+      "path": "assets/pets/nekomi/animation-v6/clips/alert/enter.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 1997605,
+      "sha256": "6aa8da48c9095596c1ccd1c4078fc8b7c3688516413cdc3fb617379cfd676b80",
+      "bounds": [
+        83,
+        7,
+        953,
+        1505
+      ]
+    },
+    {
+      "id": "alert/accent",
+      "path": "assets/pets/nekomi/animation-v6/clips/alert/accent.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 2000107,
+      "sha256": "350eced1c8f8651878f80b8df75c676a8bd2ff22ee51e7594243b442f9926233",
+      "bounds": [
+        83,
+        7,
+        952,
+        1505
+      ]
+    },
+    {
+      "id": "sleep/base",
+      "path": "assets/pets/nekomi/animation-v6/clips/sleep/base.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 1977048,
+      "sha256": "82807f92f908e3c628c88d1685f3f99ee0e6adb820e0fb024c2316deef157d53",
+      "bounds": [
+        76,
+        9,
+        970,
+        1492
+      ]
+    },
+    {
+      "id": "sleep/enter",
+      "path": "assets/pets/nekomi/animation-v6/clips/sleep/enter.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 2001090,
+      "sha256": "4e88961b07dda9b50563f367d1867fc6f27a4ea97bf8957726638cb220b4c4ff",
+      "bounds": [
+        77,
+        9,
+        970,
+        1493
+      ]
+    },
+    {
+      "id": "sleep/accent",
+      "path": "assets/pets/nekomi/animation-v6/clips/sleep/accent.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 1993500,
+      "sha256": "0c6b497058e3455b2e1278c41a39d8d3a124e91cfe1ae79803609bfa7fe52b48",
+      "bounds": [
+        76,
+        9,
+        970,
+        1493
+      ]
+    },
+    {
+      "id": "shy/base",
+      "path": "assets/pets/nekomi/animation-v6/clips/shy/base.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 1910862,
+      "sha256": "58702f963888360a923b62633a8d9a2c21ae828dbe7372696720bcdbe641359b",
+      "bounds": [
+        95,
+        4,
+        937,
+        1474
+      ]
+    },
+    {
+      "id": "shy/enter",
+      "path": "assets/pets/nekomi/animation-v6/clips/shy/enter.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 1929379,
+      "sha256": "92c36f94f09384d267ba7e94ae11e0edcbf0fcb8509c8399c6893d18084b0b5f",
+      "bounds": [
+        95,
+        4,
+        938,
+        1475
+      ]
+    },
+    {
+      "id": "shy/accent",
+      "path": "assets/pets/nekomi/animation-v6/clips/shy/accent.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 1921560,
+      "sha256": "a846d6c09d266054958c1e38729a99334fbf4ae756c8fd5b9ca7da82bf12ddcf",
+      "bounds": [
+        95,
+        4,
+        938,
+        1475
+      ]
+    },
+    {
+      "id": "affection/base",
+      "path": "assets/pets/nekomi/animation-v6/clips/affection/base.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 1971820,
+      "sha256": "f018661a8d4b05eaff868a8ee429ed509266a844c9ea0edcd9c955093ee600d9",
+      "bounds": [
+        71,
+        9,
+        970,
+        1498
+      ]
+    },
+    {
+      "id": "affection/enter",
+      "path": "assets/pets/nekomi/animation-v6/clips/affection/enter.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 1972573,
+      "sha256": "cc04968ff3581961e256a048324c59257a8c0b774159dc337ceb048d116c20ee",
+      "bounds": [
+        72,
+        9,
+        970,
+        1498
+      ]
+    },
+    {
+      "id": "affection/accent",
+      "path": "assets/pets/nekomi/animation-v6/clips/affection/accent.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 1967029,
+      "sha256": "9e9389123a0d80788a0bde86ca233a859df2049b394d377853b5ff30276c1291",
+      "bounds": [
+        72,
+        9,
+        971,
+        1498
+      ]
+    },
+    {
+      "id": "stretch/base",
+      "path": "assets/pets/nekomi/animation-v6/clips/stretch/base.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 1930001,
+      "sha256": "597c35b4ceaa1fc6ccc077b8e3d7a4745988fd6646ccf7b813d3b941399e4b46",
+      "bounds": [
+        91,
+        13,
+        959,
+        1490
+      ]
+    },
+    {
+      "id": "stretch/enter",
+      "path": "assets/pets/nekomi/animation-v6/clips/stretch/enter.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 1929842,
+      "sha256": "2592f2be6899ce18a93d3aebe5c724ffb72145154038de6de236b7fa8c808cf7",
+      "bounds": [
+        92,
+        13,
+        959,
+        1491
+      ]
+    },
+    {
+      "id": "stretch/accent",
+      "path": "assets/pets/nekomi/animation-v6/clips/stretch/accent.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 1944963,
+      "sha256": "eab6e80087f78d4deda1b96abc5a67089f869c1071ece1c0bc3156d4f80b08f3",
+      "bounds": [
+        91,
+        13,
+        959,
+        1491
+      ]
+    },
+    {
+      "id": "wink/base",
+      "path": "assets/pets/nekomi/animation-v6/clips/wink/base.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 1908589,
+      "sha256": "d1920435d7b3f1f36b1dc8b7fb5cc2dfac9d15e5c1680d10c6f9d75840728737",
+      "bounds": [
+        95,
+        37,
+        954,
+        1469
+      ]
+    },
+    {
+      "id": "wink/enter",
+      "path": "assets/pets/nekomi/animation-v6/clips/wink/enter.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 1917795,
+      "sha256": "95d41af277708f2483a8ca50d0539354f04eae110b0f4b76352005fea5e84666",
+      "bounds": [
+        93,
+        37,
+        955,
+        1470
+      ]
+    },
+    {
+      "id": "wink/accent",
+      "path": "assets/pets/nekomi/animation-v6/clips/wink/accent.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 1912690,
+      "sha256": "e77ed16d0773ff295f7463817258a477bfa189d8b0d5d9e0b91960cb2188af76",
+      "bounds": [
+        95,
+        37,
+        955,
+        1470
+      ]
+    },
+    {
+      "id": "happy/base",
+      "path": "assets/pets/nekomi/animation-v6/clips/happy/base.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 1958445,
+      "sha256": "67894210ffafe8d82367dd38d0dbd46cd738f0d4d1bc3c941d5d64d1b6ab8900",
+      "bounds": [
+        82,
+        6,
+        971,
+        1499
+      ]
+    },
+    {
+      "id": "happy/enter",
+      "path": "assets/pets/nekomi/animation-v6/clips/happy/enter.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 1959660,
+      "sha256": "59d9a586b1d5987e74bff067506e3d8b6cd5d02070b87486754dc78f0c10db1a",
+      "bounds": [
+        82,
+        7,
+        972,
+        1499
+      ]
+    },
+    {
+      "id": "happy/accent",
+      "path": "assets/pets/nekomi/animation-v6/clips/happy/accent.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 1973742,
+      "sha256": "d9d75bfc91b5438f3a14bc3a6d6de0a72f44adb01b82a5b986af70d4a5572644",
+      "bounds": [
+        81,
+        6,
+        973,
+        1499
+      ]
+    },
+    {
+      "id": "bow/base",
+      "path": "assets/pets/nekomi/animation-v6/clips/bow/base.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 1925086,
+      "sha256": "717c6783d18c5d58d6ccea4e1a117cf3877c5583440445969f260889882197a7",
+      "bounds": [
+        91,
+        16,
+        948,
+        1460
+      ]
+    },
+    {
+      "id": "bow/enter",
+      "path": "assets/pets/nekomi/animation-v6/clips/bow/enter.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 1928529,
+      "sha256": "7cc19a6bb30fdbf0705780d5410cc0011ff0019015efaa31913bb7c0d4884cea",
+      "bounds": [
+        92,
+        9,
+        948,
+        1461
+      ]
+    },
+    {
+      "id": "bow/accent",
+      "path": "assets/pets/nekomi/animation-v6/clips/bow/accent.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 1947051,
+      "sha256": "ff5bec4d222fad30b7fbc6623ae96ef591e83f200743dc2f24e7015b7049ea95",
+      "bounds": [
+        91,
+        24,
+        948,
+        1462
+      ]
+    },
+    {
+      "id": "hug-tail/base",
+      "path": "assets/pets/nekomi/animation-v6/clips/hug-tail/base.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 1961967,
+      "sha256": "28f5729c95e5a3762bac9e6d463857d8ebecd7c80d2b92eea1af58016d6a0902",
+      "bounds": [
+        94,
+        55,
+        931,
+        1491
+      ]
+    },
+    {
+      "id": "hug-tail/enter",
+      "path": "assets/pets/nekomi/animation-v6/clips/hug-tail/enter.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 1968403,
+      "sha256": "f026036028bdd3ddccdb13efc6c445d8df526d09e7f3d461678808aed6cbac7b",
+      "bounds": [
+        94,
+        55,
+        932,
+        1491
+      ]
+    },
+    {
+      "id": "hug-tail/accent",
+      "path": "assets/pets/nekomi/animation-v6/clips/hug-tail/accent.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 1987595,
+      "sha256": "991cab6d947336f3cee32b4768d16435a47c299f3fcda195529e69bb878ecc5c",
+      "bounds": [
+        94,
+        55,
+        932,
+        1491
+      ]
+    },
+    {
+      "id": "idle/half-blink",
+      "path": "assets/pets/nekomi/animation-v6/clips/idle/half-blink.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 1903637,
+      "sha256": "f19592142efa970fd6f1f62eefee59e941bf4444bac697eb91946f7a604663e2",
+      "bounds": [
+        94,
+        9,
+        948,
+        1456
+      ]
+    },
+    {
+      "id": "idle/closed-blink",
+      "path": "assets/pets/nekomi/animation-v6/clips/idle/closed-blink.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 1903446,
+      "sha256": "22d1911bb02b2843ba4d98dd12e5f8f80d5903e1288baf2af04998ceb0b52c8b",
+      "bounds": [
+        94,
+        9,
+        947,
+        1456
+      ]
+    }
+  ],
+  "clips": [
+    {
+      "id": "idle",
+      "fallback": "idle/base",
+      "canvas": [
+        1024,
+        1536
+      ],
+      "sharedTransform": {
+        "scale": 1,
+        "anchor": [
+          512,
+          1490
+        ],
+        "translate": [
+          0,
+          0
+        ]
+      },
+      "loop": true,
+      "sequence": [
+        {
+          "frame": "idle/base",
+          "durationMs": 800
+        },
+        {
+          "frame": "idle/enter",
+          "durationMs": 220
+        },
+        {
+          "frame": "idle/base",
+          "durationMs": 180
+        },
+        {
+          "frame": "idle/accent",
+          "durationMs": 300
+        },
+        {
+          "frame": "idle/base",
+          "durationMs": 600
+        },
+        {
+          "frame": "idle/half-blink",
+          "durationMs": 75
+        },
+        {
+          "frame": "idle/closed-blink",
+          "durationMs": 100
+        },
+        {
+          "frame": "idle/half-blink",
+          "durationMs": 75
+        },
+        {
+          "frame": "idle/base",
+          "durationMs": 1200
+        }
+      ]
+    },
+    {
+      "id": "active",
+      "fallback": "active/base",
+      "canvas": [
+        1024,
+        1536
+      ],
+      "sharedTransform": {
+        "scale": 1,
+        "anchor": [
+          512,
+          1490
+        ],
+        "translate": [
+          0,
+          0
+        ]
+      },
+      "loop": true,
+      "sequence": [
+        {
+          "frame": "active/base",
+          "durationMs": 800
+        },
+        {
+          "frame": "active/enter",
+          "durationMs": 220
+        },
+        {
+          "frame": "active/base",
+          "durationMs": 180
+        },
+        {
+          "frame": "active/accent",
+          "durationMs": 300
+        },
+        {
+          "frame": "active/base",
+          "durationMs": 600
+        }
+      ]
+    },
+    {
+      "id": "complete",
+      "fallback": "complete/base",
+      "canvas": [
+        1024,
+        1536
+      ],
+      "sharedTransform": {
+        "scale": 1,
+        "anchor": [
+          512,
+          1490
+        ],
+        "translate": [
+          0,
+          0
+        ]
+      },
+      "loop": true,
+      "sequence": [
+        {
+          "frame": "complete/base",
+          "durationMs": 800
+        },
+        {
+          "frame": "complete/enter",
+          "durationMs": 220
+        },
+        {
+          "frame": "complete/base",
+          "durationMs": 180
+        },
+        {
+          "frame": "complete/accent",
+          "durationMs": 300
+        },
+        {
+          "frame": "complete/base",
+          "durationMs": 600
+        }
+      ]
+    },
+    {
+      "id": "alert",
+      "fallback": "alert/base",
+      "canvas": [
+        1024,
+        1536
+      ],
+      "sharedTransform": {
+        "scale": 1,
+        "anchor": [
+          512,
+          1490
+        ],
+        "translate": [
+          0,
+          0
+        ]
+      },
+      "loop": true,
+      "sequence": [
+        {
+          "frame": "alert/base",
+          "durationMs": 800
+        },
+        {
+          "frame": "alert/enter",
+          "durationMs": 220
+        },
+        {
+          "frame": "alert/base",
+          "durationMs": 180
+        },
+        {
+          "frame": "alert/accent",
+          "durationMs": 300
+        },
+        {
+          "frame": "alert/base",
+          "durationMs": 600
+        }
+      ]
+    },
+    {
+      "id": "sleep",
+      "fallback": "sleep/base",
+      "canvas": [
+        1024,
+        1536
+      ],
+      "sharedTransform": {
+        "scale": 1,
+        "anchor": [
+          512,
+          1490
+        ],
+        "translate": [
+          0,
+          0
+        ]
+      },
+      "loop": true,
+      "sequence": [
+        {
+          "frame": "sleep/base",
+          "durationMs": 900
+        },
+        {
+          "frame": "sleep/enter",
+          "durationMs": 700
+        },
+        {
+          "frame": "sleep/base",
+          "durationMs": 700
+        },
+        {
+          "frame": "sleep/accent",
+          "durationMs": 700
+        },
+        {
+          "frame": "sleep/base",
+          "durationMs": 900
+        }
+      ]
+    },
+    {
+      "id": "shy",
+      "fallback": "shy/base",
+      "canvas": [
+        1024,
+        1536
+      ],
+      "sharedTransform": {
+        "scale": 1,
+        "anchor": [
+          512,
+          1490
+        ],
+        "translate": [
+          0,
+          0
+        ]
+      },
+      "loop": true,
+      "sequence": [
+        {
+          "frame": "shy/base",
+          "durationMs": 800
+        },
+        {
+          "frame": "shy/enter",
+          "durationMs": 220
+        },
+        {
+          "frame": "shy/base",
+          "durationMs": 180
+        },
+        {
+          "frame": "shy/accent",
+          "durationMs": 300
+        },
+        {
+          "frame": "shy/base",
+          "durationMs": 600
+        }
+      ]
+    },
+    {
+      "id": "affection",
+      "fallback": "affection/base",
+      "canvas": [
+        1024,
+        1536
+      ],
+      "sharedTransform": {
+        "scale": 1,
+        "anchor": [
+          512,
+          1490
+        ],
+        "translate": [
+          0,
+          0
+        ]
+      },
+      "loop": true,
+      "sequence": [
+        {
+          "frame": "affection/base",
+          "durationMs": 800
+        },
+        {
+          "frame": "affection/enter",
+          "durationMs": 220
+        },
+        {
+          "frame": "affection/base",
+          "durationMs": 180
+        },
+        {
+          "frame": "affection/accent",
+          "durationMs": 300
+        },
+        {
+          "frame": "affection/base",
+          "durationMs": 600
+        }
+      ]
+    },
+    {
+      "id": "stretch",
+      "fallback": "stretch/base",
+      "canvas": [
+        1024,
+        1536
+      ],
+      "sharedTransform": {
+        "scale": 1,
+        "anchor": [
+          512,
+          1490
+        ],
+        "translate": [
+          0,
+          0
+        ]
+      },
+      "loop": true,
+      "sequence": [
+        {
+          "frame": "stretch/base",
+          "durationMs": 800
+        },
+        {
+          "frame": "stretch/enter",
+          "durationMs": 220
+        },
+        {
+          "frame": "stretch/base",
+          "durationMs": 180
+        },
+        {
+          "frame": "stretch/accent",
+          "durationMs": 300
+        },
+        {
+          "frame": "stretch/base",
+          "durationMs": 600
+        }
+      ]
+    },
+    {
+      "id": "wink",
+      "fallback": "wink/base",
+      "canvas": [
+        1024,
+        1536
+      ],
+      "sharedTransform": {
+        "scale": 1,
+        "anchor": [
+          512,
+          1490
+        ],
+        "translate": [
+          0,
+          0
+        ]
+      },
+      "loop": true,
+      "sequence": [
+        {
+          "frame": "wink/base",
+          "durationMs": 800
+        },
+        {
+          "frame": "wink/enter",
+          "durationMs": 220
+        },
+        {
+          "frame": "wink/base",
+          "durationMs": 180
+        },
+        {
+          "frame": "wink/accent",
+          "durationMs": 300
+        },
+        {
+          "frame": "wink/base",
+          "durationMs": 600
+        }
+      ]
+    },
+    {
+      "id": "happy",
+      "fallback": "happy/base",
+      "canvas": [
+        1024,
+        1536
+      ],
+      "sharedTransform": {
+        "scale": 1,
+        "anchor": [
+          512,
+          1490
+        ],
+        "translate": [
+          0,
+          0
+        ]
+      },
+      "loop": true,
+      "sequence": [
+        {
+          "frame": "happy/base",
+          "durationMs": 800
+        },
+        {
+          "frame": "happy/enter",
+          "durationMs": 220
+        },
+        {
+          "frame": "happy/base",
+          "durationMs": 180
+        },
+        {
+          "frame": "happy/accent",
+          "durationMs": 300
+        },
+        {
+          "frame": "happy/base",
+          "durationMs": 600
+        }
+      ]
+    },
+    {
+      "id": "bow",
+      "fallback": "bow/base",
+      "canvas": [
+        1024,
+        1536
+      ],
+      "sharedTransform": {
+        "scale": 1,
+        "anchor": [
+          512,
+          1490
+        ],
+        "translate": [
+          0,
+          0
+        ]
+      },
+      "loop": true,
+      "sequence": [
+        {
+          "frame": "bow/base",
+          "durationMs": 800
+        },
+        {
+          "frame": "bow/enter",
+          "durationMs": 220
+        },
+        {
+          "frame": "bow/base",
+          "durationMs": 180
+        },
+        {
+          "frame": "bow/accent",
+          "durationMs": 300
+        },
+        {
+          "frame": "bow/base",
+          "durationMs": 600
+        }
+      ]
+    },
+    {
+      "id": "hug-tail",
+      "fallback": "hug-tail/base",
+      "canvas": [
+        1024,
+        1536
+      ],
+      "sharedTransform": {
+        "scale": 1,
+        "anchor": [
+          512,
+          1490
+        ],
+        "translate": [
+          0,
+          0
+        ]
+      },
+      "loop": true,
+      "sequence": [
+        {
+          "frame": "hug-tail/base",
+          "durationMs": 800
+        },
+        {
+          "frame": "hug-tail/enter",
+          "durationMs": 220
+        },
+        {
+          "frame": "hug-tail/base",
+          "durationMs": 180
+        },
+        {
+          "frame": "hug-tail/accent",
+          "durationMs": 300
+        },
+        {
+          "frame": "hug-tail/base",
+          "durationMs": 600
+        }
+      ]
+    }
+  ]
+}

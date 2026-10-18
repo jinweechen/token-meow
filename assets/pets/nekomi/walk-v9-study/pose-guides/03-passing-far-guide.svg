@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1536" viewBox="0 0 1024 1536">
+  <title>03 远腿经过：候选角色像素约束姿势参考</title>
+  <desc>纯代码图形，固定 1024×1536 白底。近腿青色，远腿灰色先画；虚线表示远腿在遮挡下的连接。所有坐标按候选角色像素约束构建，非米制工程模型重映射，非人物通过证据。</desc>
+  <rect width="1024" height="1536" fill="#fff"/>
+  <g font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" fill="#253b37">
+    <text x="58" y="78" font-size="30" font-weight="700">03 · 远腿经过 / 像素姿势参考</text>
+    <text x="58" y="125" font-size="21">近腿支撑，远腿抬起从后方经过；面向右 →</text>
+    <text x="58" y="163" font-size="19" fill="#65746e">固定画幅 1024 × 1536 · 地面 y = 1447</text>
+    <text x="58" y="218" font-size="18" fill="#65746e">这是一张关节与遮挡示意，不是人物图。</text>
+    <text x="58" y="250" font-size="18" fill="#65746e">按候选角色像素约束构建，不重映射 v9 米制工程模型。</text>
+    <text x="58" y="282" font-size="18" fill="#65746e">仅供校正本阶段绘图；不代表人物或步态已验收。</text>
+    <rect x="58" y="330" width="25" height="25" rx="6" fill="#5dc6bc"/>
+    <text x="97" y="351" font-size="20">近腿 / 前层</text>
+    <rect x="314" y="330" width="25" height="25" rx="6" fill="#b4bac2"/>
+    <text x="353" y="351" font-size="20">远腿 / 后层</text>
+    <path d="M576 343 H641" stroke="#687581" stroke-width="4" stroke-dasharray="8 8"/>
+    <text x="655" y="351" font-size="20">被遮挡的连接</text>
+  </g>
+  <g stroke="#e0e7e3" stroke-width="1" stroke-dasharray="5 9" fill="none">
+    <path d="M460 790 H850 M460 1070 H850 M460 1340 H850"/>
+    <path d="M590 700 V1447"/>
+  </g>
+  <path d="M65 1447 H966" stroke="#66736c" stroke-width="3"/>
+  <text x="72" y="1481" font-size="19" font-family="Microsoft YaHei, sans-serif" fill="#65746e">地面 y = 1447</text>
+  <!-- Far-side volumes are painted first. No lateral move to reveal the shoe. -->
+  <g id="far-layer" fill="#b4bac2" stroke="#b4bac2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M590 790 L705 1048 L587 1294" fill="none" stroke-width="108"/>
+    <path d="M538 1401 L538 1326 L557 1287 L617 1287 L627 1329 L750 1359 L750 1401 Z" stroke-width="0"/>
+  </g>
+  <!-- Near-side volumes cover the far chain naturally. This is a diagram, not a body silhouette. -->
+  <g id="near-layer" fill="#5dc6bc" stroke="#5dc6bc" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M590 790 L630 1070 L590 1340" fill="none" stroke-width="120"/>
+    <path d="M541 1447 L541 1372 L560 1333 L620 1333 L630 1375 L753 1405 L753 1447 Z" stroke-width="0"/>
+  </g>
+  <g id="near-bones" fill="none" stroke="#126d65" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M590 790 L630 1070 L590 1340"/>
+    <path d="M590 1340 L541 1447 L753 1447 Z" stroke-width="3"/>
+  </g>
+  <!-- An X-ray dashed chain states the hidden far-side connection; it does not promote the far fill above the near side. -->
+  <g id="hidden-far-bones" fill="none" stroke="#697581" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 8">
+    <path d="M590 790 L705 1048 L587 1294"/>
+    <path d="M587 1294 L538 1401 L750 1401 Z" stroke-width="3"/>
+    <circle cx="705" cy="1048" r="10"/>
+    <circle cx="587" cy="1294" r="10"/>
+  </g>
+  <g fill="#fff" stroke="#126d65" stroke-width="4">
+    <circle cx="590" cy="790" r="11"/><circle cx="630" cy="1070" r="11"/><circle cx="590" cy="1340" r="11"/>
+    <circle cx="541" cy="1447" r="5"/><circle cx="753" cy="1447" r="5"/>
+  </g>
+  <g font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="19">
+    <g fill="#126d65" stroke="#126d65" stroke-width="1.5">
+      <path d="M578 790 H345"/><path d="M617 1070 H345"/><path d="M578 1340 H345"/>
+      <path d="M753 1447 H870"/>
+    </g>
+    <g fill="#126d65">
+      <text x="120" y="797">共用髋 (590, 790)</text>
+      <text x="120" y="1077">近膝 (630, 1070)</text>
+      <text x="120" y="1347">近踝 (590, 1340)</text>
+      <text x="780" y="1478">近脚落地</text>
+    </g>
+    <g fill="none" stroke="#697581" stroke-width="1.5">
+      <path d="M716 1048 H790"/><path d="M597 1294 L802 1252"/><path d="M750 1380 H818"/>
+      <path d="M817 1401 H844 M817 1447 H844 M831 1401 V1447"/>
+    </g>
+    <g fill="#5a6671">
+      <text x="795" y="1034">远膝</text><text x="795" y="1060">705, 1048</text>
+      <text x="805" y="1236">远踝</text><text x="805" y="1262">587, 1294</text>
+      <text x="823" y="1374">远脚前缘</text><text x="849" y="1431">46 px</text>
+    </g>
+  </g>
+  <g font-family="Microsoft YaHei, sans-serif" font-size="18" fill="#65746e">
+    <text x="58" y="437">近：髋—膝 282.8427 px / 膝—踝 272.9469 px</text>
+    <text x="58" y="470">远：髋—膝 282.4695 px / 膝—踝 272.8369 px</text>
+    <text x="58" y="503">远脚相对近脚：x −3 px，y −46 px；不向画面左侧移开。</text>
+    <text x="58" y="536">示意鞋底长均为 212 px；本帧两脚水平，不表示整个步态均水平。</text>
+    <text x="58" y="1515">纯代码原生图形 · 白底结构参考 · 不含人物 PNG / 不作为人物验收证据</text>
+  </g>
+</svg>

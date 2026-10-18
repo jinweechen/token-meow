@@ -1,0 +1,725 @@
+{
+  "schema": "c20r1-native-care-scoped-v1",
+  "createdAtUtc": "2026-10-16T04:15:11.391082+00:00",
+  "date": "2026-10-16",
+  "status": "scoped-native-observations-recorded-with-resource-and-notification-failures-preserved",
+  "candidate": {
+    "directory": "output/build-candidates/c20r1-bridge-diagnostic-20261016",
+    "appSha256": "59511A8917883386343D91481A799D471720EB157624D687EE6A3B29AB85BE99",
+    "buildReceiptSha256": "199045156A3F5B62A72FE990EF1D869E0E7F33A2FE802C4C56E302611641ABB5",
+    "appExecutedInThisScope": true,
+    "cliExecuted": false,
+    "nsisExecuted": false,
+    "buildStageNonExecutionRemainsHistorical": true
+  },
+  "scope": "One PowerShell7-owned Windows Native run using an isolated synthetic lifecycle fixture. Root inspected returned screenshots inline; this receipt does not assert a screenshot archive, first-pixel timing, full functional acceptance, resource qualification or M4.",
+  "launch": {
+    "protocol": "c18-native-ui-descriptive-owner-v1",
+    "nonce": "df85996b88984333bd92ecb4c619360f",
+    "atUtc": "2026-10-16T03:58:30.7596102Z",
+    "executable": "D:\\project\\宠物\\output\\build-candidates\\c20r1-bridge-diagnostic-20261016\\token-meow.exe",
+    "executableSha256": "59511A8917883386343D91481A799D471720EB157624D687EE6A3B29AB85BE99",
+    "rootProcessId": 42616,
+    "rootCreationFileTimeDecimal": "134365967104363412",
+    "jobId": "dce87894-82bf-4bbd-b80c-0c115b7f1d87",
+    "assignBeforeResume": true,
+    "observerOutsideJob": true,
+    "arguments": [],
+    "fixtureManifest": "D:\\project\\宠物\\output\\performance\\incremental-ec55326ebd6d430e82b28bbfd5e81242\\fixture.json",
+    "fixtureManifestSha256": "CEECC756B5EE6E16A7B48B348277A885782F98ABE51B6704A217724EA3913AF9",
+    "sourceRoot": "D:\\project\\宠物\\output\\performance\\incremental-ec55326ebd6d430e82b28bbfd5e81242\\source",
+    "dataDirectory": "D:\\project\\宠物\\output\\performance\\incremental-ec55326ebd6d430e82b28bbfd5e81242\\data",
+    "maximumObservationSeconds": 1200,
+    "sampleMilliseconds": 1000,
+    "resourceQualification": false,
+    "M4Passed": false,
+    "guardianProtocol": "deferred exact path/SHA from guardian-protocol-binding.json"
+  },
+  "preflightFailurePreserved": {
+    "reference": "output/performance/c20r1-native-care-d0c868a358aa49e7a9a44b278d989cf7/owner-error.json",
+    "sha256": "3BABA577210FE7A4C4F71FA37A22A68D45DCCDC4DB607E24316DBD916D87D1E4",
+    "runtime": "Windows PowerShell5.1",
+    "resumed": false,
+    "nativeCasesExecuted": 0,
+    "error": [
+      "Method invocation failed because [System.Convert] does not contain a method named 'ToHexString'."
+    ],
+    "correctionReference": "output/implementation/c20r1-native-care-continuation-d0c868a358aa49e7a9a44b278d989cf7/powershell-runtime-correction.json",
+    "correction": "Existing PowerShell7 used for Convert.ToHexString; same owner script and candidate bytes, separate successful output directory. The earlier failure remains unchanged."
+  },
+  "authoredFixture": {
+    "manifestPath": "output/performance/incremental-ec55326ebd6d430e82b28bbfd5e81242/fixture.json",
+    "manifestSha256FromLaunch": "CEECC756B5EE6E16A7B48B348277A885782F98ABE51B6704A217724EA3913AF9",
+    "manifestRehashedDuringFinalization": false,
+    "turnId": "care-native-78d0e7e9-4b86-437a-8f28-95e0bf2c45ab",
+    "responseId": "response-care-native-78d0e7e9-4b86-437a-8f28-95e0bf2c45ab",
+    "phases": 2,
+    "rowsAppended": 4,
+    "startRows": 2,
+    "completeRows": 2,
+    "beforeBytes": 2214,
+    "afterBytes": 3657,
+    "beforeSha256FromWriter": "278BABBE22E8A0DF4DE041E49DC52C2F77EFDE4F83CB81BD1D6FB97FC13FA950",
+    "afterSha256FromWriter": "E6D7D69CE63FDEBFF1719BEF38E16BA5BCD776339EF58A03E0C9B7171BCA56AF",
+    "sameFileIdentityFromWriter": true,
+    "fsyncAndUnchangedPrefixesVerifiedByWriter": true,
+    "actualAppendScope": "One synthetic start and one synthetic normal completion; not20 P95 events or a model task"
+  },
+  "automaticCare": {
+    "classification": "PASS_SCOPED_TWO_AUTOMATIC_OBSERVATIONS",
+    "visualEvidenceReference": "output/performance/c20r1-native-care-ps7-d0c868a358aa49e7a9a44b278d989cf7/root-ui-observations.json",
+    "visualReviewer": "root",
+    "screenshotArchiveAsserted": false,
+    "start": {
+      "eventTimestampUtc": "2026-10-16T03:59:38.605Z",
+      "captureCallBeginUtc": "2026-10-16T03:59:38.876Z",
+      "captureReturnedUtc": "2026-10-16T03:59:39.746Z",
+      "visibleText": "回合开始了，我在这里陪着。",
+      "visibleActiveRootTurns": 1,
+      "tone": "gentle",
+      "automatic": true,
+      "firstLaterVisualAbsenceReturnedUtc": "2026-10-16T04:00:05.108Z",
+      "latencyUpperMs": 1141,
+      "classification": "PASS_SCOPED"
+    },
+    "complete": {
+      "eventTimestampUtc": "2026-10-16T04:01:12.902Z",
+      "captureCallBeginUtc": "2026-10-16T04:01:13.270Z",
+      "captureReturnedUtc": "2026-10-16T04:01:14.438Z",
+      "visibleText": "这个回合正常完成啦～给你一朵小花。",
+      "visibleUnreadCount": 1,
+      "tone": "playful",
+      "automatic": true,
+      "firstLaterVisualAbsenceReturnedUtc": "2026-10-16T04:01:36.404Z",
+      "additionalVisualAbsenceReturnedUtc": "2026-10-16T04:01:40.610Z",
+      "latencyUpperMs": 1536,
+      "classification": "PASS_SCOPED"
+    },
+    "timingDefinition": "Event timestamp to screenshot tool capture-return UTC, rounded to the retained millisecond precision; an observation upper bound, not first pixel, DB commit time or P95.",
+    "settingsObserved": {
+      "returnedUtc": "2026-10-16T04:05:25.133Z",
+      "enabled": true,
+      "tone": "两种风格交替",
+      "interval": "25 分钟",
+      "settingsChanged": false,
+      "manualPetTapBetweenBubbles": false
+    },
+    "absenceEvidence": "Later returned screenshots show visual absence at recorded times; stale accessibility text does not prove a visible bubble.",
+    "exactEightSecondTtlQualified": false,
+    "animationFrameDurationQualified": false,
+    "sustained25MinuteCareTested": false,
+    "sustained45MinuteCareTested": false,
+    "sustained60MinuteCareTested": false,
+    "hideLockDndReplayMatrixTested": false
+  },
+  "menu": {
+    "escapeDismissal": "PASS_SCOPED",
+    "openedReturnedUtc": "2026-10-16T04:00:28.871Z",
+    "escapeClosedReturnedUtc": "2026-10-16T04:00:53.909Z",
+    "physicalDesktopBlankClick": "NOT_TESTED: sky.list_windows did not return a targetable real desktop window; no fabricated target or alternate UI implementation was used"
+  },
+  "mainAndLedger": {
+    "visualObservation": {
+      "returnedUtc": "2026-10-16T04:02:15Z",
+      "timestampPrecision": "second; exact fractional return is not retained here",
+      "totalTokensVisible": 1212,
+      "responseCountVisible": 2,
+      "inputTokensVisible": 1010,
+      "outputTokensVisible": 202,
+      "cachedInputTokensVisible": 800,
+      "cacheWriteInputTokensVisible": 100,
+      "reasoningOutputTokensVisible": 100,
+      "warning96MiBVisible": true,
+      "snapshotStaleVisible": true,
+      "settingsConfirmedReturnedUtc": "2026-10-16T04:05:25.133Z",
+      "careEnabledVisible": true,
+      "careToneVisible": "两种风格交替",
+      "careIntervalVisible": "25 分钟",
+      "settingsChanged": false
+    },
+    "correctedLedgerReference": "output/performance/c20r1-native-care-ps7-d0c868a358aa49e7a9a44b278d989cf7/cold-ledger-counts-correction.json",
+    "correctedLedgerSha256": "F9E2624A542282106869B77470CB909147E51F8A49A1DF94A93B283436E00B8B",
+    "schemaVersion": 6,
+    "integrity": [
+      "ok"
+    ],
+    "responseCount": 2,
+    "totals": {
+      "inputTokens": 1010,
+      "outputTokens": 202,
+      "totalTokens": 1212,
+      "cachedInputTokens": 800,
+      "cacheWriteInputTokens": 100,
+      "reasoningOutputTokens": 100
+    },
+    "typedCounterStatesAllValid": true,
+    "newTurn": {
+      "id": "care-native-78d0e7e9-4b86-437a-8f28-95e0bf2c45ab",
+      "status": "completed",
+      "startedAt": "2026-10-16T03:59:38.605Z",
+      "completedAt": "2026-10-16T04:01:12.902Z",
+      "rootTurnId": "care-native-78d0e7e9-4b86-437a-8f28-95e0bf2c45ab",
+      "durationMs": null,
+      "timeToFirstTokenMs": null
+    },
+    "newInbox": {
+      "turnId": "care-native-78d0e7e9-4b86-437a-8f28-95e0bf2c45ab",
+      "status": "completed",
+      "read": false,
+      "notificationState": "failed",
+      "notified": true,
+      "animationAcknowledged": false,
+      "deliveryError": "notification_delivery_failed"
+    },
+    "databaseAndExistingSidecarsUnchangedDuringRootReadonlyReview": true,
+    "databaseAndExistingSidecarDigestsCopiedFromRootReview": [
+      {
+        "name": "ledger.sqlite3",
+        "exists": true,
+        "bytes": 278528,
+        "sha256": "AAC42FC60B4180B9A9BC1450B4E54E886F32ED7B2F40E17394EB2B716023FA4A"
+      },
+      {
+        "name": "ledger.sqlite3-wal",
+        "exists": true,
+        "bytes": 0,
+        "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+      },
+      {
+        "name": "ledger.sqlite3-shm",
+        "exists": true,
+        "bytes": 32768,
+        "sha256": "FD4C9FDA9CD3F9AE7C962B0DDF37232294D55580E1AA165AA06129B8549389EB"
+      }
+    ],
+    "earlierRootOracleErrorPreserved": {
+      "original": "cold-ledger-review.json",
+      "originalSha256": "29162D764CE4C95E3C84A6A3234197D1339098EF939751852FCF146392CB9BD5",
+      "invalidField": "totals",
+      "reason": "Root review script used public aggregate keys against stored typed counter names and incorrectly defaulted missing keys to zero",
+      "originalPreserved": true,
+      "applicationDefectClaimed": false,
+      "freshReadonlyResponsesMatchOriginal": true,
+      "typedCounterStatesAllValid": true,
+      "databaseAndSidecarsStillMatchOriginalBeforeAndAfter": true
+    },
+    "finalizerOpenedDatabase": false,
+    "scope": "Small isolated fixture, baseline1 response/1200 tokens to2/1212. Root performed SQLite URI mode=ro plus query_only after App exit. Does not prove user-library migration or broad event semantics."
+  },
+  "bridgeResource": {
+    "classification": "RESOURCE_WARNING_OBSERVED_DIAGNOSTIC_PERSISTED_NOT_FUNCTIONAL_REPAIR",
+    "metricsReference": "output/performance/incremental-ec55326ebd6d430e82b28bbfd5e81242/data/desktop-metrics.json",
+    "event": {
+      "cleanup": {
+        "monitorTerminateJobSucceeded": true,
+        "ownerCleanupElapsedMs": 119971,
+        "ownerTerminateJobSucceeded": true,
+        "ownerTerminateProcessSucceeded": false,
+        "ownerWaitResult": 0
+      },
+      "completionMessage": 11,
+      "elapsedMs": 3940,
+      "eventUtc": "2026-10-16T03:58:36.677902700+00:00",
+      "jobMemory": 127815680,
+      "jobMemoryLimit": 100663296,
+      "limitFlags": 512,
+      "monitorError": null,
+      "notificationQuerySucceeded": true,
+      "observedStage": "idle",
+      "reason": 1,
+      "root": {
+        "creationFiletime": "134365967127496602",
+        "creationQueryError": null,
+        "pid": 40080
+      },
+      "violationLimitFlags": 512
+    },
+    "jobMemoryMiB": 121.89453125,
+    "jobMemoryLimitMiB": 96.0,
+    "configuredHardLimitMiBUnchanged": 128,
+    "stageMeaning": "observedStage is the last selected stage when handling an asynchronous resource notification; it does not prove a method was sent or caused the allocation.",
+    "counterMeaning": "The queried JobMemory is the committed job-memory value at notification time when JOB_MEMORY violation is set; JobMemoryLimit is valid here because query succeeded and LimitFlags contains JOB_MEMORY.",
+    "matchedRetainedOwnedRootIdentity": {
+      "processId": 40080,
+      "creationFileTimeDecimal": "134365967127496602",
+      "actualCreationFileTimeDecimal": "134365967127496602",
+      "firstSeenPhase": "measurement",
+      "status": "creation-matched-exited",
+      "error": null,
+      "ordinal": 9,
+      "sameRetainedHandle": true,
+      "exitProven": true,
+      "waitResult": 0,
+      "exitCode": 1,
+      "exitFileTimeDecimal": "134365967166804735"
+    },
+    "matchedOwnedRootExitUtcFromRetainedKernelFiletime": "2026-10-16T03:58:36.6804735Z",
+    "matchedOwnedRootExitAfterDiagnosticEventMs": 2.5708,
+    "ownerCleanupInterpretation": "ownerCleanupElapsedMs119971 measures startup to the first later owner-cleanup action, not action duration or process survival until120 seconds. The matched retained root exited2.5708ms after the diagnostic event. No caller is assigned without a call trace.",
+    "otherCodeOneIdentity": {
+      "identity": {
+        "processId": 52280,
+        "creationFileTimeDecimal": "134365967128949228",
+        "actualCreationFileTimeDecimal": "134365967128949228",
+        "firstSeenPhase": "measurement",
+        "status": "creation-matched-exited",
+        "error": null,
+        "ordinal": 10,
+        "sameRetainedHandle": true,
+        "exitProven": true,
+        "waitResult": 0,
+        "exitCode": 1,
+        "exitFileTimeDecimal": "134365967166804389"
+      },
+      "scope": "Same outerJob only; no executable image or parent linkage is inferred from these records."
+    },
+    "directorySnapshot": {
+      "bindingGeneration": 0,
+      "count": 0,
+      "error": null,
+      "lastSuccessAt": "2026-10-16T03:58:36.604037800+00:00",
+      "sourceId": "0f7dbca647a86e80d50fa1c8d4ec5b842fe5b4a4af1c87aee07c0df17efe6e8f",
+      "status": "connected"
+    },
+    "directorySnapshotScope": "connected/count0/lastSuccessAt03:58:36.6040378Z precedes the warning by73.8649ms; it is an earlier successful empty subset, not continuous directory health or real account recovery.",
+    "accountWarningAndStaleVisible": true,
+    "rootCauseProven": false,
+    "directoryFaultFixed": false,
+    "automaticRetryPerformed": false
+  },
+  "notifications": {
+    "classification": "FAILED_PRESERVED",
+    "metrics": {
+      "error": "系统通知未能提交；请检查Windows通知设置或安装状态（0x80070490）。收件箱事实仍保留。",
+      "eventCount": 1,
+      "lastAttemptAt": "2026-10-16T04:01:15.354916100+00:00",
+      "status": "failed"
+    },
+    "errorCode": "0x80070490",
+    "osDisplaySuccessProven": false,
+    "inboxCompletionAndUnreadFactRetained": true
+  },
+  "observation": {
+    "summary": {
+      "protocol": "c18-native-ui-descriptive-owner-v1",
+      "kind": "observation-end",
+      "reason": "explicit-end-observation",
+      "jobId": "dce87894-82bf-4bbd-b80c-0c115b7f1d87",
+      "rootProcessId": 42616,
+      "rootCreationFileTimeDecimal": "134365967104363412",
+      "sampleCount": 404,
+      "elapsedSeconds": 406.3166611,
+      "resourceQualification": false,
+      "performanceQualified": false,
+      "M4Passed": false,
+      "measurementErrors": [],
+      "atUtc": "2026-10-16T04:05:17.0787761Z"
+    },
+    "jobCumulativeTotalProcessesMaximum": 15,
+    "retainedIdentityCount": 10,
+    "scope": "Cumulative job process total15 is not the count of identities held individually. Final same-handle exit proof covers10 observed retained identities plus final ownJob0; no individual proof is claimed for all15 historical processes."
+  },
+  "normalMenuExit": {
+    "classification": "PASS_SCOPED_COMPOSITE_SINGLE_EXIT",
+    "uiActor": {
+      "exitArmedFile": "exit-armed.json",
+      "ackArmedAtUtc": "2026-10-16T04:05:26.5262559Z",
+      "jobId": "dce87894-82bf-4bbd-b80c-0c115b7f1d87",
+      "rootProcessId": 42616,
+      "rootCreationFiletimeDecimal": "134365967104363412",
+      "nonce": "14fb17a4e3a0489796641a4371d31c20",
+      "initialPetSnapshot": "minimized; recovered once through supported activate_window/get_window/get_window_state",
+      "freshPetObservationReturnedUtc": "2026-10-16T04:05:36.940Z",
+      "freshMenuObservationReturnedUtc": "2026-10-16T04:05:41.421Z",
+      "exitButtonObservedIndex": 63,
+      "clickBeginUtc": "2026-10-16T04:05:45.758Z",
+      "clickReturnedUtc": "2026-10-16T04:05:45.889Z",
+      "immediateWindowEnumeration": "Two windows still returned while exit was in progress",
+      "noOwnedWindowsReturnedUtc": "2026-10-16T04:05:52.505Z",
+      "ownerSession": 48082,
+      "ownerTerminalExitCode": 0,
+      "guardianEndFile": "guardian-end.json",
+      "separation": "UI actor observations are separate from unchanged guardian process facts (guardian uiActionObserved=false)"
+    },
+    "guardianBinding": {
+      "protocol": "c19-exit-guardian-v1",
+      "nonce": "14fb17a4e3a0489796641a4371d31c20",
+      "jobId": "dce87894-82bf-4bbd-b80c-0c115b7f1d87",
+      "rootProcessId": 42616,
+      "rootCreationFileTimeDecimal": "134365967104363412",
+      "executableSha256": "59511A8917883386343D91481A799D471720EB157624D687EE6A3B29AB85BE99",
+      "measurementSha256": "DB45D7897A5C3C41F76DBD51F50FE18B946D6AFD1BD65DE6AB307CCA73F3BAAF",
+      "summarySha256": "5F854B9E2E9CC5E3DF174CE67431716140EC4E6FADA088326C1EF8EBA47A274C",
+      "measurementBytes": 549117,
+      "summaryBytes": 482,
+      "measurementMaximumSeconds": 1200.0,
+      "resumeElapsedSeconds": 0.0648975,
+      "measurementSealedElapsedSeconds": 406.4531266,
+      "awaitArmMaximumSeconds": 900,
+      "proofMaximumSeconds": 120,
+      "absoluteDeadlineElapsedSeconds": 2220.0648975,
+      "retainedCapacity": 256,
+      "guardianPollMilliseconds": 250,
+      "intent": "request-normal-menu-exit",
+      "createdAtUtc": "2026-10-16T04:05:17.2147388Z",
+      "scope": "Owned-process exit facts only; no UI action or resource qualification is asserted by this guardian"
+    },
+    "guardianCompletedAtUtc": "2026-10-16T04:05:46.3643859Z",
+    "guardianOutcome": "owned-exit-proven",
+    "lastObservation": {
+      "jobId": "dce87894-82bf-4bbd-b80c-0c115b7f1d87",
+      "rootCreationFileTimeDecimal": "134365967104363412",
+      "rootProcessId": 42616,
+      "activeProcesses": 0,
+      "processListCount": 0,
+      "elapsedSeconds": 435.5999297,
+      "rootExited": true,
+      "rootNormalCodeZero": true,
+      "jobEmptyAtProof": true,
+      "allObservedIdentityExitProven": true,
+      "capExceeded": false,
+      "untrackedOccurrences": 0,
+      "identities": [
+        {
+          "processId": 42616,
+          "creationFileTimeDecimal": "134365967104363412",
+          "actualCreationFileTimeDecimal": "134365967104363412",
+          "firstSeenPhase": "measurement-root-before-resume",
+          "status": "creation-matched-exited",
+          "error": null,
+          "ordinal": 1,
+          "sameRetainedHandle": true,
+          "exitProven": true,
+          "waitResult": 0,
+          "exitCode": 0,
+          "exitFileTimeDecimal": "134365971460178856"
+        },
+        {
+          "processId": 14124,
+          "creationFileTimeDecimal": "134365967108719645",
+          "actualCreationFileTimeDecimal": "134365967108719645",
+          "firstSeenPhase": "measurement",
+          "status": "creation-matched-exited",
+          "error": null,
+          "ordinal": 2,
+          "sameRetainedHandle": true,
+          "exitProven": true,
+          "waitResult": 0,
+          "exitCode": 0,
+          "exitFileTimeDecimal": "134365971461519900"
+        },
+        {
+          "processId": 63640,
+          "creationFileTimeDecimal": "134365967110030289",
+          "actualCreationFileTimeDecimal": "134365967110030289",
+          "firstSeenPhase": "measurement",
+          "status": "creation-matched-exited",
+          "error": null,
+          "ordinal": 3,
+          "sameRetainedHandle": true,
+          "exitProven": true,
+          "waitResult": 0,
+          "exitCode": 0,
+          "exitFileTimeDecimal": "134365971461801949"
+        },
+        {
+          "processId": 50856,
+          "creationFileTimeDecimal": "134365967113246600",
+          "actualCreationFileTimeDecimal": "134365967113246600",
+          "firstSeenPhase": "measurement",
+          "status": "creation-matched-exited",
+          "error": null,
+          "ordinal": 4,
+          "sameRetainedHandle": true,
+          "exitProven": true,
+          "waitResult": 0,
+          "exitCode": 0,
+          "exitFileTimeDecimal": "134365971461193370"
+        },
+        {
+          "processId": 58564,
+          "creationFileTimeDecimal": "134365967113296878",
+          "actualCreationFileTimeDecimal": "134365967113296878",
+          "firstSeenPhase": "measurement",
+          "status": "creation-matched-exited",
+          "error": null,
+          "ordinal": 5,
+          "sameRetainedHandle": true,
+          "exitProven": true,
+          "waitResult": 0,
+          "exitCode": 0,
+          "exitFileTimeDecimal": "134365971460670508"
+        },
+        {
+          "processId": 40732,
+          "creationFileTimeDecimal": "134365967113684281",
+          "actualCreationFileTimeDecimal": "134365967113684281",
+          "firstSeenPhase": "measurement",
+          "status": "creation-matched-exited",
+          "error": null,
+          "ordinal": 6,
+          "sameRetainedHandle": true,
+          "exitProven": true,
+          "waitResult": 0,
+          "exitCode": 0,
+          "exitFileTimeDecimal": "134365971460757255"
+        },
+        {
+          "processId": 34316,
+          "creationFileTimeDecimal": "134365967114886560",
+          "actualCreationFileTimeDecimal": "134365967114886560",
+          "firstSeenPhase": "measurement",
+          "status": "creation-matched-exited",
+          "error": null,
+          "ordinal": 7,
+          "sameRetainedHandle": true,
+          "exitProven": true,
+          "waitResult": 0,
+          "exitCode": 0,
+          "exitFileTimeDecimal": "134365971460259120"
+        },
+        {
+          "processId": 19120,
+          "creationFileTimeDecimal": "134365967117043360",
+          "actualCreationFileTimeDecimal": "134365967117043360",
+          "firstSeenPhase": "measurement",
+          "status": "creation-matched-exited",
+          "error": null,
+          "ordinal": 8,
+          "sameRetainedHandle": true,
+          "exitProven": true,
+          "waitResult": 0,
+          "exitCode": 0,
+          "exitFileTimeDecimal": "134365971460393481"
+        },
+        {
+          "processId": 40080,
+          "creationFileTimeDecimal": "134365967127496602",
+          "actualCreationFileTimeDecimal": "134365967127496602",
+          "firstSeenPhase": "measurement",
+          "status": "creation-matched-exited",
+          "error": null,
+          "ordinal": 9,
+          "sameRetainedHandle": true,
+          "exitProven": true,
+          "waitResult": 0,
+          "exitCode": 1,
+          "exitFileTimeDecimal": "134365967166804735"
+        },
+        {
+          "processId": 52280,
+          "creationFileTimeDecimal": "134365967128949228",
+          "actualCreationFileTimeDecimal": "134365967128949228",
+          "firstSeenPhase": "measurement",
+          "status": "creation-matched-exited",
+          "error": null,
+          "ordinal": 10,
+          "sameRetainedHandle": true,
+          "exitProven": true,
+          "waitResult": 0,
+          "exitCode": 1,
+          "exitFileTimeDecimal": "134365967166804389"
+        }
+      ],
+      "captures": [],
+      "queryErrors": []
+    },
+    "cleanup": {
+      "retainedHandleCount": 0,
+      "ownerCloseErrors": [],
+      "retainedCloseErrors": [],
+      "allOwnedHandlesClosed": true
+    },
+    "rawGuardianUiActionObserved": false,
+    "rawGuardianNormalMenuExitQualified": false,
+    "separation": "The guardian raw UI fields remainfalse. This composite qualification combines separate root UI ACK/fresh-menu/button63 click observations with same-owner Job/root/nonce process proof.",
+    "shutdownMetrics": {
+      "accountFinished": true,
+      "at": "2026-10-16T04:05:45.987095700+00:00",
+      "deadlineReached": false,
+      "scannerFinished": true,
+      "stage": "exit-ready",
+      "waitMs": 50.8622
+    },
+    "ownerTerminalExitCodeFromUiActor": 0,
+    "allObservedRetainedExitCodeZero": false,
+    "codeOneIdentitiesPreserved": 2
+  },
+  "historicalEvidencePreserved": [
+    "C19 small-fixture20 screenshot P95 and normal exit retain their original candidate/scope; not rerun or rebound here",
+    "C19 resource warning, C18 failures and firstC20 inner0/outer1 sealing failure remain unchanged",
+    "C20R1 build and targeted tests retain their original receipts; no new build or tests were run for this Native finalization",
+    "PowerShell5.1 launch-preflight failure and first cold-ledger totals oracle error remain separately preserved"
+  ],
+  "qualification": {
+    "twoAutomaticCareObservationsScopedPass": true,
+    "mixedTwoToneAlternationObserved": true,
+    "menuEscapeScopedPass": true,
+    "singleNormalMenuExitCompositeQualified": true,
+    "resourceDiagnosticPersisted": true,
+    "smallFixtureLedgerFactsCheckedByRoot": true,
+    "exactNativeEightSecondTtlQualified": false,
+    "physicalDesktopBlankClickQualified": false,
+    "sustainedCareIntervalsQualified": false,
+    "hideLockDndReplayMatrixQualified": false,
+    "accountDirectoryContinuouslyQualified": false,
+    "accountBridgeRootCauseProven": false,
+    "notificationDeliveryQualified": false,
+    "newP95Qualified": false,
+    "warmStartQualified": false,
+    "fullApplicationImportQualified": false,
+    "idle600SecondsQualified": false,
+    "resourceQualified": false,
+    "installerQualified": false,
+    "wholeF11Passed": false,
+    "M4Passed": false,
+    "goalComplete": false
+  },
+  "finalization": {
+    "uiActionsOrCaptures": 0,
+    "appOrProbeExecuted": false,
+    "newProcessQueries": 0,
+    "databaseOpened": false,
+    "testsOrBuildRun": false,
+    "largeArtifactOrSourceClosureRehash": false,
+    "sourceOrOldEvidenceModified": false,
+    "smallReferencesHashed": true
+  },
+  "references": [
+    {
+      "path": "output/build-candidates/c20r1-bridge-diagnostic-20261016/build-receipt.json",
+      "bytes": 42322,
+      "sha256": "199045156A3F5B62A72FE990EF1D869E0E7F33A2FE802C4C56E302611641ABB5"
+    },
+    {
+      "path": "output/build-candidates/c20r1-bridge-diagnostic-20261016/link-provenance.json",
+      "bytes": 8599,
+      "sha256": "C5743EE21C5A34D39885A002497A457E6242E01DA9B8D8180F0CD58BF3EC6D53"
+    },
+    {
+      "path": "output/implementation/c20r1-native-care-continuation-d0c868a358aa49e7a9a44b278d989cf7/execution-release.json",
+      "bytes": 1246,
+      "sha256": "ACE7C8F555132169F7483561AEE99901F82DD91266BD590CEA5FAD73B0F9185D"
+    },
+    {
+      "path": "output/implementation/c20r1-native-care-continuation-d0c868a358aa49e7a9a44b278d989cf7/powershell-runtime-correction.json",
+      "bytes": 843,
+      "sha256": "135D53A51B92C235B5B7F9BAE82C8643D6532FBBC8D8BD60A7C93B22DF5E30DD"
+    },
+    {
+      "path": "output/performance/c20r1-native-care-d0c868a358aa49e7a9a44b278d989cf7/owner-error.json",
+      "bytes": 300,
+      "sha256": "3BABA577210FE7A4C4F71FA37A22A68D45DCCDC4DB607E24316DBD916D87D1E4"
+    },
+    {
+      "path": "output/performance/c20r1-native-care-ps7-d0c868a358aa49e7a9a44b278d989cf7/launch.json",
+      "bytes": 1237,
+      "sha256": "F20638E7C27C619062362C51ECE08EC7351569AFE544A58B31B562C45A0784F5"
+    },
+    {
+      "path": "output/performance/c20r1-native-care-ps7-d0c868a358aa49e7a9a44b278d989cf7/summary.json",
+      "bytes": 482,
+      "sha256": "5F854B9E2E9CC5E3DF174CE67431716140EC4E6FADA088326C1EF8EBA47A274C"
+    },
+    {
+      "path": "output/performance/c20r1-native-care-ps7-d0c868a358aa49e7a9a44b278d989cf7/native-job.jsonl",
+      "bytes": 549117,
+      "sha256": "DB45D7897A5C3C41F76DBD51F50FE18B946D6AFD1BD65DE6AB307CCA73F3BAAF"
+    },
+    {
+      "path": "output/performance/c20r1-native-care-ps7-d0c868a358aa49e7a9a44b278d989cf7/root-ui-observations.json",
+      "bytes": 3894,
+      "sha256": "C23FDA20781CECC7892699FDAEC4DF710F3AA3BDBEBDD1CF3547F919B9CC0398"
+    },
+    {
+      "path": "output/performance/c20r1-native-care-ps7-d0c868a358aa49e7a9a44b278d989cf7/guardian-binding.json",
+      "bytes": 1066,
+      "sha256": "178D7D4A3A1AF2D8D3BF43E278EBB68CC731937F87799781957938968BDA5AC0"
+    },
+    {
+      "path": "output/performance/c20r1-native-care-ps7-d0c868a358aa49e7a9a44b278d989cf7/guardian-protocol-binding.json",
+      "bytes": 284,
+      "sha256": "6FB1C8A0F0AFDD56B8523ED305A8DCF6DF87F97D099EF942EB26A86F2FFFDD5B"
+    },
+    {
+      "path": "output/performance/c20r1-native-care-ps7-d0c868a358aa49e7a9a44b278d989cf7/exit-arm.json",
+      "bytes": 625,
+      "sha256": "320806CBF19DF49A8B727BBAC94E4E5B1BEF562C12D6D1D7E4516CF1838EE38A"
+    },
+    {
+      "path": "output/performance/c20r1-native-care-ps7-d0c868a358aa49e7a9a44b278d989cf7/exit-armed.json",
+      "bytes": 471,
+      "sha256": "00EEBD3A0EAC0BF65B885849ADBC16B59F5CFBBAF58025AB4E737BE0A68C078E"
+    },
+    {
+      "path": "output/performance/c20r1-native-care-ps7-d0c868a358aa49e7a9a44b278d989cf7/guardian.jsonl",
+      "bytes": 11255,
+      "sha256": "51D01D90605E00186A2732B38F39FE282D1FB66234BF5C075DA3AEB2217B94BB"
+    },
+    {
+      "path": "output/performance/c20r1-native-care-ps7-d0c868a358aa49e7a9a44b278d989cf7/guardian-end.json",
+      "bytes": 6916,
+      "sha256": "CE3FF3D9440CCDA68936DC15902FB1D786D5F8C7AA930165F450DE19EEC47676"
+    },
+    {
+      "path": "output/performance/c20r1-native-care-ps7-d0c868a358aa49e7a9a44b278d989cf7/end-observation.json",
+      "bytes": 30,
+      "sha256": "2711E5BDECBFD61683141A2B08D9C24940D6D03739BC723BDD6535CD7A3A775A"
+    },
+    {
+      "path": "output/performance/work-care-native-r1-d0c868a358aa49e7a9a44b278d989cf7/start.intent.json",
+      "bytes": 439,
+      "sha256": "DA28842BE4DBDCB0A159033E29FCEBBD36E060F99D2AFB3BC03A7F4C07CDB342"
+    },
+    {
+      "path": "output/performance/work-care-native-r1-d0c868a358aa49e7a9a44b278d989cf7/start.receipt.json",
+      "bytes": 2010,
+      "sha256": "DEC226553296DC906A1F5EE88EC28E9C109F4FB4F6CBFB4A893D6F5BDE1652A7"
+    },
+    {
+      "path": "output/performance/work-care-native-r1-d0c868a358aa49e7a9a44b278d989cf7/complete.intent.json",
+      "bytes": 442,
+      "sha256": "EFF46D468DE410C4DDE54A3E38CC4B4A762D02906C137B400162045D5D7CED6F"
+    },
+    {
+      "path": "output/performance/work-care-native-r1-d0c868a358aa49e7a9a44b278d989cf7/complete.receipt.json",
+      "bytes": 2391,
+      "sha256": "4FA746F6A5114957DB7E9357EA16A4973C5727EF8D67C204E658D79CB0CCFE1A"
+    },
+    {
+      "path": "output/performance/incremental-ec55326ebd6d430e82b28bbfd5e81242/data/desktop-metrics.json",
+      "bytes": 3437,
+      "sha256": "88C221FABB283BA28272E1D9CA88DE2D57887C68DD2094F6012B38E7B1A43124"
+    },
+    {
+      "path": "output/performance/c20r1-native-care-ps7-d0c868a358aa49e7a9a44b278d989cf7/cold-ledger-review.json",
+      "bytes": 4448,
+      "sha256": "29162D764CE4C95E3C84A6A3234197D1339098EF939751852FCF146392CB9BD5"
+    },
+    {
+      "path": "output/performance/c20r1-native-care-ps7-d0c868a358aa49e7a9a44b278d989cf7/cold-ledger-review.py",
+      "bytes": 3011,
+      "sha256": "CB9AEE0429EE776C34EF185552F2C24AED64CC6304217CE738F2185A01D2402A"
+    },
+    {
+      "path": "output/performance/c20r1-native-care-ps7-d0c868a358aa49e7a9a44b278d989cf7/cold-ledger-counts-correction.json",
+      "bytes": 5038,
+      "sha256": "F9E2624A542282106869B77470CB909147E51F8A49A1DF94A93B283436E00B8B"
+    },
+    {
+      "path": "output/performance/c20r1-native-care-ps7-d0c868a358aa49e7a9a44b278d989cf7/cold-ledger-counts-correction.py",
+      "bytes": 2730,
+      "sha256": "2F0B06C53ECDC710B5D0C3B8B59ACFC38F608AB20AB165A2D23D598DBDE35134"
+    },
+    {
+      "path": "docs/acceptance/c19-native-ui-scoped-2026-10-16.json",
+      "bytes": 33217,
+      "sha256": "F88EE4378495E1603997302D6CC7293D7501269297DF77870358313E104B4099"
+    },
+    {
+      "path": "docs/acceptance/c20-private-bridge-probes-2026-10-16.json",
+      "bytes": 11419,
+      "sha256": "6AB2D1999B956C1164640B3A62C87B66AFD7DB5216460153F8AB58F24E406940"
+    }
+  ]
+}

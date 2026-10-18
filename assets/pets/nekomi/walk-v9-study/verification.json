@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-17",
+  "characterStatus": "2-of-8-dressed-static-candidates-not-cycle-accepted",
+  "selectedAssets": [
+    "candidates/01-contact-near-dressed-v2.png",
+    "candidates/05-contact-far-dressed-v2.png"
+  ],
+  "sourceCopies": {
+    "calls": 15,
+    "byteIdentical": true,
+    "evidence": "integrity.json"
+  },
+  "alphaMetadataEvidence": "../../../../output/imagegen/walk-v9-study-20261017/dressed-alpha-check.json",
+  "browser": {
+    "tool": "cua_repl",
+    "url": "http://127.0.0.1:1424/walk-v9-study/dressed-preview.html",
+    "loadedImages": 2,
+    "viewsChecked": [
+      "checker-full",
+      "dark-full",
+      "light-feet",
+      "light-hands"
+    ],
+    "observations": [
+      "真实透明叠加显示，无大块RGB背景。",
+      "01修订后两鞋最底像素同高；05相差1px。仅静态像素，不代表运动接触验证。",
+      "05后手仍偏紧，局部重绘改善不明显。"
+    ],
+    "screenshotDirectory": "D:/project/宠物/output/imagegen/walk-v9-study-20261017",
+    "screenshots": [
+      "dressed-checker-v2.png",
+      "dressed-dark-v2.png",
+      "dressed-feet-light-v2.png",
+      "dressed-hands-light-v2.png"
+    ],
+    "continuousAnimationTested": false,
+    "mechanicsPlaybackTested": false,
+    "previousIabCrashRootCauseResolved": false
+  },
+  "remaining": [
+    "6个裙装关键帧未生成",
+    "03/07结构链长和手臂相位未统一",
+    "后手细修",
+    "裙摆头发尾巴跨帧连续性",
+    "完整周期与1200px细节验收",
+    "分层绑定"
+  ],
+  "runtimeChanged": false
+}

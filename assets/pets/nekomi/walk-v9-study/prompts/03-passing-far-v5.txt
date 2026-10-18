@@ -1,0 +1,7 @@
+Use case: precise-object-edit
+Image 1 is the character EDIT TARGET. Image 2 is a strict leg-pose GUIDE; only its lower-body geometry matters, not its text or block shapes.
+Redraw the two legs and shoes in Image 1 to match the joint positions and overlap in Image 2. Keep the head, face, hair, torso, arms, drawing style, size, white background and baseline from Image 1 unchanged.
+Camera-near TEAL leg: hip (590,790), knee (630,1070), ankle (590,1340), planted shoe sole on y1447.
+Camera-far GRAY leg: same pelvis, knee (705,1048), ankle (587,1294). Its gray knee protrudes to the RIGHT of the teal knee. Its shin goes back DOWN-LEFT from that knee to the hidden ankle behind the teal shin. The airborne gray shoe lies DIRECTLY ABOVE the teal planted shoe, sole y1401, toe x750. It is mostly occluded by the teal shin and planted shoe: only the upper/right part of the gray shoe is visible. This overlap is intentional.
+Erase the old gray shoe on the LEFT behind the body completely. Do not move the gray leg left to make it readable. Do not show the entire far shoe. Do not lift it into a backward kick. Keep continuous solid teal near limb and solid gray far limb, draw teal on top wherever they overlap.
+Keep 03 top left, one fully clothed anatomy-study character, no other labels or guideline overlay in the result.

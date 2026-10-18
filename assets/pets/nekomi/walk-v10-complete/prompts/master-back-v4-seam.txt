@@ -1,0 +1,6 @@
+Use case: precise-object-edit.
+Image 1 is the BACK sprite edit target. Image 2 is the front design reference.
+Keep the exact back-facing character, head, long curls, plain backs of hair ribbons, shoulder and arm chains, relaxed hands, white tights, shoes, clothing patterns, pose and native 1024x1536 registration.
+Make only two small dress-construction corrections. Lower the green waist belt by about 15 pixels to match image 2's natural waist at y680-700, reconnecting the bodice/skirt folds without moving the body, hands, legs or hem. Keep this BACK belt plain green with no bows or flowers.
+Refine the posterior-center tail port at the low sacrum, about y815, into a small snug practical opening fitted to the existing furry tail root. Remove the oversized protruding ruffled ring; use only a thin cream seam binding around the root, no large flap or hole. The tail must remain attached at the rear midline of the pelvis and continuously emerge backward, with the same curve and thickness. Keep tail away from both hands, no hand-tail merge.
+All existing design, floral motifs, detailed linework and figure edges remain stable. Actual transparent alpha outside the figure. No background, glow, ground, shadow, text or extra parts.

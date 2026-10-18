@@ -1,0 +1,163 @@
+{
+  "capturedAt": "2026-10-16T11:46:49.099265+00:00",
+  "scope": "Read-only actual CC Switch usage DB versus independently reduced original native JSONL; not production Core/desktop acceptance",
+  "ccSwitchInstalledVersion": "4.0.13",
+  "date": "2026-10-16",
+  "timezone": "Asia/Shanghai",
+  "inclusiveCutoffSecond": "19:35:08",
+  "screenshotBaselineReproduced": true,
+  "ccSwitch": {
+    "responses": 13401,
+    "inputTokens": 2424773169,
+    "outputTokens": 9407396,
+    "cachedInputTokens": 2385531648,
+    "cacheWriteTokens": 0,
+    "storedCostUsd": "505.8050034",
+    "totalTokens": 2434180565,
+    "cacheHitRate": 0.983816415695418,
+    "recalculatedAtCurrentCCRatesUsd": "505.8093220",
+    "rowsWithStoredCostDifferentFromCurrentCCRates": 8575
+  },
+  "nativeSourceAudit": {
+    "responses": 13497,
+    "inputTokens": 2455551970,
+    "outputTokens": 10090720,
+    "totalTokens": 2465642690,
+    "cachedInputTokens": 2415919360,
+    "cacheCoverageResponses": 13497,
+    "cacheHitRate": 0.9838599995096011,
+    "costWithCCCurrentRatesForWholePeriod": "518.3534728",
+    "pricedResponsesAtCCCurrentRates": 13497
+  },
+  "responseCountReconciliation": {
+    "ccCount": 13401,
+    "nativeOnlyCompactionResponses": 97,
+    "ccOnlyPreviousDayNativeResponse": 1,
+    "nativeCount": 13497,
+    "equation": "13401 + 97 - 1 = 13497"
+  },
+  "tokenReconciliation": {
+    "ccTokens": 2434180565,
+    "nativeOnlyCompactionTokens": 31673060,
+    "previousDayNativeResponseTokens": 210935,
+    "nativeTokens": 2465642690,
+    "equation": "2434180565 + 31673060 - 210935 = 2465642690"
+  },
+  "compactionProof": {
+    "residualCount": 97,
+    "sampledThreadCount": 23,
+    "boundedSourceFiles": 24,
+    "boundedSourceBytes": 1273489257,
+    "prefixHashMatches": 24,
+    "unrecognizedTypePrefixes": 0,
+    "nativeResidualsLocated": 97,
+    "directCompactionResponseIdMatched": 97,
+    "immediatelyFollowedByCompacted": 97,
+    "nextTokenCountHasZeroBillableFields": 97,
+    "nextTokenCountCumulativeUnchanged": 97,
+    "categories": {
+      "confirmed-native-compaction-response": 97
+    },
+    "elapsedSeconds": 4.031
+  },
+  "matching": {
+    "matchedCountTuples": 13400,
+    "matchedTuplesWithMultiplicityAmbiguity": 0,
+    "matchedTuplesWithDifferentModel": 0,
+    "matchedTuplesAssignedDifferentHour": 5,
+    "matchedTuplesAssignedDifferentShanghaiDay": 0,
+    "timeDifferenceDefinition": "CC integer created_at minus native fractional epoch seconds; CC timestamp second truncation introduces <1s error",
+    "minTimestampDeltaSeconds": -0.997,
+    "medianTimestampDeltaSeconds": -0.228,
+    "maxTimestampDeltaSeconds": 119.661
+  },
+  "priceComparison": {
+    "source": "Local CC Switch 4.0.13 model_pricing, captured read-only with day rows",
+    "unit": "USD per 1M tokens",
+    "rates": {
+      "gpt-6.1-sol": {
+        "input": "2",
+        "output": "10",
+        "cacheRead": "0.10",
+        "cacheWrite": "2.50"
+      },
+      "gpt-6-astra": {
+        "input": "10",
+        "output": "50",
+        "cacheRead": "1",
+        "cacheWrite": "12.5"
+      }
+    },
+    "counterfactualPeriodApplication": true,
+    "ccStoredCostUsd": "505.8050034",
+    "ccRepricedCostUsd": "505.8093220",
+    "ccRoundingDifferenceUsd": "0.0043186",
+    "legacyDifferentRows": 8575,
+    "legacyDifferentRowsAllMatchSixDecimalTruncation": true,
+    "maximumAbsoluteLegacyRowDifferenceUsd": "0.0000008",
+    "nativeOnly97CostAtSameRatesUsd": "12.5685808",
+    "ccOnlyPreviousDayResponseCostAtSameRatesUsd": "0.0244300",
+    "nativeAuditCostAtSameRatesUsd": "518.3534728",
+    "actualProjectPriceVersionsOrCostVerified": false
+  },
+  "sourceValidation": {
+    "checkedAt": "2026-10-16T11:44:10.648700+00:00",
+    "modifiedSourcePrefixChecks": [
+      {
+        "relativePath": "sessions\\2026\\10\\16\\rollout-2026-10-16T09-53-24-01a14269-fb39-7743-80a6-5dec8a0f18b7.jsonl",
+        "prefixSha256Matches": true,
+        "currentBytes": 7294197,
+        "capturedPrefixBytes": 7152846
+      },
+      {
+        "relativePath": "sessions\\2026\\10\\16\\rollout-2026-10-16T12-37-18-01a14300-0b89-7203-9229-f4f2b07417b4.jsonl",
+        "prefixSha256Matches": true,
+        "currentBytes": 107670566,
+        "capturedPrefixBytes": 97485832
+      }
+    ],
+    "allModifiedPrefixesUnchanged": true,
+    "compressedSourceFileCount": 1751,
+    "compressedScopeNote": "The independent audit reads JSONL only.",
+    "compressedSourceInventory": {
+      "files": 1751,
+      "modifiedOnScreenshotDayOrLater": 0,
+      "newestNamedRolloutDate": "2026-10-09",
+      "bodyContentAudited": false
+    }
+  },
+  "upstreamIssue": {
+    "url": "https://github.com/farion1231/cc-switch/issues/7917",
+    "section": "四、用量统计，条目3",
+    "stateObserved": "Open",
+    "checkedDate": "2026-10-16",
+    "supports": "Remote-compaction native usage is missed by token_count-only accounting"
+  },
+  "projectVerificationLimits": {
+    "productionCoreImportPerformed": false,
+    "nativeDesktopPanelCompared": false,
+    "actualProjectEffectiveDatedPricesVerified": false,
+    "latestFoundRealFullReplayCoverageTo": "2026-10-15T13:36:52.110Z",
+    "compressedHistoricalBodiesAudited": false,
+    "productionSourceChanged": false,
+    "sourceCodexLogsOrCCDatabaseMutated": false
+  },
+  "evidenceRoot": "D:\\project\\宠物\\output\\implementation\\c29-cc-switch-parity-audit",
+  "evidenceFiles": {
+    "audit_same_source.py": "acabe872b3a7f7799ac29af2d0086aaad6d50bc591ba25538eaf6b7cd6e3366c",
+    "cc-only-boundary-evidence.json": "b678d536ff526ac8affe0c8ee2f2aac3d45c23ccc228ed6b0025893c38775c01",
+    "cc-switch-baseline.json": "393d94668d18b49211b6f3e54a24d553e8c02906f5916ca6f27da5564f9707db",
+    "cc-switch-usage-only.sqlite3": "19ef9338b642f0291da0f33097ec942eab5b0d175510c2fa1bb550104630f239",
+    "matched-tuple-timing-comparison.json": "05c564dc8f0d42171145890d342940f779364eaa8678c739e68dc2464a75e96d",
+    "native-usage-audit.json": "57029cacf81683410806540f769177d31239c2e503810409a5a0d181452c61c5",
+    "pricing-comparison.json": "c20cd9f8d4d1edd3c27d4cf1987e2d8f83d4018e56a7b6d6a86763b13bb3b907",
+    "residual-cc-usage.json": "3f268b527177c42875997c9bd089ccdbfebce44a3174fecfb2d4443d14332b4e",
+    "residual-compaction-classification.json": "46a15e739b19e67ff67b19a8c73f8c7c259e475aeaa7913458b838f6f9224810",
+    "residual-compaction-initial-failed-probe-summary.json": "9b993d97f62aa84c120001a6c2381292c5f00984d0e84534ba2cd6649414abdd",
+    "residual-context-samples.json": "ce1c5911955e09027cf57189df80389d59453c5497e2f869a5350e6f2e021428",
+    "residual-native-usage.json": "5c1452e1502458f2f69aee62e738c4e6eddc5f7aa6f6afedd955aa123bcf7ff8",
+    "same-source-result.json": "8faf63c37db39e1a1c9b7f76e88b0628ffe1395251753fd44a0ec45acac70fa8",
+    "source-prefix-manifest.json": "e35bb88ab88fb32a9f0f3bdc566266255f39c25accb7ad31f05b0b1984c41930",
+    "source-prefix-validation.json": "47e55055f97fd42215797580a7d4bebf07caab4845507246d28a9db7b06d8ba5"
+  }
+}

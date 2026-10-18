@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "direction": "screen-right",
+  "directionLabel": "朝画面右侧行进",
+  "canvas": [
+    1024,
+    1536
+  ],
+  "coordinateSystem": "top-left origin, x right, y down, source pixel units",
+  "sharedTransform": {
+    "scale": 1,
+    "translation": [
+      0,
+      0
+    ],
+    "anchor": [
+      512,
+      1490
+    ]
+  },
+  "groundY": 1469,
+  "footNaming": "view-relative: A=near, B=far; not anatomical left/right",
+  "sequence": [
+    {
+      "frame": "01-contact-a",
+      "durationMs": 160
+    },
+    {
+      "frame": "02-support-a",
+      "durationMs": 160
+    },
+    {
+      "frame": "03-passing-b",
+      "durationMs": 160
+    },
+    {
+      "frame": "04-contact-b",
+      "durationMs": 160
+    },
+    {
+      "frame": "05-support-b",
+      "durationMs": 160
+    },
+    {
+      "frame": "06-passing-a",
+      "durationMs": 160
+    }
+  ],
+  "travelTest": {
+    "nativePixelsPerSecond": 120,
+    "testOnly": true,
+    "note": "Nominal visualization speed; root must calibrate against observed stance foot displacement. Not runtime movement acceptance."
+  },
+  "limitations": [
+    "Six discrete painted walk poses; no dense in-between animation or runtime integration."
+  ],
+  "groundLines": {
+    "near": 1469,
+    "far": 1455
+  },
+  "groundLineNote": "Historical measurements from withdrawn three-quarter-view drafts only; not accepted contact targets or two physical floor heights. A new side-profile cycle must be measured again and must not reuse these draft ground lines. No per-frame registration.",
+  "reviewStatus": "withdrawn-reworking-side-profile"
+}

@@ -1,0 +1,98 @@
+{
+  "purpose": "candidate-character-pixel-constraint-drawing-guide",
+  "notMetricModelRemapping": true,
+  "notCharacterAcceptance": true,
+  "notFullCycleAcceptance": true,
+  "canvas": {
+    "width": 1024,
+    "height": 1536
+  },
+  "groundY": 1447,
+  "legs": {
+    "near": {
+      "hip": [
+        590,
+        790
+      ],
+      "knee": [
+        630,
+        1070
+      ],
+      "ankle": [
+        590,
+        1340
+      ],
+      "heel": [
+        541,
+        1447
+      ],
+      "toe": [
+        753,
+        1447
+      ]
+    },
+    "far": {
+      "hip": [
+        590,
+        790
+      ],
+      "knee": [
+        705,
+        1048
+      ],
+      "ankle": [
+        587,
+        1294
+      ],
+      "heel": [
+        538,
+        1401
+      ],
+      "toe": [
+        750,
+        1401
+      ]
+    }
+  },
+  "lengths": {
+    "near": {
+      "upper": 282.842712474619,
+      "lower": 272.94688127912366,
+      "heelToToe": 212,
+      "ankleToHeel": 117.68602295939819,
+      "ankleToToe": 194.982050455933
+    },
+    "far": {
+      "upper": 282.46946737656447,
+      "lower": 272.8369476445593,
+      "heelToToe": 212,
+      "ankleToHeel": 117.68602295939819,
+      "ankleToToe": 194.982050455933
+    }
+  },
+  "farMinusNear": {
+    "ankle": [
+      -3,
+      -46
+    ],
+    "heel": [
+      -3,
+      -46
+    ],
+    "toe": [
+      -3,
+      -46
+    ]
+  },
+  "correspondingLengthDifference": {
+    "upper": 0.37324509805455364,
+    "lower": 0.10993363456435645
+  },
+  "source": "03-passing-far-guide.svg",
+  "raster": "03-passing-far-guide.png",
+  "renderer": "bundled sharp; SVG input only; no raster input",
+  "rasterDimensions": {
+    "width": 1024,
+    "height": 1536
+  }
+}

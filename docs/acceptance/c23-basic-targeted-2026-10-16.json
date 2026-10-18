@@ -1,0 +1,651 @@
+{
+  "schema": "c23-basic-targeted-composite-v1",
+  "status": "scoped-composite-targeted-passed-with-current-post-CSS-typecheck-and-Vite",
+  "scope": "Scoped composite isolated v4 source evidence. Core81 distinct successful names across an interrupted run,remaining-only continuation,and one exact case after five external evidence fixtures were supplemented; Desktop23 successful names. Not one uninterrupted full-suite run,Native or M4.",
+  "sourceBinding": {
+    "sourceRoot": "D:\\project\\宠物\\output\\isolated-build-roots\\c23-basic-1fd31849866a4c40a5996ce255bd64cc",
+    "finalSourceManifest": {
+      "path": "output/implementation/c23-footer-root-merge-20261016-0724/source-inputs.final.json",
+      "bytes": 121145,
+      "sha256": "D59BEE74DE4BDA0B7DAA113CF84A1E5E16F4DA5188D57C16452B90147577066C"
+    },
+    "sourceLegalAndRootFixtureCount": 590,
+    "productionMembers": 588,
+    "rootValidationFixtures": 2,
+    "compiledAndTestedSourceManifest": {
+      "path": "output/implementation/c23-basic-validation-compiler-cwd-7820186071fd4975a75a54fac199dad1/inputs.frozen.json",
+      "bytes": 118019,
+      "sha256": "324C40E896AF3595D5721C31360A9FC76199FB3F5B6033C56C37D754F21C5D4E"
+    },
+    "changedAfterRustTests": [
+      "src/styles.css"
+    ],
+    "unchangedRows": 589,
+    "allRustAndTypeScriptRowsByteIdentical": true,
+    "retentionReason": "Root footer merge held589 unchanged inputs and changes only CSS; Rust and TypeScript tests are retained against unchanged code,not rerun or presented as compiled against the new CSS dist."
+  },
+  "supplementalEvidenceFixtures": {
+    "scope": "Five real docs/acceptance validation-only evidence files outside source590/enumeration roots; not generated files or production build inputs. Separate exact manifest and original/copy guards bind them.",
+    "manifest": {
+      "path": "output/implementation/c23-capability-evidence-fixtures-46f71389188943f496254efcff303927/supplemental-fixtures.json",
+      "bytes": 1337,
+      "sha256": "EA994C1F14C377BCD68AD63E0881F70158C508F6CD29CD32EBE723B1DD343EF3"
+    },
+    "count": 5,
+    "source590ManifestChanged": false,
+    "actualCreatedNewCopies": true,
+    "originalAndCopiedSameHandleGuardsClosed": true
+  },
+  "frontend": {
+    "retainedOriginal": {
+      "testFiles": [
+        "src/shared/pet.test.ts",
+        "src/shared/desktopCompanion.test.ts"
+      ],
+      "testCount": 12,
+      "tscPassed": true,
+      "vitePassed": true,
+      "freshAtOriginal324COnly": true,
+      "execution": {
+        "ownershipId": "031db361-af0d-4fdd-a41d-9ffc2454aca1",
+        "status": "completed",
+        "elapsedSeconds": 47.43236109986901,
+        "timeoutSeconds": 240,
+        "cleanupTimeoutSeconds": 5,
+        "timedOut": false,
+        "cleanupVerified": true,
+        "naturalWholeJobCompletion": true,
+        "errors": [],
+        "rootExitCode": 0,
+        "job": {
+          "totalProcesses": 28,
+          "activeProcesses": 0,
+          "totalTerminatedProcesses": 0
+        },
+        "createdSuspended": true,
+        "assignedBeforeResume": true,
+        "resumed": true
+      },
+      "actualNamesReference": "frontendResults"
+    },
+    "postCssCurrent": {
+      "status": "typecheck-and-Vite-passed",
+      "sourceInputManifestSha256": "D59BEE74DE4BDA0B7DAA113CF84A1E5E16F4DA5188D57C16452B90147577066C",
+      "execution": {
+        "ownershipId": "c13e884a-31a3-4411-9ef3-fe6413de19d6",
+        "status": "completed",
+        "elapsedSeconds": 8.404316799715161,
+        "timeoutSeconds": 120,
+        "cleanupTimeoutSeconds": 5,
+        "timedOut": false,
+        "cleanupVerified": true,
+        "naturalWholeJobCompletion": true,
+        "errors": [],
+        "rootExitCode": 0,
+        "job": {
+          "totalProcesses": 15,
+          "activeProcesses": 0,
+          "totalTerminatedProcesses": 0
+        },
+        "createdSuspended": true,
+        "assignedBeforeResume": true,
+        "resumed": true
+      },
+      "steps": [
+        {
+          "name": "typecheck",
+          "argv": [
+            "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/bin/fallback/pnpm.cmd",
+            "exec",
+            "tsc",
+            "--noEmit"
+          ],
+          "exitCode": 0,
+          "elapsedSeconds": 4.0086121,
+          "log": "typecheck.log"
+        },
+        {
+          "name": "vite-build",
+          "argv": [
+            "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/bin/fallback/pnpm.cmd",
+            "exec",
+            "vite",
+            "build"
+          ],
+          "exitCode": 0,
+          "elapsedSeconds": 3.7874142,
+          "log": "vite-build.log"
+        }
+      ],
+      "typecheckLog": {
+        "declaredName": "typecheck.log",
+        "exists": false,
+        "reason": "Successful tsc produced no output; Tee-Object did not create a log. Exit0 and exact argv/timing are bound by steps.json,not an invented empty file."
+      },
+      "testsRerun": false,
+      "installRun": false,
+      "distManifestReference": "postCssDist",
+      "distFiles": [
+        {
+          "path": "dist/assets/index-CvUtTs_o.js",
+          "bytes": 6144122,
+          "sha256": "61C629F7FCED18DFB236D9E4B627342FDF1EEDE04B0F85EFB1CB500A90C0AAD5"
+        },
+        {
+          "path": "dist/assets/index-DboNBd9_.css",
+          "bytes": 41924,
+          "sha256": "F50CA05A1F1DF1B3A94C3F5CA226EDBDA9333449B673DB373FDD6072B81C0405"
+        },
+        {
+          "path": "dist/favicon.svg",
+          "bytes": 307,
+          "sha256": "422D5A1AD45F98A75A67DF86E70F77439648B66EE7BD07A5144C222DD92C6318"
+        },
+        {
+          "path": "dist/index.html",
+          "bytes": 660,
+          "sha256": "EF5C1D44AC1F2C893BBEC1C3EDCE0EF7A2708BFABB01B2189D34B3458AAFB2A1"
+        }
+      ],
+      "sourceGuards": {
+        "sourceCount": 590,
+        "additionalControlGuards": 5,
+        "totalGuardCount": 595,
+        "allClosed": true,
+        "errors": []
+      },
+      "distCaptureScope": "Four output files hashed after owned frontend Job0; distReadGuardsHeld=false,as recorded. This is not a browser execution or continuous dist read-guard claim.",
+      "javascriptBytesUnchangedFromOriginal324C": true,
+      "twelveTypeScriptTestsRetainedAgainstUnchangedTS": true
+    }
+  },
+  "compiler": {
+    "execution": {
+      "ownershipId": "d90dbec4-4eb9-4414-83cd-26d2ca670b75",
+      "status": "compiled-root-zero-owned-descendants-cleaned",
+      "elapsedSeconds": 123.29939189972356,
+      "timeoutSeconds": 600,
+      "cleanupTimeoutSeconds": 5,
+      "timedOut": false,
+      "cleanupVerified": true,
+      "naturalWholeJobCompletion": false,
+      "errors": [],
+      "rootExitCode": 0,
+      "job": {
+        "totalProcesses": 15,
+        "activeProcesses": 0,
+        "totalTerminatedProcesses": 0
+      },
+      "createdSuspended": true,
+      "assignedBeforeResume": true,
+      "resumed": true
+    },
+    "artifactCleanupExplanation": "Root exited0 while one owned descendant remained; predeclared compiler-artifact cleanup closed final Job0. naturalWholeJobCompletion=false is preserved. No subsequent recompilation for evidence fixtures or CSS.",
+    "harness": {
+      "path": "D:\\project\\宠物\\output\\implementation\\c23-basic-validation-compiler-cwd-7820186071fd4975a75a54fac199dad1\\compiled-tests.exe",
+      "bytes": 6694400,
+      "sha256": "EEF732802E44831082312C55A17A5D0297860855BF7062DE19504F29B5C88344",
+      "rehashedByReceiptAuthor": false
+    }
+  },
+  "listing": {
+    "execution": {
+      "ownershipId": "78c325ca-0758-4d1d-bb64-c0dd8d748808",
+      "status": "completed",
+      "elapsedSeconds": 0.5840941001661122,
+      "timeoutSeconds": 30,
+      "cleanupTimeoutSeconds": 5,
+      "timedOut": false,
+      "cleanupVerified": true,
+      "naturalWholeJobCompletion": true,
+      "errors": [],
+      "rootExitCode": 0,
+      "job": {
+        "totalProcesses": 2,
+        "activeProcesses": 0,
+        "totalTerminatedProcesses": 0
+      },
+      "createdSuspended": true,
+      "assignedBeforeResume": true,
+      "resumed": true
+    },
+    "listed": 136,
+    "core": 81,
+    "desktop": 23,
+    "bridge": 32,
+    "listedDoesNotMeanExecuted": true
+  },
+  "core": {
+    "status": "81-distinct-successful-names-composite-continuation",
+    "successfulDistinct": 81,
+    "retainedOriginalPassed": 62,
+    "remainingOnlyPassed": 18,
+    "exactFixtureContinuationPassed": 1,
+    "initiallyFailedName": "core::adapter::capability_report_tests::capability_metadata_is_version_scoped_and_does_not_claim_live_rpc_success",
+    "originallyInterruptedName": "core::tests::retention_index_contract::retention_delete_plans_use_time_searches_and_preserve_strict_cutoff_and_inbox_cascade",
+    "notStartedAtTimeout": 17,
+    "disjointPartitionsAndExactSelectionIndependentlyVerified": true,
+    "singleWholeCoreRunPassed": false,
+    "remainingExecution": {
+      "ownershipId": "35bf7ac1-c260-4142-bb31-edacbaaa6742",
+      "status": "completed",
+      "elapsedSeconds": 136.13814599998295,
+      "timeoutSeconds": 600,
+      "cleanupTimeoutSeconds": 5,
+      "timedOut": false,
+      "cleanupVerified": true,
+      "naturalWholeJobCompletion": true,
+      "errors": [],
+      "rootExitCode": 0,
+      "job": {
+        "totalProcesses": 2,
+        "activeProcesses": 0,
+        "totalTerminatedProcesses": 0
+      },
+      "createdSuspended": true,
+      "assignedBeforeResume": true,
+      "resumed": true
+    },
+    "exactExecution": {
+      "ownershipId": "177b0ec1-9f9c-4884-b7ac-ab90a2d3ed9f",
+      "status": "completed",
+      "elapsedSeconds": 0.059766499791294336,
+      "timeoutSeconds": 120,
+      "cleanupTimeoutSeconds": 5,
+      "timedOut": false,
+      "cleanupVerified": true,
+      "naturalWholeJobCompletion": true,
+      "errors": [],
+      "rootExitCode": 0,
+      "job": {
+        "totalProcesses": 2,
+        "activeProcesses": 0,
+        "totalTerminatedProcesses": 0
+      },
+      "createdSuspended": true,
+      "assignedBeforeResume": true,
+      "resumed": true
+    },
+    "fixtureContinuationReason": "Actual nocapture panic: usage: missing evidence docs/acceptance/ledger-replay-double-cursor-2026-10-15.json. Five existing referenced evidence files copied create-new into the isolated root,then this same exact case passed without code changes or recompilation."
+  },
+  "desktop": {
+    "status": "23-named-tests-passed",
+    "successfulDistinct": 23,
+    "newCompanionPolicyAndLauncherCases": 9,
+    "execution": {
+      "ownershipId": "402b2825-de8f-4b4b-a708-3579124fa458",
+      "status": "completed",
+      "elapsedSeconds": 0.33851630007848144,
+      "timeoutSeconds": 120,
+      "cleanupTimeoutSeconds": 5,
+      "timedOut": false,
+      "cleanupVerified": true,
+      "naturalWholeJobCompletion": true,
+      "errors": [],
+      "rootExitCode": 0,
+      "job": {
+        "totalProcesses": 2,
+        "activeProcesses": 0,
+        "totalTerminatedProcesses": 0
+      },
+      "createdSuspended": true,
+      "assignedBeforeResume": true,
+      "resumed": true
+    },
+    "NativeLauncherOrShellIntegrationExecuted": false
+  },
+  "retainedBridge": {
+    "status": "retained-not-rerun",
+    "namedTests": 32,
+    "sourceBinding": {
+      "path": "src-tauri/src/account_bridge.rs",
+      "bytes": 116924,
+      "sha256": "47BE23199A78F0B8D141A7BB4B7BC625DF93927951AC27D0DE14748CDE778E1E"
+    },
+    "formal": {
+      "path": "docs/acceptance/c21-bridge-environment-targeted-2026-10-16.json",
+      "bytes": 17227,
+      "sha256": "A2F2D9CCFFE4BDD2D3A83A27C182074A2CE166A53620C7E546BE2D6270ABD032"
+    },
+    "scope": "Only unchanged47BE account_bridge module evidence retained from C21 final environment targeted receipt. C21 desktop14 results are not substituted for current C23 desktop23. The no-role owned_bridge_test_child helper is not a product Native scenario."
+  },
+  "preservedFailures": {
+    "compilerPrelaunchCwd": {
+      "reference": "firstCompilerPrelaunchFailure",
+      "phase": "--compile-once",
+      "error": "artifact cleanup policy is compiler-only and owned-leaf only",
+      "compilerWasNotLaunchedByRejectedAttempt": true,
+      "correction": "Separate continuation leaf changed outer compiler Job cwd to its owned leaf; internal Cargo stayed in SOURCE."
+    },
+    "initialCore": {
+      "execution": {
+        "ownershipId": "642890b1-1867-49dc-b143-9b9ac99e0c40",
+        "status": "timed-out",
+        "elapsedSeconds": 120.07012559985742,
+        "timeoutSeconds": 120,
+        "cleanupTimeoutSeconds": 5,
+        "timedOut": true,
+        "cleanupVerified": true,
+        "naturalWholeJobCompletion": false,
+        "errors": [],
+        "rootExitCode": 3758096385,
+        "job": {
+          "totalProcesses": 2,
+          "activeProcesses": 0,
+          "totalTerminatedProcesses": 0
+        },
+        "createdSuspended": true,
+        "assignedBeforeResume": true,
+        "resumed": true
+      },
+      "observedPassed": 62,
+      "observedFailed": 1,
+      "summaryAbsent": true,
+      "failureDetailAbsentUntilDiagnostic": true
+    },
+    "explicitDiagnostic": {
+      "execution": {
+        "ownershipId": "a28b1a15-8708-4c2d-a008-298909715b29",
+        "status": "nonzero-exit",
+        "elapsedSeconds": 0.05909279966726899,
+        "timeoutSeconds": 120,
+        "cleanupTimeoutSeconds": 5,
+        "timedOut": false,
+        "cleanupVerified": true,
+        "naturalWholeJobCompletion": true,
+        "errors": [],
+        "rootExitCode": 101,
+        "job": {
+          "totalProcesses": 2,
+          "activeProcesses": 0,
+          "totalTerminatedProcesses": 0
+        },
+        "createdSuspended": true,
+        "assignedBeforeResume": true,
+        "resumed": true
+      },
+      "status": "initial-failure-reproduced",
+      "panicReference": "diagnosticPanic",
+      "oneFailed": 1
+    },
+    "historyWasOverwritten": false,
+    "automaticRetries": false
+  },
+  "qualification": {
+    "targetedSourceQualificationClosed": true,
+    "finalSourceInputManifestSha256": "D59BEE74DE4BDA0B7DAA113CF84A1E5E16F4DA5188D57C16452B90147577066C",
+    "C23RustDistinctSuccessful": 104,
+    "coreCompositeDistinctSuccessful": 81,
+    "desktopDistinctSuccessful": 23,
+    "retainedBridgeNotRerun": 32,
+    "all136ExecutedInOneRun": false,
+    "separateBrowserFormalRequiredByBuildQualification": true,
+    "browserPassRequiredForThisTargetedReceipt": false,
+    "buildExecutedByReceiptAuthor": false,
+    "AppOrInstallerOrCliExecutedByReceiptAuthor": false,
+    "NativeQualified": false,
+    "M4Passed": false
+  },
+  "references": {
+    "originalSource": {
+      "path": "output/implementation/c23-basic-validation-compiler-cwd-7820186071fd4975a75a54fac199dad1/inputs.frozen.json",
+      "bytes": 118019,
+      "sha256": "324C40E896AF3595D5721C31360A9FC76199FB3F5B6033C56C37D754F21C5D4E"
+    },
+    "originalDist": {
+      "path": "output/implementation/c23-basic-validation-compiler-cwd-7820186071fd4975a75a54fac199dad1/dist.frozen.json",
+      "bytes": 1018,
+      "sha256": "700D5D2CAEA9BF112F126CF46A5FCFF390923809136F7414921BBDA65D665CB0"
+    },
+    "harnessBinding": {
+      "path": "output/implementation/c23-basic-validation-compiler-cwd-7820186071fd4975a75a54fac199dad1/compiled-harness.frozen.json",
+      "bytes": 607,
+      "sha256": "799881FEE1361E0686FE8E997DE76BC5CF94FCDD611ADF0A7A471B40569DDEB6"
+    },
+    "frontendExecution": {
+      "path": "output/implementation/c23-basic-validation-compiler-cwd-7820186071fd4975a75a54fac199dad1/frontend.execution.json",
+      "bytes": 1470,
+      "sha256": "412D919C5742311AB8BE61B62EC1AE3850D40774E34769F0C85790DA399E5A56"
+    },
+    "frontendResults": {
+      "path": "output/implementation/c23-basic-validation-compiler-cwd-7820186071fd4975a75a54fac199dad1/frontend-wrapper-result.json",
+      "bytes": 3089,
+      "sha256": "EEF7B197B4064675C21CD97B253D272C653F8ADBD59BD161FDB9D52E55866813"
+    },
+    "frontendTAP": {
+      "path": "output/implementation/c23-basic-validation-compiler-cwd-7820186071fd4975a75a54fac199dad1/frontend-tests.log",
+      "bytes": 2915,
+      "sha256": "6415D94196A94B2E170F5B2105F6894BB0F5BCC9582563D07A4C69E9821AC89D"
+    },
+    "frontendGuards": {
+      "path": "output/implementation/c23-basic-validation-compiler-cwd-7820186071fd4975a75a54fac199dad1/frontend-once-source-guards.json",
+      "bytes": 162,
+      "sha256": "D2916E67587ABA736433C7C9F6612A4DEDB6E92A1457036D6257F71B9135037C"
+    },
+    "firstCompilerPrelaunchFailure": {
+      "path": "output/implementation/c23-basic-targeted-validation-d5548d7b303c48eaa401332b18bd9d10/validation-first-failure.json",
+      "bytes": 172,
+      "sha256": "6A9F0AC5A66660CAE785AAE8443D639C3787E1C43F32063538B931EA8933129A"
+    },
+    "compilerContinuation": {
+      "path": "output/implementation/c23-basic-validation-compiler-cwd-7820186071fd4975a75a54fac199dad1/continuation.json",
+      "bytes": 4385,
+      "sha256": "F01C900E6D4B17127F27970BBBDC2BF056C4130AEFEB4A7161B473F4E03C4D04"
+    },
+    "compilerExecution": {
+      "path": "output/implementation/c23-basic-validation-compiler-cwd-7820186071fd4975a75a54fac199dad1/compiler.execution.json",
+      "bytes": 1891,
+      "sha256": "0FBB59ADB72C28923752B409E29AA7540C1D8AC62CE82B09E17112C7512649D3"
+    },
+    "compilerWrapper": {
+      "path": "output/implementation/c23-basic-validation-compiler-cwd-7820186071fd4975a75a54fac199dad1/compile-wrapper-result.json",
+      "bytes": 2169,
+      "sha256": "0385457D63FC224C615671944CF800DAA5C84AC28047D8731ACEE6CE1143C54A"
+    },
+    "compilerGuards": {
+      "path": "output/implementation/c23-basic-validation-compiler-cwd-7820186071fd4975a75a54fac199dad1/compile-once-source-guards.json",
+      "bytes": 162,
+      "sha256": "27C93B736504F2C7603BB1395F11BAAA76A2F6AF1531138267E7603807DFB93C"
+    },
+    "listExecution": {
+      "path": "output/implementation/c23-basic-validation-compiler-cwd-7820186071fd4975a75a54fac199dad1/harness-list.execution.json",
+      "bytes": 1366,
+      "sha256": "ADF57659B291ADB8D70A50E739ACACCA769B723ED26DDF8D297F88E6B0D86791"
+    },
+    "actualList": {
+      "path": "output/implementation/c23-basic-validation-compiler-cwd-7820186071fd4975a75a54fac199dad1/actual-test-list.json",
+      "bytes": 27389,
+      "sha256": "BFCE0AF536848C4AA766B61BFDE1E310A35300D97A9C5C5C60BDCA47B41B2750"
+    },
+    "selection": {
+      "path": "output/implementation/c23-basic-validation-compiler-cwd-7820186071fd4975a75a54fac199dad1/rust-selection.json",
+      "bytes": 10899,
+      "sha256": "AE6416E7A95B556FBC34F57D4321FD0650BCD52572FEF51B57FC1136BAAF200E"
+    },
+    "listGuards": {
+      "path": "output/implementation/c23-basic-validation-compiler-cwd-7820186071fd4975a75a54fac199dad1/list-once-source-guards.json",
+      "bytes": 162,
+      "sha256": "27C93B736504F2C7603BB1395F11BAAA76A2F6AF1531138267E7603807DFB93C"
+    },
+    "initialCoreExecution": {
+      "path": "output/implementation/c23-basic-validation-compiler-cwd-7820186071fd4975a75a54fac199dad1/core-tests.execution.json",
+      "bytes": 1401,
+      "sha256": "496016A305778B5C8235B5E6974F49B560FA58992EF01C3296A8E6BC7D386F2C"
+    },
+    "initialCoreStdout": {
+      "path": "output/implementation/c23-basic-validation-compiler-cwd-7820186071fd4975a75a54fac199dad1/core-tests.stdout.log",
+      "bytes": 6804,
+      "sha256": "32247C3D68083C67618F34CABAEB1DAA946F43D121ED8A0278EDFF8058D4CCBF"
+    },
+    "initialCoreStderr": {
+      "path": "output/implementation/c23-basic-validation-compiler-cwd-7820186071fd4975a75a54fac199dad1/core-tests.stderr.log",
+      "bytes": 0,
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    "initialCoreGuardClosure": {
+      "path": "output/implementation/c23-basic-validation-compiler-cwd-7820186071fd4975a75a54fac199dad1/selected-rust-tests-once-source-guards.json",
+      "bytes": 162,
+      "sha256": "27C93B736504F2C7603BB1395F11BAAA76A2F6AF1531138267E7603807DFB93C"
+    },
+    "originalFirstFailure": {
+      "path": "output/implementation/c23-basic-validation-compiler-cwd-7820186071fd4975a75a54fac199dad1/validation-first-failure.json",
+      "bytes": 183,
+      "sha256": "CC6E7A8E23B81A9020A1649E23F0804C3085DF2A2DF3EA66FDC3CD730D7A65ED"
+    },
+    "diagnosticExecution": {
+      "path": "output/implementation/c23-basic-remaining-validation-9da63e6507184fa7b9d566f95bbcf9df/failed-diagnostic.execution.json",
+      "bytes": 1541,
+      "sha256": "594D3BDE5176918C70C7836910D434EFEC4A9D5F99F8BE6BD1D730C72A0DD07D"
+    },
+    "diagnosticResult": {
+      "path": "output/implementation/c23-basic-remaining-validation-9da63e6507184fa7b9d566f95bbcf9df/failed-diagnostic-result.json",
+      "bytes": 892,
+      "sha256": "2C9C6F4D93561A81EEE3C58B25C0EEA914A54C69E1D1C805DF31AD4A3B300A15"
+    },
+    "diagnosticPanic": {
+      "path": "output/implementation/c23-basic-remaining-validation-9da63e6507184fa7b9d566f95bbcf9df/failed-diagnostic.stderr.log",
+      "bytes": 334,
+      "sha256": "1FE70B02A314E7052EFF0B43B4BD27C738D92CC4581A35EEEE3A1908E3E9E972"
+    },
+    "diagnosticGuards": {
+      "path": "output/implementation/c23-basic-remaining-validation-9da63e6507184fa7b9d566f95bbcf9df/failed-diagnostic-input-guards.json",
+      "bytes": 430,
+      "sha256": "7C8F38154D6A7FFDA957B71D60A381D445F4D0761D0C8D253CA950F21E0E4382"
+    },
+    "remainingSelection": {
+      "path": "output/implementation/c23-basic-remaining-validation-9da63e6507184fa7b9d566f95bbcf9df/remaining-selection.json",
+      "bytes": 18876,
+      "sha256": "847F85D9AFC46324482B65DE255FFE807443EBDC36C4FAAEFCD729BE148EE3D6"
+    },
+    "remainingCoreExecution": {
+      "path": "output/implementation/c23-basic-remaining-validation-9da63e6507184fa7b9d566f95bbcf9df/core-remaining.execution.json",
+      "bytes": 8732,
+      "sha256": "42F1E7619E9ACBD8C04A38AF23B430EC574F44B82F369DB38BA4FE0789AB337E"
+    },
+    "remainingCoreStdout": {
+      "path": "output/implementation/c23-basic-remaining-validation-9da63e6507184fa7b9d566f95bbcf9df/core-remaining.stdout.log",
+      "bytes": 2120,
+      "sha256": "497372A115AA8CDEFE166F007260634F09498A2E4D00EE449BD98EA63AEA2D74"
+    },
+    "desktopExecution": {
+      "path": "output/implementation/c23-basic-remaining-validation-9da63e6507184fa7b9d566f95bbcf9df/desktop-tests.execution.json",
+      "bytes": 1396,
+      "sha256": "9C71045EDC849C2CF267A8233B8966D4EF4A7814BDE0B03C43535326C3398EDD"
+    },
+    "desktopStdout": {
+      "path": "output/implementation/c23-basic-remaining-validation-9da63e6507184fa7b9d566f95bbcf9df/desktop-tests.stdout.log",
+      "bytes": 2398,
+      "sha256": "C6D0FB76E476C3852985D42F8AF7E826C6F1695E2E571FEA270D528636F7765D"
+    },
+    "remainingResult": {
+      "path": "output/implementation/c23-basic-remaining-validation-9da63e6507184fa7b9d566f95bbcf9df/remaining-result.json",
+      "bytes": 13249,
+      "sha256": "87909C578AC81DD9FA55A1E8343F97A97E430D406240F430687313848401237E"
+    },
+    "remainingGuards": {
+      "path": "output/implementation/c23-basic-remaining-validation-9da63e6507184fa7b9d566f95bbcf9df/remaining-input-guards.json",
+      "bytes": 430,
+      "sha256": "7C8F38154D6A7FFDA957B71D60A381D445F4D0761D0C8D253CA950F21E0E4382"
+    },
+    "supplementalFixtures": {
+      "path": "output/implementation/c23-capability-evidence-fixtures-46f71389188943f496254efcff303927/supplemental-fixtures.json",
+      "bytes": 1337,
+      "sha256": "EA994C1F14C377BCD68AD63E0881F70158C508F6CD29CD32EBE723B1DD343EF3"
+    },
+    "fixtureRetestResult": {
+      "path": "output/implementation/c23-capability-evidence-fixtures-46f71389188943f496254efcff303927/validation-result.json",
+      "bytes": 956,
+      "sha256": "4F3BD12C8DF43555ABCC19FF646E4B49AD204AFF61DD6DE51E4BADBE47CE28F6"
+    },
+    "fixtureRetestExecution": {
+      "path": "output/implementation/c23-capability-evidence-fixtures-46f71389188943f496254efcff303927/exact-test.execution.json",
+      "bytes": 1537,
+      "sha256": "9A31CC75E6C82D8A210A98C30F01D43985F41087E83A8EBF292C1F983AA972B9"
+    },
+    "fixtureRetestStdout": {
+      "path": "output/implementation/c23-capability-evidence-fixtures-46f71389188943f496254efcff303927/exact-test.stdout.log",
+      "bytes": 240,
+      "sha256": "91C15C136B03A9A740F7AB7EE6129D5B7C95204DC842D567EBC86AB52FEBE59B"
+    },
+    "fixtureBaseGuards": {
+      "path": "output/implementation/c23-capability-evidence-fixtures-46f71389188943f496254efcff303927/base-failed-diagnostic-input-guards.json",
+      "bytes": 430,
+      "sha256": "7C8F38154D6A7FFDA957B71D60A381D445F4D0761D0C8D253CA950F21E0E4382"
+    },
+    "fixtureOriginalGuards": {
+      "path": "output/implementation/c23-capability-evidence-fixtures-46f71389188943f496254efcff303927/original-fixture-guards.json",
+      "bytes": 103,
+      "sha256": "98CE11C09C94FFBB33ED133662EBBF7F3250FF5C4C28C47F5DEEE241715AFCB6"
+    },
+    "fixtureCopiedGuards": {
+      "path": "output/implementation/c23-capability-evidence-fixtures-46f71389188943f496254efcff303927/copied-fixture-guards.json",
+      "bytes": 103,
+      "sha256": "98CE11C09C94FFBB33ED133662EBBF7F3250FF5C4C28C47F5DEEE241715AFCB6"
+    },
+    "fixtureControlGuards": {
+      "path": "output/implementation/c23-capability-evidence-fixtures-46f71389188943f496254efcff303927/control-guards.json",
+      "bytes": 104,
+      "sha256": "41690CD74235302F3D96DA972EAB97C238B2A76F23C9EAE36FF25B202DABFF3B"
+    },
+    "finalSource": {
+      "path": "output/implementation/c23-footer-root-merge-20261016-0724/source-inputs.final.json",
+      "bytes": 121145,
+      "sha256": "D59BEE74DE4BDA0B7DAA113CF84A1E5E16F4DA5188D57C16452B90147577066C"
+    },
+    "footerMerge": {
+      "path": "output/implementation/c23-footer-root-merge-20261016-0724/merge.json",
+      "bytes": 540,
+      "sha256": "9676B126E8B899DAE4332CB359DFB3E3E9440FC6A8E90AFBB481C0A99C508FE6"
+    },
+    "footerGuards": {
+      "path": "output/implementation/c23-footer-root-merge-20261016-0724/guards.json",
+      "bytes": 82,
+      "sha256": "8B2C863DBB8B07F639CA460BD24FD17EC55B99C9871108C4D5B45027FF2C62F9"
+    },
+    "retainedBridge": {
+      "path": "docs/acceptance/c21-bridge-environment-targeted-2026-10-16.json",
+      "bytes": 17227,
+      "sha256": "A2F2D9CCFFE4BDD2D3A83A27C182074A2CE166A53620C7E546BE2D6270ABD032"
+    },
+    "postCssExecution": {
+      "path": "output/implementation/c23-footer-frontend-build-author-faa3c8db7e4b4c1ab5a4b4c995aa16be/execution-554894eaa70e4d309007304523416638/execution.json",
+      "bytes": 1776,
+      "sha256": "456CA90801CBFF3C47D8C8E8CB070549F75773408DCFAB1A26F37E11A0FB46AD"
+    },
+    "postCssSteps": {
+      "path": "output/implementation/c23-footer-frontend-build-author-faa3c8db7e4b4c1ab5a4b4c995aa16be/execution-554894eaa70e4d309007304523416638/steps.json",
+      "bytes": 606,
+      "sha256": "004BF1CBF128DB3E301DE64F94A6E227D93DCED997849A14EC150618FD6C117A"
+    },
+    "postCssResult": {
+      "path": "output/implementation/c23-footer-frontend-build-author-faa3c8db7e4b4c1ab5a4b4c995aa16be/execution-554894eaa70e4d309007304523416638/result.json",
+      "bytes": 434,
+      "sha256": "741F3C1FADE0F1B6B1F0EDCB66068E5E76E7A6A92D19A22C6946AABBC58E97C5"
+    },
+    "postCssGuards": {
+      "path": "output/implementation/c23-footer-frontend-build-author-faa3c8db7e4b4c1ab5a4b4c995aa16be/execution-554894eaa70e4d309007304523416638/source-guards.json",
+      "bytes": 219,
+      "sha256": "9C5E3B6280D66C8C9D12EF68AA219901B7CC4D2F1E57293865E0CAC4AA82FBC1"
+    },
+    "postCssDist": {
+      "path": "output/implementation/c23-footer-frontend-build-author-faa3c8db7e4b4c1ab5a4b4c995aa16be/execution-554894eaa70e4d309007304523416638/dist.frozen.json",
+      "bytes": 950,
+      "sha256": "6CF05DE58AF5058B51233813941CB3F4FD57AF251DDC193E2E5FCD21F773FF58"
+    },
+    "postCssViteLog": {
+      "path": "output/implementation/c23-footer-frontend-build-author-faa3c8db7e4b4c1ab5a4b4c995aa16be/execution-554894eaa70e4d309007304523416638/vite-build.log",
+      "bytes": 689,
+      "sha256": "DAC780A156A3AF0678218FAD1FF6C4A710BFA2115C456FFD537295023BB17E99"
+    },
+    "postCssAuthorPatch": {
+      "path": "output/implementation/c23-footer-frontend-build-author-faa3c8db7e4b4c1ab5a4b4c995aa16be/changes.patch",
+      "bytes": 8222,
+      "sha256": "42C422888F048D13219AC3F6595FF319F837EF7C41F9B32B9BDDC03C52F33D83"
+    },
+    "postCssRootRelease": {
+      "path": "output/implementation/c23-footer-frontend-build-author-faa3c8db7e4b4c1ab5a4b4c995aa16be/execution-release.json",
+      "bytes": 777,
+      "sha256": "7709DF6961311BC07FA917EADF67F2DD05CABEFB9F0272ED03E740B987F230B4"
+    }
+  }
+}

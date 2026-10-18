@@ -1,0 +1,169 @@
+{
+  "schemaVersion": 1,
+  "generator": "builtin image_gen",
+  "pixelPostProcessing": false,
+  "assets": [
+    {
+      "pose": "shy",
+      "file": "shy.png",
+      "sourceOriginalPath": "C:\\Users\\Administrator\\.codex\\generated_images\\01a1469a-e3c2-7471-afb9-fbeb68d72244\\exec-cdba4e19-2b2d-46c2-a787-0fe27c2e5b45.png",
+      "sha256": "58702f963888360a923b62633a8d9a2c21ae828dbe7372696720bcdbe641359b",
+      "prompt": "prompts/shy-tail-refine.txt",
+      "promptSha256": "6834327afb4fe922580a0796bd483803ec748aa1f2c558562a8fefb209e0aa1c",
+      "referencePaths": [
+        "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v5-natural-tail\\rejected\\shy-wide-tail.png",
+        "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v5-natural-tail\\idle.png"
+      ],
+      "referenceHashes": [
+        {
+          "path": "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v5-natural-tail\\rejected\\shy-wide-tail.png",
+          "sha256": "e953c708af750cf4222de01c98ccc2f851aca130cbb3af78d1f996a84b435692"
+        },
+        {
+          "path": "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v5-natural-tail\\idle.png",
+          "sha256": "1dc3f07e64139e7b4b641399ea9f2920d210940795acfeb9cab9cb8600ee54f3"
+        }
+      ],
+      "originalBytesVerified": true,
+      "selfReview": {
+        "decision": "candidate-for-independent-review",
+        "conclusion": "细圆柱尾替代了初稿粗尾；尾根被后裙遮挡，尾段与腿有可读间隙，触脸与垂手动作保留。",
+        "limitations": [
+          "耳尖仍距上边很近，需要检查完整轮廓与整体 framing。",
+          "触脸手指有遮挡，手部自然程度需独立放大复核。",
+          "仅原图视觉自查；透明合成待浏览器验证。"
+        ]
+      },
+      "independentReview": {
+        "decision": "go",
+        "sha256": "58702f963888360a923b62633a8d9a2c21ae828dbe7372696720bcdbe641359b",
+        "report": "D:\\project\\宠物\\output\\imagegen\\hd-v5-design-20261017\\independent-review.json",
+        "limitations": [
+          "Top ear has only approximately4px alpha16 margin, although the contour is intact in the viewed original. No cropping occurred in this source; future canvas extraction should preserve the full image.",
+          "Bent/overlapping fingers cannot be treated as a visible five-finger spread."
+        ]
+      }
+    },
+    {
+      "pose": "bow",
+      "file": "bow.png",
+      "sourceOriginalPath": "C:\\Users\\Administrator\\.codex\\generated_images\\01a1469a-e3c2-7471-afb9-fbeb68d72244\\exec-c4cf3959-dc9a-4e9a-8b8d-629b68fd18c1.png",
+      "sha256": "717c6783d18c5d58d6ccea4e1a117cf3877c5583440445969f260889882197a7",
+      "prompt": "prompts/bow.txt",
+      "promptSha256": "e62de9273f0a6e8f203f7800e017fae923d928ed5c92748e3478fbd33ae3a38b",
+      "referencePaths": [
+        "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v5-natural-tail\\idle.png",
+        "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v5-natural-tail\\reference\\turnaround-before-belt.png"
+      ],
+      "referenceHashes": [
+        {
+          "path": "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v5-natural-tail\\idle.png",
+          "sha256": "1dc3f07e64139e7b4b641399ea9f2920d210940795acfeb9cab9cb8600ee54f3"
+        },
+        {
+          "path": "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v5-natural-tail\\reference\\turnaround-before-belt.png",
+          "sha256": "67d9acfaa0f8cc6ddf0f7489ee62785f35022a15133885934e3ad17635dfc31f"
+        }
+      ],
+      "originalBytesVerified": true,
+      "selfReview": {
+        "decision": "candidate-for-independent-review",
+        "conclusion": "闭眼低头与双手叠放构成轻鞠躬；尾巴保持细圆柱形，与小腿无贴边，脚尖朝前。",
+        "limitations": [
+          "鞠躬幅度较轻，不是深鞠躬。",
+          "下方手部分被遮挡，需局部复核指形。",
+          "仅原图自查，深浅底合成待独立验收。"
+        ]
+      },
+      "originalReferencePathsAtCall": [
+        "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v5-natural-tail\\idle.png",
+        "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v5-natural-tail\\reference\\turnaround.png"
+      ],
+      "referenceSnapshotNote": "The original turnaround path was later updated for belt color; this byte-identical snapshot preserves the actual input used for this call.",
+      "independentReview": {
+        "decision": "go",
+        "sha256": "717c6783d18c5d58d6ccea4e1a117cf3877c5583440445969f260889882197a7",
+        "report": "D:\\project\\宠物\\output\\imagegen\\hd-v5-design-20261017\\independent-review.json",
+        "limitations": [
+          "The bow is intentionally shallow in the 2D pose.",
+          "Hidden proximal tail route derives from the common construction reference, not this front image alone."
+        ]
+      }
+    },
+    {
+      "pose": "hug-tail",
+      "file": "hug-tail.png",
+      "sourceOriginalPath": "C:\\Users\\Administrator\\.codex\\generated_images\\01a1469a-e3c2-7471-afb9-fbeb68d72244\\exec-53ccb6ee-8e63-4b9e-8db4-052576abe6f9.png",
+      "sha256": "28f5729c95e5a3762bac9e6d463857d8ebecd7c80d2b92eea1af58016d6a0902",
+      "prompt": "prompts/hug-tail-six-flowers-refine.txt",
+      "promptSha256": "dfffbb995164f458c7ae7968920a90036339b7209149ac272ea073765ea10472",
+      "referencePaths": [
+        "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v5-natural-tail\\rejected\\hug-tail-seven-flowers.png"
+      ],
+      "referenceHashes": [
+        {
+          "path": "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v5-natural-tail\\rejected\\hug-tail-seven-flowers.png",
+          "sha256": "b33c8d316e58f294482e5da4575af37b68d611341ec299253f089a9e270317f2"
+        }
+      ],
+      "originalBytesVerified": true,
+      "selfReview": {
+        "decision": "candidate-for-final-independent-review",
+        "conclusion": "低位双手轻托一条连续细尾；右侧近端从前臂/头发后遮挡绕出，单一末端在左侧，裙花回到两大四小共6朵，最高耳尖完整留白。",
+        "limitations": [
+          "真实尾根被衣裙遮挡，画面只支持可见段连续性，不证明隐藏三维连接。",
+          "手指部分被尾巴自然遮挡，最终放大复核由独立reviewer完成。",
+          "最新图的深浅底合成还需复核，不能沿用旧SHA验收。"
+        ]
+      },
+      "independentReview": {
+        "decision": "go",
+        "sha256": "28f5729c95e5a3762bac9e6d463857d8ebecd7c80d2b92eea1af58016d6a0902",
+        "report": "D:\\project\\宠物\\output\\imagegen\\hd-v5-design-20261017\\independent-review.json",
+        "limitations": [
+          "Front proximal root remains occluded; rear attachment is supported by shared turnaround, not directly exposed here."
+        ]
+      }
+    }
+  ],
+  "rejectedAttempts": [
+    {
+      "pose": "shy",
+      "file": "rejected/shy-wide-tail.png",
+      "sourceOriginalPath": "C:/Users/Administrator/.codex/generated_images/01a1469a-e3c2-7471-afb9-fbeb68d72244/exec-f3001f46-b607-4f32-a07b-4588e676ba4d.png",
+      "prompt": "prompts/shy.txt",
+      "reason": "Tail remained too broad and bulbous compared with final idle master.",
+      "sha256": "e953c708af750cf4222de01c98ccc2f851aca130cbb3af78d1f996a84b435692",
+      "promptSha256": "96e7f2c1e3e1b588bf4871e3ac652e88942b5f9004f25f307f2229b400997993"
+    },
+    {
+      "pose": "hug-tail",
+      "file": "rejected/hug-tail-disconnected.png",
+      "sourceOriginalPath": "C:/Users/Administrator/.codex/generated_images/01a1469a-e3c2-7471-afb9-fbeb68d72244/exec-15a6e2b7-0da3-4d4d-9e65-38ebf07f47dc.png",
+      "prompt": "prompts/hug-tail.txt",
+      "reason": "Visible tail terminated at the right cuff, reading as a separate fur prop rather than one continuous tail.",
+      "sha256": "d9c31bb1c22e9f3d9f2a75afaf9a4ee4347eae621752f995cc8cc7322c323228",
+      "promptSha256": "90ec0738bdecca22d31473e0a59ba2f5b4991b943a55a9b543c06f5d0ae5a821"
+    },
+    {
+      "pose": "hug-tail",
+      "file": "rejected/hug-tail-top-clipped-eight-flowers.png",
+      "sourceOriginalPath": "C:\\Users\\Administrator\\.codex\\generated_images\\01a1469a-e3c2-7471-afb9-fbeb68d72244\\exec-8a81bb98-205e-41e7-9687-a8afac1535ec.png",
+      "sha256": "bcd9a11893f03c60e6e7b5251e2fc76a90e5a4026f090cf9a1b0d5a7d2ed63c5",
+      "prompt": "prompts/hug-tail-connectivity-refine.txt",
+      "reason": "Tail connectivity and hands accepted, but alpha16 reached the top edge and skirt had eight flowers.",
+      "promptSha256": "445cff48217ef5d7772a2abc44e6b764c0a4d95a68431963a911ac852b729a1c"
+    },
+    {
+      "pose": "hug-tail",
+      "file": "rejected/hug-tail-seven-flowers.png",
+      "sourceOriginalPath": "C:\\Users\\Administrator\\.codex\\generated_images\\01a1469a-e3c2-7471-afb9-fbeb68d72244\\exec-8115f950-03fd-49db-ae9d-4929baa53fe9.png",
+      "sha256": "b33c8d316e58f294482e5da4575af37b68d611341ec299253f089a9e270317f2",
+      "prompt": "prompts/hug-tail-framing-flowers-refine.txt",
+      "reason": "Framing corrected, but one surplus small skirt flower remained (seven total).",
+      "promptSha256": "93a71bf79727af043f6a5282e122caa1e7b111a3fa500bc8993631a24c604b3b"
+    }
+  ],
+  "status": "independent-visual-review-complete",
+  "reviewStatusNote": "Each selected current PNG SHA received explicit independent reviewer go. Producer self-review and rejected-attempt history are retained as historical records."
+}

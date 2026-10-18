@@ -1,0 +1,830 @@
+{
+  "schemaVersion": 1,
+  "kind": "c18-native-ui-scoped-existing-evidence-summary",
+  "createdAtUtc": "2026-10-16T00:07:38.919930+00:00",
+  "scope": "One actual Windows C18 instance with self-authored local fixture; scoped observations and retained counterexamples, not whole F11/F12/M4 acceptance.",
+  "binding": {
+    "executable": "D:\\project\\宠物\\output\\build-candidates\\c18-pet-read-model-20261016\\token-meow.exe",
+    "executableSha256": "8F268F39EF4096A5B4A60FCFB5F9C919479ACBE6588C24953C0323FCF711C9BA",
+    "rootProcessId": 17060,
+    "rootCreationFileTimeDecimal": "134365816036476473",
+    "jobId": "a235e2ac-edc0-42b1-bf28-590fbe4ed96f",
+    "sourceRoot": "D:\\project\\宠物\\output\\performance\\incremental-9770da3257db4bb08ee834519b1f890d\\source",
+    "dataDirectory": "D:\\project\\宠物\\output\\performance\\incremental-9770da3257db4bb08ee834519b1f890d\\data",
+    "fixtureManifest": "D:\\project\\宠物\\output\\performance\\incremental-9770da3257db4bb08ee834519b1f890d\\fixture.json",
+    "fixtureManifestSha256": "3D64335BF8B917D754F703AEF915E2A35A2DA9AAC1E5380CFDF8EB09F1CEC6C5"
+  },
+  "productionArtifactHashOrigin": "Reused frozen launch/build receipt; no large artifact rehash during finalization.",
+  "uiMethod": "Computer Use @oai/sky; screenshots inspected in returned tool results. Stored evidence contains window/screenshot metadata and accessibility, not screenshot pixels.",
+  "authorization": {
+    "userDesktopWindowStartUtc": "2026-10-15T23:43:00Z",
+    "approximateMaximumMinutes": 20,
+    "uiInputsEnded": true,
+    "native2Started": false
+  },
+  "consistencyChecks": {
+    "all-41-existing-ui-events-parse": true,
+    "all-recorded-window-paths-match-launch": true,
+    "launch-guardian-exact-pid-ft-job": true,
+    "independent-two-csv-checks-passed": true,
+    "all-three-csv-files-preserved": true,
+    "all-three-csv-single-bom-and-14-columns": true,
+    "csv-actual-counts-and-totals": true,
+    "accidental-cancel-save-kept": true,
+    "coordinate-cancel-file-absent": true,
+    "menu-dismiss-document-no-menu": true,
+    "manual-gentle-then-playful-visual-notes": true,
+    "authored-care-sha-chain-and-12-delta": true,
+    "observed-active-then-idle-badge": true,
+    "auto-care-captures-after-eight-seconds": true,
+    "p95-original-not-qualified-zero-of-twenty": true,
+    "original-proof-deadline-unknown-preserved": true,
+    "exit-action-after-original-proof-end": true,
+    "exit-last-screenshot-not-fresh": true,
+    "later-own-window-inventory-empty-only": true,
+    "app-reports-two-workers-exit-ready": true,
+    "late-query-never-repairs-old-proof": true,
+    "notification-failure-not-success": true
+  },
+  "consistencyCheckCount": 22,
+  "checksAreNotNewProductTests": true,
+  "csv": {
+    "files": [
+      {
+        "path": "output/performance/c18-native-ui-20261016-73468137e02548f48bb82080dece2017/ui-save-01.csv",
+        "bytes": 737,
+        "sha256": "872A95E1D334E46AF869D597B4B1698911749651F6ACB846D4DAF2F5521A4012",
+        "rowCount": 2,
+        "totalTokens": 2200,
+        "columns": [
+          "source_id",
+          "thread_id",
+          "response_id",
+          "event_time",
+          "project",
+          "requested_model",
+          "input_tokens",
+          "output_tokens",
+          "total_tokens",
+          "cache_read",
+          "cache_write",
+          "reasoning_output",
+          "metric_semantics",
+          "quality"
+        ],
+        "utf8BomCount": 1,
+        "intent": "explicit-native-save"
+      },
+      {
+        "path": "output/performance/c18-native-ui-20261016-73468137e02548f48bb82080dece2017/ui-save-02.csv",
+        "bytes": 468,
+        "sha256": "776A3CCEC116A4ADDAEDC7828B0D9238810B26E9D682A37BA971F427C75A9AA2",
+        "rowCount": 1,
+        "totalTokens": 1000,
+        "columns": [
+          "source_id",
+          "thread_id",
+          "response_id",
+          "event_time",
+          "project",
+          "requested_model",
+          "input_tokens",
+          "output_tokens",
+          "total_tokens",
+          "cache_read",
+          "cache_write",
+          "reasoning_output",
+          "metric_semantics",
+          "quality"
+        ],
+        "utf8BomCount": 1,
+        "intent": "explicit-native-save"
+      },
+      {
+        "path": "output/performance/c18-native-ui-20261016-73468137e02548f48bb82080dece2017/token-meow-20261015-235106.csv",
+        "bytes": 468,
+        "sha256": "776A3CCEC116A4ADDAEDC7828B0D9238810B26E9D682A37BA971F427C75A9AA2",
+        "rowCount": 1,
+        "totalTokens": 1000,
+        "columns": [
+          "source_id",
+          "thread_id",
+          "response_id",
+          "event_time",
+          "project",
+          "requested_model",
+          "input_tokens",
+          "output_tokens",
+          "total_tokens",
+          "cache_read",
+          "cache_write",
+          "reasoning_output",
+          "metric_semantics",
+          "quality"
+        ],
+        "utf8BomCount": 1,
+        "intent": "unintended-save-after-UIA-cancel-request"
+      }
+    ],
+    "singleFlight": {
+      "action": "double-click native Export",
+      "observed": "busy indication and one returned native SaveDialog",
+      "eventRefs": [
+        {
+          "file": "desktop-ui-events.jsonl",
+          "line": 3,
+          "label": "csv-first-doubleclick-export",
+          "atUtc": "2026-10-15T23:48:57.994Z",
+          "window": {
+            "app": "process:D:\\project\\宠物\\output\\build-candidates\\c18-pet-read-model-20261016\\token-meow.exe",
+            "id": 5312608,
+            "title": "Token 喵 · 本地用量账本"
+          },
+          "screenshots": [
+            {
+              "id": "screenshot-0",
+              "width": 1242,
+              "height": 852,
+              "originX": 339,
+              "originY": 90
+            }
+          ],
+          "focusedElement": "2 窗格 Token 喵 · 你的本地编码伙伴"
+        },
+        {
+          "file": "desktop-ui-events.jsonl",
+          "line": 4,
+          "label": "csv-one-save-dialog-after-doubleclick",
+          "atUtc": "2026-10-15T23:49:17.690Z",
+          "window": {
+            "app": "process:D:\\project\\宠物\\output\\build-candidates\\c18-pet-read-model-20261016\\token-meow.exe",
+            "id": 7733380,
+            "title": "导出本机用量账本"
+          },
+          "screenshots": [
+            {
+              "id": "screenshot-0",
+              "width": 16,
+              "height": 16,
+              "originX": 0,
+              "originY": 0
+            },
+            {
+              "id": "screenshot-1",
+              "width": 16,
+              "height": 16,
+              "originX": 0,
+              "originY": 0
+            },
+            {
+              "id": "screenshot-2",
+              "width": 946,
+              "height": 533,
+              "originX": 7,
+              "originY": 0
+            }
+          ],
+          "focusedElement": "98 编辑 (settable, string) 搜索框 Description: 在 incremental-e050ed1b125a49f1bec9baab32c8799d 中搜索 ID: SearchEditBox"
+        }
+      ],
+      "stressOrAllRaceQualification": false
+    },
+    "explicitSaves": [
+      {
+        "range": "near7Days",
+        "file": "ui-save-01.csv",
+        "rows": 2,
+        "totalTokens": 2200
+      },
+      {
+        "range": "today Asia/Shanghai",
+        "file": "ui-save-02.csv",
+        "rows": 1,
+        "totalTokens": 1000
+      }
+    ],
+    "cancelFirstCounterexample": {
+      "requestedMethod": "UIA click returned Cancel element index 67",
+      "modal": {
+        "file": "desktop-ui-events.jsonl",
+        "line": 14,
+        "label": "csv-cancel-dialog",
+        "atUtc": "2026-10-15T23:51:14.606Z",
+        "window": {
+          "app": "process:D:\\project\\宠物\\output\\build-candidates\\c18-pet-read-model-20261016\\token-meow.exe",
+          "id": 459140,
+          "title": "导出本机用量账本"
+        },
+        "screenshots": [
+          {
+            "id": "screenshot-0",
+            "width": 16,
+            "height": 16,
+            "originX": 0,
+            "originY": 0
+          },
+          {
+            "id": "screenshot-1",
+            "width": 16,
+            "height": 16,
+            "originX": 0,
+            "originY": 0
+          },
+          {
+            "id": "screenshot-2",
+            "width": 946,
+            "height": 533,
+            "originX": 7,
+            "originY": 0
+          }
+        ],
+        "focusedElement": "92 编辑 (settable, string) 搜索框 Description: 在 c18-native-ui-20261016-73468137e02548f48bb82080dece2017 中搜索 ID: SearchEditBox"
+      },
+      "observedResult": "unexpected actual save and export-success toast",
+      "preservedFile": "token-meow-20261015-235106.csv",
+      "cause": "Unresolved input delivery/control/backend boundary; UI intent is not proof Cancel was received.",
+      "misleadingHistoricalLabelPreserved": "csv-cancelled-native-dialog"
+    },
+    "coordinateCancel": {
+      "modal": {
+        "file": "desktop-ui-events.jsonl",
+        "line": 17,
+        "label": "csv-cancel-coordinate-fresh-observation",
+        "atUtc": "2026-10-15T23:52:10.292Z",
+        "window": {
+          "app": "process:D:\\project\\宠物\\output\\build-candidates\\c18-pet-read-model-20261016\\token-meow.exe",
+          "id": 1639666,
+          "title": "导出本机用量账本"
+        },
+        "screenshots": [
+          {
+            "id": "screenshot-0",
+            "width": 16,
+            "height": 16,
+            "originX": 0,
+            "originY": 0
+          },
+          {
+            "id": "screenshot-1",
+            "width": 16,
+            "height": 16,
+            "originX": 0,
+            "originY": 0
+          },
+          {
+            "id": "screenshot-2",
+            "width": 946,
+            "height": 533,
+            "originX": 7,
+            "originY": 0
+          }
+        ],
+        "focusedElement": "97 编辑 (settable, string) 搜索框 Description: 在 c18-native-ui-20261016-73468137e02548f48bb82080dece2017 中搜索 ID: SearchEditBox"
+      },
+      "action": {
+        "screenshotId": "screenshot-2",
+        "x": 884,
+        "y": 502
+      },
+      "observedResult": "dialog closed, no new default-named file",
+      "absentFile": "token-meow-20261015-235201.csv",
+      "fifthDialogOpened": false
+    },
+    "formulaInjectionQualified": false
+  },
+  "petObservations": {
+    "outsideFocusDismiss": {
+      "observed": "right-click menu closed after safe click in own main window",
+      "eventRefs": [
+        {
+          "file": "desktop-ui-events.jsonl",
+          "line": 20,
+          "label": "pet-context-menu-open",
+          "atUtc": "2026-10-15T23:52:56.587Z",
+          "window": {
+            "app": "process:D:\\project\\宠物\\output\\build-candidates\\c18-pet-read-model-20261016\\token-meow.exe",
+            "id": 23266666,
+            "title": "Token 喵"
+          },
+          "screenshots": [
+            {
+              "id": "screenshot-0",
+              "width": 280,
+              "height": 340,
+              "originX": 1624,
+              "originY": 676
+            }
+          ],
+          "focusedElement": "2 窗格 Token 喵 · 你的本地编码伙伴"
+        },
+        {
+          "file": "desktop-ui-events.jsonl",
+          "line": 21,
+          "label": "own-main-target-for-outside-menu-click",
+          "atUtc": "2026-10-15T23:53:22.315Z",
+          "window": {
+            "app": "process:D:\\project\\宠物\\output\\build-candidates\\c18-pet-read-model-20261016\\token-meow.exe",
+            "id": 5312608,
+            "title": "Token 喵 · 本地用量账本"
+          },
+          "screenshots": [
+            {
+              "id": "screenshot-0",
+              "width": 1242,
+              "height": 852,
+              "originX": 339,
+              "originY": 90
+            }
+          ],
+          "focusedElement": null
+        },
+        {
+          "file": "desktop-ui-events.jsonl",
+          "line": 22,
+          "label": "pet-menu-dismissed-by-own-main-outside-click",
+          "atUtc": "2026-10-15T23:53:30.523Z",
+          "window": {
+            "app": "process:D:\\project\\宠物\\output\\build-candidates\\c18-pet-read-model-20261016\\token-meow.exe",
+            "id": 23266666,
+            "title": "Token 喵"
+          },
+          "screenshots": [
+            {
+              "id": "screenshot-0",
+              "width": 280,
+              "height": 340,
+              "originX": 1624,
+              "originY": 676
+            }
+          ],
+          "focusedElement": "14 文档 Token 喵 · 你的本地编码伙伴 Value: http://tauri.localhost/index.html?window=pet ID: RootWebArea"
+        }
+      ],
+      "physicalDesktopClickTested": false,
+      "reason": "No safe returned Explorer/Program Manager desktop target was available."
+    },
+    "manualMixed": [
+      {
+        "text": "收到你的摸摸了，我在这里。",
+        "tone": "gentle",
+        "eventRef": {
+          "file": "desktop-ui-events.jsonl",
+          "line": 24,
+          "label": "visual-review-pat-first",
+          "atUtc": "2026-10-15T23:54:01.317Z",
+          "window": {
+            "app": "process:D:\\project\\宠物\\output\\build-candidates\\c18-pet-read-model-20261016\\token-meow.exe",
+            "id": 23266666,
+            "title": "Token 喵"
+          },
+          "screenshots": [],
+          "focusedElement": null
+        }
+      },
+      {
+        "text": "摸摸收到～今天也一起慢慢来。",
+        "tone": "playful",
+        "eventRef": {
+          "file": "desktop-ui-events.jsonl",
+          "line": 26,
+          "label": "visual-review-pat-second",
+          "atUtc": "2026-10-15T23:54:25.275Z",
+          "window": {
+            "app": "process:D:\\project\\宠物\\output\\build-candidates\\c18-pet-read-model-20261016\\token-meow.exe",
+            "id": 23266666,
+            "title": "Token 喵"
+          },
+          "screenshots": [],
+          "focusedElement": null
+        }
+      }
+    ],
+    "hiddenRecovery": {
+      "observed": "Hide action removed pet from returned own visible-window list; Ctrl+Alt+M addressed to own main restored pet",
+      "eventRefs": [
+        {
+          "file": "desktop-ui-events.jsonl",
+          "line": 30,
+          "label": "pet-menu-before-hide",
+          "atUtc": "2026-10-15T23:56:04.716Z",
+          "window": {
+            "app": "process:D:\\project\\宠物\\output\\build-candidates\\c18-pet-read-model-20261016\\token-meow.exe",
+            "id": 23266666,
+            "title": "Token 喵"
+          },
+          "screenshots": [
+            {
+              "id": "screenshot-0",
+              "width": 280,
+              "height": 340,
+              "originX": 1624,
+              "originY": 676
+            }
+          ],
+          "focusedElement": "2 窗格 Token 喵 · 你的本地编码伙伴"
+        },
+        {
+          "file": "desktop-ui-events.jsonl",
+          "line": 31,
+          "label": "pet-hidden-main-remains-usable",
+          "atUtc": "2026-10-15T23:56:13.861Z",
+          "window": {
+            "app": "process:D:\\project\\宠物\\output\\build-candidates\\c18-pet-read-model-20261016\\token-meow.exe",
+            "id": 5312608,
+            "title": "Token 喵 · 本地用量账本"
+          },
+          "screenshots": [],
+          "focusedElement": "23 文档 Token 喵 · 你的本地编码伙伴 Value: http://tauri.localhost/ ID: RootWebArea"
+        },
+        {
+          "file": "desktop-ui-events.jsonl",
+          "line": 32,
+          "label": "global-recovery-shortcut-from-own-main",
+          "atUtc": "2026-10-15T23:56:30.361Z",
+          "window": {
+            "app": "process:D:\\project\\宠物\\output\\build-candidates\\c18-pet-read-model-20261016\\token-meow.exe",
+            "id": 5312608,
+            "title": "Token 喵 · 本地用量账本"
+          },
+          "screenshots": [],
+          "focusedElement": "23 文档 Token 喵 · 你的本地编码伙伴 Value: http://tauri.localhost/ ID: RootWebArea"
+        },
+        {
+          "file": "desktop-ui-events.jsonl",
+          "line": 33,
+          "label": "pet-recovered-after-hidden",
+          "atUtc": "2026-10-15T23:56:42.352Z",
+          "window": {
+            "app": "process:D:\\project\\宠物\\output\\build-candidates\\c18-pet-read-model-20261016\\token-meow.exe",
+            "id": 23266666,
+            "title": "Token 喵"
+          },
+          "screenshots": [
+            {
+              "id": "screenshot-0",
+              "width": 280,
+              "height": 340,
+              "originX": 1624,
+              "originY": 676
+            }
+          ],
+          "focusedElement": "14 文档 Token 喵 · 你的本地编码伙伴 Value: http://tauri.localhost/index.html?window=pet ID: RootWebArea"
+        }
+      ],
+      "newIngestionWhileHiddenQualified": false
+    },
+    "clickThroughRecovery": {
+      "observed": "Clicked Enable click-through menu action then Ctrl+Alt+M; pet returned and menu was operable again",
+      "eventRefs": [
+        {
+          "file": "desktop-ui-events.jsonl",
+          "line": 34,
+          "label": "pet-menu-before-clickthrough",
+          "atUtc": "2026-10-15T23:56:51.265Z",
+          "window": {
+            "app": "process:D:\\project\\宠物\\output\\build-candidates\\c18-pet-read-model-20261016\\token-meow.exe",
+            "id": 23266666,
+            "title": "Token 喵"
+          },
+          "screenshots": [
+            {
+              "id": "screenshot-0",
+              "width": 280,
+              "height": 340,
+              "originX": 1624,
+              "originY": 676
+            }
+          ],
+          "focusedElement": "2 窗格 Token 喵 · 你的本地编码伙伴"
+        },
+        {
+          "file": "desktop-ui-events.jsonl",
+          "line": 35,
+          "label": "pet-clickthrough-enabled",
+          "atUtc": "2026-10-15T23:56:58.766Z",
+          "window": {
+            "app": "process:D:\\project\\宠物\\output\\build-candidates\\c18-pet-read-model-20261016\\token-meow.exe",
+            "id": 23266666,
+            "title": "Token 喵"
+          },
+          "screenshots": [
+            {
+              "id": "screenshot-0",
+              "width": 280,
+              "height": 340,
+              "originX": 1624,
+              "originY": 676
+            }
+          ],
+          "focusedElement": "2 窗格 Token 喵 · 你的本地编码伙伴"
+        },
+        {
+          "file": "desktop-ui-events.jsonl",
+          "line": 37,
+          "label": "pet-recovered-from-clickthrough-shortcut",
+          "atUtc": "2026-10-15T23:57:28.870Z",
+          "window": {
+            "app": "process:D:\\project\\宠物\\output\\build-candidates\\c18-pet-read-model-20261016\\token-meow.exe",
+            "id": 23266666,
+            "title": "Token 喵"
+          },
+          "screenshots": [
+            {
+              "id": "screenshot-0",
+              "width": 280,
+              "height": 340,
+              "originX": 1624,
+              "originY": 676
+            }
+          ],
+          "focusedElement": "14 文档 Token 喵 · 你的本地编码伙伴 Value: http://tauri.localhost/index.html?window=pet ID: RootWebArea"
+        },
+        {
+          "file": "desktop-ui-events.jsonl",
+          "line": 39,
+          "label": "pet-menu-fresh-after-guardian-armed",
+          "atUtc": "2026-10-15T23:58:43.317Z",
+          "window": {
+            "app": "process:D:\\project\\宠物\\output\\build-candidates\\c18-pet-read-model-20261016\\token-meow.exe",
+            "id": 23266666,
+            "title": "Token 喵"
+          },
+          "screenshots": [
+            {
+              "id": "screenshot-0",
+              "width": 280,
+              "height": 340,
+              "originX": 1624,
+              "originY": 676
+            }
+          ],
+          "focusedElement": "2 窗格 Token 喵 · 你的本地编码伙伴"
+        }
+      ],
+      "underlyingWindowClickDeliveryTested": false,
+      "nativeIgnoreCursorStateIndependentlyRead": false
+    },
+    "autoCare": {
+      "startEventUtc": "2026-10-15T23:54:46.106Z",
+      "startCapture": {
+        "file": "desktop-ui-events.jsonl",
+        "line": 28,
+        "label": "live-care-start-after-authored-file-append",
+        "atUtc": "2026-10-15T23:55:02.299Z",
+        "window": {
+          "app": "process:D:\\project\\宠物\\output\\build-candidates\\c18-pet-read-model-20261016\\token-meow.exe",
+          "id": 23266666,
+          "title": "Token 喵"
+        },
+        "screenshots": [
+          {
+            "id": "screenshot-0",
+            "width": 280,
+            "height": 340,
+            "originX": 1624,
+            "originY": 676
+          }
+        ],
+        "focusedElement": "2 窗格 Token 喵 · 你的本地编码伙伴"
+      },
+      "startCaptureDelaySeconds": 16.193,
+      "completeEventUtc": "2026-10-15T23:55:32.405Z",
+      "completeCapture": {
+        "file": "desktop-ui-events.jsonl",
+        "line": 29,
+        "label": "live-care-complete-after-authored-file-append",
+        "atUtc": "2026-10-15T23:55:51.165Z",
+        "window": {
+          "app": "process:D:\\project\\宠物\\output\\build-candidates\\c18-pet-read-model-20261016\\token-meow.exe",
+          "id": 23266666,
+          "title": "Token 喵"
+        },
+        "screenshots": [
+          {
+            "id": "screenshot-0",
+            "width": 280,
+            "height": 340,
+            "originX": 1624,
+            "originY": 676
+          }
+        ],
+        "focusedElement": "2 窗格 Token 喵 · 你的本地编码伙伴"
+      },
+      "completeCaptureDelaySeconds": 18.76,
+      "observed": "active 1 -> idle with unread badge 1; main today two responses/1012 formatted 1.0K",
+      "automaticBubblesObserved": false,
+      "successPoseQualified": false,
+      "limitation": "Both returned captures were later than the 8-second bubble window; this does not prove a product delivery failure."
+    },
+    "transparentAlphaPixelQualification": false,
+    "thirtyCycleLifecycleTested": false,
+    "multiDpiRdpSleepTested": false
+  },
+  "visibleIncrementTiming": {
+    "gate": "not-qualified",
+    "eventsAppended": 1,
+    "eventsConfirmed": 0,
+    "eventsRequired": 20,
+    "p95UpperMs": null,
+    "firstUnconfirmedUpperMs": 1189.8966000005603,
+    "firstUnconfirmedUpperIsNotQualifiedP95": true,
+    "reason": "First returned screenshot was partially occluded; response count was not visually confirmed. Later re-observation exceeded original 10-second bound.",
+    "errors": [
+      "Event 1: the ten-second native observation bound expired."
+    ],
+    "priorC11C12C13EvidenceInherited": false,
+    "exactPaintOrCommitTimingClaimed": false
+  },
+  "exit": {
+    "actualActionUtc": "2026-10-16T00:01:11.554Z",
+    "method": "actual Sky pet menu Exit click",
+    "lastMenuScreenshotAtUtc": "2026-10-15T23:58:43.317Z",
+    "screenshotToActionGapSeconds": 148.237,
+    "freshObservationActionChainQualified": false,
+    "originalGuardian": {
+      "outcome": "unknown",
+      "reason": "armed-exit-proof-deadline",
+      "proofSeconds": 120,
+      "completedAtUtc": "2026-10-16T00:00:12.4152244Z",
+      "rootExited": false,
+      "activeProcesses": 8,
+      "normalMenuExitQualified": false,
+      "allOwnedHandlesClosed": true
+    },
+    "actionAfterGuardianEndSeconds": 59.138776,
+    "appReportedShutdown": {
+      "accountFinished": true,
+      "at": "2026-10-16T00:01:11.760868100+00:00",
+      "deadlineReached": false,
+      "scannerFinished": true,
+      "stage": "exit-ready",
+      "waitMs": 50.2332
+    },
+    "laterOwnWindows": [],
+    "lateNewHandleQuery": {
+      "source": "output\\implementation\\c18-native-late-identities-9231f93d5b8a486c95842dcb944715d5\\result.json",
+      "rootObservation": {
+        "pid": 17060,
+        "expectedCreationFileTimeDecimal": "134365816036476473",
+        "originalOrdinal": 1,
+        "checkedAtUtc": "2026-10-16T00:05:23.206687+00:00",
+        "status": "creation-matched-exited-late-scope",
+        "exitedProven": true,
+        "aliveProven": false,
+        "actualCreationFileTimeDecimal": "134365816036476473",
+        "sameNewlyOpenedHandle": true,
+        "waitResult": 0,
+        "exitCode": 0,
+        "exitFileTimeDecimal": "134365824717975841"
+      },
+      "sameCreationExitedCount": 8,
+      "unknownCount": 4,
+      "repairsOriginalGuardian": false,
+      "originalJobEmptyProven": false
+    },
+    "wholeOwnedProcessExitQualified": false
+  },
+  "additionalObservedDiagnostics": {
+    "accountDirectory": {
+      "bindingGeneration": 0,
+      "count": null,
+      "error": "桥接触发 96 MiB 提交内存预算预警，已停止全部自有桥接进程；请手动重试",
+      "lastSuccessAt": null,
+      "sourceId": "e28041b10cc96fed1ef14c2ff5df95d30e5661754a0f17c03ae30191593f9dba",
+      "status": "unavailable"
+    },
+    "notification": {
+      "error": "系统通知未能提交；请检查Windows通知设置或安装状态（0x80070490）。收件箱事实仍保留。",
+      "eventCount": 1,
+      "lastAttemptAt": "2026-10-15T23:55:34.753077500+00:00",
+      "status": "failed"
+    },
+    "scope": "Application-reported diagnostics only; no manual account refresh, login action, OS notification display proof, or resource gate."
+  },
+  "qualification": {
+    "scopedNativeObservationsRecorded": true,
+    "wholeF11Passed": false,
+    "wholeF12Passed": false,
+    "P95Passed": false,
+    "warmStartQualified": false,
+    "resourceQualified": false,
+    "installerQualified": false,
+    "M4Passed": false,
+    "goalComplete": false
+  },
+  "finalization": {
+    "uiActionsOrCaptures": false,
+    "newProcessQueries": false,
+    "databaseOpened": false,
+    "applicationLaunched": false,
+    "testsOrBuildRun": false,
+    "sourceOrOldEvidenceModified": false
+  },
+  "references": [
+    {
+      "path": "output/performance/c18-native-ui-20261016-73468137e02548f48bb82080dece2017/launch.json",
+      "bytes": 1232,
+      "sha256": "A994C3DF052B33BF91E921B22EC2931073FD50F141F87B3DB6BEDBD7952DD7DE"
+    },
+    {
+      "path": "output/performance/c18-native-ui-20261016-73468137e02548f48bb82080dece2017/owner-provenance.json",
+      "bytes": 1663,
+      "sha256": "BFBE694A8BACCDC61BBD73F34414A0638E516C5BF762B261B5BB820FCC866CB3"
+    },
+    {
+      "path": "output/performance/c18-native-ui-20261016-73468137e02548f48bb82080dece2017/summary.json",
+      "bytes": 482,
+      "sha256": "E9F643B944AA663AFF54C6C0909D6044A5EE00417CEE4EFC01FA48041DBC41EE"
+    },
+    {
+      "path": "output/performance/c18-native-ui-20261016-73468137e02548f48bb82080dece2017/native-job.jsonl",
+      "bytes": 796522,
+      "sha256": "D4A4FD2A3BD9F57F90B4B2A3CEE0C7AD165649E6DA2EA9D9D7841C9F1C4FB540"
+    },
+    {
+      "path": "output/performance/c18-native-ui-20261016-73468137e02548f48bb82080dece2017/desktop-ui-events.jsonl",
+      "bytes": 295624,
+      "sha256": "E73567C35A6981F26A6AAD328747FC665541FDB273E11FF48A96B97460CD79CF"
+    },
+    {
+      "path": "output/performance/c18-native-ui-20261016-73468137e02548f48bb82080dece2017/native-screenshot-increments.jsonl",
+      "bytes": 3767,
+      "sha256": "88A4750465C18A6446CCAE4170C6F63627B0BA065DAB48806A49FA589F982164"
+    },
+    {
+      "path": "output/performance/c18-native-ui-20261016-73468137e02548f48bb82080dece2017/csv-independent-content.json",
+      "bytes": 2748,
+      "sha256": "4D1DB86F4AF832184ABCD3B6B89EA94B174F2C9D6394A3FD51D8E5AC4FB63B2F"
+    },
+    {
+      "path": "output/performance/c18-native-ui-20261016-73468137e02548f48bb82080dece2017/guardian-protocol-binding.json",
+      "bytes": 284,
+      "sha256": "A1DEC9443FFB54B1C039C7F7CD6BE3F949E8F339F7A99E2510A3B65D9D16E990"
+    },
+    {
+      "path": "output/performance/c18-native-ui-20261016-73468137e02548f48bb82080dece2017/guardian-binding.json",
+      "bytes": 1065,
+      "sha256": "2BC8B95D84EA012F01C0B2CF758DF69F154A0FFA812D8B9CB510829525448058"
+    },
+    {
+      "path": "output/performance/c18-native-ui-20261016-73468137e02548f48bb82080dece2017/end-observation.json",
+      "bytes": 256,
+      "sha256": "5E8F4B0EB810D8EA6EDF67775F58324CFBDA81A4932BD1762A35DB4EBB49850A"
+    },
+    {
+      "path": "output/performance/c18-native-ui-20261016-73468137e02548f48bb82080dece2017/exit-arm.json",
+      "bytes": 630,
+      "sha256": "8F73C59E4A9CC89D9609122F0AA7A2AABAF1EA4BF13FE9EDBF3A9BB7AA273E30"
+    },
+    {
+      "path": "output/performance/c18-native-ui-20261016-73468137e02548f48bb82080dece2017/exit-armed.json",
+      "bytes": 471,
+      "sha256": "BAAA6C74BDEF04491F7C47A9EF7A3E3D84A7EA9FC2EB25E28212A4C93FC0AB6F"
+    },
+    {
+      "path": "output/performance/c18-native-ui-20261016-73468137e02548f48bb82080dece2017/guardian.jsonl",
+      "bytes": 17225,
+      "sha256": "AF6DBFC0812C27B2EE54026FC3EF63AC70B00C500012A6D3EB6035D88C0DC2F6"
+    },
+    {
+      "path": "output/performance/c18-native-ui-20261016-73468137e02548f48bb82080dece2017/guardian-end.json",
+      "bytes": 7702,
+      "sha256": "FE17F8E1DE6C5CB97E5591FA78A46A86F9CE6441C4A7473624CE18930DB536F2"
+    },
+    {
+      "path": "output/performance/c18-native-ui-20261016-73468137e02548f48bb82080dece2017/desktop-ui-exit-request.json",
+      "bytes": 1049,
+      "sha256": "26ADDC391A9EFD94DBE55640961CF670EDCE9F8C6FDB069F8476B039967D6D6B"
+    },
+    {
+      "path": "output/performance/c18-native-ui-20261016-73468137e02548f48bb82080dece2017/desktop-ui-exit-window-followup.json",
+      "bytes": 783,
+      "sha256": "2D8DF35C07CE500B6AC4CC17E0BC7761B1F803A7FEDCACB79D3B09001897DEB0"
+    },
+    {
+      "path": "output/performance/work-care-native-21e48e58c0894d7f84db89c54fe35f80/start.receipt.json",
+      "bytes": 2009,
+      "sha256": "C8555CF980418EC94C57AB7C2A56307F63C604977AAD61F005233F15C718BAE8"
+    },
+    {
+      "path": "output/performance/work-care-native-21e48e58c0894d7f84db89c54fe35f80/complete.receipt.json",
+      "bytes": 2390,
+      "sha256": "C204FA208998A1ABA7A39ECFBA334A70D397F3A25A5DF19E8F8A73757771E15D"
+    },
+    {
+      "path": "output/performance/incremental-9770da3257db4bb08ee834519b1f890d/data/desktop-metrics.json",
+      "bytes": 2809,
+      "sha256": "EA7D3234E415C156E3B4D6CE90EFDB930E79D712F61FC188DD648FC1BA10E72A"
+    },
+    {
+      "path": "output/implementation/c18-native-late-identities-9231f93d5b8a486c95842dcb944715d5/result.json",
+      "bytes": 6683,
+      "sha256": "0A1EC962EC5E8C263AF5D5412394E591B757F6C32E72908B6A6258D24AB99FD3"
+    },
+    {
+      "path": "output/performance/c18-native-ui-20261016-73468137e02548f48bb82080dece2017/finalize-scoped-receipt.py",
+      "bytes": 14605,
+      "sha256": "591B14A010B767ADA453A8DDC5FE03DE83D49108C6A365672A6DC5A3C3041C3E"
+    }
+  ]
+}

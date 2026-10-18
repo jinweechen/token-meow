@@ -1,0 +1,204 @@
+{
+  "schema": "nekomi-hd-independent-visual-review-v1",
+  "reviewedAtLocalDate": "2026-10-16",
+  "reviewer": "hd_final_visual_review",
+  "scope": "Independent visual review of all twelve HD PNG poses through actual browser alpha compositing on dark and light backgrounds, including hand, foot and waist enlarged panels.",
+  "method": {
+    "sourceImageEdits": false,
+    "reviewedScreenshotCount": 24,
+    "backgrounds": ["dark", "light"],
+    "screenshotDirectory": "output/playwright",
+    "limitations": [
+      "This is a visual quality review of stylized Q-proportion artwork, not an exact anatomical certification.",
+      "Occluded digits are assessed by plausible overlap and connected contours; every hand is not required to display all five digits.",
+      "This receipt does not certify native desktop HD loading, animation transitions, or installer behavior.",
+      "No alpha-channel numerical validation was performed by this reviewer; the parent task owns numerical bounds and native image size validation."
+    ]
+  },
+  "overallResult": "pass-with-scoped-limitations",
+  "blockingFindings": [],
+  "poses": [
+    {
+      "pose": "idle",
+      "file": "assets/pets/nekomi/hd-v1/idle.png",
+      "sha256": "f1d2c01a123ff0616612d11f5ddba7055f93405b7c3273f640438652ce02962d",
+      "evidence": ["output/playwright/hd-v1-idle-dark.png", "output/playwright/hd-v1-idle-light.png"],
+      "result": "pass-with-scoped-limitations",
+      "observations": {
+        "hands": "Both wrists join coherent backs of hands. Thumbs have independent contours; lowered fingers overlap naturally. No digit branches from another digit or emerges from the cuff. Small fingertips are stylized and not all digits are independently visible.",
+        "feet": "Both shoe fronts face forward with a small central gap. No inward toe rotation is evident; lower legs connect to the shoes without a crossing axis.",
+        "clothing": "Ivory bodice is clearly visible between the small chest bow and green waist band. Gathered skirt starts below the band, not at the chest.",
+        "headAccessories": "Two small matched daisy bows attach to side locks and have short downward tails; the ears remain clear.",
+        "transparency": "Hair and tail contours composite cleanly on both backgrounds. No conspicuous opaque rectangle, colored haze, or isolated opaque speck is visible."
+      },
+      "blockingFindings": []
+    },
+    {
+      "pose": "active",
+      "file": "assets/pets/nekomi/hd-v1/active.png",
+      "sha256": "a5e69f390c4d567bac00b5117e3762474e40b6b278ab5ca21679802340872cfc",
+      "evidence": ["output/playwright/hd-v1-active-dark.png", "output/playwright/hd-v1-active-light.png"],
+      "result": "pass-with-scoped-limitations",
+      "observations": {
+        "hands": "Greeting hand shows four separated fingers plus one thumb, all rooted in one palm, without fused tips or branching. The other hand hangs with plausible finger overlap. Only the greeting hand faces the viewer.",
+        "feet": "Shoe fronts remain approximately parallel and forward-facing, with no inward pointing toes.",
+        "clothing": "Raised sleeve has a readable elbow bend. Bodice and natural waist band remain distinct from the skirt.",
+        "headAccessories": "Paired small bow clips and short tails remain coherent with the master design.",
+        "transparency": "No visible dark or colored matte around the lifted hand, hair, ears or tail on either background."
+      },
+      "blockingFindings": []
+    },
+    {
+      "pose": "complete",
+      "file": "assets/pets/nekomi/hd-v1/complete.png",
+      "sha256": "43b0bca6f4aca7211f66f78e331dcfd2ebe1f7f92d9ed6fc85e85cfb5bc7fd9b",
+      "evidence": ["output/playwright/hd-v1-complete-dark.png", "output/playwright/hd-v1-complete-light.png"],
+      "result": "pass-with-scoped-limitations",
+      "observations": {
+        "hands": "Both celebratory hands read as small closed human fists with folded finger contours and an opposing thumb. No protruding extra finger or branch is evident. Fine knuckle anatomy is simplified consistently with the Q style.",
+        "feet": "Both feet face forward; shoe centers remain below their respective ankles.",
+        "clothing": "Both raised arms have plausible sleeve bends. Small chest bow leaves the bodice visible; skirt gathers begin at the waist band.",
+        "headAccessories": "Both daisy bow clips remain matched in scale, attached to side hair, and clear of the ears.",
+        "transparency": "Hair, fists and fluffy tail have clean visible silhouettes on both backgrounds."
+      },
+      "blockingFindings": []
+    },
+    {
+      "pose": "alert",
+      "file": "assets/pets/nekomi/hd-v1/alert.png",
+      "sha256": "8640829380318ac26e5f5def3376c5399b6ab6964dc614f53428182b3eef100b",
+      "evidence": ["output/playwright/hd-v1-alert-dark.png", "output/playwright/hd-v1-alert-light.png"],
+      "result": "pass-with-scoped-limitations",
+      "observations": {
+        "hands": "Crossed forearms create coherent sleeve and hand overlap. The image-left fingers rest over the opposite sleeve; the image-right hand is partly hidden by fabric. No clear extra digit or disconnected finger is visible. Hidden digits cannot be counted independently.",
+        "feet": "Both shoes stay forward-facing with no inward toe convergence.",
+        "clothing": "Crossed arms partly cover the bodice but do not move the actual waist band. The waist band and skirt connection remain below the chest.",
+        "headAccessories": "Paired bows remain small, balanced and attached to side hair.",
+        "transparency": "No visible matte blocks or colored background residue on either composite."
+      },
+      "blockingFindings": []
+    },
+    {
+      "pose": "sleep",
+      "file": "assets/pets/nekomi/hd-v1/sleep.png",
+      "sha256": "ca1751662ff2238e9dc24b505d12c3a4083b4906370e62aab317419d97816686",
+      "evidence": ["output/playwright/hd-v1-sleep-dark.png", "output/playwright/hd-v1-sleep-light.png"],
+      "result": "pass-with-scoped-limitations",
+      "observations": {
+        "hands": "Hands overlap gently at the front. The upper hand and lower fingertips remain readable as two separate hands, with plausible wrist connections. Overlap is not an interlaced-finger knot; no clear branching or extra fingertip is visible.",
+        "feet": "Feet remain forward-facing and separated; no inward toe angle is apparent despite the gentle head tilt.",
+        "clothing": "The waist band remains above the resting hands, with a visible bodice and lower skirt gathers. Sleeve bends are coherent with hands resting in front.",
+        "headAccessories": "Both clips follow the slight head tilt, retain short tails, and remain paired in scale.",
+        "transparency": "Hair and tail edges composite cleanly on both backgrounds with no conspicuous colored halo or opaque matte."
+      },
+      "blockingFindings": []
+    },
+    {
+      "pose": "affection",
+      "file": "assets/pets/nekomi/hd-v1/affection.png",
+      "sha256": "eb002e7bf7e5824c6e087ef54019a5956dd6d036b297274503ccb15c24b8171c",
+      "evidence": ["output/playwright/hd-v1-affection-dark.png", "output/playwright/hd-v1-affection-light.png"],
+      "result": "pass-with-scoped-limitations",
+      "observations": {
+        "hands": "The hand over the heart shows the back of one coherent hand, with grouped fingers resting along the chest and a plausible wrist. Part of the thumb and inner hand are hidden by the pose. The other hand hangs naturally with a separate thumb and overlapping fingers; no clear extra digit or branching is visible.",
+        "feet": "Both shoes face forward and remain below their respective ankles without inward toe convergence.",
+        "clothing": "The raised arm joins a bent sleeve. The chest hand partly covers the bow but leaves the bodice and waist band readable; skirt gathers begin at the waist.",
+        "headAccessories": "Paired small daisy bows remain attached to the side locks with short downward tails.",
+        "transparency": "Both composites show a clean visible outline around the hand, hair, ears and tail without a colored matte."
+      },
+      "blockingFindings": []
+    },
+    {
+      "pose": "stretch",
+      "file": "assets/pets/nekomi/hd-v1/stretch.png",
+      "sha256": "773eb3b5134a2a441ff820826713982d2764cc18c7508733ae8700bbf1e5f6b3",
+      "evidence": ["output/playwright/hd-v1-stretch-dark.png", "output/playwright/hd-v1-stretch-light.png"],
+      "result": "pass-with-scoped-limitations",
+      "observations": {
+        "hands": "The raised hand reads as a relaxed closed fist with four folded finger shapes and an opposing thumb, without an extra projecting digit. The small fist near the mouth has coherent folded contours and wrist connection. Fine knuckle geometry remains stylized.",
+        "feet": "The upper-body stretch leaves both feet forward-facing, apart, and aligned with the lower legs.",
+        "clothing": "One sleeve extends upward from the shoulder; the other bends toward the mouth. The chest bow, visible bodice and natural waist band remain separate from the skirt.",
+        "headAccessories": "Both small clips remain attached and balanced; the raised sleeve does not merge with the adjacent bow.",
+        "transparency": "Raised fist is fully visible within the frame. Hair, arm and tail silhouettes are clean against both backgrounds, with no visible matte block."
+      },
+      "blockingFindings": []
+    },
+    {
+      "pose": "bow",
+      "file": "assets/pets/nekomi/hd-v1/bow.png",
+      "sha256": "cf28613909ce3c94d8598ad8210ba77024a7b7d8b7d2acebc7d9942b7f61b287",
+      "evidence": ["output/playwright/hd-v1-bow-dark.png", "output/playwright/hd-v1-bow-light.png"],
+      "result": "pass-with-scoped-limitations",
+      "observations": {
+        "hands": "Both hands overlap at different depths in front of the skirt. The upper hand's fingers follow one palm, while the lower fingertips emerge from the other hand; no interlaced knot, disconnected finger or clear extra digit is visible. Some digits are naturally occluded.",
+        "feet": "The slight upper-body bow retains forward-facing shoe fronts and stable, separated lower legs without inward toe rotation.",
+        "clothing": "The upper body inclines slightly; both sleeves descend to the hands. A visible green waist band remains below the bodice and above the skirt gathers.",
+        "headAccessories": "The two small clips remain paired in scale with short downward tails and do not float away from the hair.",
+        "transparency": "The lower hand group and hair/tail edges remain clean on dark and light backgrounds; no opaque rectangle or conspicuous fringe is visible."
+      },
+      "blockingFindings": []
+    },
+    {
+      "pose": "wink",
+      "file": "assets/pets/nekomi/hd-v1/wink.png",
+      "sha256": "ab4e892a85c9231250aad076dbd05bee722676b67f1cbaf904fef9b117085415",
+      "evidence": ["output/playwright/hd-v1-wink-dark.png", "output/playwright/hd-v1-wink-light.png"],
+      "result": "pass-with-scoped-limitations",
+      "observations": {
+        "hands": "The hip hand bends coherently at the wrist with four curved fingers lying along the waist area and the thumb hidden around the side. Fingers originate in one hand without a branching root. The opposite hand hangs with a separate thumb and natural finger overlap.",
+        "feet": "Both rounded shoe fronts face forward with a small gap; no inward toe rotation is evident.",
+        "clothing": "The elbow and sleeve support the hand-on-hip gesture. The visible ivory bodice ends at a readable green waist band and the skirt starts below it.",
+        "headAccessories": "Two small matching daisy bow clips remain fastened to the side locks with short tails.",
+        "transparency": "No conspicuous colored fringe or opaque matte is visible around the arm, hair, shoes or tail on either background."
+      },
+      "blockingFindings": []
+    },
+    {
+      "pose": "happy",
+      "file": "assets/pets/nekomi/hd-v1/happy.png",
+      "sha256": "8ea7b980d272902862aeae101d2f6e0b21f0b42720aece42af9886e23f05643a",
+      "evidence": ["output/playwright/hd-v1-happy-dark.png", "output/playwright/hd-v1-happy-light.png"],
+      "result": "pass-with-scoped-limitations",
+      "observations": {
+        "hands": "The greeting hand displays four distinct fingers plus one thumb, each connected to the palm. No fused fingertip, extra digit or branching is evident. The other hand stays naturally lowered, so palm-forward display is limited to the greeting gesture.",
+        "feet": "Feet remain forward-facing with their shoe centers below their corresponding ankles.",
+        "clothing": "The raised sleeve bends naturally, and the compact chest bow leaves a visible bodice above the natural waist band. The skirt begins below that band.",
+        "headAccessories": "Paired small side clips retain balanced scale and short downward tails.",
+        "transparency": "The complete ear, hand, hair and tail silhouettes are visible with clean compositing on both backgrounds.",
+        "composition": "Reviewed the final repaired framing represented by SHA-256 8ea7b980d272902862aeae101d2f6e0b21f0b42720aece42af9886e23f05643a; no character part is visibly cropped."
+      },
+      "blockingFindings": []
+    },
+    {
+      "pose": "shy",
+      "file": "assets/pets/nekomi/hd-v1/shy.png",
+      "sha256": "a12948612b207480bd49b5259e1df9d749a6cc73e2fec5300c0ce003d41c0c28",
+      "evidence": ["output/playwright/hd-v1-shy-dark.png", "output/playwright/hd-v1-shy-light.png"],
+      "result": "pass-with-scoped-limitations",
+      "observations": {
+        "hands": "The cheek-touching hand is shown from the side with curved fingers meeting the cheek and a coherent wrist bend; its thumb is naturally hidden. The hand and face remain separate readable forms. The lowered hand has a visible opposing thumb and overlapping finger contours without a clear branch or extra fingertip.",
+        "feet": "The slight head tilt does not introduce inward-pointing toes; both shoes remain forward and separated.",
+        "clothing": "The cheek-side sleeve bends at the elbow. Ivory bodice and natural waist band remain visible above the lower skirt gathers.",
+        "headAccessories": "Both clip bows follow the head tilt with matched scale and remain visibly attached to side hair.",
+        "transparency": "Both background composites show clean hand, hair and tail silhouettes without a conspicuous opaque matte or colored haze."
+      },
+      "blockingFindings": []
+    },
+    {
+      "pose": "hug-tail",
+      "file": "assets/pets/nekomi/hd-v1/hug-tail.png",
+      "sha256": "6a570731fd3b93bd58a797ef076979f2693b6a7f092a5ae6536f473263cd4f60",
+      "evidence": ["output/playwright/hd-v1-hug-tail-dark.png", "output/playwright/hd-v1-hug-tail-light.png"],
+      "result": "pass-with-scoped-limitations",
+      "observations": {
+        "hands": "Two hands contact the tail at distinct heights. The upper fingers curve over the fur with the inner thumb naturally obscured; the lower hand wraps around the tail with a visible opposing thumb and folded finger tips. No fused pair of hands, disconnected digit or clear extra finger is visible.",
+        "feet": "Both feet remain forward-facing and stable under the body despite the head and upper-body tilt.",
+        "clothing": "The hugged tail and arms partly cover the right bodice and waist, while the left waist attachment and skirt origin remain coherent. The tail reads as one continuous fluffy form rather than an extra limb.",
+        "headAccessories": "Two small clips remain attached to the tilted head with consistent downward tails.",
+        "transparency": "The ear tips, hair and curled tail remain complete, with clean visible compositing on both backgrounds.",
+        "composition": "Top padding is noticeably tighter than the other poses because the tilted ear rises toward the canvas edge. The ear tip is fully visible and does not touch or cross the image boundary. Parent-task bounds report approximately 10 source pixels of top padding; this reviewer confirms visible completeness rather than remeasuring that padding."
+      },
+      "blockingFindings": []
+    }
+  ]
+}

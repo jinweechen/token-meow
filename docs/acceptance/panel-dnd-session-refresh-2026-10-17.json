@@ -1,0 +1,373 @@
+{
+  "status": "SCOPED_PANEL_DND_AND_LIVE_SESSION_FIXES_APPLIED_COMPONENT_CHECKS_PASSED",
+  "checkedAtUtc": "2026-10-17T06:42:34.284869+00:00",
+  "mainSourceApplied": true,
+  "changedProductPaths": [
+    "src/features/Panels.tsx"
+  ],
+  "appliedPanelsSha256": "2A1FA2D946F7ADEA4B3F94800AA7DDBAAD4732F261F0B5B242CE984B4253F907",
+  "mainInputsEqualTypedAndRenderedProposed": 141,
+  "currentSrcFilesMatched": 97,
+  "currentRustInputsUnchanged": 49,
+  "fixes": [
+    "Timed-DND saves both displayed endpoints together and disables both during pending save.",
+    "Session detail stores exact sourceId/thread identity, renders latest accepted snapshot, closes removed identities and does not reopen on reappearance; mapping draft remains independent."
+  ],
+  "oldBehaviorNegatives": [
+    {
+      "raw": {
+        "path": "output/playwright/panel-state-fixes-20261017-r1/baseline-dnd-negative.cli.txt",
+        "bytes": 4350,
+        "sha256": "302730230971C2B112A58A34E515EA4CFFC682294A3CAD3558727D03B63AE056"
+      },
+      "reproduced": true,
+      "originalFeaturePassed": false
+    },
+    {
+      "raw": {
+        "path": "output/playwright/panel-state-fixes-20261017-r1/baseline-session-negative.cli.txt",
+        "bytes": 4407,
+        "sha256": "6AF4FC8849A1F4485677BD0AE20745EFD59E136784FADDD87B70DA7E0B233821"
+      },
+      "reproduced": true,
+      "originalFeaturePassed": false
+    }
+  ],
+  "plannedComponentGroupsPassed": 9,
+  "plannedComponentGroupsFailed": 0,
+  "actualRawAssertionObservationsPassed": 33,
+  "observationCountIsNotScenarioCount": true,
+  "groups": [
+    {
+      "id": "D1",
+      "name": "first end-only and preserved existing endpoint variants",
+      "raw": [
+        {
+          "path": "output/playwright/panel-state-fixes-20261017-r1/proposed-first-end-pending.cli.txt",
+          "bytes": 5149,
+          "sha256": "1E7FFA4A0E463F4489611C1F7C7EF49BA3ED86759BB65D7D7DBB7D5CC1F1E87D"
+        },
+        {
+          "path": "output/playwright/panel-state-fixes-20261017-r1/proposed-first-end-completed.cli.txt",
+          "bytes": 5039,
+          "sha256": "92A58EC1A7720376DCD686259C24921AF308D8344B5E1189E5A54F7B93F28D10"
+        },
+        {
+          "path": "output/playwright/panel-state-fixes-20261017-r1/proposed-existing-start-pending.cli.txt",
+          "bytes": 5211,
+          "sha256": "5E13ADA69D6AF01508507FF2944E91FE9B02B8261E2EBCCE128C8FF9BA3D84A3"
+        },
+        {
+          "path": "output/playwright/panel-state-fixes-20261017-r1/proposed-existing-start-completed.cli.txt",
+          "bytes": 5082,
+          "sha256": "A9272E5BE0F0742CD6FCFF5C9E46A60913295379D490FC997A01B7C747F2B038"
+        },
+        {
+          "path": "output/playwright/panel-state-fixes-20261017-r1/proposed-existing-end-pending.cli.txt",
+          "bytes": 5203,
+          "sha256": "B1324F72E3C206B268D06017D76E2FD74B530F1979EB4091A960A12E6E0B86A0"
+        },
+        {
+          "path": "output/playwright/panel-state-fixes-20261017-r1/proposed-existing-end-completed.cli.txt",
+          "bytes": 5076,
+          "sha256": "38AD77360AA0CAC2099AB5B809D0EBB97B8FBF9C7AF49695F45AA41705E24C04"
+        },
+        {
+          "path": "output/playwright/panel-state-fixes-20261017-r1/proposed-custom-end-pending.cli.txt",
+          "bytes": 5258,
+          "sha256": "958AE635642B2CC937AA21FAD088D0F607B93FDD16A00467369FBE783499DF1B"
+        },
+        {
+          "path": "output/playwright/panel-state-fixes-20261017-r1/proposed-custom-end-completed.cli.txt",
+          "bytes": 5112,
+          "sha256": "7C587416EFBF2C0EA4EDE711B37162E2BE33CF7D10094FA3A0EBAA23F8D5897F"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "id": "D2",
+      "name": "independent first start-only edit",
+      "raw": [
+        {
+          "path": "output/playwright/panel-state-fixes-20261017-r1/proposed-first-start-pending.cli.txt",
+          "bytes": 5151,
+          "sha256": "8E2730E9B00DD3FCB5DD25B56DB53B6068A0F39D8B0CFC0D2502CA12F1D8A2A2"
+        },
+        {
+          "path": "output/playwright/panel-state-fixes-20261017-r1/proposed-first-start-completed.cli.txt",
+          "bytes": 5041,
+          "sha256": "E5C0B96AABB7E909A4F45D9DFA280E0CC8962392796580323CF46CB561BFBEE8"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "id": "D3",
+      "name": "pending disable/exact call count and accepted counterpart followup",
+      "raw": [
+        {
+          "path": "output/playwright/panel-state-fixes-20261017-r1/proposed-first-end-pending.cli.txt",
+          "bytes": 5149,
+          "sha256": "1E7FFA4A0E463F4489611C1F7C7EF49BA3ED86759BB65D7D7DBB7D5CC1F1E87D"
+        },
+        {
+          "path": "output/playwright/panel-state-fixes-20261017-r1/proposed-followup-pending.cli.txt",
+          "bytes": 5229,
+          "sha256": "0708C3F13F6E576A39B1B2B9DC94AEFCA0099800696BA40FC4820D570A5AFDEE"
+        },
+        {
+          "path": "output/playwright/panel-state-fixes-20261017-r1/proposed-followup-completed.cli.txt",
+          "bytes": 5383,
+          "sha256": "B2B1B2277D4235BDA360500E83C1D5CD962DDA568D1980B392E5C87D2CB23533"
+        }
+      ],
+      "derivedFlags": {
+        "twoActualSavesCompleted": true,
+        "currentAcceptedPair21To08": true,
+        "bothDisplayedAndReenabled": true,
+        "pendingCleared": true
+      },
+      "keyboardScope": "Root performed actual Tab on original first-end pending state before delegation; this summary reuses its existing raw pending state and does not claim a new Tab run.",
+      "passed": true
+    },
+    {
+      "id": "D4",
+      "name": "handled rejected save retains old23-to06",
+      "raw": [
+        {
+          "path": "output/playwright/panel-state-fixes-20261017-r1/proposed-reject-custom-end-pending.cli.txt",
+          "bytes": 5258,
+          "sha256": "958AE635642B2CC937AA21FAD088D0F607B93FDD16A00467369FBE783499DF1B"
+        },
+        {
+          "path": "output/playwright/panel-state-fixes-20261017-r1/proposed-reject-custom-end-rejected.cli.txt",
+          "bytes": 4919,
+          "sha256": "031F265203738746E12C822EEFC6779542722533A086E67FD39F1D438C550FEA"
+        },
+        {
+          "path": "output/playwright/panel-state-fixes-20261017-r1/proposed-reject-custom-end-diagnostics.cli.txt",
+          "bytes": 4401,
+          "sha256": "EF33BA74D9B77339DA8B3ED21CB34A997B527B5672405C7A4693C3DD4A0A1ACF"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "id": "S1",
+      "name": "same mounted exact-source session metadata/totals/turns refresh",
+      "raw": [
+        {
+          "path": "output/playwright/panel-state-fixes-20261017-r1/proposed-session-initial-current.cli.txt",
+          "bytes": 5273,
+          "sha256": "8553680BBA58F58EFBD090437EA93AFCBA5EFD92F43551876D51C7859B6F7BB7"
+        },
+        {
+          "path": "output/playwright/panel-state-fixes-20261017-r1/proposed-session-updated-current.cli.txt",
+          "bytes": 5651,
+          "sha256": "24C52360C59BBF29F1CFE8893ED9BC9A9627A66643F0BD820060547014F5A754"
+        }
+      ],
+      "derivedFlags": {
+        "ttftZeroAndUnknownRemainDistinct": true
+      },
+      "passed": true
+    },
+    {
+      "id": "S2",
+      "name": "real zero versus unknown token and model",
+      "raw": [
+        {
+          "path": "output/playwright/panel-state-fixes-20261017-r1/proposed-session-zero-current.cli.txt",
+          "bytes": 5132,
+          "sha256": "CE4B6ABA95571C217AF48E4416980CB60CBCE2DED8E0E84352B002F25A1D0D2F"
+        },
+        {
+          "path": "output/playwright/panel-state-fixes-20261017-r1/proposed-session-null-current.cli.txt",
+          "bytes": 5781,
+          "sha256": "2D1BBAEF9E4574DE9FB40F3E826DE9E6CF0B72EF8C3090B65C95F50C4C6C4C78"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "id": "S3",
+      "name": "same-id other source isolation/exact chat callback/removal",
+      "raw": [
+        {
+          "path": "output/playwright/panel-state-fixes-20261017-r1/proposed-session-B-only-current.cli.txt",
+          "bytes": 5297,
+          "sha256": "5A63F37992924E8DD7C40793CD8165AA4753BE012237F48D896D4ECC8C429C0F"
+        },
+        {
+          "path": "output/playwright/panel-state-fixes-20261017-r1/proposed-session-draft-chat.cli.txt",
+          "bytes": 3872,
+          "sha256": "65B55F74A83A5634FD1C3286FCC6AC111C92D860DCD37EE80217DDA80F74279D"
+        },
+        {
+          "path": "output/playwright/panel-state-fixes-20261017-r1/proposed-session-removed-closed.cli.txt",
+          "bytes": 3333,
+          "sha256": "A8BA67EBC3C033EA9D3354FF016791DBA7656BFDF0AD34819DCC9C307FB6A255"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "id": "S4",
+      "name": "restore does not reopen/manual reopen/separate external unmount-remount",
+      "raw": [
+        {
+          "path": "output/playwright/panel-state-fixes-20261017-r1/proposed-session-restored-still-closed.cli.txt",
+          "bytes": 4107,
+          "sha256": "DAC3ACA2A24994EDA1AEB716266BEE01FBBE38C6968D8176FA221AA5605286DF"
+        },
+        {
+          "path": "output/playwright/panel-state-fixes-20261017-r1/proposed-session-manually-reopened-current.cli.txt",
+          "bytes": 5852,
+          "sha256": "A8D8212CD31B887D4CF794DAAD3AC7A2B5B8360F31B7AEA8A7610916494E6775"
+        },
+        {
+          "path": "output/playwright/panel-state-fixes-20261017-r1/proposed-session-unmounted-closed.cli.txt",
+          "bytes": 4152,
+          "sha256": "8B9734BC39BC639922A774BE61845BEE20413D458A4EA025D536EF915F34C0D4"
+        },
+        {
+          "path": "output/playwright/panel-state-fixes-20261017-r1/proposed-session-remounted-still-closed.cli.txt",
+          "bytes": 4193,
+          "sha256": "857D9F42906BBD2F520500A3EF6EDA26861EA8132BAFEDED8B01112B3238105A"
+        }
+      ],
+      "scope": "Ordinary refresh/removal did not remount. Deliberate unmount/remount is a separate synthetic lifecycle input, not actual App query invalidation acceptance.",
+      "passed": true
+    },
+    {
+      "id": "S5",
+      "name": "unsubmitted mapping draft retained and normal close-reopen reinitializes",
+      "raw": [
+        {
+          "path": "output/playwright/panel-state-fixes-20261017-r1/proposed-session-draft-chat.cli.txt",
+          "bytes": 3872,
+          "sha256": "65B55F74A83A5634FD1C3286FCC6AC111C92D860DCD37EE80217DDA80F74279D"
+        },
+        {
+          "path": "output/playwright/panel-state-fixes-20261017-r1/proposed-session-manual-closed.cli.txt",
+          "bytes": 4107,
+          "sha256": "DAC3ACA2A24994EDA1AEB716266BEE01FBBE38C6968D8176FA221AA5605286DF"
+        },
+        {
+          "path": "output/playwright/panel-state-fixes-20261017-r1/proposed-session-close-then-reopen-current.cli.txt",
+          "bytes": 5852,
+          "sha256": "A8D8212CD31B887D4CF794DAAD3AC7A2B5B8360F31B7AEA8A7610916494E6775"
+        }
+      ],
+      "derivedFlags": {
+        "draftRetainedOnOrdinarySnapshot": true,
+        "draftReinitializedAfterManualCloseReopen": true
+      },
+      "passed": true
+    }
+  ],
+  "executionSummary": {
+    "path": "output/playwright/panel-state-fixes-20261017-r1/component-execution-summary.json",
+    "bytes": 35322,
+    "sha256": "46668CB997CB1F071B76AA809D2D0142515AE8C5CF0BE8A6AF9A979A5D850B9F"
+  },
+  "sourceManifest": {
+    "path": "output/playwright/panel-state-fixes-20261017-r1/proposed-source.json",
+    "bytes": 25704,
+    "sha256": "18779D2C5EAA97C16108F911644EEF236367B1128B30608DFE9CB0973AB857EC"
+  },
+  "typecheck": {
+    "passed": true,
+    "sourceManifestSha256": "18779D2C5EAA97C16108F911644EEF236367B1128B30608DFE9CB0973AB857EC",
+    "sourceInputs": 141,
+    "productSrcInputs": 97,
+    "actualRootExitCode": 0,
+    "naturalWholeJobCompletion": true,
+    "sourceGuardsHeldAndClosed": {
+      "count": 141,
+      "expected": 141,
+      "postChecksPassed": true,
+      "allHandlesClosed": true,
+      "errors": []
+    },
+    "seconds": 38.632820799946785,
+    "tscEntrySha256": "8D5FA5BD883FEC0979FC2004F1FE1D99AEF40570155D550EADC0B03B55513BF0",
+    "nodeExecutableSha256": "3602F2BB1A10F2CBAB4C36886218A33C1AB3DB87290E73B033C46C77147D0237",
+    "scope": "Semantic typecheck of proposed product src/config only, not fixture host, tests, browser, Native or runtime acceptance.",
+    "result": {
+      "path": "output/playwright/panel-state-fixes-20261017-r1/proposed-typecheck-result.json",
+      "bytes": 750,
+      "sha256": "6EE4FF1D7A994DD7F3137BA16B97F3D6B813F05AF89EB08DFEB570CC4E654F04"
+    },
+    "execution": {
+      "path": "output/playwright/panel-state-fixes-20261017-r1/proposed-typecheck-execution.json",
+      "bytes": 83940,
+      "sha256": "D817A8274A8B11DD5F0C98614CBA716F201A215F09B1F2B2E0030421A68884B6"
+    }
+  },
+  "closure": {
+    "baselineServerExecSession": 74387,
+    "baselineServerActualTerminalExitCode": 0,
+    "proposedServerExecSession": 91559,
+    "proposedServerActualTerminalExitCode": 0,
+    "terminalProof": "Root write_stdin on each same owned live exec returned actual exit_code0 after explicit nonce shutdown; no restart, inferred file-only liveness, or global kill.",
+    "namedBrowsersClosed": true,
+    "both141SourcesUnchanged": true,
+    "receipts": [
+      {
+        "path": "output/playwright/panel-state-fixes-20261017-r1/baseline-server-closure.json",
+        "bytes": 326,
+        "sha256": "9CD1BA62CCC9E24BF714B2F542FCE2F2195D26A469DB1BA9D9B8948A9A3B19D7"
+      },
+      {
+        "path": "output/playwright/panel-state-fixes-20261017-r1/proposed-server-closure.json",
+        "bytes": 326,
+        "sha256": "6FC63B959B776D51320A56C7D9B4C3CC978D754900BA829749494697ED468045"
+      }
+    ]
+  },
+  "visualReviewByRoot": {
+    "images": [
+      {
+        "path": "output/playwright/panel-state-fixes-20261017-r1/baseline-session-negative.png",
+        "bytes": 121843,
+        "sha256": "46D8430A4D954CAE12D24A7641F3E397DCB130ED576DEF5A5995FB64C2C519B7"
+      },
+      {
+        "path": "output/playwright/panel-state-fixes-20261017-r1/proposed-session-updated.png",
+        "bytes": 122460,
+        "sha256": "3AB0E0D433E72BA14315AE5AE0B817586DD275EA6141B524C888159F74ED1DEB"
+      },
+      {
+        "path": "output/playwright/panel-state-fixes-20261017-r1/proposed-reject-custom-end.png",
+        "bytes": 53105,
+        "sha256": "A26FD36296474DB0CBEDB49F3AE9E084F7EF40028AA369D21028872A2EE623A4"
+      }
+    ],
+    "observations": "Old modal42/1 with current turns versus fixed model-after432/2 and retained draft; handled rejected settings23-to06. Synthetic host toolbar is separate from actual component."
+  },
+  "preservedFirstFixtureFailure": {
+    "path": "output/playwright/panel-state-fixes-20261017/result.json",
+    "bytes": 2036,
+    "sha256": "9B2EE84B150FC85B9F970135A382267AA591DBC5B6EE35E78C5B1E05D0BA623F"
+  },
+  "observationErrorsRetained": {
+    "path": "output/playwright/panel-state-fixes-20261017-r1/execution-observation-notes.json",
+    "bytes": 723,
+    "sha256": "D441F34C7918C974C98E890F5FC5FD23A0C18368391C736C950DB8BBF8E5DF46"
+  },
+  "allAuthorControlsUnchanged": 25,
+  "scope": "Actual SessionsPanel/SettingsPanel with finite synthetic props/save host, semantic typecheck and exact main141 equality. Not real App.save/Core persistence/scheduler or Native end-to-end acceptance.",
+  "retainedEarlierEvidenceBoundary": "37 Rust and40 Node tests and earlier R3 small-card interaction receipts remain their original input scopes; they were not rerun or rebound as new Panels coverage.",
+  "includedInC32": false,
+  "newApplicationOrInstallerBuiltForTheseFixes": false,
+  "applicationInstallerProductionCliExecuted": false,
+  "realCodexAccountOrModelInvoked": false,
+  "nativeAccepted": false,
+  "realClipboardUsed": false,
+  "installationAccepted": false,
+  "performanceAccepted": false,
+  "walkingEnabled": false,
+  "M4Complete": false
+}

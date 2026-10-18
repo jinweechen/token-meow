@@ -1,0 +1,200 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-15T15:26:15.478071+00:00",
+  "scope": "One execution of frozen external public-Core-API G4/G5 v2 harness against frozen C12 production rlib; authored private JSONL only",
+  "qualification": {
+    "overall": "failed-retained-original-oracle",
+    "g4": "passed-owned-api-subscope",
+    "g5": "failed-retention-boundary-refill",
+    "wholeM4Qualified": false,
+    "nativeQualified": false
+  },
+  "production": {
+    "candidateExeSha256": "23D9C9C45392A1106796340491FB2AB9679DEC8FB00ACDA64440411F327D6ED3",
+    "coreRlibPath": "D:\\project\\宠物\\output\\performance\\c12-rlib-baseline-20261015-6966c23024b64f5dbfc4808202a054e1\\libtoken_meow_lib-8cd002f2d338a421.rlib",
+    "coreRlibSha256": "E1DBC93E11B80DAB1B8E8771AB13BBD742540FEC5C96594A3A24DA81D6EF1174",
+    "coreSourceRecompiledForHarness": false,
+    "currentEditedProductionSourceNotUsed": true
+  },
+  "frozenInputs": {
+    "harnessSha256": "EC3F87C8DB28D661FCA3136C8A850A4E6D823049576DB989D814A8465429281F",
+    "oracleSha256": "0F98E53517BA96D4DF72373C454213C1551BF09B17258ED56877488A9D90083D",
+    "harnessExeSha256": "F2E8908D6C6BC40803408E7703F551A267D69C0DC649F2446203222E95A09A9A",
+    "unchangedDuringThisVerification": true
+  },
+  "compile": {
+    "exitCode": 0,
+    "elapsedSeconds": 23.110000000335276,
+    "commandRecord": "output/performance/g4-g5-api-harness-v2-20261015-c76294710aa5404b9700c3e50126eb0c/compile-first.json",
+    "method": "External rustc with preserved production/serde_json/chrono libraries, opt-level3/thinLTO/codegen1 and previously verified cached Windows/native library paths; no Cargo or app build"
+  },
+  "execution": {
+    "exitCode": 1,
+    "elapsedSeconds": 12.438000000081956,
+    "argv": [
+      "D:\\project\\宠物\\output\\performance\\g4-g5-api-harness-v2-20261015-c76294710aa5404b9700c3e50126eb0c\\harness.exe",
+      "--run-owned-fixtures"
+    ],
+    "outputRoot": "D:\\project\\宠物\\output\\performance\\g4-g5-api-harness-v2-20261015-c76294710aa5404b9700c3e50126eb0c\\run-1792077799267134300-12140",
+    "allAssertions": 105,
+    "passed": 104,
+    "failed": 1,
+    "originalFailureUnmodified": true
+  },
+  "g4VerifiedScope": {
+    "assertions": 99,
+    "allPassed": true,
+    "cases": [
+      "Historical event timestamps on opposite sides of Shanghai midnight aggregate into their correct dates; full-turn duration and parallel missing TTFT remain distinct",
+      "Single-dimension source/project/model/provider/thread/root/client filters with exact identity sets; same raw root across independent source instances; requested_model without turn_id; legacy88 separate from native470",
+      "Global root/child activity, explicit stale601s and fresh recovery remain independent of empty statistics model filter",
+      "Initial above-threshold history creates history-only budget facts but no claim; two explicit live threshold rules each claim once; today vs yesterday and root task across days; replay/reopen IDs and claim state stable"
+    ],
+    "notCovered": [
+      "Actual machine clock rollover at midnight",
+      "Built-in percentage tiers",
+      "All possible filter Cartesian products",
+      "Native UI, real source/version parent-child evidence, OS notifications or release performance"
+    ]
+  },
+  "g5OriginalCounterexample": {
+    "assertionsBeforeFailure": 5,
+    "sequence": [
+      {
+        "step": "default90 retains old10day120 + today220",
+        "expected": 340,
+        "actual": 340
+      },
+      {
+        "step": "save retention7 + apply_retention",
+        "expected": 220,
+        "actual": 220
+      },
+      {
+        "step": "new old-file copy + reopen/scan",
+        "expected": 220,
+        "actual": 220
+      },
+      {
+        "step": "save retention365 + scan already-consumed files",
+        "expected": 220,
+        "actual": 220
+      },
+      {
+        "step": "create_new another authored old-file copy after widening + scan, without import_history",
+        "expected": 220,
+        "actual": 340
+      }
+    ],
+    "firstFailure": {
+      "actual": 340,
+      "expected": 220,
+      "name": "widened setting plus newly appearing old copy must not refill without explicit import",
+      "passed": false
+    },
+    "explicitHistoryRestoreAndLaterIdempotenceAfterThisFailureExecuted": false,
+    "readOnlySql": {
+      "database": "g5-retention-explicit-recovery/data/ledger.sqlite3",
+      "mode": "SQLite URI mode=ro plus PRAGMA query_only=ON after process exit",
+      "integrityCheck": "ok",
+      "preferencesRetentionDays": 365,
+      "retentionWatermark": "2025-10-15T15:23:30.849Z",
+      "sourceFiles": 4,
+      "responseRows": [
+        {
+          "id": "old120",
+          "eventTime": "2026-10-05T15:23:28.875Z",
+          "totalTokens": 120
+        },
+        {
+          "id": "today220",
+          "eventTime": "2026-10-15T15:23:28.875Z",
+          "totalTokens": 220
+        }
+      ]
+    },
+    "sourceMechanism": "Frozen queries::apply_retention recalculates and overwrites the cutoff from the expanded days on each scan; the newly appearing old physical file is now within that older boundary. No explicit history import was called.",
+    "oracleOrProductionAdjustedToPass": false
+  },
+  "evidence": [
+    {
+      "path": "output/performance/g4-g5-api-harness-v2-20261015-c76294710aa5404b9700c3e50126eb0c/harness.rs",
+      "bytes": 24893,
+      "sha256": "EC3F87C8DB28D661FCA3136C8A850A4E6D823049576DB989D814A8465429281F"
+    },
+    {
+      "path": "output/performance/g4-g5-api-harness-v2-20261015-c76294710aa5404b9700c3e50126eb0c/oracle.md",
+      "bytes": 7953,
+      "sha256": "0F98E53517BA96D4DF72373C454213C1551BF09B17258ED56877488A9D90083D"
+    },
+    {
+      "path": "output/performance/g4-g5-api-harness-v2-20261015-c76294710aa5404b9700c3e50126eb0c/compile-first.json",
+      "bytes": 1982,
+      "sha256": "D4ECC37A41D29CAE821AD6343184B49C79519C320607FC06F34D9452C5EC95BC"
+    },
+    {
+      "path": "output/performance/g4-g5-api-harness-v2-20261015-c76294710aa5404b9700c3e50126eb0c/compile-first.stdout.log",
+      "bytes": 0,
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "path": "output/performance/g4-g5-api-harness-v2-20261015-c76294710aa5404b9700c3e50126eb0c/compile-first.stderr.log",
+      "bytes": 0,
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "path": "output/performance/g4-g5-api-harness-v2-20261015-c76294710aa5404b9700c3e50126eb0c/run-first.json",
+      "bytes": 682,
+      "sha256": "4EAF2646FF987A40FF6996128DAD012D73E1BED89D9C32E23CFE86D58DE5CFAF"
+    },
+    {
+      "path": "output/performance/g4-g5-api-harness-v2-20261015-c76294710aa5404b9700c3e50126eb0c/run-first.stdout.log",
+      "bytes": 185,
+      "sha256": "236BC615D2D88906842D126F606C609EF0F97C7ED1D285093D2AA78C80358893"
+    },
+    {
+      "path": "output/performance/g4-g5-api-harness-v2-20261015-c76294710aa5404b9700c3e50126eb0c/run-first.stderr.log",
+      "bytes": 104,
+      "sha256": "BD810EFE845446F2B8F67C0F60F7A580A98ADA98D4574FF982AAECB6A172843A"
+    },
+    {
+      "path": "output/performance/g4-g5-api-harness-v2-20261015-c76294710aa5404b9700c3e50126eb0c/run-1792077799267134300-12140/receipt.json",
+      "bytes": 27717,
+      "sha256": "43465223A0FEB1577206201EA8EDAB5CD7E13A04A592912DD53EFD54416571FF"
+    },
+    {
+      "path": "output/performance/g4-g5-api-harness-v2-20261015-c76294710aa5404b9700c3e50126eb0c/run-1792077799267134300-12140/g5-retention-explicit-recovery/003-default90-before.json",
+      "bytes": 18451,
+      "sha256": "02B74578FE3800EFAC257CE50BEF7A666B7668BD65EE413B7C5A4CD77EA7EE1E"
+    },
+    {
+      "path": "output/performance/g4-g5-api-harness-v2-20261015-c76294710aa5404b9700c3e50126eb0c/run-1792077799267134300-12140/g5-retention-explicit-recovery/006-after-retention7.json",
+      "bytes": 17969,
+      "sha256": "A6E5B6F040A06FB787E5F3A13761F1893AE0A35E947EE2E1DDB21A00F3515C5F"
+    },
+    {
+      "path": "output/performance/g4-g5-api-harness-v2-20261015-c76294710aa5404b9700c3e50126eb0c/run-1792077799267134300-12140/g5-retention-explicit-recovery/009-copy-reopen-no-refill.json",
+      "bytes": 17969,
+      "sha256": "164B419DC856175318223CA73B14632CA54D7372175FB75F350C0B35F9DF89CA"
+    },
+    {
+      "path": "output/performance/g4-g5-api-harness-v2-20261015-c76294710aa5404b9700c3e50126eb0c/run-1792077799267134300-12140/g5-retention-explicit-recovery/013-widen-alone-no-refill.json",
+      "bytes": 17971,
+      "sha256": "1DB02E81DA3C6064BB15193FB91744E7239CFD011BCA6CE2C11359919135344E"
+    },
+    {
+      "path": "output/performance/g4-g5-api-harness-v2-20261015-c76294710aa5404b9700c3e50126eb0c/run-1792077799267134300-12140/g5-retention-explicit-recovery/016-new-old-copy-after-widen-no-explicit-import.json",
+      "bytes": 18452,
+      "sha256": "6D1BD9BA3DA6F3F1ECE81A38B5961E184060C7696DDF4A86769DBE8C00BA6C90"
+    }
+  ],
+  "boundaries": [
+    "Synthetic hand-authored fixtures exercise real public Core open/scan/snapshot/action and local persisted facts, not a real native application or tool source-version qualification.",
+    "No SQL writes or direct adapter/internal fact injection; the later SQL inspection is read-only.",
+    "The first G5 failure is preserved without changing its oracle. No retention-only duplicate execution was needed because the full run reached G5.",
+    "Earlier unrelated G4/G5 v1 receipts, C12 performance failures and production inputs remain unchanged."
+  ],
+  "productionSourceEditedByThisTask": false,
+  "sourceLogsOrAccountRead": false,
+  "nativeAppStarted": false
+}

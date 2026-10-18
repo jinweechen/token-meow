@@ -1,0 +1,49 @@
+[
+  {
+    "id": "stretch/enter",
+    "source": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14ad5-c365-7233-8895-9cecddb69f66\\exec-17240a45-9721-410b-8415-a5d294465f5e.png",
+    "destination": "D:/project/宠物/assets/pets/nekomi/walk-v10-complete/actions-v11/stretch/enter.png",
+    "prompt": "One transparent 1024x1536 PNG animation frame of the exact reference cat-girl, same native detailed anime finish, same face, hair, dress, small daisy bows, green shoes and single slender tail attached at posterior pelvis. No background, ground, shadow, text or extra parts. Full figure inside frame.\nDraw the intermediate halfway from image 1 neutral standing to image 2 stretch. Lift both elbows only to shoulder height, forearms rise beside cheeks, small relaxed fists at cheek level. Shoulders begin to lift and chest expands gently; eyes half-closed, mouth starting a small yawn. Keep shoes, legs, waist, head size and canvas placement matched to image 1. Do not use the completed arms-up pose.",
+    "promptPath": "D:/project/宠物/assets/pets/nekomi/walk-v10-complete/prompts/v11-action-stretch-enter.txt",
+    "inputs": [
+      "D:/project/宠物/assets/pets/nekomi/walk-v10-complete/model-reference/master-front-v2.png",
+      "D:/project/宠物/assets/pets/nekomi/walk-v10-complete/actions-v11/stretch/hold.png"
+    ],
+    "review": "candidate; sleep/breath is dozing crouch, not seated breathing"
+  },
+  {
+    "id": "hug-tail/lift",
+    "source": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14ad5-c365-7233-8895-9cecddb69f66\\exec-261b23ab-644f-482b-9f64-1a27abbb2ef6.png",
+    "destination": "D:/project/宠物/assets/pets/nekomi/walk-v10-complete/actions-v11/hug-tail/lift.png",
+    "prompt": "One transparent 1024x1536 PNG animation frame of the exact reference cat-girl, same native detailed anime finish, same face, hair, dress, small daisy bows, green shoes and single slender tail attached at posterior pelvis. No background, ground, shadow, text or extra parts. Full figure inside frame.\nContinue image 1 into an intermediate LIFT of her own tail. Both hands now cup the distal tail from underneath in front of the lower skirt: one supports near screen-right and the other supports nearer center. Tail makes one continuous curve from behind the pelvis around screen-right to her hands, with a free tip extending left. Lift it only to low skirt level; elbows modestly bent. Keep head size, feet and body registration of image 1; no squeezing, no tail passing through either sleeve or hand.",
+    "promptPath": "D:/project/宠物/assets/pets/nekomi/walk-v10-complete/prompts/v11-action-hug-tail-lift.txt",
+    "inputs": [
+      "D:/project/宠物/assets/pets/nekomi/walk-v10-complete/actions-v11/hug-tail/reach.png",
+      "D:/project/宠物/assets/pets/nekomi/walk-v10-complete/model-reference/master-front-v2.png"
+    ],
+    "review": "candidate; sleep/breath is dozing crouch, not seated breathing"
+  },
+  {
+    "id": "sleep/seated",
+    "source": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14ad5-c365-7233-8895-9cecddb69f66\\exec-b697e4a0-2b65-45ef-9b64-9d0c8d701da6.png",
+    "destination": "D:/project/宠物/assets/pets/nekomi/walk-v10-complete/actions-v11/sleep/seated.png",
+    "prompt": "One transparent 1024x1536 PNG animation frame of the exact reference cat-girl, same native detailed anime finish, same face, hair, dress, small daisy bows, green shoes and single slender tail attached at posterior pelvis. No background, ground, shadow, text or extra parts. Full figure inside frame.\nA seated sleeping keyframe. Keep the SAME CHARACTER SCALE as standing image 1: do not zoom in to fill the canvas. Leave about the TOP THIRD of the canvas EMPTY TRANSPARENT. Head and ears now begin around y450, head is same width as image 1. She is seated low with pelvis supported on the implied surface near y1330, folded legs together to screen-left, green shoes resting near y1480; cream skirt modestly covers thighs and drapes naturally. Hands rest loosely together on lap, eyes gently closed, head tilts slightly to screen-right, relaxed sleeping expression. Tail curves from behind pelvis and rests beside screen-right skirt. Long hair settles around the seated torso. No chair, pillow or drawn floor.",
+    "promptPath": "D:/project/宠物/assets/pets/nekomi/walk-v10-complete/prompts/v11-action-sleep-seated.txt",
+    "inputs": [
+      "D:/project/宠物/assets/pets/nekomi/walk-v10-complete/model-reference/master-front-v2.png",
+      "D:/project/宠物/assets/pets/nekomi/walk-v10-complete/actions-v11/sleep/lowering.png"
+    ],
+    "review": "candidate; sleep/breath is dozing crouch, not seated breathing"
+  },
+  {
+    "id": "sleep/breath",
+    "source": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14ad5-c365-7233-8895-9cecddb69f66\\exec-0591b87c-2008-4657-b2c1-3ee4a82f8996.png",
+    "destination": "D:/project/宠物/assets/pets/nekomi/walk-v10-complete/actions-v11/sleep/breath.png",
+    "prompt": "One transparent 1024x1536 PNG animation frame of the exact reference cat-girl, same native detailed anime finish, same face, hair, dress, small daisy bows, green shoes and single slender tail attached at posterior pelvis. No background, ground, shadow, text or extra parts. Full figure inside frame.\nEdit image 1 into a quiet eyes-closed dozing crouch intermediate. Keep the exact existing body placement and all silhouette proportions. Close both eyelids and relax mouth; shoulders sink very slightly and head inclines a little. Hands stay softly on knees, feet planted. No size change, no new pose or objects. This transitional frame follows the sleepy half-closed-eyes image.",
+    "promptPath": "D:/project/宠物/assets/pets/nekomi/walk-v10-complete/prompts/v11-action-sleep-breath.txt",
+    "inputs": [
+      "D:/project/宠物/assets/pets/nekomi/walk-v10-complete/actions-v11/sleep/lowering.png"
+    ],
+    "review": "candidate; sleep/breath is dozing crouch, not seated breathing"
+  }
+]

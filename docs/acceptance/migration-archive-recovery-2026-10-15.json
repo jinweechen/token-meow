@@ -1,0 +1,178 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-15T14:15:56.845169+00:00",
+  "appVersion": "0.1.0",
+  "scope": "Five new exact production Core migration/archive recovery regressions plus retained first failing archive regression; not a whole-suite/native/release qualification",
+  "qualification": "scoped-production-core-regression",
+  "profile": "release",
+  "features": [
+    "custom-protocol"
+  ],
+  "offline": true,
+  "targetDirectory": "D:\\DevCache\\cargo-token-meow",
+  "newPassingTests": [
+    {
+      "name": "core::tests::v1_migration_preserves_existing_native_facts_physical_cursor_and_replay_after_restart",
+      "session": 24778,
+      "result": "passed",
+      "passed": 1,
+      "failed": 0,
+      "filteredOut": 68,
+      "compileReported": "2m 04s",
+      "testSeconds": 6.33,
+      "command": "cargo test --release --features custom-protocol --offline --target-dir D:\\DevCache\\cargo-token-meow --lib core::tests::v1_migration_preserves_existing_native_facts_physical_cursor_and_replay_after_restart -- --exact"
+    },
+    {
+      "name": "core::tests::v1_migration_ddl_failure_rolls_back_and_readable_backup_recovers_original_metering",
+      "session": null,
+      "toolChunk": "c21bb6",
+      "result": "passed",
+      "passed": 1,
+      "failed": 0,
+      "filteredOut": 68,
+      "compileSeconds": 0.41,
+      "testSeconds": 4.81,
+      "command": "cargo test --release --features custom-protocol --offline --target-dir D:\\DevCache\\cargo-token-meow --lib core::tests::v1_migration_ddl_failure_rolls_back_and_readable_backup_recovers_original_metering -- --exact"
+    },
+    {
+      "name": "core::tests::v1_migration_verified_file_keeps_physical_id_and_cursor_when_archived",
+      "session": 56597,
+      "result": "passed-after-production-fix",
+      "passed": 1,
+      "failed": 0,
+      "filteredOut": 72,
+      "compileReported": "1m 00s",
+      "testSeconds": 3.02,
+      "command": "cargo test --release --features custom-protocol --offline --target-dir D:\\DevCache\\cargo-token-meow --lib core::tests::v1_migration_verified_file_keeps_physical_id_and_cursor_when_archived -- --exact"
+    },
+    {
+      "name": "core::tests::v1_unverified_truncated_or_replaced_file_never_adopts_the_old_physical_id",
+      "session": 58692,
+      "result": "passed",
+      "passed": 1,
+      "failed": 0,
+      "filteredOut": 72,
+      "compileSeconds": 0.65,
+      "testSeconds": 9.81,
+      "subcases": [
+        "no-anchor",
+        "same-file-truncated",
+        "same-path-replaced-with-old-handle-held-open"
+      ],
+      "command": "cargo test --release --features custom-protocol --offline --target-dir D:\\DevCache\\cargo-token-meow --lib core::tests::v1_unverified_truncated_or_replaced_file_never_adopts_the_old_physical_id -- --exact"
+    },
+    {
+      "name": "core::tests::nonempty_physical_key_is_never_overwritten_when_same_path_is_replaced",
+      "session": null,
+      "toolChunk": "d58c09",
+      "result": "passed",
+      "passed": 1,
+      "failed": 0,
+      "filteredOut": 72,
+      "compileSeconds": 0.7,
+      "testSeconds": 1.93,
+      "command": "cargo test --release --features custom-protocol --offline --target-dir D:\\DevCache\\cargo-token-meow --lib core::tests::nonempty_physical_key_is_never_overwritten_when_same_path_is_replaced -- --exact"
+    }
+  ],
+  "newPassingCount": 5,
+  "currentCoreTestsDeclared": 52,
+  "wholeSuiteRerun": false,
+  "priorSuccessfulTests": "Prior 47 Core tests retained separately. These five new exact scopes do not resolve the remaining G3/G4/G5 coverage gaps.",
+  "firstArchiveFailure": {
+    "name": "core::tests::v1_migration_verified_file_keeps_physical_id_and_cursor_when_archived",
+    "session": 55824,
+    "toolChunk": "0c9edd",
+    "exitCode": 1,
+    "passed": 0,
+    "failed": 1,
+    "filteredOut": 70,
+    "compileSeconds": 39.95,
+    "testSeconds": 3.05,
+    "reportedSourceLine": 2041,
+    "assertion": "migration must adopt a verified same-file physical key before archive; key before move was \"\"",
+    "actualArchivedFileId": 18,
+    "expectedOriginalFileId": 17,
+    "readerSha256": "67439239C311922F63F66599666B356C977F0611A60A743192523FA2D696A0A1",
+    "testSourceSha256": "37731B6DB11C1FC7F1D0D94C0936C5540916C4161F55C29C8877A07D2FA1E9E0",
+    "retention": "Original tool-session failure is retained, not relabeled passed. Current receipt separately records the later success."
+  },
+  "fixture": {
+    "storage": "Actual migrations/001_initial.sql creates physical schema user_version=1; no prebuilt v3 Core or mocked migration function",
+    "sourceId": "v1-stable-source",
+    "sourceFileId": 17,
+    "sourceFileGeneration": 7,
+    "committedCursor": "EOF with exact last_start, nonempty line hash and old JSON context lacking live_cursor",
+    "physicalRecords": 5,
+    "nativeResponses": 2,
+    "expectedInputTokens": 1400,
+    "expectedOutputTokens": 300,
+    "expectedTotalTokens": 1700,
+    "expectedCacheReadTokens": 1000,
+    "expectedCacheWriteTokens": 100,
+    "expectedReasoningTokens": 120,
+    "storedFacts": "Stable native identity/digest/serialized facts, original physical record offsets/hashes, source identity and explicit preferences asserted before/after migration and restart",
+    "replay": "A real copied JSONL is read by Core.scan; copied physical records must be observed, so unchanged old totals alone cannot satisfy the assertion",
+    "privacy": "Self-created content-free temporary fixture; no model call, account bridge or real Codex source mutation"
+  },
+  "ddlFailure": {
+    "injection": "Only the self-created v1 fixture has a preexisting source_capabilities(fixture_marker) table, causing real migration 002 CREATE failure after six ALTERs and collection_channels CREATE",
+    "productionEntry": "Core::open returns the actual SQLite already-exists error",
+    "rollbackAssertions": [
+      "user_version remains 1",
+      "source_instances keeps only original columns",
+      "source_files has no partially added source/channel/OS key columns",
+      "collection_channels CREATE before the error is rolled back",
+      "original fact JSON/digests/physical records/cursor/preferences retained",
+      "original and VACUUM INTO backup pass integrity_check"
+    ],
+    "recovery": "Copy the readable backup into a separate private data directory, explicitly remove only the test-injected obstruction in that copy, then production Core::open/scan/restart preserves 1700 tokens and two responses; failed original remains untouched"
+  },
+  "productionFix": {
+    "file": "src-tauri/src/core/reader.rs",
+    "location": "same-path physical-file identity validation in the existing per-source transaction",
+    "verifiedLegacyIdentity": "Only an empty OS key with nonzero committed offset within current length, valid start, nonempty hash and successful committed anchor check may adopt the current file handle identity",
+    "unknownContinuity": "Empty/invalid anchor, truncation or replacement without proven continuity retires the old path while retaining old facts/cursor; current physical file receives a new observed row and follows its own later archive move",
+    "nonemptyIdentity": "Existing nonempty OS key is never overwritten; mismatched physical file uses the existing replacement path",
+    "meteringSchemaCoreAuthorityChanged": false
+  },
+  "frozenSources": [
+    {
+      "path": "src-tauri/src/core.rs",
+      "sha256": "FE7F805C2AFAE64338AD337D510EC0A2DDD8B59F418F527DE2E944E7C6D9978E"
+    },
+    {
+      "path": "src-tauri/src/core/reader.rs",
+      "sha256": "E4EA08414064E066CA80362E13CD3FFBAB1CECBAFDE1900E5496C21240C8BDEA"
+    },
+    {
+      "path": "src-tauri/src/core/tests.rs",
+      "sha256": "3BFDAF3E8502E0DD93731E85C80C72A2456BFDA93FD110648E2FE89568FC7FC6"
+    },
+    {
+      "path": "src-tauri/migrations/001_initial.sql",
+      "sha256": "799859320AAB80EDF3BED9340B6041153CE745D6F7649E2B0A338A69AE18E2A1"
+    },
+    {
+      "path": "src-tauri/migrations/002_multi_source.sql",
+      "sha256": "1814C02D4E25B009D3D0B000B6F0F272B1F800625E9CFF1CA486BB72900D0AEE"
+    },
+    {
+      "path": "src-tauri/migrations/003_fact_references.sql",
+      "sha256": "07524DABB36B402A57FF9F3BCC81D69BA25E6F0139EAC271D0D618020AF73963"
+    }
+  ],
+  "retainedRelease": {
+    "path": "D:\\DevCache\\cargo-token-meow\\release\\token-meow.exe",
+    "sha256": "C11DD01F757FFD0E6F07FB6926A334E48D7A19BFB3C083CCDEC3E05441AA05C2",
+    "rebuiltForThisChange": false,
+    "oldReleaseEvidenceNotReboundToNewReader": true
+  },
+  "limitations": [
+    "The failure is a real DDL error in a private fixture, not an OS process-kill or installed upgrade interruption.",
+    "The fixture covers supported v1 physical storage and verified native metering, not every historical JSON payload or source format.",
+    "The two first G2 tests passed before the narrow reader key-adoption fix; the failing archive regression and both new safety guards passed after it. This is scoped composite evidence, not a rerun of all 52 Core tests.",
+    "No migration schema, metering identity, Core settings authority, query, dist or main release EXE was modified for these tests/fix.",
+    "Only reader.rs and core/tests.rs were changed by this work; concurrent capability-report and desktop-worker changes have separate owners/evidence.",
+    "G3/G4/G5 broader notification/result, time/filter boundary, retention/export/native gaps remain separately tracked; no whole M4 claim."
+  ]
+}

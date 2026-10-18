@@ -1,0 +1,39 @@
+{
+  "observedAt": "2026-10-15T08:10:40.781Z",
+  "scope": "historical scoped production-core native response replay; retain separately from final build qualification",
+  "input": {
+    "redactedDirectory": "output/local-redacted-20261015-1557",
+    "originalFileCount": 6,
+    "originalBytesRead": 179099214,
+    "completeLines": 26282,
+    "retainedWhitelistRecords": 3726,
+    "contentAndToolBodiesRetained": false
+  },
+  "expectedAndObserved": {
+    "responseCount": 3004,
+    "inputTokens": 482111758,
+    "outputTokens": 1772517,
+    "totalTokens": 483884275,
+    "cachedInputTokens": 471078528,
+    "cacheWriteInputTokens": 0,
+    "reasoningOutputTokens": 706920,
+    "conflicts": 0,
+    "pendingFiles": 0
+  },
+  "firstImport": { "status": "passed", "scans": 32, "elapsedMs": 26862 },
+  "sameDataReplay": { "status": "passed", "scans": 4, "elapsedMs": 2802, "additionalResponses": 0 },
+  "evidence": [
+    "output/local-redacted-20261015-1557/oracle.json",
+    "output/local-audit-first.json",
+    "output/local-audit-first-verified.json",
+    "output/local-audit-replay.json",
+    "output/local-audit-replay-verified.json"
+  ],
+  "limitations": [
+    "Totals cover the selected six logs, not all account activity.",
+    "The independent oracle checks top-level native usage, not tool/legacy/aggregate correctness.",
+    "The sample cache-write values are zero; nonzero coverage is a separate fixed fixture.",
+    "These are historical retained runs; later source changes require the affected scope to be revalidated.",
+    "These timings do not qualify UI latency, warm launch, memory or release performance."
+  ]
+}

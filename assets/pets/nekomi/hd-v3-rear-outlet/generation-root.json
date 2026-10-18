@@ -1,0 +1,88 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-16",
+  "generator": "builtin image_gen",
+  "pixelPostProcessing": false,
+  "status": "incomplete-review-candidates-not-delivery",
+  "assets": [
+    {
+      "pose": "idle",
+      "file": "idle.png",
+      "sourceOriginalPath": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14280-254e-70f3-ba61-b34c813b8e3a\\exec-58ebdc34-1b37-4e6b-95d6-16ada7914d2e.png",
+      "prompt": "prompts/idle-relaxed-candidate.txt",
+      "referencePaths": [
+        "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v3-rear-outlet\\rejected\\idle-wide-arc.png"
+      ],
+      "attempts": [
+        {
+          "sourceOriginalPath": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14280-254e-70f3-ba61-b34c813b8e3a\\exec-004b9073-a565-4fad-b396-0d4593a68065.png",
+          "prompt": "prompts/idle.txt",
+          "status": "superseded-wide-fixed-C"
+        },
+        {
+          "sourceOriginalPath": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14280-254e-70f3-ba61-b34c813b8e3a\\exec-58ebdc34-1b37-4e6b-95d6-16ada7914d2e.png",
+          "prompt": "prompts/idle-relaxed-candidate.txt",
+          "status": "rejected-arm-tail-tangency"
+        }
+      ],
+      "status": "rejected-arm-tail-tangency"
+    },
+    {
+      "pose": "active",
+      "file": "active.png",
+      "sourceOriginalPath": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14280-254e-70f3-ba61-b34c813b8e3a\\exec-a210f173-0ec1-45b8-bdf7-642056ce3a5b.png",
+      "prompt": "prompts/active.txt",
+      "referencePaths": [
+        "D:/project/宠物/assets/pets/nekomi/hd-v1/active.png",
+        "D:/project/宠物/assets/pets/nekomi/hd-v3-rear-outlet/idle.png"
+      ]
+    },
+    {
+      "pose": "complete",
+      "file": "complete.png",
+      "sourceOriginalPath": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14280-254e-70f3-ba61-b34c813b8e3a\\exec-04100df8-4a38-4f10-b334-8ca3e46c217b.png",
+      "prompt": "prompts/complete.txt",
+      "referencePaths": [
+        "D:/project/宠物/assets/pets/nekomi/hd-v1/complete.png",
+        "D:/project/宠物/assets/pets/nekomi/hd-v3-rear-outlet/idle.png"
+      ]
+    },
+    {
+      "pose": "alert",
+      "file": "alert.png",
+      "sourceOriginalPath": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14280-254e-70f3-ba61-b34c813b8e3a\\exec-ea9b84a2-9115-4ebc-be7c-6797b95ec29e.png",
+      "prompt": "prompts/alert.txt",
+      "referencePaths": [
+        "D:/project/宠物/assets/pets/nekomi/hd-v1/alert.png",
+        "D:/project/宠物/assets/pets/nekomi/hd-v3-rear-outlet/idle.png"
+      ]
+    },
+    {
+      "pose": "sleep",
+      "file": "sleep.png",
+      "sourceOriginalPath": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14280-254e-70f3-ba61-b34c813b8e3a\\exec-4949829d-f650-4da1-a257-7ae81ee72223.png",
+      "prompt": "prompts/sleep.txt",
+      "referencePaths": [
+        "D:/project/宠物/assets/pets/nekomi/hd-v1/sleep.png",
+        "D:/project/宠物/assets/pets/nekomi/hd-v3-rear-outlet/idle.png"
+      ]
+    }
+  ],
+  "references": [
+    {
+      "file": "reference/rear-three-quarter.png",
+      "sourceOriginalPath": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14280-254e-70f3-ba61-b34c813b8e3a\\exec-31bd7df8-9b8e-49f5-bf3f-d94f71362c66.png",
+      "prompts": [
+        "prompts/rear-three-quarter.txt",
+        "prompts/rear-three-quarter-repair.txt"
+      ],
+      "initialRejectedSource": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14280-254e-70f3-ba61-b34c813b8e3a\\exec-d0f007e2-67e7-4090-bd2a-8fd3ddf77f2e.png",
+      "reasonForRepair": "Initial outlet too near waist and shoes facing camera in rear view"
+    }
+  ],
+  "pending": [
+    "idle arm-tail tangency superseded by v4 single-pose candidate",
+    "hug-tail has no accepted asset",
+    "remaining poses require final placement review"
+  ]
+}

@@ -1,0 +1,42 @@
+新会话交接｜2026-10-18｜D:/project/宠物
+
+用户直接要求：开启新的Codex会话继续完成任务，当前会话太慢，提问应及时响应。完整目标仍是“完成所有素材”，不是只改一个饰件或补齐文件数量。
+
+先读本文件、completion-plan.txt/json、原HANDOFF-20261017.txt。已有研究可复用，不要重新长篇调研或仅写计划；直接推进实际绘制与验证。用户提出问题时先简短回应，不能让提问等一轮长时间生成结束。可并行生成互不依赖的资产，先统一母稿再扩帧；独立目视复核不要仅看manifest。
+
+完整范围
+1. 统一正面/右侧/背面母稿与模型结构。
+2. 右向侧走8基础相位，必要补间，以及进入、退出、返回待机；真实PNG原速/慢速/逐帧循环检查。
+3. 原12动作按现有规范逐项核对与补齐进入/主体/退出/返回；旧v6仅是有限局部关键帧，不等于完整动作。12项及验收要求已在completion-plan，不能缩小目标。
+4. 同一模型的分层制作素材，实际装配、关节运动范围、可变遮挡与来源记录；不称已完成Live2D/Spine绑定。
+
+用户重要纠正
+- 解剖学RIGHT=向右走时的近侧，LEFT=远侧。右鞋应更朝向屏幕，近远鞋不是同一深度、同一水平线的两个平行侧视图标。需整体腿链/鞋体/地面透视，不能只平移鞋。
+- 尾巴属于后骨盆正中，经裙背小口伸出，不能在腰侧、手袖或裙摆下凭空出现。尾根要可读，但不能为了展示把孔挪错位置。
+- 左臂是远侧。投影实际重叠时，后正中尾巴遮挡远左袖手；允许远手被自然遮挡。此前强求两手全露造成穿模。近右臂完整肩肘腕链。
+- 头饰/胸结/腰结必须随视角转向，不把正面图标复制到侧背。腰结是前左/前右小装饰，背面是纯绿腰带，无重复腰结或中央花。背头饰只露绿带背/侧缘，无后朝白花。
+
+当前实际资产（不要误报通过）
+model-reference/turnaround-side-hair-bow-v4-length.png：最新三视饰件修订，1536x1024 RGB白底。旧三视确实存在于hd-v5-natural-tail/reference/turnaround.png，旧会话曾说没画过后已纠正。v4修了背腰、背发饰、侧发饰方向与垂带长度；只是局部设计参考，不代表整体结构通过。中间图朝左。
+model-reference/master-front-v2.png：新1024x1536透明正面候选，裙摆约1100，小腰结已缩小；待跨视图复核。
+model-reference/master-back-v3.png：新1024x1536透明背面候选，手袖尾分开，背饰件正确；尾口约y810、外包边仍偏大，腰带比front约高10–20px。像素位置仅工作窗口，不得把y850当机械解剖真理。back-v1/v2失败候选均保留。
+model-reference/master-front-back-review-v1.txt 与 master-front-back-integrity-v1.json：这5张(front-v1/v2,back-v1/v2/v3)的实看与字节证据。子代理原图在generated_images/01a148ad-080e-7062-8576-ca95b7a366b3/，不要只扫描旧两个session目录。各-source.json有确切原路径。
+model-reference/master-right-v1.png：本会话刚出的右向候选，仍不通过：太接近正面3/4，露双眼、尾口未显露，头饰又偏正面。腿鞋近远空间较可读、近右臂连贯，但不能因局部好就作为母稿。
+prompts/master-right-v2-profile.txt：已准备的定向修订，但从未调用生成。不要误当运行中的任务，也不要盲目原样照用；先看v1缺陷，再做少量清楚约束。
+master-right-v1来源：C:/Users/Administrator/.codex/generated_images/01a148a3-42fd-7200-9a55-f8a2b93cf502/exec-751fd74c-3a85-48ff-b794-7b19b5511831.png。输入顺序front-v2、turnaround-v4-length，prompt master-right-v1.txt，transparent=true。
+
+步态仍未完成
+frames/仍只有旧01–05五张未通过；06/07/08缺失。不要继续用旧母稿扩展。candidates/05-spatial-revision-v5/v7/v8等仅失败历史，v8尾根仍贴远手，不能当通过模板。旧pose-guides以双鞋同地线为约束，已失效，不可原样套用。
+prompts/05-spatial-revision-v6.txt、v9-small-waist-bow.txt、06/08-v2以及master-right-v2-profile均未调用。
+preview.html + sequence.json仍是旧5/8集合，不应说已经完整播放。master-review.html是失败候选的静态比对；model-reference/turnaround-review.html显示饰件v4。
+
+历史成果可复用的边界
+animation-v6现有38张/12动作+28正面层，实际SHA与旧复核一致，12段序列/时长和有限层装配证据也一致。仅支持局部表情/手势，缺完整鞠躬、抱入放下、入睡呼吸等。规范 docs/角色动作调研与绘制规范-20261017.txt 第6–9节要求逐动作研究修订；保留历史适用证据，不自动丢弃，也不自动据approved结清新要求。
+
+工具与边界
+读取imagegen skill，使用内置imagegen；每个本地参考先view_image。输出原字节复制，native1024x1536透明PNG用于约1200px高展示。不允许程序裁切、形变、抠图、拼接替代人物/部件绘制；只读PIL元数据可。真正alpha要看浏览器合成，工具图黑底光晕不可直接判失败。
+不能修改src/Rust/桌宠运行时，不提交推送；项目非Git仓库。保留所有旧图与失败记录，不覆盖。
+静态服务此前1424根assets/pets/nekomi，需现场确认。浏览器CLI跨命令页有时回about:blank；单次playwright-cli run-code内goto并截图可工作。截图已存output/playwright/nekomi-turnaround-accessories-v4.png。不能只截图不看。生成中的tool要用具体cell/handle确认，当前无已知正在运行的绘图任务。
+
+下一步直接行动
+看front-v2/back-v3/right-v1和修订三视实际PNG，统一正确的右向中性母稿与后骨盆尾根、左右臂链。先修清结构，避免全图反复抽卡；通过对应静态复核后并行绘制独立相位/部件，随后实际播放与装配。持续推进完整目标，不能再用局部修饰完成代替全部素材。

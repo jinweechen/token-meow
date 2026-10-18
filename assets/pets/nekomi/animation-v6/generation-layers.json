@@ -1,0 +1,576 @@
+{
+  "tool": "builtin image_gen",
+  "pixelEditing": false,
+  "masterPath": "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v5-natural-tail\\idle.png",
+  "masterSha256": "1dc3f07e64139e7b4b641399ea9f2920d210940795acfeb9cab9cb8600ee54f3",
+  "selectedAssets": [
+    {
+      "id": "layer/tail",
+      "relativePath": "layers/tail.png",
+      "sourcePath": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14722-1a3e-7a33-8c3a-968dd7304a8c\\exec-aaf94df0-b166-47ea-8525-2ede522668b7.png",
+      "sha256": "23956bcc3e6a65a6ca4382e4c752c823145c94bfd105e92dd7bbc8bc54fb79c3",
+      "promptPath": "D:\\project\\宠物\\assets\\pets\\nekomi\\animation-v6\\layers\\prompts\\tail.txt",
+      "promptSha256": "9259c3e3072d7d9b412f300287e0a441370a01b5127eeff078e7b1668203b3ab",
+      "referencePaths": [
+        "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v5-natural-tail\\idle.png"
+      ],
+      "referenceSha256": [
+        "1dc3f07e64139e7b4b641399ea9f2920d210940795acfeb9cab9cb8600ee54f3"
+      ],
+      "sourceBytesEqual": true,
+      "nativeSize": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "id": "layer/ear-left",
+      "relativePath": "layers/ear-left.png",
+      "sourcePath": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14722-1a3e-7a33-8c3a-968dd7304a8c\\exec-fc75c88d-cf1e-49c7-9579-dde1e5cd21c4.png",
+      "sha256": "239e348f9d0491c7c59996ebec3ffcbbd6470df01af2f90e89f885f8593bf673",
+      "promptPath": "D:\\project\\宠物\\assets\\pets\\nekomi\\animation-v6\\layers\\prompts\\ear-left.txt",
+      "promptSha256": "6eb3c6e2ee42f36c77c7e646f7f12d595c44219b53e9ddbc9e11ba0c46a0fe7f",
+      "referencePaths": [
+        "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v5-natural-tail\\idle.png"
+      ],
+      "referenceSha256": [
+        "1dc3f07e64139e7b4b641399ea9f2920d210940795acfeb9cab9cb8600ee54f3"
+      ],
+      "sourceBytesEqual": true,
+      "nativeSize": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "id": "layer/ear-right",
+      "relativePath": "layers/ear-right.png",
+      "sourcePath": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14722-1a3e-7a33-8c3a-968dd7304a8c\\exec-d49ff370-13a9-4f74-9731-86f927f920ae.png",
+      "sha256": "cc8841edb4fa4ddc83079e0eebf3a2df19a2a57603847bf14ead5cd0f77ccdff",
+      "promptPath": "D:\\project\\宠物\\assets\\pets\\nekomi\\animation-v6\\layers\\prompts\\ear-right.txt",
+      "promptSha256": "b0ed7f4413b41d6c278ea639791f860459eb8d27f70f6e9f2cd130e1a86a40cf",
+      "referencePaths": [
+        "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v5-natural-tail\\idle.png"
+      ],
+      "referenceSha256": [
+        "1dc3f07e64139e7b4b641399ea9f2920d210940795acfeb9cab9cb8600ee54f3"
+      ],
+      "sourceBytesEqual": true,
+      "nativeSize": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "id": "layer/hair-back",
+      "relativePath": "layers/hair-back.png",
+      "sourcePath": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14722-1a3e-7a33-8c3a-968dd7304a8c\\exec-b76bd3e8-85c9-4c33-865c-4a4e857fa13e.png",
+      "sha256": "1e61c3d0b84fb2a530a01a9bf92577d4dfd1d12ca02db73d10056aedffe8789d",
+      "promptPath": "D:\\project\\宠物\\assets\\pets\\nekomi\\animation-v6\\layers\\prompts\\hair-back.txt",
+      "promptSha256": "e59027de539278d354a4c388afae54c55da4b05b517180827b1d1b5fcc349b1c",
+      "referencePaths": [
+        "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v5-natural-tail\\idle.png"
+      ],
+      "referenceSha256": [
+        "1dc3f07e64139e7b4b641399ea9f2920d210940795acfeb9cab9cb8600ee54f3"
+      ],
+      "sourceBytesEqual": true,
+      "nativeSize": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "id": "layer/leg-left",
+      "relativePath": "layers/leg-left.png",
+      "sourcePath": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14722-1a3e-7a33-8c3a-968dd7304a8c\\exec-7a6a0a8e-9a57-4cd5-9dbd-2c0a7b6ecbe1.png",
+      "sha256": "80fa5d118237de3525163fd72a0dd5aa4b136f517783283c347d61eb4815bb8c",
+      "promptPath": "D:\\project\\宠物\\assets\\pets\\nekomi\\animation-v6\\layers\\prompts\\leg-left.txt",
+      "promptSha256": "164a05a0db40d9883b919f3622fba4235eedda97cbcebb56a9e1ed4dd1684c1f",
+      "referencePaths": [
+        "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v5-natural-tail\\idle.png"
+      ],
+      "referenceSha256": [
+        "1dc3f07e64139e7b4b641399ea9f2920d210940795acfeb9cab9cb8600ee54f3"
+      ],
+      "sourceBytesEqual": true,
+      "nativeSize": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "id": "layer/leg-right",
+      "relativePath": "layers/leg-right.png",
+      "sourcePath": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14722-1a3e-7a33-8c3a-968dd7304a8c\\exec-f4764730-ed9b-4c6a-8dbe-12d2a1e26a0a.png",
+      "sha256": "28e2578a967747c8fca0e9b27c0aba8555e061f8dd4f6b89db6dcc0d843cde05",
+      "promptPath": "D:\\project\\宠物\\assets\\pets\\nekomi\\animation-v6\\layers\\prompts\\leg-right.txt",
+      "promptSha256": "dec9695e0e6b285c520f90fdf767105a7f358c3cfbc2724fffd6035b1f57486a",
+      "referencePaths": [
+        "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v5-natural-tail\\idle.png"
+      ],
+      "referenceSha256": [
+        "1dc3f07e64139e7b4b641399ea9f2920d210940795acfeb9cab9cb8600ee54f3"
+      ],
+      "sourceBytesEqual": true,
+      "nativeSize": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "id": "layer/skirt",
+      "relativePath": "layers/skirt.png",
+      "sourcePath": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14722-1a3e-7a33-8c3a-968dd7304a8c\\exec-0fd3756b-7f75-4f95-833d-6f6212ece0cf.png",
+      "sha256": "1c35da11ec143a0b57237e0819a8b39f564ee8a101e95ff4a42be5fccaa9d1e2",
+      "promptPath": "D:\\project\\宠物\\assets\\pets\\nekomi\\animation-v6\\layers\\prompts\\skirt.txt",
+      "promptSha256": "47e20d186ae043fb5865752b72e4431fb619b6f2c9a2d1e3cb4a9ef4858b1908",
+      "referencePaths": [
+        "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v5-natural-tail\\idle.png"
+      ],
+      "referenceSha256": [
+        "1dc3f07e64139e7b4b641399ea9f2920d210940795acfeb9cab9cb8600ee54f3"
+      ],
+      "sourceBytesEqual": true,
+      "nativeSize": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "id": "layer/arm-left",
+      "relativePath": "layers/arm-left.png",
+      "sourcePath": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14722-1a3e-7a33-8c3a-968dd7304a8c\\exec-41c55b0b-bab5-4317-8e82-0877a4a826a4.png",
+      "sha256": "efd07800350b2ee7bce43cfbc5f43695ddebb7688971125e8e162534ee389cce",
+      "promptPath": "D:\\project\\宠物\\assets\\pets\\nekomi\\animation-v6\\layers\\prompts\\arm-left.txt",
+      "promptSha256": "e50a8ef7630497567b83848d6091be94e20439a10421775eaa027de86c0fe493",
+      "referencePaths": [
+        "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v5-natural-tail\\idle.png"
+      ],
+      "referenceSha256": [
+        "1dc3f07e64139e7b4b641399ea9f2920d210940795acfeb9cab9cb8600ee54f3"
+      ],
+      "sourceBytesEqual": true,
+      "nativeSize": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "id": "layer/arm-right",
+      "relativePath": "layers/arm-right.png",
+      "sourcePath": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14722-1a3e-7a33-8c3a-968dd7304a8c\\exec-70cd0b45-09b7-4ff8-9d84-40d160e0e155.png",
+      "sha256": "1d2b9ef4f6546516063c6394c10a29a33e2a5f83805d58729f02c3f52778e3b4",
+      "promptPath": "D:\\project\\宠物\\assets\\pets\\nekomi\\animation-v6\\layers\\prompts\\arm-right.txt",
+      "promptSha256": "a70300d56a4e5bdd9d1bee9292fc4d81b56e6a2701da240749b70e74458d060c",
+      "referencePaths": [
+        "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v5-natural-tail\\idle.png"
+      ],
+      "referenceSha256": [
+        "1dc3f07e64139e7b4b641399ea9f2920d210940795acfeb9cab9cb8600ee54f3"
+      ],
+      "sourceBytesEqual": true,
+      "nativeSize": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "id": "layer/body",
+      "relativePath": "layers/body.png",
+      "sourcePath": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14722-1a3e-7a33-8c3a-968dd7304a8c\\exec-07fddad5-d42a-434f-858d-2bb7ba82060a.png",
+      "sha256": "bc19068d15441b763e68eee397014525223950ddd45a603fafd82d636a1f9b9d",
+      "promptPath": "D:\\project\\宠物\\assets\\pets\\nekomi\\animation-v6\\layers\\prompts\\body-remove-flap.txt",
+      "promptSha256": "cbc8002aed70b62f073e5249cf110c43dd46cb8372676dac4e351ff2e17b0dbe",
+      "referencePaths": [
+        "D:\\project\\宠物\\assets\\pets\\nekomi\\animation-v6\\layers\\drafts\\body-before-flap-removal.png"
+      ],
+      "referenceSha256": [
+        "17ede69021de8d47110e3d8d52ded722fa9c23f79a26de1b8ad417d571510320"
+      ],
+      "sourceBytesEqual": true,
+      "nativeSize": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "id": "layer/face-base",
+      "relativePath": "layers/face-base.png",
+      "sourcePath": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14722-1a3e-7a33-8c3a-968dd7304a8c\\exec-ccf03fc7-8048-452a-9160-9977ae531109.png",
+      "sha256": "bb244841821bcd4a34a368def211161ba8ee436883065668d021023d0d22ef57",
+      "promptPath": "D:\\project\\宠物\\assets\\pets\\nekomi\\animation-v6\\layers\\prompts\\face-base.txt",
+      "promptSha256": "0d2d351d086ed8419d51f39cac5a848754b4b704d503a0c2d826566589600f49",
+      "referencePaths": [
+        "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v5-natural-tail\\idle.png"
+      ],
+      "referenceSha256": [
+        "1dc3f07e64139e7b4b641399ea9f2920d210940795acfeb9cab9cb8600ee54f3"
+      ],
+      "sourceBytesEqual": true,
+      "nativeSize": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "id": "layer/eye-left",
+      "relativePath": "layers/eye-left.png",
+      "sourcePath": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14722-1a3e-7a33-8c3a-968dd7304a8c\\exec-0fd4353c-fb7c-4c16-a233-03714e599033.png",
+      "sha256": "acc524ea4dd868ab8acfd8206f5e05d9aa884ab98bd8cebadbe2fad31dc61180",
+      "promptPath": "D:\\project\\宠物\\assets\\pets\\nekomi\\animation-v6\\layers\\prompts\\eye-left.txt",
+      "promptSha256": "c23825123d9e53a107f812c46f5bba10c101e18773c9e6feab6f645fe63058c1",
+      "referencePaths": [
+        "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v5-natural-tail\\idle.png"
+      ],
+      "referenceSha256": [
+        "1dc3f07e64139e7b4b641399ea9f2920d210940795acfeb9cab9cb8600ee54f3"
+      ],
+      "sourceBytesEqual": true,
+      "nativeSize": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "id": "layer/eye-right",
+      "relativePath": "layers/eye-right.png",
+      "sourcePath": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14722-1a3e-7a33-8c3a-968dd7304a8c\\exec-5144d0b2-6f1f-4b07-9a27-6ecdefdfc964.png",
+      "sha256": "0cb5f20dcd9966e21813695e5287ca7c5d9a251fdf9920ee94e0d43f53834691",
+      "promptPath": "D:\\project\\宠物\\assets\\pets\\nekomi\\animation-v6\\layers\\prompts\\eye-right.txt",
+      "promptSha256": "27be5ed54d3e8407958ac8346f888f8761fbee506816b4f4d72831f918485b5d",
+      "referencePaths": [
+        "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v5-natural-tail\\idle.png"
+      ],
+      "referenceSha256": [
+        "1dc3f07e64139e7b4b641399ea9f2920d210940795acfeb9cab9cb8600ee54f3"
+      ],
+      "sourceBytesEqual": true,
+      "nativeSize": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "id": "layer/eye-white-left",
+      "relativePath": "layers/eye-white-left.png",
+      "sourcePath": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14722-1a3e-7a33-8c3a-968dd7304a8c\\exec-2a14a7a6-7a59-469d-adaa-ab8749bb15a3.png",
+      "sha256": "977f2351acaa6739204f7277437b098c8cf122084e006c6d0e43dd8c60e8a72a",
+      "promptPath": "D:\\project\\宠物\\assets\\pets\\nekomi\\animation-v6\\layers\\prompts\\eye-white-left.txt",
+      "promptSha256": "0bf8291969183e3b7074525c4d026f5f313fabd3d4f9f676f417f6ada9882261",
+      "referencePaths": [
+        "D:\\project\\宠物\\assets\\pets\\nekomi\\animation-v6\\layers\\eye-left.png"
+      ],
+      "referenceSha256": [
+        "acc524ea4dd868ab8acfd8206f5e05d9aa884ab98bd8cebadbe2fad31dc61180"
+      ],
+      "sourceBytesEqual": true,
+      "nativeSize": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "id": "layer/eye-white-right",
+      "relativePath": "layers/eye-white-right.png",
+      "sourcePath": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14722-1a3e-7a33-8c3a-968dd7304a8c\\exec-0af2a1cf-ee58-43ed-8404-5c7a75b191ea.png",
+      "sha256": "88610c0c7eee40eadaa3add1465385cfa850decd6afeb6bba76640928eb724bc",
+      "promptPath": "D:\\project\\宠物\\assets\\pets\\nekomi\\animation-v6\\layers\\prompts\\eye-white-right.txt",
+      "promptSha256": "96aaaf927e44a3918b8fae1dc655af2881094b7956b2faab4b6cd8fa64e63a99",
+      "referencePaths": [
+        "D:\\project\\宠物\\assets\\pets\\nekomi\\animation-v6\\layers\\eye-right.png"
+      ],
+      "referenceSha256": [
+        "0cb5f20dcd9966e21813695e5287ca7c5d9a251fdf9920ee94e0d43f53834691"
+      ],
+      "sourceBytesEqual": true,
+      "nativeSize": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "id": "layer/iris-left",
+      "relativePath": "layers/iris-left.png",
+      "sourcePath": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14722-1a3e-7a33-8c3a-968dd7304a8c\\exec-9faacbe0-bbcf-490a-94e6-16b56601b5e4.png",
+      "sha256": "9677d7f5da03c4153903907ddf53e0d66064267d7e2bc6b225c34b82415f8b8e",
+      "promptPath": "D:\\project\\宠物\\assets\\pets\\nekomi\\animation-v6\\layers\\prompts\\iris-left.txt",
+      "promptSha256": "29d412c29efc27d3a967cbc4a2e8048e3aaeb5ebc60bf4ab18ade9c4d2ae0847",
+      "referencePaths": [
+        "D:\\project\\宠物\\assets\\pets\\nekomi\\animation-v6\\layers\\eye-left.png"
+      ],
+      "referenceSha256": [
+        "acc524ea4dd868ab8acfd8206f5e05d9aa884ab98bd8cebadbe2fad31dc61180"
+      ],
+      "sourceBytesEqual": true,
+      "nativeSize": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "id": "layer/iris-right",
+      "relativePath": "layers/iris-right.png",
+      "sourcePath": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14722-1a3e-7a33-8c3a-968dd7304a8c\\exec-6986449f-7427-4aee-be96-8ab572599839.png",
+      "sha256": "3cb8fd8e89752d253671966e20be6cdc6059a6b248faa23a7ef77d03f65cba27",
+      "promptPath": "D:\\project\\宠物\\assets\\pets\\nekomi\\animation-v6\\layers\\prompts\\iris-right.txt",
+      "promptSha256": "0e4f20491ed34455f9e58fa433a26bb5c7449758c76960a930f3127f15cf8d1d",
+      "referencePaths": [
+        "D:\\project\\宠物\\assets\\pets\\nekomi\\animation-v6\\layers\\eye-right.png"
+      ],
+      "referenceSha256": [
+        "0cb5f20dcd9966e21813695e5287ca7c5d9a251fdf9920ee94e0d43f53834691"
+      ],
+      "sourceBytesEqual": true,
+      "nativeSize": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "id": "layer/eye-closed-left",
+      "relativePath": "layers/eye-closed-left.png",
+      "sourcePath": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14722-1a3e-7a33-8c3a-968dd7304a8c\\exec-f5c5c8ba-0b72-47bb-b420-3ca08a838262.png",
+      "sha256": "74f0ff81cee94f552ff2eb28bc627d24ba395a6b2288c4b40537f477a8d0c6e3",
+      "promptPath": "D:\\project\\宠物\\assets\\pets\\nekomi\\animation-v6\\layers\\prompts\\eye-closed-left.txt",
+      "promptSha256": "999bd3ad8845591aacf8a15bdff1ab27a12e268f2e82bbfcaaa879a50c27bdc4",
+      "referencePaths": [
+        "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v5-natural-tail\\idle.png"
+      ],
+      "referenceSha256": [
+        "1dc3f07e64139e7b4b641399ea9f2920d210940795acfeb9cab9cb8600ee54f3"
+      ],
+      "sourceBytesEqual": true,
+      "nativeSize": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "id": "layer/eye-closed-right",
+      "relativePath": "layers/eye-closed-right.png",
+      "sourcePath": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14722-1a3e-7a33-8c3a-968dd7304a8c\\exec-d45233da-ca10-4cfe-9946-0df25672534b.png",
+      "sha256": "388febb34630c342ba5ee7a40f0c34492dbb35bf662dbde8599d90b04ce212a5",
+      "promptPath": "D:\\project\\宠物\\assets\\pets\\nekomi\\animation-v6\\layers\\prompts\\eye-closed-right.txt",
+      "promptSha256": "164adc5c77ad7ffd99c7ba29bbe9a945bcf5877a155cea93f3aa904312bd97be",
+      "referencePaths": [
+        "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v5-natural-tail\\idle.png"
+      ],
+      "referenceSha256": [
+        "1dc3f07e64139e7b4b641399ea9f2920d210940795acfeb9cab9cb8600ee54f3"
+      ],
+      "sourceBytesEqual": true,
+      "nativeSize": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "id": "layer/eyebrow-left",
+      "relativePath": "layers/eyebrow-left.png",
+      "sourcePath": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14722-1a3e-7a33-8c3a-968dd7304a8c\\exec-ba860150-f695-43e0-b3e4-8bc72be2e2c5.png",
+      "sha256": "7eb707c5e3297626841ec272b3b989f63566c6c622010b50bf9759e4234ff441",
+      "promptPath": "D:\\project\\宠物\\assets\\pets\\nekomi\\animation-v6\\layers\\prompts\\eyebrow-left.txt",
+      "promptSha256": "d88c2979ea04b59fc720ef4b510a59647069ad9862eac69d44a32a1e5cae434c",
+      "referencePaths": [
+        "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v5-natural-tail\\idle.png"
+      ],
+      "referenceSha256": [
+        "1dc3f07e64139e7b4b641399ea9f2920d210940795acfeb9cab9cb8600ee54f3"
+      ],
+      "sourceBytesEqual": true,
+      "nativeSize": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "id": "layer/eyebrow-right",
+      "relativePath": "layers/eyebrow-right.png",
+      "sourcePath": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14722-1a3e-7a33-8c3a-968dd7304a8c\\exec-e34cafb3-900f-4bcb-9610-4e1e1b2c1955.png",
+      "sha256": "ee5a07b30d5a3bc42df527e75f2d838b2666de5b264faf3bfc5f03f6eb6827a2",
+      "promptPath": "D:\\project\\宠物\\assets\\pets\\nekomi\\animation-v6\\layers\\prompts\\eyebrow-right.txt",
+      "promptSha256": "7aa6e40b4072f85d4b1e4dd4ff886a022fc82cddd4b2a92fedc402874e4af171",
+      "referencePaths": [
+        "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v5-natural-tail\\idle.png"
+      ],
+      "referenceSha256": [
+        "1dc3f07e64139e7b4b641399ea9f2920d210940795acfeb9cab9cb8600ee54f3"
+      ],
+      "sourceBytesEqual": true,
+      "nativeSize": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "id": "layer/mouth-neutral",
+      "relativePath": "layers/mouth-neutral.png",
+      "sourcePath": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14722-1a3e-7a33-8c3a-968dd7304a8c\\exec-03e15762-36d6-46ce-85a6-ecd48200c445.png",
+      "sha256": "f6c6ba9f414d0e1308d0761a5972a480439f6e3bbe4feff9f637e0425f6f96f8",
+      "promptPath": "D:\\project\\宠物\\assets\\pets\\nekomi\\animation-v6\\layers\\prompts\\mouth-neutral.txt",
+      "promptSha256": "b608a5dd1f94900b97200862c74652c3deed87f7cca777b309926c49a528c830",
+      "referencePaths": [
+        "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v5-natural-tail\\idle.png"
+      ],
+      "referenceSha256": [
+        "1dc3f07e64139e7b4b641399ea9f2920d210940795acfeb9cab9cb8600ee54f3"
+      ],
+      "sourceBytesEqual": true,
+      "nativeSize": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "id": "layer/mouth-open",
+      "relativePath": "layers/mouth-open.png",
+      "sourcePath": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14722-1a3e-7a33-8c3a-968dd7304a8c\\exec-d2fe37df-67f0-4361-99ad-938a28636343.png",
+      "sha256": "c64493856051a74bf30553b0d56e521dd517e7286dc0430ad0453269eae6021f",
+      "promptPath": "D:\\project\\宠物\\assets\\pets\\nekomi\\animation-v6\\layers\\prompts\\mouth-open.txt",
+      "promptSha256": "dbaa95ed602a160b366f083d38be8ff54b77a018364937da66e08b9ec1222ff8",
+      "referencePaths": [
+        "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v5-natural-tail\\idle.png"
+      ],
+      "referenceSha256": [
+        "1dc3f07e64139e7b4b641399ea9f2920d210940795acfeb9cab9cb8600ee54f3"
+      ],
+      "sourceBytesEqual": true,
+      "nativeSize": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "id": "layer/hair-front",
+      "relativePath": "layers/hair-front.png",
+      "sourcePath": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14722-1a3e-7a33-8c3a-968dd7304a8c\\exec-0811ae69-7751-4736-94ca-fe64e28c9456.png",
+      "sha256": "6c3b6e6de442072e7d19549e3e6b01ef36084f7ea1da484199a2f7b14b5c55bc",
+      "promptPath": "D:\\project\\宠物\\assets\\pets\\nekomi\\animation-v6\\layers\\prompts\\hair-front.txt",
+      "promptSha256": "d237d6898af59ac156aae0337974943e18bda10ac75af0de426ff594d3663513",
+      "referencePaths": [
+        "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v5-natural-tail\\idle.png"
+      ],
+      "referenceSha256": [
+        "1dc3f07e64139e7b4b641399ea9f2920d210940795acfeb9cab9cb8600ee54f3"
+      ],
+      "sourceBytesEqual": true,
+      "nativeSize": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "id": "layer/hair-side-left",
+      "relativePath": "layers/hair-side-left.png",
+      "sourcePath": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14722-1a3e-7a33-8c3a-968dd7304a8c\\exec-b6ed94db-9b84-4e39-8216-879c87e1e208.png",
+      "sha256": "a77d354abcd1c2c8528a1ec111b9182a9803085ec2462863a8ad90c762ed2f76",
+      "promptPath": "D:\\project\\宠物\\assets\\pets\\nekomi\\animation-v6\\layers\\prompts\\hair-side-left.txt",
+      "promptSha256": "b0c4e8412ecc2c689b643e20c15c3525cebf7253c673bf2a4052610e32f46498",
+      "referencePaths": [
+        "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v5-natural-tail\\idle.png"
+      ],
+      "referenceSha256": [
+        "1dc3f07e64139e7b4b641399ea9f2920d210940795acfeb9cab9cb8600ee54f3"
+      ],
+      "sourceBytesEqual": true,
+      "nativeSize": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "id": "layer/hair-side-right",
+      "relativePath": "layers/hair-side-right.png",
+      "sourcePath": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14722-1a3e-7a33-8c3a-968dd7304a8c\\exec-faab2fb3-44d2-433d-8900-2acd3e213f4c.png",
+      "sha256": "9433256c81765010e12da38a151ab2e492b0402b8fbec9c4c12c244639751e4a",
+      "promptPath": "D:\\project\\宠物\\assets\\pets\\nekomi\\animation-v6\\layers\\prompts\\hair-side-right.txt",
+      "promptSha256": "bed0632dd8cda80ba1261a45414fe84dd4eaee2c92a4c1e8e736203ed82889f3",
+      "referencePaths": [
+        "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v5-natural-tail\\idle.png"
+      ],
+      "referenceSha256": [
+        "1dc3f07e64139e7b4b641399ea9f2920d210940795acfeb9cab9cb8600ee54f3"
+      ],
+      "sourceBytesEqual": true,
+      "nativeSize": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "id": "layer/bow-left",
+      "relativePath": "layers/bow-left.png",
+      "sourcePath": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14722-1a3e-7a33-8c3a-968dd7304a8c\\exec-cf4dbb3d-0ada-4f32-93e5-1b11f11a8bbf.png",
+      "sha256": "f3fd635540f0b79d27cdd88caaae1d429bc56ac6ae92beeea38fdd635e841871",
+      "promptPath": "D:\\project\\宠物\\assets\\pets\\nekomi\\animation-v6\\layers\\prompts\\bow-left.txt",
+      "promptSha256": "f5b2f47ee0f80d1e6f5d34c44057fc48bf4bf9fdaad36e3f8e9128a6326f80a4",
+      "referencePaths": [
+        "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v5-natural-tail\\idle.png"
+      ],
+      "referenceSha256": [
+        "1dc3f07e64139e7b4b641399ea9f2920d210940795acfeb9cab9cb8600ee54f3"
+      ],
+      "sourceBytesEqual": true,
+      "nativeSize": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "id": "layer/bow-right",
+      "relativePath": "layers/bow-right.png",
+      "sourcePath": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14722-1a3e-7a33-8c3a-968dd7304a8c\\exec-0364bd83-4cbd-4d9b-aefc-03d464a59ad4.png",
+      "sha256": "7b200b1f23ce8fd51853a769c817fd81443bfce17beb9fd671064b888d6e7e66",
+      "promptPath": "D:\\project\\宠物\\assets\\pets\\nekomi\\animation-v6\\layers\\prompts\\bow-right.txt",
+      "promptSha256": "467430116c47d8eb72330c9f9a05b8d9dddc5532c1aa2e99d8f4523ed76d3e89",
+      "referencePaths": [
+        "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v5-natural-tail\\idle.png"
+      ],
+      "referenceSha256": [
+        "1dc3f07e64139e7b4b641399ea9f2920d210940795acfeb9cab9cb8600ee54f3"
+      ],
+      "sourceBytesEqual": true,
+      "nativeSize": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA"
+    }
+  ],
+  "rejectedAssets": [
+    {
+      "id": "body-before-flap-removal",
+      "path": "D:\\project\\宠物\\assets\\pets\\nekomi\\animation-v6\\layers\\drafts\\body-before-flap-removal.png",
+      "sourcePath": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14722-1a3e-7a33-8c3a-968dd7304a8c\\exec-790f7b78-df87-439d-baee-f8f20056d29e.png",
+      "reason": "Extra fabric flap would overlap the separate skirt."
+    }
+  ]
+}

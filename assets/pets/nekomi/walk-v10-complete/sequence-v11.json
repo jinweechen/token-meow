@@ -1,0 +1,88 @@
+{
+  "schemaVersion": 1,
+  "title": "新版侧走 v11 · 8 相位预览",
+  "canvas": {
+    "width": 1024,
+    "height": 1536
+  },
+  "review": {
+    "status": "pending-review",
+    "notes": [
+      "按用户加快制作要求使用母稿right-v3；小幅比例、装饰差异保留，实际循环待检查。"
+    ]
+  },
+  "frames": [
+    {
+      "id": "01-contact-near",
+      "phase": 1,
+      "label": "01 · 近脚接触",
+      "path": "frames-v11/01-contact-near.png",
+      "durationMs": 160,
+      "reviewStatus": "pending-review",
+      "notes": []
+    },
+    {
+      "id": "02-near-flat-recovery",
+      "phase": 2,
+      "label": "02 · 近腿承重 / 远腿回收",
+      "path": "frames-v11/02-near-flat-recovery.png",
+      "durationMs": 160,
+      "reviewStatus": "pending-review",
+      "notes": []
+    },
+    {
+      "id": "03-far-passing",
+      "phase": 3,
+      "label": "03 · 远脚经过",
+      "path": "frames-v11/03-far-passing.png",
+      "durationMs": 160,
+      "reviewStatus": "pending-review",
+      "notes": []
+    },
+    {
+      "id": "04-near-toe-far-reach",
+      "phase": 4,
+      "label": "04 · 近脚抬跟 / 远脚前摆",
+      "path": "frames-v11/04-near-toe-far-reach.png",
+      "durationMs": 160,
+      "reviewStatus": "pending-review",
+      "notes": []
+    },
+    {
+      "id": "05-contact-far",
+      "phase": 5,
+      "label": "05 · 远脚接触",
+      "path": "frames-v11/05-contact-far.png",
+      "durationMs": 160,
+      "reviewStatus": "pending-review",
+      "notes": []
+    },
+    {
+      "id": "06-far-flat-recovery",
+      "phase": 6,
+      "label": "06 · 远腿承重 / 近腿回收",
+      "path": "frames-v11/06-far-flat-recovery.png",
+      "durationMs": 160,
+      "reviewStatus": "pending-review",
+      "notes": []
+    },
+    {
+      "id": "07-near-passing",
+      "phase": 7,
+      "label": "07 · 近脚经过",
+      "path": "frames-v11/07-near-passing.png",
+      "durationMs": 160,
+      "reviewStatus": "pending-review",
+      "notes": []
+    },
+    {
+      "id": "08-far-toe-near-reach",
+      "phase": 8,
+      "label": "08 · 远脚抬跟 / 近脚前摆",
+      "path": "frames-v11/08-far-toe-near-reach.png",
+      "durationMs": 160,
+      "reviewStatus": "pending-review",
+      "notes": []
+    }
+  ]
+}

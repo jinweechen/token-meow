@@ -1,0 +1,11 @@
+{
+  "tool": "built-in image_gen.imagegen",
+  "prompt": "../prompts/turnaround-rear-accessories-v2.txt",
+  "input": "turnaround-rear-waist-v1.png",
+  "output": "turnaround-rear-accessories-v2.png",
+  "originalGeneratedPath": "C:/Users/Administrator/.codex/generated_images/01a148a3-42fd-7200-9a55-f8a2b93cf502/exec-d5bd7bf2-240e-4758-830d-5dbb5ae2e8e7.png",
+  "transparentBackgroundRequested": false,
+  "scope": "rear hair accessory orientation; rear plain waistband retained",
+  "reviewStatus": "needs-side-accessory-revision",
+  "remaining": ["side-view hair bow still frontal", "arm anatomy and cross-view proportions need review", "not approved animation master or complete cycle"]
+}

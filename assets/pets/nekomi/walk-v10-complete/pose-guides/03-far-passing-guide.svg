@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1536" viewBox="0 0 1024 1536">
+ <title>03 · 近腿支撑 / 远脚经过</title><desc>纯代码姿势约束，候选角色像素尺寸；不是人物素材或验收。固定近青远灰，远侧先画；虚线为被遮挡的连接。腿段 280/280 px，地面 y=1483。</desc>
+ <rect width="1024" height="1536" fill="white"/>
+ <g font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" fill="#2c423a"><text x="55" y="76" font-size="30" font-weight="700">03 · 近腿支撑 / 远脚经过</text><text x="55" y="122" font-size="20">远脚从身体下经过，允许被近腿遮挡；鞋底离地 50 px。</text><text x="55" y="162" font-size="18" fill="#6c7a70">面向右 → · 固定画幅 1024×1536 · 地面 y=1483</text><text x="55" y="196" font-size="18" fill="#6c7a70">绘图约束，非人物成品或验收；不按成人工程比例重映射。</text>
+ <rect x="55" y="238" width="22" height="22" rx="5" fill="#58c3b8"/><text x="88" y="257" font-size="19">近侧：全掌支撑</text><rect x="490" y="238" width="22" height="22" rx="5" fill="#b7bdc5"/><text x="523" y="257" font-size="19">远侧：身体下方经过</text>
+ <text x="55" y="310" font-size="18" fill="#6c7a70">腿段均为 280 px；鞋底长 220 px。允许遮挡，不把远鞋移开求完整。</text><text x="55" y="342" font-size="18" fill="#6c7a70">灰虚线表示隐藏骨架；手臂随同侧腿反向摆动。</text></g>
+ <path d="M600 570 V1483" stroke="#e3e8e4" stroke-width="1.5" stroke-dasharray="6 9"/>
+ <path d="M60 1483 H965" stroke="#748176" stroke-width="3"/>
+ <g id="far-volumes" fill="#b7bdc5" stroke="#b7bdc5" stroke-linecap="round" stroke-linejoin="round"><path d="M600 620 L550.319172115 756.223402324 L620 860" fill="none" stroke-width="42"/><path d="M600 840 L732.80719107 1086.5 L600 1333" fill="none" stroke-width="90"/><path d="M530 1433 L530 1378 L560 1323 L625 1323 L645 1373 L725 1388 L750 1413 L750 1433 Z" stroke-width="0"/></g>
+ <path d="M600 620 L600 840" stroke="#edf0ed" stroke-width="108" stroke-linecap="round"/>
+ <g id="near-volumes" fill="#58c3b8" stroke="#58c3b8" stroke-linecap="round" stroke-linejoin="round"><path d="M600 620 L528.457103149 746.121425262 L580 860" fill="none" stroke-width="42"/><path d="M600 840 L668.467145406 1111.5 L600 1383" fill="none" stroke-width="98"/><path d="M530 1483 L530 1428 L560 1373 L625 1373 L645 1423 L725 1438 L750 1463 L750 1483 Z" stroke-width="0"/></g>
+ <g id="near-bones" stroke="#176e67" fill="none" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M600 840 L668.467145406 1111.5 L600 1383"/><path d="M600 620 L528.457103149 746.121425262 L580 860" stroke-width="2"/><path d="M600 1383 L530 1483 L750 1483" stroke-width="2"/><circle cx="668.4671454056615" cy="1111.5" r="8"/><circle cx="600" cy="1383" r="8"/></g><g id="far-bones" stroke="#69747f" fill="none" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="9 8"><path d="M600 840 L732.80719107 1086.5 L600 1333"/><path d="M600 620 L550.319172115 756.223402324 L620 860" stroke-width="2"/><path d="M600 1333 L530 1433 L750 1433" stroke-width="2"/><circle cx="732.8071910703634" cy="1086.5" r="8"/><circle cx="600" cy="1333" r="8"/></g>
+ <g fill="#fff" stroke="#176e67" stroke-width="3"><circle cx="600" cy="840" r="9"/><circle cx="600" cy="620" r="7"/></g>
+ <g font-family="Microsoft YaHei, sans-serif" font-size="18" fill="#607267"><path d="M588 840 H324" stroke="#9aac9d" stroke-width="1.5"/><text x="110" y="846">髋 (600,840)</text><text x="110" y="881">固定腿长 280 / 280</text>
+ <path d="M882 1433 H910 M882 1483 H910 M896 1433 V1483" stroke="#7c8b80" fill="none" stroke-width="1.5"/><text x="915" y="1464" font-size="16">50px</text>
+ <text x="62" y="1517" font-size="17">原生 SVG 姿势约束 · 近青远灰固定层级 · 不作为人物通过证据</text></g>
+ </svg>

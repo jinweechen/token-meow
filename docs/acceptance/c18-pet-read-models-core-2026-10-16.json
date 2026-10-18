@@ -1,0 +1,650 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-15T22:14:41.588522+00:00",
+  "dateAsiaShanghai": "2026-10-16",
+  "status": "all-core-and-two-selected-desktop-tests-passed",
+  "scope": "C18 independent pet read models, schema5 persistent arrival feed, shared Core settings/revision wrappers, and desktop quota projection; owned fixtures only",
+  "qualification": {
+    "allCoreTestsExecuted": true,
+    "wholeCrateExecuted": false,
+    "nativePassed": false,
+    "releasePassed": false,
+    "M4Passed": false,
+    "resourceThresholdPassed": false,
+    "performanceClaim": false,
+    "applicationBuiltOrLaunched": false,
+    "cliExecuted": false,
+    "realSourceOrDatabaseRead": false,
+    "modelOrAccountRpcInvoked": false
+  },
+  "counts": {
+    "listedHarnessTests": 111,
+    "coreExecuted": 76,
+    "corePassed": 76,
+    "newPetTestsWithinCore": 6,
+    "selectedDesktopExecuted": 2,
+    "selectedDesktopPassed": 2,
+    "distinctCaseExecutions": 78,
+    "failedTestCases": 0,
+    "otherListedCasesNotExecuted": 33,
+    "noRunCompileAttempts": 2,
+    "retainedFailedCompileAttempts": 1
+  },
+  "compile": {
+    "baseCommand": {
+      "argv": [
+        "cargo",
+        "test",
+        "--manifest-path",
+        "src-tauri/Cargo.toml",
+        "--release",
+        "--features",
+        "custom-protocol",
+        "--offline",
+        "--lib",
+        "--no-run",
+        "--message-format=json"
+      ],
+      "workingDirectory": "D:\\project\\宠物",
+      "environmentOverrides": {
+        "CARGO_TARGET_DIR": "D:/DevCache/cargo-token-meow"
+      },
+      "startedAt": "2026-10-15T22:08:29.388930+00:00"
+    },
+    "initial": {
+      "exitCode": 101,
+      "errorCode": "E0596",
+      "file": "src-tauri/src/core/pet_tests.rs",
+      "lineAtFailure": 189,
+      "reason": "The new priority test called mutable acknowledge/mark_read actions through a Rig binding lacking mut. No test ran.",
+      "logs": [
+        {
+          "path": "output/implementation/c18-pet-validation-4d68824482f0470390b2dd5c5330e2ee/compile.stdout.jsonl",
+          "sha256": "1EA02ADE42884E45017DE2747336516CE3092140CCBEE457C2DA9CC0C64BE4D8",
+          "bytes": 391421
+        },
+        {
+          "path": "output/implementation/c18-pet-validation-4d68824482f0470390b2dd5c5330e2ee/compile.stderr.log",
+          "sha256": "82D91E1E621B77D15A246F3098A67319BC07FC143E8C8576A365F387A7A9097B",
+          "bytes": 134
+        }
+      ]
+    },
+    "correction": {
+      "scope": "only let r -> let mut r in the owned priority test; no production change or oracle change",
+      "patch": {
+        "path": "output/implementation/c18-pet-validation-4d68824482f0470390b2dd5c5330e2ee/owned-test-compile-fix.patch",
+        "sha256": "DEC2FA0122E6ABBBD8EE749FBDBFCE997EF2F5ADA91B848FC73278253188DCAE",
+        "bytes": 371
+      },
+      "exitCode": 0,
+      "logs": [
+        {
+          "path": "output/implementation/c18-pet-validation-4d68824482f0470390b2dd5c5330e2ee/compile-fix.stdout.jsonl",
+          "sha256": "1E9804E59D1C24667D815E343347E9F8864A277336D6FC091C1FE2A93B919DF2",
+          "bytes": 388573
+        },
+        {
+          "path": "output/implementation/c18-pet-validation-4d68824482f0470390b2dd5c5330e2ee/compile-fix.stderr.log",
+          "sha256": "16942A245F54CB16D7705C7C298CCB12C2D48573B3AA755B1E26B4DE3CA307D1",
+          "bytes": 124
+        }
+      ]
+    },
+    "harness": {
+      "executable": "D:/DevCache/cargo-token-meow\\release\\deps\\token_meow_lib-19e131ee451a8414.exe",
+      "sha256": "DF3DC52B21F6846A7B040B19A3A7991EB15AF708C6CA41D18E5A06BF9E25DB13",
+      "bytes": 6323712,
+      "features": [
+        "custom-protocol"
+      ],
+      "profile": {
+        "opt_level": "3",
+        "debuginfo": 0,
+        "debug_assertions": false,
+        "overflow_checks": false,
+        "test": true
+      },
+      "artifactAndActualList": {
+        "path": "output/implementation/c18-pet-validation-4d68824482f0470390b2dd5c5330e2ee/harness.json",
+        "sha256": "4F2CF9E619B19BD9294F7E9FDC1E1635F2AC03D1F4A532A2167024DC6705F3AA",
+        "bytes": 20334
+      }
+    }
+  },
+  "executions": [
+    {
+      "label": "core-all",
+      "argv": [
+        "D:/DevCache/cargo-token-meow\\release\\deps\\token_meow_lib-19e131ee451a8414.exe",
+        "core::",
+        "--nocapture",
+        "--test-threads=1"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 133.79275869997218,
+      "expectedNames": [
+        "core::adapter::capability_report_tests::capability_metadata_is_version_scoped_and_does_not_claim_live_rpc_success",
+        "core::adapter::capability_report_tests::registered_source_snapshot_preserves_declaration_and_runtime_boundaries",
+        "core::adapter::lifecycle_order_regression_tests::explicit_terminal_result_is_order_independent_of_later_usage_metadata",
+        "core::adapter::lifecycle_order_regression_tests::newer_known_result_ignores_older_explicit_and_later_generic_without_refreshing_delivery",
+        "core::pet::tests::pet_cursor_scope_cleanup_restart_and_decimal_precision_are_explicit",
+        "core::pet::tests::pet_details_trust_cache_latest_null_and_scope_rejection_keep_snapshot_semantics",
+        "core::pet::tests::pet_feed_priority_overflow_and_every_observed_sequence_are_consumed_once",
+        "core::pet::tests::pet_pulse_chrono_freshness_midnight_and_unknown_watermarks_match_existing_rules",
+        "core::pet::tests::pet_pulse_matches_snapshot_and_never_reads_unused_fact_tables",
+        "core::pet::tests::pet_v5_backfill_preserves_inbox_and_last_ddl_failure_rolls_back_and_recovers",
+        "core::queries::allocation_parity_tests::filtered_snapshot_keeps_metadata_from_unselected_rows_and_all_output_arrays",
+        "core::queries::retention_boundary_tests::timezone_order_is_chronological_and_invalid_boundary_leaves_facts_untouched",
+        "core::queries::retention_boundary_tests::wider_retention_cannot_reimport_new_old_copy_but_explicit_history_can",
+        "core::tests::a_valid_response_identity_with_missing_usage_still_counts_as_recorded_not_trusted_metered",
+        "core::tests::agent_kind_contract::agent_kind_conflicting_parents_and_user_child_evidence_are_sticky_and_bounded",
+        "core::tests::agent_kind_contract::agent_kind_existing_v3_parent_is_read_without_fake_migration_and_root_requires_positive_end",
+        "core::tests::agent_kind_contract::agent_kind_file_scopes_native_legacy_fact_views_and_csv_but_not_global_state",
+        "core::tests::agent_kind_contract::agent_kind_late_file_metadata_and_reopen_keep_v3_facts_and_cursor_identity",
+        "core::tests::agent_kind_contract::agent_kind_same_thread_id_is_source_scoped_and_illegal_queries_fail_for_csv",
+        "core::tests::agent_kind_contract::agent_kind_version_whitelist_unknown_taxonomy_and_directory_channel_are_explicit",
+        "core::tests::aggregate_quota_and_context_snapshots_cannot_manufacture_response_rows_or_tokens",
+        "core::tests::all_fact_views_honor_project_model_provider_and_root_filters_and_missing_root_usage_is_related",
+        "core::tests::before_commit_failure_rolls_back_facts_and_cursor_after_commit_restart_is_idempotent",
+        "core::tests::budget_identity_is_per_rule_version_scope_local_day_and_tier_not_usage_event",
+        "core::tests::byte_cursor_waits_for_split_utf8_complete_line",
+        "core::tests::cache_ratio_uses_only_valid_subset_and_reports_input_coverage",
+        "core::tests::cancellation_does_not_commit_a_partial_record",
+        "core::tests::cancelled_history_survives_restart_and_requires_explicit_reimport_while_live_remains_active",
+        "core::tests::chat_target_requires_exact_source_membership_registered_adapter_and_plain_uuid",
+        "core::tests::child_inherits_parent_history_without_reassigning_parent_usage_or_notifying_child",
+        "core::tests::clear_watermark_prevents_automatic_refill_but_explicit_history_import_is_possible",
+        "core::tests::codex_native_does_not_allow_metering_revisions",
+        "core::tests::completion_refinement_updates_one_record_and_preserves_read_and_delivery",
+        "core::tests::conflicting_identity_excludes_whole_fact_and_never_overwrites_original",
+        "core::tests::cross_source_suspicion_excludes_exact_range_until_copy_evidence_resolves_it",
+        "core::tests::csv_blocks_formulas_newlines_and_can_anonymize_project",
+        "core::tests::do_not_disturb_suppresses_live_notification_persistently_instead_of_delaying_it",
+        "core::tests::file_growth_with_restored_mtime_is_still_collected",
+        "core::tests::fixture_native_and_cumulative_are_not_added_twice",
+        "core::tests::global_activity_is_unfiltered_counts_root_tasks_and_rejects_future_activity",
+        "core::tests::independent_live_legacy_cursor_needs_its_own_baseline_then_full_history_fills_only_proven_gap",
+        "core::tests::independent_namespaces_same_short_id_are_separate_legitimate_usage",
+        "core::tests::legacy_resets_and_model_switches_create_gaps_not_fake_delta",
+        "core::tests::live_budget_crossing_claims_once_and_cleared_inbox_does_not_refill_same_threshold",
+        "core::tests::locked_source_recovers_after_release_while_another_source_progresses",
+        "core::tests::malformed_complete_record_does_not_stop_other_records_or_store_body",
+        "core::tests::metadata_enrichment_does_not_change_usage_identity",
+        "core::tests::migration_takes_backup_and_keeps_existing_settings_and_source_identity",
+        "core::tests::missing_zero_invalid_and_unknown_are_distinct",
+        "core::tests::nonempty_physical_key_is_never_overwritten_when_same_path_is_replaced",
+        "core::tests::notification_claim_is_atomic_preserves_refinement_and_never_replays_on_restart",
+        "core::tests::oversized_directory_is_rejected_before_any_partial_metadata_write",
+        "core::tests::oversized_half_line_makes_bounded_progress_then_recovers_following_valid_line",
+        "core::tests::paused_history_keeps_old_cursor_but_collects_new_files_and_old_file_tail_without_recount",
+        "core::tests::per_source_health_is_unfiltered_has_real_success_watermark_and_preserves_unsupported_capability",
+        "core::tests::query_index_contract::query_index_and_source_reuse_keep_snapshots_csv_and_global_health_semantics",
+        "core::tests::query_index_contract::query_index_fresh_schema_and_newer_schema_rejection_do_not_create_backups_or_rewrite_data",
+        "core::tests::query_index_contract::query_index_last_ddl_failure_rolls_back_every_pending_generation_and_backup_can_recover",
+        "core::tests::query_index_contract::query_index_v3_committed_wal_backup_retains_facts_cursors_preferences_and_reopen_is_idempotent",
+        "core::tests::rejects_data_source_path_overlap_before_writing_any_database",
+        "core::tests::repeat_copy_archive_and_restart_preserve_exact_totals",
+        "core::tests::root_task_budget_includes_explicit_children_across_days_and_never_other_source_same_ids",
+        "core::tests::second_semantics_fixture_normalizes_exclusive_input_and_never_double_adds_cache_subtypes",
+        "core::tests::settings_core_values_win_legacy_migration_but_defaults_do_not_block_missing_keys",
+        "core::tests::source_registration_selection_relocation_and_restart_keep_stable_identities",
+        "core::tests::static_head_files_do_not_starve_older_history_or_a_second_source",
+        "core::tests::structured_tool_result_metadata_is_retained_but_body_and_spoofed_stdout_are_not",
+        "core::tests::truncate_and_replace_same_path_start_new_physical_identity_without_double_usage",
+        "core::tests::turn_thread_attribution_contract::turn_thread_attribution_is_unique_source_scoped_and_independent_of_composite_index",
+        "core::tests::v1_migration_ddl_failure_rolls_back_and_readable_backup_recovers_original_metering",
+        "core::tests::v1_migration_preserves_existing_native_facts_physical_cursor_and_replay_after_restart",
+        "core::tests::v1_migration_verified_file_keeps_physical_id_and_cursor_when_archived",
+        "core::tests::v1_unverified_truncated_or_replaced_file_never_adopts_the_old_physical_id",
+        "core::tests::v3_context_adds_live_cursor_without_resetting_history_and_both_survive_archive_and_truncate",
+        "core::tests::verified_stream_revision_never_accepts_late_partial_over_final",
+        "core::tests::work_care_settings_defaults_validation_atomicity_and_restart_round_trip"
+      ],
+      "passedNames": [
+        "core::adapter::capability_report_tests::capability_metadata_is_version_scoped_and_does_not_claim_live_rpc_success",
+        "core::adapter::capability_report_tests::registered_source_snapshot_preserves_declaration_and_runtime_boundaries",
+        "core::adapter::lifecycle_order_regression_tests::explicit_terminal_result_is_order_independent_of_later_usage_metadata",
+        "core::adapter::lifecycle_order_regression_tests::newer_known_result_ignores_older_explicit_and_later_generic_without_refreshing_delivery",
+        "core::pet::tests::pet_cursor_scope_cleanup_restart_and_decimal_precision_are_explicit",
+        "core::pet::tests::pet_details_trust_cache_latest_null_and_scope_rejection_keep_snapshot_semantics",
+        "core::pet::tests::pet_feed_priority_overflow_and_every_observed_sequence_are_consumed_once",
+        "core::pet::tests::pet_pulse_chrono_freshness_midnight_and_unknown_watermarks_match_existing_rules",
+        "core::pet::tests::pet_pulse_matches_snapshot_and_never_reads_unused_fact_tables",
+        "core::pet::tests::pet_v5_backfill_preserves_inbox_and_last_ddl_failure_rolls_back_and_recovers",
+        "core::queries::allocation_parity_tests::filtered_snapshot_keeps_metadata_from_unselected_rows_and_all_output_arrays",
+        "core::queries::retention_boundary_tests::timezone_order_is_chronological_and_invalid_boundary_leaves_facts_untouched",
+        "core::queries::retention_boundary_tests::wider_retention_cannot_reimport_new_old_copy_but_explicit_history_can",
+        "core::tests::a_valid_response_identity_with_missing_usage_still_counts_as_recorded_not_trusted_metered",
+        "core::tests::agent_kind_contract::agent_kind_conflicting_parents_and_user_child_evidence_are_sticky_and_bounded",
+        "core::tests::agent_kind_contract::agent_kind_existing_v3_parent_is_read_without_fake_migration_and_root_requires_positive_end",
+        "core::tests::agent_kind_contract::agent_kind_file_scopes_native_legacy_fact_views_and_csv_but_not_global_state",
+        "core::tests::agent_kind_contract::agent_kind_late_file_metadata_and_reopen_keep_v3_facts_and_cursor_identity",
+        "core::tests::agent_kind_contract::agent_kind_same_thread_id_is_source_scoped_and_illegal_queries_fail_for_csv",
+        "core::tests::agent_kind_contract::agent_kind_version_whitelist_unknown_taxonomy_and_directory_channel_are_explicit",
+        "core::tests::aggregate_quota_and_context_snapshots_cannot_manufacture_response_rows_or_tokens",
+        "core::tests::all_fact_views_honor_project_model_provider_and_root_filters_and_missing_root_usage_is_related",
+        "core::tests::before_commit_failure_rolls_back_facts_and_cursor_after_commit_restart_is_idempotent",
+        "core::tests::budget_identity_is_per_rule_version_scope_local_day_and_tier_not_usage_event",
+        "core::tests::byte_cursor_waits_for_split_utf8_complete_line",
+        "core::tests::cache_ratio_uses_only_valid_subset_and_reports_input_coverage",
+        "core::tests::cancellation_does_not_commit_a_partial_record",
+        "core::tests::cancelled_history_survives_restart_and_requires_explicit_reimport_while_live_remains_active",
+        "core::tests::chat_target_requires_exact_source_membership_registered_adapter_and_plain_uuid",
+        "core::tests::child_inherits_parent_history_without_reassigning_parent_usage_or_notifying_child",
+        "core::tests::clear_watermark_prevents_automatic_refill_but_explicit_history_import_is_possible",
+        "core::tests::codex_native_does_not_allow_metering_revisions",
+        "core::tests::completion_refinement_updates_one_record_and_preserves_read_and_delivery",
+        "core::tests::conflicting_identity_excludes_whole_fact_and_never_overwrites_original",
+        "core::tests::cross_source_suspicion_excludes_exact_range_until_copy_evidence_resolves_it",
+        "core::tests::csv_blocks_formulas_newlines_and_can_anonymize_project",
+        "core::tests::do_not_disturb_suppresses_live_notification_persistently_instead_of_delaying_it",
+        "core::tests::file_growth_with_restored_mtime_is_still_collected",
+        "core::tests::fixture_native_and_cumulative_are_not_added_twice",
+        "core::tests::global_activity_is_unfiltered_counts_root_tasks_and_rejects_future_activity",
+        "core::tests::independent_live_legacy_cursor_needs_its_own_baseline_then_full_history_fills_only_proven_gap",
+        "core::tests::independent_namespaces_same_short_id_are_separate_legitimate_usage",
+        "core::tests::legacy_resets_and_model_switches_create_gaps_not_fake_delta",
+        "core::tests::live_budget_crossing_claims_once_and_cleared_inbox_does_not_refill_same_threshold",
+        "core::tests::locked_source_recovers_after_release_while_another_source_progresses",
+        "core::tests::malformed_complete_record_does_not_stop_other_records_or_store_body",
+        "core::tests::metadata_enrichment_does_not_change_usage_identity",
+        "core::tests::migration_takes_backup_and_keeps_existing_settings_and_source_identity",
+        "core::tests::missing_zero_invalid_and_unknown_are_distinct",
+        "core::tests::nonempty_physical_key_is_never_overwritten_when_same_path_is_replaced",
+        "core::tests::notification_claim_is_atomic_preserves_refinement_and_never_replays_on_restart",
+        "core::tests::oversized_directory_is_rejected_before_any_partial_metadata_write",
+        "core::tests::oversized_half_line_makes_bounded_progress_then_recovers_following_valid_line",
+        "core::tests::paused_history_keeps_old_cursor_but_collects_new_files_and_old_file_tail_without_recount",
+        "core::tests::per_source_health_is_unfiltered_has_real_success_watermark_and_preserves_unsupported_capability",
+        "core::tests::query_index_contract::query_index_and_source_reuse_keep_snapshots_csv_and_global_health_semantics",
+        "core::tests::query_index_contract::query_index_fresh_schema_and_newer_schema_rejection_do_not_create_backups_or_rewrite_data",
+        "core::tests::query_index_contract::query_index_last_ddl_failure_rolls_back_every_pending_generation_and_backup_can_recover",
+        "core::tests::query_index_contract::query_index_v3_committed_wal_backup_retains_facts_cursors_preferences_and_reopen_is_idempotent",
+        "core::tests::rejects_data_source_path_overlap_before_writing_any_database",
+        "core::tests::repeat_copy_archive_and_restart_preserve_exact_totals",
+        "core::tests::root_task_budget_includes_explicit_children_across_days_and_never_other_source_same_ids",
+        "core::tests::second_semantics_fixture_normalizes_exclusive_input_and_never_double_adds_cache_subtypes",
+        "core::tests::settings_core_values_win_legacy_migration_but_defaults_do_not_block_missing_keys",
+        "core::tests::source_registration_selection_relocation_and_restart_keep_stable_identities",
+        "core::tests::static_head_files_do_not_starve_older_history_or_a_second_source",
+        "core::tests::structured_tool_result_metadata_is_retained_but_body_and_spoofed_stdout_are_not",
+        "core::tests::truncate_and_replace_same_path_start_new_physical_identity_without_double_usage",
+        "core::tests::turn_thread_attribution_contract::turn_thread_attribution_is_unique_source_scoped_and_independent_of_composite_index",
+        "core::tests::v1_migration_ddl_failure_rolls_back_and_readable_backup_recovers_original_metering",
+        "core::tests::v1_migration_preserves_existing_native_facts_physical_cursor_and_replay_after_restart",
+        "core::tests::v1_migration_verified_file_keeps_physical_id_and_cursor_when_archived",
+        "core::tests::v1_unverified_truncated_or_replaced_file_never_adopts_the_old_physical_id",
+        "core::tests::v3_context_adds_live_cursor_without_resetting_history_and_both_survive_archive_and_truncate",
+        "core::tests::verified_stream_revision_never_accepts_late_partial_over_final",
+        "core::tests::work_care_settings_defaults_validation_atomicity_and_restart_round_trip"
+      ],
+      "failedNames": [],
+      "stdout": "core-all.stdout.log",
+      "stderr": "core-all.stderr.log"
+    },
+    {
+      "label": "desktop-1",
+      "argv": [
+        "D:/DevCache/cargo-token-meow\\release\\deps\\token_meow_lib-19e131ee451a8414.exe",
+        "desktop::tests::pet_quota_projection_preserves_all_windows_without_daily_usage_or_old_binding",
+        "--exact",
+        "--nocapture",
+        "--test-threads=1"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 0.015940400306135416,
+      "expectedNames": [
+        "desktop::tests::pet_quota_projection_preserves_all_windows_without_daily_usage_or_old_binding"
+      ],
+      "passedNames": [
+        "desktop::tests::pet_quota_projection_preserves_all_windows_without_daily_usage_or_old_binding"
+      ],
+      "failedNames": [],
+      "stdout": "desktop-1.stdout.log",
+      "stderr": "desktop-1.stderr.log"
+    },
+    {
+      "label": "desktop-2",
+      "argv": [
+        "D:/DevCache/cargo-token-meow\\release\\deps\\token_meow_lib-19e131ee451a8414.exe",
+        "desktop::tests::account_cache_never_relabels_old_root_or_late_reply_as_current_source",
+        "--exact",
+        "--nocapture",
+        "--test-threads=1"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 0.014069300144910812,
+      "expectedNames": [
+        "desktop::tests::account_cache_never_relabels_old_root_or_late_reply_as_current_source"
+      ],
+      "passedNames": [
+        "desktop::tests::account_cache_never_relabels_old_root_or_late_reply_as_current_source"
+      ],
+      "failedNames": [],
+      "stdout": "desktop-2.stdout.log",
+      "stderr": "desktop-2.stderr.log"
+    }
+  ],
+  "newPetExactNames": [
+    "core::pet::tests::pet_cursor_scope_cleanup_restart_and_decimal_precision_are_explicit",
+    "core::pet::tests::pet_details_trust_cache_latest_null_and_scope_rejection_keep_snapshot_semantics",
+    "core::pet::tests::pet_feed_priority_overflow_and_every_observed_sequence_are_consumed_once",
+    "core::pet::tests::pet_pulse_chrono_freshness_midnight_and_unknown_watermarks_match_existing_rules",
+    "core::pet::tests::pet_pulse_matches_snapshot_and_never_reads_unused_fact_tables",
+    "core::pet::tests::pet_v5_backfill_preserves_inbox_and_last_ddl_failure_rolls_back_and_recovers"
+  ],
+  "verifiedC18Boundaries": {
+    "constantCandidateMemory": "Pulse holds at most 8 selected prompt candidates plus one replacement candidate; scalar row traversal is not a constant-time guarantee.",
+    "pulseFactIndependence": "A real Core fixture first compares activity/unread/health-group counts with snapshot; after dropping usage_responses, legacy_usage_segments, items and thread_metadata, snapshot fails and Pulse still succeeds. Pulse reads do not change SQLite total_changes/read/delivery flags.",
+    "feed": "005 backfills existing inbox IDs and allocates AUTOINCREMENT arrivals only on INSERT. Same-ID UPDATE/ACK/read/refinement creates no arrival. Deleted rows cascade, and sqlite_sequence survives clear/retention. A synthetic sequence greater than 2^53 is returned exactly as a decimal string.",
+    "baselineAndScope": "Missing cursor or changed runtime/source scope/Shanghai day silently moves to the current high watermark. Exact fields and decimal/i64 syntax are validated first. Only current-domain sequence ahead of the high watermark is rejected; a valid older-runtime larger sequence safely baselines.",
+    "promptConsumption": "Every arrival through the read high watermark is consumed once, including future/invalid/other-day/expired/ineligible/overflow. Selected prompts are bounded to8 with alerts before completion, parsed-time descending and stable-ID ascending. A previously future timestamp becoming current and unknown->completed refinement do not replay.",
+    "boolAndOutcomeSemantics": "notifyEligible and animationAcknowledged require actual JSON boolean true, not numeric1. Read/notified do not grant or suppress animation eligibility. Case-insensitive completed/success/succeeded/normal/ok align with the existing success set; done remains an alert.",
+    "clockAndHealth": "Chrono RFC3339 parsing and Shanghai day are used directly. Existing active-root/uncertain freshness uses signed integer seconds in[-5,600), invalid/future/stale remain uncertain; child turns do not inflate roots. Missing successful scan/event watermarks remain null; failed reads do not return zeros or increment revision. Health issues is grouped(kind,message) count, conflicts unresolved count.",
+    "details": "Request is bound to current day/runtime/source fingerprint and rejects unknown query fields. Native scalar traversal excludes aliases/excluded facts and invalid/missing totals, never adds legacy/aggregate estimates, preserves empty null vs recorded zero, and computes cache rate only from valid input/cacheRead pairs. Latest TTFT uses completedAt??startedAt ordering with stable lastEventAt/physical-order ties; latest null is retained. Completed-at Shanghai midnight with an explicit offset is tested.",
+    "clearTransaction": "A controlled BEFORE INSERT settings trigger aborts inboxWatermark update during clear_inbox. The production action returns Err and inbox data, feed rows and sequence remain intact; removing the owned obstruction permits successful atomic clear and strictly later arrivals. clear_data also preserves the high watermark and establishes a fresh scope.",
+    "migrationFailure": "A self-created existing-v4 fixture contains inbox facts. Backfill preserves payloads, updates do not allocate arrivals, and reopen is idempotent. A deliberate final trigger-name collision makes Core::open fail; version4 and old data remain, feed DDL/backfill roll back, the pre-v5 backup is readable, and removing only the authored obstruction in its copy permits recovery."
+  },
+  "sourceProvenance": {
+    "capturedInputCount": 27,
+    "captureScope": "All src-tauri/src Rust modules, five SQL migrations, Cargo files/build/config/capabilities and direct tests/fixtures files used here; this is not a claim to rehash a complete installer/dist/legal manifest.",
+    "beforeAuthored": {
+      "path": "output/implementation/c18-pet-validation-4d68824482f0470390b2dd5c5330e2ee/inputs-before.json",
+      "sha256": "A1FF05CCE67E89EA43A3A9679269FF35C3270E434C71CB5A1E25E7818C47C19D",
+      "bytes": 4706
+    },
+    "beforeSuccessfulCompile": {
+      "path": "output/implementation/c18-pet-validation-4d68824482f0470390b2dd5c5330e2ee/inputs-compile-fix.json",
+      "sha256": "64F69A6B5EB5420E5DA970291D0637DF62A2F9DB72C4599E7F42C1C6DF40FF25",
+      "bytes": 4706
+    },
+    "afterExecuted": {
+      "path": "output/implementation/c18-pet-validation-4d68824482f0470390b2dd5c5330e2ee/inputs-after.json",
+      "sha256": "CC7C5011E4F5920274032EFE98064B4F6B37EEE0CC67A79847C7F21EED78C2AF",
+      "bytes": 4728
+    },
+    "authoredToCompileFixDelta": [
+      {
+        "path": "src-tauri/src/core/pet_tests.rs",
+        "beforeSha256": "35B9F918DE1B6C8317C8FAE1649A249BB28F718874892F61612B673BDD9E92E4",
+        "afterSha256": "B6D21283928FDED8BE108E868B0E1D0A2BEADF7E0138889F2489D8EAA6B08719"
+      }
+    ],
+    "successfulCompileToAfterDrift": [],
+    "finalFiles": [
+      {
+        "path": "src-tauri/build.rs",
+        "bytes": 40,
+        "sha256": "6AEEAB41BC35EFDE4E3C2B644A6248F7FC06D24AE30B75C0D33491CBB0C1FA31"
+      },
+      {
+        "path": "src-tauri/capabilities/desktop.json",
+        "bytes": 262,
+        "sha256": "0BE03DA5FF6356CDA4E69530B3DB17CF08263628D730B7E92175A0B1D549D796"
+      },
+      {
+        "path": "src-tauri/Cargo.lock",
+        "bytes": 128887,
+        "sha256": "AA612BA45EEF083574081A3B084C45B1B94A4C697A929BDAF188B8C2B4F5172E"
+      },
+      {
+        "path": "src-tauri/Cargo.toml",
+        "bytes": 1543,
+        "sha256": "D458E9B6624F380F3EDB907FCD5F41CFA109CDB703E8FC664165D3D172CE264E"
+      },
+      {
+        "path": "src-tauri/migrations/001_initial.sql",
+        "bytes": 2397,
+        "sha256": "799859320AAB80EDF3BED9340B6041153CE745D6F7649E2B0A338A69AE18E2A1"
+      },
+      {
+        "path": "src-tauri/migrations/002_multi_source.sql",
+        "bytes": 1654,
+        "sha256": "1814C02D4E25B009D3D0B000B6F0F272B1F800625E9CFF1CA486BB72900D0AEE"
+      },
+      {
+        "path": "src-tauri/migrations/003_fact_references.sql",
+        "bytes": 359,
+        "sha256": "07524DABB36B402A57FF9F3BCC81D69BA25E6F0139EAC271D0D618020AF73963"
+      },
+      {
+        "path": "src-tauri/migrations/004_usage_lookup_index.sql",
+        "bytes": 110,
+        "sha256": "B684AC0C0A2C9350697C9B1259E5FF9344202B017FD47EE2F8DA707EA045726A"
+      },
+      {
+        "path": "src-tauri/migrations/005_pet_read_models.sql",
+        "bytes": 404,
+        "sha256": "504F5EFDB693FC87FD7E3F977AA5BFFC794A736A301105F23137DE06E22F1F0B"
+      },
+      {
+        "path": "src-tauri/src/account_bridge.rs",
+        "bytes": 83885,
+        "sha256": "3A06761C6AF7FB0908F926FDAEF47F1E1EC02442E075A2E5282443243966F3BA"
+      },
+      {
+        "path": "src-tauri/src/core/adapter.rs",
+        "bytes": 86042,
+        "sha256": "A50AE42EB0A7760E91009122D9A0BD0F2A234B1CCA160EED856871CA0F8B2441"
+      },
+      {
+        "path": "src-tauri/src/core/agent_kind.rs",
+        "bytes": 9766,
+        "sha256": "D061C3A2D45FC776E45DABFD3BADF94816B84DE6FB4A6728A1AC134F96453C91"
+      },
+      {
+        "path": "src-tauri/src/core/agent_kind_tests.rs",
+        "bytes": 16769,
+        "sha256": "C85C7ADCA28964FE7E659F1AAE0B596E2AD72B3BE58DBDEA99D2223E2146B041"
+      },
+      {
+        "path": "src-tauri/src/core/pet.rs",
+        "bytes": 17435,
+        "sha256": "7746CED32E17C6ED4B3D511BB5E49672909E75CAB0052D2B0E46CB8EDCB870C6"
+      },
+      {
+        "path": "src-tauri/src/core/pet_tests.rs",
+        "bytes": 28127,
+        "sha256": "B6D21283928FDED8BE108E868B0E1D0A2BEADF7E0138889F2489D8EAA6B08719"
+      },
+      {
+        "path": "src-tauri/src/core/queries.rs",
+        "bytes": 58600,
+        "sha256": "365BD9012934B48AA68CD1D6D16FCB61D769EA32F2E6A21C41EFCAF6F4A109DA"
+      },
+      {
+        "path": "src-tauri/src/core/query_index_tests.rs",
+        "bytes": 12706,
+        "sha256": "8B159B2A47BECD0CDC751F30280E349B132D97E1F753F1E3526FBD0FC7E18D76"
+      },
+      {
+        "path": "src-tauri/src/core/reader.rs",
+        "bytes": 33048,
+        "sha256": "E4EA08414064E066CA80362E13CD3FFBAB1CECBAFDE1900E5496C21240C8BDEA"
+      },
+      {
+        "path": "src-tauri/src/core/tests.rs",
+        "bytes": 83782,
+        "sha256": "EA963F7F075A9B793EE8BEA9D5DD90AB743CA7EB0FF8EF309EBAA0AB916433DE"
+      },
+      {
+        "path": "src-tauri/src/core/turn_thread_attribution_tests.rs",
+        "bytes": 9964,
+        "sha256": "8E1CA31D6D18333F6FAD22264C2EBEC05B7D2DFA4A3508B8C0E70F20C9EC1F15"
+      },
+      {
+        "path": "src-tauri/src/core.rs",
+        "bytes": 41491,
+        "sha256": "748DCE1D94E1AE701EEB5B24BBC528163552872325AB0F6183DD65272A0C925F"
+      },
+      {
+        "path": "src-tauri/src/desktop.rs",
+        "bytes": 108215,
+        "sha256": "692BE856B6322C4C0963DE4CFE8CCFB2273DBDDE7F8ACEB9D6FE0DD5A926FEE1"
+      },
+      {
+        "path": "src-tauri/src/lib.rs",
+        "bytes": 195,
+        "sha256": "2E4BC0C1CF4567F648500383BAAF69911245EFBC9586C31C08E96AA6FCCC8064"
+      },
+      {
+        "path": "src-tauri/src/main.rs",
+        "bytes": 109,
+        "sha256": "AE7A2D145A995CCCA11739DE0153319C684862535E2FC720211C3C2AC8EEE5A6"
+      },
+      {
+        "path": "src-tauri/tauri.conf.json",
+        "bytes": 2179,
+        "sha256": "950A944C1BE17FD3C433E3E50FBB09157A524BC396636EFC2CC173974902AC40"
+      },
+      {
+        "path": "tests/fixtures/codex-native.jsonl",
+        "bytes": 2214,
+        "sha256": "6053DD46E087A644EC26A11FDA3E50F1B61597B374CC8CB3985879B54FA5A805"
+      },
+      {
+        "path": "tests/fixtures/multi-semantics.json",
+        "bytes": 589,
+        "sha256": "33DF2431776D5FB44E4E08D6870542DDCCE4050D73D2DA55227E4CE2E0E431B0"
+      }
+    ],
+    "frozenCopies": [
+      "output/implementation/c18-pet-validation-4d68824482f0470390b2dd5c5330e2ee/frozen-before",
+      "output/implementation/c18-pet-validation-4d68824482f0470390b2dd5c5330e2ee/frozen-compile-fix",
+      "output/implementation/c18-pet-validation-4d68824482f0470390b2dd5c5330e2ee/frozen-final"
+    ],
+    "unchangedProductionModulesFromC17": {
+      "src-tauri/src/core/queries.rs": "365BD9012934B48AA68CD1D6D16FCB61D769EA32F2E6A21C41EFCAF6F4A109DA",
+      "src-tauri/src/core/adapter.rs": "A50AE42EB0A7760E91009122D9A0BD0F2A234B1CCA160EED856871CA0F8B2441",
+      "src-tauri/src/core/reader.rs": "E4EA08414064E066CA80362E13CD3FFBAB1CECBAFDE1900E5496C21240C8BDEA",
+      "src-tauri/src/core/agent_kind.rs": "D061C3A2D45FC776E45DABFD3BADF94816B84DE6FB4A6728A1AC134F96453C91"
+    }
+  },
+  "retainedEarlierEvidence": [
+    {
+      "path": "output/implementation/c18-pet-read-models-168ddece2bb742a0b7f715a978d51993/preparation.json",
+      "sha256": "1A20ABAC230223CECFDD44B1D89B66A1EC6306577F0F1FD3A3BED09177E90C19",
+      "meaning": "Authored state, not test-pass evidence. Its initial pet_tests hash precedes the single mut compile correction."
+    },
+    {
+      "path": "docs/acceptance/c17-v4-attribution-targeted-2026-10-16.json",
+      "sha256": "D653231653440E1221CE07FAEFD0A7CB0FB5320BB1F364C5296B0DB8DA80429C",
+      "meaning": "C17 schema4/attribution receipt remains historical; current76 Core executions include affected predecessors and are not added to its counts as extra distinct coverage."
+    }
+  ],
+  "limitations": [
+    "This is all Core tests plus two explicitly named desktop unit tests, not all111 listed crate tests.",
+    "Private authored databases and real Core/adapter calls do not establish current native desktop rendering, real account/bridge compatibility, external chat or OS notification delivery.",
+    "No app/installer/CLI build or execution, large replay, real source read, full import, startup, P95, resident/import memory, CPU, renderer lifecycle or whole M4 acceptance was performed.",
+    "Pulse output/candidate storage is bounded while scalar scans remain proportional to active turns, inbox rows/new arrivals and registered sources; Details scans native metric/turn projections on demand. No latency or memory improvement is inferred from unit-test elapsed time.",
+    "Original compiler failure, source copies, previous failures and earlier receipts remain unchanged."
+  ],
+  "evidence": [
+    {
+      "path": "output/implementation/c18-pet-validation-4d68824482f0470390b2dd5c5330e2ee/inputs-before.json",
+      "sha256": "A1FF05CCE67E89EA43A3A9679269FF35C3270E434C71CB5A1E25E7818C47C19D",
+      "bytes": 4706
+    },
+    {
+      "path": "output/implementation/c18-pet-validation-4d68824482f0470390b2dd5c5330e2ee/inputs-compile-fix.json",
+      "sha256": "64F69A6B5EB5420E5DA970291D0637DF62A2F9DB72C4599E7F42C1C6DF40FF25",
+      "bytes": 4706
+    },
+    {
+      "path": "output/implementation/c18-pet-validation-4d68824482f0470390b2dd5c5330e2ee/inputs-after.json",
+      "sha256": "CC7C5011E4F5920274032EFE98064B4F6B37EEE0CC67A79847C7F21EED78C2AF",
+      "bytes": 4728
+    },
+    {
+      "path": "output/implementation/c18-pet-validation-4d68824482f0470390b2dd5c5330e2ee/compile-command.json",
+      "sha256": "A6BB88A97645121B99F0D02666A9BF782F3467FDE17382F79918335C78F262D5",
+      "bytes": 432
+    },
+    {
+      "path": "output/implementation/c18-pet-validation-4d68824482f0470390b2dd5c5330e2ee/compile.stdout.jsonl",
+      "sha256": "1EA02ADE42884E45017DE2747336516CE3092140CCBEE457C2DA9CC0C64BE4D8",
+      "bytes": 391421
+    },
+    {
+      "path": "output/implementation/c18-pet-validation-4d68824482f0470390b2dd5c5330e2ee/compile.stderr.log",
+      "sha256": "82D91E1E621B77D15A246F3098A67319BC07FC143E8C8576A365F387A7A9097B",
+      "bytes": 134
+    },
+    {
+      "path": "output/implementation/c18-pet-validation-4d68824482f0470390b2dd5c5330e2ee/compile.exit",
+      "sha256": "16DC368A89B428B2485484313BA67A3912CA03F2B2B42429174A4F8B3DC84E44",
+      "bytes": 3
+    },
+    {
+      "path": "output/implementation/c18-pet-validation-4d68824482f0470390b2dd5c5330e2ee/compile-fix.stdout.jsonl",
+      "sha256": "1E9804E59D1C24667D815E343347E9F8864A277336D6FC091C1FE2A93B919DF2",
+      "bytes": 388573
+    },
+    {
+      "path": "output/implementation/c18-pet-validation-4d68824482f0470390b2dd5c5330e2ee/compile-fix.stderr.log",
+      "sha256": "16942A245F54CB16D7705C7C298CCB12C2D48573B3AA755B1E26B4DE3CA307D1",
+      "bytes": 124
+    },
+    {
+      "path": "output/implementation/c18-pet-validation-4d68824482f0470390b2dd5c5330e2ee/compile-fix.exit",
+      "sha256": "5FECEB66FFC86F38D952786C6D696C79C2DBC239DD4E91B46729D73A27FB57E9",
+      "bytes": 1
+    },
+    {
+      "path": "output/implementation/c18-pet-validation-4d68824482f0470390b2dd5c5330e2ee/owned-test-compile-fix.patch",
+      "sha256": "DEC2FA0122E6ABBBD8EE749FBDBFCE997EF2F5ADA91B848FC73278253188DCAE",
+      "bytes": 371
+    },
+    {
+      "path": "output/implementation/c18-pet-validation-4d68824482f0470390b2dd5c5330e2ee/harness-list.stdout.log",
+      "sha256": "BEB749EDBB46E804F31743388AE232341426E4D04EDA1762500FFA5596353BE3",
+      "bytes": 10859
+    },
+    {
+      "path": "output/implementation/c18-pet-validation-4d68824482f0470390b2dd5c5330e2ee/harness-list.stderr.log",
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+      "bytes": 0
+    },
+    {
+      "path": "output/implementation/c18-pet-validation-4d68824482f0470390b2dd5c5330e2ee/harness.json",
+      "sha256": "4F2CF9E619B19BD9294F7E9FDC1E1635F2AC03D1F4A532A2167024DC6705F3AA",
+      "bytes": 20334
+    },
+    {
+      "path": "output/implementation/c18-pet-validation-4d68824482f0470390b2dd5c5330e2ee/execution-results.json",
+      "sha256": "1B9513093FA37548FF2B16FCEB8907E5B6EF14B51A535312CE7117A22529AC9C",
+      "bytes": 18331
+    },
+    {
+      "path": "output/implementation/c18-pet-validation-4d68824482f0470390b2dd5c5330e2ee/core-all.stdout.log",
+      "sha256": "7DD8E8A60B9C38ACA176600E902AF25836971AD77EBC166438A8DC9300BD68B6",
+      "bytes": 8179
+    },
+    {
+      "path": "output/implementation/c18-pet-validation-4d68824482f0470390b2dd5c5330e2ee/core-all.stderr.log",
+      "sha256": "F9EBC8086383A523DEBF90435EC30F99584D8CA89529984343A0C50CB509F66B",
+      "bytes": 6091
+    },
+    {
+      "path": "output/implementation/c18-pet-validation-4d68824482f0470390b2dd5c5330e2ee/desktop-1.stdout.log",
+      "sha256": "E3208841E8FD1A3B08ED1CEF1D4F3993606354A135144782198610BF6C2C1856",
+      "bytes": 220
+    },
+    {
+      "path": "output/implementation/c18-pet-validation-4d68824482f0470390b2dd5c5330e2ee/desktop-1.stderr.log",
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+      "bytes": 0
+    },
+    {
+      "path": "output/implementation/c18-pet-validation-4d68824482f0470390b2dd5c5330e2ee/desktop-2.stdout.log",
+      "sha256": "0F65378631DFB3136A5BFD143EC2A0DD9771F7FD3F34A9060D808E59CD11DC89",
+      "bytes": 212
+    },
+    {
+      "path": "output/implementation/c18-pet-validation-4d68824482f0470390b2dd5c5330e2ee/desktop-2.stderr.log",
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+      "bytes": 0
+    }
+  ]
+}

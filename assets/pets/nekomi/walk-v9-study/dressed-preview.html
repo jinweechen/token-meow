@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>实际角色素材候选 · 小柚</title>
+  <style>
+    :root{font-family:system-ui,"Microsoft YaHei",sans-serif;color:#253b33;background:#f2f5f2;font-synthesis:none}*{box-sizing:border-box}body{margin:0}main{max-width:1380px;margin:auto;padding:25px 24px 35px}header{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;margin-bottom:20px}h1{font-size:26px;margin:0 0 9px;letter-spacing:.02em}.sub{color:#647368;font-size:14px;line-height:1.7;margin:0}.badge{display:inline-block;background:#e8efe6;color:#496144;font-size:12px;font-weight:600;border-radius:20px;padding:5px 10px;margin-left:7px;vertical-align:middle}a{color:#357451;text-underline-offset:3px}header a{font-size:13px;white-space:nowrap}.toolbar{display:flex;flex-wrap:wrap;align-items:center;gap:12px 18px;background:#fff;padding:12px 15px;border:1px solid #dce4dd;border-radius:12px;margin-bottom:16px}label{font-size:13px;display:flex;align-items:center;gap:8px}button,select{font:inherit;border:1px solid #c9d6cb;border-radius:7px;padding:7px 11px;background:#fff;color:#35523f}button{cursor:pointer}button:disabled{cursor:default;opacity:.5}button:focus-visible,select:focus-visible,a:focus-visible{outline:3px solid #cfaa61;outline-offset:3px}.toolbar p{font-size:12px;color:#7c896f;margin:0 0 0 auto}.comparison{display:grid;grid-template-columns:1fr 1fr;gap:18px}.card{min-width:0;background:#fff;border:1px solid #dce4dd;border-radius:14px;overflow:hidden;box-shadow:0 5px 22px #304c3505}.card-head{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:14px 16px}.card h2{font-size:16px;margin:0}.card-head a{font-size:12px;white-space:nowrap}.card-head a[aria-disabled="true"]{pointer-events:none;color:#a3aaa4}.stage{height:min(66vh,710px);min-height:280px;overflow:auto;background-color:#fff;background-image:linear-gradient(45deg,#e7ebe7 25%,transparent 25%),linear-gradient(-45deg,#e7ebe7 25%,transparent 25%),linear-gradient(45deg,transparent 75%,#e7ebe7 75%),linear-gradient(-45deg,transparent 75%,#e7ebe7 75%);background-size:24px 24px;background-position:0 0,0 12px,12px -12px,-12px 0;display:flex;align-items:safe center;justify-content:safe center;position:relative}.light .stage{background:#fbfaf5}.dark .stage{background:#202824}.window{position:relative;flex:none;overflow:hidden}.canvas{position:absolute;left:0;top:0;transform-origin:top left}.canvas img{display:block;width:100%;height:100%}.placeholder{position:absolute;inset:0;display:grid;align-content:center;justify-items:center;text-align:center;padding:20px;color:#6b7e6d;font-size:14px;line-height:1.9;background:#ffffffab}.dark .placeholder{background:#202824c9;color:#c0c9c0}.placeholder[hidden]{display:none}.status{font-size:12px;color:#73816e;min-height:43px;line-height:1.6;padding:12px 16px;margin:0}.status.ready{color:#47694e}.footer{font-size:12px;color:#758072;line-height:1.8;margin:16px 1px 0}@media(max-width:700px){main{padding:18px 12px}header{align-items:flex-start;flex-direction:column;gap:10px}h1{font-size:23px}.comparison{gap:10px}.card-head{padding:11px 9px;align-items:flex-start;flex-direction:column;gap:6px}.card h2{font-size:13px}.status{padding:10px;font-size:11px}.stage{height:56vh;min-height:230px}.toolbar{gap:10px}.toolbar p{width:100%;margin:0}.badge{margin:8px 0 0;display:table}}
+  </style>
+</head>
+<body class="checker">
+  <main>
+    <header>
+      <div><h1>实际角色素材候选 <span class="badge">2 / 8 关键帧候选</span></h1><p class="sub">2张静态候选，动作连续性待检查。当前不是完整动画。</p></div>
+      <a href="preview.html">查看结构稿对比 →</a>
+    </header>
+    <div class="toolbar">
+      <label>背景 <select id="background"><option value="checker">透明棋盘</option><option value="light">浅色</option><option value="dark">深色</option></select></label>
+      <label>查看 <select id="focus"><option value="full">完整人物</option><option value="hands">放大看手</option><option value="feet">放大看脚</option></select></label>
+      <label>大小 <select id="zoom"><option value="fit">适合窗口</option><option value="1">原图 1×</option><option value="2">放大 2×</option></select></label>
+      <button id="reload" type="button">刷新素材</button>
+      <p id="count">正在读取 2 张候选…</p>
+    </div>
+    <section class="comparison" aria-label="两张实际角色素材并列对比">
+      <article class="card">
+        <div class="card-head"><h2>01 · 近脚接触</h2><a id="original-0" href="candidates/01-contact-near-dressed-v2.png" target="_blank" rel="noopener" aria-disabled="true" tabindex="-1">打开原图 ↗</a></div>
+        <div id="stage-0" class="stage"><div id="window-0" class="window"><div id="canvas-0" class="canvas"></div><div id="placeholder-0" class="placeholder">正在读取素材…</div></div></div>
+        <p id="status-0" class="status">后脚落地点已重绘，循环待检查</p>
+      </article>
+      <article class="card">
+        <div class="card-head"><h2>05 · 远脚接触</h2><a id="original-1" href="candidates/05-contact-far-dressed-v2.png" target="_blank" rel="noopener" aria-disabled="true" tabindex="-1">打开原图 ↗</a></div>
+        <div id="stage-1" class="stage"><div id="window-1" class="window"><div id="canvas-1" class="canvas"></div><div id="placeholder-1" class="placeholder">等待素材生成<br>就绪后自动显示</div></div></div>
+        <p id="status-1" class="status">后手局部重绘改善不明显，仍待细修</p>
+      </article>
+    </section>
+    <p class="footer">两张使用同一画幅和显示比例，保留人物在原图中的位置。手脚视图只改变查看范围；当前不播放动画。</p>
+  </main>
+  <script>
+    'use strict';
+    const $=id=>document.getElementById(id);
+    const files=['candidates/01-contact-near-dressed-v2.png','candidates/05-contact-far-dressed-v2.png'];
+    const titles=['01 · 近脚接触','05 · 远脚接触'];
+    const reviewNotes=['后脚落地点已重绘，循环待检查','后手局部重绘改善不明显，仍待细修'];
+    const states=files.map(()=>({ready:false,pending:false,epoch:0}));
+    const areas={full:{x:0,y:0,w:1024,h:1536},hands:{x:0,y:620,w:1024,h:530},feet:{x:0,y:1060,w:1024,h:476}};
+    let retryTimer=null;
+    function layout(reset=false){
+      const area=areas[$('focus').value],stages=files.map((_,i)=>$('stage-'+i));
+      const fit=Math.min(...stages.map(s=>(s.clientWidth-18)/area.w),...stages.map(s=>(s.clientHeight-18)/area.h));
+      const scale=$('zoom').value==='fit'?Math.max(.05,fit):Number($('zoom').value);
+      files.forEach((_,i)=>{const win=$('window-'+i),canvas=$('canvas-'+i);win.style.width=area.w*scale+'px';win.style.height=area.h*scale+'px';canvas.style.width=1024*scale+'px';canvas.style.height=1536*scale+'px';canvas.style.transform=`translate(${-area.x*scale}px,${-area.y*scale}px)`;if(reset){$('stage-'+i).scrollTop=0;$('stage-'+i).scrollLeft=0;}});
+    }
+    function updateCount(){const ready=states.filter(s=>s.ready).length;$('count').textContent=`已就绪 ${ready} / 2 张 · 动作连续性待检查`;$('reload').disabled=states.some(s=>s.pending);}
+    function scheduleRetry(){clearTimeout(retryTimer);retryTimer=null;if(states.some(s=>!s.ready)&&!document.hidden)retryTimer=setTimeout(()=>{states.forEach((s,i)=>{if(!s.ready&&!s.pending)loadImage(i);});},8000);}
+    function loadImage(i){
+      const state=states[i],epoch=++state.epoch,img=new Image(),placeholder=$('placeholder-'+i),link=$('original-'+i),status=$('status-'+i);state.pending=true;updateCount();img.alt=titles[i]+'，实际角色素材候选';img.draggable=false;img.decoding='async';
+      function finish(ok,message){if(epoch!==state.epoch)return;state.ready=ok;state.pending=false;placeholder.hidden=ok;if(!ok)placeholder.textContent=message;link.setAttribute('aria-disabled',String(!ok));link.tabIndex=ok?0:-1;status.textContent=ok?reviewNotes[i]:message;status.classList.toggle('ready',ok);updateCount();scheduleRetry();}
+      img.onload=()=>{if(epoch!==state.epoch)return;if(img.naturalWidth!==1024||img.naturalHeight!==1536){$('canvas-'+i).replaceChildren();finish(false,'画幅不一致，暂不加入对比');return;}$('canvas-'+i).replaceChildren(img);finish(true);layout();};
+      img.onerror=()=>{if(epoch!==state.epoch)return;$('canvas-'+i).replaceChildren();finish(false,'等待素材生成，就绪后自动显示');};
+      img.src=files[i]+'?preview='+Date.now();
+    }
+    $('background').onchange=()=>{document.body.className=$('background').value;};
+    $('focus').onchange=()=>{$('zoom').value='fit';layout(true);};$('zoom').onchange=()=>layout(true);
+    $('reload').onclick=()=>{clearTimeout(retryTimer);files.forEach((_,i)=>loadImage(i));};
+    document.addEventListener('visibilitychange',()=>{if(document.hidden){clearTimeout(retryTimer);retryTimer=null;}else{layout();scheduleRetry();}});
+    window.addEventListener('resize',()=>layout());layout();files.forEach((_,i)=>loadImage(i));
+  </script>
+</body>
+</html>

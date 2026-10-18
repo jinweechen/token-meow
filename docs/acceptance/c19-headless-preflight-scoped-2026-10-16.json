@@ -1,0 +1,644 @@
+{
+  "schemaVersion": 1,
+  "kind": "c19-headless-preflight-scoped-existing-evidence-summary",
+  "createdAtUtc": "2026-10-16T00:15:29.915904+00:00",
+  "status": "controlled-preflight-and-small-e2e-passed-full-core-import-outcome-pending",
+  "scope": "Exact C18 production Core library linked by a new private scan-only helper, preceding complete-source correctness run. This is not an archived CLI execution, new App candidate, Native first-import, performance gate, whole M1/M4 or complete semantic coverage.",
+  "productionBinding": {
+    "candidate": "C18",
+    "buildReceiptSha256": "935018D2DB0308295C45E20F7A17C019025EE6DB651FCA6AD580ECB7C51E450D",
+    "linkProvenanceSha256": "9DEAF4A5E9B18034097C42327917CAD135C1A6B0AE3CDE8BB74E0C4D1D1EA36A",
+    "productionCoreRlibSha256": "2F84BDC272613B639D677B0CF2636FF87E6585404EBE032EF89ADB2B6FC99BF9",
+    "productionCoreRebuilt": false,
+    "archivedCliBytesExecuted": false,
+    "newAppCandidateCreated": false,
+    "privateHarnessSourceSha256": "AAD1EB19A94EEB8D02DB428BBEF2CB30BF294933752676A647CF56E3766B0ED7",
+    "exactCompileArgvSha256": "38FD29CFDF38D67E7C1D034CF43F57016DF8550716BB8903D110E7C4570A43BF",
+    "privateHelperSha256": "8A000C1F85EB9BA84208588CD9E8AEF4B878ACB0C06D2662E20A36BF5E3D49F7",
+    "privateHelperBytes": 3420160,
+    "peMachine": "0x8664",
+    "peOptionalMagic": "0x020B",
+    "helperBinaryHashOrigin": "Reused exact compiled-helper metadata and E2E binding; this finalizer did not rehash the executable or library."
+  },
+  "counting": {
+    "jobPolicyDistinctControlledCases": 2,
+    "oracleDistinctPureCases": 22,
+    "totalDistinctControlledCasesExcludingIntegration": 24,
+    "smallEndToEndExecutions": 1,
+    "smallEndToEndConsistencyChecks": 25,
+    "consistencyChecksAreNot25NewTestCases": true,
+    "compilerExecutions": 1,
+    "fullInputStreamVerificationExecutions": 1,
+    "priorC18TestsRerunInThisSummary": 0,
+    "newExecutionsByThisFinalizer": 0,
+    "countsNotCombinedWithNativeOrPreviousCandidateEvidence": true
+  },
+  "ownedJobPolicy": {
+    "receipt": {
+      "path": "output/implementation/c19-headless-job-root-review-8c9a1d1c16794d15a89cb323156af621/controlled-validation.json",
+      "sha256": "B8A5E4BEEA99E4BF7EDE7F8B8DCC23D33056E3F01D45A070BE30CE806FB0B4CB",
+      "bytes": 1073
+    },
+    "moduleSha256": "2982E54EA4414435E4D603026881B89DBF2E74CD23F45C4AF5261A9D364D8FCC",
+    "cases": [
+      {
+        "name": "natural-root-exit",
+        "passed": true,
+        "execution": {
+          "path": "output/implementation/c19-headless-job-root-review-8c9a1d1c16794d15a89cb323156af621/natural.execution.json",
+          "sha256": "CCE1350E93FBF14BBDC748A72F55C87921A00B664E8359783B21BA4F81C0EF49",
+          "bytes": 1348
+        },
+        "status": "completed",
+        "root": {
+          "creationFileTimeDecimal": "134365802973278587",
+          "exitFileTimeDecimal": "134365802973907303",
+          "exitCode": 0,
+          "waitSignaled": true,
+          "exited": true
+        },
+        "job": {
+          "totalProcesses": 2,
+          "activeProcesses": 0,
+          "totalTerminatedProcesses": 0
+        },
+        "createdSuspended": true,
+        "assignedBeforeResume": true,
+        "cleanupVerified": true,
+        "naturalWholeJobCompletion": true,
+        "errors": []
+      },
+      {
+        "name": "root-zero-artifact-owned-descendants-cleaned",
+        "passed": true,
+        "execution": {
+          "path": "output/implementation/c19-headless-job-root-review-8c9a1d1c16794d15a89cb323156af621/artifact.execution.json",
+          "sha256": "4DA59BC2D6D32ED4EA234E1865496030633214E708883D9DCB1521663EEDD591",
+          "bytes": 2157
+        },
+        "status": "compiled-root-zero-owned-descendants-cleaned",
+        "root": {
+          "creationFileTimeDecimal": "134365802974176083",
+          "exitFileTimeDecimal": "134365802975037366",
+          "exitCode": 0,
+          "waitSignaled": true,
+          "exited": true
+        },
+        "job": {
+          "totalProcesses": 4,
+          "activeProcesses": 0,
+          "totalTerminatedProcesses": 0
+        },
+        "createdSuspended": true,
+        "assignedBeforeResume": true,
+        "cleanupVerified": true,
+        "naturalWholeJobCompletion": false,
+        "errors": []
+      }
+    ],
+    "scope": "Self-authored short own Python fixtures. Scoped cleanup policy only, no Core/compiler/product/native/resource execution in these two cases.",
+    "identityCaveat": "Job totalProcesses counters are retained; no unrecorded descendant image/PID identity is inferred from a count."
+  },
+  "oraclePureValidation": {
+    "receipt": {
+      "path": "output/implementation/c19-headless-full-379-control-b334843660d44f47b887efc505c77e1e/pure-validation.json",
+      "sha256": "9BE9CCB03405E807BF675E7EB161707997BA4EC3EFE093FAD84DB29F34822931",
+      "bytes": 3762
+    },
+    "oracleSha256": "F6DE18CDE2274F411AD02A22659172A3D0BB6A69EB37658EA10D1549CD7EC71C",
+    "distinctCases": 22,
+    "executions": 22,
+    "cases": [
+      {
+        "name": "__main__.TypedRules.test_01_missing_null_and_zero_are_distinct",
+        "status": "passed"
+      },
+      {
+        "name": "__main__.TypedRules.test_02_bool_is_not_an_integer",
+        "status": "passed"
+      },
+      {
+        "name": "__main__.TypedRules.test_03_float_is_not_an_integer",
+        "status": "passed"
+      },
+      {
+        "name": "__main__.TypedRules.test_04_negative_and_out_of_range_are_invalid",
+        "status": "passed"
+      },
+      {
+        "name": "__main__.TypedRules.test_05_checked_i64_sum_never_wraps",
+        "status": "passed"
+      },
+      {
+        "name": "__main__.TypedRules.test_06_missing_total_infers_but_invalid_or_mismatched_does_not",
+        "status": "passed"
+      },
+      {
+        "name": "__main__.TypedRules.test_07_child_bounds_invalidate_only_affected_normalized_fields",
+        "status": "passed"
+      },
+      {
+        "name": "__main__.TypedRules.test_08_missing_parent_does_not_invent_child_zero",
+        "status": "passed"
+      },
+      {
+        "name": "__main__.TypedRules.test_09_subtypes_over_total_make_normal_unknown",
+        "status": "passed"
+      },
+      {
+        "name": "__main__.TypedRules.test_10_paired_cache_null_and_valid_zero_subsets",
+        "status": "passed"
+      },
+      {
+        "name": "__main__.TypedRules.test_11_zero_total_is_not_missing",
+        "status": "passed"
+      },
+      {
+        "name": "__main__.TimeAndJsonRules.test_12_timezone_and_millisecond_floor",
+        "status": "passed"
+      },
+      {
+        "name": "__main__.TimeAndJsonRules.test_13_exact_nanosecond_boundary_is_not_float",
+        "status": "passed"
+      },
+      {
+        "name": "__main__.TimeAndJsonRules.test_14_missing_zone_leap_and_nonstring_are_explicitly_unsupported",
+        "status": "passed"
+      },
+      {
+        "name": "__main__.TimeAndJsonRules.test_15_nonfinite_numbers_and_lone_surrogate_are_invalid_json",
+        "status": "passed"
+      },
+      {
+        "name": "__main__.RecordAndSqliteRules.test_16_same_counts_metadata_and_multiple_times_are_one_variant",
+        "status": "passed"
+      },
+      {
+        "name": "__main__.RecordAndSqliteRules.test_17_missing_zero_and_changed_valid_value_are_different_variants",
+        "status": "passed"
+      },
+      {
+        "name": "__main__.RecordAndSqliteRules.test_18_rejected_raw_values_share_typed_invalid_variant",
+        "status": "passed"
+      },
+      {
+        "name": "__main__.RecordAndSqliteRules.test_19_cutoff_selects_variant_times_before_conflict_classification",
+        "status": "passed"
+      },
+      {
+        "name": "__main__.RecordAndSqliteRules.test_20_absent_usage_is_gap_but_present_null_is_recorded_missing",
+        "status": "passed"
+      },
+      {
+        "name": "__main__.RecordAndSqliteRules.test_21_bad_utf8_and_oversize_keep_only_safe_gap_metadata",
+        "status": "passed"
+      },
+      {
+        "name": "__main__.RecordAndSqliteRules.test_22_unhashable_unknown_kind_is_reported_without_crashing",
+        "status": "passed"
+      }
+    ],
+    "passed": true,
+    "failures": 0,
+    "errors": 0,
+    "sqliteScope": "self-authored in-memory whitelist rows only",
+    "rawLogsRead": false,
+    "productDatabaseOpened": false,
+    "coreHelperStarted": false,
+    "childFixtureStarted": false
+  },
+  "privateCompile": {
+    "execution": {
+      "path": "output/implementation/c19-headless-full-379-722f9ffbec6c4292a69b8dbfc4a41c9d/compile.execution.json",
+      "sha256": "C21AD9F912F694929B35EF3B42368B56C5E4AA8CEB2FB36DB8A1659D7FA88078",
+      "bytes": 3583
+    },
+    "compiledHelper": {
+      "path": "output/implementation/c19-headless-full-379-722f9ffbec6c4292a69b8dbfc4a41c9d/compiled-helper.json",
+      "sha256": "D0B5E2653E48B085C928C824E6345EE0768A4017482624C8742DAD30C938D2E7",
+      "bytes": 930
+    },
+    "status": "compiled-root-zero-owned-descendants-cleaned",
+    "startedAtUtc": "2026-10-15T23:42:15.022565+00:00",
+    "finishedAtUtc": "2026-10-15T23:42:32.493657+00:00",
+    "elapsedSeconds": 17.47131620021537,
+    "timeoutSeconds": 180,
+    "cleanupTimeoutSeconds": 5,
+    "timedOut": false,
+    "rootPid": 8876,
+    "root": {
+      "creationFileTimeDecimal": "134365813350237535",
+      "exitFileTimeDecimal": "134365813524781995",
+      "exitCode": 0,
+      "waitSignaled": true,
+      "exited": true
+    },
+    "rootExitedWithActiveDescendantsObservation": {
+      "elapsedSeconds": 17.470809299964458,
+      "root": {
+        "creationFileTimeDecimal": "134365813350237535",
+        "exitFileTimeDecimal": "134365813524781995",
+        "exitCode": 0,
+        "waitSignaled": true,
+        "exited": true
+      },
+      "job": {
+        "totalProcesses": 5,
+        "activeProcesses": 1,
+        "totalTerminatedProcesses": 0
+      }
+    },
+    "finalJob": {
+      "totalProcesses": 5,
+      "activeProcesses": 0,
+      "totalTerminatedProcesses": 0
+    },
+    "createdSuspended": true,
+    "assignedBeforeResume": true,
+    "compilerRootZeroArtifactCleanupPolicy": true,
+    "naturalWholeJobCompletion": false,
+    "cleanupVerified": true,
+    "errors": [],
+    "interpretation": "Root exited0 and produced the exact readable x64 PE; remaining own Job descendants were terminated under the predeclared compiler-only policy and Job0 was verified. This is not natural whole-Job compilation completion and does not identify the residual child."
+  },
+  "originalC18CompileFailure": {
+    "receipt": {
+      "path": "output/implementation/c19-headless-full-379-722f9ffbec6c4292a69b8dbfc4a41c9d/provenance/c18-diagnostic-first-failure-receipt.json",
+      "sha256": "96CE63EE1CAAB7C2FDBB8846571EE37F4FF8A651F8EF02BD7769D2AE53A61D24",
+      "bytes": 8085
+    },
+    "execution": {
+      "path": "output/implementation/c19-headless-full-379-722f9ffbec6c4292a69b8dbfc4a41c9d/provenance/c18-compile.execution.json",
+      "sha256": "D88C674D5F7F93B8DE550F2E8A7DF3636DD9E4DF50BE76EB69F1BFB311D6F195",
+      "bytes": 3473
+    },
+    "status": "retained-180-second-whole-job-deadline-failure",
+    "rootZeroWasNotWholeJobPass": true,
+    "notReclassifiedOrReplaced": true,
+    "notCombinedIntoContinuousSuccessfulRun": true
+  },
+  "smallEndToEnd": {
+    "receipt": {
+      "path": "output/implementation/c19-headless-full-379-control-b334843660d44f47b887efc505c77e1e/e2e-controlled-receipt.json",
+      "sha256": "B3BEE73E28311B5EFAA3CD979943D0A6F687BDCCC8E434648382D56F7501966D",
+      "bytes": 36883
+    },
+    "predeclaredOracle": {
+      "path": "output/implementation/c19-headless-full-379-control-b334843660d44f47b887efc505c77e1e/e2e-oracle.json",
+      "sha256": "B7CA820EA76F26460D9E8E133C1C3193C76CF6F6ABCD92C04A10165D3F16ECA2",
+      "bytes": 2185
+    },
+    "execution": {
+      "path": "output/implementation/c19-headless-full-379-control-b334843660d44f47b887efc505c77e1e/e2e-core.execution.json",
+      "sha256": "F741C94BAA08EF7D3FF0FABCC9951C8C3AA88BE3CD960FA2234B4F2F59BF988D",
+      "bytes": 1918
+    },
+    "reconciliation": {
+      "path": "output/implementation/c19-headless-full-379-control-b334843660d44f47b887efc505c77e1e/e2e-reconciliation.json",
+      "sha256": "3E6DA8AE3140454CDC67968CB171DAEC6C83823A08FEEB9DF5CA1886A951014A",
+      "bytes": 3873
+    },
+    "executions": 1,
+    "passed": true,
+    "fixture": "Self-authored379 nonempty files,395 complete lines,4260677 bytes; not the real4275752976-byte raw corpus.",
+    "inputFiles": 379,
+    "inputBytes": 4260677,
+    "unchangedSourceAfterCount": 379,
+    "allSourceAfterMatched": true,
+    "finalBindingAndSourcesUnchanged": true,
+    "closeErrors": [],
+    "consistencyChecks": {
+      "physicalComplete": true,
+      "nativeReconciliationPassed": true,
+      "semanticCoverageNotClaimed": true,
+      "observed9": true,
+      "trusted5": true,
+      "conflict1": true,
+      "unmetered3": true,
+      "hand-overview-inputTokens": true,
+      "hand-overview-outputTokens": true,
+      "hand-overview-totalTokens": true,
+      "hand-overview-cachedInputTokens": true,
+      "hand-overview-cacheWriteInputTokens": true,
+      "hand-overview-reasoningOutputTokens": true,
+      "hand-overview-normalInputTokens": true,
+      "hand-overview-cacheHitRate": true,
+      "hand-overview-cacheCoverage": true,
+      "hand-overview-cacheWriteCoverage": true,
+      "hand-overview-normalInputCoverage": true,
+      "hand-overview-responseCount": true,
+      "hand-overview-observedResponseCount": true,
+      "hand-overview-trustedMeteredResponseCount": true,
+      "hand-overview-excludedResponses": true,
+      "actual-product-issue-invalid_json": true,
+      "actual-product-issue-record_too_large": true,
+      "actual-product-issue-metric_contract": true
+    },
+    "consistencyCheckCount": 25,
+    "status": "completed",
+    "naturalWholeJobCompletion": true,
+    "rootPid": 45652,
+    "root": {
+      "creationFileTimeDecimal": "134365830125361585",
+      "exitFileTimeDecimal": "134365830142405042",
+      "exitCode": 0,
+      "waitSignaled": true,
+      "exited": true
+    },
+    "finalJob": {
+      "totalProcesses": 2,
+      "activeProcesses": 0,
+      "totalTerminatedProcesses": 0
+    },
+    "elapsedSeconds": 1.8985601998865604,
+    "timeoutSeconds": 120,
+    "cleanupVerified": true,
+    "errors": [],
+    "unidentifiedJobMembership": "totalProcesses=2 is an accounting count. The second member was not recorded with an image/creation identity; no name, program role or cause is inferred.",
+    "physicalComplete": true,
+    "cursorFiles": 379,
+    "cursorBytes": 4260677,
+    "historyPending": 0,
+    "pendingFiles": 0,
+    "cursorErrors": [],
+    "nativeReconciliationPassed": true,
+    "semanticCoverageComplete": false,
+    "expectedObservedIdentities": 9,
+    "expectedTrustedMeteredIdentities": 5,
+    "expectedConflictingIdentities": 1,
+    "expectedUnmeteredIdentities": 3,
+    "nativeOverviewChecks": {
+      "inputTokens": {
+        "expected": 430,
+        "actual": 430,
+        "matched": true
+      },
+      "outputTokens": {
+        "expected": 53,
+        "actual": 53,
+        "matched": true
+      },
+      "totalTokens": {
+        "expected": 483,
+        "actual": 483,
+        "matched": true
+      },
+      "cachedInputTokens": {
+        "expected": 50,
+        "actual": 50,
+        "matched": true
+      },
+      "cacheWriteInputTokens": {
+        "expected": 10,
+        "actual": 10,
+        "matched": true
+      },
+      "reasoningOutputTokens": {
+        "expected": 5,
+        "actual": 5,
+        "matched": true
+      },
+      "normalInputTokens": {
+        "expected": 60,
+        "actual": 60,
+        "matched": true
+      },
+      "cacheHitRate": {
+        "expected": 0.4166666666666667,
+        "actual": 0.4166666666666667,
+        "matched": true
+      },
+      "cacheCoverage": {
+        "expected": 0.27906976744186046,
+        "actual": 0.27906976744186046,
+        "matched": true
+      },
+      "cacheWriteCoverage": {
+        "expected": 1.0,
+        "actual": 1.0,
+        "matched": true
+      },
+      "normalInputCoverage": {
+        "expected": 0.6,
+        "actual": 0.6,
+        "matched": true
+      },
+      "responseCount": {
+        "expected": 9,
+        "actual": 9,
+        "matched": true
+      },
+      "observedResponseCount": {
+        "expected": 9,
+        "actual": 9,
+        "matched": true
+      },
+      "trustedMeteredResponseCount": {
+        "expected": 5,
+        "actual": 5,
+        "matched": true
+      },
+      "excludedResponses": {
+        "expected": 4,
+        "actual": 4,
+        "matched": true
+      }
+    },
+    "mismatchCounts": {},
+    "integrity": [
+      "ok"
+    ],
+    "productIssueCountsRetained": {
+      "invalid_json": 1,
+      "metric_contract": 4,
+      "record_too_large": 1
+    },
+    "independentCoverageGaps": {
+      "invalid_json_or_utf8": 1,
+      "native_metric_contract_gap_occurrences": 5,
+      "native_missing_metric_occurrences": 4,
+      "native_present_nonobject_usage_all_missing": 1,
+      "other_json_event_not_independently_interpreted": 1,
+      "record_too_large": 1
+    },
+    "legacy": {
+      "productSegments": 0,
+      "snapshotTokens": 0,
+      "snapshotSegments": 0,
+      "independentlyValidated": false,
+      "addedToTrustedNative": false
+    },
+    "effectiveCutoffEpochNsDecimal": "1789517413214645000",
+    "actualBoundaryText": {
+      "importSince": "2026-09-16T00:10:13.214645+00:00",
+      "retentionWatermark": "2026-07-18T00:10:14.049Z"
+    },
+    "defaultNear30DayBoundaryIntervalMatched": true,
+    "rawFullCorpusReadDuringThisSmallCase": false
+  },
+  "fullFrozenInputBytePreflightOnly": {
+    "oracleBuild": {
+      "path": "output/implementation/c19-headless-full-379-722f9ffbec6c4292a69b8dbfc4a41c9d/oracle-build.json",
+      "sha256": "5885364F0AF9C317C01431E2398B8B46E474009F20E7CFB28230F7224FC10AC1",
+      "bytes": 636
+    },
+    "sourceManifestSha256": "8AC284E97D6E9E72958AD35A8A0D76EB1F036822415DA3B295ECFF36A3F67378",
+    "verifiedFiles": 379,
+    "verifiedBytes": 4275752976,
+    "completeLines": 884497,
+    "inputHashesMatch": true,
+    "allFullStreamSha256Matched": true,
+    "lineLimitBytesIncludingLf": 4194304,
+    "classificationBeforeCutoff": {
+      "known_non_native_event": 754506,
+      "legacy_token_count_event": 115038,
+      "native_occurrences": 104188,
+      "other_json_event_not_independently_interpreted": 25801,
+      "qualified_native_occurrences": 104188,
+      "record_too_large": 2
+    },
+    "nativeIdentityCountBeforeCutoff": 104188,
+    "state": "built-all-inputs-awaiting-closed-ledger-cutoff-and-reconciliation",
+    "limitation": "One input byte/hash pass and independent native candidate cache before Core. It does not show imported fact counts, effective near30-day result, physical EOF, full-run integrity, deduplication or source after-guard. The complete Core scan was pending at task handoff; no outcome is consumed or pre-announced here.",
+    "fullCoreImportPassed": false,
+    "fullNativeReconciliationPassed": false,
+    "semanticCoverageComplete": false
+  },
+  "preservedLimits": {
+    "privateCompilerSeconds": 180,
+    "compilerCleanupSeconds": 5,
+    "privateFullCoreJobSeconds": 3600,
+    "maximumScans": 10000,
+    "stableReportsRequired": 3,
+    "coreScanBudgetChanged": false,
+    "snapshotPattern": "No intermediate Snapshot; exactly one after scanning, with shutdown. Report quietness does not replace independent closedSQL EOF/native oracle.",
+    "defaultCutoff": "Actual fresh Core::open importSince now-minus30days; do not pick easier dates or subsets."
+  },
+  "references": [
+    {
+      "path": "output/implementation/c19-headless-full-379-722f9ffbec6c4292a69b8dbfc4a41c9d/plan-manifest.json",
+      "sha256": "AB4DC599838729C2E196E32CA8EF5F9AFE73147D0EF99D90D4EF2165D355668F",
+      "bytes": 3529
+    },
+    {
+      "path": "output/implementation/c19-headless-full-379-722f9ffbec6c4292a69b8dbfc4a41c9d/bindings.frozen.json",
+      "sha256": "D8F52891731E815C335428891C3F5E27420BC31AA452AAB5241FD4A1976CCB90",
+      "bytes": 4121
+    },
+    {
+      "path": "output/implementation/c19-headless-full-379-722f9ffbec6c4292a69b8dbfc4a41c9d/compile-argv.json",
+      "sha256": "38FD29CFDF38D67E7C1D034CF43F57016DF8550716BB8903D110E7C4570A43BF",
+      "bytes": 2476
+    },
+    {
+      "path": "output/implementation/c19-headless-full-379-722f9ffbec6c4292a69b8dbfc4a41c9d/compile.execution.json",
+      "sha256": "C21AD9F912F694929B35EF3B42368B56C5E4AA8CEB2FB36DB8A1659D7FA88078",
+      "bytes": 3583
+    },
+    {
+      "path": "output/implementation/c19-headless-full-379-722f9ffbec6c4292a69b8dbfc4a41c9d/compiled-helper.json",
+      "sha256": "D0B5E2653E48B085C928C824E6345EE0768A4017482624C8742DAD30C938D2E7",
+      "bytes": 930
+    },
+    {
+      "path": "output/implementation/c19-headless-full-379-722f9ffbec6c4292a69b8dbfc4a41c9d/root-pre-execution-review.json",
+      "sha256": "31B59F5774F72E27F55720072F9589C94FCCE72E3953717E966F5C5B56AD1FEB",
+      "bytes": 7515
+    },
+    {
+      "path": "output/implementation/c19-headless-full-379-control-b334843660d44f47b887efc505c77e1e/bindings.e2e.frozen.json",
+      "sha256": "B6B31EE14C5813BDE85C1D19D17CDFBBF89109EF91F974499701AB4ACFC7EBA8",
+      "bytes": 1125
+    },
+    {
+      "path": "output/implementation/c19-headless-full-379-control-b334843660d44f47b887efc505c77e1e/e2e-controlled-receipt.json",
+      "sha256": "B3BEE73E28311B5EFAA3CD979943D0A6F687BDCCC8E434648382D56F7501966D",
+      "bytes": 36883
+    },
+    {
+      "path": "output/implementation/c19-headless-full-379-control-b334843660d44f47b887efc505c77e1e/e2e-core.execution.json",
+      "sha256": "F741C94BAA08EF7D3FF0FABCC9951C8C3AA88BE3CD960FA2234B4F2F59BF988D",
+      "bytes": 1918
+    },
+    {
+      "path": "output/implementation/c19-headless-full-379-control-b334843660d44f47b887efc505c77e1e/e2e-oracle-build.json",
+      "sha256": "9ABCBF42C6F8CAB16BFAA2FD3F714B6C7F4691C741299E8D51CED7774A4615BE",
+      "bytes": 768
+    },
+    {
+      "path": "output/implementation/c19-headless-full-379-control-b334843660d44f47b887efc505c77e1e/e2e-reconciliation.json",
+      "sha256": "3E6DA8AE3140454CDC67968CB171DAEC6C83823A08FEEB9DF5CA1886A951014A",
+      "bytes": 3873
+    },
+    {
+      "path": "output/implementation/c19-headless-full-379-control-b334843660d44f47b887efc505c77e1e/e2e-oracle.json",
+      "sha256": "B7CA820EA76F26460D9E8E133C1C3193C76CF6F6ABCD92C04A10165D3F16ECA2",
+      "bytes": 2185
+    },
+    {
+      "path": "output/implementation/c19-headless-full-379-control-b334843660d44f47b887efc505c77e1e/preparation.json",
+      "sha256": "6AF1701ED95472B21CABD2AA04F46AACEC57E6202EAB4A5A2F63F6818C64D848",
+      "bytes": 3301
+    },
+    {
+      "path": "output/implementation/c19-headless-full-379-control-b334843660d44f47b887efc505c77e1e/pure-validation.json",
+      "sha256": "9BE9CCB03405E807BF675E7EB161707997BA4EC3EFE093FAD84DB29F34822931",
+      "bytes": 3762
+    },
+    {
+      "path": "output/implementation/c19-headless-job-root-review-8c9a1d1c16794d15a89cb323156af621/controlled-validation.json",
+      "sha256": "B8A5E4BEEA99E4BF7EDE7F8B8DCC23D33056E3F01D45A070BE30CE806FB0B4CB",
+      "bytes": 1073
+    },
+    {
+      "path": "output/implementation/c19-headless-full-379-722f9ffbec6c4292a69b8dbfc4a41c9d/oracle-build.json",
+      "sha256": "5885364F0AF9C317C01431E2398B8B46E474009F20E7CFB28230F7224FC10AC1",
+      "bytes": 636
+    },
+    {
+      "path": "output/implementation/c19-headless-full-379-722f9ffbec6c4292a69b8dbfc4a41c9d/provenance/c18-build-receipt.json",
+      "sha256": "935018D2DB0308295C45E20F7A17C019025EE6DB651FCA6AD580ECB7C51E450D",
+      "bytes": 37759
+    },
+    {
+      "path": "output/implementation/c19-headless-full-379-722f9ffbec6c4292a69b8dbfc4a41c9d/provenance/c18-link-provenance.json",
+      "sha256": "9DEAF4A5E9B18034097C42327917CAD135C1A6B0AE3CDE8BB74E0C4D1D1EA36A",
+      "bytes": 8373
+    },
+    {
+      "path": "output/implementation/c19-headless-full-379-722f9ffbec6c4292a69b8dbfc4a41c9d/provenance/c18-compile.execution.json",
+      "sha256": "D88C674D5F7F93B8DE550F2E8A7DF3636DD9E4DF50BE76EB69F1BFB311D6F195",
+      "bytes": 3473
+    },
+    {
+      "path": "output/implementation/c19-headless-full-379-722f9ffbec6c4292a69b8dbfc4a41c9d/provenance/c18-diagnostic-first-failure-receipt.json",
+      "sha256": "96CE63EE1CAAB7C2FDBB8846571EE37F4FF8A651F8EF02BD7769D2AE53A61D24",
+      "bytes": 8085
+    }
+  ],
+  "finalization": {
+    "existingSmallMetadataReadOnly": true,
+    "newCoreOrHelperExecution": false,
+    "newCompilerOrTests": false,
+    "newSqlOpen": false,
+    "rawSourceReadOrHashRepeated": false,
+    "databaseReadOrHash": false,
+    "largeArtifactHash": false,
+    "sourceScriptExeOrOldReceiptModified": false,
+    "threeDeliveryMarkdownFilesModified": false
+  },
+  "qualification": {
+    "controlledPreflightReady": true,
+    "smallFixturePhysicalAndNativeReconciliationPassed": true,
+    "fullOriginalCorpusPhysicalImportPassed": false,
+    "fullOriginalCorpusNativeFactReconciliationPassed": false,
+    "semanticCoverageComplete": false,
+    "NativePassed": false,
+    "resourceQualified": false,
+    "warmStartQualified": false,
+    "installerQualified": false,
+    "wholeM1Passed": false,
+    "M4Passed": false,
+    "goalComplete": false
+  }
+}

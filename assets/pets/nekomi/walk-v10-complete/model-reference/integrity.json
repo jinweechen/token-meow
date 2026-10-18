@@ -1,0 +1,274 @@
+{
+  "schemaVersion": 1,
+  "createdAtUtc": "2026-10-17T10:38:17+00:00",
+  "scope": "Read-only PNG metadata, SHA256 and exact original-byte verification for three local turnaround corrections; no visual acceptance",
+  "pixelEditingPerformed": false,
+  "reviewStatus": "partial-local-corrections-only-not-approved-model",
+  "latestCandidate": "turnaround-side-hair-bow-v3.png",
+  "legacyThreeViewReference": {
+    "path": "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v5-natural-tail\\reference\\turnaround.png",
+    "bytes": 2082196,
+    "sha256": "2ec76b1ed4cb6c23f14af1cef1d63941197a40a9f3412c06f07b7277315b0e26",
+    "size": [
+      1536,
+      1024
+    ],
+    "mode": "RGB",
+    "hasAlphaChannel": false,
+    "effectiveAlphaExtrema": [
+      255,
+      255
+    ],
+    "nonTransparentBBox": [
+      0,
+      0,
+      1536,
+      1024
+    ],
+    "bboxConvention": "[left,top,right,bottom]; alpha>0; right/bottom exclusive",
+    "status": "existing-reference-not-adopted-as-approved-current-model",
+    "notes": [
+      "The earlier three-view reference exists; it was not absent.",
+      "Its existence does not establish a consistent, accepted three-view model or a walk master."
+    ]
+  },
+  "entries": [
+    {
+      "id": "turnaround-rear-waist-v1",
+      "output": "turnaround-rear-waist-v1.png",
+      "metadata": {
+        "path": "D:\\project\\宠物\\assets\\pets\\nekomi\\walk-v10-complete\\model-reference\\turnaround-rear-waist-v1.png",
+        "bytes": 2039114,
+        "sha256": "7adf6108e8837232ba3e79e79e1741194c023dbd115808ccff280f6bf1d5538c",
+        "size": [
+          1536,
+          1024
+        ],
+        "mode": "RGB",
+        "hasAlphaChannel": false,
+        "effectiveAlphaExtrema": [
+          255,
+          255
+        ],
+        "nonTransparentBBox": [
+          0,
+          0,
+          1536,
+          1024
+        ],
+        "bboxConvention": "[left,top,right,bottom]; alpha>0; right/bottom exclusive"
+      },
+      "sourceRecord": {
+        "path": "D:\\project\\宠物\\assets\\pets\\nekomi\\walk-v10-complete\\model-reference\\turnaround-rear-waist-v1-source.json",
+        "bytes": 752,
+        "sha256": "9108593083733bcd65eb624f603b3843e886c3378fb899ec60c0ce0bb757edc9"
+      },
+      "originalGeneratedFile": {
+        "path": "C:\\Users\\Administrator\\.codex\\generated_images\\01a148a3-42fd-7200-9a55-f8a2b93cf502\\exec-2cf9ed6a-f975-465b-8f48-e00d089c8a02.png",
+        "bytes": 2039114,
+        "sha256": "7adf6108e8837232ba3e79e79e1741194c023dbd115808ccff280f6bf1d5538c"
+      },
+      "sourceBytesEqual": true,
+      "prompt": {
+        "path": "D:\\project\\宠物\\assets\\pets\\nekomi\\walk-v10-complete\\prompts\\turnaround-rear-waist-v1.txt",
+        "bytes": 1827,
+        "sha256": "b3d76b9e19ca343bf996b27d5ccc62dbe3c639c9c3a09a27fc6eddc64857ed68"
+      },
+      "inputReference": {
+        "path": "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v5-natural-tail\\reference\\turnaround.png",
+        "bytes": 2082196,
+        "sha256": "2ec76b1ed4cb6c23f14af1cef1d63941197a40a9f3412c06f07b7277315b0e26",
+        "size": [
+          1536,
+          1024
+        ],
+        "mode": "RGB",
+        "hasAlphaChannel": false,
+        "effectiveAlphaExtrema": [
+          255,
+          255
+        ],
+        "nonTransparentBBox": [
+          0,
+          0,
+          1536,
+          1024
+        ],
+        "bboxConvention": "[left,top,right,bottom]; alpha>0; right/bottom exclusive"
+      },
+      "transparentBackgroundRequested": false,
+      "scope": "rear waistband correction on existing three-view reference candidate",
+      "reviewStatus": "rear-waist-static-correction-only",
+      "remaining": [
+        "right-facing view and limb depth not established by left-facing side candidate",
+        "arm anatomy and cross-view proportions need review",
+        "not approved animation master or complete cycle"
+      ],
+      "acceptanceStatus": "not-approved-model-or-animation-master"
+    },
+    {
+      "id": "turnaround-rear-accessories-v2",
+      "output": "turnaround-rear-accessories-v2.png",
+      "metadata": {
+        "path": "D:\\project\\宠物\\assets\\pets\\nekomi\\walk-v10-complete\\model-reference\\turnaround-rear-accessories-v2.png",
+        "bytes": 2007531,
+        "sha256": "a6d512fd7e672c519e4ee562c32846f43671b99dcce85d69a12b69f6b12f1782",
+        "size": [
+          1536,
+          1024
+        ],
+        "mode": "RGB",
+        "hasAlphaChannel": false,
+        "effectiveAlphaExtrema": [
+          255,
+          255
+        ],
+        "nonTransparentBBox": [
+          0,
+          0,
+          1536,
+          1024
+        ],
+        "bboxConvention": "[left,top,right,bottom]; alpha>0; right/bottom exclusive"
+      },
+      "sourceRecord": {
+        "path": "D:\\project\\宠物\\assets\\pets\\nekomi\\walk-v10-complete\\model-reference\\turnaround-rear-accessories-v2-source.json",
+        "bytes": 687,
+        "sha256": "db52cd5e744f0650febf1c9ebbf24df6bb5e73a1e011675f59441d57702d4d1a"
+      },
+      "originalGeneratedFile": {
+        "path": "C:\\Users\\Administrator\\.codex\\generated_images\\01a148a3-42fd-7200-9a55-f8a2b93cf502\\exec-d5bd7bf2-240e-4758-830d-5dbb5ae2e8e7.png",
+        "bytes": 2007531,
+        "sha256": "a6d512fd7e672c519e4ee562c32846f43671b99dcce85d69a12b69f6b12f1782"
+      },
+      "sourceBytesEqual": true,
+      "prompt": {
+        "path": "D:\\project\\宠物\\assets\\pets\\nekomi\\walk-v10-complete\\prompts\\turnaround-rear-accessories-v2.txt",
+        "bytes": 2134,
+        "sha256": "11cc261fb38794ec35fedf7f45119c10d3aa5d5240476c8f347b2fe7503e1f1f"
+      },
+      "inputReference": {
+        "path": "D:\\project\\宠物\\assets\\pets\\nekomi\\walk-v10-complete\\model-reference\\turnaround-rear-waist-v1.png",
+        "bytes": 2039114,
+        "sha256": "7adf6108e8837232ba3e79e79e1741194c023dbd115808ccff280f6bf1d5538c",
+        "size": [
+          1536,
+          1024
+        ],
+        "mode": "RGB",
+        "hasAlphaChannel": false,
+        "effectiveAlphaExtrema": [
+          255,
+          255
+        ],
+        "nonTransparentBBox": [
+          0,
+          0,
+          1536,
+          1024
+        ],
+        "bboxConvention": "[left,top,right,bottom]; alpha>0; right/bottom exclusive"
+      },
+      "transparentBackgroundRequested": false,
+      "scope": "rear hair accessory orientation; rear plain waistband retained",
+      "reviewStatus": "needs-side-accessory-revision",
+      "remaining": [
+        "side-view hair bow still frontal",
+        "arm anatomy and cross-view proportions need review",
+        "not approved animation master or complete cycle"
+      ],
+      "acceptanceStatus": "not-approved-model-or-animation-master"
+    },
+    {
+      "id": "turnaround-side-hair-bow-v3",
+      "output": "turnaround-side-hair-bow-v3.png",
+      "metadata": {
+        "path": "D:\\project\\宠物\\assets\\pets\\nekomi\\walk-v10-complete\\model-reference\\turnaround-side-hair-bow-v3.png",
+        "bytes": 1983650,
+        "sha256": "b7d6506f945cb23b343a46fcde2be052b4dadbac47eb65f2d6ebe4c83531f316",
+        "size": [
+          1536,
+          1024
+        ],
+        "mode": "RGB",
+        "hasAlphaChannel": false,
+        "effectiveAlphaExtrema": [
+          255,
+          255
+        ],
+        "nonTransparentBBox": [
+          0,
+          0,
+          1536,
+          1024
+        ],
+        "bboxConvention": "[left,top,right,bottom]; alpha>0; right/bottom exclusive"
+      },
+      "sourceRecord": {
+        "path": "D:\\project\\宠物\\assets\\pets\\nekomi\\walk-v10-complete\\model-reference\\turnaround-side-hair-bow-v3-source.json",
+        "bytes": 653,
+        "sha256": "bbfb254884c84531f371adfcc0950078d8bb73de94dc22761951e51ac76d3b4f"
+      },
+      "originalGeneratedFile": {
+        "path": "C:\\Users\\Administrator\\.codex\\generated_images\\01a148a3-42fd-7200-9a55-f8a2b93cf502\\exec-e34a5de8-0059-4ccd-8d9f-bf05e31b7983.png",
+        "bytes": 1983650,
+        "sha256": "b7d6506f945cb23b343a46fcde2be052b4dadbac47eb65f2d6ebe4c83531f316"
+      },
+      "sourceBytesEqual": true,
+      "prompt": {
+        "path": "D:\\project\\宠物\\assets\\pets\\nekomi\\walk-v10-complete\\prompts\\turnaround-side-hair-bow-v3.txt",
+        "bytes": 2070,
+        "sha256": "2d344d7eb202d4c9a34eb58cb4bb19b1ffb9eb9ed01c9a573366fe16551c7bda"
+      },
+      "inputReference": {
+        "path": "D:\\project\\宠物\\assets\\pets\\nekomi\\walk-v10-complete\\model-reference\\turnaround-rear-accessories-v2.png",
+        "bytes": 2007531,
+        "sha256": "a6d512fd7e672c519e4ee562c32846f43671b99dcce85d69a12b69f6b12f1782",
+        "size": [
+          1536,
+          1024
+        ],
+        "mode": "RGB",
+        "hasAlphaChannel": false,
+        "effectiveAlphaExtrema": [
+          255,
+          255
+        ],
+        "nonTransparentBBox": [
+          0,
+          0,
+          1536,
+          1024
+        ],
+        "bboxConvention": "[left,top,right,bottom]; alpha>0; right/bottom exclusive"
+      },
+      "transparentBackgroundRequested": false,
+      "scope": "side hair bow orientation; corrected rear decorations retained",
+      "reviewStatus": "pending-static-accessory-review",
+      "remaining": [
+        "arm anatomy and cross-view proportions need review",
+        "not approved animation master or complete cycle"
+      ],
+      "acceptanceStatus": "not-approved-model-or-animation-master"
+    }
+  ],
+  "preservedHistoricalRecords": [
+    {
+      "path": "D:\\project\\宠物\\assets\\pets\\nekomi\\walk-v10-complete\\REVIEW-20261017-SPATIAL-REJECTED.txt",
+      "sha256": "4e87cf4aec619f37fbf8927bfdec4b35c8046baf9e129369e41453d62e8c7b0c"
+    },
+    {
+      "path": "D:\\project\\宠物\\assets\\pets\\nekomi\\walk-v10-complete\\integrity-v2.json",
+      "sha256": "68a1b546afebc1ad621bfcd54246a087864dce6a91a7b9d6baa32d543f5f9c99"
+    },
+    {
+      "path": "D:\\project\\宠物\\assets\\pets\\nekomi\\walk-v10-complete\\generation-manifest-v2.json",
+      "sha256": "987a1f78c490879711cac63fc5a9f6ebdc84e1fb1b2e521cfb580fa583f91465"
+    }
+  ],
+  "limitations": [
+    "v1-v3 are local waistband/accessory corrections, not whole-model acceptance.",
+    "Source-byte identity and metadata do not prove anatomy, view consistency or motion quality.",
+    "The current files preserve their generated pixels and original background choice."
+  ]
+}

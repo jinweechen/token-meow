@@ -1,0 +1,815 @@
+{
+  "schemaVersion": 1,
+  "kind": "C19-native-small-fixture-increment-and-normal-exit-scoped",
+  "createdAtUtc": "2026-10-16T02:17:23.716532+00:00",
+  "scope": "One actual Windows C19 instance,20 new authored response events and one normal menu exit; retained C18 observations remain historical, not fresh C19 execution.",
+  "binding": {
+    "protocol": "c18-native-ui-descriptive-owner-v1",
+    "nonce": "641e6ec9b1a24e828512a0dc32f3ea5e",
+    "atUtc": "2026-10-16T01:56:47.0216760Z",
+    "executable": "D:\\project\\宠物\\output\\build-candidates\\c19-retention-index-20261016\\token-meow.exe",
+    "executableSha256": "C9916FD2EC1B8825460C6CD3910645730517082E033EE8CFD8C17D09A5441554",
+    "rootProcessId": 30508,
+    "rootCreationFileTimeDecimal": "134365894067635768",
+    "jobId": "af366695-14fb-4c66-9fab-082a58ec19a5",
+    "assignBeforeResume": true,
+    "observerOutsideJob": true,
+    "arguments": [],
+    "fixtureManifest": "D:\\project\\宠物\\output\\performance\\incremental-d625d40656a6465b89fba8de16bcc575\\fixture.json",
+    "fixtureManifestSha256": "536C991C07DEBE25501283DE5FCE9EC0A9AB7D9D84CAEF188C36668306AA8E78",
+    "sourceRoot": "D:\\project\\宠物\\output\\performance\\incremental-d625d40656a6465b89fba8de16bcc575\\source",
+    "dataDirectory": "D:\\project\\宠物\\output\\performance\\incremental-d625d40656a6465b89fba8de16bcc575\\data",
+    "maximumObservationSeconds": 1200,
+    "sampleMilliseconds": 1000,
+    "resourceQualification": false,
+    "M4Passed": false,
+    "guardianProtocol": "deferred exact path/SHA from guardian-protocol-binding.json"
+  },
+  "productionArtifactHashOrigin": {
+    "candidateBuildReceiptSha256": "E0299D7A44317065BE18535B796DFA653352D0443C68A438AD8845655E6A6F4C",
+    "actualLaunchHashReused": true,
+    "largeArtifactRehashedDuringFinalization": false,
+    "currentCoreLibrarySha256": "F277F96812A5A455FB28D7BD58A7E7620F7E779991BD3FBC6B92C4B72853CFCA",
+    "C18Full379CoreSha256NotRebound": "2F84BDC272613B639D677B0CF2636FF87E6585404EBE032EF89ADB2B6FC99BF9"
+  },
+  "uiMethod": {
+    "soleInputAndVisualReviewer": "desktop agent using returned Sky native screenshots",
+    "rootReview": "Persisted records and reviewer attestation; did not redisplay20 screenshots",
+    "ledgerFinalization": "Small finalized evidence/identity/timing/hash consistency only; no UI or pixel review by this finalizer",
+    "storedPixelBoundary": "Raw records contain screenshot metadata and actual reviewer attestation; no claim of independent continuous pixel sampling"
+  },
+  "authorization": {
+    "desktopGrantStartUtc": "2026-10-16T01:54:06Z",
+    "desktopDeadlineUtc": "2026-10-16T02:09:06Z",
+    "nativeInputEnded": true,
+    "ownerSession": 18261,
+    "ownerExitCodeAsActorRecorded": 0
+  },
+  "visibleIncrementTiming": {
+    "scope": "20 native screenshot-return upper bounds for one tiny authored local fixture",
+    "baselineResponses": 1,
+    "baselineDisplayedTokens": "1.2K",
+    "eventsAppended": 20,
+    "observations": 20,
+    "visualReviews": 20,
+    "eventsConfirmed": 20,
+    "required": 20,
+    "allFirstAttempt": true,
+    "thresholdMs": 5000,
+    "p95Method": "nearest-rank sorted sample index ceil(0.95*20)=19",
+    "p95UpperMs": 1588.4418999999762,
+    "maxUpperMs": 1595.6684000007808,
+    "thresholdMet": true,
+    "origin": "before complete line write through returned native screenshot",
+    "humanReviewDelayExcludedFromInterval": true,
+    "humanReviewDelayDoesNotReplaceObservationTime": true,
+    "independentUiActorReviewComplete": true,
+    "observerOriginalGate": "threshold-met-awaiting-independent-process-and-visual-review",
+    "errors": [],
+    "events": [
+      {
+        "index": 1,
+        "responseId": "p95-79c4774a-d734-453b-88ea-f3084d67bffc-1",
+        "expectedResponses": 2,
+        "observedResponses": 2,
+        "displayedTokens": "2.2K",
+        "writeStartedUtc": "2026-10-16T01:59:22.658Z",
+        "screenshotReturnedUtc": "2026-10-16T01:59:23.918Z",
+        "latencyUpperMs": 1259.7675000019372,
+        "firstAttempt": true,
+        "visualReviewer": "desktop agent",
+        "screenshotWindowId": 68948088
+      },
+      {
+        "index": 2,
+        "responseId": "p95-79c4774a-d734-453b-88ea-f3084d67bffc-2",
+        "expectedResponses": 3,
+        "observedResponses": 3,
+        "displayedTokens": "3.2K",
+        "writeStartedUtc": "2026-10-16T01:59:41.669Z",
+        "screenshotReturnedUtc": "2026-10-16T01:59:43.038Z",
+        "latencyUpperMs": 1368.8837000019848,
+        "firstAttempt": true,
+        "visualReviewer": "desktop agent",
+        "screenshotWindowId": 68948088
+      },
+      {
+        "index": 3,
+        "responseId": "p95-79c4774a-d734-453b-88ea-f3084d67bffc-3",
+        "expectedResponses": 4,
+        "observedResponses": 4,
+        "displayedTokens": "4.2K",
+        "writeStartedUtc": "2026-10-16T02:00:04.885Z",
+        "screenshotReturnedUtc": "2026-10-16T02:00:06.292Z",
+        "latencyUpperMs": 1407.4968999996781,
+        "firstAttempt": true,
+        "visualReviewer": "desktop agent",
+        "screenshotWindowId": 68948088
+      },
+      {
+        "index": 4,
+        "responseId": "p95-79c4774a-d734-453b-88ea-f3084d67bffc-4",
+        "expectedResponses": 5,
+        "observedResponses": 5,
+        "displayedTokens": "5.2K",
+        "writeStartedUtc": "2026-10-16T02:00:23.492Z",
+        "screenshotReturnedUtc": "2026-10-16T02:00:25.088Z",
+        "latencyUpperMs": 1595.6684000007808,
+        "firstAttempt": true,
+        "visualReviewer": "desktop agent",
+        "screenshotWindowId": 68948088
+      },
+      {
+        "index": 5,
+        "responseId": "p95-79c4774a-d734-453b-88ea-f3084d67bffc-5",
+        "expectedResponses": 6,
+        "observedResponses": 6,
+        "displayedTokens": "6.2K",
+        "writeStartedUtc": "2026-10-16T02:00:40.587Z",
+        "screenshotReturnedUtc": "2026-10-16T02:00:41.993Z",
+        "latencyUpperMs": 1405.4866000004113,
+        "firstAttempt": true,
+        "visualReviewer": "desktop agent",
+        "screenshotWindowId": 68948088
+      },
+      {
+        "index": 6,
+        "responseId": "p95-79c4774a-d734-453b-88ea-f3084d67bffc-6",
+        "expectedResponses": 7,
+        "observedResponses": 7,
+        "displayedTokens": "7.2K",
+        "writeStartedUtc": "2026-10-16T02:01:01.834Z",
+        "screenshotReturnedUtc": "2026-10-16T02:01:03.180Z",
+        "latencyUpperMs": 1345.3273999989033,
+        "firstAttempt": true,
+        "visualReviewer": "desktop agent",
+        "screenshotWindowId": 68948088
+      },
+      {
+        "index": 7,
+        "responseId": "p95-79c4774a-d734-453b-88ea-f3084d67bffc-7",
+        "expectedResponses": 8,
+        "observedResponses": 8,
+        "displayedTokens": "8.2K",
+        "writeStartedUtc": "2026-10-16T02:01:24.170Z",
+        "screenshotReturnedUtc": "2026-10-16T02:01:25.688Z",
+        "latencyUpperMs": 1518.3065000027418,
+        "firstAttempt": true,
+        "visualReviewer": "desktop agent",
+        "screenshotWindowId": 68948088
+      },
+      {
+        "index": 8,
+        "responseId": "p95-79c4774a-d734-453b-88ea-f3084d67bffc-8",
+        "expectedResponses": 9,
+        "observedResponses": 9,
+        "displayedTokens": "9.2K",
+        "writeStartedUtc": "2026-10-16T02:01:56.913Z",
+        "screenshotReturnedUtc": "2026-10-16T02:01:58.283Z",
+        "latencyUpperMs": 1369.7006999999285,
+        "firstAttempt": true,
+        "visualReviewer": "desktop agent",
+        "screenshotWindowId": 68948088
+      },
+      {
+        "index": 9,
+        "responseId": "p95-79c4774a-d734-453b-88ea-f3084d67bffc-9",
+        "expectedResponses": 10,
+        "observedResponses": 10,
+        "displayedTokens": "10.2K",
+        "writeStartedUtc": "2026-10-16T02:02:13.405Z",
+        "screenshotReturnedUtc": "2026-10-16T02:02:14.813Z",
+        "latencyUpperMs": 1408.070499997586,
+        "firstAttempt": true,
+        "visualReviewer": "desktop agent",
+        "screenshotWindowId": 68948088
+      },
+      {
+        "index": 10,
+        "responseId": "p95-79c4774a-d734-453b-88ea-f3084d67bffc-10",
+        "expectedResponses": 11,
+        "observedResponses": 11,
+        "displayedTokens": "11.2K",
+        "writeStartedUtc": "2026-10-16T02:02:32.926Z",
+        "screenshotReturnedUtc": "2026-10-16T02:02:34.283Z",
+        "latencyUpperMs": 1357.1929000020027,
+        "firstAttempt": true,
+        "visualReviewer": "desktop agent",
+        "screenshotWindowId": 68948088
+      },
+      {
+        "index": 11,
+        "responseId": "p95-79c4774a-d734-453b-88ea-f3084d67bffc-11",
+        "expectedResponses": 12,
+        "observedResponses": 12,
+        "displayedTokens": "12.2K",
+        "writeStartedUtc": "2026-10-16T02:03:06.479Z",
+        "screenshotReturnedUtc": "2026-10-16T02:03:07.888Z",
+        "latencyUpperMs": 1409.0474000014365,
+        "firstAttempt": true,
+        "visualReviewer": "desktop agent",
+        "screenshotWindowId": 68948088
+      },
+      {
+        "index": 12,
+        "responseId": "p95-79c4774a-d734-453b-88ea-f3084d67bffc-12",
+        "expectedResponses": 13,
+        "observedResponses": 13,
+        "displayedTokens": "13.2K",
+        "writeStartedUtc": "2026-10-16T02:03:27.604Z",
+        "screenshotReturnedUtc": "2026-10-16T02:03:28.964Z",
+        "latencyUpperMs": 1359.9800999984145,
+        "firstAttempt": true,
+        "visualReviewer": "desktop agent",
+        "screenshotWindowId": 68948088
+      },
+      {
+        "index": 13,
+        "responseId": "p95-79c4774a-d734-453b-88ea-f3084d67bffc-13",
+        "expectedResponses": 14,
+        "observedResponses": 14,
+        "displayedTokens": "14.2K",
+        "writeStartedUtc": "2026-10-16T02:03:45.534Z",
+        "screenshotReturnedUtc": "2026-10-16T02:03:46.939Z",
+        "latencyUpperMs": 1404.873599998653,
+        "firstAttempt": true,
+        "visualReviewer": "desktop agent",
+        "screenshotWindowId": 68948088
+      },
+      {
+        "index": 14,
+        "responseId": "p95-79c4774a-d734-453b-88ea-f3084d67bffc-14",
+        "expectedResponses": 15,
+        "observedResponses": 15,
+        "displayedTokens": "15.2K",
+        "writeStartedUtc": "2026-10-16T02:04:19.303Z",
+        "screenshotReturnedUtc": "2026-10-16T02:04:20.718Z",
+        "latencyUpperMs": 1415.0123999975622,
+        "firstAttempt": true,
+        "visualReviewer": "desktop agent",
+        "screenshotWindowId": 68948088
+      },
+      {
+        "index": 15,
+        "responseId": "p95-79c4774a-d734-453b-88ea-f3084d67bffc-15",
+        "expectedResponses": 16,
+        "observedResponses": 16,
+        "displayedTokens": "16.2K",
+        "writeStartedUtc": "2026-10-16T02:04:53.939Z",
+        "screenshotReturnedUtc": "2026-10-16T02:04:55.347Z",
+        "latencyUpperMs": 1407.876899998635,
+        "firstAttempt": true,
+        "visualReviewer": "desktop agent",
+        "screenshotWindowId": 68948088
+      },
+      {
+        "index": 16,
+        "responseId": "p95-79c4774a-d734-453b-88ea-f3084d67bffc-16",
+        "expectedResponses": 17,
+        "observedResponses": 17,
+        "displayedTokens": "17.2K",
+        "writeStartedUtc": "2026-10-16T02:05:13.249Z",
+        "screenshotReturnedUtc": "2026-10-16T02:05:14.649Z",
+        "latencyUpperMs": 1400.2223999984562,
+        "firstAttempt": true,
+        "visualReviewer": "desktop agent",
+        "screenshotWindowId": 68948088
+      },
+      {
+        "index": 17,
+        "responseId": "p95-79c4774a-d734-453b-88ea-f3084d67bffc-17",
+        "expectedResponses": 18,
+        "observedResponses": 18,
+        "displayedTokens": "18.2K",
+        "writeStartedUtc": "2026-10-16T02:05:43.973Z",
+        "screenshotReturnedUtc": "2026-10-16T02:05:45.334Z",
+        "latencyUpperMs": 1360.4800999984145,
+        "firstAttempt": true,
+        "visualReviewer": "desktop agent",
+        "screenshotWindowId": 68948088
+      },
+      {
+        "index": 18,
+        "responseId": "p95-79c4774a-d734-453b-88ea-f3084d67bffc-18",
+        "expectedResponses": 19,
+        "observedResponses": 19,
+        "displayedTokens": "19.2K",
+        "writeStartedUtc": "2026-10-16T02:06:13.633Z",
+        "screenshotReturnedUtc": "2026-10-16T02:06:14.979Z",
+        "latencyUpperMs": 1345.4130000025034,
+        "firstAttempt": true,
+        "visualReviewer": "desktop agent",
+        "screenshotWindowId": 68948088
+      },
+      {
+        "index": 19,
+        "responseId": "p95-79c4774a-d734-453b-88ea-f3084d67bffc-19",
+        "expectedResponses": 20,
+        "observedResponses": 20,
+        "displayedTokens": "20.2K",
+        "writeStartedUtc": "2026-10-16T02:06:41.631Z",
+        "screenshotReturnedUtc": "2026-10-16T02:06:43.003Z",
+        "latencyUpperMs": 1371.7022000029683,
+        "firstAttempt": true,
+        "visualReviewer": "desktop agent",
+        "screenshotWindowId": 68948088
+      },
+      {
+        "index": 20,
+        "responseId": "p95-79c4774a-d734-453b-88ea-f3084d67bffc-20",
+        "expectedResponses": 21,
+        "observedResponses": 21,
+        "displayedTokens": "21.2K",
+        "writeStartedUtc": "2026-10-16T02:07:07.708Z",
+        "screenshotReturnedUtc": "2026-10-16T02:07:09.297Z",
+        "latencyUpperMs": 1588.4418999999762,
+        "firstAttempt": true,
+        "visualReviewer": "desktop agent",
+        "screenshotWindowId": 68948088
+      }
+    ],
+    "collectorIsLocalSourceOnly": true,
+    "uiaCountsDiagnosticOnly": true,
+    "exactPaintOrCommitTimingClaimed": false,
+    "sourceAfterSha256": "69CA1991F5F293F993DDDA0129BEBE9CE1B4DAF7CEE92437984C3ED3962DAB98"
+  },
+  "auxiliaryInitializationFailure": {
+    "source": {
+      "atUtc": "2026-10-16T01:59:14.262Z",
+      "error": "Only workspace output fixture/evidence paths are accepted.",
+      "stage": "cloned-module-import-meta-workspace",
+      "appends": 0,
+      "recovery": "Use byte-identical original scripts module; no guard change"
+    },
+    "status": "preserved0-append-helper-location-guard-failure",
+    "P95EventFailuresCounted": 0,
+    "recovery": "Original intended scripts path, byte-identical E4D19 source, all guards unchanged",
+    "correctionReceipt": "output/implementation/c19-native-continuation-4d453dfc2edf486d9392fc5d1aa58fa9/observer-path-binding-correction.json"
+  },
+  "autoCare": {
+    "executed": false,
+    "sourceRowsAppended": 0,
+    "bubbleObserved": false,
+    "reason": "Remaining authorized desktop time reserved for strict armACK/fresh menu/normal exit",
+    "freshAutomaticBubbleQualified": false
+  },
+  "exit": {
+    "action": {
+      "rootProcessId": 30508,
+      "rootCreationFileTimeDecimal": "134365894067635768",
+      "jobId": "af366695-14fb-4c66-9fab-082a58ec19a5",
+      "exitRequestedUtc": "2026-10-16T02:08:39.331Z",
+      "method": "fresh own pet menu UIA observed Exit button34 after actual armACK",
+      "ownWindowsAfter": [
+        {
+          "app": "process:D:\\project\\宠物\\output\\build-candidates\\c19-retention-index-20261016\\token-meow.exe",
+          "id": 154604476,
+          "title": "Token 喵"
+        },
+        {
+          "app": "process:D:\\project\\宠物\\output\\build-candidates\\c19-retention-index-20261016\\token-meow.exe",
+          "id": 68948088,
+          "title": "Token 喵 · 本地用量账本"
+        }
+      ],
+      "careExecuted": false,
+      "careReason": "Time reserved for strict normal exit; no care lines appended"
+    },
+    "ackUtc": "2026-10-16T02:07:58.6862674Z",
+    "ackToClickSeconds": 40.644733,
+    "menuObservation": {
+      "windowId": 154604476,
+      "title": "Token 喵",
+      "freshAfterArmAck": true,
+      "screenshotMetadata": {
+        "id": "screenshot-0",
+        "width": 280,
+        "height": 340
+      },
+      "observedExitButtonIndex": 34,
+      "captureReturnedUtc": null,
+      "captureTimingBoundary": "Actual fresh screenshot tool call occurred after ACK02:07:58.6862674Z and before Exit action02:08:39.331Z; no separate capture UTC was recorded, so no exact time is fabricated"
+    },
+    "menuTimingClaim": "Actor attests ACK < fresh own menu observation < actual click; separate screenshot UTC not recorded",
+    "guardianOutcome": "owned-exit-proven",
+    "guardianCompletedAtUtc": "2026-10-16T02:08:40.3188089Z",
+    "guardianUiActionObserved": false,
+    "guardianNormalMenuExitQualified": false,
+    "compositeActorUiAndProcessFactsQualified": true,
+    "proofMaximumSeconds": 120,
+    "retainedIdentitiesIncludingRoot": 10,
+    "childrenCount": 9,
+    "allSameRetainedHandlesExited": true,
+    "allObservedIds": [
+      {
+        "processId": 30508,
+        "creationFileTimeDecimal": "134365894067635768",
+        "actualCreationFileTimeDecimal": "134365894067635768",
+        "firstSeenPhase": "measurement-root-before-resume",
+        "status": "creation-matched-exited",
+        "error": null,
+        "ordinal": 1,
+        "sameRetainedHandle": true,
+        "exitProven": true,
+        "waitResult": 0,
+        "exitCode": 0,
+        "exitFileTimeDecimal": "134365901198104611"
+      },
+      {
+        "processId": 45220,
+        "creationFileTimeDecimal": "134365894071711533",
+        "actualCreationFileTimeDecimal": "134365894071711533",
+        "firstSeenPhase": "measurement",
+        "status": "creation-matched-exited",
+        "error": null,
+        "ordinal": 2,
+        "sameRetainedHandle": true,
+        "exitProven": true,
+        "waitResult": 0,
+        "exitCode": 0,
+        "exitFileTimeDecimal": "134365901200377935"
+      },
+      {
+        "processId": 68800,
+        "creationFileTimeDecimal": "134365894072528273",
+        "actualCreationFileTimeDecimal": "134365894072528273",
+        "firstSeenPhase": "measurement",
+        "status": "creation-matched-exited",
+        "error": null,
+        "ordinal": 3,
+        "sameRetainedHandle": true,
+        "exitProven": true,
+        "waitResult": 0,
+        "exitCode": 0,
+        "exitFileTimeDecimal": "134365901200922428"
+      },
+      {
+        "processId": 60568,
+        "creationFileTimeDecimal": "134365894074557181",
+        "actualCreationFileTimeDecimal": "134365894074557181",
+        "firstSeenPhase": "measurement",
+        "status": "creation-matched-exited",
+        "error": null,
+        "ordinal": 4,
+        "sameRetainedHandle": true,
+        "exitProven": true,
+        "waitResult": 0,
+        "exitCode": 0,
+        "exitFileTimeDecimal": "134365901199714056"
+      },
+      {
+        "processId": 7656,
+        "creationFileTimeDecimal": "134365894074618998",
+        "actualCreationFileTimeDecimal": "134365894074618998",
+        "firstSeenPhase": "measurement",
+        "status": "creation-matched-exited",
+        "error": null,
+        "ordinal": 5,
+        "sameRetainedHandle": true,
+        "exitProven": true,
+        "waitResult": 0,
+        "exitCode": 0,
+        "exitFileTimeDecimal": "134365901199138520"
+      },
+      {
+        "processId": 61860,
+        "creationFileTimeDecimal": "134365894074933003",
+        "actualCreationFileTimeDecimal": "134365894074933003",
+        "firstSeenPhase": "measurement",
+        "status": "creation-matched-exited",
+        "error": null,
+        "ordinal": 6,
+        "sameRetainedHandle": true,
+        "exitProven": true,
+        "waitResult": 0,
+        "exitCode": 0,
+        "exitFileTimeDecimal": "134365901199290401"
+      },
+      {
+        "processId": 59460,
+        "creationFileTimeDecimal": "134365894075891222",
+        "actualCreationFileTimeDecimal": "134365894075891222",
+        "firstSeenPhase": "measurement",
+        "status": "creation-matched-exited",
+        "error": null,
+        "ordinal": 7,
+        "sameRetainedHandle": true,
+        "exitProven": true,
+        "waitResult": 0,
+        "exitCode": 0,
+        "exitFileTimeDecimal": "134365901198603102"
+      },
+      {
+        "processId": 64264,
+        "creationFileTimeDecimal": "134365894077774231",
+        "actualCreationFileTimeDecimal": "134365894077774231",
+        "firstSeenPhase": "measurement",
+        "status": "creation-matched-exited",
+        "error": null,
+        "ordinal": 8,
+        "sameRetainedHandle": true,
+        "exitProven": true,
+        "waitResult": 0,
+        "exitCode": 0,
+        "exitFileTimeDecimal": "134365901198264256"
+      },
+      {
+        "processId": 47264,
+        "creationFileTimeDecimal": "134365894087905741",
+        "actualCreationFileTimeDecimal": "134365894087905741",
+        "firstSeenPhase": "measurement",
+        "status": "creation-matched-exited",
+        "error": null,
+        "ordinal": 9,
+        "sameRetainedHandle": true,
+        "exitProven": true,
+        "waitResult": 0,
+        "exitCode": 1,
+        "exitFileTimeDecimal": "134365894129984550"
+      },
+      {
+        "processId": 53604,
+        "creationFileTimeDecimal": "134365894097009467",
+        "actualCreationFileTimeDecimal": "134365894097009467",
+        "firstSeenPhase": "measurement",
+        "status": "creation-matched-exited",
+        "error": null,
+        "ordinal": 10,
+        "sameRetainedHandle": true,
+        "exitProven": true,
+        "waitResult": 0,
+        "exitCode": 1,
+        "exitFileTimeDecimal": "134365894129759086"
+      }
+    ],
+    "rootExitCode": 0,
+    "JobEmpty": true,
+    "allOwnedHandlesClosed": true,
+    "nonzeroEarlyChildExits": [
+      {
+        "processId": 47264,
+        "creationFileTimeDecimal": "134365894087905741",
+        "actualCreationFileTimeDecimal": "134365894087905741",
+        "firstSeenPhase": "measurement",
+        "status": "creation-matched-exited",
+        "error": null,
+        "ordinal": 9,
+        "sameRetainedHandle": true,
+        "exitProven": true,
+        "waitResult": 0,
+        "exitCode": 1,
+        "exitFileTimeDecimal": "134365894129984550"
+      },
+      {
+        "processId": 53604,
+        "creationFileTimeDecimal": "134365894097009467",
+        "actualCreationFileTimeDecimal": "134365894097009467",
+        "firstSeenPhase": "measurement",
+        "status": "creation-matched-exited",
+        "error": null,
+        "ordinal": 10,
+        "sameRetainedHandle": true,
+        "exitProven": true,
+        "waitResult": 0,
+        "exitCode": 1,
+        "exitFileTimeDecimal": "134365894129759086"
+      }
+    ],
+    "nonzeroChildImagesOrCauseInferred": false,
+    "applicationReportedShutdown": {
+      "accountFinished": true,
+      "at": "2026-10-16T02:08:39.761785800+00:00",
+      "deadlineReached": false,
+      "scannerFinished": true,
+      "stage": "exit-ready",
+      "waitMs": 101.6982
+    },
+    "applicationShutdownIsAuxiliaryOnly": true,
+    "laterOwnWindows": {
+      "atUtc": "2026-10-16T02:09:22.899Z",
+      "windows": [],
+      "scope": "Returned own candidate windows only; process proof from separate guardian-end"
+    }
+  },
+  "actualDiagnostics": {
+    "directory": {
+      "bindingGeneration": 0,
+      "count": null,
+      "error": "桥接触发 96 MiB 提交内存预算预警，已停止全部自有桥接进程；请手动重试",
+      "lastSuccessAt": null,
+      "sourceId": "3cd488c9259ebfb68d3c04723a40329e1a67e563d67e1fb85f49cd299a5913ff",
+      "status": "unavailable"
+    },
+    "meaning": "Directory/account bridge unavailable with actual96MiB commit-budget warning and null count/lastSuccess; this local collector P95 does not qualify account/directory access or external chat jump",
+    "metricsSha256": "A595AFA3EEBB610C8F98A3C8150FB0261A5515F13BEF7962953B926BFA042628",
+    "childExit1CauseLinkedToDirectoryWarning": false
+  },
+  "closedFixtureSchemaEvidence": {
+    "rootPerformedAudit": {
+      "path": "output/performance/incremental-d625d40656a6465b89fba8de16bcc575/data/ledger.sqlite3",
+      "bytes": 339968,
+      "sha256BeforeAndAfter": "4FFF7F060D9B14AD21503E4198C21497A0CFDBF0B79CF0787E9E5BE540E2286F",
+      "userVersion": 6,
+      "integrity": "ok",
+      "mode": "ro+immutable; only owned fixture after proven process exit;WAL0"
+    },
+    "ledgerFinalizerOpenedDatabase": false,
+    "scope": "Only339968B self-authored closed fixture; not user database or full raw import"
+  },
+  "retainedC18Historical": {
+    "receipt": "docs/acceptance/c18-native-ui-scoped-2026-10-16.json",
+    "sha256": "4327A01DB481EE0825AE445DA161C9A2B90233AA67288FE65936C6D1A66BAF7F",
+    "classification": "retained historical observations with unchanged UI/desktop/queries/pet modules; not C19 fresh executions",
+    "observations": [
+      "manual gentle/playful phrases",
+      "menu dismissed by own main focus",
+      "hide/shortcut recovery",
+      "click-through recovery only, no underlying delivery proof",
+      "two explicit CSV saves and later coordinate Cancel scope"
+    ],
+    "unchangedModuleDigests": {
+      "app": "F884131AE4097A9FF44D3CD69F29B61CA2888CA70AA88561A2EA8091F22E2878",
+      "desktop": "692BE856B6322C4C0963DE4CFE8CCFB2273DBDDE7F8ACEB9D6FE0DD5A926FEE1",
+      "queries": "365BD9012934B48AA68CD1D6D16FCB61D769EA32F2E6A21C41EFCAF6F4A109DA",
+      "petReadModel": "7746CED32E17C6ED4B3D511BB5E49672909E75CAB0052D2B0E46CB8EDCB870C6",
+      "petLifecycle": "CED25426198BB9DFF6AFAAF14C44F49C7E43A80319A63FAF570E3A801D5F8395",
+      "petStore": "765F11F3D3D0925A8FD128FC1185C65F5B9DEDA7E972B40099E614690C57E812"
+    },
+    "failuresPreserved": [
+      "C18 P95 zero-of20/occlusion/later observation timeout",
+      "automatic care captures16.193/18.76s exceeded8s, not demonstrated",
+      "OS notification0x80070490 failure with inbox retained",
+      "original guardian120s unknown plus late menu click; late new-handle exit never repairs old proof",
+      "initial intended Cancel accidentally saved; later coordinate Cancel limited scope"
+    ],
+    "newExecutionsAttributedToC19": false
+  },
+  "qualification": {
+    "scopedNativeObservationsRecorded": true,
+    "smallFixture20ScreenshotP95ThresholdMet": true,
+    "singleNormalMenuExitCompositeQualified": true,
+    "automaticCareQualified": false,
+    "accountDirectoryQualified": false,
+    "externalChatJumpQualified": false,
+    "wholeF11Passed": false,
+    "wholeF12Passed": false,
+    "warmStartQualified": false,
+    "fullApplicationImportQualified": false,
+    "idle600SecondsQualified": false,
+    "resourceQualified": false,
+    "installerQualified": false,
+    "M4Passed": false,
+    "goalComplete": false
+  },
+  "limitations": [
+    "Timing is an upper bound ending at returned native screenshots, not first-pixel paint or database commit time. Human/model review happened afterwards and is recorded separately.",
+    "Directory remained unavailable after a96MiB bridge commit warning; no account/bridge retry or chat target test was performed.",
+    "Two observed early child identities exited1; no executable identity, request or cause is inferred.",
+    "Guardian asserts process facts only and retained uiActionObserved=false; normal-menu qualification combines separate actor UI evidence with same-owner process proof.",
+    "Menu screenshot UTC was not separately recorded; only actual ACK<menu<click order is attested.",
+    "Automatic care had0 appends and0 execution this round. No success is inferred from historical manual phrases.",
+    "C18 history and failures are not overwritten or turned into new C19 executions.",
+    "No full-App memory/CPU/startup/import,30-cycle lifecycle,DPI/RDP/sleep,installation or wholeM4 qualification."
+  ],
+  "finalization": {
+    "uiActionsOrCaptures": 0,
+    "newProcessQueries": 0,
+    "databaseOpened": false,
+    "testsOrBuildRun": false,
+    "largeArtifactOrDBRehash": false,
+    "sourceOrOldEvidenceModified": false,
+    "smallAuthoredFixtureSourceReadForHashOnly": true
+  },
+  "references": [
+    {
+      "path": "output/implementation/c19-native-continuation-4d453dfc2edf486d9392fc5d1aa58fa9/preparation.json",
+      "bytes": 2895,
+      "sha256": "E2DE04BBBCA503462E19B0262C87FD35263CC701B3A9C058E4B0914A905C2E3B"
+    },
+    {
+      "path": "output/implementation/c19-native-continuation-4d453dfc2edf486d9392fc5d1aa58fa9/execution-release.json",
+      "bytes": 1164,
+      "sha256": "90435252A2B1594FE3EACFF546215C65D798E7DCEB228667732BA679C533F475"
+    },
+    {
+      "path": "output/implementation/c19-native-continuation-4d453dfc2edf486d9392fc5d1aa58fa9/observer-path-binding-correction.json",
+      "bytes": 1236,
+      "sha256": "9A6094E8D2D1D0851BE051F5830855DD6133FDA3DB5AA0F45DAD5D9030C7E35D"
+    },
+    {
+      "path": "scripts/visible-increment-observer.mjs",
+      "bytes": 24555,
+      "sha256": "E4D19FFD732FBFE57D4FAA7053B977754B3FE48E31EF4C017F70D21F482463BF"
+    },
+    {
+      "path": "output/implementation/c19-native-continuation-4d453dfc2edf486d9392fc5d1aa58fa9/visible-increment-observer.mjs",
+      "bytes": 24555,
+      "sha256": "E4D19FFD732FBFE57D4FAA7053B977754B3FE48E31EF4C017F70D21F482463BF"
+    },
+    {
+      "path": "output/build-candidates/c19-retention-index-20261016/build-receipt.json",
+      "bytes": 44875,
+      "sha256": "E0299D7A44317065BE18535B796DFA653352D0443C68A438AD8845655E6A6F4C"
+    },
+    {
+      "path": "output/performance/incremental-d625d40656a6465b89fba8de16bcc575/fixture.json",
+      "bytes": 796,
+      "sha256": "536C991C07DEBE25501283DE5FCE9EC0A9AB7D9D84CAEF188C36668306AA8E78"
+    },
+    {
+      "path": "output/performance/incremental-d625d40656a6465b89fba8de16bcc575/source/sessions/token-meow-p95.jsonl",
+      "bytes": 10025,
+      "sha256": "69CA1991F5F293F993DDDA0129BEBE9CE1B4DAF7CEE92437984C3ED3962DAB98"
+    },
+    {
+      "path": "output/performance/incremental-d625d40656a6465b89fba8de16bcc575/data/desktop-metrics.json",
+      "bytes": 2541,
+      "sha256": "A595AFA3EEBB610C8F98A3C8150FB0261A5515F13BEF7962953B926BFA042628"
+    },
+    {
+      "path": "docs/acceptance/c18-native-ui-scoped-2026-10-16.json",
+      "bytes": 31510,
+      "sha256": "4327A01DB481EE0825AE445DA161C9A2B90233AA67288FE65936C6D1A66BAF7F"
+    },
+    {
+      "path": "output/performance/c19-native-ui-7b5cb916c2834c0dbb4f6749b13fa67e/launch.json",
+      "bytes": 1233,
+      "sha256": "0CBC3F9E699CC1E0424190B24078EA21C98ECE70F4D4B2E2CEF0A37886732C77"
+    },
+    {
+      "path": "output/performance/c19-native-ui-7b5cb916c2834c0dbb4f6749b13fa67e/summary.json",
+      "bytes": 482,
+      "sha256": "CBBC46BC91BDBE1D0F6F2198FB8D4E5C5FFADB8F7F961E892D18DC7736A0887D"
+    },
+    {
+      "path": "output/performance/c19-native-ui-7b5cb916c2834c0dbb4f6749b13fa67e/native-job.jsonl",
+      "bytes": 903832,
+      "sha256": "5094E4A57254C61C67C22E0C28C0D40B28B3D99F7E800467FA9BC41C7D7BD9B9"
+    },
+    {
+      "path": "output/performance/c19-native-ui-7b5cb916c2834c0dbb4f6749b13fa67e/native-screenshot-increments.jsonl",
+      "bytes": 66954,
+      "sha256": "8B622DF4466B8918F150858A441729960A62B50BFBE6776CC748315D924B449F"
+    },
+    {
+      "path": "output/performance/c19-native-ui-7b5cb916c2834c0dbb4f6749b13fa67e/observer-initialization-firstfail.json",
+      "bytes": 257,
+      "sha256": "1AE270458B71F5F626A8BA76621AFA46C32542C82F25ECC45EB8ADD002F97765"
+    },
+    {
+      "path": "output/performance/c19-native-ui-7b5cb916c2834c0dbb4f6749b13fa67e/visual-review-and-scope.json",
+      "bytes": 5053,
+      "sha256": "EEB8E7BC161FC0281BE16C0D6DF50B536204303FE870FE3F04B2C3E367E0D2D4"
+    },
+    {
+      "path": "output/performance/c19-native-ui-7b5cb916c2834c0dbb4f6749b13fa67e/root-finalized-record-review.json",
+      "bytes": 1563,
+      "sha256": "C5FB4C2BB3481DE5BF525C6FBA07B35B9B72BEAC5E6D14F14D2A5BB8E5D049CD"
+    },
+    {
+      "path": "output/performance/c19-native-ui-7b5cb916c2834c0dbb4f6749b13fa67e/end-observation.json",
+      "bytes": 23,
+      "sha256": "686B5D8EE5DDD3E0EDD51B58645B868B04D88057C050BCCB84C34BE8A7FFE5F5"
+    },
+    {
+      "path": "output/performance/c19-native-ui-7b5cb916c2834c0dbb4f6749b13fa67e/guardian-protocol-binding.json",
+      "bytes": 284,
+      "sha256": "615CCD2BA7AFF686B770BF79FB0BC1096F6B644B4F7E58F24A8491D19BC283B1"
+    },
+    {
+      "path": "output/performance/c19-native-ui-7b5cb916c2834c0dbb4f6749b13fa67e/guardian-binding.json",
+      "bytes": 1066,
+      "sha256": "40C29D90CDE668B199F37DCC5E6B2E3443E53326AEDC29FCE2344142320F7102"
+    },
+    {
+      "path": "output/performance/c19-native-ui-7b5cb916c2834c0dbb4f6749b13fa67e/exit-arm.json",
+      "bytes": 628,
+      "sha256": "03105299D50D5E8B42D12C1B516D1777D85445199F0D7D57B2B0DA3AF8E8A8A3"
+    },
+    {
+      "path": "output/performance/c19-native-ui-7b5cb916c2834c0dbb4f6749b13fa67e/exit-armed.json",
+      "bytes": 471,
+      "sha256": "9C266D99B8A6E68A3C9E3B8EAC8C6BE1F2EA044EB5854D1C663AFAD88F06B2D7"
+    },
+    {
+      "path": "output/performance/c19-native-ui-7b5cb916c2834c0dbb4f6749b13fa67e/guardian.jsonl",
+      "bytes": 11753,
+      "sha256": "566F817AC150C842CA6EB666E691184160242C93273CDE26BDCFE635CE0EC462"
+    },
+    {
+      "path": "output/performance/c19-native-ui-7b5cb916c2834c0dbb4f6749b13fa67e/guardian-end.json",
+      "bytes": 6915,
+      "sha256": "DAB82D119DE4EF418B49F0778891F18A0CDFC63C0E4DB4B80F8CE63DE1E1D193"
+    },
+    {
+      "path": "output/performance/c19-native-ui-7b5cb916c2834c0dbb4f6749b13fa67e/normal-menu-action.json",
+      "bytes": 776,
+      "sha256": "889464EDE5E5AC363958D2186BE6FA9EB95D4578242EA989BD76FA728AB40B7A"
+    },
+    {
+      "path": "output/performance/c19-native-ui-7b5cb916c2834c0dbb4f6749b13fa67e/own-windows-final.json",
+      "bytes": 150,
+      "sha256": "0CC6F91506A2D572728AD5ED9BF4518378DFB6FAE23D2824F461630A63777FDC"
+    }
+  ]
+}

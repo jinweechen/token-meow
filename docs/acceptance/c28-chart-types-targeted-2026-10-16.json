@@ -1,0 +1,83 @@
+{
+  "id": "C28",
+  "date": "2026-10-16",
+  "status": "targeted-passed",
+  "scope": "Usage trend chart type switching",
+  "sourceManifest": "output/implementation/c28-chart-types/source-manifest.json",
+  "features": [
+    "Bar line and area renderers share the same metric data",
+    "Tokens responses and estimated cost remain independently selectable",
+    "Missing or invalid cost values split line and area paths rather than becoming zero",
+    "Explicit zero and singleton values have visible markers",
+    "Chart type preference survives query reloads and page reloads; denied storage remains usable",
+    "Long ranges scroll within the chart",
+    "Hover is bound to bucket identity rather than a stale index"
+  ],
+  "unitTests": {
+    "passed": 10,
+    "log": "output/implementation/c28-chart-types/tests.log",
+    "scope": "4 geometry/type tests and 6 existing dashboard helper tests"
+  },
+  "build": {
+    "status": "passed",
+    "log": "output/implementation/c28-chart-types/build-final.log",
+    "includes": "tsc noEmit and Vite build"
+  },
+  "browser": [
+    {
+      "log": "output/playwright/c28-chart-types/integration.log",
+      "result": {
+        "status": "passed",
+        "checks": [
+          "three metrics by three chart types",
+          "same totals and buckets",
+          "pressed state and accessible chart name",
+          "preference survives scope changes and reload",
+          "24-hour range",
+          "1440 and 390 layouts",
+          "no page errors"
+        ],
+        "errors": []
+      }
+    },
+    {
+      "log": "output/playwright/c28-chart-types/edge-final.log",
+      "result": {
+        "status": "passed",
+        "scope": "Actual UsageTrend with authored data; no Core/account claim",
+        "checks": [
+          "null splits line and area",
+          "zero separate from unknown",
+          "keyboard tooltip",
+          "all unknown has no line/area",
+          "singleton marker",
+          "366 buckets scroll internally",
+          "denied storage reads and writes do not block switching",
+          "no page errors"
+        ],
+        "paths": [
+          "M 125.2 138 L 125.2 14 L 263.6 138 L 263.6 138 Z",
+          "M 540.4000000000001 138 L 540.4000000000001 88.39999999999999 L 678.8000000000001 63.6 L 678.8000000000001 138 Z"
+        ],
+        "errors": []
+      }
+    }
+  ],
+  "reviewedScreenshots": [
+    "line-1440.png",
+    "area-1440.png",
+    "area-390.png",
+    "unknown-gap.png"
+  ],
+  "artifactDirectory": "output/playwright/c28-chart-types",
+  "retainedDevelopmentHistory": [
+    "An interim JSX edit produced a Vite 500 while the component was being authored; final typecheck, build and browser checks passed",
+    "First two isolated fixture runs used incompatible named imports from Vite optimized CommonJS exports; corrected fixture imports; app integration was already passing"
+  ],
+  "boundaries": [
+    "Frontend SVG and local presentation preference only; no new library dependency",
+    "No collector pricing account or database behavior change",
+    "Browser app demo and isolated authored chart data; no native acceptance claim",
+    "No installer rebuilt; no commit/push"
+  ]
+}

@@ -1,0 +1,168 @@
+{
+  "schemaVersion": 1,
+  "generator": "builtin image_gen",
+  "pixelPostProcessing": false,
+  "status": "visual-reviewed-finite-local-keyframes",
+  "selectedAssets": [
+    {
+      "id": "idle/base",
+      "relativePath": "clips/idle/base.png",
+      "sourcePath": "D:/project/宠物/assets/pets/nekomi/hd-v5-natural-tail/idle.png",
+      "promptPath": null,
+      "referencePaths": [],
+      "mode": "reused-approved-v5-original"
+    },
+    {
+      "id": "active/base",
+      "relativePath": "clips/active/base.png",
+      "sourcePath": "D:/project/宠物/assets/pets/nekomi/hd-v5-natural-tail/active.png",
+      "promptPath": null,
+      "referencePaths": [],
+      "mode": "reused-approved-v5-original"
+    },
+    {
+      "id": "complete/base",
+      "relativePath": "clips/complete/base.png",
+      "sourcePath": "D:/project/宠物/assets/pets/nekomi/hd-v5-natural-tail/complete.png",
+      "promptPath": null,
+      "referencePaths": [],
+      "mode": "reused-approved-v5-original"
+    },
+    {
+      "id": "alert/base",
+      "relativePath": "clips/alert/base.png",
+      "sourcePath": "D:/project/宠物/assets/pets/nekomi/hd-v5-natural-tail/alert.png",
+      "promptPath": null,
+      "referencePaths": [],
+      "mode": "reused-approved-v5-original"
+    },
+    {
+      "id": "sleep/base",
+      "relativePath": "clips/sleep/base.png",
+      "sourcePath": "D:/project/宠物/assets/pets/nekomi/hd-v5-natural-tail/sleep.png",
+      "promptPath": null,
+      "referencePaths": [],
+      "mode": "reused-approved-v5-original"
+    },
+    {
+      "id": "idle/half-blink",
+      "relativePath": "clips/idle/half-blink.png",
+      "sourcePath": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14280-254e-70f3-ba61-b34c813b8e3a\\exec-ebef00c3-bc47-42fa-b3dd-416f670bde68.png",
+      "promptPath": "prompts/root/idle-half-blink.txt",
+      "referencePaths": [
+        "D:/project/宠物/assets/pets/nekomi/hd-v5-natural-tail/idle.png"
+      ],
+      "mode": "builtin-imagegen-edit"
+    },
+    {
+      "id": "idle/closed-blink",
+      "relativePath": "clips/idle/closed-blink.png",
+      "sourcePath": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14280-254e-70f3-ba61-b34c813b8e3a\\exec-7108f355-1e1e-4559-b9e6-69ffa2ce388f.png",
+      "promptPath": "prompts/root/idle-closed-blink.txt",
+      "referencePaths": [
+        "D:/project/宠物/assets/pets/nekomi/hd-v5-natural-tail/idle.png"
+      ],
+      "mode": "builtin-imagegen-edit"
+    },
+    {
+      "id": "idle/enter",
+      "relativePath": "clips/idle/enter.png",
+      "sourcePath": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14280-254e-70f3-ba61-b34c813b8e3a\\exec-a75a002a-d9ba-4011-8ae8-ed65a232da72.png",
+      "promptPath": "prompts/root/idle-enter.txt",
+      "referencePaths": [
+        "D:/project/宠物/assets/pets/nekomi/hd-v5-natural-tail/idle.png"
+      ],
+      "mode": "builtin-imagegen-edit"
+    },
+    {
+      "id": "idle/accent",
+      "relativePath": "clips/idle/accent.png",
+      "sourcePath": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14280-254e-70f3-ba61-b34c813b8e3a\\exec-9bf1379b-198f-4e50-a4f3-c004316cda2b.png",
+      "promptPath": "prompts/root/idle-accent.txt",
+      "referencePaths": [
+        "D:/project/宠物/assets/pets/nekomi/hd-v5-natural-tail/idle.png"
+      ],
+      "mode": "builtin-imagegen-edit"
+    },
+    {
+      "id": "active/enter",
+      "relativePath": "clips/active/enter.png",
+      "sourcePath": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14280-254e-70f3-ba61-b34c813b8e3a\\exec-77bbbc8c-afb2-4cb2-8198-237c3b31f1fc.png",
+      "promptPath": "prompts/root/active-enter.txt",
+      "referencePaths": [
+        "D:/project/宠物/assets/pets/nekomi/hd-v5-natural-tail/active.png"
+      ],
+      "mode": "builtin-imagegen-edit"
+    },
+    {
+      "id": "active/accent",
+      "relativePath": "clips/active/accent.png",
+      "sourcePath": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14280-254e-70f3-ba61-b34c813b8e3a\\exec-1484b500-39e7-4f07-9130-a2d5002be2ad.png",
+      "promptPath": "prompts/root/active-accent.txt",
+      "referencePaths": [
+        "D:/project/宠物/assets/pets/nekomi/hd-v5-natural-tail/active.png"
+      ],
+      "mode": "builtin-imagegen-edit"
+    },
+    {
+      "id": "complete/enter",
+      "relativePath": "clips/complete/enter.png",
+      "sourcePath": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14280-254e-70f3-ba61-b34c813b8e3a\\exec-673448e7-aa67-4a98-bb5d-066ad140e6bc.png",
+      "promptPath": "prompts/root/complete-enter.txt",
+      "referencePaths": [
+        "D:/project/宠物/assets/pets/nekomi/hd-v5-natural-tail/complete.png"
+      ],
+      "mode": "builtin-imagegen-edit"
+    },
+    {
+      "id": "complete/accent",
+      "relativePath": "clips/complete/accent.png",
+      "sourcePath": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14280-254e-70f3-ba61-b34c813b8e3a\\exec-7abe26ce-f9f4-47d3-90e1-96bf25625066.png",
+      "promptPath": "prompts/root/complete-accent.txt",
+      "referencePaths": [
+        "D:/project/宠物/assets/pets/nekomi/hd-v5-natural-tail/complete.png"
+      ],
+      "mode": "builtin-imagegen-edit"
+    },
+    {
+      "id": "alert/enter",
+      "relativePath": "clips/alert/enter.png",
+      "sourcePath": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14280-254e-70f3-ba61-b34c813b8e3a\\exec-34168c19-e9e9-46de-8931-e4a7f78933a5.png",
+      "promptPath": "prompts/root/alert-enter.txt",
+      "referencePaths": [
+        "D:/project/宠物/assets/pets/nekomi/hd-v5-natural-tail/alert.png"
+      ],
+      "mode": "builtin-imagegen-edit"
+    },
+    {
+      "id": "alert/accent",
+      "relativePath": "clips/alert/accent.png",
+      "sourcePath": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14280-254e-70f3-ba61-b34c813b8e3a\\exec-54eb0f77-3ca7-414c-87cb-6b52db48c696.png",
+      "promptPath": "prompts/root/alert-accent.txt",
+      "referencePaths": [
+        "D:/project/宠物/assets/pets/nekomi/hd-v5-natural-tail/alert.png"
+      ],
+      "mode": "builtin-imagegen-edit"
+    },
+    {
+      "id": "sleep/enter",
+      "relativePath": "clips/sleep/enter.png",
+      "sourcePath": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14280-254e-70f3-ba61-b34c813b8e3a\\exec-fbf0bece-0b0d-4f86-a61e-6f98bb8aedb3.png",
+      "promptPath": "prompts/root/sleep-enter.txt",
+      "referencePaths": [
+        "D:/project/宠物/assets/pets/nekomi/hd-v5-natural-tail/sleep.png"
+      ],
+      "mode": "builtin-imagegen-edit"
+    },
+    {
+      "id": "sleep/accent",
+      "relativePath": "clips/sleep/accent.png",
+      "sourcePath": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14280-254e-70f3-ba61-b34c813b8e3a\\exec-4335d1d6-44c6-4dfb-9de0-7c172a7d375e.png",
+      "promptPath": "prompts/root/sleep-accent.txt",
+      "referencePaths": [
+        "D:/project/宠物/assets/pets/nekomi/hd-v5-natural-tail/sleep.png"
+      ],
+      "mode": "builtin-imagegen-edit"
+    }
+  ]
+}

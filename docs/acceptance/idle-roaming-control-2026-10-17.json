@@ -1,0 +1,102 @@
+{
+  "schemaVersion": 1,
+  "recordedAtUtc": "2026-10-17T01:11:51.109678+00:00",
+  "status": "SCOPED_CONTROL_SOURCES_PASSED_GAIT_DISABLED_NATIVE_DEFERRED",
+  "implemented": [
+    "Finite 2400ms moving/playing policy after 120000ms observed input inactivity, with 18000ms gaps",
+    "Nearby 160 logical pixel band and current-monitor work-area range settings; workArea default",
+    "Native independent work admission, renderer token/sequence/1500ms lease, generation+direction acknowledgement",
+    "Original idle input marker and final synchronous deadline/remaining/input rechecks",
+    "Single pending UI tick; worker performs path/SQL observation and UI consumes a <500ms cached verdict",
+    "Separate automatic position provenance; drag/DPI/topology cancellation and saved-anchor protection",
+    "CatGirl readiness on the existing 250ms tick, native pet-only registration, visibility/scope/prompt/work vetoes"
+  ],
+  "currentAssetCapability": {
+    "pack": "nekomi-animation-v6",
+    "gaitAvailable": false,
+    "gaitReady": false
+  },
+  "notCompleted": [
+    "Approved walking cycle: walk-v7 is an unapproved work-in-progress; no draft frames enter the runtime catalog",
+    "Actual gait display and physical window movement integration/acceptance",
+    "Initial work-area-edge facing should be selected before gait acknowledgement; current safe mismatch path cancels that burst",
+    "Real desktop click dismissal, input-stop latency, native visibility, multiple monitors/DPI/resume acceptance",
+    "File drop, file operations and window-edge interaction",
+    "New App/installer/production CLI build, installation and M4 performance qualification"
+  ],
+  "validation": {
+    "rust": {
+      "passed": 55,
+      "failed": 0,
+      "scope": "Reviewed pure/temporary-fixture tests; not full crate or Native movement",
+      "receipt": {
+        "path": "output/implementation/roaming-rust-check-20261017-r3/scoped-summary.json",
+        "sha256": "FB43E16BB39239DA78F77F3503B9FE2BFC788B2107B83DC3AA21B6744E9985E6"
+      },
+      "currentMainCargoInputs": 50,
+      "currentMainDrift": []
+    },
+    "typescript": {
+      "passed": 29,
+      "typecheckPassed": true,
+      "receipt": {
+        "path": "output/implementation/roaming-catgirl-readiness-20261017/result.json",
+        "sha256": "186DF3B62A4ABEAF73F6F05B1B5CD444513760F930D572310CDF302AD72E8F96"
+      },
+      "selectedCurrentReadinessFileDrift": []
+    },
+    "browser": {
+      "passedCases": 19,
+      "scope": "Mounted real CatGirl/v6 assets with synthetic Tauri and visibility",
+      "receipt": {
+        "path": "output/playwright/roaming-readiness-20261017/browser-result.json",
+        "sha256": "E9C057601A6444A850820AA2B0AC5DC05FA28D1F92A0404F99AF145F55AFCAFC"
+      },
+      "cleanup": {
+        "path": "output/playwright/roaming-readiness-20261017/final-audit.json",
+        "sha256": "D460DAF74A73EB9232E2F7E53AB831B1A7288B4BE70AB1DFB9D0D54423857644"
+      },
+      "rootViewed": [
+        "output/playwright/roaming-readiness-20261017/idle.png",
+        "output/playwright/roaming-readiness-20261017/prompt.png"
+      ]
+    },
+    "retained": [
+      {
+        "path": "output/implementation/roaming-rust-check-20261017/result.json",
+        "sha256": "6E4449EE9CB40C905D28620B82BDFFDEBA7537F72EC957F30393CA0F16387A0D"
+      },
+      {
+        "path": "output/playwright/roaming-readiness-20261017/preflight-observation.json",
+        "sha256": "BC90254EE9E9208A43058F685F746B8C327CF29D65EFD52EF04CCF4124763E76"
+      }
+    ],
+    "preparationStop": "r2 expected54/actual55 stopped before compilation or tests; not a product test failure",
+    "compileCleanup": "Compiler root0 followed by declared owned-descendant cleanup; not natural whole-Job completion"
+  },
+  "protectedCandidateProducts": [
+    {
+      "path": "output/build-candidates/c24-hd-source-save-20261016/token-meow.exe",
+      "sha256": "98DCE225C60C1FF7D1F76CCF309B31F7645241EA1A70CDB6A61ECD21D7BA7314"
+    },
+    {
+      "path": "output/build-candidates/c24-hd-source-save-20261016/TokenMeow_0.1.0_x64-setup.exe",
+      "sha256": "6FB0254D4027D353212A7A697FA12EC6A9E2A67A06212D8BD517809DBA4A8EFD"
+    },
+    {
+      "path": "output/build-candidates/c24-hd-source-save-20261016/ledger_audit.exe",
+      "sha256": "F9964C04D54BFD3D205DD1F9DB933E57C51CA3766ECEDF83AA39F8CF8F0AEDD2"
+    }
+  ],
+  "nativeRun": false,
+  "installerRun": false,
+  "productionCliRun": false,
+  "realCodexOrModelBridgeRun": false,
+  "newReleaseBuilt": false,
+  "goalComplete": false,
+  "limitations": [
+    "Scoped composite evidence, not one end-to-end product run",
+    "Current source checks do not change C23/C24-HD historical qualification",
+    "Source hashes describe this observation; unrelated parallel work may continue"
+  ]
+}

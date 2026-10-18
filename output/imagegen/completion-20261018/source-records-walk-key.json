@@ -1,0 +1,50 @@
+[
+  {
+    "id": "01-contact-near",
+    "requestedId": "01-contact-near",
+    "source": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14ad5-c365-7233-8895-9cecddb69f66\\exec-ef37f645-fe6f-43be-85e1-995beec13bd3.png",
+    "destination": "D:/project/宠物/assets/pets/nekomi/walk-v10-complete/frames-v11/01-contact-near.png",
+    "prompt": "Edit the reference into one full-body frame of a relaxed RIGHTWARD walk. Exact same cat-girl, one-eye side-profile head, detailed lavender-white curls, small side-on hair ribbon, cream floral sailor dress, green Mary Jane platforms, slender tail, transparent 1024x1536. Same camera, character size and canvas registration. Anatomical RIGHT is always NEAR camera, LEFT always FAR. Keep the tail root visibly attached to the low rear pelvis through the small rear-center skirt port, with the local hair gap. Tail can occlude far sleeve/hand where they overlap. Natural complete shoulder-elbow-wrist and hip-knee-ankle chains. Keep nearby right shoe more toward viewer, far left shoe narrower/more side-on with modest ground-depth difference. No text, background, glow, shadow, extra limbs or extra figure. Preserve costume pattern; change the POSE as follows.\nNEAR RIGHT leg reaches forward to screen-right, heel contacts ground, toe slightly raised. FAR LEFT leg extends backward, heel lifted, toe pushes off. Modest short walking stride, not running or split. Near right arm swings backward, far left arm forward. Pelvis centered, small natural forward lean.",
+    "promptPath": "D:/project/宠物/assets/pets/nekomi/walk-v10-complete/prompts/v11-01-contact-near.txt",
+    "inputs": [
+      "D:/project/宠物/assets/pets/nekomi/walk-v10-complete/model-reference/master-right-v3.png"
+    ],
+    "review": "contact pose candidate"
+  },
+  {
+    "id": "04-near-toe-far-reach",
+    "requestedId": "03-far-passing",
+    "source": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14ad5-c365-7233-8895-9cecddb69f66\\exec-7e61ac8d-62d4-4754-a04d-2326fca7350a.png",
+    "destination": "D:/project/宠物/assets/pets/nekomi/walk-v10-complete/frames-v11/04-near-toe-far-reach.png",
+    "prompt": "Edit the reference into one full-body frame of a relaxed RIGHTWARD walk. Exact same cat-girl, one-eye side-profile head, detailed lavender-white curls, small side-on hair ribbon, cream floral sailor dress, green Mary Jane platforms, slender tail, transparent 1024x1536. Same camera, character size and canvas registration. Anatomical RIGHT is always NEAR camera, LEFT always FAR. Keep the tail root visibly attached to the low rear pelvis through the small rear-center skirt port, with the local hair gap. Tail can occlude far sleeve/hand where they overlap. Natural complete shoulder-elbow-wrist and hip-knee-ankle chains. Keep nearby right shoe more toward viewer, far left shoe narrower/more side-on with modest ground-depth difference. No text, background, glow, shadow, extra limbs or extra figure. Preserve costume pattern; change the POSE as follows.\nNEAR RIGHT leg supports the body with full sole planted directly below pelvis. FAR LEFT knee bends and moves FORWARD past the support knee; far foot lifts modestly and passes beside the planted shin, no high kick. Both arms pass near relaxed neutral, near right arm moving forward. Body gently rises, tail follows subtly.",
+    "promptPath": "D:/project/宠物/assets/pets/nekomi/walk-v10-complete/prompts/v11-03-far-passing.txt",
+    "inputs": [
+      "D:/project/宠物/assets/pets/nekomi/walk-v10-complete/model-reference/master-right-v3.png"
+    ],
+    "review": "Reclassified from passing: rendered forward reach."
+  },
+  {
+    "id": "05-contact-far",
+    "requestedId": "05-contact-far",
+    "source": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14ad5-c365-7233-8895-9cecddb69f66\\exec-7e4b060b-67f5-4533-8a04-d55f084d1249.png",
+    "destination": "D:/project/宠物/assets/pets/nekomi/walk-v10-complete/frames-v11/05-contact-far.png",
+    "prompt": "Edit the reference into one full-body frame of a relaxed RIGHTWARD walk. Exact same cat-girl, one-eye side-profile head, detailed lavender-white curls, small side-on hair ribbon, cream floral sailor dress, green Mary Jane platforms, slender tail, transparent 1024x1536. Same camera, character size and canvas registration. Anatomical RIGHT is always NEAR camera, LEFT always FAR. Keep the tail root visibly attached to the low rear pelvis through the small rear-center skirt port, with the local hair gap. Tail can occlude far sleeve/hand where they overlap. Natural complete shoulder-elbow-wrist and hip-knee-ankle chains. Keep nearby right shoe more toward viewer, far left shoe narrower/more side-on with modest ground-depth difference. No text, background, glow, shadow, extra limbs or extra figure. Preserve costume pattern; change the POSE as follows.\nFAR LEFT leg reaches forward to screen-right, heel contacts ground. NEAR RIGHT leg extends backward to screen-left, heel lifted, forefoot pushes off. Near right arm swings forward, far left arm backward and may be hidden behind tail. Modest short walking stride, not running or split.",
+    "promptPath": "D:/project/宠物/assets/pets/nekomi/walk-v10-complete/prompts/v11-05-contact-far.txt",
+    "inputs": [
+      "D:/project/宠物/assets/pets/nekomi/walk-v10-complete/model-reference/master-right-v3.png"
+    ],
+    "review": "contact pose candidate"
+  },
+  {
+    "id": "08-far-toe-near-reach",
+    "requestedId": "07-near-passing",
+    "source": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14ad5-c365-7233-8895-9cecddb69f66\\exec-8e88adc4-4d34-44a5-beca-52ab6de0f51f.png",
+    "destination": "D:/project/宠物/assets/pets/nekomi/walk-v10-complete/frames-v11/08-far-toe-near-reach.png",
+    "prompt": "Edit the reference into one full-body frame of a relaxed RIGHTWARD walk. Exact same cat-girl, one-eye side-profile head, detailed lavender-white curls, small side-on hair ribbon, cream floral sailor dress, green Mary Jane platforms, slender tail, transparent 1024x1536. Same camera, character size and canvas registration. Anatomical RIGHT is always NEAR camera, LEFT always FAR. Keep the tail root visibly attached to the low rear pelvis through the small rear-center skirt port, with the local hair gap. Tail can occlude far sleeve/hand where they overlap. Natural complete shoulder-elbow-wrist and hip-knee-ankle chains. Keep nearby right shoe more toward viewer, far left shoe narrower/more side-on with modest ground-depth difference. No text, background, glow, shadow, extra limbs or extra figure. Preserve costume pattern; change the POSE as follows.\nFAR LEFT leg supports body with full sole planted below pelvis. NEAR RIGHT knee bends and moves FORWARD past the support knee; near shoe lifts modestly and passes in front of the far shin, no high kick. Both arms pass near relaxed neutral, near right arm moving backward. Body gently rises, tail follows subtly.",
+    "promptPath": "D:/project/宠物/assets/pets/nekomi/walk-v10-complete/prompts/v11-07-near-passing.txt",
+    "inputs": [
+      "D:/project/宠物/assets/pets/nekomi/walk-v10-complete/model-reference/master-right-v3.png"
+    ],
+    "review": "Reclassified from passing: rendered forward reach."
+  }
+]

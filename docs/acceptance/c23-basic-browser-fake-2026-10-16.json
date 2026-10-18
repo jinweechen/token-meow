@@ -1,0 +1,348 @@
+{
+  "status": "scoped-built-UI-synthetic-IPC-and-root-layout-review-passed",
+  "scope": "Final built UI with synthetic IPC: six groups passed; root visually inspected all eight captures for layout/readability/menu reachability. No Native claim.",
+  "sourceManifestSha256": "D59BEE74DE4BDA0B7DAA113CF84A1E5E16F4DA5188D57C16452B90147577066C",
+  "distManifestSha256": "6CF05DE58AF5058B51233813941CB3F4FD57AF251DDC193E2E5FCD21F773FF58",
+  "freshExecution": {
+    "ownershipId": "6bbe8e6c-802e-4002-85c3-d0258f40dfed",
+    "startedAtUtc": "2026-10-16T07:30:59.966750+00:00",
+    "finishedAtUtc": "2026-10-16T07:31:08.084010+00:00",
+    "elapsedSeconds": 8.117424100171775,
+    "rootExitCode": 0,
+    "naturalWholeJobCompletion": true,
+    "job": {
+      "totalProcesses": 12,
+      "activeProcesses": 0,
+      "totalTerminatedProcesses": 0
+    },
+    "cleanupVerified": true,
+    "errors": []
+  },
+  "guards": {
+    "guardedCount": 603,
+    "sourceCount": 590,
+    "distCount": 4,
+    "allHandlesClosed": true,
+    "errors": []
+  },
+  "checks": [
+    {
+      "name": "two companion settings send exact boolean patches",
+      "passed": true
+    },
+    {
+      "name": "picker cancel/add, event list refresh, settings launch/remove opaque ids",
+      "passed": true,
+      "calls": [
+        {
+          "command": "list_companion_launchers",
+          "args": {},
+          "at": 854
+        },
+        {
+          "command": "choose_companion_launcher",
+          "args": {},
+          "at": 1326
+        },
+        {
+          "command": "list_companion_launchers",
+          "args": {},
+          "at": 1326.3000001907349
+        },
+        {
+          "command": "choose_companion_launcher",
+          "args": {},
+          "at": 1526
+        },
+        {
+          "command": "list_companion_launchers",
+          "args": {},
+          "at": 1526.0999999046326
+        },
+        {
+          "command": "list_companion_launchers",
+          "args": {},
+          "at": 1526.4000000953674
+        },
+        {
+          "command": "list_companion_launchers",
+          "args": {},
+          "at": 1542.9000000953674
+        },
+        {
+          "command": "launch_companion_app",
+          "args": {
+            "options": {
+              "launcherId": "00000000-0000-4000-8000-000000000001"
+            }
+          },
+          "at": 1584
+        },
+        {
+          "command": "list_companion_launchers",
+          "args": {},
+          "at": 1584.3000001907349
+        },
+        {
+          "command": "remove_companion_launcher",
+          "args": {
+            "options": {
+              "launcherId": "00000000-0000-4000-8000-000000000001"
+            }
+          },
+          "at": 1617.4000000953674
+        },
+        {
+          "command": "list_companion_launchers",
+          "args": {},
+          "at": 1617.5
+        },
+        {
+          "command": "list_companion_launchers",
+          "args": {},
+          "at": 1617.9000000953674
+        }
+      ]
+    },
+    {
+      "name": "same generation revision/app updates cannot renew the 2.4 s play display",
+      "passed": true,
+      "startedAtBrowserMs": 351.90000009536743,
+      "observed": {
+        "elapsedMs": 2607.800000190735,
+        "frame": "0",
+        "pose": null,
+        "context": null,
+        "updates": [
+          {
+            "delay": 600,
+            "at": 955.5,
+            "generation": "1"
+          },
+          {
+            "delay": 1200,
+            "at": 1555.7000002861023,
+            "generation": "1"
+          },
+          {
+            "delay": 1800,
+            "at": 2156.1000003814697,
+            "generation": "1"
+          },
+          {
+            "delay": 2300,
+            "at": 2655.7000002861023,
+            "generation": "1"
+          }
+        ]
+      },
+      "limitation": "Observation after 2600 ms demonstrates no renewal; this is not a Native stopping-latency measurement."
+    },
+    {
+      "name": "work-app context stays separate from facts; systemBusy remains neutral and quiet",
+      "passed": true,
+      "factualBadge": "在这里，陪你慢慢创造"
+    },
+    {
+      "name": "manual tap preempts autonomous playing; DND suppresses both care paths",
+      "passed": true,
+      "dnd": {
+        "frame": "4",
+        "pose": null,
+        "bubble": false,
+        "badge": "免打扰中，安静陪伴"
+      }
+    },
+    {
+      "name": "16-launcher menu scrolls; opaque-id launch and exit remain reachable",
+      "passed": true,
+      "menuLaunch": {
+        "command": "launch_companion_app",
+        "args": {
+          "options": {
+            "launcherId": "00000000-0000-4000-8000-000000000001"
+          }
+        },
+        "at": 400.7999997138977
+      },
+      "scroll": {
+        "scrollHeight": 925,
+        "clientHeight": 314,
+        "scrollTop": 611,
+        "exit": {
+          "x": 21,
+          "y": 287,
+          "width": 238,
+          "height": 38
+        },
+        "menu": {
+          "y": 18,
+          "height": 316
+        },
+        "viewport": {
+          "width": 280,
+          "height": 340
+        },
+        "documentWidth": 280
+      }
+    }
+  ],
+  "captures": [
+    {
+      "path": "output/playwright/c23-footer-owned-browser-4b8d33aac9e245caa92a30e511b81d13/browser-output/settings-launcher-added-then-removed.png",
+      "bytes": 155718,
+      "sha256": "B6DB30C595E73D2395AC8767BA42D79D0B3895B18FD5FC4455D798682DEF3EBE",
+      "visualReview": "ROOT_VIEWED_SCOPED_LAYOUT_PASS"
+    },
+    {
+      "path": "output/playwright/c23-footer-owned-browser-4b8d33aac9e245caa92a30e511b81d13/browser-output/pet-native-context-playing.png",
+      "bytes": 79105,
+      "sha256": "B1506E931BF1BFA87854BE62AF2739FAC274CC794189E0CF8A2A9CB18878FF5E",
+      "visualReview": "ROOT_VIEWED_SCOPED_LAYOUT_PASS"
+    },
+    {
+      "path": "output/playwright/c23-footer-owned-browser-4b8d33aac9e245caa92a30e511b81d13/browser-output/pet-playing-expired.png",
+      "bytes": 67442,
+      "sha256": "22DFBE92BBC6B289F43086CA1409E763AAC5A9C2651B7F873E9B5C5CF36B5085",
+      "visualReview": "ROOT_VIEWED_SCOPED_LAYOUT_PASS"
+    },
+    {
+      "path": "output/playwright/c23-footer-owned-browser-4b8d33aac9e245caa92a30e511b81d13/browser-output/pet-work-app-context.png",
+      "bytes": 68719,
+      "sha256": "3E6E019EB8DE6185672022D41F6490B72325209C1ADCFDBEB9D2F327F73439F6",
+      "visualReview": "ROOT_VIEWED_SCOPED_LAYOUT_PASS"
+    },
+    {
+      "path": "output/playwright/c23-footer-owned-browser-4b8d33aac9e245caa92a30e511b81d13/browser-output/pet-manual-tap-preempts-playing.png",
+      "bytes": 81825,
+      "sha256": "88B82935D0745C884C14768CC452C2077061D46395ADBBF1DA600F200992DB0E",
+      "visualReview": "ROOT_VIEWED_SCOPED_LAYOUT_PASS"
+    },
+    {
+      "path": "output/playwright/c23-footer-owned-browser-4b8d33aac9e245caa92a30e511b81d13/browser-output/pet-dnd-stays-quiet.png",
+      "bytes": 68272,
+      "sha256": "5BC804D99ECE6D0EF55C4504D605BC4ECFD640AE75F54698AB6867558E6F99D0",
+      "visualReview": "ROOT_VIEWED_SCOPED_LAYOUT_PASS"
+    },
+    {
+      "path": "output/playwright/c23-footer-owned-browser-4b8d33aac9e245caa92a30e511b81d13/browser-output/pet-menu-16-top.png",
+      "bytes": 30571,
+      "sha256": "1A5367B666EBEE26EDF51589C86B98340CE4BAC4A45BB0DD74D642D8423C07D6",
+      "visualReview": "ROOT_VIEWED_SCOPED_LAYOUT_PASS"
+    },
+    {
+      "path": "output/playwright/c23-footer-owned-browser-4b8d33aac9e245caa92a30e511b81d13/browser-output/pet-menu-16-exit-reachable.png",
+      "bytes": 33947,
+      "sha256": "83FDFDA8E5FA4D87C19D4D03D46A66D34FC5FB8C31EB33E35077DC92269BA90F",
+      "visualReview": "ROOT_VIEWED_SCOPED_LAYOUT_PASS"
+    }
+  ],
+  "visualReview": "ROOT_VIEWED_EIGHT_CAPTURES_SCOPED_LAYOUT_PASS",
+  "references": [
+    {
+      "path": "output/playwright/c23-footer-owned-browser-4b8d33aac9e245caa92a30e511b81d13/run-owned.py",
+      "bytes": 4246,
+      "sha256": "DF8F417AD8258E1FC5AB9AFF33632C74EAC02C3D41A39CCDBF57C9A32EA394B1"
+    },
+    {
+      "path": "output/playwright/c23-footer-owned-browser-4b8d33aac9e245caa92a30e511b81d13/server-and-run.mjs",
+      "bytes": 2004,
+      "sha256": "F1DDABE5363E1489A5CDF8B5A383908ABDEE7998DBCD96FA695A2A0C9ACED1D8"
+    },
+    {
+      "path": "output/playwright/c23-footer-owned-browser-4b8d33aac9e245caa92a30e511b81d13/owned_job.py",
+      "bytes": 15653,
+      "sha256": "EF123B117164C675691DCD8B3308619CA34FA575A615042AE75FA3F04965EC5F"
+    },
+    {
+      "path": "output/playwright/c23-footer-owned-browser-4b8d33aac9e245caa92a30e511b81d13/source_guard.py",
+      "bytes": 3074,
+      "sha256": "EA91E4D0FB7707E44FDDDD60217D1A3677C2F3A462EFEA79BBB1B267BC9894C6"
+    },
+    {
+      "path": "output/playwright/c23-footer-owned-browser-4b8d33aac9e245caa92a30e511b81d13/run-once.mjs",
+      "bytes": 5484,
+      "sha256": "E516946BAE16B9E4C57BED8235248D4150D1CBE88FD7EDBA5B0A1D42B7D38061"
+    },
+    {
+      "path": "output/playwright/c23-footer-owned-browser-4b8d33aac9e245caa92a30e511b81d13/companion-ui-check.mjs",
+      "bytes": 20463,
+      "sha256": "E2E762C42DC49C80194C56D4BBBEDE6A9CB71F34E5AF870695D9B0CDA85CDEFB"
+    },
+    {
+      "path": "output/playwright/c23-footer-owned-browser-4b8d33aac9e245caa92a30e511b81d13/release.json",
+      "bytes": 1396,
+      "sha256": "2660D9B37B2B22554D9184F0FCC65D59534CDE1014839578BB4B158535FC86D6"
+    },
+    {
+      "path": "output/playwright/c23-footer-owned-browser-4b8d33aac9e245caa92a30e511b81d13/author-manifest.final.json",
+      "bytes": 408,
+      "sha256": "403D53C5C67AD8FF26A9E35ADC818C0E6B8624B871FA8F4C165C346A2B1D70D8"
+    },
+    {
+      "path": "output/playwright/c23-footer-owned-browser-4b8d33aac9e245caa92a30e511b81d13/changes.patch",
+      "bytes": 4228,
+      "sha256": "FB94F3E462C0E4ACB8F43FD5764BE1CC88A227451DCCF02223EFEE5850653512"
+    },
+    {
+      "path": "output/playwright/c23-footer-owned-browser-4b8d33aac9e245caa92a30e511b81d13/binding-review.json",
+      "bytes": 1036,
+      "sha256": "192E481AFAE323C68A6EE4CB39894CDDC082B7353DF419540A24B4BBB2BA0DD1"
+    },
+    {
+      "path": "output/playwright/c23-footer-owned-browser-4b8d33aac9e245caa92a30e511b81d13/execution.json",
+      "bytes": 1506,
+      "sha256": "95ED155314C2A31F7D3C26922D4E7F145B4D175A075593D5ED19DA67953EDF0D"
+    },
+    {
+      "path": "output/playwright/c23-footer-owned-browser-4b8d33aac9e245caa92a30e511b81d13/guards.json",
+      "bytes": 115,
+      "sha256": "7F917639342AC066A6AD8EE31D8291E4843C4517D6E8E9C97D775BDC960017AB"
+    },
+    {
+      "path": "output/playwright/c23-footer-owned-browser-4b8d33aac9e245caa92a30e511b81d13/result.json",
+      "bytes": 192,
+      "sha256": "F831C7BF35CF5A6622F86D2CBC383466FA64025E9DCDDFF5778BAB5400733299"
+    },
+    {
+      "path": "output/playwright/c23-footer-owned-browser-4b8d33aac9e245caa92a30e511b81d13/stdout.log",
+      "bytes": 327,
+      "sha256": "3E32ECBF40B14B82B146D6902B7C05A72D0784760B844187EE7348D1D77916BF"
+    },
+    {
+      "path": "output/playwright/c23-footer-owned-browser-4b8d33aac9e245caa92a30e511b81d13/stderr.log",
+      "bytes": 0,
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "path": "output/playwright/c23-footer-owned-browser-4b8d33aac9e245caa92a30e511b81d13/browser-output/browser-result.json",
+      "bytes": 8094,
+      "sha256": "434A4B3E46FFA137568E207B546E0B5817E24ABDEFA46874FAE0A8B9087ED400"
+    }
+  ],
+  "historyRetained": [
+    {
+      "path": "output/playwright/c23-basic-owned-browser-20261016-0714/first-failure.json",
+      "bytes": 1467,
+      "sha256": "85E24A2AA30A72E87877F6582D3098D05139470A1EF1833C4FBC531F38130831"
+    },
+    {
+      "path": "output/playwright/c23-basic-owned-browser-handles-20261016-0713/browser-output/browser-result.json",
+      "bytes": 8045,
+      "sha256": "7F72EBA747AD7CFA99B190AE653670FF8ECA56F950025DDFFE3C506EEFF26716"
+    }
+  ],
+  "limits": [
+    "No native input-idle detection, OS picker, app execution, Job ownership, blank desktop dismissal, installer, account, collector or resource qualification.",
+    "Root viewed all eight stored screenshots; layout/readability review is scoped to the synthetic Chromium run.",
+    "Remove is tested in settings because the current pet menu exposes launch only.",
+    "No source/artwork/test edits, native execution or physical desktop input were performed in this continuation.",
+    "Original prelaunch owner failure and previous successful browser runs remain separate historical evidence."
+  ],
+  "reviewedAtUtc": "2026-10-16T07:34:59.227828+00:00",
+  "visualNotes": [
+    "Footer work-app text now visible with reserved space and a light background.",
+    "Settings controls and 16-entry menu remain readable; Exit is reachable after scrolling.",
+    "Existing v4 pose edge debris is retained artwork; cleanup/new gait assets deferred to v5. This receipt does not certify artwork quality or Native transparency."
+  ]
+}

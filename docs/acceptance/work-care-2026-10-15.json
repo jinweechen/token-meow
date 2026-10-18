@@ -1,0 +1,80 @@
+{
+  "observedOn": "2026-10-15",
+  "requirement": "User-requested work interactions and caring phrases, gentle/playful alternating tone",
+  "settings": {
+    "workCareEnabled": true,
+    "careTone": "mixed",
+    "careIntervalMinutes": 25,
+    "allowedIntervals": [
+      25,
+      45,
+      60
+    ]
+  },
+  "behavior": {
+    "bubbleLifetimeMs": 8000,
+    "automaticCooldownMs": 60000,
+    "manualCooldownMs": 3000,
+    "maxObservationGapMs": 15000,
+    "backlog": false,
+    "modelCalls": false,
+    "newSystemNotifications": false
+  },
+  "evidence": {
+    "core": "output/core-work-care-result-20261015-195851-476.json",
+    "browser": "output/playwright/work-care-result.json",
+    "boundaries": "output/playwright/work-care-boundaries-result.json",
+    "toggle": "output/playwright/work-care-toggle-result.json",
+    "staleManual": "output/playwright/work-care-stale-manual-result.json",
+    "native": "output/native-care-20261015/regression.json",
+    "nativePopover": "output/native-care-20261015/popover-regression.json",
+    "sourceWrites": "output/native-care-20261015/source-write-audit.json",
+    "exit": "output/native-care-20261015/quit-observed.json"
+  },
+  "validation": {
+    "coreNewExactPassed": 1,
+    "frontendComposite": "6 new passing controller/session cases retained plus one targeted stale-snapshot/clock-rollback case; typecheck/build passed",
+    "browserCycles": 30,
+    "nativeObservationsPassed": 9,
+    "popoverObservationsPassed": 8,
+    "nativeRealPath": "Agent-authored isolated JSONL task_started and explicit completed event -> production collector/Core -> actual embedded UI care",
+    "mixedTonesShown": [
+      "gentle",
+      "playful"
+    ],
+    "nativeAssertions": [
+      "initial historical inbox does not speak",
+      "manual tones alternate",
+      "actual started event says active and shows active pose",
+      "explicit normal completion shows caring text and completed pose",
+      "CTA focuses the real main window",
+      "disable suppresses text while keeping sprite",
+      "DND sleeps silently",
+      "recovery does not replay"
+    ],
+    "fixtureTotals": {
+      "before": 1200,
+      "after": 1212,
+      "responsesBefore": 1,
+      "responsesAfter": 2
+    },
+    "authoredSourceRows": 4,
+    "sourceSha256Before": "6736d8ead9746e31808f8f14650373488cc3cf95706d14c06ef526f2cb0e1fef",
+    "sourceSha256After": "55b564084b24df8104da1406e90594ef474884cbbb7e00e91455aee8deeea294",
+    "collectorSourceMutation": "none; exact resulting bytes equal baseline plus four verifier-authored rows",
+    "exitedNormally": true
+  },
+  "build": {
+    "profile": "debug",
+    "executableSha256": "c14dbf09a5e7231a15a12baba44e4f48f454aaee54db483f9b38d4aa0da20da3",
+    "bundle": "index-BaohNDf8.js",
+    "jsSha256": "d9e72173ce4cccab993f60b31cabfbceabf1d7f41a4fc07a2affb84abc49cdc6",
+    "coreSha256": "fe7f805c2afae64338ad337d510ec0a2ddd8b59f418f527de2e944e7c6d9978e"
+  },
+  "limitations": [
+    "Synthetic authored tasks do not claim real model execution or business acceptance.",
+    "CDP input is targeted to the fixture WebView; physical desktop clicking is separate.",
+    "Long-duration reminder logic uses deterministic continuous-observation tests, not a live 25-minute human-work claim.",
+    "Release startup/600-second resource/install qualification remains separate."
+  ]
+}

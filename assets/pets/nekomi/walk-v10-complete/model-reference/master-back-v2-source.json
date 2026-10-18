@@ -1,0 +1,63 @@
+{
+  "status": "candidate-known-issues",
+  "tool": "built-in image_gen",
+  "transparent_background": true,
+  "originalPath": "C:/Users/Administrator/.codex/generated_images/01a148ad-080e-7062-8576-ca95b7a366b3/exec-009b602d-acc8-4538-9f31-5721362e66da.png",
+  "workspacePath": "D:/project/宠物/assets/pets/nekomi/walk-v10-complete/model-reference/master-back-v2.png",
+  "inputImages": [
+    {
+      "order": 1,
+      "path": "D:/project/宠物/assets/pets/nekomi/walk-v10-complete/model-reference/master-back-v1.png",
+      "role": "edit target"
+    },
+    {
+      "order": 2,
+      "path": "D:/project/宠物/assets/pets/nekomi/walk-v10-complete/model-reference/master-front-v2.png",
+      "role": "waist and hem height registration authority"
+    },
+    {
+      "order": 3,
+      "path": "D:/project/宠物/assets/pets/nekomi/walk-v10-complete/model-reference/turnaround-side-hair-bow-v4-length.png",
+      "role": "rear design authority"
+    }
+  ],
+  "promptPath": "D:/project/宠物/assets/pets/nekomi/walk-v10-complete/prompts/master-back-v2.txt",
+  "prompt": "Use case: precise-object-edit\nAsset type: corrected transparent MASTER BACK sprite, one full figure, exact 1024x1536.\nInput images: Image 1 is the BACK VIEW EDIT TARGET. Image 2 is the FRONT master and is the registration authority for waist and hem heights. Image 3 is the rear accessory design authority. Preserve Image 1's exact high-resolution face-away head, ears, hair silhouette, rear bows, shoulders, continuous arm chains, relaxed hands, stable legs, shoes, colors and rendering.\nPrimary request: correct only the back torso/waist, skirt registration and tail port, since the waist and tail opening in Image 1 are much too high. Keep the rest unchanged.\nA. Put the plain narrow GREEN REAR WAISTBAND at y690–705 on this 1536px tall canvas, matching Image 2. It is currently around y650 and must move DOWN about 45–50px. Extend the continuous cream back bodice below the collar to meet it; retain shoulder heights and sleeve/hand positions. Rear belt remains plain, with NO bow, flower, knot or ornament.\nB. Match the FRONT master skirt's length: lower cream ruffles across y1070–1110, lowest around y1100. Reconstruct the skirt smoothly from the waist, with the same green floral panel, band, thin white trim and cream ruffles. Keep exactly one large green daisy and two small companions on each rear side; position these coherent clusters around y865–920, never add a central flower. The longer skirt naturally covers more upper tights; do not move or resize the legs, knees or shoes.\nC. REMOVE the old high tail hole at y740 completely and restore uninterrupted cream fabric there. The ONE proper tail exit must instead be at x512,y850, the center of the LOWER posterior pelvis, about 150px BELOW the correctly placed belt. It is a tiny neatly bound rounded opening about 38–44px wide and 25–35px tall, not the oversized ring currently present. Show a short furred ROOT about 30–38px thick emerging from the small opening for about 30px before it turns gently down. The bound rim remains readable around the root. This is a small garment port, NOT a flap, huge slit, triangle or wound.\nThe one existing tail is redrawn as a continuous tail from the NEW lower root only: compact at the root, gradually widening to the usual soft tail thickness farther down, then tapering to its gently curved tip around y1320–1360. Preserve the modest downward curve toward viewer-left, no second tail or ghost root. Tail and opening remain separate from hands, cuffs and sleeves. Hair leaves a narrow natural central window at y825–880 so the small lower-pelvis exit is readable while long curls on either side remain unchanged.\nKeep ear tips y15–30, head/collar/shoulders, hands, full left/right anatomy and shoe soles y1480 fixed. Rear hair bows show green ribbon backs only and NO backwards-facing white daisies. Opaque white tights and correct rear heel view of the same shoes.\nNative high-resolution clean drawing, no stretching or low-resolution enlargement.\nBackground: real alpha transparency outside the physical figure, no ground, shadow, glow, backdrop, checkerboard, text, labels, watermark, extra limb or extra figure.",
+  "validation": "pending visual review, not animation acceptance",
+  "visualReview": [
+    "Waist and skirt moved modestly lower; accessory rules and anatomy remained stable.",
+    "Tail port visually about y775 and still oversized; it did not reach target y850.",
+    "Waist visually around y675, still above front-v2."
+  ],
+  "metadata": {
+    "size": [
+      1024,
+      1536
+    ],
+    "mode": "RGBA",
+    "alphaExtrema": [
+      0,
+      254
+    ],
+    "fullyTransparentPixels": 815894,
+    "nonzeroAlphaPixels": 756970,
+    "alphaGreaterThan127BBox": [
+      90,
+      13,
+      934,
+      1483
+    ],
+    "outsideAlphaSamples": {
+      "(0, 0)": 0,
+      "(0, 500)": 0,
+      "(0, 750)": 0,
+      "(1023, 750)": 0,
+      "(50, 100)": 0,
+      "(512, 1510)": 0
+    }
+  },
+  "workspaceSHA256": "9bdc513edbb8c12afdaf92f109e6e5c4446bd9219cce07b704e708403fa8b4ea",
+  "originalSHA256": "9bdc513edbb8c12afdaf92f109e6e5c4446bd9219cce07b704e708403fa8b4ea",
+  "byteCopyVerified": true,
+  "promptFileMatchesExactPrompt": true
+}

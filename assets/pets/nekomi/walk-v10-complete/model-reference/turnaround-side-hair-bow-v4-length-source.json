@@ -1,0 +1,11 @@
+{
+  "tool": "built-in image_gen.imagegen",
+  "prompt": "../prompts/turnaround-side-hair-bow-v4-length.txt",
+  "input": "turnaround-side-hair-bow-v3.png",
+  "output": "turnaround-side-hair-bow-v4-length.png",
+  "originalGeneratedPath": "C:/Users/Administrator/.codex/generated_images/01a148a3-42fd-7200-9a55-f8a2b93cf502/exec-dcd7334d-aa03-4826-a298-3f6a0c741a17.png",
+  "transparentBackgroundRequested": false,
+  "scope": "shorten side hair-bow ribbon ends, retain corrected accessory orientation",
+  "reviewStatus": "accessory-local-static-review-only",
+  "remaining": ["arm anatomy and cross-view proportions need review", "not approved animation master or complete cycle"]
+}

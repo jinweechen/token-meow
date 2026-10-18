@@ -1,0 +1,322 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-16",
+  "generator": "builtin image_gen",
+  "collection": "hd-v3-rear-outlet",
+  "scope": "shy and bow review candidates; hug-tail repair remains rejected. No v1/v2/source/renderer edits.",
+  "commonInvariants": {
+    "path": "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v3-rear-outlet\\prompts\\rear-outlet-invariants.txt",
+    "sha256": "8763032dc23cbb3a5723a83d5a5f0d98451014b0f7ba67b73aeef8bbb607bb41",
+    "note": "Included verbatim in bow and hug-tail editing prompts. Shy final is a separately authorized neutral new-pose generation from idle only after initial output moderation refusal; its prompt intentionally does not include body-structure editing terms."
+  },
+  "assets": [
+    {
+      "pose": "shy",
+      "file": "shy.png",
+      "sourceOriginalPath": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14289-f0b5-7113-b2b9-40aa19554575\\exec-41daee30-1a8c-417a-8703-67a9826666a7.png",
+      "prompt": "prompts/shy.txt",
+      "promptSha256": "5ea422fefa59023a44a6d77ad3e6d760420ee7d9861b0b63bd3eab77557e495f",
+      "referencePaths": [
+        "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v3-rear-outlet\\idle.png"
+      ],
+      "references": [
+        {
+          "path": "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v3-rear-outlet\\idle.png",
+          "sha256": "2d722617b4f36772f3785b5bb206c79f61631ed4c99847ef76f51f915607d40e",
+          "role": "sole character and accepted tail design reference"
+        }
+      ],
+      "sha256": "4e71e39d9a615c0c2d57cd3c1e94eeb9eb3b8db3315ace0f3ac7529a76aa7c8f",
+      "bytes": 1887789,
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "bboxByAlphaThreshold": {
+        "1": [
+          0,
+          0,
+          1010,
+          1482
+        ],
+        "16": [
+          93,
+          4,
+          984,
+          1466
+        ],
+        "128": [
+          94,
+          5,
+          982,
+          1465
+        ],
+        "250": [
+          99,
+          6,
+          980,
+          1463
+        ]
+      },
+      "visibleHeightAtAlpha16": 1462,
+      "edgeMaxAlpha": {
+        "top": 4,
+        "bottom": 0,
+        "left": 1,
+        "right": 0
+      },
+      "visibleMarginsAtAlpha16": {
+        "top": 4,
+        "bottom": 70,
+        "left": 93,
+        "right": 40
+      },
+      "byteIdenticalCopyVerified": true,
+      "pixelsModifiedByCode": false,
+      "status": "candidate-needs-browser-review",
+      "exactPrompt": "Use case: identity-preserve.\nAsset: one independent shy desktop-pet pose.\nSole reference image: hd-v3-rear-outlet/idle.png, the accepted fully dressed character and tail design.\n\nCreate a gentle shy variation of this same character. Keep her standing upright, with open green eyes, a small shy smile and a slight friendly head tilt. One hand lightly touches her cheek with relaxed natural fingers; the other arm hangs comfortably at her side. Retain the same cute proportions, silver-white wavy hair, cat ears, small green daisy hair bows, complete opaque ivory-and-mint long-sleeved dress, small chest bow, waist ribbon, flower-pattern skirt and ruffled hem, opaque white tights and green Mary Jane shoes. Shoes face forward nearly parallel. Keep the clothing exactly as complete and closed as the reference. Nothing is lifted or removed.\n\nKeep the reference's existing tail design and placement unchanged: one fluffy white cat tail appearing beside the upper portion of the skirt and curving outward then down in a clear open C shape to a single hanging tip. Keep the clear space beneath the skirt around the legs and preserve the tail's visual separation from the hair and dress. Do not move the tail to the bottom edge of the skirt. This is a friendly everyday mascot pose; no extra objects, no costume change.\n\nOutput one complete character, exact native 1024x1536 portrait RGBA PNG with genuinely transparent background. Visible character height at least 1200px, comfortable margins, complete ears, hair, fingers, tail and shoes. Crisp native illustration detail. No background, floor, shadows, halo, labels, captions, diagrams or additional characters.\n",
+      "attempts": [
+        {
+          "attempt": 1,
+          "mode": "edit",
+          "referencePaths": [
+            "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v1\\shy.png",
+            "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v3-rear-outlet\\idle.png"
+          ],
+          "exactPrompt": "Asset: independent shy pose, version 3 rear-outlet tail repair.\nImage 1: hd-v1/shy.png, exact pose and identity EDIT TARGET.\nImage 2: hd-v3-rear-outlet/idle.png, accepted FRONT TAIL PATH reference only.\n\nUse case: precise-object-edit.\nInput image1 is the exact POSE EDIT TARGET. Input image2 is the accepted FRONT TAIL CONSTRUCTION REFERENCE ONLY; do not copy its idle pose or expression. Preserve target face/expression, proportions, hairstyle, hair clips, arm/hand gesture and fingers, clothing, waistline, legs and forward-facing feet.\nReplace the old low UNDER-HEM tail with the reference's BACK-OUTLET, OUTSIDE-SKIRT tail. A single tail attaches at the posterior center of the low pelvis, below natural waist, and passes through a discreet center-back dress opening. The actual opening is occluded by the body in a frontal view, so do not draw a hole on the front or side waist. Crucially, after passing through that rear outlet the entire tail is OUTSIDE the skirt, NOT routed down inside it.\nIts short hidden start travels sideways BEHIND THE HIPS. The first VISIBLE volumetric proximal segment must appear on the viewer-right side at UPPER/MIDDLE SKIRT HEIGHT, well ABOVE the lower green stripe/ruffled hem. Usually about80-150px below the waistline in the1024x1536 full figure. It emerges behind the lower hair/upper skirt/forearm contour, follows an open OUTWARD-then-DOWN smooth C-shaped arc to viewer-right, then tapers to ONE soft distal tip at approximatelyknee height, matching image2. Leave space between exposed outer tail and lower skirt. Keep substantial root thickness with continuous fluffy white texture. The root is not a sharp point, string or small tassel.\nDelete EVERY trace of the old tail emerging beside thigh below hem. The empty transparent region beside the thigh and under hem must remain clear. No low U sweeping upward from the thigh. No direct attachment to hand, sleeve, side waist bow, hair, knee or hem. Hair/cloth should occlude the left/upstream end naturally; the tail contours enter behind them rather than terminating on them. Adjust only a few lowest viewer-right hair tips if needed to separate smooth long hair from fluffy tail. No closed ring, duplicate tail or detached fluffy object.\nNative1024x1536 transparent RGBA. Full body with comfortable edge margins and visible character height at least1200px. Preserve identity and pose. No background, floor, cast shadow, halo, captions, diagrams or extra figures.\n\n\nSpecific preservation: Keep image 1's cheek-touching hand, relaxed hanging hand, gentle head tilt, shy smile and open green eyes. Preserve every finger and the existing natural waistline, floral skirt, tights, leg axes and forward parallel shoes. Do not copy idle arms or change expression.\nSpecific tail action: Completely remove image 1's low thick U tail beside the thigh. Introduce the higher exterior tail path visible in image 2: after the hidden rear-center garment opening, a short substantial furry segment comes sideways from behind the right lower hair/upper skirt at about 80–150px below image 1's waistline. It continues outward and then downward in one open C arc, with only one soft hanging distal tip near knee height. The first visible segment must be well above the green hem stripe; keep the below-hem thigh region clear. Hair can occlude the far-left part but must not become the tail. Only a few lowest right hair tips may shift to reveal the continuous fluffy root.\n",
+          "result": "tool-refused-no-image",
+          "error": {
+            "code": "moderation_blocked",
+            "stage": "output",
+            "category": "sexual",
+            "requestId": "6602f8de-969e-4fb8-9f5a-4d0893831eb0"
+          },
+          "note": "The requested edit was a fully clothed everyday mascot pose. Refusal retained; no image output exists."
+        },
+        {
+          "attempt": 2,
+          "mode": "new-neutral-pose-from-idle",
+          "referencePaths": [
+            "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v3-rear-outlet\\idle.png"
+          ],
+          "sourceOriginalPath": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14289-f0b5-7113-b2b9-40aa19554575\\exec-41daee30-1a8c-417a-8703-67a9826666a7.png",
+          "sha256": "4e71e39d9a615c0c2d57cd3c1e94eeb9eb3b8db3315ace0f3ac7529a76aa7c8f",
+          "exactPrompt": "Use case: identity-preserve.\nAsset: one independent shy desktop-pet pose.\nSole reference image: hd-v3-rear-outlet/idle.png, the accepted fully dressed character and tail design.\n\nCreate a gentle shy variation of this same character. Keep her standing upright, with open green eyes, a small shy smile and a slight friendly head tilt. One hand lightly touches her cheek with relaxed natural fingers; the other arm hangs comfortably at her side. Retain the same cute proportions, silver-white wavy hair, cat ears, small green daisy hair bows, complete opaque ivory-and-mint long-sleeved dress, small chest bow, waist ribbon, flower-pattern skirt and ruffled hem, opaque white tights and green Mary Jane shoes. Shoes face forward nearly parallel. Keep the clothing exactly as complete and closed as the reference. Nothing is lifted or removed.\n\nKeep the reference's existing tail design and placement unchanged: one fluffy white cat tail appearing beside the upper portion of the skirt and curving outward then down in a clear open C shape to a single hanging tip. Keep the clear space beneath the skirt around the legs and preserve the tail's visual separation from the hair and dress. Do not move the tail to the bottom edge of the skirt. This is a friendly everyday mascot pose; no extra objects, no costume change.\n\nOutput one complete character, exact native 1024x1536 portrait RGBA PNG with genuinely transparent background. Visible character height at least 1200px, comfortable margins, complete ears, hair, fingers, tail and shoes. Crisp native illustration detail. No background, floor, shadows, halo, labels, captions, diagrams or additional characters.\n",
+          "result": "generated-candidate",
+          "authorization": "Parent explicitly authorized a safe neutral new pose using only accepted idle reference, without the prior shy target or structural body wording; stop if this separate request was refused."
+        }
+      ],
+      "visualReview": {
+        "tail": "High proximal segment emerges beside upper skirt and curves out/down, matching accepted idle construction; old below-hem U origin absent.",
+        "pose": "One hand touches cheek and other hangs naturally, but cheek-touching hand is now on viewer-left rather than the v1 viewer-right; newly generated pose preserves intent rather than exact original geometry.",
+        "hands": "Native full-image review finds no clear extra digit or fork; new cheek-touch gesture requires close browser review.",
+        "costumeFeet": "Complete closed ivory/mint costume, tights and nearly forward parallel shoes retained.",
+        "framing": "Ear tip visible but only 4px top margin at alpha>=16; comfortable margin constraint not fully achieved. No opaque content reaches edge. Needs explicit root decision or framing correction.",
+        "status": "candidate, not final acceptance"
+      }
+    },
+    {
+      "pose": "bow",
+      "file": "bow.png",
+      "sourceOriginalPath": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14289-f0b5-7113-b2b9-40aa19554575\\exec-ce1969e8-cb5f-4002-8395-35182e642add.png",
+      "prompt": "prompts/bow.txt",
+      "promptSha256": "2a967936b2e0e35f45bc718abbd398df8045c27ff78964008ab50aa8a65670fe",
+      "referencePaths": [
+        "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v1\\bow.png",
+        "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v3-rear-outlet\\idle.png"
+      ],
+      "references": [
+        {
+          "path": "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v1\\bow.png",
+          "sha256": "cf28613909ce3c94d8598ad8210ba77024a7b7d8b7d2acebc7d9942b7f61b287",
+          "role": "exact pose target"
+        },
+        {
+          "path": "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v3-rear-outlet\\idle.png",
+          "sha256": "2d722617b4f36772f3785b5bb206c79f61631ed4c99847ef76f51f915607d40e",
+          "role": "accepted tail construction only"
+        }
+      ],
+      "sha256": "f2fe46a99b8b2b9f4e64252514984c5f8de425a83eb9ec6319e3be82156329a3",
+      "bytes": 1879061,
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "bboxByAlphaThreshold": {
+        "1": [
+          49,
+          0,
+          1008,
+          1536
+        ],
+        "16": [
+          96,
+          46,
+          963,
+          1448
+        ],
+        "128": [
+          97,
+          47,
+          962,
+          1447
+        ],
+        "250": [
+          107,
+          48,
+          960,
+          1446
+        ]
+      },
+      "visibleHeightAtAlpha16": 1402,
+      "edgeMaxAlpha": {
+        "top": 1,
+        "bottom": 1,
+        "left": 0,
+        "right": 0
+      },
+      "visibleMarginsAtAlpha16": {
+        "top": 46,
+        "bottom": 88,
+        "left": 96,
+        "right": 61
+      },
+      "byteIdenticalCopyVerified": true,
+      "pixelsModifiedByCode": false,
+      "status": "candidate-needs-browser-review",
+      "exactPrompt": "Asset: independent bow pose, version 3 rear-outlet tail repair.\nImage 1: hd-v1/bow.png, exact pose and identity EDIT TARGET.\nImage 2: hd-v3-rear-outlet/idle.png, accepted FRONT TAIL PATH reference only.\n\nUse case: precise-object-edit.\nInput image1 is the exact POSE EDIT TARGET. Input image2 is the accepted FRONT TAIL CONSTRUCTION REFERENCE ONLY; do not copy its idle pose or expression. Preserve target face/expression, proportions, hairstyle, hair clips, arm/hand gesture and fingers, clothing, waistline, legs and forward-facing feet.\nReplace the old low UNDER-HEM tail with the reference's BACK-OUTLET, OUTSIDE-SKIRT tail. A single tail attaches at the posterior center of the low pelvis, below natural waist, and passes through a discreet center-back dress opening. The actual opening is occluded by the body in a frontal view, so do not draw a hole on the front or side waist. Crucially, after passing through that rear outlet the entire tail is OUTSIDE the skirt, NOT routed down inside it.\nIts short hidden start travels sideways BEHIND THE HIPS. The first VISIBLE volumetric proximal segment must appear on the viewer-right side at UPPER/MIDDLE SKIRT HEIGHT, well ABOVE the lower green stripe/ruffled hem. Usually about80-150px below the waistline in the1024x1536 full figure. It emerges behind the lower hair/upper skirt/forearm contour, follows an open OUTWARD-then-DOWN smooth C-shaped arc to viewer-right, then tapers to ONE soft distal tip at approximatelyknee height, matching image2. Leave space between exposed outer tail and lower skirt. Keep substantial root thickness with continuous fluffy white texture. The root is not a sharp point, string or small tassel.\nDelete EVERY trace of the old tail emerging beside thigh below hem. The empty transparent region beside the thigh and under hem must remain clear. No low U sweeping upward from the thigh. No direct attachment to hand, sleeve, side waist bow, hair, knee or hem. Hair/cloth should occlude the left/upstream end naturally; the tail contours enter behind them rather than terminating on them. Adjust only a few lowest viewer-right hair tips if needed to separate smooth long hair from fluffy tail. No closed ring, duplicate tail or detached fluffy object.\nNative1024x1536 transparent RGBA. Full body with comfortable edge margins and visible character height at least1200px. Preserve identity and pose. No background, floor, cast shadow, halo, captions, diagrams or extra figures.\n\n\nSpecific preservation: Keep image 1's closed eyes, gentle smile, slight forward upper-body bow, softly overlapped hands in front, all fingers, arm/sleeve positions, natural waistline, skirt, straight comfortable legs and nearly parallel forward shoes. Do not replace this with the idle pose.\nSpecific tail action: Entirely delete image 1's low U tail coming from beneath the hem beside the thigh. After passing through the unseen posterior-center garment outlet, the tail is outside the dress and travels sideways behind the upper skirt; its first visible substantial furry segment appears at viewer-right around 80–150px below the waistline, well above the green hem stripe. Continue that visible segment smoothly outward, then down into the reference's open C-shaped white cat tail with a single hanging tip at around knee level. No tail should emerge beneath the skirt or next to the upper thigh. Preserve the bowed body and adapt only the tail to it.\n",
+      "attempts": [
+        {
+          "attempt": 1,
+          "mode": "edit",
+          "sourceOriginalPath": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14289-f0b5-7113-b2b9-40aa19554575\\exec-ce1969e8-cb5f-4002-8395-35182e642add.png",
+          "sha256": "f2fe46a99b8b2b9f4e64252514984c5f8de425a83eb9ec6319e3be82156329a3",
+          "referencePaths": [
+            "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v1\\bow.png",
+            "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v3-rear-outlet\\idle.png"
+          ],
+          "exactPrompt": "Asset: independent bow pose, version 3 rear-outlet tail repair.\nImage 1: hd-v1/bow.png, exact pose and identity EDIT TARGET.\nImage 2: hd-v3-rear-outlet/idle.png, accepted FRONT TAIL PATH reference only.\n\nUse case: precise-object-edit.\nInput image1 is the exact POSE EDIT TARGET. Input image2 is the accepted FRONT TAIL CONSTRUCTION REFERENCE ONLY; do not copy its idle pose or expression. Preserve target face/expression, proportions, hairstyle, hair clips, arm/hand gesture and fingers, clothing, waistline, legs and forward-facing feet.\nReplace the old low UNDER-HEM tail with the reference's BACK-OUTLET, OUTSIDE-SKIRT tail. A single tail attaches at the posterior center of the low pelvis, below natural waist, and passes through a discreet center-back dress opening. The actual opening is occluded by the body in a frontal view, so do not draw a hole on the front or side waist. Crucially, after passing through that rear outlet the entire tail is OUTSIDE the skirt, NOT routed down inside it.\nIts short hidden start travels sideways BEHIND THE HIPS. The first VISIBLE volumetric proximal segment must appear on the viewer-right side at UPPER/MIDDLE SKIRT HEIGHT, well ABOVE the lower green stripe/ruffled hem. Usually about80-150px below the waistline in the1024x1536 full figure. It emerges behind the lower hair/upper skirt/forearm contour, follows an open OUTWARD-then-DOWN smooth C-shaped arc to viewer-right, then tapers to ONE soft distal tip at approximatelyknee height, matching image2. Leave space between exposed outer tail and lower skirt. Keep substantial root thickness with continuous fluffy white texture. The root is not a sharp point, string or small tassel.\nDelete EVERY trace of the old tail emerging beside thigh below hem. The empty transparent region beside the thigh and under hem must remain clear. No low U sweeping upward from the thigh. No direct attachment to hand, sleeve, side waist bow, hair, knee or hem. Hair/cloth should occlude the left/upstream end naturally; the tail contours enter behind them rather than terminating on them. Adjust only a few lowest viewer-right hair tips if needed to separate smooth long hair from fluffy tail. No closed ring, duplicate tail or detached fluffy object.\nNative1024x1536 transparent RGBA. Full body with comfortable edge margins and visible character height at least1200px. Preserve identity and pose. No background, floor, cast shadow, halo, captions, diagrams or extra figures.\n\n\nSpecific preservation: Keep image 1's closed eyes, gentle smile, slight forward upper-body bow, softly overlapped hands in front, all fingers, arm/sleeve positions, natural waistline, skirt, straight comfortable legs and nearly parallel forward shoes. Do not replace this with the idle pose.\nSpecific tail action: Entirely delete image 1's low U tail coming from beneath the hem beside the thigh. After passing through the unseen posterior-center garment outlet, the tail is outside the dress and travels sideways behind the upper skirt; its first visible substantial furry segment appears at viewer-right around 80–150px below the waistline, well above the green hem stripe. Continue that visible segment smoothly outward, then down into the reference's open C-shaped white cat tail with a single hanging tip at around knee level. No tail should emerge beneath the skirt or next to the upper thigh. Preserve the bowed body and adapt only the tail to it.\n",
+          "result": "generated-candidate"
+        }
+      ],
+      "visualReview": {
+        "tail": "New open C tail begins at upper-skirt height and bends outward/down; former below-hem U tail removed. Proximal segment overlaps lower hair near the side bow; root should verify that it reads as rear occlusion rather than bow/side-waist attachment.",
+        "pose": "Closed eyes, mild forward bow, overlapped hands, original dress and forward shoes preserved in native review.",
+        "framing": "Visible height 1402px, all visible-content margins at least 46px.",
+        "status": "candidate awaiting dark/light browser QA"
+      }
+    },
+    {
+      "pose": "hug-tail",
+      "file": "rejected/hug-tail-attempt-02.png",
+      "finalFile": null,
+      "sourceOriginalPath": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14289-f0b5-7113-b2b9-40aa19554575\\exec-ab47b49a-1fa3-4afd-a6f5-436ee952e9d8.png",
+      "prompt": "prompts/hug-tail.txt",
+      "promptSha256": "d15d57ed563d04d1e8638ef2dabaa9210ecb83cf18a3c82eee4bb56402a54b63",
+      "referencePaths": [
+        "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v2-tail\\hug-tail.png",
+        "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v3-rear-outlet\\idle.png",
+        "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v3-rear-outlet\\reference\\rear-three-quarter.png"
+      ],
+      "references": [
+        {
+          "path": "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v2-tail\\hug-tail.png",
+          "sha256": "ea654d1b34836226b50318a2a57bd04a95ba9e2809f78b4eac2e9ecaab1ff241",
+          "role": "hands/pose target"
+        },
+        {
+          "path": "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v3-rear-outlet\\idle.png",
+          "sha256": "2d722617b4f36772f3785b5bb206c79f61631ed4c99847ef76f51f915607d40e",
+          "role": "front upper-skirt tail reference"
+        },
+        {
+          "path": "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v3-rear-outlet\\reference\\rear-three-quarter.png",
+          "sha256": "809e086e66d9b0a93a4e0edd9e09bd0a8996a7cbb7ac22db0109127f74ea2af9",
+          "role": "rear garment outlet construction reference"
+        }
+      ],
+      "sha256": "df12b84ab96ad370b08618e7412c6648b638c067154641fb270b910c5bf9d50e",
+      "bytes": 1858358,
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "bboxByAlphaThreshold": {
+        "1": [
+          0,
+          0,
+          1006,
+          1512
+        ],
+        "16": [
+          128,
+          10,
+          945,
+          1479
+        ],
+        "128": [
+          129,
+          11,
+          944,
+          1478
+        ],
+        "250": [
+          133,
+          14,
+          942,
+          1477
+        ]
+      },
+      "visibleHeightAtAlpha16": 1469,
+      "edgeMaxAlpha": {
+        "top": 1,
+        "bottom": 0,
+        "left": 1,
+        "right": 0
+      },
+      "visibleMarginsAtAlpha16": {
+        "top": 10,
+        "bottom": 57,
+        "left": 128,
+        "right": 79
+      },
+      "byteIdenticalCopyVerified": true,
+      "pixelsModifiedByCode": false,
+      "status": "rejected-unresolved-tail-connection",
+      "exactPrompt": "Asset: independent hug-tail pose, version 3 rear-outlet continuous tail repair.\nImage 1: hd-v2-tail/hug-tail.png, exact face, pose, both hands, costume and body EDIT TARGET.\nImage 2: hd-v3-rear-outlet/idle.png, FRONT reference for the HIGH rear-outlet origin and outside-skirt proximal path only.\nImage 3: reference/rear-three-quarter.png, supplementary CONSTRUCTION reference showing that the tail exits through the center-back dress opening below the waist. Do not copy the rear view, pose or opening onto the front.\n\nUse case: precise-object-edit.\nInput image1 is the exact POSE EDIT TARGET. Input image2 is the accepted FRONT TAIL CONSTRUCTION REFERENCE ONLY; do not copy its idle pose or expression. Preserve target face/expression, proportions, hairstyle, hair clips, arm/hand gesture and fingers, clothing, waistline, legs and forward-facing feet.\nReplace the old low UNDER-HEM tail with the reference's BACK-OUTLET, OUTSIDE-SKIRT tail. A single tail attaches at the posterior center of the low pelvis, below natural waist, and passes through a discreet center-back dress opening. The actual opening is occluded by the body in a frontal view, so do not draw a hole on the front or side waist. Crucially, after passing through that rear outlet the entire tail is OUTSIDE the skirt, NOT routed down inside it.\nIts short hidden start travels sideways BEHIND THE HIPS. The first VISIBLE volumetric proximal segment must appear on the viewer-right side at UPPER/MIDDLE SKIRT HEIGHT, well ABOVE the lower green stripe/ruffled hem. Usually about80-150px below the waistline in the1024x1536 full figure. It emerges behind the lower hair/upper skirt/forearm contour, follows an open OUTWARD-then-DOWN smooth C-shaped arc to viewer-right, then tapers to ONE soft distal tip at approximatelyknee height, matching image2. Leave space between exposed outer tail and lower skirt. Keep substantial root thickness with continuous fluffy white texture. The root is not a sharp point, string or small tassel.\nDelete EVERY trace of the old tail emerging beside thigh below hem. The empty transparent region beside the thigh and under hem must remain clear. No low U sweeping upward from the thigh. No direct attachment to hand, sleeve, side waist bow, hair, knee or hem. Hair/cloth should occlude the left/upstream end naturally; the tail contours enter behind them rather than terminating on them. Adjust only a few lowest viewer-right hair tips if needed to separate smooth long hair from fluffy tail. No closed ring, duplicate tail or detached fluffy object.\nNative1024x1536 transparent RGBA. Full body with comfortable edge margins and visible character height at least1200px. Preserve identity and pose. No background, floor, cast shadow, halo, captions, diagrams or extra figures.\n\n\nPOSE-SPECIFIC OVERRIDE FOR HUG-TAIL: The generic hanging knee-height distal tip and downward open C above describe standing poses. Here the one distal tip remains UP by the cheek/chest inside her current hug. Preserve the two existing hands and their exact natural grip, do not change or regenerate fingers. Preserve her tilt, smile, face, clothes, waist, legs and parallel shoes.\n\nRebuild only the connection BELOW the lower hand and the proximal tail. Delete the old low U-shaped return at the front hem. The one real tail exits a hidden center-back opening at the low pelvis, then travels OUTSIDE the dress sideways around the right rear upper skirt. A clearly furred, substantial near-root segment appears from behind the viewer-right lowest hair/upper skirt about 80–130px below this pose's waistline, well ABOVE the green hem stripe. It wraps forward in a short open S-shaped curved section, bends smoothly inward toward the lower hand, and continues unbroken UP through both existing hands to the single fluffy tip near her face. The rear emergence, forward bend, held section and upper tip are one continuous tail with no detached pieces. The lowest bend stays at upper/middle skirt level rather than at the hem; do not retain an under-hem root or pointed second endpoint.\n\nMake the root-to-held-section route clearly readable: textured short fur and a consistent rounded tube with a smoothly widening silhouette distinguish the tail from the long smooth hair ribbons. Adjust only a few lowest right hair tips if necessary so the visible root segment and forward bend do not merge into the hair. The upstream tail contours enter BEHIND the lower hair/upper skirt boundary; never terminate on a bow, sleeve, hand or side waist. The hand positions remain untouched and the fur curves into their existing grip. No closed ring, low U loop, huge fox brush, pillow shape, second tail or standalone white object. Keep the upper tail moderate in thickness and only one upper terminal tip.\n\nTARGETED SECOND ATTEMPT: The prior result failed by retaining the low front-skirt bend and hiding the proximal connection. Do not repeat that silhouette. Keep all existing hands and upper held tail unchanged. Remove ALL tail fur below the lower hand that currently reaches the green hem stripe. In image 1 coordinates, no tail fur should extend below approximately y=850; the green stripe and right skirt hem around y=900–1000 must be clear of tail.\n\nRebuild the connection as an unmistakable high outside-skirt return. A substantial cylindrical furred proximal segment emerges from BEHIND the rear upper skirt and a few separated lowest right hair tips, around y=750–790. Both of its contour edges disappear together behind that occluding clothing/hair, indicating continuation toward the unseen center-back outlet; do not give the root a terminal point. Expose enough short dense white fur to distinguish it from the smooth ribbon-like hair. From this high emergence it curves right a short distance, then gently returns forward and up directly into the existing lower-hand grip, joining the held upright tail continuously. All of this happens above the hem in the upper/middle skirt region. Reposition only the few lowest hair ends that hide this route. Do not hide the entire root route under hair again. No low U, no closed ring, no second tip. Keep face, every finger, sleeves, waist, dress, legs and shoes unchanged.\n",
+      "attempts": [
+        {
+          "attempt": 1,
+          "file": "rejected/hug-tail-attempt-01.png",
+          "sourceOriginalPath": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14289-f0b5-7113-b2b9-40aa19554575\\exec-76486e0d-3776-4419-b0d8-e78ccc6c6461.png",
+          "sha256": "49730bb83c518776a3d4d6b9a917d0450b535103ba93561fd4e4dfbff7c88bde",
+          "byteIdenticalCopyVerified": true,
+          "exactPrompt": "Asset: independent hug-tail pose, version 3 rear-outlet continuous tail repair.\nImage 1: hd-v2-tail/hug-tail.png, exact face, pose, both hands, costume and body EDIT TARGET.\nImage 2: hd-v3-rear-outlet/idle.png, FRONT reference for the HIGH rear-outlet origin and outside-skirt proximal path only.\nImage 3: reference/rear-three-quarter.png, supplementary CONSTRUCTION reference showing that the tail exits through the center-back dress opening below the waist. Do not copy the rear view, pose or opening onto the front.\n\nUse case: precise-object-edit.\nInput image1 is the exact POSE EDIT TARGET. Input image2 is the accepted FRONT TAIL CONSTRUCTION REFERENCE ONLY; do not copy its idle pose or expression. Preserve target face/expression, proportions, hairstyle, hair clips, arm/hand gesture and fingers, clothing, waistline, legs and forward-facing feet.\nReplace the old low UNDER-HEM tail with the reference's BACK-OUTLET, OUTSIDE-SKIRT tail. A single tail attaches at the posterior center of the low pelvis, below natural waist, and passes through a discreet center-back dress opening. The actual opening is occluded by the body in a frontal view, so do not draw a hole on the front or side waist. Crucially, after passing through that rear outlet the entire tail is OUTSIDE the skirt, NOT routed down inside it.\nIts short hidden start travels sideways BEHIND THE HIPS. The first VISIBLE volumetric proximal segment must appear on the viewer-right side at UPPER/MIDDLE SKIRT HEIGHT, well ABOVE the lower green stripe/ruffled hem. Usually about80-150px below the waistline in the1024x1536 full figure. It emerges behind the lower hair/upper skirt/forearm contour, follows an open OUTWARD-then-DOWN smooth C-shaped arc to viewer-right, then tapers to ONE soft distal tip at approximatelyknee height, matching image2. Leave space between exposed outer tail and lower skirt. Keep substantial root thickness with continuous fluffy white texture. The root is not a sharp point, string or small tassel.\nDelete EVERY trace of the old tail emerging beside thigh below hem. The empty transparent region beside the thigh and under hem must remain clear. No low U sweeping upward from the thigh. No direct attachment to hand, sleeve, side waist bow, hair, knee or hem. Hair/cloth should occlude the left/upstream end naturally; the tail contours enter behind them rather than terminating on them. Adjust only a few lowest viewer-right hair tips if needed to separate smooth long hair from fluffy tail. No closed ring, duplicate tail or detached fluffy object.\nNative1024x1536 transparent RGBA. Full body with comfortable edge margins and visible character height at least1200px. Preserve identity and pose. No background, floor, cast shadow, halo, captions, diagrams or extra figures.\n\n\nPOSE-SPECIFIC OVERRIDE FOR HUG-TAIL: The generic hanging knee-height distal tip and downward open C above describe standing poses. Here the one distal tip remains UP by the cheek/chest inside her current hug. Preserve the two existing hands and their exact natural grip, do not change or regenerate fingers. Preserve her tilt, smile, face, clothes, waist, legs and parallel shoes.\n\nRebuild only the connection BELOW the lower hand and the proximal tail. Delete the old low U-shaped return at the front hem. The one real tail exits a hidden center-back opening at the low pelvis, then travels OUTSIDE the dress sideways around the right rear upper skirt. A clearly furred, substantial near-root segment appears from behind the viewer-right lowest hair/upper skirt about 80–130px below this pose's waistline, well ABOVE the green hem stripe. It wraps forward in a short open S-shaped curved section, bends smoothly inward toward the lower hand, and continues unbroken UP through both existing hands to the single fluffy tip near her face. The rear emergence, forward bend, held section and upper tip are one continuous tail with no detached pieces. The lowest bend stays at upper/middle skirt level rather than at the hem; do not retain an under-hem root or pointed second endpoint.\n\nMake the root-to-held-section route clearly readable: textured short fur and a consistent rounded tube with a smoothly widening silhouette distinguish the tail from the long smooth hair ribbons. Adjust only a few lowest right hair tips if necessary so the visible root segment and forward bend do not merge into the hair. The upstream tail contours enter BEHIND the lower hair/upper skirt boundary; never terminate on a bow, sleeve, hand or side waist. The hand positions remain untouched and the fur curves into their existing grip. No closed ring, low U loop, huge fox brush, pillow shape, second tail or standalone white object. Keep the upper tail moderate in thickness and only one upper terminal tip.\n",
+          "result": "rejected",
+          "reason": "Lower tail still curls at skirt edge with no clearly visible high proximal connection."
+        },
+        {
+          "attempt": 2,
+          "file": "rejected/hug-tail-attempt-02.png",
+          "sourceOriginalPath": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14289-f0b5-7113-b2b9-40aa19554575\\exec-ab47b49a-1fa3-4afd-a6f5-436ee952e9d8.png",
+          "sha256": "df12b84ab96ad370b08618e7412c6648b638c067154641fb270b910c5bf9d50e",
+          "byteIdenticalCopyVerified": true,
+          "exactPrompt": "Asset: independent hug-tail pose, version 3 rear-outlet continuous tail repair.\nImage 1: hd-v2-tail/hug-tail.png, exact face, pose, both hands, costume and body EDIT TARGET.\nImage 2: hd-v3-rear-outlet/idle.png, FRONT reference for the HIGH rear-outlet origin and outside-skirt proximal path only.\nImage 3: reference/rear-three-quarter.png, supplementary CONSTRUCTION reference showing that the tail exits through the center-back dress opening below the waist. Do not copy the rear view, pose or opening onto the front.\n\nUse case: precise-object-edit.\nInput image1 is the exact POSE EDIT TARGET. Input image2 is the accepted FRONT TAIL CONSTRUCTION REFERENCE ONLY; do not copy its idle pose or expression. Preserve target face/expression, proportions, hairstyle, hair clips, arm/hand gesture and fingers, clothing, waistline, legs and forward-facing feet.\nReplace the old low UNDER-HEM tail with the reference's BACK-OUTLET, OUTSIDE-SKIRT tail. A single tail attaches at the posterior center of the low pelvis, below natural waist, and passes through a discreet center-back dress opening. The actual opening is occluded by the body in a frontal view, so do not draw a hole on the front or side waist. Crucially, after passing through that rear outlet the entire tail is OUTSIDE the skirt, NOT routed down inside it.\nIts short hidden start travels sideways BEHIND THE HIPS. The first VISIBLE volumetric proximal segment must appear on the viewer-right side at UPPER/MIDDLE SKIRT HEIGHT, well ABOVE the lower green stripe/ruffled hem. Usually about80-150px below the waistline in the1024x1536 full figure. It emerges behind the lower hair/upper skirt/forearm contour, follows an open OUTWARD-then-DOWN smooth C-shaped arc to viewer-right, then tapers to ONE soft distal tip at approximatelyknee height, matching image2. Leave space between exposed outer tail and lower skirt. Keep substantial root thickness with continuous fluffy white texture. The root is not a sharp point, string or small tassel.\nDelete EVERY trace of the old tail emerging beside thigh below hem. The empty transparent region beside the thigh and under hem must remain clear. No low U sweeping upward from the thigh. No direct attachment to hand, sleeve, side waist bow, hair, knee or hem. Hair/cloth should occlude the left/upstream end naturally; the tail contours enter behind them rather than terminating on them. Adjust only a few lowest viewer-right hair tips if needed to separate smooth long hair from fluffy tail. No closed ring, duplicate tail or detached fluffy object.\nNative1024x1536 transparent RGBA. Full body with comfortable edge margins and visible character height at least1200px. Preserve identity and pose. No background, floor, cast shadow, halo, captions, diagrams or extra figures.\n\n\nPOSE-SPECIFIC OVERRIDE FOR HUG-TAIL: The generic hanging knee-height distal tip and downward open C above describe standing poses. Here the one distal tip remains UP by the cheek/chest inside her current hug. Preserve the two existing hands and their exact natural grip, do not change or regenerate fingers. Preserve her tilt, smile, face, clothes, waist, legs and parallel shoes.\n\nRebuild only the connection BELOW the lower hand and the proximal tail. Delete the old low U-shaped return at the front hem. The one real tail exits a hidden center-back opening at the low pelvis, then travels OUTSIDE the dress sideways around the right rear upper skirt. A clearly furred, substantial near-root segment appears from behind the viewer-right lowest hair/upper skirt about 80–130px below this pose's waistline, well ABOVE the green hem stripe. It wraps forward in a short open S-shaped curved section, bends smoothly inward toward the lower hand, and continues unbroken UP through both existing hands to the single fluffy tip near her face. The rear emergence, forward bend, held section and upper tip are one continuous tail with no detached pieces. The lowest bend stays at upper/middle skirt level rather than at the hem; do not retain an under-hem root or pointed second endpoint.\n\nMake the root-to-held-section route clearly readable: textured short fur and a consistent rounded tube with a smoothly widening silhouette distinguish the tail from the long smooth hair ribbons. Adjust only a few lowest right hair tips if necessary so the visible root segment and forward bend do not merge into the hair. The upstream tail contours enter BEHIND the lower hair/upper skirt boundary; never terminate on a bow, sleeve, hand or side waist. The hand positions remain untouched and the fur curves into their existing grip. No closed ring, low U loop, huge fox brush, pillow shape, second tail or standalone white object. Keep the upper tail moderate in thickness and only one upper terminal tip.\n\nTARGETED SECOND ATTEMPT: The prior result failed by retaining the low front-skirt bend and hiding the proximal connection. Do not repeat that silhouette. Keep all existing hands and upper held tail unchanged. Remove ALL tail fur below the lower hand that currently reaches the green hem stripe. In image 1 coordinates, no tail fur should extend below approximately y=850; the green stripe and right skirt hem around y=900–1000 must be clear of tail.\n\nRebuild the connection as an unmistakable high outside-skirt return. A substantial cylindrical furred proximal segment emerges from BEHIND the rear upper skirt and a few separated lowest right hair tips, around y=750–790. Both of its contour edges disappear together behind that occluding clothing/hair, indicating continuation toward the unseen center-back outlet; do not give the root a terminal point. Expose enough short dense white fur to distinguish it from the smooth ribbon-like hair. From this high emergence it curves right a short distance, then gently returns forward and up directly into the existing lower-hand grip, joining the held upright tail continuously. All of this happens above the hem in the upper/middle skirt region. Reposition only the few lowest hair ends that hide this route. Do not hide the entire root route under hair again. No low U, no closed ring, no second tip. Keep face, every finger, sleeves, waist, dress, legs and shoes unchanged.\n",
+          "result": "rejected",
+          "reason": "Lower tail still narrows into the skirt edge and can read as a detached held object; no traceable high outside-skirt root-to-hand path. Requested y<=850 connection not achieved."
+        }
+      ],
+      "visualReview": {
+        "tail": "FAILED: the continuous rear outlet to upper-skirt route to held section is not visually established after one targeted retry.",
+        "handsFaceClothes": "Existing grip, face and full costume largely preserved, but this does not make the tail result acceptable.",
+        "nextAction": "No further generation in this subtask; parent to inspect rejected candidates and decide a different design approach.",
+        "status": "not deliverable; no hd-v3-rear-outlet/hug-tail.png created"
+      }
+    }
+  ],
+  "verification": {
+    "allCopiedPngHashesMatchOriginals": true,
+    "pngPixelsModifiedByCode": false,
+    "sourceAndRuntimeModified": false,
+    "browserQa": "pending parent",
+    "rejectedHistoryPreserved": true
+  }
+}

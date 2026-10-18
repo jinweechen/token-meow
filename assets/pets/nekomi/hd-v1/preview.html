@@ -1,0 +1,25 @@
+<!doctype html><meta charset="utf-8"><title>Nekomi 高清姿势素材检查</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#172120;color:#e7f1ed;font:16px system-ui}header{padding:24px 32px}h1{margin:0 0 8px}p{margin:5px 0;color:#a8beb6}button,a{color:inherit}button{border:1px solid #829b91;background:#30443c;padding:8px 16px;margin:10px 10px 0 0;border-radius:8px;cursor:pointer}.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;padding:0 24px 24px}.card{background:#29342f;border:1px solid #43564b;border-radius:12px;overflow:hidden}.card h2{padding:10px 16px;margin:0;font-size:16px}.card img{display:block;width:100%;height:360px;object-fit:contain}.detail{display:flex;gap:20px;padding:16px;align-items:flex-start}.whole{height:1390px;flex:none}.whole img{height:1354px;width:auto;display:block}.zooms{display:grid;grid-template-columns:repeat(2,420px);gap:16px}.crop{width:420px;height:410px;overflow:hidden;position:relative;border:1px solid #73857b}.crop img{position:absolute;max-width:none}.crop span{position:absolute;z-index:2;background:#35443cdc;color:white;padding:4px 8px;left:0;top:0;font-size:14px}.light .card,.light .whole,.light .crop{background:#f2f4ef}.dark .card,.dark .whole,.dark .crop{background:#111715}.checker .card,.checker .whole,.checker .crop{background-color:#e7e9e4;background-image:linear-gradient(45deg,#c7cec5 25%,transparent 25%),linear-gradient(-45deg,#c7cec5 25%,transparent 25%),linear-gradient(45deg,transparent 75%,#c7cec5 75%),linear-gradient(-45deg,transparent 75%,#c7cec5 75%);background-size:24px 24px;background-position:0 0,0 12px,12px -12px,-12px 0}footer{padding:0 32px 24px;color:#a8beb6}
+</style><body class="dark"><header><h1>Nekomi · 高清姿势素材</h1><p>12 张独立透明 PNG · 原生 1024 × 1536 · 放大目标约 1200 像素角色高度</p><nav><button onclick="setTheme('dark')">深色背景</button><button onclick="setTheme('light')">浅色背景</button><button onclick="setTheme('checker')">透明棋盘</button><button onclick="location.search=''">查看全部</button></nav></header><main></main><footer>角色原图未进行代码缩放、补边或像素修整。页面仅使用浏览器正常显示原始 PNG。</footer><script>
+const poses=['idle','active','complete','alert','sleep','shy','affection','stretch','wink','happy','bow','hug-tail'];
+const labels=['站立','招手','庆祝','警觉','困倦','害羞','亲昵','伸懒腰','眨眼','开心','鞠躬','抱尾巴'];
+const params=new URLSearchParams(location.search);function setTheme(t){document.body.className=t;}setTheme(params.get('theme')||'dark');
+const focus=params.get('pose');const main=document.querySelector('main');
+const ranges={
+idle:[[210,790,1.65,'左侧手部'],[675,790,1.65,'右侧手部']],
+active:[[225,455,1.65,'挥手手部'],[680,790,1.65,'自然垂手']],
+complete:[[300,490,1.65,'左侧握拳'],[550,490,1.65,'右侧握拳']],
+alert:[[300,570,1.65,'交叠手臂 左'],[510,570,1.65,'交叠手臂 右']],
+sleep:[[310,630,1.65,'交叠手部 左'],[490,630,1.65,'交叠手部 右']],
+shy:[[550,390,1.65,'触脸手部'],[260,800,1.65,'自然垂手']],
+affection:[[285,530,1.65,'抚胸手部'],[675,790,1.65,'自然垂手']],
+stretch:[[690,85,1.65,'伸展手部'],[370,380,1.65,'嘴边手部']],
+wink:[[230,610,1.65,'叉腰手部'],[675,790,1.65,'自然垂手']],
+happy:[[215,420,1.65,'挥手手部'],[675,790,1.65,'自然垂手']],
+bow:[[325,760,1.65,'鞠躬手部 左'],[470,760,1.65,'鞠躬手部 右']],
+'hug-tail':[[580,470,1.65,'抱尾手部 上'],[570,640,1.65,'抱尾手部 下']]
+};
+if(focus&&poses.includes(focus)){main.className='detail';main.innerHTML='<div class="whole"><img src="'+focus+'.png"></div><div class="zooms"></div>';for(const [x,y,s,title] of [...ranges[focus],[350,1180,1.2,'膝、踝和鞋尖方向'],[300,500,1,'上衣及自然腰线']]){const el=document.createElement('div');el.className='crop';el.innerHTML='<span>'+title+'</span><img src="'+focus+'.png" style="width:'+1024*s+'px;left:'+-x*s+'px;top:'+-y*s+'px">';document.querySelector('.zooms').append(el);}}
+else{main.className='grid';main.innerHTML=poses.map((p,i)=>'<article class="card"><h2>'+String(i+1).padStart(2,'0')+' · '+labels[i]+'</h2><a href="?pose='+p+'"><img loading="eager" src="'+p+'.png" alt="'+labels[i]+'"></a></article>').join('');}
+</script>

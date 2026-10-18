@@ -1,0 +1,1673 @@
+{
+  "schemaVersion": 1,
+  "canvas": [
+    1024,
+    1536
+  ],
+  "status": "reviewed-baseline-with-tolerances",
+  "priority": "User requested faster completion; minor ornament/proportion differences retained",
+  "runtimeIntegrated": false,
+  "clips": [
+    {
+      "id": "idle",
+      "label": "待机呼吸与眨眼",
+      "frames": [
+        {
+          "path": "model-reference/master-front-v2.png",
+          "durationMs": 500,
+          "segment": "entry",
+          "exists": true,
+          "sha256": "7ec89e91a67884a6e524b788e328a763aaebe502c2a5b5c887b5679fd7620997"
+        },
+        {
+          "path": "actions-v11/idle/transition.png",
+          "durationMs": 1200,
+          "segment": "body",
+          "exists": true,
+          "sha256": "23d70411874767c1a0547f64cab08abecc6815e0261b3e5e2d637189c5fe325d"
+        },
+        {
+          "path": "model-reference/master-front-v2.png",
+          "durationMs": 1600,
+          "segment": "body",
+          "exists": true,
+          "sha256": "7ec89e91a67884a6e524b788e328a763aaebe502c2a5b5c887b5679fd7620997"
+        },
+        {
+          "path": "../animation-v6/clips/idle/half-blink.png",
+          "durationMs": 60,
+          "segment": "body",
+          "exists": true,
+          "sha256": "f19592142efa970fd6f1f62eefee59e941bf4444bac697eb91946f7a604663e2"
+        },
+        {
+          "path": "../animation-v6/clips/idle/closed-blink.png",
+          "durationMs": 100,
+          "segment": "body",
+          "exists": true,
+          "sha256": "22d1911bb02b2843ba4d98dd12e5f8f80d5903e1288baf2af04998ceb0b52c8b"
+        },
+        {
+          "path": "../animation-v6/clips/idle/half-blink.png",
+          "durationMs": 60,
+          "segment": "body",
+          "exists": true,
+          "sha256": "f19592142efa970fd6f1f62eefee59e941bf4444bac697eb91946f7a604663e2"
+        },
+        {
+          "path": "model-reference/master-front-v2.png",
+          "durationMs": 1800,
+          "segment": "body",
+          "exists": true,
+          "sha256": "7ec89e91a67884a6e524b788e328a763aaebe502c2a5b5c887b5679fd7620997"
+        },
+        {
+          "path": "actions-v11/idle/transition.png",
+          "durationMs": 1200,
+          "segment": "body",
+          "exists": true,
+          "sha256": "23d70411874767c1a0547f64cab08abecc6815e0261b3e5e2d637189c5fe325d"
+        },
+        {
+          "path": "model-reference/master-front-v2.png",
+          "durationMs": 500,
+          "segment": "exit",
+          "exists": true,
+          "sha256": "7ec89e91a67884a6e524b788e328a763aaebe502c2a5b5c887b5679fd7620997"
+        },
+        {
+          "path": "model-reference/master-front-v2.png",
+          "durationMs": 1000,
+          "segment": "returnToIdle",
+          "exists": true,
+          "sha256": "7ec89e91a67884a6e524b788e328a763aaebe502c2a5b5c887b5679fd7620997"
+        }
+      ],
+      "reviewBasis": "retained-v11-historical-scope; unchanged frames/timing/bytes"
+    },
+    {
+      "id": "active",
+      "label": "活跃招呼",
+      "frames": [
+        {
+          "path": "model-reference/master-front-v2.png",
+          "durationMs": 350,
+          "segment": "entry",
+          "exists": true,
+          "sha256": "7ec89e91a67884a6e524b788e328a763aaebe502c2a5b5c887b5679fd7620997"
+        },
+        {
+          "path": "actions-v11/active/transition.png",
+          "durationMs": 220,
+          "segment": "entry",
+          "exists": true,
+          "sha256": "e1c86e4d91ff8fa110bd73a48468a9a60c663de8fa4746d248e231e433895cf7"
+        },
+        {
+          "path": "../animation-v6/clips/active/enter.png",
+          "durationMs": 180,
+          "segment": "body",
+          "exists": true,
+          "sha256": "3f564b553bc3cd2304d86d905e941e5f58a6c10f16d00c4270e8b460b15a7c85"
+        },
+        {
+          "path": "../animation-v6/clips/active/base.png",
+          "durationMs": 480,
+          "segment": "body",
+          "exists": true,
+          "sha256": "5c36c72372418ca6e904c46d795f5e4b11094a1ce527393b70d2949b26ae651d"
+        },
+        {
+          "path": "../animation-v6/clips/active/accent.png",
+          "durationMs": 240,
+          "segment": "body",
+          "exists": true,
+          "sha256": "032c9fcffb9556145bd40ab9240716c95bdfe71cfe7e5e47506f3ec49a360de5"
+        },
+        {
+          "path": "../animation-v6/clips/active/base.png",
+          "durationMs": 320,
+          "segment": "body",
+          "exists": true,
+          "sha256": "5c36c72372418ca6e904c46d795f5e4b11094a1ce527393b70d2949b26ae651d"
+        },
+        {
+          "path": "actions-v11/active/transition.png",
+          "durationMs": 260,
+          "segment": "exit",
+          "exists": true,
+          "sha256": "e1c86e4d91ff8fa110bd73a48468a9a60c663de8fa4746d248e231e433895cf7"
+        },
+        {
+          "path": "model-reference/master-front-v2.png",
+          "durationMs": 350,
+          "segment": "exit",
+          "exists": true,
+          "sha256": "7ec89e91a67884a6e524b788e328a763aaebe502c2a5b5c887b5679fd7620997"
+        },
+        {
+          "path": "model-reference/master-front-v2.png",
+          "durationMs": 700,
+          "segment": "returnToIdle",
+          "exists": true,
+          "sha256": "7ec89e91a67884a6e524b788e328a763aaebe502c2a5b5c887b5679fd7620997"
+        }
+      ],
+      "reuse": "Old v6 body keyframes retained; new entry/exit bridge. Minor model/hem variance retained per user speed preference.",
+      "reviewBasis": "retained-v11-historical-scope; unchanged frames/timing/bytes"
+    },
+    {
+      "id": "alert",
+      "label": "提醒留意",
+      "frames": [
+        {
+          "path": "model-reference/master-front-v2.png",
+          "durationMs": 350,
+          "segment": "entry",
+          "exists": true,
+          "sha256": "7ec89e91a67884a6e524b788e328a763aaebe502c2a5b5c887b5679fd7620997"
+        },
+        {
+          "path": "actions-v11/alert/transition.png",
+          "durationMs": 220,
+          "segment": "entry",
+          "exists": true,
+          "sha256": "5a887f537e0bd206af41631b64bcdfd20e7b761ebad16fd3ec300122e6312fd3"
+        },
+        {
+          "path": "../animation-v6/clips/alert/enter.png",
+          "durationMs": 180,
+          "segment": "body",
+          "exists": true,
+          "sha256": "6aa8da48c9095596c1ccd1c4078fc8b7c3688516413cdc3fb617379cfd676b80"
+        },
+        {
+          "path": "../animation-v6/clips/alert/base.png",
+          "durationMs": 480,
+          "segment": "body",
+          "exists": true,
+          "sha256": "3f760e7a72b410cb139d1fe26ef12ea9922f9b581b441d37d5cc19969bb38a44"
+        },
+        {
+          "path": "../animation-v6/clips/alert/accent.png",
+          "durationMs": 240,
+          "segment": "body",
+          "exists": true,
+          "sha256": "350eced1c8f8651878f80b8df75c676a8bd2ff22ee51e7594243b442f9926233"
+        },
+        {
+          "path": "../animation-v6/clips/alert/base.png",
+          "durationMs": 320,
+          "segment": "body",
+          "exists": true,
+          "sha256": "3f760e7a72b410cb139d1fe26ef12ea9922f9b581b441d37d5cc19969bb38a44"
+        },
+        {
+          "path": "actions-v11/alert/transition.png",
+          "durationMs": 260,
+          "segment": "exit",
+          "exists": true,
+          "sha256": "5a887f537e0bd206af41631b64bcdfd20e7b761ebad16fd3ec300122e6312fd3"
+        },
+        {
+          "path": "model-reference/master-front-v2.png",
+          "durationMs": 350,
+          "segment": "exit",
+          "exists": true,
+          "sha256": "7ec89e91a67884a6e524b788e328a763aaebe502c2a5b5c887b5679fd7620997"
+        },
+        {
+          "path": "model-reference/master-front-v2.png",
+          "durationMs": 700,
+          "segment": "returnToIdle",
+          "exists": true,
+          "sha256": "7ec89e91a67884a6e524b788e328a763aaebe502c2a5b5c887b5679fd7620997"
+        }
+      ],
+      "reuse": "Old v6 body keyframes retained; new entry/exit bridge. Minor model/hem variance retained per user speed preference.",
+      "reviewBasis": "retained-v11-historical-scope; unchanged frames/timing/bytes"
+    },
+    {
+      "id": "complete",
+      "label": "完成庆祝",
+      "frames": [
+        {
+          "path": "model-reference/master-front-v2.png",
+          "durationMs": 350,
+          "segment": "entry",
+          "exists": true,
+          "sha256": "7ec89e91a67884a6e524b788e328a763aaebe502c2a5b5c887b5679fd7620997"
+        },
+        {
+          "path": "actions-v11/complete/transition.png",
+          "durationMs": 220,
+          "segment": "entry",
+          "exists": true,
+          "sha256": "cd76a45be1390ca43ce8826f44cf4caf5f0ddc4d4c8c7bedae6e0a8511ddb222"
+        },
+        {
+          "path": "../animation-v6/clips/complete/enter.png",
+          "durationMs": 180,
+          "segment": "body",
+          "exists": true,
+          "sha256": "dd285c7794a438e5a1c6db9515d56c9f8213adc72de127106dc35a2cf43cb02c"
+        },
+        {
+          "path": "../animation-v6/clips/complete/base.png",
+          "durationMs": 480,
+          "segment": "body",
+          "exists": true,
+          "sha256": "99ac410ecefc9a334f5c374be52b82219856414468d55316020b8c3c9716b77b"
+        },
+        {
+          "path": "../animation-v6/clips/complete/accent.png",
+          "durationMs": 240,
+          "segment": "body",
+          "exists": true,
+          "sha256": "0f7ead60ccbe9e06ae747bea6c309a503385c8d9c9ba7d8c0b8925c0d4abf9b0"
+        },
+        {
+          "path": "../animation-v6/clips/complete/base.png",
+          "durationMs": 320,
+          "segment": "body",
+          "exists": true,
+          "sha256": "99ac410ecefc9a334f5c374be52b82219856414468d55316020b8c3c9716b77b"
+        },
+        {
+          "path": "actions-v11/complete/transition.png",
+          "durationMs": 260,
+          "segment": "exit",
+          "exists": true,
+          "sha256": "cd76a45be1390ca43ce8826f44cf4caf5f0ddc4d4c8c7bedae6e0a8511ddb222"
+        },
+        {
+          "path": "model-reference/master-front-v2.png",
+          "durationMs": 350,
+          "segment": "exit",
+          "exists": true,
+          "sha256": "7ec89e91a67884a6e524b788e328a763aaebe502c2a5b5c887b5679fd7620997"
+        },
+        {
+          "path": "model-reference/master-front-v2.png",
+          "durationMs": 700,
+          "segment": "returnToIdle",
+          "exists": true,
+          "sha256": "7ec89e91a67884a6e524b788e328a763aaebe502c2a5b5c887b5679fd7620997"
+        }
+      ],
+      "reuse": "Old v6 body keyframes retained; new entry/exit bridge. Minor model/hem variance retained per user speed preference.",
+      "reviewBasis": "retained-v11-historical-scope; unchanged frames/timing/bytes"
+    },
+    {
+      "id": "happy",
+      "label": "开心",
+      "frames": [
+        {
+          "path": "model-reference/master-front-v2.png",
+          "durationMs": 350,
+          "segment": "entry",
+          "exists": true,
+          "sha256": "7ec89e91a67884a6e524b788e328a763aaebe502c2a5b5c887b5679fd7620997"
+        },
+        {
+          "path": "actions-v11/happy/transition.png",
+          "durationMs": 220,
+          "segment": "entry",
+          "exists": true,
+          "sha256": "025a17a6f24bc3de54036df643ce36d767f67ea989725f1e5e606820828d08d3"
+        },
+        {
+          "path": "../animation-v6/clips/happy/enter.png",
+          "durationMs": 180,
+          "segment": "body",
+          "exists": true,
+          "sha256": "59d9a586b1d5987e74bff067506e3d8b6cd5d02070b87486754dc78f0c10db1a"
+        },
+        {
+          "path": "../animation-v6/clips/happy/base.png",
+          "durationMs": 480,
+          "segment": "body",
+          "exists": true,
+          "sha256": "67894210ffafe8d82367dd38d0dbd46cd738f0d4d1bc3c941d5d64d1b6ab8900"
+        },
+        {
+          "path": "../animation-v6/clips/happy/accent.png",
+          "durationMs": 240,
+          "segment": "body",
+          "exists": true,
+          "sha256": "d9d75bfc91b5438f3a14bc3a6d6de0a72f44adb01b82a5b986af70d4a5572644"
+        },
+        {
+          "path": "../animation-v6/clips/happy/base.png",
+          "durationMs": 320,
+          "segment": "body",
+          "exists": true,
+          "sha256": "67894210ffafe8d82367dd38d0dbd46cd738f0d4d1bc3c941d5d64d1b6ab8900"
+        },
+        {
+          "path": "actions-v11/happy/transition.png",
+          "durationMs": 260,
+          "segment": "exit",
+          "exists": true,
+          "sha256": "025a17a6f24bc3de54036df643ce36d767f67ea989725f1e5e606820828d08d3"
+        },
+        {
+          "path": "model-reference/master-front-v2.png",
+          "durationMs": 350,
+          "segment": "exit",
+          "exists": true,
+          "sha256": "7ec89e91a67884a6e524b788e328a763aaebe502c2a5b5c887b5679fd7620997"
+        },
+        {
+          "path": "model-reference/master-front-v2.png",
+          "durationMs": 700,
+          "segment": "returnToIdle",
+          "exists": true,
+          "sha256": "7ec89e91a67884a6e524b788e328a763aaebe502c2a5b5c887b5679fd7620997"
+        }
+      ],
+      "reuse": "Old v6 body keyframes retained; new entry/exit bridge. Minor model/hem variance retained per user speed preference.",
+      "reviewBasis": "retained-v11-historical-scope; unchanged frames/timing/bytes"
+    },
+    {
+      "id": "wink",
+      "label": "眨眼互动",
+      "frames": [
+        {
+          "path": "model-reference/master-front-v2.png",
+          "durationMs": 350,
+          "segment": "entry",
+          "exists": true,
+          "sha256": "7ec89e91a67884a6e524b788e328a763aaebe502c2a5b5c887b5679fd7620997"
+        },
+        {
+          "path": "actions-v11/wink/transition.png",
+          "durationMs": 220,
+          "segment": "entry",
+          "exists": true,
+          "sha256": "f47601a2b57c908df4ed6b4518f381cd39b2a6edd9eda28d921e6a4803ce3029"
+        },
+        {
+          "path": "../animation-v6/clips/wink/enter.png",
+          "durationMs": 180,
+          "segment": "body",
+          "exists": true,
+          "sha256": "95d41af277708f2483a8ca50d0539354f04eae110b0f4b76352005fea5e84666"
+        },
+        {
+          "path": "../animation-v6/clips/wink/base.png",
+          "durationMs": 480,
+          "segment": "body",
+          "exists": true,
+          "sha256": "d1920435d7b3f1f36b1dc8b7fb5cc2dfac9d15e5c1680d10c6f9d75840728737"
+        },
+        {
+          "path": "../animation-v6/clips/wink/accent.png",
+          "durationMs": 240,
+          "segment": "body",
+          "exists": true,
+          "sha256": "e77ed16d0773ff295f7463817258a477bfa189d8b0d5d9e0b91960cb2188af76"
+        },
+        {
+          "path": "../animation-v6/clips/wink/base.png",
+          "durationMs": 320,
+          "segment": "body",
+          "exists": true,
+          "sha256": "d1920435d7b3f1f36b1dc8b7fb5cc2dfac9d15e5c1680d10c6f9d75840728737"
+        },
+        {
+          "path": "actions-v11/wink/transition.png",
+          "durationMs": 260,
+          "segment": "exit",
+          "exists": true,
+          "sha256": "f47601a2b57c908df4ed6b4518f381cd39b2a6edd9eda28d921e6a4803ce3029"
+        },
+        {
+          "path": "model-reference/master-front-v2.png",
+          "durationMs": 350,
+          "segment": "exit",
+          "exists": true,
+          "sha256": "7ec89e91a67884a6e524b788e328a763aaebe502c2a5b5c887b5679fd7620997"
+        },
+        {
+          "path": "model-reference/master-front-v2.png",
+          "durationMs": 700,
+          "segment": "returnToIdle",
+          "exists": true,
+          "sha256": "7ec89e91a67884a6e524b788e328a763aaebe502c2a5b5c887b5679fd7620997"
+        }
+      ],
+      "reuse": "Old v6 body keyframes retained; new entry/exit bridge. Minor model/hem variance retained per user speed preference.",
+      "reviewBasis": "retained-v11-historical-scope; unchanged frames/timing/bytes"
+    },
+    {
+      "id": "affection",
+      "label": "亲近",
+      "frames": [
+        {
+          "path": "model-reference/master-front-v2.png",
+          "durationMs": 350,
+          "segment": "entry",
+          "exists": true,
+          "sha256": "7ec89e91a67884a6e524b788e328a763aaebe502c2a5b5c887b5679fd7620997"
+        },
+        {
+          "path": "actions-v11/affection/transition.png",
+          "durationMs": 220,
+          "segment": "entry",
+          "exists": true,
+          "sha256": "d741cea53bb1d7e65f081781c5b343d475e828cc4839df7832e2508c5d00cdd9"
+        },
+        {
+          "path": "../animation-v6/clips/affection/enter.png",
+          "durationMs": 180,
+          "segment": "body",
+          "exists": true,
+          "sha256": "cc04968ff3581961e256a048324c59257a8c0b774159dc337ceb048d116c20ee"
+        },
+        {
+          "path": "../animation-v6/clips/affection/base.png",
+          "durationMs": 480,
+          "segment": "body",
+          "exists": true,
+          "sha256": "f018661a8d4b05eaff868a8ee429ed509266a844c9ea0edcd9c955093ee600d9"
+        },
+        {
+          "path": "../animation-v6/clips/affection/accent.png",
+          "durationMs": 240,
+          "segment": "body",
+          "exists": true,
+          "sha256": "9e9389123a0d80788a0bde86ca233a859df2049b394d377853b5ff30276c1291"
+        },
+        {
+          "path": "../animation-v6/clips/affection/base.png",
+          "durationMs": 320,
+          "segment": "body",
+          "exists": true,
+          "sha256": "f018661a8d4b05eaff868a8ee429ed509266a844c9ea0edcd9c955093ee600d9"
+        },
+        {
+          "path": "actions-v11/affection/transition.png",
+          "durationMs": 260,
+          "segment": "exit",
+          "exists": true,
+          "sha256": "d741cea53bb1d7e65f081781c5b343d475e828cc4839df7832e2508c5d00cdd9"
+        },
+        {
+          "path": "model-reference/master-front-v2.png",
+          "durationMs": 350,
+          "segment": "exit",
+          "exists": true,
+          "sha256": "7ec89e91a67884a6e524b788e328a763aaebe502c2a5b5c887b5679fd7620997"
+        },
+        {
+          "path": "model-reference/master-front-v2.png",
+          "durationMs": 700,
+          "segment": "returnToIdle",
+          "exists": true,
+          "sha256": "7ec89e91a67884a6e524b788e328a763aaebe502c2a5b5c887b5679fd7620997"
+        }
+      ],
+      "reuse": "Old v6 body keyframes retained; new entry/exit bridge. Minor model/hem variance retained per user speed preference.",
+      "reviewBasis": "retained-v11-historical-scope; unchanged frames/timing/bytes"
+    },
+    {
+      "id": "shy",
+      "label": "害羞",
+      "frames": [
+        {
+          "path": "model-reference/master-front-v2.png",
+          "durationMs": 350,
+          "segment": "entry",
+          "exists": true,
+          "sha256": "7ec89e91a67884a6e524b788e328a763aaebe502c2a5b5c887b5679fd7620997"
+        },
+        {
+          "path": "actions-v11/shy/transition.png",
+          "durationMs": 220,
+          "segment": "entry",
+          "exists": true,
+          "sha256": "e08eb3c81302916e9524753b4ef261de6f52985c29d310e5be49ab4cbf3b842d"
+        },
+        {
+          "path": "../animation-v6/clips/shy/enter.png",
+          "durationMs": 180,
+          "segment": "body",
+          "exists": true,
+          "sha256": "92c36f94f09384d267ba7e94ae11e0edcbf0fcb8509c8399c6893d18084b0b5f"
+        },
+        {
+          "path": "../animation-v6/clips/shy/base.png",
+          "durationMs": 480,
+          "segment": "body",
+          "exists": true,
+          "sha256": "58702f963888360a923b62633a8d9a2c21ae828dbe7372696720bcdbe641359b"
+        },
+        {
+          "path": "../animation-v6/clips/shy/accent.png",
+          "durationMs": 240,
+          "segment": "body",
+          "exists": true,
+          "sha256": "a846d6c09d266054958c1e38729a99334fbf4ae756c8fd5b9ca7da82bf12ddcf"
+        },
+        {
+          "path": "../animation-v6/clips/shy/base.png",
+          "durationMs": 320,
+          "segment": "body",
+          "exists": true,
+          "sha256": "58702f963888360a923b62633a8d9a2c21ae828dbe7372696720bcdbe641359b"
+        },
+        {
+          "path": "actions-v11/shy/transition.png",
+          "durationMs": 260,
+          "segment": "exit",
+          "exists": true,
+          "sha256": "e08eb3c81302916e9524753b4ef261de6f52985c29d310e5be49ab4cbf3b842d"
+        },
+        {
+          "path": "model-reference/master-front-v2.png",
+          "durationMs": 350,
+          "segment": "exit",
+          "exists": true,
+          "sha256": "7ec89e91a67884a6e524b788e328a763aaebe502c2a5b5c887b5679fd7620997"
+        },
+        {
+          "path": "model-reference/master-front-v2.png",
+          "durationMs": 700,
+          "segment": "returnToIdle",
+          "exists": true,
+          "sha256": "7ec89e91a67884a6e524b788e328a763aaebe502c2a5b5c887b5679fd7620997"
+        }
+      ],
+      "reuse": "Old v6 body keyframes retained; new entry/exit bridge. Minor model/hem variance retained per user speed preference.",
+      "reviewBasis": "retained-v11-historical-scope; unchanged frames/timing/bytes"
+    },
+    {
+      "id": "bow",
+      "label": "鞠躬",
+      "frames": [
+        {
+          "path": "model-reference/master-front-v2.png",
+          "durationMs": 400,
+          "segment": "entry",
+          "exists": true,
+          "sha256": "7ec89e91a67884a6e524b788e328a763aaebe502c2a5b5c887b5679fd7620997"
+        },
+        {
+          "path": "actions-v11/bow/hold.png",
+          "durationMs": 250,
+          "segment": "entry",
+          "exists": true,
+          "sha256": "46623833ae83db47979038870995c20b103892b848eeae79848365b29ab3e020"
+        },
+        {
+          "path": "actions-v11/bow/deep.png",
+          "durationMs": 700,
+          "segment": "body",
+          "exists": true,
+          "sha256": "6f088115f873975bf232a28de8f8a40ac34d0d039fe6d2021df5f55837f29d8a"
+        },
+        {
+          "path": "actions-v11/bow/hold.png",
+          "durationMs": 300,
+          "segment": "exit",
+          "exists": true,
+          "sha256": "46623833ae83db47979038870995c20b103892b848eeae79848365b29ab3e020"
+        },
+        {
+          "path": "model-reference/master-front-v2.png",
+          "durationMs": 400,
+          "segment": "exit",
+          "exists": true,
+          "sha256": "7ec89e91a67884a6e524b788e328a763aaebe502c2a5b5c887b5679fd7620997"
+        },
+        {
+          "path": "model-reference/master-front-v2.png",
+          "durationMs": 700,
+          "segment": "returnToIdle",
+          "exists": true,
+          "sha256": "7ec89e91a67884a6e524b788e328a763aaebe502c2a5b5c887b5679fd7620997"
+        }
+      ],
+      "reviewBasis": "retained-v11-historical-scope; unchanged frames/timing/bytes"
+    },
+    {
+      "id": "stretch",
+      "label": "伸懒腰",
+      "frames": [
+        {
+          "path": "model-reference/master-front-v2.png",
+          "durationMs": 400,
+          "segment": "entry",
+          "exists": true,
+          "sha256": "7ec89e91a67884a6e524b788e328a763aaebe502c2a5b5c887b5679fd7620997"
+        },
+        {
+          "path": "actions-v11/stretch/enter.png",
+          "durationMs": 300,
+          "segment": "entry",
+          "exists": true,
+          "sha256": "f711e7ac5fc209eec9e9d135d3a8512552df0327de43c89fb504e8b6e36b29d8"
+        },
+        {
+          "path": "actions-v11/stretch/hold.png",
+          "durationMs": 1100,
+          "segment": "body",
+          "exists": true,
+          "sha256": "44adb89c857cb1183ef83b597f1edea0539139e651e09f621310880286b1203e"
+        },
+        {
+          "path": "actions-v11/stretch/enter.png",
+          "durationMs": 350,
+          "segment": "exit",
+          "exists": true,
+          "sha256": "f711e7ac5fc209eec9e9d135d3a8512552df0327de43c89fb504e8b6e36b29d8"
+        },
+        {
+          "path": "model-reference/master-front-v2.png",
+          "durationMs": 450,
+          "segment": "exit",
+          "exists": true,
+          "sha256": "7ec89e91a67884a6e524b788e328a763aaebe502c2a5b5c887b5679fd7620997"
+        },
+        {
+          "path": "model-reference/master-front-v2.png",
+          "durationMs": 700,
+          "segment": "returnToIdle",
+          "exists": true,
+          "sha256": "7ec89e91a67884a6e524b788e328a763aaebe502c2a5b5c887b5679fd7620997"
+        }
+      ],
+      "reviewBasis": "retained-v11-historical-scope; unchanged frames/timing/bytes"
+    },
+    {
+      "id": "hug-tail",
+      "label": "取尾、抱持与放下",
+      "frames": [
+        {
+          "path": "model-reference/master-front-v2.png",
+          "durationMs": 400,
+          "segment": "entry",
+          "exists": true,
+          "sha256": "7ec89e91a67884a6e524b788e328a763aaebe502c2a5b5c887b5679fd7620997"
+        },
+        {
+          "path": "actions-v11/hug-tail/reach.png",
+          "durationMs": 350,
+          "segment": "entry",
+          "exists": true,
+          "sha256": "5638ca6917c8f8b8eee021b7a2381c0b91d5b021502b41b564889bf16829d660"
+        },
+        {
+          "path": "actions-v11/hug-tail/lift.png",
+          "durationMs": 400,
+          "segment": "entry",
+          "exists": true,
+          "sha256": "1bea1cabb89adbb08bb026c462d266737f209bad341200e4ace343ddefffa203"
+        },
+        {
+          "path": "actions-v11/hug-tail/lift.png",
+          "durationMs": 1200,
+          "segment": "body",
+          "exists": true,
+          "sha256": "1bea1cabb89adbb08bb026c462d266737f209bad341200e4ace343ddefffa203"
+        },
+        {
+          "path": "actions-v11/hug-tail/reach.png",
+          "durationMs": 450,
+          "segment": "exit",
+          "exists": true,
+          "sha256": "5638ca6917c8f8b8eee021b7a2381c0b91d5b021502b41b564889bf16829d660"
+        },
+        {
+          "path": "model-reference/master-front-v2.png",
+          "durationMs": 450,
+          "segment": "exit",
+          "exists": true,
+          "sha256": "7ec89e91a67884a6e524b788e328a763aaebe502c2a5b5c887b5679fd7620997"
+        },
+        {
+          "path": "model-reference/master-front-v2.png",
+          "durationMs": 700,
+          "segment": "returnToIdle",
+          "exists": true,
+          "sha256": "7ec89e91a67884a6e524b788e328a763aaebe502c2a5b5c887b5679fd7620997"
+        }
+      ],
+      "reviewBasis": "retained-v11-historical-scope; unchanged frames/timing/bytes"
+    },
+    {
+      "id": "sleep",
+      "label": "入睡、坐姿呼吸与醒来",
+      "frames": [
+        {
+          "path": "model-reference/master-front-v2.png",
+          "durationMs": 500,
+          "segment": "entry",
+          "exists": true,
+          "sha256": "7ec89e91a67884a6e524b788e328a763aaebe502c2a5b5c887b5679fd7620997"
+        },
+        {
+          "path": "actions-v11/sleep/lowering-v2.png",
+          "durationMs": 450,
+          "segment": "entry",
+          "exists": true,
+          "sha256": "3335cfccfbeb760e4e65092af49c554302a0e6b63abd6c63e3dc2403e370078a"
+        },
+        {
+          "path": "actions-v11/sleep/seated.png",
+          "durationMs": 700,
+          "segment": "entry",
+          "exists": true,
+          "sha256": "870d659d91ad67420e1b0eab5f6d8e613d8859d43fbde85de9355c2798e49422"
+        },
+        {
+          "path": "actions-v11/sleep/seated.png",
+          "durationMs": 1800,
+          "segment": "body",
+          "exists": true,
+          "sha256": "870d659d91ad67420e1b0eab5f6d8e613d8859d43fbde85de9355c2798e49422"
+        },
+        {
+          "path": "actions-v11/sleep/seated-breath.png",
+          "durationMs": 1700,
+          "segment": "body",
+          "exists": true,
+          "sha256": "eaf0a0364d7dcf197523a082322ad4a03d196c19e91c425ae7eae9f0b8c0c4db"
+        },
+        {
+          "path": "actions-v11/sleep/seated.png",
+          "durationMs": 1800,
+          "segment": "body",
+          "exists": true,
+          "sha256": "870d659d91ad67420e1b0eab5f6d8e613d8859d43fbde85de9355c2798e49422"
+        },
+        {
+          "path": "actions-v11/sleep/seated-breath.png",
+          "durationMs": 1700,
+          "segment": "body",
+          "exists": true,
+          "sha256": "eaf0a0364d7dcf197523a082322ad4a03d196c19e91c425ae7eae9f0b8c0c4db"
+        },
+        {
+          "path": "actions-v11/sleep/seated.png",
+          "durationMs": 700,
+          "segment": "exit",
+          "exists": true,
+          "sha256": "870d659d91ad67420e1b0eab5f6d8e613d8859d43fbde85de9355c2798e49422"
+        },
+        {
+          "path": "actions-v11/sleep/lowering-v2.png",
+          "durationMs": 500,
+          "segment": "exit",
+          "exists": true,
+          "sha256": "3335cfccfbeb760e4e65092af49c554302a0e6b63abd6c63e3dc2403e370078a"
+        },
+        {
+          "path": "model-reference/master-front-v2.png",
+          "durationMs": 600,
+          "segment": "exit",
+          "exists": true,
+          "sha256": "7ec89e91a67884a6e524b788e328a763aaebe502c2a5b5c887b5679fd7620997"
+        },
+        {
+          "path": "model-reference/master-front-v2.png",
+          "durationMs": 1000,
+          "segment": "returnToIdle",
+          "exists": true,
+          "sha256": "7ec89e91a67884a6e524b788e328a763aaebe502c2a5b5c887b5679fd7620997"
+        }
+      ],
+      "reviewBasis": "retained-v11-historical-scope; unchanged frames/timing/bytes"
+    },
+    {
+      "id": "walk-right",
+      "label": "朝右行走 · 起步、双循环与返回",
+      "direction": "right",
+      "nearAnatomicalSide": "right",
+      "frames": [
+        {
+          "path": "model-reference/master-front-v2.png",
+          "durationMs": 400,
+          "segment": "entry",
+          "exists": true,
+          "sha256": "7ec89e91a67884a6e524b788e328a763aaebe502c2a5b5c887b5679fd7620997"
+        },
+        {
+          "path": "model-reference/master-right-v1.png",
+          "durationMs": 180,
+          "segment": "entry",
+          "exists": true,
+          "sha256": "9fe601f7ea4a0b400892ae05fb6858cce1755b54e7a45e0f7f12c3ca88f737ce"
+        },
+        {
+          "path": "model-reference/master-right-v3.png",
+          "durationMs": 240,
+          "segment": "entry",
+          "exists": true,
+          "sha256": "4798dd4f33e066e424e0f8177c8cd9a0d3758a60088d98c6ab2879d72233309b"
+        },
+        {
+          "path": "actions-v11/walk/start.png",
+          "durationMs": 200,
+          "segment": "entry",
+          "exists": true,
+          "sha256": "4eae3429a3227d9486eff39de92959730c064fe675287bce7bcf9b4f585e7a25"
+        },
+        {
+          "path": "frames-v11/01-contact-near.png",
+          "durationMs": 160,
+          "segment": "body",
+          "exists": true,
+          "sha256": "eb6158fbc47641535bba247dc83fecb1e4b292b06c14aa221e6acadbe0bf83c8"
+        },
+        {
+          "path": "frames-v11/02-near-flat-recovery.png",
+          "durationMs": 160,
+          "segment": "body",
+          "exists": true,
+          "sha256": "20900d6b7c7efccbbfa340e98ba7f93e8f58ba327d3844c3540ab7a8ae729135"
+        },
+        {
+          "path": "frames-v11/03-far-passing.png",
+          "durationMs": 160,
+          "segment": "body",
+          "exists": true,
+          "sha256": "e4035a49bcf9db50a6afd6ae0cfd94aaf4d79767dfc64e5bc8909f1195098c68"
+        },
+        {
+          "path": "frames-v11/04-near-toe-far-reach.png",
+          "durationMs": 160,
+          "segment": "body",
+          "exists": true,
+          "sha256": "a787bc62d4917fcaaa127eb2562f7a462901f2566b61492559ed0f3759c3b55a"
+        },
+        {
+          "path": "frames-v11/05-contact-far.png",
+          "durationMs": 160,
+          "segment": "body",
+          "exists": true,
+          "sha256": "da5a7ce6ecec5f5ba4a0d6b5199bf240f4b148a2b7aae3c0d78b40dd92e9c95b"
+        },
+        {
+          "path": "frames-v11/06-far-flat-recovery.png",
+          "durationMs": 160,
+          "segment": "body",
+          "exists": true,
+          "sha256": "bb81960fb8ca7bca3a946fdb837f592162007be22693f38710b44c45a717ec94"
+        },
+        {
+          "path": "frames-v11/07-near-passing.png",
+          "durationMs": 160,
+          "segment": "body",
+          "exists": true,
+          "sha256": "6529d3b3d8e406be6a05161fc6dbecf86f4c095c78096272adc3dee75634d864"
+        },
+        {
+          "path": "frames-v11/08-far-toe-near-reach.png",
+          "durationMs": 160,
+          "segment": "body",
+          "exists": true,
+          "sha256": "316198cfd814fc0fd96324205258fbe8c51241ac1934f887dd86a3bd1f8c1646"
+        },
+        {
+          "path": "frames-v11/01-contact-near.png",
+          "durationMs": 160,
+          "segment": "body",
+          "exists": true,
+          "sha256": "eb6158fbc47641535bba247dc83fecb1e4b292b06c14aa221e6acadbe0bf83c8"
+        },
+        {
+          "path": "frames-v11/02-near-flat-recovery.png",
+          "durationMs": 160,
+          "segment": "body",
+          "exists": true,
+          "sha256": "20900d6b7c7efccbbfa340e98ba7f93e8f58ba327d3844c3540ab7a8ae729135"
+        },
+        {
+          "path": "frames-v11/03-far-passing.png",
+          "durationMs": 160,
+          "segment": "body",
+          "exists": true,
+          "sha256": "e4035a49bcf9db50a6afd6ae0cfd94aaf4d79767dfc64e5bc8909f1195098c68"
+        },
+        {
+          "path": "frames-v11/04-near-toe-far-reach.png",
+          "durationMs": 160,
+          "segment": "body",
+          "exists": true,
+          "sha256": "a787bc62d4917fcaaa127eb2562f7a462901f2566b61492559ed0f3759c3b55a"
+        },
+        {
+          "path": "frames-v11/05-contact-far.png",
+          "durationMs": 160,
+          "segment": "body",
+          "exists": true,
+          "sha256": "da5a7ce6ecec5f5ba4a0d6b5199bf240f4b148a2b7aae3c0d78b40dd92e9c95b"
+        },
+        {
+          "path": "frames-v11/06-far-flat-recovery.png",
+          "durationMs": 160,
+          "segment": "body",
+          "exists": true,
+          "sha256": "bb81960fb8ca7bca3a946fdb837f592162007be22693f38710b44c45a717ec94"
+        },
+        {
+          "path": "frames-v11/07-near-passing.png",
+          "durationMs": 160,
+          "segment": "body",
+          "exists": true,
+          "sha256": "6529d3b3d8e406be6a05161fc6dbecf86f4c095c78096272adc3dee75634d864"
+        },
+        {
+          "path": "frames-v11/08-far-toe-near-reach.png",
+          "durationMs": 160,
+          "segment": "body",
+          "exists": true,
+          "sha256": "316198cfd814fc0fd96324205258fbe8c51241ac1934f887dd86a3bd1f8c1646"
+        },
+        {
+          "path": "frames-v11/01-contact-near.png",
+          "durationMs": 160,
+          "segment": "exit",
+          "exists": true,
+          "sha256": "eb6158fbc47641535bba247dc83fecb1e4b292b06c14aa221e6acadbe0bf83c8"
+        },
+        {
+          "path": "actions-v11/walk/start.png",
+          "durationMs": 240,
+          "segment": "exit",
+          "exists": true,
+          "sha256": "4eae3429a3227d9486eff39de92959730c064fe675287bce7bcf9b4f585e7a25"
+        },
+        {
+          "path": "model-reference/master-right-v3.png",
+          "durationMs": 240,
+          "segment": "exit",
+          "exists": true,
+          "sha256": "4798dd4f33e066e424e0f8177c8cd9a0d3758a60088d98c6ab2879d72233309b"
+        },
+        {
+          "path": "model-reference/master-right-v1.png",
+          "durationMs": 200,
+          "segment": "exit",
+          "exists": true,
+          "sha256": "9fe601f7ea4a0b400892ae05fb6858cce1755b54e7a45e0f7f12c3ca88f737ce"
+        },
+        {
+          "path": "model-reference/master-front-v2.png",
+          "durationMs": 450,
+          "segment": "exit",
+          "exists": true,
+          "sha256": "7ec89e91a67884a6e524b788e328a763aaebe502c2a5b5c887b5679fd7620997"
+        },
+        {
+          "path": "model-reference/master-front-v2.png",
+          "durationMs": 800,
+          "segment": "returnToIdle",
+          "exists": true,
+          "sha256": "7ec89e91a67884a6e524b788e328a763aaebe502c2a5b5c887b5679fd7620997"
+        }
+      ],
+      "reviewBasis": "current-v12-full-playback"
+    },
+    {
+      "id": "walk-left",
+      "label": "朝左行走 · 起步、双循环与返回",
+      "direction": "left",
+      "nearAnatomicalSide": "left",
+      "frames": [
+        {
+          "path": "model-reference/master-front-v2.png",
+          "durationMs": 400,
+          "segment": "entry",
+          "exists": true,
+          "sha256": "7ec89e91a67884a6e524b788e328a763aaebe502c2a5b5c887b5679fd7620997"
+        },
+        {
+          "path": "actions-v12/walk-left/turn.png",
+          "durationMs": 180,
+          "segment": "entry",
+          "exists": true,
+          "sha256": "6f1e3a36e4d8a44440660494a688b8db5e73e0959153a0c17a978a63ff6be6f4"
+        },
+        {
+          "path": "model-reference/master-left-v1.png",
+          "durationMs": 240,
+          "segment": "entry",
+          "exists": true,
+          "sha256": "5838c2ced158956e734c5d4c24219020fa8070ed27b3d1e3f0c3215ac4ee5425"
+        },
+        {
+          "path": "actions-v12/walk-left/start.png",
+          "durationMs": 200,
+          "segment": "entry",
+          "exists": true,
+          "sha256": "3a2a3b01db8746260851d0c6a3bf50e960dc14426c7e25b30b287214c4981508"
+        },
+        {
+          "path": "frames-left-v12/01-contact-near.png",
+          "durationMs": 160,
+          "segment": "body",
+          "exists": true,
+          "sha256": "584b652748987709a18eb17b941b6cc3e3a75d133c32b213b7b7ff7d3c841ecf"
+        },
+        {
+          "path": "frames-left-v12/02-near-flat-recovery.png",
+          "durationMs": 160,
+          "segment": "body",
+          "exists": true,
+          "sha256": "b5a50a55a52a6cbf0fe5b25a331d38f669f15051bb9fafc13bd3e89692db4e78"
+        },
+        {
+          "path": "frames-left-v12/03-far-passing.png",
+          "durationMs": 160,
+          "segment": "body",
+          "exists": true,
+          "sha256": "e46c02c60536aae788129b455b7c60584d242f559f3ad30c37843190beb14fbf"
+        },
+        {
+          "path": "frames-left-v12/04-near-toe-far-reach.png",
+          "durationMs": 160,
+          "segment": "body",
+          "exists": true,
+          "sha256": "5cb9d2b1b0c2eb618fb192169882e4fa3d947caef30bee692a6724c79b4d2331"
+        },
+        {
+          "path": "frames-left-v12/05-contact-far.png",
+          "durationMs": 160,
+          "segment": "body",
+          "exists": true,
+          "sha256": "ef4a91a560d929852013e3bdae3fa69bc57142658e236118384ef4649049fc06"
+        },
+        {
+          "path": "frames-left-v12/06-far-flat-recovery.png",
+          "durationMs": 160,
+          "segment": "body",
+          "exists": true,
+          "sha256": "5e46b36f0ff802c0f0e73ab00db8db2bd12367f366a5ac5fcfce5991de649ebd"
+        },
+        {
+          "path": "frames-left-v12/07-near-passing.png",
+          "durationMs": 160,
+          "segment": "body",
+          "exists": true,
+          "sha256": "f2774fe1c957e39f075b9feed2c268783a6c68889ff58cd2bd02e9ac8d674de5"
+        },
+        {
+          "path": "frames-left-v12/08-far-toe-near-reach.png",
+          "durationMs": 160,
+          "segment": "body",
+          "exists": true,
+          "sha256": "70f7e6cdcbd1ad00ef643fae7d5475a85e5ecb7400f5c4c9bc20ed95e8a1224c"
+        },
+        {
+          "path": "frames-left-v12/01-contact-near.png",
+          "durationMs": 160,
+          "segment": "body",
+          "exists": true,
+          "sha256": "584b652748987709a18eb17b941b6cc3e3a75d133c32b213b7b7ff7d3c841ecf"
+        },
+        {
+          "path": "frames-left-v12/02-near-flat-recovery.png",
+          "durationMs": 160,
+          "segment": "body",
+          "exists": true,
+          "sha256": "b5a50a55a52a6cbf0fe5b25a331d38f669f15051bb9fafc13bd3e89692db4e78"
+        },
+        {
+          "path": "frames-left-v12/03-far-passing.png",
+          "durationMs": 160,
+          "segment": "body",
+          "exists": true,
+          "sha256": "e46c02c60536aae788129b455b7c60584d242f559f3ad30c37843190beb14fbf"
+        },
+        {
+          "path": "frames-left-v12/04-near-toe-far-reach.png",
+          "durationMs": 160,
+          "segment": "body",
+          "exists": true,
+          "sha256": "5cb9d2b1b0c2eb618fb192169882e4fa3d947caef30bee692a6724c79b4d2331"
+        },
+        {
+          "path": "frames-left-v12/05-contact-far.png",
+          "durationMs": 160,
+          "segment": "body",
+          "exists": true,
+          "sha256": "ef4a91a560d929852013e3bdae3fa69bc57142658e236118384ef4649049fc06"
+        },
+        {
+          "path": "frames-left-v12/06-far-flat-recovery.png",
+          "durationMs": 160,
+          "segment": "body",
+          "exists": true,
+          "sha256": "5e46b36f0ff802c0f0e73ab00db8db2bd12367f366a5ac5fcfce5991de649ebd"
+        },
+        {
+          "path": "frames-left-v12/07-near-passing.png",
+          "durationMs": 160,
+          "segment": "body",
+          "exists": true,
+          "sha256": "f2774fe1c957e39f075b9feed2c268783a6c68889ff58cd2bd02e9ac8d674de5"
+        },
+        {
+          "path": "frames-left-v12/08-far-toe-near-reach.png",
+          "durationMs": 160,
+          "segment": "body",
+          "exists": true,
+          "sha256": "70f7e6cdcbd1ad00ef643fae7d5475a85e5ecb7400f5c4c9bc20ed95e8a1224c"
+        },
+        {
+          "path": "frames-left-v12/01-contact-near.png",
+          "durationMs": 160,
+          "segment": "exit",
+          "exists": true,
+          "sha256": "584b652748987709a18eb17b941b6cc3e3a75d133c32b213b7b7ff7d3c841ecf"
+        },
+        {
+          "path": "actions-v12/walk-left/start.png",
+          "durationMs": 240,
+          "segment": "exit",
+          "exists": true,
+          "sha256": "3a2a3b01db8746260851d0c6a3bf50e960dc14426c7e25b30b287214c4981508"
+        },
+        {
+          "path": "model-reference/master-left-v1.png",
+          "durationMs": 240,
+          "segment": "exit",
+          "exists": true,
+          "sha256": "5838c2ced158956e734c5d4c24219020fa8070ed27b3d1e3f0c3215ac4ee5425"
+        },
+        {
+          "path": "actions-v12/walk-left/turn.png",
+          "durationMs": 200,
+          "segment": "exit",
+          "exists": true,
+          "sha256": "6f1e3a36e4d8a44440660494a688b8db5e73e0959153a0c17a978a63ff6be6f4"
+        },
+        {
+          "path": "model-reference/master-front-v2.png",
+          "durationMs": 450,
+          "segment": "exit",
+          "exists": true,
+          "sha256": "7ec89e91a67884a6e524b788e328a763aaebe502c2a5b5c887b5679fd7620997"
+        },
+        {
+          "path": "model-reference/master-front-v2.png",
+          "durationMs": 800,
+          "segment": "returnToIdle",
+          "exists": true,
+          "sha256": "7ec89e91a67884a6e524b788e328a763aaebe502c2a5b5c887b5679fd7620997"
+        }
+      ],
+      "reviewBasis": "current-v12-full-playback"
+    },
+    {
+      "id": "walk-left-to-right",
+      "label": "左走 → 掉头 → 右走",
+      "direction": "left-to-right",
+      "frames": [
+        {
+          "path": "model-reference/master-front-v2.png",
+          "durationMs": 350,
+          "segment": "entry",
+          "exists": true,
+          "sha256": "7ec89e91a67884a6e524b788e328a763aaebe502c2a5b5c887b5679fd7620997"
+        },
+        {
+          "path": "actions-v12/walk-left/turn.png",
+          "durationMs": 180,
+          "segment": "entry",
+          "exists": true,
+          "sha256": "6f1e3a36e4d8a44440660494a688b8db5e73e0959153a0c17a978a63ff6be6f4"
+        },
+        {
+          "path": "model-reference/master-left-v1.png",
+          "durationMs": 200,
+          "segment": "entry",
+          "exists": true,
+          "sha256": "5838c2ced158956e734c5d4c24219020fa8070ed27b3d1e3f0c3215ac4ee5425"
+        },
+        {
+          "path": "actions-v12/walk-left/start.png",
+          "durationMs": 180,
+          "segment": "entry",
+          "exists": true,
+          "sha256": "3a2a3b01db8746260851d0c6a3bf50e960dc14426c7e25b30b287214c4981508"
+        },
+        {
+          "path": "frames-left-v12/01-contact-near.png",
+          "durationMs": 160,
+          "segment": "body",
+          "exists": true,
+          "sha256": "584b652748987709a18eb17b941b6cc3e3a75d133c32b213b7b7ff7d3c841ecf"
+        },
+        {
+          "path": "frames-left-v12/02-near-flat-recovery.png",
+          "durationMs": 160,
+          "segment": "body",
+          "exists": true,
+          "sha256": "b5a50a55a52a6cbf0fe5b25a331d38f669f15051bb9fafc13bd3e89692db4e78"
+        },
+        {
+          "path": "frames-left-v12/03-far-passing.png",
+          "durationMs": 160,
+          "segment": "body",
+          "exists": true,
+          "sha256": "e46c02c60536aae788129b455b7c60584d242f559f3ad30c37843190beb14fbf"
+        },
+        {
+          "path": "frames-left-v12/04-near-toe-far-reach.png",
+          "durationMs": 160,
+          "segment": "body",
+          "exists": true,
+          "sha256": "5cb9d2b1b0c2eb618fb192169882e4fa3d947caef30bee692a6724c79b4d2331"
+        },
+        {
+          "path": "frames-left-v12/05-contact-far.png",
+          "durationMs": 160,
+          "segment": "body",
+          "exists": true,
+          "sha256": "ef4a91a560d929852013e3bdae3fa69bc57142658e236118384ef4649049fc06"
+        },
+        {
+          "path": "frames-left-v12/06-far-flat-recovery.png",
+          "durationMs": 160,
+          "segment": "body",
+          "exists": true,
+          "sha256": "5e46b36f0ff802c0f0e73ab00db8db2bd12367f366a5ac5fcfce5991de649ebd"
+        },
+        {
+          "path": "frames-left-v12/07-near-passing.png",
+          "durationMs": 160,
+          "segment": "body",
+          "exists": true,
+          "sha256": "f2774fe1c957e39f075b9feed2c268783a6c68889ff58cd2bd02e9ac8d674de5"
+        },
+        {
+          "path": "frames-left-v12/08-far-toe-near-reach.png",
+          "durationMs": 160,
+          "segment": "body",
+          "exists": true,
+          "sha256": "70f7e6cdcbd1ad00ef643fae7d5475a85e5ecb7400f5c4c9bc20ed95e8a1224c"
+        },
+        {
+          "path": "actions-v12/walk-left/start.png",
+          "durationMs": 200,
+          "segment": "body",
+          "exists": true,
+          "sha256": "3a2a3b01db8746260851d0c6a3bf50e960dc14426c7e25b30b287214c4981508"
+        },
+        {
+          "path": "model-reference/master-left-v1.png",
+          "durationMs": 180,
+          "segment": "body",
+          "exists": true,
+          "sha256": "5838c2ced158956e734c5d4c24219020fa8070ed27b3d1e3f0c3215ac4ee5425"
+        },
+        {
+          "path": "actions-v12/walk-left/turn.png",
+          "durationMs": 180,
+          "segment": "body",
+          "exists": true,
+          "sha256": "6f1e3a36e4d8a44440660494a688b8db5e73e0959153a0c17a978a63ff6be6f4"
+        },
+        {
+          "path": "model-reference/master-front-v2.png",
+          "durationMs": 200,
+          "segment": "body",
+          "exists": true,
+          "sha256": "7ec89e91a67884a6e524b788e328a763aaebe502c2a5b5c887b5679fd7620997"
+        },
+        {
+          "path": "model-reference/master-right-v1.png",
+          "durationMs": 180,
+          "segment": "body",
+          "exists": true,
+          "sha256": "9fe601f7ea4a0b400892ae05fb6858cce1755b54e7a45e0f7f12c3ca88f737ce"
+        },
+        {
+          "path": "model-reference/master-right-v3.png",
+          "durationMs": 200,
+          "segment": "body",
+          "exists": true,
+          "sha256": "4798dd4f33e066e424e0f8177c8cd9a0d3758a60088d98c6ab2879d72233309b"
+        },
+        {
+          "path": "actions-v11/walk/start.png",
+          "durationMs": 180,
+          "segment": "body",
+          "exists": true,
+          "sha256": "4eae3429a3227d9486eff39de92959730c064fe675287bce7bcf9b4f585e7a25"
+        },
+        {
+          "path": "frames-v11/01-contact-near.png",
+          "durationMs": 160,
+          "segment": "body",
+          "exists": true,
+          "sha256": "eb6158fbc47641535bba247dc83fecb1e4b292b06c14aa221e6acadbe0bf83c8"
+        },
+        {
+          "path": "frames-v11/02-near-flat-recovery.png",
+          "durationMs": 160,
+          "segment": "body",
+          "exists": true,
+          "sha256": "20900d6b7c7efccbbfa340e98ba7f93e8f58ba327d3844c3540ab7a8ae729135"
+        },
+        {
+          "path": "frames-v11/03-far-passing.png",
+          "durationMs": 160,
+          "segment": "body",
+          "exists": true,
+          "sha256": "e4035a49bcf9db50a6afd6ae0cfd94aaf4d79767dfc64e5bc8909f1195098c68"
+        },
+        {
+          "path": "frames-v11/04-near-toe-far-reach.png",
+          "durationMs": 160,
+          "segment": "body",
+          "exists": true,
+          "sha256": "a787bc62d4917fcaaa127eb2562f7a462901f2566b61492559ed0f3759c3b55a"
+        },
+        {
+          "path": "frames-v11/05-contact-far.png",
+          "durationMs": 160,
+          "segment": "body",
+          "exists": true,
+          "sha256": "da5a7ce6ecec5f5ba4a0d6b5199bf240f4b148a2b7aae3c0d78b40dd92e9c95b"
+        },
+        {
+          "path": "frames-v11/06-far-flat-recovery.png",
+          "durationMs": 160,
+          "segment": "body",
+          "exists": true,
+          "sha256": "bb81960fb8ca7bca3a946fdb837f592162007be22693f38710b44c45a717ec94"
+        },
+        {
+          "path": "frames-v11/07-near-passing.png",
+          "durationMs": 160,
+          "segment": "body",
+          "exists": true,
+          "sha256": "6529d3b3d8e406be6a05161fc6dbecf86f4c095c78096272adc3dee75634d864"
+        },
+        {
+          "path": "frames-v11/08-far-toe-near-reach.png",
+          "durationMs": 160,
+          "segment": "body",
+          "exists": true,
+          "sha256": "316198cfd814fc0fd96324205258fbe8c51241ac1934f887dd86a3bd1f8c1646"
+        },
+        {
+          "path": "actions-v11/walk/start.png",
+          "durationMs": 240,
+          "segment": "exit",
+          "exists": true,
+          "sha256": "4eae3429a3227d9486eff39de92959730c064fe675287bce7bcf9b4f585e7a25"
+        },
+        {
+          "path": "model-reference/master-right-v3.png",
+          "durationMs": 200,
+          "segment": "exit",
+          "exists": true,
+          "sha256": "4798dd4f33e066e424e0f8177c8cd9a0d3758a60088d98c6ab2879d72233309b"
+        },
+        {
+          "path": "model-reference/master-right-v1.png",
+          "durationMs": 180,
+          "segment": "exit",
+          "exists": true,
+          "sha256": "9fe601f7ea4a0b400892ae05fb6858cce1755b54e7a45e0f7f12c3ca88f737ce"
+        },
+        {
+          "path": "model-reference/master-front-v2.png",
+          "durationMs": 350,
+          "segment": "exit",
+          "exists": true,
+          "sha256": "7ec89e91a67884a6e524b788e328a763aaebe502c2a5b5c887b5679fd7620997"
+        },
+        {
+          "path": "model-reference/master-front-v2.png",
+          "durationMs": 800,
+          "segment": "returnToIdle",
+          "exists": true,
+          "sha256": "7ec89e91a67884a6e524b788e328a763aaebe502c2a5b5c887b5679fd7620997"
+        }
+      ],
+      "note": "The character settles before turning through front; no instantaneous horizontal flip. Discrete turn keyframes, not dense animation.",
+      "reviewBasis": "current-v12-full-playback"
+    },
+    {
+      "id": "walk-right-to-left",
+      "label": "右走 → 掉头 → 左走",
+      "direction": "right-to-left",
+      "frames": [
+        {
+          "path": "model-reference/master-front-v2.png",
+          "durationMs": 350,
+          "segment": "entry",
+          "exists": true,
+          "sha256": "7ec89e91a67884a6e524b788e328a763aaebe502c2a5b5c887b5679fd7620997"
+        },
+        {
+          "path": "model-reference/master-right-v1.png",
+          "durationMs": 180,
+          "segment": "entry",
+          "exists": true,
+          "sha256": "9fe601f7ea4a0b400892ae05fb6858cce1755b54e7a45e0f7f12c3ca88f737ce"
+        },
+        {
+          "path": "model-reference/master-right-v3.png",
+          "durationMs": 200,
+          "segment": "entry",
+          "exists": true,
+          "sha256": "4798dd4f33e066e424e0f8177c8cd9a0d3758a60088d98c6ab2879d72233309b"
+        },
+        {
+          "path": "actions-v11/walk/start.png",
+          "durationMs": 180,
+          "segment": "entry",
+          "exists": true,
+          "sha256": "4eae3429a3227d9486eff39de92959730c064fe675287bce7bcf9b4f585e7a25"
+        },
+        {
+          "path": "frames-v11/01-contact-near.png",
+          "durationMs": 160,
+          "segment": "body",
+          "exists": true,
+          "sha256": "eb6158fbc47641535bba247dc83fecb1e4b292b06c14aa221e6acadbe0bf83c8"
+        },
+        {
+          "path": "frames-v11/02-near-flat-recovery.png",
+          "durationMs": 160,
+          "segment": "body",
+          "exists": true,
+          "sha256": "20900d6b7c7efccbbfa340e98ba7f93e8f58ba327d3844c3540ab7a8ae729135"
+        },
+        {
+          "path": "frames-v11/03-far-passing.png",
+          "durationMs": 160,
+          "segment": "body",
+          "exists": true,
+          "sha256": "e4035a49bcf9db50a6afd6ae0cfd94aaf4d79767dfc64e5bc8909f1195098c68"
+        },
+        {
+          "path": "frames-v11/04-near-toe-far-reach.png",
+          "durationMs": 160,
+          "segment": "body",
+          "exists": true,
+          "sha256": "a787bc62d4917fcaaa127eb2562f7a462901f2566b61492559ed0f3759c3b55a"
+        },
+        {
+          "path": "frames-v11/05-contact-far.png",
+          "durationMs": 160,
+          "segment": "body",
+          "exists": true,
+          "sha256": "da5a7ce6ecec5f5ba4a0d6b5199bf240f4b148a2b7aae3c0d78b40dd92e9c95b"
+        },
+        {
+          "path": "frames-v11/06-far-flat-recovery.png",
+          "durationMs": 160,
+          "segment": "body",
+          "exists": true,
+          "sha256": "bb81960fb8ca7bca3a946fdb837f592162007be22693f38710b44c45a717ec94"
+        },
+        {
+          "path": "frames-v11/07-near-passing.png",
+          "durationMs": 160,
+          "segment": "body",
+          "exists": true,
+          "sha256": "6529d3b3d8e406be6a05161fc6dbecf86f4c095c78096272adc3dee75634d864"
+        },
+        {
+          "path": "frames-v11/08-far-toe-near-reach.png",
+          "durationMs": 160,
+          "segment": "body",
+          "exists": true,
+          "sha256": "316198cfd814fc0fd96324205258fbe8c51241ac1934f887dd86a3bd1f8c1646"
+        },
+        {
+          "path": "actions-v11/walk/start.png",
+          "durationMs": 200,
+          "segment": "body",
+          "exists": true,
+          "sha256": "4eae3429a3227d9486eff39de92959730c064fe675287bce7bcf9b4f585e7a25"
+        },
+        {
+          "path": "model-reference/master-right-v3.png",
+          "durationMs": 180,
+          "segment": "body",
+          "exists": true,
+          "sha256": "4798dd4f33e066e424e0f8177c8cd9a0d3758a60088d98c6ab2879d72233309b"
+        },
+        {
+          "path": "model-reference/master-right-v1.png",
+          "durationMs": 180,
+          "segment": "body",
+          "exists": true,
+          "sha256": "9fe601f7ea4a0b400892ae05fb6858cce1755b54e7a45e0f7f12c3ca88f737ce"
+        },
+        {
+          "path": "model-reference/master-front-v2.png",
+          "durationMs": 200,
+          "segment": "body",
+          "exists": true,
+          "sha256": "7ec89e91a67884a6e524b788e328a763aaebe502c2a5b5c887b5679fd7620997"
+        },
+        {
+          "path": "actions-v12/walk-left/turn.png",
+          "durationMs": 180,
+          "segment": "body",
+          "exists": true,
+          "sha256": "6f1e3a36e4d8a44440660494a688b8db5e73e0959153a0c17a978a63ff6be6f4"
+        },
+        {
+          "path": "model-reference/master-left-v1.png",
+          "durationMs": 200,
+          "segment": "body",
+          "exists": true,
+          "sha256": "5838c2ced158956e734c5d4c24219020fa8070ed27b3d1e3f0c3215ac4ee5425"
+        },
+        {
+          "path": "actions-v12/walk-left/start.png",
+          "durationMs": 180,
+          "segment": "body",
+          "exists": true,
+          "sha256": "3a2a3b01db8746260851d0c6a3bf50e960dc14426c7e25b30b287214c4981508"
+        },
+        {
+          "path": "frames-left-v12/01-contact-near.png",
+          "durationMs": 160,
+          "segment": "body",
+          "exists": true,
+          "sha256": "584b652748987709a18eb17b941b6cc3e3a75d133c32b213b7b7ff7d3c841ecf"
+        },
+        {
+          "path": "frames-left-v12/02-near-flat-recovery.png",
+          "durationMs": 160,
+          "segment": "body",
+          "exists": true,
+          "sha256": "b5a50a55a52a6cbf0fe5b25a331d38f669f15051bb9fafc13bd3e89692db4e78"
+        },
+        {
+          "path": "frames-left-v12/03-far-passing.png",
+          "durationMs": 160,
+          "segment": "body",
+          "exists": true,
+          "sha256": "e46c02c60536aae788129b455b7c60584d242f559f3ad30c37843190beb14fbf"
+        },
+        {
+          "path": "frames-left-v12/04-near-toe-far-reach.png",
+          "durationMs": 160,
+          "segment": "body",
+          "exists": true,
+          "sha256": "5cb9d2b1b0c2eb618fb192169882e4fa3d947caef30bee692a6724c79b4d2331"
+        },
+        {
+          "path": "frames-left-v12/05-contact-far.png",
+          "durationMs": 160,
+          "segment": "body",
+          "exists": true,
+          "sha256": "ef4a91a560d929852013e3bdae3fa69bc57142658e236118384ef4649049fc06"
+        },
+        {
+          "path": "frames-left-v12/06-far-flat-recovery.png",
+          "durationMs": 160,
+          "segment": "body",
+          "exists": true,
+          "sha256": "5e46b36f0ff802c0f0e73ab00db8db2bd12367f366a5ac5fcfce5991de649ebd"
+        },
+        {
+          "path": "frames-left-v12/07-near-passing.png",
+          "durationMs": 160,
+          "segment": "body",
+          "exists": true,
+          "sha256": "f2774fe1c957e39f075b9feed2c268783a6c68889ff58cd2bd02e9ac8d674de5"
+        },
+        {
+          "path": "frames-left-v12/08-far-toe-near-reach.png",
+          "durationMs": 160,
+          "segment": "body",
+          "exists": true,
+          "sha256": "70f7e6cdcbd1ad00ef643fae7d5475a85e5ecb7400f5c4c9bc20ed95e8a1224c"
+        },
+        {
+          "path": "actions-v12/walk-left/start.png",
+          "durationMs": 240,
+          "segment": "exit",
+          "exists": true,
+          "sha256": "3a2a3b01db8746260851d0c6a3bf50e960dc14426c7e25b30b287214c4981508"
+        },
+        {
+          "path": "model-reference/master-left-v1.png",
+          "durationMs": 200,
+          "segment": "exit",
+          "exists": true,
+          "sha256": "5838c2ced158956e734c5d4c24219020fa8070ed27b3d1e3f0c3215ac4ee5425"
+        },
+        {
+          "path": "actions-v12/walk-left/turn.png",
+          "durationMs": 180,
+          "segment": "exit",
+          "exists": true,
+          "sha256": "6f1e3a36e4d8a44440660494a688b8db5e73e0959153a0c17a978a63ff6be6f4"
+        },
+        {
+          "path": "model-reference/master-front-v2.png",
+          "durationMs": 350,
+          "segment": "exit",
+          "exists": true,
+          "sha256": "7ec89e91a67884a6e524b788e328a763aaebe502c2a5b5c887b5679fd7620997"
+        },
+        {
+          "path": "model-reference/master-front-v2.png",
+          "durationMs": 800,
+          "segment": "returnToIdle",
+          "exists": true,
+          "sha256": "7ec89e91a67884a6e524b788e328a763aaebe502c2a5b5c887b5679fd7620997"
+        }
+      ],
+      "note": "The character settles before turning through front; no instantaneous horizontal flip. Discrete turn keyframes, not dense animation.",
+      "reviewBasis": "current-v12-full-playback"
+    }
+  ],
+  "version": "v12"
+}

@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>小柚 · 侧身步态研究</title>
+  <style>
+    :root{font-family:system-ui,"Microsoft YaHei",sans-serif;color:#263e36;background:#edf2ef;font-synthesis:none}
+    *{box-sizing:border-box}body{margin:0}button,select,input{font:inherit}button,select{border:1px solid #b8ccc0;border-radius:7px;background:#fff;color:#244d3a;padding:8px 11px}button{cursor:pointer}button:disabled{opacity:.5;cursor:default}button:focus-visible,select:focus-visible,a:focus-visible{outline:3px solid #da9f31;outline-offset:3px}button.primary{background:#245d43;color:#fff}header{padding:23px clamp(16px,4vw,44px);background:#183d30;color:#fff}h1{font-size:24px;margin:0 0 9px}header p{margin:0;color:#d6e6db;line-height:1.7;font-size:14px}.notice{padding:13px clamp(16px,4vw,44px);background:#fff0d9;color:#7a4112;border-bottom:1px solid #e6bb7c;font-size:14px;font-weight:650;line-height:1.65}.toolbar{display:flex;flex-wrap:wrap;align-items:center;gap:12px;padding:14px clamp(16px,4vw,44px);background:#fff;border-bottom:1px solid #cbd9d0}.toolbar label{display:flex;align-items:center;gap:6px;font-size:13px}main{max-width:1500px;margin:auto;padding:24px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.35fr);gap:22px}.card{min-width:0;border:1px solid #cad9cf;border-radius:12px;background:#fff;padding:18px}.card h2{margin:0 0 9px;font-size:17px}.card p,.notes{font-size:13px;line-height:1.7;color:#526b5b}.notes{margin:10px 0 0;padding-left:20px}.notes:empty{display:none}.meta{font-size:12px;color:#587061;line-height:1.8;overflow-wrap:anywhere}.stage{position:relative;overflow:hidden;border:1px solid #c5d3ca;border-radius:8px;background-color:#f2f5f1;background-image:linear-gradient(45deg,#d5ded5 25%,transparent 25%),linear-gradient(-45deg,#d5ded5 25%,transparent 25%),linear-gradient(45deg,transparent 75%,#d5ded5 75%),linear-gradient(-45deg,transparent 75%,#d5ded5 75%);background-size:24px 24px;background-position:0 0,0 12px,12px -12px,-12px 0}.stage img{display:block}.theme-light .stage{background:#fff}.theme-dark .stage{background:#17201e}.model-stage{max-width:none;margin:14px auto 0;aspect-ratio:3/2}.model-stage img{width:100%;height:100%;object-fit:contain}.sheet-card{grid-column:1/-1}.sheet-stage{margin-top:14px}.sheet-stage img{width:100%;height:auto}.frame-stage{width:min(100%,260px);aspect-ratio:3/4;margin:16px auto 0;border-radius:0}.frame-stage img{position:absolute;max-width:none;object-fit:fill;user-select:none;pointer-events:none}.controls{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:14px}.frames{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:6px;margin-top:12px}.frames button{padding:8px 3px;font-size:12px}.frames button[aria-pressed="true"]{background:#245d43;color:#fff}.leg-notes{border-left:3px solid #799c88;padding:9px 12px;margin-top:13px;background:#f1f6f2;line-height:1.8;font-size:13px}.leg-notes p{margin:0}.leg-notes[hidden]{display:none}.near-label{color:#087f99}.far-label{color:#5e6973}.hint{font-size:12px;color:#647b6a;line-height:1.75}.error{color:#9a3727;background:#fff0eb;border:1px solid #e2b7ab;padding:12px;border-radius:8px;margin:12px 0}.error[hidden]{display:none}.load-message{position:absolute;inset:0;display:grid;place-content:center;text-align:center;padding:22px;background:#f4f6f0e8;color:#697861;font-size:14px;line-height:1.8}.load-message[hidden]{display:none}a{color:#286449}footer{max-width:1500px;margin:auto;padding:0 24px 24px;font-size:12px;color:#647b6a;line-height:1.7}@media(max-width:850px){main{grid-template-columns:1fr;padding:16px}.sheet-card{grid-column:auto}.frames{grid-template-columns:repeat(4,1fr)}header h1{font-size:21px}}
+  </style>
+</head>
+<body class="theme-checker">
+  <header>
+    <h1 id="title">小柚 · 侧身步态研究</h1>
+    <p>先看侧视母稿，再检查粗稿中的身体朝向、近远腿连续性与落脚关系。</p>
+  </header>
+  <div class="notice" role="status">研究播放，步态未验收，不供接入。此页没有逐帧自动对齐，漂移会保留显示。</div>
+  <div class="toolbar">
+    <label>背景 <select id="theme"><option value="checker">棋盘</option><option value="light">浅色</option><option value="dark">深色</option></select></label>
+    <label>速度 <select id="speed"><option value="1">原速</option><option value="0.5">慢速 ½</option><option value="0.25">慢速 ¼</option></select></label>
+    <label><input type="checkbox" id="showLegs" checked> 显示近远腿说明</label>
+    <button id="reload" type="button">重新读取清单</button><a href="mechanics.html">查看骨架与落脚轨迹</a>
+  </div>
+  <main>
+    <div id="error" class="error" role="alert" hidden></div>
+    <section class="card">
+      <h2>侧视结构母稿</h2>
+      <div id="modelStatus" class="meta">正在读取清单…</div>
+      <div class="stage model-stage"><img id="model" alt="朝向侧面的角色结构母稿"><div id="modelLoad" class="load-message">等待侧视母稿</div></div>
+      <ul id="modelNotes" class="notes"></ul>
+    </section>
+    <section class="card">
+      <h2>粗稿逐格研究</h2>
+      <div id="candidateStatus" class="meta">正在读取清单…</div>
+      <div class="stage frame-stage" id="frameStage"><img id="frameImage" alt="步态粗稿的当前网格"><div id="frameLoad" class="load-message">等待粗稿素材</div></div>
+      <div class="controls"><button id="previous" type="button" disabled>上一格</button><button id="play" class="primary" type="button" disabled>研究播放</button><button id="next" type="button" disabled>下一格</button><span id="frameLabel" class="meta">—</span></div>
+      <div id="frames" class="frames" aria-label="选择粗稿网格"></div>
+      <div id="legNotes" class="leg-notes"><p><span class="near-label">近侧腿：</span><span id="nearLeg">待逐格审查</span></p><p><span class="far-label">远侧腿：</span><span id="farLeg">待逐格审查</span></p><p class="hint">近 / 远以镜头为准，不等同于画面左 / 右；此处是说明文字，不是自动关节识别。</p></div>
+      <p id="timing" class="hint"></p>
+      <ul id="candidateNotes" class="notes"></ul>
+    </section>
+    <section class="card sheet-card">
+      <h2>未通过的粗稿 · 原始整张</h2><p>失败原因已记录。另可查看 <a href="candidates/walk-blocking-sheet-v2.png">第 2 次整表修订</a>、<a href="candidates/06-down-b-single-v1.png">06 单帧意图稿</a> 和 <a href="review.txt">完整审查记录</a>。</p>
+      <div id="sheetMeta" class="meta">固定网格保留源图顺序与各格位置。</div>
+      <div class="stage sheet-stage"><img id="sheet" alt="八格步态粗稿原始整张"><div id="sheetLoad" class="load-message">等待粗稿素材</div></div>
+    </section>
+  </main>
+  <footer>只读取 <a href="study-manifest.json">study-manifest.json</a> 与原始 PNG。网格用 CSS 裁切显示，不重采样保存、不修改图片像素、不生成动画交付包。</footer>
+  <script>
+    'use strict';
+    const $=id=>document.getElementById(id);
+    const statusText={"G1-side-view-structure-intent-passed":"G1：侧视结构意图通过","G2-not-approved":"G2：未通过步态验收"};
+    let manifest=null,index=0,playing=false,elapsed=0,lastTime=0,raf=0,ready=false,loadEpoch=0;
+    const baseDuration=()=>manifest?.candidate?.frameDurationMs||160;
+    const duration=()=>baseDuration()/Number($('speed').value);
+    function pause(){playing=false;cancelAnimationFrame(raf);raf=0;lastTime=0;$('play').textContent='研究播放';}
+    function setNotes(id,items){$(id).replaceChildren(...(Array.isArray(items)?items:[]).map(value=>{const li=document.createElement('li');li.textContent=String(value);return li;}));}
+    function updateTiming(){if(!manifest)return;$('timing').textContent=`研究时序：每格 ${baseDuration()} ms，当前 ${$('speed').selectedOptions[0].text}；单轮 ${(duration()*8/1000).toFixed(2)} 秒。时序用于观察，不代表步态已经验收。`;}
+    function show(){if(!manifest)return;const c=manifest.candidate,entry=c.frames[index]||{};const col=index%c.columns,row=Math.floor(index/c.columns);$('frameImage').style.left=`${-col*100}%`;$('frameImage').style.top=`${-row*100}%`;$('frameImage').alt=`步态研究：${entry.label||`第 ${index+1} 格`}`;$('frameLabel').textContent=`${index+1} / 8 · ${entry.label||`第 ${index+1} 格`}`;$('nearLeg').textContent=entry.nearLeg||'待逐格审查';$('farLeg').textContent=entry.farLeg||'待逐格审查';[...$('frames').children].forEach((button,i)=>button.setAttribute('aria-pressed',String(i===index)));updateTiming();}
+    function step(to){pause();elapsed=0;index=(to+8)%8;show();}
+    function tick(time){if(!playing)return;if(lastTime)elapsed+=Math.min(time-lastTime,1000);lastTime=time;while(elapsed>=duration()){elapsed-=duration();index=(index+1)%8;show();}raf=requestAnimationFrame(tick);}
+    function setReady(value){ready=value;for(const id of ['previous','play','next'])$(id).disabled=!value;[...$('frames').children].forEach(button=>button.disabled=!value);}
+    function assignImage(id,path,loadId,onLoaded,epoch){const img=$(id);img.onload=()=>{if(epoch!==loadEpoch)return;$(loadId).hidden=true;onLoaded?.(img);};img.onerror=()=>{if(epoch!==loadEpoch)return;$(loadId).hidden=false;$(loadId).textContent='素材尚未就绪；文件补齐后，点击“重新读取清单”。';if(id==='frameImage')setReady(false);};img.src=new URL(path,location.href).href;}
+    function validate(data){if(data?.schemaVersion!==1)throw Error('清单 schemaVersion 应为 1。');if(!data.sideStudy?.path||!data.candidate?.path)throw Error('清单缺少素材路径。');const c=data.candidate;if(c.columns!==4||c.rows!==2||c.cellWidth!==384||c.cellHeight!==512)throw Error('本研究页要求固定 4×2 网格，每格 384×512。');if(!Array.isArray(c.frames)||c.frames.length!==8)throw Error('清单需要 8 格说明。');if(!Number.isFinite(c.frameDurationMs)||c.frameDurationMs<50||c.frameDurationMs>2000)throw Error('每格研究时长须为 50–2000 ms。');}
+    async function load(){const epoch=++loadEpoch;pause();setReady(false);$('error').hidden=true;$('reload').disabled=true;try{const response=await fetch('study-manifest.json',{cache:'no-store'});if(!response.ok)throw Error(`读取清单失败：HTTP ${response.status}`);const data=await response.json();validate(data);if(epoch!==loadEpoch)return;manifest=data;index=0;elapsed=0;$('title').textContent=data.title||'小柚 · 侧身步态研究';document.title=$('title').textContent;$('modelStatus').textContent=data.sideStudy.statusLabel||statusText[data.sideStudy.status]||'结构状态待审查';$('candidateStatus').textContent=`${data.candidate.statusLabel||statusText[data.candidate.status]||'粗稿未验收'} · 只供研究`;
+      setNotes('modelNotes',data.sideStudy.notes);setNotes('candidateNotes',data.candidate.notes);const c=data.candidate;$('frameImage').style.width=`${c.columns*100}%`;$('frameImage').style.height=`${c.rows*100}%`;$('frameStage').style.aspectRatio=`${c.cellWidth} / ${c.cellHeight}`;$('sheetMeta').textContent=`固定 ${c.columns}×${c.rows} 网格 · 每格 ${c.cellWidth}×${c.cellHeight} 源像素 · 按行从左到右播放`;$('sheetLoad').parentElement.style.minHeight='180px';
+      $('frames').replaceChildren(...c.frames.map((entry,i)=>{const button=document.createElement('button');button.type='button';button.textContent=`${i+1}`;button.title=entry.label||`第 ${i+1} 格`;button.setAttribute('aria-label',entry.label||`第 ${i+1} 格`);button.setAttribute('aria-pressed',String(i===index));button.disabled=true;button.onclick=()=>step(i);return button;}));
+      for(const id of ['modelLoad','frameLoad','sheetLoad']){$(id).hidden=false;$(id).textContent='正在读取原始素材…';}
+      assignImage('model',data.sideStudy.path,'modelLoad',null,epoch);assignImage('sheet',c.path,'sheetLoad',img=>{$('sheetMeta').textContent+=` · 原图 ${img.naturalWidth}×${img.naturalHeight}`;},epoch);assignImage('frameImage',c.path,'frameLoad',img=>{if(img.naturalWidth!==c.columns*c.cellWidth||img.naturalHeight!==c.rows*c.cellHeight){$('error').textContent=`粗稿尺寸为 ${img.naturalWidth}×${img.naturalHeight}，与清单的 1536×1024 不符；已暂停播放，请先核对网格。`;$('error').hidden=false;setReady(false);return;}setReady(true);},epoch);show();
+    }catch(error){if(epoch===loadEpoch){manifest=null;$('error').hidden=false;$('error').textContent=`${error.message} 请通过现有本地 HTTP 服务打开此页。`;}}finally{if(epoch===loadEpoch)$('reload').disabled=false;}}
+    $('theme').onchange=()=>{document.body.className=`theme-${$('theme').value}`;};$('speed').onchange=()=>{elapsed=0;lastTime=0;updateTiming();};$('showLegs').onchange=()=>{$('legNotes').hidden=!$('showLegs').checked;};$('previous').onclick=()=>step(index-1);$('next').onclick=()=>step(index+1);$('play').onclick=()=>{if(playing){pause();return;}if(!ready)return;playing=true;lastTime=0;$('play').textContent='暂停研究';raf=requestAnimationFrame(tick);};$('reload').onclick=load;document.addEventListener('visibilitychange',()=>{if(document.hidden)pause();});load();
+  </script>
+</body>
+</html>

@@ -1,0 +1,86 @@
+{
+  "schemaVersion": 1,
+  "status": "CURRENT_HEADLESS_CORE_SCOPED_BUILD_IMPORT_REPLAY_PASSED_WINDOWS_V1_INCOMPLETE",
+  "scope": "Current frozen C34 production Core with hand-counted79-line/9-file fixture. Separate CLI-only build and two actual runs; no whole Windows candidate qualification.",
+  "build": {
+    "candidate": "output/build-candidates/c34-cli-only-v1-20261018",
+    "receipt": "output/build-candidates/c34-cli-only-v1-20261018/cli-only-build-receipt.json",
+    "receiptSha256": "C7FF42092553854F982FDE9A0270A4B346A37FCFF68A1AF688257FA22BC20DB5",
+    "executableSha256": "80278DD125697A885C92CB1804F7217726B6550F0A399F2B6423C2CB693C4D51",
+    "rootLibrarySha256": "1C4272702BE051E9C8D4181C0555E55171D32407165E4E2C0229087D30267988",
+    "actualProfile": "O3, Thin LTO, root CGU16, jobs1, no-default-features/headless-audit; fresh exact-source root library and CLI compiler artifacts",
+    "naturalExit0AndJob0": true,
+    "all399SourceAnd10ControlInputsVerified": true,
+    "originalFailedApp42FilesUnchanged": true
+  },
+  "actualCoreEvidence": {
+    "leaf": "output/implementation/v1-cli-core-fixture-audit-20261018-d51e18c0115844aeaf2091640d095158",
+    "first": "audit-first.json",
+    "replay": "audit-replay.json",
+    "bothActualRunsNaturalExit0AndJob0": true,
+    "sourceFilesPhysicalEof": 9,
+    "sourceBytesUnchanged": true,
+    "cliAllDateTokens": 3050,
+    "cliAllDateResponses": 8,
+    "independentSqlShanghaiToday": {"tokens": 2950, "responses": 7},
+    "independentSqlShanghaiYesterday": {"tokens": 100, "responses": 1},
+    "stableFactProjectionSha256BothRuns": "2842DA9FA7A6817F68A0ACF08A7D7827CB60BB1F44D62EF36FBBFA0090BF9EBA",
+    "coveredScopes": [
+      "Unique native identities and all six metrics preserving missing, zero and nonzero values",
+      "Independent stored-date/cache arithmetic, copy deduplication and suppressed cumulative overlap",
+      "Primary/subagent/unknown and timing-only null versus recorded zero",
+      "Recorded turn duration, TTFT, result refinement and four tool-result cases",
+      "Unique historical root inbox, child exclusion, explicit diagnostics, no fake budgets and no body canaries",
+      "Actual second-run stable metering, turn, tool and inbox projection"
+    ],
+    "wholeDatabaseBytesEqualClaimed": false,
+    "dateQueryApiOrUiAccepted": false,
+    "nativeAppDataUsed": false
+  },
+  "independentReview": {
+    "path": "output/implementation/v1-cli-core-independent-review-20261018-68d7f6b2/review.json",
+    "sha256": "5CA9AE6FD1BF763B336CB9C117F6895EA13CB3D0E431352275F14210C69EF9EC",
+    "status": "INDEPENDENT_READ_ONLY_SCOPED_CLI_CORE_REVIEW_PASSED"
+  },
+  "prepareOnly": {
+    "actualRunLeaf": "output/isolated-build-roots/c34-v11-v1-20261018/output/performance/v1-prepare-only-r2-20261018-537165a51ded42a38dde2afeba0f9f10",
+    "actualCliNaturalExit0AndJob0": true,
+    "readOnlyAudit": "output/isolated-build-roots/c34-v11-v1-20261018/output/performance/v1-prepare-only-r3-auditor-20261018-3702e69ed2f04fc38c32d7d4f0787636/audit.json",
+    "readOnlyAuditSha256": "5FD4CF885BA93F60B7EE90587ED5D8670D8541D0E2751321401F018111108248",
+    "schemaVersion": 6,
+    "emptyFactCursorAndAccountTables": 21,
+    "reducedMotionPersisted": true,
+    "scanSnapshotBridgeAndModelCalls": 0,
+    "compiledCoreSourceFieldsVerified": 12,
+    "scope": "Initialization/static setting only. Twelve embedded hashes supplement the full build provenance; they are not the full dependency graph.",
+    "originalObserverFailureRetained": "output/implementation/v1-completion-20261018/prepare-r2-audit-first-failure.json",
+    "observerRepair": "Separate R3 read-only audit uses actual OS directory identity for Windows verbatim-path spelling. Original run, R2 controls, database and failed observer remain unchanged; no CLI rerun."
+  },
+  "readerFocusedTests": {
+    "result": "output/implementation/v1-m1-six-exact-run-only-20261018-9f482c31/result.json",
+    "resultSha256": "192E97231DB6F59318F62780BAA8B153B651EA1F4A1BC1CE7EA8E2E1FBD14110",
+    "actualPassed": 6,
+    "retainedTestExecutableSha256": "2EF4C30A68BFFD45D6F60C52A7E3ED29DE23899F1FD0A8CFB6EAD63B6D99C39E",
+    "sourceProjection": "All51 Rust/SQL/Cargo bytes match current C34 and the retained harness compilation context;153 source handles across three roots guarded",
+    "scope": "Two discovery and four reader exception/diagnosis/watermark/rollback tests. No compilation or whole288-test rerun.",
+    "naturalExit0AndJob0": true
+  },
+  "readerBudgetHookOverlay": {
+    "result": "output/implementation/v1-reader-budget-hook-overlay-20261018-r1/test/result.json",
+    "resultSha256": "3A051395DF4A3B69CBD1B304168801B80763B24ED093D6E7C371EB1462CFD8A4",
+    "testExecutableSha256": "E1EFEDE60F55FC5497B9D7353117488EB194B99DBBB916115150947C727EE75A",
+    "privateSourcePolicy": "53 exact base inputs; only one append-only cfg(test) function added to existing budget test module. Product and frozen C34 sources unchanged.",
+    "actualPassedTestFunctions": 1,
+    "actualPassedBranches": ["cancel", "before-commit"],
+    "scope": "Real Core scan entry, retained fact/cursor/watermark atomicity, invalidated live-budget continuity, history-only retry crossing and idempotent replay",
+    "testNaturalExit0AndJob0": true,
+    "compileNaturalWholeJobCompletion": false,
+    "compileClosure": "Compile root0 then declared owned compiler-descendant cleanup; final Job0 and all guards closed. Test execution was separately released and naturally completed.",
+    "releaseBinaryEquivalenceOrNativeNotificationClaimed": false
+  },
+  "sourceProjection": "output/implementation/v1-m1-evidence-projection-20261018/audit.json",
+  "retainedAppFailure": "docs/acceptance/c34-v11-v1-build-failure-2026-10-18.json",
+  "remainingMandatoryScope": "output/implementation/v1-completion-20261018/requirements.json",
+  "notQualifiedByThisReceipt": ["wholeM1", "currentAppOrNsis", "dateQueryUi", "realAccountOrChat", "liveBudgetOrOsNotification", "csvOrDataManagementUi", "fullRawImport", "nativeDesktop", "releasePerformance", "installationUpgradeUninstall", "M4"],
+  "V1Complete": false
+}

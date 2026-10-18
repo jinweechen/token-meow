@@ -1,0 +1,47 @@
+[
+  {
+    "id": "sleep/lowering-v2",
+    "source": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14ad5-c365-7233-8895-9cecddb69f66\\exec-8cda0938-5c73-4260-a6a2-96c4b0a1a08b.png",
+    "destination": "D:/project/宠物/assets/pets/nekomi/walk-v10-complete/actions-v11/sleep/lowering-v2.png",
+    "prompt": "Draw an actual sitting-down intermediate BETWEEN the standing pose of image 1 and seated pose image 2. Transparent 1024x1536, same scale and camera. Leave TOP 200 pixels empty transparent. Head/face must stay exactly the SAME WIDTH as image 1, never enlarge to fill frame. Both knees bend, hips lower into a squat, feet remain on ground near y1480. Torso leans forward for balance, hands on knees, eyes half closed. Head ears around y200-260, chin around y650, waist around y900. Same detailed cat-girl, clothes, curls, small bows, tail behind pelvis and all body parts. No background or shadow, no text. Do not merely shrink the entire figure; redraw the bending joints.",
+    "promptPath": "D:/project/宠物/assets/pets/nekomi/walk-v10-complete/prompts/v11-action-sleep-lowering-v2.txt",
+    "inputs": [
+      "D:/project/宠物/assets/pets/nekomi/walk-v10-complete/model-reference/master-front-v2.png",
+      "D:/project/宠物/assets/pets/nekomi/walk-v10-complete/actions-v11/sleep/seated.png"
+    ],
+    "review": "candidate; full sequence QA pending"
+  },
+  {
+    "id": "sleep/seated-breath",
+    "source": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14ad5-c365-7233-8895-9cecddb69f66\\exec-34919451-6c71-4bda-82f6-24290ee1e425.png",
+    "destination": "D:/project/宠物/assets/pets/nekomi/walk-v10-complete/actions-v11/sleep/seated-breath.png",
+    "prompt": "Edit this exact seated sleeping cat-girl PNG for a subtle breathing keyframe. Keep identical canvas 1024x1536, head scale, empty top space, leg/shoe positions, hands, skirt, curls and tail placement. Only raise shoulders and upper chest a tiny amount for a gentle inhale, and slightly lift the resting head a few pixels. Eyes stay closed. No change of pose, no new background, no glow or shadow. Genuine transparent alpha.",
+    "promptPath": "D:/project/宠物/assets/pets/nekomi/walk-v10-complete/prompts/v11-action-sleep-seated-breath.txt",
+    "inputs": [
+      "D:/project/宠物/assets/pets/nekomi/walk-v10-complete/actions-v11/sleep/seated.png"
+    ],
+    "review": "candidate; full sequence QA pending"
+  },
+  {
+    "id": "bow/deep",
+    "source": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14ad5-c365-7233-8895-9cecddb69f66\\exec-8be191f7-4f11-463d-a53c-4dd914ac8b0d.png",
+    "destination": "D:/project/宠物/assets/pets/nekomi/walk-v10-complete/actions-v11/bow/deep.png",
+    "prompt": "Deepen the existing polite bow into a readable BODY bow toward the viewer, same exact cat-girl, costume and 1024x1536 transparent canvas. Feet stay at current positions. Hinge at the hips: chest leans forward and is foreshortened, shoulders LOWER about 80px, neck follows the chest. Lower the entire head so ear tips begin about y150, NOT at the top edge. We see more TOP OF THE HEAD and bangs; face looks down at her hands and is foreshortened. Long hair drapes downward beside shoulders. Both hands remain naturally joined in front. Do not keep an upright torso with only closed eyes. All figure inside frame, no background, text or shadow.",
+    "promptPath": "D:/project/宠物/assets/pets/nekomi/walk-v10-complete/prompts/v11-action-bow-deep.txt",
+    "inputs": [
+      "D:/project/宠物/assets/pets/nekomi/walk-v10-complete/actions-v11/bow/hold.png"
+    ],
+    "review": "candidate; full sequence QA pending"
+  },
+  {
+    "id": "walk/start",
+    "source": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14ad5-c365-7233-8895-9cecddb69f66\\exec-5c57742d-550e-4e33-b1b0-aefa0b1016db.png",
+    "destination": "D:/project/宠物/assets/pets/nekomi/walk-v10-complete/actions-v11/walk/start.png",
+    "prompt": "Edit this exact right-facing profile cat-girl into the small first step that connects neutral standing to a walk. Same character scale, head location, canvas 1024x1536 and true transparency. NEAR RIGHT foot moves only a little forward to screen-right and begins heel contact; FAR LEFT heel rises slightly behind, toes still supporting. A modest starting step, much narrower than full stride. Near right arm begins a small backward swing, far left arm a small forward swing, mostly occluded. Tail root remains visibly attached through the posterior-center dress port and hair window, tail shifts only slightly. Preserve exact detailed model, one eye, curled hair, side ribbons, dress and shoes. No background, glow, shadow or text.",
+    "promptPath": "D:/project/宠物/assets/pets/nekomi/walk-v10-complete/prompts/v11-action-walk-start.txt",
+    "inputs": [
+      "D:/project/宠物/assets/pets/nekomi/walk-v10-complete/model-reference/master-right-v3.png"
+    ],
+    "review": "candidate; full sequence QA pending"
+  }
+]

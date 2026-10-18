@@ -1,0 +1,342 @@
+{
+  "schemaVersion": 1,
+  "recordedAtUtc": "2026-10-16T03:01:46.3723944Z",
+  "dateAsiaShanghai": "2026-10-16",
+  "status": "C20-bounded-bridge-diagnostic-targeted-validation-passed",
+  "scope": "Production account_bridge.rs diagnostic-only source change, one library-test compilation, actual test list and one 29-case bridge-only execution; no private probe result included",
+  "source": {
+    "path": "src-tauri/src/account_bridge.rs",
+    "sha256": "E796C3BBCFD579E1BEA2EE461E61555D19C17DEF43B9DD9960812F5296D65D81",
+    "bytes": 106649,
+    "baselineSha256": "3A06761C6AF7FB0908F926FDAEF47F1E1EC02442E075A2E5282443243966F3BA",
+    "smallCompilationInputs": 30,
+    "other29UnchangedFromC19": true,
+    "postformatInputsSha256": "3A882BFFAB9EA949928AEDE69D30D6B55D3C24227E0995ABFE6729DB8F743736",
+    "implementation": "Bounded first resource event with UTC/elapsed time, last selected allowlisted stage, owned root PID plus decimal-string/null creation FileTime, optional Job notification fields and exact-owner cleanup observations",
+    "boundaries": [
+      "Stage and notification timing do not establish an RPC was sent or allocation causality",
+      "96 MiB warning,128 MiB hard limit,white-listed reads,resource latch and visible error text unchanged",
+      "No RPC params/responses,paths,account content,new polling or foreign-process enumeration"
+    ],
+    "AppCandidateBuilt": false
+  },
+  "formatting": {
+    "firstConstructorFailure": {
+      "rejectedArgv0": "rustfmt",
+      "stage": "owned_job pre-api executable validation",
+      "childLaunched": false,
+      "productCases": 0,
+      "emptyLogsPreserved": true
+    },
+    "explicitExecutableSucceeded": {
+      "argv": [
+        "C:\\Users\\Administrator\\.cargo\\bin\\rustfmt.EXE",
+        "--edition",
+        "2021",
+        "--config",
+        "skip_children=true",
+        "D:\\project\\宠物\\src-tauri\\src\\account_bridge.rs"
+      ],
+      "elapsedSeconds": 0.2295579998753965,
+      "status": "completed",
+      "rootExitCode": 0,
+      "JobActive": 0,
+      "naturalWholeJobCompletion": true,
+      "errors": [],
+      "stderrBytes": 0,
+      "onlyAccountBridgeLeafFormatted": true
+    },
+    "priorMissingChildProbeRetainedNotRerun": true
+  },
+  "compilation": {
+    "command": "cargo test --manifest-path src-tauri/Cargo.toml --release --features custom-protocol --offline --lib --no-run --message-format=json",
+    "oneCargoLaunch": true,
+    "cargoRootExitCode": 0,
+    "compilerWrapperRootExitCode": 0,
+    "status": "compiled-root-zero-owned-descendants-cleaned",
+    "elapsedSeconds": 58.60444790031761,
+    "timeoutSeconds": 600,
+    "cleanupSeconds": 5,
+    "createdSuspended": true,
+    "assignedBeforeResume": true,
+    "naturalWholeJobCompletion": false,
+    "rootZeroObservedWithActiveDescendants": 1,
+    "finalJobActive": 0,
+    "cleanupVerified": true,
+    "errors": [],
+    "rawCargoRows": 487,
+    "rawCompilerArtifacts": 429,
+    "rawBuildScriptRows": 57,
+    "oneSuccessfulBuildFinished": true,
+    "compilerMessages": 0,
+    "selectedTestArtifactFresh": false,
+    "testHarness": {
+      "sha256": "243A7E4EBD7562D4E7CCD4FE7E26C3ECB84153859399D44330C7066AAB884539",
+      "bytes": 6471168,
+      "origin": "same-handle copied current Cargo artifact; identity reused from frozen wrapper and held-list/test evidence, not rehashed by receipt author"
+    },
+    "oldHarness": {
+      "sha256": "87221A97950CC8788F013909F22A0CAA351606BE0347741A2E29FA6681599005",
+      "bytes": 6415872,
+      "preserved": true
+    },
+    "AppCliOrInstallerBuilt": false
+  },
+  "tests": {
+    "actualListed": 119,
+    "listIdentity": "Exactly previous114 plus five required new names",
+    "freshCasesExecuted": 29,
+    "passed": 29,
+    "failed": 0,
+    "ignored": 0,
+    "filteredOut": 90,
+    "newCases": 5,
+    "existingBridgeCasesRerun": 24,
+    "requiredNewNames": [
+      "account_bridge::tests::resource_diagnostic_is_first_event_only_bounded_and_allowlisted",
+      "account_bridge::tests::resource_diagnostic_keeps_unknown_values_and_exact_owner_cleanup_facts",
+      "account_bridge::tests::resource_diagnostic_survives_cache_source_and_shared_gate_until_resource_retry",
+      "account_bridge::tests::poisoned_resource_diagnostic_lock_remains_available_after_stop",
+      "account_bridge::tests::resource_diagnostic_masks_memory_fields_by_their_respective_flags"
+    ],
+    "coreNotRerun": 79,
+    "desktopNotRerun": 11,
+    "arguments": [
+      "account_bridge::tests::",
+      "--test-threads=1"
+    ],
+    "singleThreaded": true,
+    "listElapsedSeconds": 0.49499409971758723,
+    "testElapsedSeconds": 0.3106865999288857,
+    "testReportedSeconds": 0.27,
+    "status": "completed",
+    "rootExitCode": 0,
+    "naturalWholeJobCompletion": true,
+    "finalJobActive": 0,
+    "jobTotalProcesses": 14,
+    "cleanupVerified": true,
+    "errors": [],
+    "sourceAndHeldHarnessUnchanged": true,
+    "heldHarnessGuardClosed": true,
+    "ordinaryHelperCase": {
+      "name": "account_bridge::tests::owned_bridge_test_child",
+      "countedAsCase": true,
+      "noRoleReturns": true,
+      "newFeatureCoverageClaimed": false
+    },
+    "twoWindowsCases": [
+      "account_bridge::tests::windows_bridge_hard_denial_is_distinct_from_warning_tree_fuse",
+      "account_bridge::tests::windows_bridge_is_budget_bound_before_resume_and_cancel_reclaims_descendants"
+    ],
+    "windowsCaseScope": "Owned synthetic test children, not official account service or App Native qualification"
+  },
+  "qualification": {
+    "diagnosticSourceAndBridgeOnlyTestsPassed": true,
+    "wholeCratePassed": false,
+    "freshCore79Passed": false,
+    "freshDesktop11Passed": false,
+    "authenticatedBridgeQualified": false,
+    "directoryFailureRepaired": false,
+    "rpcAllocationCauseEstablished": false,
+    "privateProbeResultsIncluded": false,
+    "NativePassed": false,
+    "performanceQualified": false,
+    "installerQualified": false,
+    "M4Passed": false,
+    "goalComplete": false
+  },
+  "retained": "Original formatter constructor rejection/empty logs, prior C19 compiler/watchdog and planner first failures, C18 Native and historical resource failures remain unchanged; Core79 remains its separate 79-distinct/80-execution composite",
+  "finalization": {
+    "method": "Read-only raw JSON/log review and new receipt authoring",
+    "allRawCargoJsonParsed": true,
+    "raw119ListAnd29CaseNamesMatched": true,
+    "smallReferencesHashed": true,
+    "largeHarnessRehashed": false,
+    "programsTestsBuildsOrProbeExecuted": 0,
+    "sourceModified": false,
+    "existingReceiptsModified": false,
+    "threeMarkdownFilesModified": false
+  },
+  "references": [
+    {
+      "path": "src-tauri/src/account_bridge.rs",
+      "bytes": 106649,
+      "sha256": "E796C3BBCFD579E1BEA2EE461E61555D19C17DEF43B9DD9960812F5296D65D81"
+    },
+    {
+      "path": "output/implementation/c20-bridge-diagnostic-7e8ded1943f94bad96027c8a583f7bc1/manifest.json",
+      "bytes": 2029,
+      "sha256": "110A1487350A8B0B3708D1DB130E4C3A5B70AB5E9F8ED3E7EE9AD6AA2BA9D72D"
+    },
+    {
+      "path": "output/implementation/c20-bridge-diagnostic-7e8ded1943f94bad96027c8a583f7bc1/account_bridge.patch",
+      "bytes": 35026,
+      "sha256": "447E7F03CF0049E4F97AAB7F90251122208E27AE7570A5008B6B8B6289C2561B"
+    },
+    {
+      "path": "output/implementation/c20-bridge-diagnostic-7e8ded1943f94bad96027c8a583f7bc1/filetime-decimal-revision/manifest.json",
+      "bytes": 2277,
+      "sha256": "76E94B16FD7BD5286F1F6CEC3B5CC7E8E0357E88D6E4A72BDEF1B13D45479D38"
+    },
+    {
+      "path": "output/implementation/c20-bridge-diagnostic-7e8ded1943f94bad96027c8a583f7bc1/filetime-decimal-revision/account_bridge.patch",
+      "bytes": 2134,
+      "sha256": "65D0623F332F291816F862EE22763759248673699DBECA489E72CD621CDAD6DD"
+    },
+    {
+      "path": "output/implementation/c20-bridge-diagnostic-7e8ded1943f94bad96027c8a583f7bc1/root-leaf-format/first-constructor-failure.json",
+      "bytes": 380,
+      "sha256": "855CAE54A4F58A97C3622E60ED987D38213ECF59DCE0B4DA1D6E02B68C6483E8"
+    },
+    {
+      "path": "output/implementation/c20-bridge-diagnostic-7e8ded1943f94bad96027c8a583f7bc1/root-leaf-format/formatter.stdout.log",
+      "bytes": 0,
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "path": "output/implementation/c20-bridge-diagnostic-7e8ded1943f94bad96027c8a583f7bc1/root-leaf-format/formatter.stderr.log",
+      "bytes": 0,
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "path": "output/implementation/c20-bridge-diagnostic-7e8ded1943f94bad96027c8a583f7bc1/root-leaf-format/explicit-executable/format-decision.json",
+      "bytes": 1003,
+      "sha256": "3FF338F488D3223D73F376083AB4D72B618D4CFCA7933C5CD045CB5C501A448F"
+    },
+    {
+      "path": "output/implementation/c20-bridge-diagnostic-7e8ded1943f94bad96027c8a583f7bc1/root-leaf-format/explicit-executable/formatter.execution.json",
+      "bytes": 1409,
+      "sha256": "E00A8DF609F948BF27CE77D418B69246B8453583B6E8FC6BF3AF5E2EDBBA96F0"
+    },
+    {
+      "path": "output/implementation/c20-bridge-diagnostic-7e8ded1943f94bad96027c8a583f7bc1/root-leaf-format/explicit-executable/formatter.stdout.log",
+      "bytes": 0,
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "path": "output/implementation/c20-bridge-diagnostic-7e8ded1943f94bad96027c8a583f7bc1/root-leaf-format/explicit-executable/formatter.stderr.log",
+      "bytes": 0,
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "path": "output/implementation/c20-bridge-validation-plan-50aae66246474d6385c44033a50c54b9/plan-manifest.json",
+      "bytes": 3617,
+      "sha256": "829A8568D8F75B4AD853475E47C9E7F251C5188F4D5D79B2F7F5E1FB177979DE"
+    },
+    {
+      "path": "output/implementation/c20-bridge-validation-plan-50aae66246474d6385c44033a50c54b9/execution-release.json",
+      "bytes": 1071,
+      "sha256": "010281B5C7CB284FB20E4DF7975C142C117D00A2622C64A62BFB7187D2EC331A"
+    },
+    {
+      "path": "output/implementation/c20-bridge-validation-plan-50aae66246474d6385c44033a50c54b9/commands.json",
+      "bytes": 1899,
+      "sha256": "9344C2AEDCA20A68B8E3DD07C9401842BA7C11FFF3B82D5BCD3448E3F1114305"
+    },
+    {
+      "path": "output/implementation/c20-bridge-validation-plan-50aae66246474d6385c44033a50c54b9/inputs.baseline.c19.json",
+      "bytes": 6155,
+      "sha256": "D340D3EE629B989DCE885AF31146974B14BD999D867C07B2D3882ACD6298E071"
+    },
+    {
+      "path": "output/implementation/c20-bridge-validation-plan-50aae66246474d6385c44033a50c54b9/inputs.postformat.frozen.json",
+      "bytes": 6328,
+      "sha256": "3A882BFFAB9EA949928AEDE69D30D6B55D3C24227E0995ABFE6729DB8F743736"
+    },
+    {
+      "path": "output/implementation/c20-bridge-validation-plan-50aae66246474d6385c44033a50c54b9/compiler.execution.json",
+      "bytes": 1819,
+      "sha256": "A3809E9C9ADA019C67733870A7AAA308DB618F179D7749BC3CEB74A10244B9A4"
+    },
+    {
+      "path": "output/implementation/c20-bridge-validation-plan-50aae66246474d6385c44033a50c54b9/compiler.stdout.log",
+      "bytes": 0,
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "path": "output/implementation/c20-bridge-validation-plan-50aae66246474d6385c44033a50c54b9/compiler.stderr.log",
+      "bytes": 0,
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "path": "output/implementation/c20-bridge-validation-plan-50aae66246474d6385c44033a50c54b9/cargo.stdout.jsonl",
+      "bytes": 388573,
+      "sha256": "B800B365A6B87CF7ED708E5D262CB473BB44FBF92B9CDE5DF6E9FD488F8347F3"
+    },
+    {
+      "path": "output/implementation/c20-bridge-validation-plan-50aae66246474d6385c44033a50c54b9/cargo.stderr.log",
+      "bytes": 124,
+      "sha256": "3838A905492DFE857B4B2C8BC2F6F0075ABA60AABCFAC8DB8FBE94742B6C05E9"
+    },
+    {
+      "path": "output/implementation/c20-bridge-validation-plan-50aae66246474d6385c44033a50c54b9/cargo-return.json",
+      "bytes": 438,
+      "sha256": "22C4C862DD4A52731504BFECFAEC49428D0FE95F7E7ACD3E4619389999C5413E"
+    },
+    {
+      "path": "output/implementation/c20-bridge-validation-plan-50aae66246474d6385c44033a50c54b9/compile-wrapper-result.json",
+      "bytes": 2465,
+      "sha256": "D16FFF58129657FF8D53B1B87EB4AE6B4A8B573EB1E2296606E3407668FD80FD"
+    },
+    {
+      "path": "output/implementation/c20-bridge-validation-plan-50aae66246474d6385c44033a50c54b9/compiled-harness.frozen.json",
+      "bytes": 513,
+      "sha256": "8570A00A69B804A0117DF836FE7C5E72F2844AA998DD1B18BEEB7737A00A8530"
+    },
+    {
+      "path": "output/implementation/c20-bridge-validation-plan-50aae66246474d6385c44033a50c54b9/old-cache-harness.json",
+      "bytes": 552,
+      "sha256": "E7BAD7888C7B0C7050E1A8532BC5B44383999116C47713D7D1951F8613D1B37C"
+    },
+    {
+      "path": "output/implementation/c20-bridge-validation-plan-50aae66246474d6385c44033a50c54b9/harness-list.execution.json",
+      "bytes": 1336,
+      "sha256": "51911E88AC39ED0680FA8AE8EF6D8926BD92CC6C015ADB4639D8D1E2E5D44A27"
+    },
+    {
+      "path": "output/implementation/c20-bridge-validation-plan-50aae66246474d6385c44033a50c54b9/harness-list.stdout.log",
+      "bytes": 11626,
+      "sha256": "BAED6CAE6EC4A302C71BB24F5CB1514F38C516095E038C78C69943DBED7FCFA7"
+    },
+    {
+      "path": "output/implementation/c20-bridge-validation-plan-50aae66246474d6385c44033a50c54b9/harness-list.stderr.log",
+      "bytes": 0,
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "path": "output/implementation/c20-bridge-validation-plan-50aae66246474d6385c44033a50c54b9/actual-test-selection.json",
+      "bytes": 14868,
+      "sha256": "C38C838251F7D557D81585BA216F1CB6644EDA4DF1BC23C6339C8FAE166E0C0A"
+    },
+    {
+      "path": "output/implementation/c20-bridge-validation-plan-50aae66246474d6385c44033a50c54b9/bridge-tests.execution.json",
+      "bytes": 1378,
+      "sha256": "62263C5A54150939F8E602A0F900AF14DEB124203A22DCCA7A347D6C1AB2B65B"
+    },
+    {
+      "path": "output/implementation/c20-bridge-validation-plan-50aae66246474d6385c44033a50c54b9/bridge-tests.stdout.log",
+      "bytes": 2948,
+      "sha256": "3016F51920B0605F63F02655D88D719F4E15F8089AD4DFCCC94FA437FBABB00E"
+    },
+    {
+      "path": "output/implementation/c20-bridge-validation-plan-50aae66246474d6385c44033a50c54b9/bridge-tests.stderr.log",
+      "bytes": 0,
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "path": "output/implementation/c20-bridge-validation-plan-50aae66246474d6385c44033a50c54b9/validation-result.json",
+      "bytes": 5283,
+      "sha256": "BE446187FB52CF1512A066DBBB2A1696098A1813D4D5E4C2848CACA77F3586AE"
+    },
+    {
+      "path": "docs/acceptance/c19-retention-v6-core-composite-2026-10-16.json",
+      "bytes": 35334,
+      "sha256": "361938F8E382BD8C4BA2B2AFF9E49CC6B1948EAACAA609C07EBC93A8F1699E49"
+    },
+    {
+      "path": "output/implementation/c19-retention-validation-plan-reviewed-0b987494bb734fe3926c1222436ba9d5/rustfmt-capability.json",
+      "bytes": 2036,
+      "sha256": "8D9FB7E635502F6EC2A921B6C0732888F3BFEFCF700BA80EB44C28D50241F9A9"
+    }
+  ]
+}

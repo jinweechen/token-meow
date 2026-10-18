@@ -1,0 +1,4 @@
+Use case: background-extraction / precise-object-edit.
+Input image 1 is the exact edit target and master coordinate reference.
+Create ONE isolated production rig layer as a transparent PNG. Keep the exact original 1024 x 1536 canvas, scale, front camera and ORIGINAL PIXEL POSITION. Do not crop, zoom, recenter or enlarge the isolated piece to fill the canvas. The empty remaining canvas must be truly transparent. Preserve delicate polished anime linework, exact colors and shape of this character. No labels, guides, shadows or background. This will be stacked with other same-canvas layers.
+ONLY the small closed gentle smile mouth line of this character. A fine warm coral thin shallow curve, same exact mouth shape as original. Original location roughly x503..544,y400..409. No lips volume, lipstick, teeth, tongue, nose, cheeks, skin patch or face. One delicate tiny smile decal on transparent canvas. Preserve subtle original anime style.

@@ -1,0 +1,225 @@
+{
+  "schemaVersion": 1,
+  "recordedAtUtc": "2026-10-15T22:24:29.4760674Z",
+  "dateAsiaShanghai": "2026-10-16",
+  "candidateScope": "C18 source changes before candidate build",
+  "reviewer": "desktop subagent, independent source review of root/ledger/frontend-owned C18 changes",
+  "status": "no-material-blocker-found-within-reviewed-source-scope",
+  "method": "Read-only inspection of source, relevant call sites, stable-ID writes, DTO consumers and existing receipt metadata; this receipt records earlier completed reviews. File hashing is provenance verification, not a product test.",
+  "qualification": {
+    "sourceReviewOnly": true,
+    "materialBlockerFound": false,
+    "reviewerRanTests": false,
+    "reviewerRanCargo": false,
+    "reviewerRanSql": false,
+    "reviewerRanApplication": false,
+    "reviewerRanBrowser": false,
+    "reviewerModifiedProductionOrFixture": false,
+    "browserQualification": "pending separate root Browser IPC receipt; no browser pass is asserted or inherited here",
+    "nativePassed": false,
+    "performancePassed": false,
+    "fullImportPassed": false,
+    "installerPassed": false,
+    "releasePassed": false,
+    "M4Passed": false
+  },
+  "reviewedFinalSources": {
+    "backend": [
+      {
+        "path": "src-tauri/src/core/pet.rs",
+        "sha256": "7746CED32E17C6ED4B3D511BB5E49672909E75CAB0052D2B0E46CB8EDCB870C6",
+        "bytes": 17435,
+        "reviewExtent": "Complete new read-model module: cursor validation, arrival traversal/selection, header/domain, bounded prompts, scalar Pulse/Details and nullable metrics.",
+        "matchesReferencedFinalHash": true
+      },
+      {
+        "path": "src-tauri/migrations/005_pet_read_models.sql",
+        "sha256": "504F5EFDB693FC87FD7E3F977AA5BFFC794A736A301105F23137DE06E22F1F0B",
+        "bytes": 404,
+        "reviewExtent": "Complete migration: AUTOINCREMENT feed, stable-ID backfill, INSERT-only trigger, FK cascade and schema generation.",
+        "matchesReferencedFinalHash": true
+      },
+      {
+        "path": "src-tauri/src/core.rs",
+        "sha256": "748DCE1D94E1AE701EEB5B24BBC528163552872325AB0F6183DD65272A0C925F",
+        "bytes": 41491,
+        "reviewExtent": "C18 integration only: future-schema guard, consistent backup/pending-DDL transaction, settings_at, revision wrapper and atomic clear_inbox.",
+        "matchesReferencedFinalHash": true
+      },
+      {
+        "path": "src-tauri/src/desktop.rs",
+        "sha256": "692BE856B6322C4C0963DE4CFE8CCFB2273DBDDE7F8ACEB9D6FE0DD5A926FEE1",
+        "bytes": 108215,
+        "reviewExtent": "C18 integration only: quota_for_source, get_pet_pulse/get_pet_details locks/projection, domain-change emission and both command handlers.",
+        "matchesReferencedFinalHash": true
+      },
+      {
+        "path": "src-tauri/src/core/pet_tests.rs",
+        "sha256": "B6D21283928FDED8BE108E868B0E1D0A2BEADF7E0138889F2489D8EAA6B08719",
+        "bytes": 28127,
+        "reviewExtent": "Six authored C18 cases reviewed; final mut-binding compile-only correction verified through unchanged final source binding and the backend receipt, not rerun by this reviewer.",
+        "matchesReferencedFinalHash": true
+      }
+    ],
+    "frontend": [
+      {
+        "path": "src/App.tsx",
+        "sha256": "F884131AE4097A9FF44D3CD69F29B61CA2888CA70AA88561A2EA8091F22E2878",
+        "bytes": 46739,
+        "reviewExtent": "Main/Pet route split at 549-565; PetWindow presentation/readiness, animation acknowledgement, on-demand Details and popover lifetime at 1055-1305.",
+        "matchesReferencedFinalHash": true
+      },
+      {
+        "path": "src/features/pet/usePetStore.ts",
+        "sha256": "765F11F3D3D0925A8FD128FC1185C65F5B9DEDA7E972B40099E614690C57E812",
+        "bytes": 7439,
+        "reviewExtent": "Complete hook: per-effect StrictMode owner, native subscription/ready fences, visibility, cleanup and bounded refresh entry points.",
+        "matchesReferencedFinalHash": true
+      },
+      {
+        "path": "src/features/pet/petLifecycle.ts",
+        "sha256": "CED25426198BB9DFF6AFAAF14C44F49C7E43A80319A63FAF570E3A801D5F8395",
+        "bytes": 9496,
+        "reviewExtent": "Complete controller: strict headers, current-generation/single-flight Pulse, cursor commit, clock/domain fences and Details close/late handling.",
+        "matchesReferencedFinalHash": true
+      },
+      {
+        "path": "src/features/pet/CatGirl.tsx",
+        "sha256": "FCE623B28380C98968F144C888BC1993BF56B0FC6A271487B7D297F0F1E5176D",
+        "bytes": 11188,
+        "reviewExtent": "C18 consumer changes: explicit readiness, shared prompt batch, resume/source watermark fences and actual-start acknowledgement; existing asset renderer is retained scope.",
+        "matchesReferencedFinalHash": true
+      },
+      {
+        "path": "src/features/pet/WorkCareBubble.tsx",
+        "sha256": "2804CFFE07090CBB54E2CF921F09F0159028B6A2F64BDF4F2109C26628D3E389",
+        "bytes": 1933,
+        "reviewExtent": "Complete small component: per-effect session ownership, presentation/readiness propagation and cleanup.",
+        "matchesReferencedFinalHash": true
+      },
+      {
+        "path": "src/features/pet/workCareSession.ts",
+        "sha256": "73B238C7D986FFA9391A25702F34FA675D8112479B1CBBED5B336FC5F472967A",
+        "bytes": 4467,
+        "reviewExtent": "Complete session: only fresh accepted presentation renews facts; hide/DND/popover/unready suppress and finite timers/listeners are disposed.",
+        "matchesReferencedFinalHash": true
+      },
+      {
+        "path": "src/features/pet/workCareController.ts",
+        "sha256": "9C28AF81B9EE3BEBECD314542B856DCA7B03CB67EE16184005EC2855CE4F85C3",
+        "bytes": 8498,
+        "reviewExtent": "C18 presentation/prompt integration and existing baseline, observation-gap, manual-tap and lifecycle behavior.",
+        "matchesReferencedFinalHash": true
+      },
+      {
+        "path": "src/features/pet/promptWatermark.ts",
+        "sha256": "B2549A7A0787F693528E7E346C8D0DE64EE045421267FEAB7E5AA3830C39788E",
+        "bytes": 1341,
+        "reviewExtent": "Complete bounded rendering watermark, first-batch/seen suppression, short TTL and no unknown-to-known replay.",
+        "matchesReferencedFinalHash": true
+      },
+      {
+        "path": "src/features/pet/presenter.ts",
+        "sha256": "E9DA8CB8EC6180DD960D83327F20729B0EDB38D873FDA505519C2EFA18474B2C",
+        "bytes": 1957,
+        "reviewExtent": "Complete PetPresentation/ready projection, loading and activity/uncertainty states.",
+        "matchesReferencedFinalHash": true
+      },
+      {
+        "path": "src/shared/contracts.ts",
+        "sha256": "B92595190797F723F5CAE24814CE0CD82D4D626F49F89B0078FA953A94F321D3",
+        "bytes": 8867,
+        "reviewExtent": "PetPresentation, PetCursor, PetReadHeader, PetPulse and PetDetails DTOs at 295-353; no claim of whole-file contract audit.",
+        "matchesReferencedFinalHash": true
+      },
+      {
+        "path": "src/shared/bridge.ts",
+        "sha256": "A3CEE120FF1186F34D1DBA55F870B780E84529153D82B980D994F4B785AE177D",
+        "bytes": 1507,
+        "reviewExtent": "Finite get_pet_pulse/get_pet_details IPC signatures and independent panel get_snapshot route.",
+        "matchesReferencedFinalHash": true
+      },
+      {
+        "path": "src/shared/viewRefreshLoop.ts",
+        "sha256": "D96246144C0BD876D55416A9735F24BFF8E9677E20AB99795D107EDA5F50FED3",
+        "bytes": 1827,
+        "reviewExtent": "Complete retained visible-view single-flight polling owner and disposal; source review only, not rerun.",
+        "matchesReferencedFinalHash": null
+      }
+    ],
+    "lifecycleSha256": "CED25426198BB9DFF6AFAAF14C44F49C7E43A80319A63FAF570E3A801D5F8395",
+    "comparedReferencedFinalSourcesDrift": [],
+    "note": "Only the listed extents were independently reviewed. Tests are attributed to their original immutable receipts below; hashing a listed file does not expand its review extent."
+  },
+  "materialFindings": [],
+  "backendConclusions": [
+    "Schema5 feed uses INSERT arrivals only; existing stable IDs are backfilled. Same-ID UPDATE/refinement/read/ACK does not allocate an arrival. FK deletes remove feed rows without resetting sqlite_sequence.",
+    "Cursor syntax and decimal bounds are checked before domain baseline. Every observed sequence through the high watermark is consumed, including invalid/future/other-day/expired/ineligible/overflow; selected output stays bounded to8 and dropped classes remain explicit.",
+    "Future events becoming current and unknown-to-known updates cannot re-enter the arrival feed. Reads do not acknowledge or mark Inbox entries read. Existing Inbox/count semantics remain independent of prompt selection.",
+    "Core C18 wrappers preserve explicit Shanghai-day/settings time, success-only decimal revision, future-version rejection and consistent pre-upgrade backup plus pending-DDL transaction. clear_inbox and its scope watermark are atomic.",
+    "Details validates day/runtime/source domain and preserves native alias/excluded/cache/null semantics. Desktop quota projection is a small cached read under the same validated Core source binding, starts no RPC and rejects disabled/old-root binding.",
+    "Successful domain-mutating actions invalidate the frontend immediately through petDomainChanged before optional bridge-cache cleanup waits. Both command-handler configurations include the finite read-model commands."
+  ],
+  "frontendConclusions": [
+    "App splits Main/Pet before hooks. Pet does not instantiate useApplication, a panel Query or full Snapshot; main retains the existing panel path.",
+    "Each usePetStore effect setup owns a new PetReadLifecycle. Late subscriptions, RAF callbacks and replies are fenced and all effect-owned resources are disposed; StrictMode cleanup cannot revive an old owner.",
+    "Pulse requires strict string domain/revision/cursor fields and rejects same-domain revision<=the last accepted revision. Generation/serial/day/asOf checks occur before acceptedAt or cursor commits, so an invalid or old reply cannot renew observation freshness.",
+    "Initial, hidden, DND, source/day/runtime change, clock rollback and observation-gap paths retain baseline/suppression behavior. Null or not-ready presentation is not a confirmed empty event batch.",
+    "CatGirl and Care receive the same immutable accepted prompt batch. Their rendering watermarks are independent consumers; consuming the persistent read cursor is distinct from animation acknowledgement. Only CatGirl actual prompt start invokes acknowledge_delivery.",
+    "Details is requested only while the card is open and the pet is visible/ready. Close, settings/domain/clock change and disposal invalidate late results; the card uses explicit not-ready placeholders rather than stale facts or invented zero totals.",
+    "WorkCare DOM visibility/popover callbacks do not renew retained facts. Only a fresh accepted presentation updates observation time, preserving the manual-tap stale guard and finite bubble lifetime."
+  ],
+  "referencedValidation": {
+    "receipts": [
+      {
+        "path": "docs/acceptance/c18-pet-read-models-core-2026-10-16.json",
+        "sha256": "0AF6EE26F3361EB9135C5C115383C7A1D1E8349104A7FFC248D4BE3F3FC74915",
+        "bytes": 40245
+      },
+      {
+        "path": "output/implementation/c18-pet-frontend-6394a7cdafbd4c78ad82e411f3ff6ea5/targeted-validation-receipt.json",
+        "sha256": "750935F5B2BC51793C90CACE4F309E3CAA52DC0DD42EF0D9A6D1EBA67C9D8E8F",
+        "bytes": 5824
+      },
+      {
+        "path": "output/implementation/c18-pet-watermark-reviewfix-e4ab745f1ab14fec81e20d21ff6a9818/incremental-validation-receipt.json",
+        "sha256": "B60714FC8129987625ED4D86A9933F4FFA69197E049ABEE2E27C8EC45A82DDF8",
+        "bytes": 5290
+      }
+    ],
+    "backend": {
+      "receiptPath": "docs/acceptance/c18-pet-read-models-core-2026-10-16.json",
+      "coreCases": 76,
+      "selectedDesktopCases": 2,
+      "distinctPassed": 78,
+      "listedHarnessCases": 111,
+      "wholeCrateRun": false,
+      "reviewerRerun": false,
+      "source": "Original 0AF6 receipt: production Core authored fixtures, all core:: cases plus two named desktop quota/source-binding exact cases; initial mut-binding compile failure retained and corrected without a production change."
+    },
+    "frontend": {
+      "initialReceiptPath": "output/implementation/c18-pet-frontend-6394a7cdafbd4c78ad82e411f3ff6ea5/targeted-validation-receipt.json",
+      "incrementalReceiptPath": "output/implementation/c18-pet-watermark-reviewfix-e4ab745f1ab14fec81e20d21ff6a9818/incremental-validation-receipt.json",
+      "initialDistinctPassed": 34,
+      "newDistinctCounterexampleCase": 1,
+      "distinctPassed": 35,
+      "totalExecutions": 44,
+      "passedExecutions": 43,
+      "retainedFirstFailedExecutions": 1,
+      "unresolvedDistinctFailures": 0,
+      "postFixCasesExecuted": 9,
+      "retainedOtherCasesNotRerun": 26,
+      "reviewerRerun": false,
+      "accounting": "35 distinct = initial34 + one new strict-watermark/revision counterexample. 44 executions = initial34 + retained firstfail1 + post-fix9; the eight overlapping post-fix cases are not counted as new distinct coverage. Initial750935 and incrementalB607 receipts remain unchanged and separately attributed.",
+      "scope": "Pure TypeScript/controller tests and tsc in the original receipts. The successful post-fix lifecycle is CED254; original initial pass is not rebound as though it ran that later source."
+    }
+  },
+  "limitations": [
+    "No material blocker was found within these specific read-model, migration, wiring and consumer paths; this is not a claim that all product behavior is defect-free.",
+    "Review did not execute tests, browser IPC, application, account RPC, installer, real-source scan or performance measurement. Existing tests are referenced evidence rather than fresh executions by the reviewer.",
+    "Browser IPC remains for the root separate receipt. A Browser fixture cannot qualify production Core/SQLite, native rendering, real CSV save, account compatibility, OS delivery or Windows lifecycle.",
+    "No C18 native/P95/renderer resource/full-import/warm-start/idle/installation or whole M4 pass is asserted. Historical C12-C16 failures and incomplete measurements remain unchanged and cannot be transferred to this candidate.",
+    "Pulse candidate/output storage is bounded, while scalar traversal still depends on source/turn/inbox size; source review and unit test timings do not establish resident memory or latency improvement.",
+    "Details is an independent same-domain on-demand channel, not a promise that its revision equals the latest Pulse revision; in-flight data can remain asOf-stale within the explicit freshness checks."
+  ]
+}

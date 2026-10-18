@@ -1,0 +1,11 @@
+Use case: precise-object-edit.
+Image1 is an unfinished low tail-cradling pose. Correct the tail connectivity and thickness; preserve her recognizable identity, face, clothing and relaxed low hands. Image2 is the correct slender tail master.
+
+The current tail incorrectly ends at the viewer-right sleeve cuff and looks like a detached fur object. Fix that clear error. Her tail MUST be a single visibly continuous anatomical tail arriving from BEHIND THE LOWER RIGHT SKIRT, never attached to a cuff or hand.
+
+Draw this ONE CONTINUOUS ROUTE in the frontal image: a narrow tail segment emerges from occlusion at the OUTER viewer-right skirt silhouette near the LOWER HEM (roughly x800 y960 on this 1024x1536 canvas), then curves IN FRONT of the lower skirt toward the viewer-right hand at roughly x650 y880, continues leftward through the two open supporting hands, and ends at ONE small softly rounded tip near x370 y920. The part BETWEEN the right skirt edge and the right hand MUST BE VISIBLE and connected, not missing or hidden inside the sleeve. Remove the current erroneous upward tail stub toward the right cuff. The hands simply cradle the tail from below; they do not generate or terminate it.
+The hidden actual root is on the center back below the waist, passing behind the dress before this lower-side emergence. Keep the total curve compact; don't add a second tail hanging behind the body, no extra tip, no U-shaped giant loop. Same narrow cylindrical shaft as master, only40–50px wide, tapering gradually to the sole free tip. Fine short fur, not a fluffy leaf or thick scarf.
+
+Hands have five correctly attached digits with natural relaxed curl below the shaft, visible fingers independently attached to the palm with normal knuckles, thumbs above/along tail, no fused branches. Maintain low hands at the lower skirt and leave chest untouched. Keep parallel forward feet, natural legs and all costume details. Slightly reduce overall framing only if necessary to leave approximately30px transparent space above ears and below shoes, while character stays at least1200px high.
+
+Native1024x1536PNG with actual transparent alpha, clean antialiased edges, no backdrop, haze, halo, floor shadow, text or watermark.

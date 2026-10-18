@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "status": "APP_BUILD_FAILED_NO_CURRENT_WINDOWS_PRODUCT",
+  "recordedAtUtc": "2026-10-17T23:13:16Z",
+  "candidate": "output/build-candidates/c34-v11-v1-20261018",
+  "sourceSnapshot": "output/isolated-build-roots/c34-v11-v1-20261018",
+  "scope": "Current v11 Windows build attempt; historical C33 products and all previous failures retain their original provenance",
+  "completedStages": ["dependencies", "frontend", "legal"],
+  "failedStage": "app",
+  "failure": {
+    "phase": "token_meow_lib rlib LLVM optimization/code generation, before App binary link and NSIS bundle",
+    "diagnostic": "rustc-LLVM ERROR: out of memory; Allocation failed",
+    "cargoExitCode": 101,
+    "ownerExitCode": 1,
+    "elapsedSeconds": 180.68056130036712,
+    "timedOut": false,
+    "naturalWholeJobCompletion": true,
+    "finalActiveJobProcesses": 0,
+    "cleanupVerified": true,
+    "guardsPostCheckAndClosurePassed": true,
+    "minimumSampledAvailableSystemCommitBytes": 21762048,
+    "ownedJobPeakBytes": 2799132672,
+    "maximumAnyOwnedProcessPeakBytes": 2679853056,
+    "noExactFailedAllocationSizeRecorded": true,
+    "automaticRetry": false
+  },
+  "actualRootCompilerProfile": {"jobs": 1, "codegenUnits": 16, "optLevel": 3, "libraryLtoFlag": "linker-plugin-lto", "strip": "debuginfo"},
+  "systemDiagnosis": {
+    "measured": "System commit nearly exhausted. Automatic pagefile30485MiB nearly equals C volume/8; physical free RAM and pagefile used percent do not establish commit headroom.",
+    "inference": "Automatic pagefile growth likely reached the ordinary volume/8 policy boundary; this is not an exact kernel allocation trace.",
+    "singleAppOrMemoryLeakRootCauseProven": false,
+    "systemConfigurationChanged": false,
+    "existingUserProcessesModified": false,
+    "resourceRecoveryDecision": "Pending user selection: user releases selected workloads, or explicitly authorized supported pagefile capacity change. No automatic reboot."
+  },
+  "artifactStateAtReceipt": {"newAppProduced": false, "newNsisProduced": false, "cliStageAttempted": false, "sealAttempted": false},
+  "evidence": [
+    {"path": "output/build-candidates/c34-v11-v1-20261018/source-inputs.json", "sha256": "8C0FE1DE394CCE75CE0C097C055ADF9A79CB4386A64347733B6DD38BF49C51D0"},
+    {"path": "output/build-candidates/c34-v11-v1-20261018/control-inputs-r1.json", "sha256": "9A3211A6E48B723495E07BC664EFCDC6F0006F66FD6E9833044CE4F195D8D6D6"},
+    {"path": "output/build-candidates/c34-v11-v1-20261018/dist-inputs.json", "sha256": "94C219609996A2F87A1B25B48F868DBCE22C41889E29BC0AAE5B6655E2DE363C"},
+    {"path": "output/build-candidates/c34-v11-v1-20261018/legal-inputs.json", "sha256": "63A24A59060B8CCDE4E7F41E3B5EFF2084DC3CA5F668AC2630940D58191BDC84"},
+    {"path": "output/build-candidates/c34-v11-v1-20261018/app-job.json", "sha256": "6B30161CC993C88B77BD1719311D6DE9ECD20FE9FE5C1229B8B06193A25FEED4"},
+    {"path": "output/implementation/v1-remaining-build-failure-20261018-08609106/diagnosis.json", "sha256": "7BC158855FF9005F29164DB64FB9F2A4192C76D4CC54718F61ED6732ECFC7F60"}
+  ],
+  "nativeUiQualified": false,
+  "installationQualified": false,
+  "performanceQualified": false,
+  "V1Complete": false
+}

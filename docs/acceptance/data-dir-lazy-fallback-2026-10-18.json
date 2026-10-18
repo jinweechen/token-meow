@@ -1,0 +1,39 @@
+{
+  "status": "SOURCE_LAZY_DATA_DIRECTORY_SELECTION_FIXED_TARGETED_EXPRESSION_REGRESSION_PASSED_APP_UNBUILT",
+  "date": "2026-10-18",
+  "source": "src-tauri/src/desktop.rs",
+  "sourceSha256": "B6B90B8E39959C36D66CA7AB84DC9CC28AA4B0D06DB056B8034221ED141A230B",
+  "problem": "An absolute TOKEN_MEOW_DATA_DIR was selected but eager unwrap_or still queried an unavailable Windows default directory, failing setup before Core opened the ledger.",
+  "change": "Explicit match uses the absolute override directly; missing or relative override retains default-directory result and error semantics.",
+  "actualOsCause": {
+    "path": "output/implementation/v1-private-knownfolder-probe-20261018-f54eb095c3eb43a1838aefbee20fcb3c/result.json",
+    "realProfileFallbackUsed": false,
+    "after": "Same environment bytes, only private Profile/AppData/Local and Roaming created: both0x00000000",
+    "before": "SHGetKnownFolderPath flags0 Local/Roam 0x80070003",
+    "sha256": "3B33C92F5D3E93DA3B615AEA8EDC1CB2E9363590DFC6A6C5506AAC87155562A3"
+  },
+  "actualExpressionRegression": {
+    "stdOnlyRustc": true,
+    "fixedPassed": 6,
+    "rootVerifiedBindings": 35,
+    "cargoUsed": false,
+    "independentReview": "asset_contract verified extraction/evidence/source and exact before-after boundary; no mustFix",
+    "rawProductionSlices": true,
+    "guiUsed": false,
+    "path": "output/implementation/v1-data-dir-lazy-fallback-20261018-b6d9a214/proof.json",
+    "sha256": "C5175F705306DABC1A79F7C6ECDA3FA142EC5294B0E23672C114A78D622EC9CF",
+    "oldFailed": 2,
+    "fixedFailed": 0,
+    "oldPassed": 4
+  },
+  "originalNativeFailures": [
+    "output/performance/v1-c33-core-native-20261018-b7849d26/result.json",
+    "output/performance/v1-c33-core-native-r2-20261018-c5f7a926/result.json"
+  ],
+  "frozenC33C34Modified": false,
+  "newSnapshotRequired": true,
+  "newAppBuilt": false,
+  "nativeFixQualified": false,
+  "wholeV1Complete": false,
+  "recordedAtUtc": "2026-10-18T00:07:52.6540595Z"
+}

@@ -1,0 +1,9 @@
+Use case: identity-preserve.
+Asset: one independent shy desktop-pet pose.
+Sole reference image: hd-v3-rear-outlet/idle.png, the accepted fully dressed character and tail design.
+
+Create a gentle shy variation of this same character. Keep her standing upright, with open green eyes, a small shy smile and a slight friendly head tilt. One hand lightly touches her cheek with relaxed natural fingers; the other arm hangs comfortably at her side. Retain the same cute proportions, silver-white wavy hair, cat ears, small green daisy hair bows, complete opaque ivory-and-mint long-sleeved dress, small chest bow, waist ribbon, flower-pattern skirt and ruffled hem, opaque white tights and green Mary Jane shoes. Shoes face forward nearly parallel. Keep the clothing exactly as complete and closed as the reference. Nothing is lifted or removed.
+
+Keep the reference's existing tail design and placement unchanged: one fluffy white cat tail appearing beside the upper portion of the skirt and curving outward then down in a clear open C shape to a single hanging tip. Keep the clear space beneath the skirt around the legs and preserve the tail's visual separation from the hair and dress. Do not move the tail to the bottom edge of the skirt. This is a friendly everyday mascot pose; no extra objects, no costume change.
+
+Output one complete character, exact native 1024x1536 portrait RGBA PNG with genuinely transparent background. Visible character height at least 1200px, comfortable margins, complete ears, hair, fingers, tail and shoes. Crisp native illustration detail. No background, floor, shadows, halo, labels, captions, diagrams or additional characters.

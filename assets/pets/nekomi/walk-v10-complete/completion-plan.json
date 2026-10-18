@@ -1,0 +1,682 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-17",
+  "timezone": "Asia/Shanghai",
+  "status": "pending",
+  "objective": "完成统一角色母稿、侧走循环、原十二动作及同一模型的分层制作素材和独立验收记录。",
+  "projectRoot": "D:/project/宠物",
+  "assetRoot": "assets/pets/nekomi/walk-v10-complete",
+  "scopeConfirmed": [
+    "统一正面、清楚侧面、背面与朝右动作母稿，必要时补三分之四视图。",
+    "侧走八个基础相位及按运动需要增加的补间，完成实际慢速完整循环检查。",
+    "原十二动作逐项执行 G0–G5，覆盖进入、主体或循环、退出及返回待机。",
+    "统一模型的分层制作素材、装配与遮挡检查、来源追溯以及实际显示检查。"
+  ],
+  "completionPolicy": [
+    "所有交付项与阶段初始化为 pending；本计划不授予任何素材新的通过结论。",
+    "文件齐全、PNG 数量、1024×1536 尺寸、RGBA、SHA 或原图字节一致均不能单独使状态 complete。",
+    "完成判断必须具有对应要求的实际视觉、动作与装配证据，且受影响问题已闭环。",
+    "保留原始成功、失败、拒绝、撤回及缺证记录；修复后新增对应复核，不覆盖原结论。",
+    "历史证据复用只能标记 retained-historical-scope；须核对当前文件、母稿条件、时长、顺序和装配数据适用范围。",
+    "PNG、姿势、模型设计、播放顺序、时长、定位或枢轴发生变化后，复核受影响范围。",
+    "八相位是基础工作分解，不是固定八张即足够的自然动画承诺。",
+    "透明分层 PNG 和定位数据的交付名称为分层制作素材，不等于完成 PSD、Live2D、Spine 绑定工程。"
+  ],
+  "workBoundary": {
+    "status": "pending",
+    "allowed": "素材绘制、静态素材预览、来源记录及素材验收。",
+    "runtimeChanges": "禁止修改 src/Rust/桌宠运行时。",
+    "gitPublication": "不提交或推送。",
+    "historicalPreservation": "保留所有既有版本、原图与证据，不重置或覆盖。"
+  },
+  "stageDefinitions": [
+    {
+      "id": "G0",
+      "label": "对应动作专项研究",
+      "status": "pending",
+      "requiredEvidence": [
+        "明确动作意图、视角、支撑与表演；记录直接相关的实际参考及观察事实。",
+        "既有参考只在条件未变时按 retained-historical-scope 注明复用，不用通用研究替代专项研究。"
+      ]
+    },
+    {
+      "id": "G1",
+      "label": "统一模型与结构关键姿势",
+      "status": "pending",
+      "requiredEvidence": [
+        "按统一母稿确定比例、解剖左右、近远身份、隐藏骨链及前后遮挡。",
+        "头、身体、裙袖、手脚、饰件与尾根连接在同一视图中成立。"
+      ]
+    },
+    {
+      "id": "G2",
+      "label": "粗动作连续性",
+      "status": "pending",
+      "requiredEvidence": [
+        "按预期时长检查进入、主体或循环、退出及返回待机；原速、慢速与逐帧检查。",
+        "移动动作另查身体位移与支撑接触；结构不成立时返回 G1。"
+      ]
+    },
+    {
+      "id": "G3",
+      "label": "实际高清素材",
+      "status": "pending",
+      "requiredEvidence": [
+        "使用对应已复核姿势完成原生高清绘制；人物图不得用程序裁切、形变、抠图、拼接或骨架示意替代。",
+        "逐图复核手指、关节链、服装图案、尾根、轮廓及跨帧设计一致性。"
+      ]
+    },
+    {
+      "id": "G4",
+      "label": "实际显示与局部检查",
+      "status": "pending",
+      "requiredEvidence": [
+        "用实际 PNG 检查桌宠预期显示尺寸及人物约 1200 px 高两档。",
+        "实际检查透明棋盘、浅色、深色背景，以及手指、尾根、遮挡与鞋子局部；像素元数据不代替视觉检查。"
+      ]
+    },
+    {
+      "id": "G5",
+      "label": "完整动作与交付",
+      "status": "pending",
+      "requiredEvidence": [
+        "检查进入、主体或循环、退出、返回待机、相邻帧与循环接缝。",
+        "序列帧与分层制作素材分别验证，保留失败与补测边界，绑定当前文件、顺序、时长和装配数据 SHA。"
+      ]
+    }
+  ],
+  "master": {
+    "id": "unified-model-and-right-facing-master",
+    "status": "pending",
+    "items": [
+      {
+        "id": "front-view",
+        "label": "正面母稿",
+        "status": "pending",
+        "requiredEvidence": [
+          "确认统一比例、五官、发型、双发结、服装、手脚和尾巴设计。"
+        ]
+      },
+      {
+        "id": "side-view",
+        "label": "清楚侧面母稿",
+        "status": "pending",
+        "requiredEvidence": [
+          "侧面头颅、颈胸背、骨盆、髋膝踝及鞋体一致；不强行露出全部远侧饰件或手指。"
+        ]
+      },
+      {
+        "id": "back-view",
+        "label": "背面母稿",
+        "status": "pending",
+        "requiredEvidence": [
+          "背面腰带、发饰朝向、服装接缝与后骨盆正中尾根相互一致。"
+        ]
+      },
+      {
+        "id": "right-facing-walk-master",
+        "label": "朝右动作母稿",
+        "status": "pending",
+        "requiredEvidence": [
+          "固定解剖右侧为近侧、左侧为远侧；鞋体朝向、地面透视、骨链及近远遮挡一起成立。",
+          "尾巴从后骨盆正中经背后小开口伸出；投影重叠时遮住远左臂手，近右臂层级自然。"
+        ]
+      },
+      {
+        "id": "cross-view-model-consistency",
+        "label": "跨视图统一",
+        "status": "pending",
+        "requiredEvidence": [
+          "复核头身比例、四肢长度、腰骨盆位置、衣裙结构、花纹、头饰与尾根，不仅检查饰件局部。"
+        ]
+      }
+    ],
+    "requiredGates": {
+      "G0": "pending",
+      "G1": "pending",
+      "G2": "pending",
+      "G3": "pending",
+      "G4": "pending",
+      "G5": "pending"
+    }
+  },
+  "sideWalk": {
+    "id": "right-facing-walk-cycle",
+    "status": "pending",
+    "dependsOn": [
+      "unified-model-and-right-facing-master"
+    ],
+    "requiredGates": {
+      "G0": "pending",
+      "G1": "pending",
+      "G2": "pending",
+      "G3": "pending",
+      "G4": "pending",
+      "G5": "pending"
+    },
+    "phases": [
+      {
+        "id": "01-contact-near",
+        "label": "近右脚接触，远左腿在后推蹬",
+        "status": "pending",
+        "requiredEvidence": [
+          "按统一朝右母稿实际绘制并检查该相位，保留近右/远左整条肢体身份。",
+          "与相邻帧一起检查支撑、手臂反摆、尾根、鞋体透视和服装连续性。"
+        ]
+      },
+      {
+        "id": "02-near-flat-recovery",
+        "label": "近右腿接受体重，远左腿离地回收",
+        "status": "pending",
+        "requiredEvidence": [
+          "按统一朝右母稿实际绘制并检查该相位，保留近右/远左整条肢体身份。",
+          "与相邻帧一起检查支撑、手臂反摆、尾根、鞋体透视和服装连续性。"
+        ]
+      },
+      {
+        "id": "03-far-passing",
+        "label": "近右腿支撑，远左脚经过",
+        "status": "pending",
+        "requiredEvidence": [
+          "按统一朝右母稿实际绘制并检查该相位，保留近右/远左整条肢体身份。",
+          "与相邻帧一起检查支撑、手臂反摆、尾根、鞋体透视和服装连续性。"
+        ]
+      },
+      {
+        "id": "04-near-toe-far-reach",
+        "label": "近右脚抬跟支撑，远左脚前摆",
+        "status": "pending",
+        "requiredEvidence": [
+          "按统一朝右母稿实际绘制并检查该相位，保留近右/远左整条肢体身份。",
+          "与相邻帧一起检查支撑、手臂反摆、尾根、鞋体透视和服装连续性。"
+        ]
+      },
+      {
+        "id": "05-contact-far",
+        "label": "远左脚接触，近右腿在后推蹬",
+        "status": "pending",
+        "requiredEvidence": [
+          "按统一朝右母稿实际绘制并检查该相位，保留近右/远左整条肢体身份。",
+          "与相邻帧一起检查支撑、手臂反摆、尾根、鞋体透视和服装连续性。"
+        ]
+      },
+      {
+        "id": "06-far-flat-recovery",
+        "label": "远左腿接受体重，近右腿离地回收",
+        "status": "pending",
+        "requiredEvidence": [
+          "按统一朝右母稿实际绘制并检查该相位，保留近右/远左整条肢体身份。",
+          "与相邻帧一起检查支撑、手臂反摆、尾根、鞋体透视和服装连续性。"
+        ]
+      },
+      {
+        "id": "07-near-passing",
+        "label": "远左腿支撑，近右脚经过",
+        "status": "pending",
+        "requiredEvidence": [
+          "按统一朝右母稿实际绘制并检查该相位，保留近右/远左整条肢体身份。",
+          "与相邻帧一起检查支撑、手臂反摆、尾根、鞋体透视和服装连续性。"
+        ]
+      },
+      {
+        "id": "08-far-toe-near-reach",
+        "label": "远左脚抬跟支撑，近右脚前摆并连续进入 01",
+        "status": "pending",
+        "requiredEvidence": [
+          "按统一朝右母稿实际绘制并检查该相位，保留近右/远左整条肢体身份。",
+          "与相邻帧一起检查支撑、手臂反摆、尾根、鞋体透视和服装连续性。"
+        ]
+      }
+    ],
+    "checks": [
+      {
+        "id": "contact-and-depth",
+        "label": "足部接触与空间",
+        "status": "pending",
+        "requiredEvidence": [
+          "按母稿相机确认实际鞋跟/前掌支点与地面透视，不沿用失效的严格平行鞋或统一单地线。"
+        ]
+      },
+      {
+        "id": "full-cycle",
+        "label": "完整原速与慢速循环",
+        "status": "pending",
+        "requiredEvidence": [
+          "以真实 PNG 检查 01→08→01 多轮；逐帧复核经过相位、半周期左右身份与首尾接缝。",
+          "补足运动需要的中间帧和时长；不复制首帧造成额外停顿，不用全图归一化掩盖漂移。"
+        ]
+      },
+      {
+        "id": "movement-match",
+        "label": "移动动作的位移与支撑",
+        "status": "pending",
+        "requiredEvidence": [
+          "在素材预览中检查身体位移与支撑脚局部运动的对应关系；本项不修改运行时。"
+        ]
+      },
+      {
+        "id": "walk-segments",
+        "label": "进入、循环、退出与返回",
+        "status": "pending",
+        "requiredEvidence": [
+          "明确行走进入、主体循环、退出及返回待机的实际画稿与时间关系。"
+        ]
+      }
+    ],
+    "segments": {
+      "entry": "pending",
+      "bodyOrLoop": "pending",
+      "exit": "pending",
+      "returnToIdle": "pending"
+    }
+  },
+  "twelveActions": {
+    "status": "pending",
+    "dependsOn": [
+      "unified-model-and-right-facing-master"
+    ],
+    "actions": [
+      {
+        "id": "idle",
+        "label": "待机",
+        "status": "pending",
+        "researchIntent": "眨眼、呼吸与稳定站立重心；眨眼节奏独立于短循环。",
+        "requiredGates": {
+          "G0": "pending",
+          "G1": "pending",
+          "G2": "pending",
+          "G3": "pending",
+          "G4": "pending",
+          "G5": "pending"
+        },
+        "segments": {
+          "entry": "pending",
+          "bodyOrLoop": "pending",
+          "exit": "pending",
+          "returnToIdle": "pending"
+        },
+        "reuseLabel": "retained-historical-scope",
+        "reuseCondition": "原 v6 仅作其原始有限局部动作证据；逐项核对统一新母稿与 G0–G5 后决定可复用及需重绘的范围。"
+      },
+      {
+        "id": "active",
+        "label": "活跃",
+        "status": "pending",
+        "researchIntent": "先确定专注观察或身体兴奋的具体表演，再定幅度。",
+        "requiredGates": {
+          "G0": "pending",
+          "G1": "pending",
+          "G2": "pending",
+          "G3": "pending",
+          "G4": "pending",
+          "G5": "pending"
+        },
+        "segments": {
+          "entry": "pending",
+          "bodyOrLoop": "pending",
+          "exit": "pending",
+          "returnToIdle": "pending"
+        },
+        "reuseLabel": "retained-historical-scope",
+        "reuseCondition": "原 v6 仅作其原始有限局部动作证据；逐项核对统一新母稿与 G0–G5 后决定可复用及需重绘的范围。"
+      },
+      {
+        "id": "alert",
+        "label": "提醒",
+        "status": "pending",
+        "researchIntent": "注意力转移与短促预备；明确看、转头或举手的次序。",
+        "requiredGates": {
+          "G0": "pending",
+          "G1": "pending",
+          "G2": "pending",
+          "G3": "pending",
+          "G4": "pending",
+          "G5": "pending"
+        },
+        "segments": {
+          "entry": "pending",
+          "bodyOrLoop": "pending",
+          "exit": "pending",
+          "returnToIdle": "pending"
+        },
+        "reuseLabel": "retained-historical-scope",
+        "reuseCondition": "原 v6 仅作其原始有限局部动作证据；逐项核对统一新母稿与 G0–G5 后决定可复用及需重绘的范围。"
+      },
+      {
+        "id": "complete",
+        "label": "完成",
+        "status": "pending",
+        "researchIntent": "庆祝的预备、强调与收势；选用跳跃时补齐蹬地、腾空、落地。",
+        "requiredGates": {
+          "G0": "pending",
+          "G1": "pending",
+          "G2": "pending",
+          "G3": "pending",
+          "G4": "pending",
+          "G5": "pending"
+        },
+        "segments": {
+          "entry": "pending",
+          "bodyOrLoop": "pending",
+          "exit": "pending",
+          "returnToIdle": "pending"
+        },
+        "reuseLabel": "retained-historical-scope",
+        "reuseCondition": "原 v6 仅作其原始有限局部动作证据；逐项核对统一新母稿与 G0–G5 后决定可复用及需重绘的范围。"
+      },
+      {
+        "id": "happy",
+        "label": "开心",
+        "status": "pending",
+        "researchIntent": "表情与躯干配合；明确无位移开心或带跳跃庆祝。",
+        "requiredGates": {
+          "G0": "pending",
+          "G1": "pending",
+          "G2": "pending",
+          "G3": "pending",
+          "G4": "pending",
+          "G5": "pending"
+        },
+        "segments": {
+          "entry": "pending",
+          "bodyOrLoop": "pending",
+          "exit": "pending",
+          "returnToIdle": "pending"
+        },
+        "reuseLabel": "retained-historical-scope",
+        "reuseCondition": "原 v6 仅作其原始有限局部动作证据；逐项核对统一新母稿与 G0–G5 后决定可复用及需重绘的范围。"
+      },
+      {
+        "id": "wink",
+        "label": "眨眼互动",
+        "status": "pending",
+        "researchIntent": "眼睑闭合、嘴角与轻微头倾，保持脸部体积。",
+        "requiredGates": {
+          "G0": "pending",
+          "G1": "pending",
+          "G2": "pending",
+          "G3": "pending",
+          "G4": "pending",
+          "G5": "pending"
+        },
+        "segments": {
+          "entry": "pending",
+          "bodyOrLoop": "pending",
+          "exit": "pending",
+          "returnToIdle": "pending"
+        },
+        "reuseLabel": "retained-historical-scope",
+        "reuseCondition": "原 v6 仅作其原始有限局部动作证据；逐项核对统一新母稿与 G0–G5 后决定可复用及需重绘的范围。"
+      },
+      {
+        "id": "affection",
+        "label": "亲近",
+        "status": "pending",
+        "researchIntent": "明确接近、歪头、招手等意图，伸手时检查透视与肩肘链。",
+        "requiredGates": {
+          "G0": "pending",
+          "G1": "pending",
+          "G2": "pending",
+          "G3": "pending",
+          "G4": "pending",
+          "G5": "pending"
+        },
+        "segments": {
+          "entry": "pending",
+          "bodyOrLoop": "pending",
+          "exit": "pending",
+          "returnToIdle": "pending"
+        },
+        "reuseLabel": "retained-historical-scope",
+        "reuseCondition": "原 v6 仅作其原始有限局部动作证据；逐项核对统一新母稿与 G0–G5 后决定可复用及需重绘的范围。"
+      },
+      {
+        "id": "shy",
+        "label": "害羞",
+        "status": "pending",
+        "researchIntent": "收肩、视线、手位及稳定支撑，不只靠持续内扣膝或内八。",
+        "requiredGates": {
+          "G0": "pending",
+          "G1": "pending",
+          "G2": "pending",
+          "G3": "pending",
+          "G4": "pending",
+          "G5": "pending"
+        },
+        "segments": {
+          "entry": "pending",
+          "bodyOrLoop": "pending",
+          "exit": "pending",
+          "returnToIdle": "pending"
+        },
+        "reuseLabel": "retained-historical-scope",
+        "reuseCondition": "原 v6 仅作其原始有限局部动作证据；逐项核对统一新母稿与 G0–G5 后决定可复用及需重绘的范围。"
+      },
+      {
+        "id": "bow",
+        "label": "鞠躬",
+        "status": "pending",
+        "researchIntent": "髋部折叠、躯干倾斜、颈部跟随、重心与长发滞后。",
+        "requiredGates": {
+          "G0": "pending",
+          "G1": "pending",
+          "G2": "pending",
+          "G3": "pending",
+          "G4": "pending",
+          "G5": "pending"
+        },
+        "segments": {
+          "entry": "pending",
+          "bodyOrLoop": "pending",
+          "exit": "pending",
+          "returnToIdle": "pending"
+        },
+        "reuseLabel": "retained-historical-scope",
+        "reuseCondition": "原 v6 仅作其原始有限局部动作证据；逐项核对统一新母稿与 G0–G5 后决定可复用及需重绘的范围。"
+      },
+      {
+        "id": "stretch",
+        "label": "伸懒腰",
+        "status": "pending",
+        "researchIntent": "肩胛、肩肘、胸廓和腰协同，明确脚是否踮起。",
+        "requiredGates": {
+          "G0": "pending",
+          "G1": "pending",
+          "G2": "pending",
+          "G3": "pending",
+          "G4": "pending",
+          "G5": "pending"
+        },
+        "segments": {
+          "entry": "pending",
+          "bodyOrLoop": "pending",
+          "exit": "pending",
+          "returnToIdle": "pending"
+        },
+        "reuseLabel": "retained-historical-scope",
+        "reuseCondition": "原 v6 仅作其原始有限局部动作证据；逐项核对统一新母稿与 G0–G5 后决定可复用及需重绘的范围。"
+      },
+      {
+        "id": "hug-tail",
+        "label": "抱尾",
+        "status": "pending",
+        "researchIntent": "双手托持与接触、尾巴连接和弧线，避免袖手腹部穿模。",
+        "requiredGates": {
+          "G0": "pending",
+          "G1": "pending",
+          "G2": "pending",
+          "G3": "pending",
+          "G4": "pending",
+          "G5": "pending"
+        },
+        "segments": {
+          "entry": "pending",
+          "bodyOrLoop": "pending",
+          "exit": "pending",
+          "returnToIdle": "pending"
+        },
+        "reuseLabel": "retained-historical-scope",
+        "reuseCondition": "原 v6 仅作其原始有限局部动作证据；逐项核对统一新母稿与 G0–G5 后决定可复用及需重绘的范围。"
+      },
+      {
+        "id": "sleep",
+        "label": "睡眠",
+        "status": "pending",
+        "researchIntent": "明确站睡、坐睡或躺睡及支撑面，包含入睡、安定与呼吸。",
+        "requiredGates": {
+          "G0": "pending",
+          "G1": "pending",
+          "G2": "pending",
+          "G3": "pending",
+          "G4": "pending",
+          "G5": "pending"
+        },
+        "segments": {
+          "entry": "pending",
+          "bodyOrLoop": "pending",
+          "exit": "pending",
+          "returnToIdle": "pending"
+        },
+        "reuseLabel": "retained-historical-scope",
+        "reuseCondition": "原 v6 仅作其原始有限局部动作证据；逐项核对统一新母稿与 G0–G5 后决定可复用及需重绘的范围。"
+      }
+    ]
+  },
+  "layeredMaterials": {
+    "id": "unified-layered-production-assets",
+    "status": "pending",
+    "dependsOn": [
+      "unified-model-and-right-facing-master"
+    ],
+    "items": [
+      {
+        "id": "parts",
+        "label": "部件与补画",
+        "status": "pending",
+        "requiredEvidence": [
+          "按动作需要分出近远上臂/前臂/手、近远大腿/小腿/鞋、躯干、前后裙片、前后发、头饰及适当尾根/尾段。",
+          "补足被遮挡连接区域；手型与表情替换件按动作实际需要准备。"
+        ]
+      },
+      {
+        "id": "registration",
+        "label": "定位与层级",
+        "status": "pending",
+        "requiredEvidence": [
+          "记录共同画布、坐标系、近远/解剖侧别、父级、z 顺序、枢轴、遮挡和必要定位数据。",
+          "角色身份与序列帧相同；保留生成器原生 PNG，不用程序变形替代部件绘制。"
+        ]
+      },
+      {
+        "id": "assembly",
+        "label": "实际装配检查",
+        "status": "pending",
+        "requiredEvidence": [
+          "逐层开关并与母稿同尺度对比，检查头颈、肩、袖腕、髋膝踝、裙片开口和尾根衔接。"
+        ]
+      },
+      {
+        "id": "action-range",
+        "label": "实际动作范围检查",
+        "status": "pending",
+        "requiredEvidence": [
+          "在所需动作范围内检查关节重叠、变动遮挡、表情互斥与缺口，不能把历史 ±3° 正面小摆动外推成侧走通过。"
+        ]
+      },
+      {
+        "id": "layer-display",
+        "label": "分层实际展示",
+        "status": "pending",
+        "requiredEvidence": [
+          "装配后的同一角色分别检查桌宠预期尺寸与约 1200 px 高、透明棋盘/浅色/深色背景及手脚尾根局部。"
+        ]
+      }
+    ]
+  },
+  "provenanceAndDelivery": {
+    "id": "provenance-review-and-delivery",
+    "status": "pending",
+    "items": [
+      {
+        "id": "sources",
+        "label": "来源与原始字节",
+        "status": "pending",
+        "requiredEvidence": [
+          "逐项记录输出版本、内置 imagegen 原路径、实际输入及 SHA、精确提示词及 SHA、透明请求与输出元数据。",
+          "验证项目文件与生成原图字节一致；代码原生姿势示意单独标识，不计为人物成品。"
+        ]
+      },
+      {
+        "id": "evidence",
+        "label": "复核与失败追溯",
+        "status": "pending",
+        "requiredEvidence": [
+          "记录具体检查范围、实际观察、通过或未通过项和证据位置；保留旧失败及后来修复，避免合成成一次未发生的全套通过。"
+        ]
+      },
+      {
+        "id": "display",
+        "label": "序列素材实际显示",
+        "status": "pending",
+        "requiredEvidence": [
+          "所有最终动作检查桌宠预期尺寸与人物约 1200 px 高两档，以及棋盘/浅色/深色背景。"
+        ]
+      },
+      {
+        "id": "closure",
+        "label": "最终范围对账",
+        "status": "pending",
+        "requiredEvidence": [
+          "统一母稿、侧走、十二动作、分层、装配、来源和显示检查逐项有实际证据后再判断完成。",
+          "资产交付与运行时接入、安装包、发布验收分别报告。"
+        ]
+      }
+    ]
+  },
+  "retainedHistoricalEvidence": [
+    {
+      "label": "retained-historical-scope",
+      "paths": [
+        "assets/pets/nekomi/animation-v6/animation-manifest.json",
+        "output/imagegen/animation-v6-20261017/visual-review.json"
+      ],
+      "scope": "38 张原十二动作有限局部关键帧及原时长/顺序复核；不覆盖完整进入退出、行走或新母稿。"
+    },
+    {
+      "label": "retained-historical-scope",
+      "paths": [
+        "assets/pets/nekomi/animation-v6/LIVE2D-HANDOFF.txt",
+        "output/imagegen/animation-v6-20261017/visual-review-root.json",
+        "output/imagegen/animation-v6-20261017/layer-motion-review.json"
+      ],
+      "scope": "28 张正面分层、表情替换与原 ±3°/±1° 小幅装配检查；不覆盖侧走、膝肘大幅关节运动或完成绑定。"
+    },
+    {
+      "label": "retained-historical-scope",
+      "paths": [
+        "assets/pets/nekomi/hd-v5-natural-tail/reference/turnaround.png",
+        "assets/pets/nekomi/walk-v10-complete/model-reference/integrity.json",
+        "assets/pets/nekomi/walk-v10-complete/model-reference/integrity-v4.json"
+      ],
+      "scope": "旧三视存在；本轮腰带与发饰局部修订、来源和元数据，不代表全模型通过。"
+    },
+    {
+      "label": "retained-historical-scope",
+      "paths": [
+        "assets/pets/nekomi/walk-v10-complete/REVIEW-20261017-SPATIAL-REJECTED.txt",
+        "output/imagegen/walk-v10-complete-20261017/first-three-review.txt",
+        "assets/pets/nekomi/walk-v10-complete/HANDOFF-20261017.txt",
+        "assets/pets/nekomi/walk-v10-complete/STATUS-20261017.txt"
+      ],
+      "scope": "保留不通过、结构/遮挡/地面透视错误、未调用提示词、缺失帧和未完成分层的原始记录。"
+    },
+    {
+      "label": "retained-historical-scope",
+      "paths": [
+        "assets/pets/nekomi/walk-v10-complete/integrity-v2.json",
+        "assets/pets/nekomi/walk-v10-complete/generation-manifest-v2.json"
+      ],
+      "scope": "对应封存时版本的字节、PNG 与提示词映射，不替代后续新增或修订图的复核。"
+    }
+  ]
+}

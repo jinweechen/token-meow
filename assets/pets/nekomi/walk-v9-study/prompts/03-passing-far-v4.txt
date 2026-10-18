@@ -1,0 +1,10 @@
+Make the opposite half-cycle passing pose from this drawing. KEEP the existing leg GEOMETRY: the straight planted leg's joint and shoe positions stay fixed; the bent airborne leg's joint and shoe positions stay fixed. Do not move either shoe or change its angle. Keep head, torso, hair, proportions, white page, baseline and character scale unchanged.
+
+Change the leg roles:
+1. Straight planted leg becomes the NEAR TEAL leg, solid teal continuously hip to shoe.
+2. Bent airborne leg becomes the FAR GRAY leg, solid gray continuously hip to shoe.
+3. Recompute overlaps rather than just recolor: the NEW teal straight support thigh/shin is IN FRONT and hides any gray bent-leg section crossing it. At the ankle/shoe intersection, the gray airborne ankle and middle of its shoe should be occluded behind the teal support shin. Do not move the airborne shoe to the left to expose it. Hidden joints and partly hidden shoes are normal.
+4. At the hip intersection, teal near root covers the gray bent thigh, not vice versa. Keep both hip centers inside the same pelvis; no extra joint dot on the abdomen.
+
+Arm is still camera-near TEAL, all the way from shoulder to fingers; do not swap arm colors. Shift the near hand only modestly forward to the right (about 35 pixels) as it passes the neutral swing position; gray far arm stays partly behind. The hand should remain relaxed, not an open palm.
+Replace 07 by 03. All upper-body character appearance unchanged. This is ONE character, one ordinary passing key pose in a fully covering gray/teal practice suit.

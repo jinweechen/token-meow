@@ -1,0 +1,12 @@
+.local-pet-skins p { color: var(--muted, #687b74); font-size: .85rem; }
+.local-skin-actions { display: flex; flex-wrap: wrap; gap: .5rem; }
+.local-skin-list { list-style: none; margin: .75rem 0; padding: 0; }
+.local-skin-list li { display: flex; align-items: center; justify-content: space-between; gap: .75rem; padding: .5rem 0; border-bottom: 1px solid #e5ede7; }
+.local-skin-list small { display: block; color: #687b74; overflow-wrap: anywhere; }
+.local-skin-preview { display: flex; gap: 1rem; align-items: flex-start; }
+.local-skin-preview img { width: min(34%, 120px); height: auto; background: repeating-conic-gradient(#e4ece7 0% 25%, #fafcfb 0% 50%) 50% / 12px 12px; border-radius: 8px; }
+.local-skin-preview > div { flex: 1; min-width: 0; }
+.local-skin-preview h4 { margin: 0 0 .5rem; }
+.local-skin-preview dl { display: grid; grid-template-columns: auto 1fr; gap: .3rem .6rem; font-size: .8rem; }
+.local-skin-preview dd { margin: 0; overflow-wrap: anywhere; white-space: pre-wrap; }
+.local-pet-skins .local-skin-error { color: #a43f3f; }

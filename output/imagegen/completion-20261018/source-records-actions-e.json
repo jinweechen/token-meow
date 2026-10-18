@@ -1,0 +1,46 @@
+[
+  {
+    "id": "wink/transition",
+    "source": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14ad5-c365-7233-8895-9cecddb69f66\\exec-e895d6ef-1f3b-4721-9115-9d4ed91a5a8e.png",
+    "destination": "D:/project/宠物/assets/pets/nekomi/walk-v10-complete/actions-v11/wink/transition.png",
+    "prompt": "Edit the exact front-facing cat-girl reference into one intermediate animation pose. Preserve native transparent 1024x1536, face identity, head size/position, detailed lavender-white curls, cat ears and small twin daisy bows, cream-green floral sailor dress, white tights and green Mary Janes. Feet stay planted near y1480. Continuous arms and natural hands, one slender tail from behind pelvis. No background, glow, shadow, text or extra parts. Keep movement small and restrained. Begin a playful wink: small head inclination toward screen-left, RIGHT eye on screen-left halfway closing while the other green eye stays open. Screen-left hand starts rising toward her chest. Keep face volume and body stable.",
+    "promptPath": "D:/project/宠物/assets/pets/nekomi/walk-v10-complete/prompts/v11-action-wink-transition.txt",
+    "inputs": [
+      "D:/project/宠物/assets/pets/nekomi/walk-v10-complete/model-reference/master-front-v2.png"
+    ],
+    "review": "candidate; final complete-clip check pending"
+  },
+  {
+    "id": "affection/transition",
+    "source": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14ad5-c365-7233-8895-9cecddb69f66\\exec-c3369cca-15bb-4427-adc0-514d31b016f4.png",
+    "destination": "D:/project/宠物/assets/pets/nekomi/walk-v10-complete/actions-v11/affection/transition.png",
+    "prompt": "Edit the exact front-facing cat-girl reference into one intermediate animation pose. Preserve native transparent 1024x1536, face identity, head size/position, detailed lavender-white curls, cat ears and small twin daisy bows, cream-green floral sailor dress, white tights and green Mary Janes. Feet stay planted near y1480. Continuous arms and natural hands, one slender tail from behind pelvis. No background, glow, shadow, text or extra parts. Keep movement small and restrained. Begin a shy affectionate hand gesture: both hands rise toward her chest but are still low and apart, palms inward with natural finger curl. Soft direct green-eye gaze, small warm smile and mild head inclination.",
+    "promptPath": "D:/project/宠物/assets/pets/nekomi/walk-v10-complete/prompts/v11-action-affection-transition.txt",
+    "inputs": [
+      "D:/project/宠物/assets/pets/nekomi/walk-v10-complete/model-reference/master-front-v2.png"
+    ],
+    "review": "candidate; final complete-clip check pending"
+  },
+  {
+    "id": "shy/transition",
+    "source": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14ad5-c365-7233-8895-9cecddb69f66\\exec-cfbb1542-41b8-41df-81ae-d585db88debd.png",
+    "destination": "D:/project/宠物/assets/pets/nekomi/walk-v10-complete/actions-v11/shy/transition.png",
+    "prompt": "Edit the exact front-facing cat-girl reference into one intermediate animation pose. Preserve native transparent 1024x1536, face identity, head size/position, detailed lavender-white curls, cat ears and small twin daisy bows, cream-green floral sailor dress, white tights and green Mary Janes. Feet stay planted near y1480. Continuous arms and natural hands, one slender tail from behind pelvis. No background, glow, shadow, text or extra parts. Keep movement small and restrained. Begin a bashful gesture: screen-left hand starts rising toward her cheek, elbow bent at waist, fingers relaxed below chin. Other hand remains by her skirt. Shoulders tuck only slightly, eyes glance aside, faint blush. Stable knees, no exaggerated inward knees.",
+    "promptPath": "D:/project/宠物/assets/pets/nekomi/walk-v10-complete/prompts/v11-action-shy-transition.txt",
+    "inputs": [
+      "D:/project/宠物/assets/pets/nekomi/walk-v10-complete/model-reference/master-front-v2.png"
+    ],
+    "review": "candidate; final complete-clip check pending"
+  },
+  {
+    "id": "idle/transition",
+    "source": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14ad5-c365-7233-8895-9cecddb69f66\\exec-afd75b25-bd8c-431a-8394-ff4b632e170f.png",
+    "destination": "D:/project/宠物/assets/pets/nekomi/walk-v10-complete/actions-v11/idle/transition.png",
+    "prompt": "Edit the exact front-facing cat-girl reference into one intermediate animation pose. Preserve native transparent 1024x1536, face identity, head size/position, detailed lavender-white curls, cat ears and small twin daisy bows, cream-green floral sailor dress, white tights and green Mary Janes. Feet stay planted near y1480. Continuous arms and natural hands, one slender tail from behind pelvis. No background, glow, shadow, text or extra parts. Keep movement small and restrained. Gentle breathing inhale intermediate: lift upper chest and shoulders only slightly, preserving head size, foot placement, hands and overall silhouette. Eyes open calm, slight smile. Tail makes a tiny gentle distal sway without moving root.",
+    "promptPath": "D:/project/宠物/assets/pets/nekomi/walk-v10-complete/prompts/v11-action-idle-transition.txt",
+    "inputs": [
+      "D:/project/宠物/assets/pets/nekomi/walk-v10-complete/model-reference/master-front-v2.png"
+    ],
+    "review": "candidate; final complete-clip check pending"
+  }
+]

@@ -1,0 +1,78 @@
+{
+  "format": "nekomi-hd-generation-provenance-v1",
+  "mode": "built-in image_gen.imagegen",
+  "pixelPostProcessing": false,
+  "assets": [
+    {
+      "pose": "idle",
+      "file": "idle.png",
+      "sourceOriginalPath": "C:/Users/Administrator/.codex/generated_images/01a14280-254e-70f3-ba61-b34c813b8e3a/exec-5541a44c-2338-4ed4-be1d-497b7e187289.png",
+      "prompts": [
+        "prompts/idle.txt",
+        "prompts/idle-feet-repair.txt"
+      ],
+      "reference": "Refined dressed reference plus accepted mannequin; then foot alignment correction",
+      "review": "Reviewed at full figure and enlarged hands, waist and shoes on light and dark browser compositions.",
+      "visualEvidence": [
+        "../../../../output/playwright/hd-v1-idle-dark.png",
+        "../../../../output/playwright/hd-v1-idle-light.png"
+      ]
+    },
+    {
+      "pose": "active",
+      "file": "active.png",
+      "sourceOriginalPath": "C:/Users/Administrator/.codex/generated_images/01a14280-254e-70f3-ba61-b34c813b8e3a/exec-4d245285-e914-419c-bc1a-d787c23818ed.png",
+      "prompts": [
+        "prompts/active.txt"
+      ],
+      "reference": "idle.png",
+      "review": "Reviewed at full figure and enlarged hands, waist and shoes on light and dark browser compositions.",
+      "visualEvidence": [
+        "../../../../output/playwright/hd-v1-active-dark.png",
+        "../../../../output/playwright/hd-v1-active-light.png"
+      ]
+    },
+    {
+      "pose": "complete",
+      "file": "complete.png",
+      "sourceOriginalPath": "C:/Users/Administrator/.codex/generated_images/01a14280-254e-70f3-ba61-b34c813b8e3a/exec-6d2fabd5-f1e5-4baf-b59a-d8cebd349f1c.png",
+      "prompts": [
+        "prompts/complete.txt"
+      ],
+      "reference": "idle.png",
+      "review": "Reviewed at full figure and enlarged hands, waist and shoes on light and dark browser compositions.",
+      "visualEvidence": [
+        "../../../../output/playwright/hd-v1-complete-dark.png",
+        "../../../../output/playwright/hd-v1-complete-light.png"
+      ]
+    },
+    {
+      "pose": "alert",
+      "file": "alert.png",
+      "sourceOriginalPath": "C:/Users/Administrator/.codex/generated_images/01a14280-254e-70f3-ba61-b34c813b8e3a/exec-8f77d176-87a1-47aa-af90-b0bce50e027d.png",
+      "prompts": [
+        "prompts/alert.txt"
+      ],
+      "reference": "idle.png",
+      "review": "Reviewed at full figure and enlarged hands, waist and shoes on light and dark browser compositions.",
+      "visualEvidence": [
+        "../../../../output/playwright/hd-v1-alert-dark.png",
+        "../../../../output/playwright/hd-v1-alert-light.png"
+      ]
+    },
+    {
+      "pose": "sleep",
+      "file": "sleep.png",
+      "sourceOriginalPath": "C:/Users/Administrator/.codex/generated_images/01a14280-254e-70f3-ba61-b34c813b8e3a/exec-5fb61767-26e7-4d84-b58b-35640fb7dd67.png",
+      "prompts": [
+        "prompts/sleep.txt"
+      ],
+      "reference": "idle.png",
+      "review": "Reviewed at full figure and enlarged hands, waist and shoes on light and dark browser compositions.",
+      "visualEvidence": [
+        "../../../../output/playwright/hd-v1-sleep-dark.png",
+        "../../../../output/playwright/hd-v1-sleep-light.png"
+      ]
+    }
+  ]
+}

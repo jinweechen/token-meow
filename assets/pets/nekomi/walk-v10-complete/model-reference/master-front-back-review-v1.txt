@@ -1,0 +1,23 @@
+Front/back master generation review
+Current local date context: 2026-10-18 (generation work began in the 2026-10-17 session).
+Method: built-in image_gen, one image per invocation, transparent_background=true. All PNG files are original-byte copies of native generated outputs. No cropping, warping, compositing, extraction, background removal or image enlargement was performed.
+
+Current candidates
+- master-front-v1.png: preserved historical candidate. Skirt was too short (~y1035), waist bows oversized.
+- master-front-v2.png: preferred front working candidate, pending independent review. Hem now around y1100, both waist bows visibly smaller than the chest bow. Face/hair/arms/relaxed hands/shoes remained stable.
+- master-back-v1.png: preserved failed placement. Plain rear belt, green-only bow backs and hand/tail separation are readable, but waist ~y650 and large tail port ~y740 were too high.
+- master-back-v2.png: preserved failed placement. Waist moved to ~y675 and tail port ~y775; port remained too large.
+- master-back-v3.png: latest back working candidate, known remaining issues. Small inner furred root and bound opening are readable; port moved to about y810, but target was y850. Outer binding remains larger than requested. Waist is still around y675, ~10-20px above front-v2. Must not be automatically approved.
+
+Visual observations are approximate positions from the actual native images, not measured anatomy or acceptance. Both rear shoulders connect through continuous sleeves to relaxed hands; hands, sleeves and tail are distinct. Rear belt has no bow or central flower, hair bows show green backs without white daisies facing the rear. Each rear flower cluster has one large and two small green daisies, with no added central flower. Shoes show correct back/heel construction with daisies only at side edges. A full independent finger and cross-view registration review remains required.
+
+Evidence
+Every candidate has matching prompts/<stem>.txt and model-reference/<stem>-source.json.
+Each source JSON stores the exact prompt, original output path, input order/roles, SHA256 hashes, byte-copy verification, PNG dimensions/mode/alpha evidence and explicit visual-review state.
+model-reference/master-front-back-integrity-v1.json consolidates all five.
+All five: 1024x1536, RGBA, alpha extrema 0..254, checked exterior samples alpha=0. Original and copied SHA256 match; exact saved prompt matches prompt in source record.
+
+Original generated directory for this subagent:
+C:/Users/Administrator/.codex/generated_images/01a148ad-080e-7062-8576-ca95b7a366b3/
+
+No frames, sequence, runtime or Git state were changed. This work is front/back master-image candidate generation only. It is not full walk-cycle, layered-material or animation acceptance.

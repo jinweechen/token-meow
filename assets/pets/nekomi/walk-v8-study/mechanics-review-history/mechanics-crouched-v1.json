@@ -1,0 +1,1191 @@
+{
+  "schemaVersion": 1,
+  "title": "小柚侧走 · 骨架运动工程示意",
+  "status": "technical-study-only-not-character-acceptance",
+  "units": "metres and seconds; arbitrary engineering scale, not measured character anatomy",
+  "coordinateSystem": "x forward/right, y upward; ground y=0; root x advances continuously",
+  "drawOrder": [
+    "far-arm",
+    "far-leg",
+    "torso",
+    "near-leg",
+    "near-arm"
+  ],
+  "identity": {
+    "near": {
+      "color": "#087f99",
+      "phaseOffset": 0
+    },
+    "far": {
+      "color": "#808a93",
+      "phaseOffset": 0.5
+    }
+  },
+  "parameters": {
+    "cycleSeconds": 1.28,
+    "strideLength": 0.64,
+    "stanceFraction": 0.6,
+    "hipHeight": 0.8,
+    "bodyBob": 0.012,
+    "upperLeg": 0.43,
+    "lowerLeg": 0.43,
+    "ankleHeight": 0.065,
+    "footHeel": 0.07,
+    "footToe": 0.12,
+    "swingClearance": 0.1,
+    "torsoHeight": 0.34,
+    "torsoForward": 0.035,
+    "headAboveShoulder": 0.19,
+    "headForward": 0.015,
+    "headRadius": 0.1,
+    "upperArm": 0.27,
+    "lowerArm": 0.24,
+    "armSwingDegrees": 20,
+    "elbowFlexDegrees": 12
+  },
+  "keyPhases": [
+    {
+      "phase": 0,
+      "name": "近脚接触",
+      "near": "接触并承重",
+      "far": "支撑末段"
+    },
+    {
+      "phase": 0.125,
+      "name": "近脚承重",
+      "near": "支撑",
+      "far": "离地后摆动"
+    },
+    {
+      "phase": 0.3,
+      "name": "远脚通过",
+      "near": "支撑",
+      "far": "抬脚通过身体下方"
+    },
+    {
+      "phase": 0.375,
+      "name": "远脚前摆",
+      "near": "支撑后段",
+      "far": "向前伸出"
+    },
+    {
+      "phase": 0.5,
+      "name": "远脚接触",
+      "near": "支撑末段",
+      "far": "接触并承重"
+    },
+    {
+      "phase": 0.625,
+      "name": "远脚承重",
+      "near": "离地后摆动",
+      "far": "支撑"
+    },
+    {
+      "phase": 0.8,
+      "name": "近脚通过",
+      "near": "抬脚通过身体下方",
+      "far": "支撑"
+    },
+    {
+      "phase": 0.875,
+      "name": "近脚前摆",
+      "near": "向前伸出",
+      "far": "支撑后段"
+    }
+  ],
+  "limitations": [
+    "骨架运动示意，非人物动画成品或验收；不为任何 PNG、裙装或既有动画提供自动通过证据。",
+    "参数是二维工程参考值，不是本角色的实测人体比例，也不是临床步态模型。",
+    "足部保持水平，未实现足跟落地、足掌滚动、脚趾蹬地或踝关节真实力学。",
+    "双腿在侧面投影中可以重叠；没有人为分开脚道，也没有用裙装遮住关节。",
+    "近腿青色、远腿灰色的身份与绘制层级固定；左右解剖命名需另结合角色朝向设定。",
+    "两腿理想对称，半周期轮廓可重复；各条腿分别沿连续轨迹运动，不是只把静止骨架换色。",
+    "躯干是刚性体块，只加入小幅上下起伏；未模拟骨盆扭转、肩胯反扭、肌肉、头发、裙摆或尾巴。",
+    "连续模式由解析足部轨迹和双骨段 IK 求解；8 相位模式是离散研究展示，不是交付帧数建议。",
+    "行进视野不足时镜头跟随；接触和滑动误差始终使用世界坐标计算。"
+  ],
+  "keyframes": [
+    {
+      "keyIndex": 0,
+      "name": "近脚接触",
+      "time": 0,
+      "totalPhase": 0,
+      "phase": 0,
+      "cycle": 0,
+      "root": {
+        "x": 0,
+        "y": 0.8
+      },
+      "rootSpeed": 0.5,
+      "shoulder": {
+        "x": 0.035,
+        "y": 1.1400000000000001
+      },
+      "head": {
+        "x": 0.05,
+        "y": 1.33
+      },
+      "legs": {
+        "near": {
+          "id": "near",
+          "phaseOffset": 0,
+          "phase": 0,
+          "cycle": 0,
+          "stance": true,
+          "swingProgress": null,
+          "hip": {
+            "x": 0,
+            "y": 0.8
+          },
+          "knee": {
+            "x": 0.2910191802901859,
+            "y": 0.483443785871722
+          },
+          "ankle": {
+            "x": 0.192,
+            "y": 0.065
+          },
+          "heel": {
+            "x": 0.122,
+            "y": 0
+          },
+          "toe": {
+            "x": 0.312,
+            "y": 0
+          },
+          "contactWorld": {
+            "x": 0.192,
+            "y": 0
+          },
+          "ikBend": 0.20156326550242212,
+          "errors": {
+            "upperLength": -5.551115123125783e-17,
+            "lowerLength": -1.6653345369377348e-16
+          }
+        },
+        "far": {
+          "id": "far",
+          "phaseOffset": 0.5,
+          "phase": 0.5,
+          "cycle": 0,
+          "stance": true,
+          "swingProgress": null,
+          "hip": {
+            "x": 0,
+            "y": 0.8
+          },
+          "knee": {
+            "x": 0.14671579765903214,
+            "y": 0.3958039155097196
+          },
+          "ankle": {
+            "x": -0.128,
+            "y": 0.065
+          },
+          "heel": {
+            "x": -0.198,
+            "y": 0
+          },
+          "toe": {
+            "x": -0.008000000000000007,
+            "y": 0
+          },
+          "contactWorld": {
+            "x": -0.128,
+            "y": 0
+          },
+          "ikBend": 0.213887236645855,
+          "errors": {
+            "upperLength": -5.551115123125783e-17,
+            "lowerLength": 5.551115123125783e-17
+          }
+        }
+      },
+      "arms": {
+        "near": {
+          "id": "near",
+          "shoulder": {
+            "x": 0.035,
+            "y": 1.1400000000000001
+          },
+          "elbow": {
+            "x": -0.05734543869793056,
+            "y": 0.8862829923878048
+          },
+          "wrist": {
+            "x": -0.09074698292834626,
+            "y": 0.6486186558898279
+          },
+          "upperAngle": -0.3490658503988659,
+          "foreAngle": -0.13962634015954636
+        },
+        "far": {
+          "id": "far",
+          "shoulder": {
+            "x": 0.035,
+            "y": 1.1400000000000001
+          },
+          "elbow": {
+            "x": 0.12734543869793058,
+            "y": 0.8862829923878048
+          },
+          "wrist": {
+            "x": 0.2545260621138997,
+            "y": 0.6827514493102627
+          },
+          "upperAngle": 0.3490658503988659,
+          "foreAngle": 0.5585053606381855
+        }
+      }
+    },
+    {
+      "keyIndex": 1,
+      "name": "近脚承重",
+      "time": 0.16,
+      "totalPhase": 0.125,
+      "phase": 0.125,
+      "cycle": 0,
+      "root": {
+        "x": 0.08,
+        "y": 0.788
+      },
+      "rootSpeed": 0.5,
+      "shoulder": {
+        "x": 0.115,
+        "y": 1.1280000000000001
+      },
+      "head": {
+        "x": 0.13,
+        "y": 1.318
+      },
+      "legs": {
+        "near": {
+          "id": "near",
+          "phaseOffset": 0,
+          "phase": 0.125,
+          "cycle": 0,
+          "stance": true,
+          "swingProgress": null,
+          "hip": {
+            "x": 0.08,
+            "y": 0.788
+          },
+          "knee": {
+            "x": 0.35934874278448076,
+            "y": 0.4610989753691036
+          },
+          "ankle": {
+            "x": 0.192,
+            "y": 0.065
+          },
+          "heel": {
+            "x": 0.122,
+            "y": 0
+          },
+          "toe": {
+            "x": 0.312,
+            "y": 0
+          },
+          "contactWorld": {
+            "x": 0.192,
+            "y": 0
+          },
+          "ikBend": 0.22601272088092736,
+          "errors": {
+            "upperLength": -5.551115123125783e-17,
+            "lowerLength": 0
+          }
+        },
+        "far": {
+          "id": "far",
+          "phaseOffset": 0.5,
+          "phase": 0.625,
+          "cycle": 0,
+          "stance": false,
+          "swingProgress": 0.06250000000000006,
+          "hip": {
+            "x": 0.08,
+            "y": 0.788
+          },
+          "knee": {
+            "x": 0.17840481303678357,
+            "y": 0.36941130835724234
+          },
+          "ankle": {
+            "x": -0.126580322265625,
+            "y": 0.06628746032714844
+          },
+          "heel": {
+            "x": -0.196580322265625,
+            "y": 0.0012874603271484408
+          },
+          "toe": {
+            "x": -0.006580322265624994,
+            "y": 0.0012874603271484408
+          },
+          "contactWorld": null,
+          "ikBend": 0.20979488824301284,
+          "errors": {
+            "upperLength": 5.551115123125783e-17,
+            "lowerLength": -1.1102230246251565e-16
+          }
+        }
+      },
+      "arms": {
+        "near": {
+          "id": "near",
+          "shoulder": {
+            "x": 0.115,
+            "y": 1.1280000000000001
+          },
+          "elbow": {
+            "x": 0.04903138736876031,
+            "y": 0.8661829987424243
+          },
+          "wrist": {
+            "x": 0.04006052092192748,
+            "y": 0.6263507166051084
+          },
+          "upperAngle": -0.246826829897687,
+          "foreAngle": -0.037387319658367474
+        },
+        "far": {
+          "id": "far",
+          "shoulder": {
+            "x": 0.115,
+            "y": 1.1280000000000001
+          },
+          "elbow": {
+            "x": 0.1809686126312397,
+            "y": 0.8661829987424243
+          },
+          "wrist": {
+            "x": 0.2867124842626023,
+            "y": 0.6507340869038869
+          },
+          "upperAngle": 0.24682682989768706,
+          "foreAngle": 0.4562663401370066
+        }
+      }
+    },
+    {
+      "keyIndex": 2,
+      "name": "远脚通过",
+      "time": 0.384,
+      "totalPhase": 0.3,
+      "phase": 0.3,
+      "cycle": 0,
+      "root": {
+        "x": 0.192,
+        "y": 0.8070534230275097
+      },
+      "rootSpeed": 0.5,
+      "shoulder": {
+        "x": 0.227,
+        "y": 1.1470534230275098
+      },
+      "head": {
+        "x": 0.242,
+        "y": 1.3370534230275097
+      },
+      "legs": {
+        "near": {
+          "id": "near",
+          "phaseOffset": 0,
+          "phase": 0.3,
+          "cycle": 0,
+          "stance": true,
+          "swingProgress": null,
+          "hip": {
+            "x": 0.192,
+            "y": 0.8070534230275097
+          },
+          "knee": {
+            "x": 0.4093457598925935,
+            "y": 0.4360267115137548
+          },
+          "ankle": {
+            "x": 0.192,
+            "y": 0.065
+          },
+          "heel": {
+            "x": 0.122,
+            "y": 0
+          },
+          "toe": {
+            "x": 0.312,
+            "y": 0
+          },
+          "contactWorld": {
+            "x": 0.192,
+            "y": 0
+          },
+          "ikBend": 0.21734575989259347,
+          "errors": {
+            "upperLength": -5.551115123125783e-17,
+            "lowerLength": -1.1102230246251565e-16
+          }
+        },
+        "far": {
+          "id": "far",
+          "phaseOffset": 0.5,
+          "phase": 0.8,
+          "cycle": 0,
+          "stance": false,
+          "swingProgress": 0.5000000000000001,
+          "hip": {
+            "x": 0.192,
+            "y": 0.8070534230275097
+          },
+          "knee": {
+            "x": 0.4780801469774938,
+            "y": 0.48602671151375487
+          },
+          "ankle": {
+            "x": 0.19200000000000006,
+            "y": 0.165
+          },
+          "heel": {
+            "x": 0.12200000000000005,
+            "y": 0.1
+          },
+          "toe": {
+            "x": 0.31200000000000006,
+            "y": 0.1
+          },
+          "contactWorld": null,
+          "ikBend": 0.28608014697749373,
+          "errors": {
+            "upperLength": 5.551115123125783e-17,
+            "lowerLength": -5.551115123125783e-17
+          }
+        }
+      },
+      "arms": {
+        "near": {
+          "id": "near",
+          "shoulder": {
+            "x": 0.227,
+            "y": 1.1470534230275098
+          },
+          "elbow": {
+            "x": 0.256067720118643,
+            "y": 0.8786226728383701
+          },
+          "wrist": {
+            "x": 0.3309498639694483,
+            "y": 0.6506036724627275
+          },
+          "upperAngle": 0.10786727992919255,
+          "foreAngle": 0.3173067901685121
+        },
+        "far": {
+          "id": "far",
+          "shoulder": {
+            "x": 0.227,
+            "y": 1.1470534230275098
+          },
+          "elbow": {
+            "x": 0.19793227988135703,
+            "y": 0.8786226728383701
+          },
+          "wrist": {
+            "x": 0.22226772027820252,
+            "y": 0.6398596389727996
+          },
+          "upperAngle": -0.10786727992919251,
+          "foreAngle": 0.10157223031012702
+        }
+      }
+    },
+    {
+      "keyIndex": 3,
+      "name": "远脚前摆",
+      "time": 0.48,
+      "totalPhase": 0.375,
+      "phase": 0.375,
+      "cycle": 0,
+      "root": {
+        "x": 0.24,
+        "y": 0.812
+      },
+      "rootSpeed": 0.5,
+      "shoulder": {
+        "x": 0.275,
+        "y": 1.1520000000000001
+      },
+      "head": {
+        "x": 0.29000000000000004,
+        "y": 1.342
+      },
+      "legs": {
+        "near": {
+          "id": "near",
+          "phaseOffset": 0,
+          "phase": 0.375,
+          "cycle": 0,
+          "stance": true,
+          "swingProgress": null,
+          "hip": {
+            "x": 0.24,
+            "y": 0.812
+          },
+          "knee": {
+            "x": 0.4272757523437995,
+            "y": 0.42492404804216555
+          },
+          "ankle": {
+            "x": 0.192,
+            "y": 0.065
+          },
+          "heel": {
+            "x": 0.122,
+            "y": 0
+          },
+          "toe": {
+            "x": 0.312,
+            "y": 0
+          },
+          "contactWorld": {
+            "x": 0.192,
+            "y": 0
+          },
+          "ikBend": 0.21171147819615246,
+          "errors": {
+            "upperLength": -5.551115123125783e-17,
+            "lowerLength": 0
+          }
+        },
+        "far": {
+          "id": "far",
+          "phaseOffset": 0.5,
+          "phase": 0.875,
+          "cycle": 0,
+          "stance": false,
+          "swingProgress": 0.6875,
+          "hip": {
+            "x": 0.24,
+            "y": 0.812
+          },
+          "knee": {
+            "x": 0.5609935803364792,
+            "y": 0.5258826789885517
+          },
+          "ankle": {
+            "x": 0.396796142578125,
+            "y": 0.12846702575683594
+          },
+          "heel": {
+            "x": 0.326796142578125,
+            "y": 0.06346702575683595
+          },
+          "toe": {
+            "x": 0.516796142578125,
+            "y": 0.06346702575683595
+          },
+          "contactWorld": null,
+          "ikBend": 0.24889638546738374,
+          "errors": {
+            "upperLength": -1.1102230246251565e-16,
+            "lowerLength": -1.1102230246251565e-16
+          }
+        }
+      },
+      "arms": {
+        "near": {
+          "id": "near",
+          "shoulder": {
+            "x": 0.275,
+            "y": 1.1520000000000001
+          },
+          "elbow": {
+            "x": 0.34096861263123973,
+            "y": 0.8901829987424243
+          },
+          "wrist": {
+            "x": 0.44671248426260235,
+            "y": 0.6747340869038868
+          },
+          "upperAngle": 0.24682682989768698,
+          "foreAngle": 0.4562663401370065
+        },
+        "far": {
+          "id": "far",
+          "shoulder": {
+            "x": 0.275,
+            "y": 1.1520000000000001
+          },
+          "elbow": {
+            "x": 0.20903138736876034,
+            "y": 0.8901829987424243
+          },
+          "wrist": {
+            "x": 0.20006052092192753,
+            "y": 0.6503507166051085
+          },
+          "upperAngle": -0.24682682989768695,
+          "foreAngle": -0.03738731965836742
+        }
+      }
+    },
+    {
+      "keyIndex": 4,
+      "name": "远脚接触",
+      "time": 0.64,
+      "totalPhase": 0.5,
+      "phase": 0.5,
+      "cycle": 0,
+      "root": {
+        "x": 0.32,
+        "y": 0.8
+      },
+      "rootSpeed": 0.5,
+      "shoulder": {
+        "x": 0.355,
+        "y": 1.1400000000000001
+      },
+      "head": {
+        "x": 0.37,
+        "y": 1.33
+      },
+      "legs": {
+        "near": {
+          "id": "near",
+          "phaseOffset": 0,
+          "phase": 0.5,
+          "cycle": 0,
+          "stance": true,
+          "swingProgress": null,
+          "hip": {
+            "x": 0.32,
+            "y": 0.8
+          },
+          "knee": {
+            "x": 0.46671579765903215,
+            "y": 0.3958039155097196
+          },
+          "ankle": {
+            "x": 0.192,
+            "y": 0.065
+          },
+          "heel": {
+            "x": 0.122,
+            "y": 0
+          },
+          "toe": {
+            "x": 0.312,
+            "y": 0
+          },
+          "contactWorld": {
+            "x": 0.192,
+            "y": 0
+          },
+          "ikBend": 0.213887236645855,
+          "errors": {
+            "upperLength": -5.551115123125783e-17,
+            "lowerLength": 5.551115123125783e-17
+          }
+        },
+        "far": {
+          "id": "far",
+          "phaseOffset": 0.5,
+          "phase": 0,
+          "cycle": 1,
+          "stance": true,
+          "swingProgress": null,
+          "hip": {
+            "x": 0.32,
+            "y": 0.8
+          },
+          "knee": {
+            "x": 0.611019180290186,
+            "y": 0.483443785871722
+          },
+          "ankle": {
+            "x": 0.512,
+            "y": 0.065
+          },
+          "heel": {
+            "x": 0.442,
+            "y": 0
+          },
+          "toe": {
+            "x": 0.632,
+            "y": 0
+          },
+          "contactWorld": {
+            "x": 0.512,
+            "y": 0
+          },
+          "ikBend": 0.20156326550242212,
+          "errors": {
+            "upperLength": -5.551115123125783e-17,
+            "lowerLength": -1.6653345369377348e-16
+          }
+        }
+      },
+      "arms": {
+        "near": {
+          "id": "near",
+          "shoulder": {
+            "x": 0.355,
+            "y": 1.1400000000000001
+          },
+          "elbow": {
+            "x": 0.44734543869793053,
+            "y": 0.8862829923878048
+          },
+          "wrist": {
+            "x": 0.5745260621138997,
+            "y": 0.6827514493102627
+          },
+          "upperAngle": 0.3490658503988659,
+          "foreAngle": 0.5585053606381855
+        },
+        "far": {
+          "id": "far",
+          "shoulder": {
+            "x": 0.355,
+            "y": 1.1400000000000001
+          },
+          "elbow": {
+            "x": 0.26265456130206943,
+            "y": 0.8862829923878048
+          },
+          "wrist": {
+            "x": 0.22925301707165374,
+            "y": 0.6486186558898279
+          },
+          "upperAngle": -0.3490658503988659,
+          "foreAngle": -0.13962634015954636
+        }
+      }
+    },
+    {
+      "keyIndex": 5,
+      "name": "远脚承重",
+      "time": 0.8,
+      "totalPhase": 0.625,
+      "phase": 0.625,
+      "cycle": 0,
+      "root": {
+        "x": 0.4,
+        "y": 0.788
+      },
+      "rootSpeed": 0.5,
+      "shoulder": {
+        "x": 0.43500000000000005,
+        "y": 1.1280000000000001
+      },
+      "head": {
+        "x": 0.45000000000000007,
+        "y": 1.318
+      },
+      "legs": {
+        "near": {
+          "id": "near",
+          "phaseOffset": 0,
+          "phase": 0.625,
+          "cycle": 0,
+          "stance": false,
+          "swingProgress": 0.06250000000000006,
+          "hip": {
+            "x": 0.4,
+            "y": 0.788
+          },
+          "knee": {
+            "x": 0.4984048130367835,
+            "y": 0.36941130835724234
+          },
+          "ankle": {
+            "x": 0.19341967773437502,
+            "y": 0.06628746032714844
+          },
+          "heel": {
+            "x": 0.12341967773437501,
+            "y": 0.0012874603271484408
+          },
+          "toe": {
+            "x": 0.313419677734375,
+            "y": 0.0012874603271484408
+          },
+          "contactWorld": null,
+          "ikBend": 0.20979488824301284,
+          "errors": {
+            "upperLength": -5.551115123125783e-17,
+            "lowerLength": -1.1102230246251565e-16
+          }
+        },
+        "far": {
+          "id": "far",
+          "phaseOffset": 0.5,
+          "phase": 0.125,
+          "cycle": 1,
+          "stance": true,
+          "swingProgress": null,
+          "hip": {
+            "x": 0.4,
+            "y": 0.788
+          },
+          "knee": {
+            "x": 0.6793487427844808,
+            "y": 0.4610989753691036
+          },
+          "ankle": {
+            "x": 0.512,
+            "y": 0.065
+          },
+          "heel": {
+            "x": 0.442,
+            "y": 0
+          },
+          "toe": {
+            "x": 0.632,
+            "y": 0
+          },
+          "contactWorld": {
+            "x": 0.512,
+            "y": 0
+          },
+          "ikBend": 0.22601272088092736,
+          "errors": {
+            "upperLength": -5.551115123125783e-17,
+            "lowerLength": 0
+          }
+        }
+      },
+      "arms": {
+        "near": {
+          "id": "near",
+          "shoulder": {
+            "x": 0.43500000000000005,
+            "y": 1.1280000000000001
+          },
+          "elbow": {
+            "x": 0.5009686126312398,
+            "y": 0.8661829987424243
+          },
+          "wrist": {
+            "x": 0.6067124842626024,
+            "y": 0.6507340869038869
+          },
+          "upperAngle": 0.24682682989768706,
+          "foreAngle": 0.4562663401370066
+        },
+        "far": {
+          "id": "far",
+          "shoulder": {
+            "x": 0.43500000000000005,
+            "y": 1.1280000000000001
+          },
+          "elbow": {
+            "x": 0.36903138736876034,
+            "y": 0.8661829987424243
+          },
+          "wrist": {
+            "x": 0.36006052092192753,
+            "y": 0.6263507166051084
+          },
+          "upperAngle": -0.246826829897687,
+          "foreAngle": -0.037387319658367474
+        }
+      }
+    },
+    {
+      "keyIndex": 6,
+      "name": "近脚通过",
+      "time": 1.024,
+      "totalPhase": 0.8,
+      "phase": 0.8,
+      "cycle": 0,
+      "root": {
+        "x": 0.512,
+        "y": 0.8070534230275097
+      },
+      "rootSpeed": 0.5,
+      "shoulder": {
+        "x": 0.547,
+        "y": 1.1470534230275098
+      },
+      "head": {
+        "x": 0.562,
+        "y": 1.3370534230275097
+      },
+      "legs": {
+        "near": {
+          "id": "near",
+          "phaseOffset": 0,
+          "phase": 0.8,
+          "cycle": 0,
+          "stance": false,
+          "swingProgress": 0.5000000000000001,
+          "hip": {
+            "x": 0.512,
+            "y": 0.8070534230275097
+          },
+          "knee": {
+            "x": 0.7980801469774937,
+            "y": 0.48602671151375487
+          },
+          "ankle": {
+            "x": 0.512,
+            "y": 0.165
+          },
+          "heel": {
+            "x": 0.442,
+            "y": 0.1
+          },
+          "toe": {
+            "x": 0.632,
+            "y": 0.1
+          },
+          "contactWorld": null,
+          "ikBend": 0.28608014697749373,
+          "errors": {
+            "upperLength": -5.551115123125783e-17,
+            "lowerLength": -5.551115123125783e-17
+          }
+        },
+        "far": {
+          "id": "far",
+          "phaseOffset": 0.5,
+          "phase": 0.30000000000000004,
+          "cycle": 1,
+          "stance": true,
+          "swingProgress": null,
+          "hip": {
+            "x": 0.512,
+            "y": 0.8070534230275097
+          },
+          "knee": {
+            "x": 0.7293457598925935,
+            "y": 0.4360267115137548
+          },
+          "ankle": {
+            "x": 0.512,
+            "y": 0.065
+          },
+          "heel": {
+            "x": 0.442,
+            "y": 0
+          },
+          "toe": {
+            "x": 0.632,
+            "y": 0
+          },
+          "contactWorld": {
+            "x": 0.512,
+            "y": 0
+          },
+          "ikBend": 0.21734575989259347,
+          "errors": {
+            "upperLength": 5.551115123125783e-17,
+            "lowerLength": 0
+          }
+        }
+      },
+      "arms": {
+        "near": {
+          "id": "near",
+          "shoulder": {
+            "x": 0.547,
+            "y": 1.1470534230275098
+          },
+          "elbow": {
+            "x": 0.517932279881357,
+            "y": 0.8786226728383701
+          },
+          "wrist": {
+            "x": 0.5422677202782025,
+            "y": 0.6398596389727996
+          },
+          "upperAngle": -0.10786727992919251,
+          "foreAngle": 0.10157223031012702
+        },
+        "far": {
+          "id": "far",
+          "shoulder": {
+            "x": 0.547,
+            "y": 1.1470534230275098
+          },
+          "elbow": {
+            "x": 0.576067720118643,
+            "y": 0.8786226728383703
+          },
+          "wrist": {
+            "x": 0.6509498639694484,
+            "y": 0.6506036724627277
+          },
+          "upperAngle": 0.10786727992919264,
+          "foreAngle": 0.31730679016851215
+        }
+      }
+    },
+    {
+      "keyIndex": 7,
+      "name": "近脚前摆",
+      "time": 1.12,
+      "totalPhase": 0.8750000000000001,
+      "phase": 0.8750000000000001,
+      "cycle": 0,
+      "root": {
+        "x": 0.56,
+        "y": 0.812
+      },
+      "rootSpeed": 0.5,
+      "shoulder": {
+        "x": 0.5950000000000001,
+        "y": 1.1520000000000001
+      },
+      "head": {
+        "x": 0.6100000000000001,
+        "y": 1.342
+      },
+      "legs": {
+        "near": {
+          "id": "near",
+          "phaseOffset": 0,
+          "phase": 0.8750000000000001,
+          "cycle": 0,
+          "stance": false,
+          "swingProgress": 0.6875000000000003,
+          "hip": {
+            "x": 0.56,
+            "y": 0.812
+          },
+          "knee": {
+            "x": 0.8809935803364792,
+            "y": 0.5258826789885517
+          },
+          "ankle": {
+            "x": 0.7167961425781251,
+            "y": 0.12846702575683583
+          },
+          "heel": {
+            "x": 0.646796142578125,
+            "y": 0.06346702575683583
+          },
+          "toe": {
+            "x": 0.8367961425781251,
+            "y": 0.06346702575683583
+          },
+          "contactWorld": null,
+          "ikBend": 0.24889638546738374,
+          "errors": {
+            "upperLength": -1.1102230246251565e-16,
+            "lowerLength": 0
+          }
+        },
+        "far": {
+          "id": "far",
+          "phaseOffset": 0.5,
+          "phase": 0.375,
+          "cycle": 1,
+          "stance": true,
+          "swingProgress": null,
+          "hip": {
+            "x": 0.56,
+            "y": 0.812
+          },
+          "knee": {
+            "x": 0.7472757523437995,
+            "y": 0.42492404804216555
+          },
+          "ankle": {
+            "x": 0.512,
+            "y": 0.065
+          },
+          "heel": {
+            "x": 0.442,
+            "y": 0
+          },
+          "toe": {
+            "x": 0.632,
+            "y": 0
+          },
+          "contactWorld": {
+            "x": 0.512,
+            "y": 0
+          },
+          "ikBend": 0.21171147819615246,
+          "errors": {
+            "upperLength": -5.551115123125783e-17,
+            "lowerLength": 0
+          }
+        }
+      },
+      "arms": {
+        "near": {
+          "id": "near",
+          "shoulder": {
+            "x": 0.5950000000000001,
+            "y": 1.1520000000000001
+          },
+          "elbow": {
+            "x": 0.5290313873687603,
+            "y": 0.8901829987424243
+          },
+          "wrist": {
+            "x": 0.5200605209219274,
+            "y": 0.6503507166051085
+          },
+          "upperAngle": -0.24682682989768717,
+          "foreAngle": -0.03738731965836764
+        },
+        "far": {
+          "id": "far",
+          "shoulder": {
+            "x": 0.5950000000000001,
+            "y": 1.1520000000000001
+          },
+          "elbow": {
+            "x": 0.6609686126312397,
+            "y": 0.8901829987424243
+          },
+          "wrist": {
+            "x": 0.7667124842626023,
+            "y": 0.6747340869038868
+          },
+          "upperAngle": 0.24682682989768698,
+          "foreAngle": 0.4562663401370065
+        }
+      }
+    }
+  ],
+  "validation": {
+    "scope": "Deterministic engineering model only; no character artwork or animation acceptance",
+    "sampleCount": 1201,
+    "finiteDifferenceStepSeconds": 0.00001,
+    "passed": true,
+    "checks": {
+      "finiteCoordinates": true,
+      "constantSegmentLengths": true,
+      "kneesAlwaysForward": true,
+      "noSoleBelowGround": true,
+      "stanceWorldContactFixed": true,
+      "rootAndLocalStanceMatch": true,
+      "constantForwardSpeed": true,
+      "periodicLocalPositions": true,
+      "periodicLocalVelocitySeam": true,
+      "noOneSidedVelocityJumpAtLoop": true,
+      "nearFarIdentityFixed": true,
+      "sameSideArmOpposesLegAtContact": true,
+      "eightDistinctPosesPerLeg": true,
+      "moreThanColorSwap": true
+    },
+    "metrics": {
+      "maximumSegmentLengthError": 2.7755575615628914e-16,
+      "maximumStanceWorldSpeed": 0,
+      "maximumLocalStanceSpeedMismatch": 5.0511261839858435e-12,
+      "maximumRootSpeedError": 5.0511261839858435e-12,
+      "maximumLocalCyclePositionSeam": 5.551115123125783e-17,
+      "maximumLocalCycleVelocitySeam": 5.551115123125782e-12,
+      "maximumOneSidedVelocityJumpAtLoop": 9.592326932761353e-9,
+      "minimumForwardKneeOffset": 0.09641674645267628,
+      "minimumSoleHeight": 0,
+      "nearDistinctKeyPoses": 8,
+      "farDistinctKeyPoses": 8,
+      "distinctUnlabelledKeyGeometry": 4
+    }
+  }
+}

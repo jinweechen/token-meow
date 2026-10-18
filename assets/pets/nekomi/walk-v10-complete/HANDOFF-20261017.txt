@@ -1,0 +1,63 @@
+会话交接｜2026-10-17｜D:/project/宠物
+
+用户最新要求：开启新的 Codex 会话继续完成。原任务是“生成剩余素材”，生成过程中用户再次指出“尾巴根呢”。请在新会话继续实际绘制，不要重复长篇调研或仅做工程示意。
+
+当前实物（已现场核对）
+assets/pets/nekomi/walk-v10-complete/frames/ 现有5张：
+01-contact-near.png、05-contact-far.png 为 v9 两张裙装透明候选原字节复制。
+02-near-flat-recovery.png、03-far-passing.png、04-near-toe-far-reach.png 为本轮新生成的穿裙装素材，未通过整段动作检查。
+缺少06-far-flat-recovery.png、07-near-passing.png、08-far-toe-near-reach.png；对应提示词已在prompts/。
+全部目标画幅1024×1536，用户期望后续约1200像素高显示；不允许只放大低清图冒充高清。
+01/05是静态候选，不是整段已经通过；尾根问题仍要统一修正。
+
+最新尾根尝试
+candidates/05-tail-root-v1.png 已从内置生成工具原路径原字节复制。
+该尝试终于画出后裙片开口和短段根部，但开口偏长、位置偏高的可能性仍需复核，不能直接当通过模板。
+原路径 C:/Users/Administrator/.codex/generated_images/01a14280-254e-70f3-ba61-b34c813b8e3a/exec-4cd3b854-0fe2-4799-acb0-fcb93fbdba02.png
+提示词 prompts/05-tail-root-v1.txt。
+用户此前明确：尾巴从后骨盆/尾椎附近，经裙子背后的开口伸出，靠近腿，不能从腰旁、手臂旁或裙摆下缘凭空冒出。本次还要求尾根能看懂。
+建议最小编辑窗口约x460–560,y770–870，开口候选约x475–515,y805–845（仅粗略绘画窗口，须依据隐藏骨盆定位，不是解剖定值）。01后摆袖与下层头发遮挡该区域，可能需小幅挪袖边与发束，让后裙片露出窄窗口。不能为了看见开口把孔挪到错误裙边。小开口+短根段，避免巨大裂口。
+
+独立目视复核
+output/imagegen/walk-v10-complete-20261017/first-three-review.txt
+02：承重与离地能读清，但后脚回收较高，支撑鞋底比01/05约低10px，待统一地线。
+03：远脚仍偏后；近臂偏前而非接近中立；经过相位需继续修，不因图生成就判通过。
+04：远前摆脚踝比05落脚位置明显靠前，约100px，可能出现04到05回跳；支撑底线也需统一。
+01/02/03/04旧图尾根全遮挡，均不满足本次可见后开口要求。
+05后手较紧，v9局部重绘改善不明显；不得声称已修好手指。
+
+已准备工具资料
+pose-guides/：6张纯SVG+PNG关节/脚掌绘图约束，及phase-coordinates.json。画幅1024×1536，地线1483，髋600/840，腿段280/280，摆脚清地35/50/40px。
+这些是代码原生示意，不能作为人物图或验收替代品。画面不能出现青灰腿、骨架或文字。
+prompts/：剩余6阶段-v1.txt，使用角色参考+对应guide；注意旧提示词把尾根隐藏，必须按用户最新要求修订这条，不能原样继续。
+preview.html / sequence.json：完整8张网格、单帧、手脚、棋盘/浅色/深色，以及8图全加载后才能启用的“动作检查播放”（默认暂停，160ms/帧，0.5x可选）。未做本轮v10浏览器验收，当前5/8不能播放。
+两文件已由子代理完成语法和非浏览器逻辑检查；sequence支持reviewStatus及notes，当前都pending-review，不要自动升格通过。
+服务器此前为 http://127.0.0.1:1424 ，静态根 assets/pets/nekomi，需现场确认。用户可查看 /walk-v10-complete/preview.html。
+
+研究已做，不要再从零查市场
+docs/角色动作调研与绘制规范-20261017.txt
+output/imagegen/walk-v9-study-20261017/foot-reference.txt
+output/imagegen/walk-v9-study-20261017/independent-pose-review.txt
+assets/pets/nekomi/walk-v8-study/side-model-study.png（包含角色侧视及尾根A→开口B→显露点C的设计研究；不是通过的人物动画）
+引用的第一方材料包括Adobe/Autodesk/Spine。近远身份固定，前伸腿不等于近腿，允许侧投影重叠；看真实支撑点而非锁死踝点。
+
+动作相位
+01近脚接触；02近脚全掌承重/远脚回收；03远脚经过；04近脚提跟支撑/远脚前摆；
+05远脚接触；06远脚全掌承重/近脚回收；07近脚经过；08远脚提跟支撑/近脚前摆。
+近臂与近腿反摆，03/07手臂应接近中立且运动方向相反。03/07摆膝鞋底高度应一致，不要高抬或后踢。
+
+图像生成要求
+读取 imagegen skill，默认内置image_gen，透明时transparent_background=true。编辑本地参考先view_image，输出原字节复制进项目。禁止用Python抠图、裁切、形变、拼接或程序画人物代替imagegen；只读PIL元数据检查可。
+注意工具显示可能把alpha=0像素的RGB呈黑色/光晕；v9已实测RGBA且浏览器棋盘/深浅背景透明正常。应检查alpha与真实浏览器合成，不凭tool图黑底认定失败，也不能自动信任每张都有正确alpha。
+本轮新02/03/04原输出：
+02 exec-68fbbc74-74fd-451f-a1fd-f371af744108.png
+03 exec-eb813d6d-58c6-422f-949e-d85382bb8a37.png
+04 exec-9a270500-bab6-4d2b-b60c-1b7da8f325c7.png
+均位于同一generated_images/01a14280-254e-70f3-ba61-b34c813b8e3a/。
+尚未完成v10 generation-manifest/integrity/最终检查报告，需补齐来源与提示词关系。
+
+交付与边界
+优先完成全部8张实际裙装透明PNG，逐张目视+共享地线/近远身份/尾根检查，再用真实PNG慢速完整循环检查，保留不合格版本，输出新修订而不丢历史。
+用户此前还需要序列帧与分层素材两种；当前这轮尚未完成分层，不可宣称全动画素材已齐。
+所有v5/v6/v7/v8/v9保留；本轮不改src/Rust/桌宠运行时，不提交推送。项目目录当前不是Git仓库。
+新会话已获用户直接授权继续，不要为了常规可逆生成再次询问许可。

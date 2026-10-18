@@ -1,0 +1,37 @@
+{
+  "date": "2026-10-16",
+  "candidate": "C17 agent kind and query index",
+  "scope": "Independent read-only source review; no new test, SQL, application or installer execution",
+  "reviewer": "/root/desktop",
+  "finalSharedAttributionSource": {
+    "src-tauri/src/core/adapter.rs": "A50AE42EB0A7760E91009122D9A0BD0F2A234B1CCA160EED856871CA0F8B2441",
+    "src-tauri/src/core/turn_thread_attribution_tests.rs": "8E1CA31D6D18333F6FAD22264C2EBEC05B7D2DFA4A3508B8C0E70F20C9EC1F15"
+  },
+  "earlierFinding": {
+    "problem": "An existing turn could retain an incorrect newer metadata thread after older native usage established a different unique owner",
+    "disposition": "Reproduced as a failing regression before the shared save_turn correction; initial failure retained in the targeted validation receipt",
+    "closedBy": "Resolve unique native ownership after metadata and lifecycle clock merging; store native response before refining the existing turn"
+  },
+  "finalObservations": [
+    "The native lookup is scoped by complete source and turn identity and collects at most two distinct owners; it does not choose an arbitrary first row",
+    "save_turn applies unique ownership after merging metadata and lifecycle evidence, independently of their timestamp order",
+    "Late native usage can refine an existing terminal turn and its existing inbox event without replaying completion",
+    "Multiple owners clear the selected thread, retain an explicit ambiguity marker and prevent new eligible notifications",
+    "An existing inbox event keeps its identity, read, notified, notificationState, createdAt and animation delivery fields; only attribution and ambiguity eligibility are refined",
+    "The regression source covers both index configurations, source isolation, multiple responses for one owner, chronological and reversed arrival, newer context, late usage after terminal and a subsequent conflicting owner"
+  ],
+  "otherReviewedScope": [
+    "Global role Query and bridge projection",
+    "Atomic pending migrations, committed WAL backup and future-version rejection",
+    "Per-snapshot unfiltered source-health reuse and final covering index order"
+  ],
+  "result": "No remaining material blocker found within the reviewed scope",
+  "boundaries": {
+    "freshTestExecution": false,
+    "buildQualified": false,
+    "nativeQualified": false,
+    "performanceQualified": false,
+    "M4Accepted": false,
+    "goalComplete": false
+  }
+}

@@ -1,0 +1,14 @@
+Use case: identity-preserve / precise-object-edit.
+Asset: final SHY pose of the original Nekomi desktop catgirl, native 1024x1536 RGBA PNG with a truly transparent background.
+
+Input 1 is ONLY the previous shy gesture/expression guide. Its thick fox-like tail is wrong and must be discarded completely.
+Input 2 is the definitive FINAL V5 IDLE master: preserve this character identity, face, dress, rendering, proportions and slender cat-tail thickness.
+Input 3 is the final front/side/back construction guide, only for center-back tail connection and consistent costume.
+
+Create the same fully clothed wholesome anime catgirl in a shy pose: a small natural head tilt and a gentle smile, the viewer-left hand softly touching the cheek with gently bent correctly attached fingers, the other hand relaxed downward at the side. Use a readable back/side hand view and natural finger overlap, not a flat front palm. Preserve recognizable green eyes, long white-lavender curled hair, white/pink cat ears, two small balanced green daisy bows with short tails, ivory sailor dress with green collar and chest bow, the natural waist ribbon, floral green-trimmed skirt and ruffles, white tights, green Mary Jane shoes. Feet point forward and knees remain comfortably apart, with balanced straight leg alignment.
+
+Replace the entire old thick tail with ONE narrow cylindrical lightly furry white-lavender CAT tail matching input 2. Smooth gradual taper to a rounded soft tip, never a broad fox brush or pointed leaf. Real root belongs at center-back pelvis below natural waist through the finished rear dress opening; the frontal dress hides the root. It passes behind the skirt, then one distal segment appears beyond the lower viewer-right skirt side and hangs in a small relaxed curve near the calf. Maintain a modest visible gap from the calf rather than touching it along a long edge. Keep tail clear of hands and sleeves, no lateral waist attachment, no second tail, no isolated fluffy prop, no invented side hole. Match master tail length and volume; do not enlarge it for the gesture.
+
+Hands: five correctly attached digits on each hand, fingers anatomically joined to palm at distinct knuckles, natural staggered lengths and small separations, no branching, webbing, fused fingers, extra fingers or broken joints. Cheek hand has relaxed curved fingers rather than claw splay.
+
+Full figure entirely inside canvas with 35-45 px clean transparent safety margin around highest ear and lowest shoe. Visible character height approximately 1400 px, at least 1200 px. Do not crop any ear, curl, shoe or tail. Crisp fine detail intended for 1200 px character display. Fine lavender-gray outlines, no red glow. Absolutely no background, halo, bloom, haze, vignette, floor, cast shadow, text, watermark or extra objects. Preserve true alpha transparency.

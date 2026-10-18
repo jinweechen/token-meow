@@ -1,0 +1,37 @@
+[
+  {
+    "id": "master-right-v2",
+    "source": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14ad5-c365-7233-8895-9cecddb69f66\\exec-348a1e9a-84fe-4fb4-837c-1561b8119bb0.png",
+    "destination": "D:/project/宠物/assets/pets/nekomi/walk-v10-complete/model-reference/master-right-v2.png",
+    "prompt": "Use case: identity-preserve.\nAsset: one transparent full-body 1024x1536 cat-girl production reference.\nImage 1 is the edit target, current right-facing candidate. Image 2 defines the exact front design; image 3 defines the back and posterior-center tail attachment.\nRedraw image 1 into a clean RIGHT-FACING SIDE PROFILE of this exact same character, neutral standing pose, same character scale and centered registration. Turn the entire head, ribcage and pelvis toward the right: nose silhouette points right, ONLY ONE green eye is visible, near shoulder obscures the far shoulder. Do not keep a frontal torso.\nPreserve long lavender-white curls, cat ears, green sailor collar, cream long-sleeved floral dress and green platform Mary Janes. The head ribbon and daisy are seen edge-on with overlapping loops, rather than pasted as a front-facing emblem. The waist tie is small and flat at the FRONT side of the waist; back belt plain green.\nShow the short furry tail root leaving the LOW REAR CENTER OF THE PELVIS through a small snug dress opening, as in image 3. In this side projection the opening sits on the posterior contour below the waist. Let a narrow local gap in the hair expose this connection; the tail bends backward then hangs down. No tail from a sleeve, wrist, waist side or hem. The far LEFT arm may be naturally hidden behind torso and tail. Near RIGHT arm must have a continuous relaxed shoulder-elbow-wrist-hand chain.\nBoth legs support a neutral stand. Near RIGHT leg and shoe closer to camera, shoe slightly more turned toward viewer with visible instep. Far LEFT shoe slightly higher in the image due to ground depth, narrower and more side-on, attached consistently to its shin. Side-view body with a mildly elevated camera, no two identical flat shoe icons.\nSingle figure only, all ears hair tail hands shoes in frame. True transparent alpha, no background, glow, ground shadow, labels, diagram or extra parts. Match the original crisp detailed anime finish.",
+    "promptPath": "D:/project/宠物/assets/pets/nekomi/walk-v10-complete/prompts/master-right-v2-executed.txt",
+    "inputs": [
+      "D:/project/宠物/assets/pets/nekomi/walk-v10-complete/model-reference/master-right-v1.png",
+      "D:/project/宠物/assets/pets/nekomi/walk-v10-complete/model-reference/master-front-v2.png",
+      "D:/project/宠物/assets/pets/nekomi/walk-v10-complete/model-reference/master-back-v3.png"
+    ]
+  },
+  {
+    "id": "master-right-v3",
+    "source": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14ad5-c365-7233-8895-9cecddb69f66\\exec-245b601b-db1e-40d6-b68f-39aff86c5c85.png",
+    "destination": "D:/project/宠物/assets/pets/nekomi/walk-v10-complete/model-reference/master-right-v3.png",
+    "prompt": "Use case: precise-object-edit.\nImage 1 is the right-side sprite EDIT TARGET. Image 2 is the front reference for shared proportions; image 3 is the back reference for the tail attachment.\nKeep image 1's successful one-eye right-facing profile, continuous rear-pelvis tail root, near/right and far/left identities, face, detailed curled hair, dress fabric and colors. Refine registration and perspective to match the SAME character in image 2, without a frontal face or frontal torso.\nDraw native transparent 1024x1536. Align these shared landmarks naturally: ear tips y15, chin about y450, shoulder y500, green waist belt y680-700, skirt lowest front ruffle about y1090-1110, near RIGHT shoe sole about y1480. Far LEFT sole about y1440, only a modest 40px ground-depth difference, not the current large 120px gap. Reconstruct whole hip-knee-ankle chains and shoe volumes coherently, not merely translating shoes. Near shoe stays more toward viewer, far shoe more side-on. Relaxed near hand ends about y930, connected via wrist around y810.\nTail leaves a small snug rear-center skirt port at the low posterior sacrum near y815. Keep a visible short root emerging backward through it and a local hair window, then the same slender hanging curve. Do not create a waist-side hole or sleeve connection.\nRotate the NEAR HEAD BOW edge-on as part of the side head: loops overlap in depth and one is mostly hidden. The daisy is foreshortened into a thin oval edge with overlapped petals, NOT a full front-facing circular flower. Keep its existing attachment site and the same green ribbon lengths. Chest bow also narrows naturally with the side chest; small front-side waist tie remains small, rear belt plain.\nPreserve all other design details and one relaxed near hand; far hand may be fully hidden. Same high-detail anime finish. Full figure alone, genuine transparent alpha, no glow, shadow, background, text, guide lines or extra parts.",
+    "promptPath": "D:/project/宠物/assets/pets/nekomi/walk-v10-complete/prompts/master-right-v3-registration.txt",
+    "inputs": [
+      "D:/project/宠物/assets/pets/nekomi/walk-v10-complete/model-reference/master-right-v2.png",
+      "D:/project/宠物/assets/pets/nekomi/walk-v10-complete/model-reference/master-front-v2.png",
+      "D:/project/宠物/assets/pets/nekomi/walk-v10-complete/model-reference/master-back-v3.png"
+    ]
+  },
+  {
+    "id": "master-back-v4",
+    "source": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14ad5-c365-7233-8895-9cecddb69f66\\exec-49867756-ab29-4b90-97b3-b26cd032e8ec.png",
+    "destination": "D:/project/宠物/assets/pets/nekomi/walk-v10-complete/model-reference/master-back-v4.png",
+    "prompt": "Use case: precise-object-edit.\nImage 1 is the BACK sprite edit target. Image 2 is the front design reference.\nKeep the exact back-facing character, head, long curls, plain backs of hair ribbons, shoulder and arm chains, relaxed hands, white tights, shoes, clothing patterns, pose and native 1024x1536 registration.\nMake only two small dress-construction corrections. Lower the green waist belt by about 15 pixels to match image 2's natural waist at y680-700, reconnecting the bodice/skirt folds without moving the body, hands, legs or hem. Keep this BACK belt plain green with no bows or flowers.\nRefine the posterior-center tail port at the low sacrum, about y815, into a small snug practical opening fitted to the existing furry tail root. Remove the oversized protruding ruffled ring; use only a thin cream seam binding around the root, no large flap or hole. The tail must remain attached at the rear midline of the pelvis and continuously emerge backward, with the same curve and thickness. Keep tail away from both hands, no hand-tail merge.\nAll existing design, floral motifs, detailed linework and figure edges remain stable. Actual transparent alpha outside the figure. No background, glow, ground, shadow, text or extra parts.",
+    "promptPath": "D:/project/宠物/assets/pets/nekomi/walk-v10-complete/prompts/master-back-v4-seam.txt",
+    "inputs": [
+      "D:/project/宠物/assets/pets/nekomi/walk-v10-complete/model-reference/master-back-v3.png",
+      "D:/project/宠物/assets/pets/nekomi/walk-v10-complete/model-reference/master-front-v2.png"
+    ]
+  }
+]

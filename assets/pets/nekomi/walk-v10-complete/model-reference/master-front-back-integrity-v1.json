@@ -1,0 +1,180 @@
+{
+  "scope": "native image generation of front/back master candidates; not animation acceptance",
+  "items": [
+    {
+      "stem": "master-front-v1",
+      "sourceRecord": "D:\\project\\宠物\\assets\\pets\\nekomi\\walk-v10-complete\\model-reference\\master-front-v1-source.json",
+      "status": "candidate-known-issues",
+      "byteCopyVerified": true,
+      "promptFileMatchesExactPrompt": true,
+      "metadata": {
+        "size": [
+          1024,
+          1536
+        ],
+        "mode": "RGBA",
+        "alphaExtrema": [
+          0,
+          254
+        ],
+        "fullyTransparentPixels": 812015,
+        "nonzeroAlphaPixels": 760849,
+        "alphaGreaterThan127BBox": [
+          93,
+          11,
+          936,
+          1483
+        ],
+        "outsideAlphaSamples": {
+          "(0, 0)": 0,
+          "(0, 500)": 0,
+          "(0, 750)": 0,
+          "(1023, 750)": 0,
+          "(50, 100)": 0,
+          "(512, 1510)": 0
+        }
+      },
+      "sha256": "5615477167cc24ead31b23c7dd1b0a6fef822e7705fdc699456664018a282f2b"
+    },
+    {
+      "stem": "master-front-v2",
+      "sourceRecord": "D:\\project\\宠物\\assets\\pets\\nekomi\\walk-v10-complete\\model-reference\\master-front-v2-source.json",
+      "status": "candidate-pending-independent-review",
+      "byteCopyVerified": true,
+      "promptFileMatchesExactPrompt": true,
+      "metadata": {
+        "size": [
+          1024,
+          1536
+        ],
+        "mode": "RGBA",
+        "alphaExtrema": [
+          0,
+          254
+        ],
+        "fullyTransparentPixels": 790133,
+        "nonzeroAlphaPixels": 782731,
+        "alphaGreaterThan127BBox": [
+          93,
+          11,
+          937,
+          1484
+        ],
+        "outsideAlphaSamples": {
+          "(0, 0)": 0,
+          "(0, 500)": 0,
+          "(0, 750)": 0,
+          "(1023, 750)": 0,
+          "(50, 100)": 0,
+          "(512, 1510)": 0
+        }
+      },
+      "sha256": "7ec89e91a67884a6e524b788e328a763aaebe502c2a5b5c887b5679fd7620997"
+    },
+    {
+      "stem": "master-back-v1",
+      "sourceRecord": "D:\\project\\宠物\\assets\\pets\\nekomi\\walk-v10-complete\\model-reference\\master-back-v1-source.json",
+      "status": "candidate-known-issues",
+      "byteCopyVerified": true,
+      "promptFileMatchesExactPrompt": true,
+      "metadata": {
+        "size": [
+          1024,
+          1536
+        ],
+        "mode": "RGBA",
+        "alphaExtrema": [
+          0,
+          254
+        ],
+        "fullyTransparentPixels": 811602,
+        "nonzeroAlphaPixels": 761262,
+        "alphaGreaterThan127BBox": [
+          90,
+          13,
+          934,
+          1481
+        ],
+        "outsideAlphaSamples": {
+          "(0, 0)": 0,
+          "(0, 500)": 0,
+          "(0, 750)": 0,
+          "(1023, 750)": 0,
+          "(50, 100)": 0,
+          "(512, 1510)": 0
+        }
+      },
+      "sha256": "b2eac7ca23fa59e7b5e0c4b03b43ecde70cbea256fa89ec32b8de21d726de740"
+    },
+    {
+      "stem": "master-back-v2",
+      "sourceRecord": "D:\\project\\宠物\\assets\\pets\\nekomi\\walk-v10-complete\\model-reference\\master-back-v2-source.json",
+      "status": "candidate-known-issues",
+      "byteCopyVerified": true,
+      "promptFileMatchesExactPrompt": true,
+      "metadata": {
+        "size": [
+          1024,
+          1536
+        ],
+        "mode": "RGBA",
+        "alphaExtrema": [
+          0,
+          254
+        ],
+        "fullyTransparentPixels": 815894,
+        "nonzeroAlphaPixels": 756970,
+        "alphaGreaterThan127BBox": [
+          90,
+          13,
+          934,
+          1483
+        ],
+        "outsideAlphaSamples": {
+          "(0, 0)": 0,
+          "(0, 500)": 0,
+          "(0, 750)": 0,
+          "(1023, 750)": 0,
+          "(50, 100)": 0,
+          "(512, 1510)": 0
+        }
+      },
+      "sha256": "9bdc513edbb8c12afdaf92f109e6e5c4446bd9219cce07b704e708403fa8b4ea"
+    },
+    {
+      "stem": "master-back-v3",
+      "sourceRecord": "D:\\project\\宠物\\assets\\pets\\nekomi\\walk-v10-complete\\model-reference\\master-back-v3-source.json",
+      "status": "candidate-known-issues",
+      "byteCopyVerified": true,
+      "promptFileMatchesExactPrompt": true,
+      "metadata": {
+        "size": [
+          1024,
+          1536
+        ],
+        "mode": "RGBA",
+        "alphaExtrema": [
+          0,
+          254
+        ],
+        "fullyTransparentPixels": 810044,
+        "nonzeroAlphaPixels": 762820,
+        "alphaGreaterThan127BBox": [
+          88,
+          10,
+          937,
+          1484
+        ],
+        "outsideAlphaSamples": {
+          "(0, 0)": 0,
+          "(0, 500)": 0,
+          "(0, 750)": 0,
+          "(1023, 750)": 0,
+          "(50, 100)": 0,
+          "(512, 1510)": 0
+        }
+      },
+      "sha256": "a56910db404f77546005a63ba998d7f5a8b15d17f0b7d4b0a32e118daf4e90d1"
+    }
+  ]
+}

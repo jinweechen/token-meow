@@ -1,0 +1,8 @@
+<!doctype html>
+<html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>三视候选 · 饰件方向复核</title>
+<style>*{box-sizing:border-box}body{margin:0;padding:20px;font:15px/1.6 system-ui,"Microsoft YaHei",sans-serif;color:#243c30;background:#edf1ec}h1{font-size:23px;margin:0 0 8px}p{margin:5px 0 15px}select{font:inherit;padding:6px 10px;margin:0 10px 15px 0}.stage{max-width:1536px;overflow:auto;background:white;border:1px solid #ccd8ce}.stage img{display:block;width:100%;height:auto}.full img{width:1536px;max-width:none}a{color:#226344}</style>
+<h1>三视候选 · 饰件方向复核</h1><p id="note">默认 v4：背腰为连续腰带，背头饰只露反面/侧缘，侧视头饰缩窄并重叠，带尾长度已收齐。手臂、近远肢体与侧面尾根仍需结构复核，尚非动画母稿通过。</p>
+<label>版本 <select id="version"><option value="turnaround-side-hair-bow-v4-length.png">v4 · 侧视头饰带尾收齐</option><option value="turnaround-side-hair-bow-v3.png">v3 · 侧视头饰转向</option><option value="turnaround-rear-accessories-v2.png">v2 · 背面头饰转向</option><option value="turnaround-rear-waist-v1.png">v1 · 背面腰带修订</option><option value="../../hd-v5-natural-tail/reference/turnaround.png">旧三视候选</option></select></label>
+<label>显示 <select id="size"><option value="fit">适合窗口</option><option value="full">原始像素</option></select></label>
+<a id="original" href="turnaround-side-hair-bow-v4-length.png">打开原图</a><div class="stage" id="stage"><img id="image" src="turnaround-side-hair-bow-v4-length.png" alt="角色三视候选：侧视头饰窄边投影、带尾长度收齐、背面头饰反面与连续绿色腰带"></div>
+<script>const v=document.getElementById('version'),s=document.getElementById('size'),im=document.getElementById('image'),st=document.getElementById('stage'),a=document.getElementById('original');v.onchange=()=>{im.src=v.value;a.href=v.value};s.onchange=()=>st.classList.toggle('full',s.value==='full');</script></html>

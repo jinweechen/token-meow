@@ -1,0 +1,161 @@
+{
+  "schemaVersion": 1,
+  "recordedAtUtc": "2026-10-15T22:33:32.9525362Z",
+  "dateAsiaShanghai": "2026-10-16",
+  "status": "original-frozen-plan-reviewed-with-one-execution-cleanup-blocker",
+  "reviewer": "desktop subagent independent read-only source review",
+  "scope": "Only the original C18 private two-process PetPulse/PetDetails versus same-day Snapshot diagnostic plan and helper. This is separate from the product build and Browser IPC qualification.",
+  "method": "Read complete authored PLAN.md, Rust helper, Python controller, binding template and manifest; inspect relevant production Pet Details semantics for the selected projection. Hash only these small authored inputs. No syntax check, compilation, SQL, database clone/read/hash, process probe, browser or application execution.",
+  "qualification": {
+    "sourceReviewOnly": true,
+    "originalPlanExecutableWithoutCorrection": false,
+    "productBuildBlocked": false,
+    "helperCompiled": false,
+    "helperExecuted": false,
+    "sourceDatabaseRead": false,
+    "sourceDatabaseHashed": false,
+    "sqlExecuted": false,
+    "performanceQualified": false,
+    "nativePassed": false,
+    "fullImportPassed": false,
+    "M4Passed": false
+  },
+  "planManifest": {
+    "path": "output/performance/c18-pet-read-model-plan-3a3cce86a6f54f7eaa6c34bc94d4d3d9/plan-manifest.json",
+    "sha256": "E27D2C5A0539C3E6FC9ED51D91E05A317ED2B64E0EE052C86D1E8D86D4A33133",
+    "bytes": 866
+  },
+  "reviewedFrozenFiles": [
+    {
+      "path": "output/performance/c18-pet-read-model-plan-3a3cce86a6f54f7eaa6c34bc94d4d3d9/PLAN.md",
+      "sha256": "333602209572680F68FE663B649D4457663CC055C2A273ACF32A194DA14D2C81",
+      "bytes": 8103
+    },
+    {
+      "path": "output/performance/c18-pet-read-model-plan-3a3cce86a6f54f7eaa6c34bc94d4d3d9/pet-read-model-diagnostic.rs",
+      "sha256": "388C6999D69101784EC8EF4820D8034F68C47509B28C7C64580A797360D5AF1D",
+      "bytes": 17709
+    },
+    {
+      "path": "output/performance/c18-pet-read-model-plan-3a3cce86a6f54f7eaa6c34bc94d4d3d9/run-owned-diagnostic.py",
+      "sha256": "6EFE0129B5A2FDA3BDA2A95195A9C2F0817E6BD9D557F11561BA95D72D86E14B",
+      "bytes": 14980
+    },
+    {
+      "path": "output/performance/c18-pet-read-model-plan-3a3cce86a6f54f7eaa6c34bc94d4d3d9/bindings.template.json",
+      "sha256": "C3DFEDC2619E2729F1FF37B4F2911300FD82A1D424BB6131D63E5FABED34189F",
+      "bytes": 1663
+    }
+  ],
+  "sourceDrift": [],
+  "findings": [
+    {
+      "id": "C18-DIAG-COMPILE-TIMEOUT-DESCENDANTS",
+      "priority": "P2",
+      "status": "requires-private-plan-correction-before-execution",
+      "path": "output/performance/c18-pet-read-model-plan-3a3cce86a6f54f7eaa6c34bc94d4d3d9/run-owned-diagnostic.py",
+      "lines": [
+        117,
+        140
+      ],
+      "evidence": "run() starts rustc through Popen without a Job. On timeout or exception it kills and waits only for that Popen root. A Windows rustc link step may own link.exe descendants; the current root handle does not terminate or prove exit of those descendants.",
+      "impact": "The original compile timeout path can leave owned compilation work alive while returning a failed root result. It cannot establish that the CPU window is released or that all owned compiler descendants are reclaimed. No product source or acceptance threshold is implicated.",
+      "requiredBoundary": "Correct only a new private plan/controller copy: own the compiler process tree with a preconfigured kill-on-close Job, create suspended, assign before resume and clean up via owned handles on failure. Do not use global enumeration/kill. Preserve this original frozen plan, failure finding and hashes. The Core-only A/B helper does not itself start external subprocesses; its30s root timeout is a separate narrower case.",
+      "communicatedTo": [
+        "root",
+        "ledger"
+      ],
+      "rootDisposition": "Root accepted the finding and assigned ledger a new private reviewfix copy; that unreviewed future copy is not qualified by this receipt."
+    }
+  ],
+  "verifiedStaticBoundaries": [
+    {
+      "area": "Original database isolation",
+      "locations": [
+        "run-owned-diagnostic.py79-115",
+        "run-owned-diagnostic.py205-283",
+        "pet-read-model-diagnostic.rs235-262"
+      ],
+      "conclusion": "Original DB and existing WAL are opened only GENERIC_READ with FILE_SHARE_READ, reject reparse, retain the same handles, and are never passed to Core::open. Rust Core receives fixed owned clones only."
+    },
+    {
+      "area": "Exact identity",
+      "locations": [
+        "run-owned-diagnostic.py67-112"
+      ],
+      "conclusion": "FILETIME, file ID, volume and byte lengths use Python integer arithmetic; large identity fields are emitted as decimal strings, without JS Number rounding."
+    },
+    {
+      "area": "Original post-verification",
+      "locations": [
+        "run-owned-diagnostic.py265-283"
+      ],
+      "conclusion": "Once the original guard exists, its finally rereads the same handle/hash/size/identity, rechecks WAL0, source directory metadata and binding hash; a changed value raises and prevents completion. Failure during acquisition may lack a complete guard record and must remain a failed execution, not source-unchanged proof."
+    },
+    {
+      "area": "Fresh clones",
+      "locations": [
+        "run-owned-diagnostic.py212-242",
+        "pet-read-model-diagnostic.rs240-258"
+      ],
+      "conclusion": "Exactly A and B directories/files use create-new semantics; both receive the same original read stream and are rehashed before Core::open. Marker/day/size/path and source overlap checks fence Rust access. Source body is not scanned."
+    },
+    {
+      "area": "Day and source comparison",
+      "locations": [
+        "run-owned-diagnostic.py31-34",
+        "run-owned-diagnostic.py243-264",
+        "pet-read-model-diagnostic.rs149-159",
+        "pet-read-model-diagnostic.rs265-324"
+      ],
+      "conclusion": "Fixed expected current Shanghai day is checked before/after phases. A then B executes once each, with create-new result/failure files and no automatic retry. Selected values and primary binding digest compare exactly, while process-specific runtime/scope headers remain independently recorded."
+    },
+    {
+      "area": "Selected projection",
+      "locations": [
+        "pet-read-model-diagnostic.rs190-218",
+        "pet-read-model-diagnostic.rs271-320"
+      ],
+      "conclusion": "A calls baseline Pulse, cursor Pulse and Details once each; B calls exactly one same-day Snapshot. Projection preserves false/null/zero distinctions through type-strict final JSON comparison, whole current-day unread truthiness, grouped issue count and stable latest-turn/nullable-TTFT selection. An empty current-day sample is retained rather than replaced by an easier historic date."
+    },
+    {
+      "area": "No huge serialization duplicate",
+      "locations": [
+        "pet-read-model-diagnostic.rs128-136",
+        "pet-read-model-diagnostic.rs176-179",
+        "pet-read-model-diagnostic.rs312-320"
+      ],
+      "conclusion": "Snapshot serialization is streamed into a counting SHA writer, with only selected small fields retained. There is no second full serialized Snapshot byte buffer or full Snapshot file output."
+    },
+    {
+      "area": "Phase/resource scope",
+      "locations": [
+        "pet-read-model-diagnostic.rs16-126",
+        "pet-read-model-diagnostic.rs327-340"
+      ],
+      "conclusion": "Windows PrivateUsage is private committed bytes, distinct from working set. CPU uses raw GetProcessTimes100ns deltas and includes the sampler thread. Open/migration/backup, read phases, serialization and checkpoint are separately reported. Nominal2ms sampled peaks and max gap are descriptive, not formal gates."
+    },
+    {
+      "area": "Qualification",
+      "locations": [
+        "run-owned-diagnostic.py258-287",
+        "pet-read-model-diagnostic.rs327-340",
+        "PLAN.md"
+      ],
+      "conclusion": "Performance/full-import/M4 flags remain false. The source is the C15 incomplete partial-import405MB database; the plan does not inherit full-import, Native or historical C16 performance qualification."
+    }
+  ],
+  "pendingExecutionRequirements": [
+    "bindings.frozen.json must be provided only after the actual C18 product/CLI and production rlib are frozen. This review has no actual C18 rlib/fingerprint/binary hash and does not qualify a future binding by filename.",
+    "Before execution, independently cross-check the actual productionLibraryReceipt, candidate receipt, precise custom-protocol production fingerprint, direct library hashes and native/transitive link paths. Current controller validates declared hashes but a hash alone does not prove semantic same-source linkage.",
+    "Root must release the CPU window. The current original bindings template is intentionally incomplete; missing or invalid frozen bindings fail closed.",
+    "The compiler descendant-cleanup correction requires its own new plan manifest/review. Do not overwrite or retroactively revise this original finding."
+  ],
+  "limitations": [
+    "A readonly source review cannot prove Windows FFI ABI/runtime behavior, compilation, schema migration, comparison success or cleanup execution; no helper was run.",
+    "ReadGuard transfers ownership to a CRT fd before os.fdopen; an exceptional fdopen failure is not explicitly wrapped by a close guard. A failed invocation must never be promoted to successful post-verification; this is an additional defensive cleanup caveat, not the primary compiler-tree finding.",
+    "The wholeHelperSampledPeakPrivateBytes counter reflects asynchronous samples, while per-phase peaks also include endpoint observations; short peaks and phase-boundary attribution remain descriptive and should not be combined as an exact allocator maximum.",
+    "A30s helper timeout and180s compiler timeout do not constitute application performance thresholds. The parent may spend additional bounded cleanup time after timeout.",
+    "No original405MB database or raw logs were opened, cloned, hashed or changed during this review; only authored text and existing small metadata were read."
+  ]
+}

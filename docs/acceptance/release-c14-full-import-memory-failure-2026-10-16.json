@@ -1,0 +1,375 @@
+{
+  "schemaVersion": 1,
+  "kind": "C14-real-full-import-memory-counterexample-independent-audit",
+  "recordedAtUtc": "2026-10-15T18:19:17.964364+00:00",
+  "status": "failed-observed-import-memory-threshold-incomplete-import",
+  "candidate": {
+    "path": "D:\\project\\宠物\\output\\build-candidates\\c14-renderer-lifecycle-csv-single-flight-20261016\\token-meow.exe",
+    "sha256": "DA9C519E13FF9E8D60C2A485C7C314B6EDD3862FD82D33DF016DC943F6D4AE17",
+    "rootProcessId": 47712,
+    "rootCreationFileTimeDecimal": "134365601566563878",
+    "jobId": "f97ba692-41bb-4741-aa08-6b2fc67c0fc8"
+  },
+  "originalSummary": {
+    "protocol": "full-first-import-v1",
+    "kind": "import-end",
+    "gate": "failed-observed-import-memory-threshold",
+    "reason": "failed-observed-import-memory-threshold",
+    "rootProcessId": 47712,
+    "jobId": "f97ba692-41bb-4741-aa08-6b2fc67c0fc8",
+    "executableSha256Before": "DA9C519E13FF9E8D60C2A485C7C314B6EDD3862FD82D33DF016DC943F6D4AE17",
+    "executableSha256After": "DA9C519E13FF9E8D60C2A485C7C314B6EDD3862FD82D33DF016DC943F6D4AE17",
+    "sourceManifestSha256": "8AC284E97D6E9E72958AD35A8A0D76EB1F036822415DA3B295ECFF36A3F67378",
+    "completionQualified": false,
+    "measurementQualified": true,
+    "completionBindingValid": false,
+    "sidecarExitCode": 0,
+    "observedSeconds": 1211.2743633999999,
+    "sampleCount": 1199,
+    "sampledPeakPrivateMiB": 671.9375,
+    "timeWeightedMeanPrivateMiB": 308.82754670544875,
+    "normalizedMeanCpuPercent": 1.3671465634631574,
+    "rootExited": false,
+    "applicationLaunched": true,
+    "applicationLeftRunning": true,
+    "measurementErrors": [],
+    "completionReceipt": null,
+    "qualificationScope": "Complete first-import sampled private-memory peak only; CPU is descriptive and this is never idle-600s qualification",
+    "limitations": [
+      "Private memory is sampled at one second, not a continuous maximum.",
+      "Timeout/error/threshold failure may leave the first import incomplete.",
+      "Closing the observer leaves a resumed application running for explicit normal exit."
+    ],
+    "completedAt": "2026-10-15T18:09:28.6052852Z"
+  },
+  "originalCompletion": {
+    "kind": "import-completion",
+    "protocol": "full-first-import-v1",
+    "status": "stopped-or-timeout",
+    "completionQualified": false,
+    "scanReachedFrozenEnd": false,
+    "errors": [],
+    "observedAt": "2026-10-15T18:09:28.472056+00:00",
+    "jobId": "f97ba692-41bb-4741-aa08-6b2fc67c0fc8",
+    "rootProcessId": 47712,
+    "rootCreationFileTime": 134365601566563878,
+    "observerRevision": "windows-shared-json-r1",
+    "sharedJsonReaderSha256": "85D2C3BADD86CB59ECBA1BB6D61CC701631DFB691039F75419F4CDD52241F82D"
+  },
+  "measurementAudit": {
+    "measurementQualified": true,
+    "measurementErrors": [],
+    "sampleCount": 1199,
+    "observedSeconds": 1211.2743633999999,
+    "maximumGapSeconds": 1.165074400000094,
+    "sampledPeakPrivateBytes": 704577536,
+    "sampledPeakPrivateMiB": 671.9375,
+    "thresholdMiB": 600,
+    "thresholdMet": false,
+    "peakElapsedSeconds": 1211.3254289,
+    "peakCapturedUtc": "2026-10-15T18:09:27.9892561Z",
+    "allSampleMemberPrivateSumsVerified": true,
+    "suspendedBaselineBeforeResume": true,
+    "wholeOriginalSequenceUsed": true,
+    "sampledNotContinuousPeak": true,
+    "cpuDescriptiveOnly": 1.3671465634631574
+  },
+  "peakAttribution": {
+    "method": "Only original Job members with matching PID and exact creation in the independent diagnostic image sidecar.",
+    "imageGroups": {
+      "token-meow.exe": {
+        "count": 1,
+        "privateBytes": 25993216,
+        "members": [
+          {
+            "pid": 47712,
+            "creationFileTimeDecimal": "134365601566563878",
+            "privateBytes": 25993216,
+            "imagePath": "D:\\project\\宠物\\output\\build-candidates\\c14-renderer-lifecycle-csv-single-flight-20261016\\token-meow.exe"
+          }
+        ],
+        "privateMiB": 24.7890625
+      },
+      "msedgewebview2.exe": {
+        "count": 7,
+        "privateBytes": 305381376,
+        "members": [
+          {
+            "pid": 62172,
+            "creationFileTimeDecimal": "134365601567719528",
+            "privateBytes": 57925632,
+            "imagePath": "C:\\Program Files (x86)\\Microsoft\\EdgeWebView\\Application\\155.0.4283.45\\msedgewebview2.exe"
+          },
+          {
+            "pid": 68644,
+            "creationFileTimeDecimal": "134365601567925026",
+            "privateBytes": 2867200,
+            "imagePath": "C:\\Program Files (x86)\\Microsoft\\EdgeWebView\\Application\\155.0.4283.45\\msedgewebview2.exe"
+          },
+          {
+            "pid": 66932,
+            "creationFileTimeDecimal": "134365601569516448",
+            "privateBytes": 95752192,
+            "imagePath": "C:\\Program Files (x86)\\Microsoft\\EdgeWebView\\Application\\155.0.4283.45\\msedgewebview2.exe"
+          },
+          {
+            "pid": 48556,
+            "creationFileTimeDecimal": "134365601569579594",
+            "privateBytes": 11010048,
+            "imagePath": "C:\\Program Files (x86)\\Microsoft\\EdgeWebView\\Application\\155.0.4283.45\\msedgewebview2.exe"
+          },
+          {
+            "pid": 9540,
+            "creationFileTimeDecimal": "134365601569879350",
+            "privateBytes": 7487488,
+            "imagePath": "C:\\Program Files (x86)\\Microsoft\\EdgeWebView\\Application\\155.0.4283.45\\msedgewebview2.exe"
+          },
+          {
+            "pid": 22828,
+            "creationFileTimeDecimal": "134365601570815728",
+            "privateBytes": 64278528,
+            "imagePath": "C:\\Program Files (x86)\\Microsoft\\EdgeWebView\\Application\\155.0.4283.45\\msedgewebview2.exe"
+          },
+          {
+            "pid": 66848,
+            "creationFileTimeDecimal": "134365601573696400",
+            "privateBytes": 66060288,
+            "imagePath": "C:\\Program Files (x86)\\Microsoft\\EdgeWebView\\Application\\155.0.4283.45\\msedgewebview2.exe"
+          }
+        ],
+        "privateMiB": 291.234375
+      },
+      "codex.exe": {
+        "count": 1,
+        "privateBytes": 367570944,
+        "members": [
+          {
+            "pid": 71148,
+            "creationFileTimeDecimal": "134365613640529665",
+            "privateBytes": 367570944,
+            "imagePath": "C:\\Users\\Administrator\\.codex\\packages\\standalone\\releases\\0.147.0-x86_64-pc-windows-msvc\\bin\\codex.exe"
+          }
+        ],
+        "privateMiB": 350.54296875
+      },
+      "conhost.exe": {
+        "count": 1,
+        "privateBytes": 5632000,
+        "members": [
+          {
+            "pid": 62188,
+            "creationFileTimeDecimal": "134365613640624062",
+            "privateBytes": 5632000,
+            "imagePath": "C:\\Windows\\System32\\conhost.exe"
+          }
+        ],
+        "privateMiB": 5.37109375
+      }
+    },
+    "all10PeakMembersMatched": true,
+    "sidecarDiagnosticOnly": true,
+    "commandLineOrArgumentsRead": false,
+    "requestOrRetryCausalityProven": false,
+    "rootMemoryIsNotRustHeapMeasurement": true,
+    "sidecarEnd": {
+      "kind": "image-observer-end",
+      "diagnosticOnly": true,
+      "performanceGate": null,
+      "status": "job-ended",
+      "samples": 1199,
+      "elapsedSecondsIncludingStartWait": 1308.032000000123,
+      "collectionSeconds": 1211.8910000002943,
+      "incompleteTailBytes": 0
+    }
+  },
+  "progressAtThresholdStop": {
+    "observedAt": "2026-10-15T18:09:27.971111+00:00",
+    "inputFiles": 379,
+    "inputBytes": 4275752976,
+    "registeredFiles": 379,
+    "historicalBytesCommitted": 1518573518,
+    "filesNotAtFrozenEnd": 109,
+    "historyPendingFiles": 109,
+    "pendingFiles": 377,
+    "issuesByKind": {
+      "legacy_missing_baseline": 350,
+      "record_too_large": 4
+    },
+    "collectorIteration": 371,
+    "collectorSuccessAt": "2026-10-15T18:09:27.049794700+00:00",
+    "allFrozenCursorsAtEnd": false
+  },
+  "closedLedgerAfterLaterNormalExit": {
+    "readOnly": true,
+    "immutable": true,
+    "bytes": 249290752,
+    "sha256Before": "64F96DD51F882196691DD16536F5110495694E9E56B0F74FF55E628DCCF741C3",
+    "sha256After": "64F96DD51F882196691DD16536F5110495694E9E56B0F74FF55E628DCCF741C3",
+    "walBytes": 0,
+    "integrityCheck": [
+      "ok"
+    ],
+    "sourceId": "b597cc48d616d37907aab0f7a232444fef7f9380f773bfce2867a705600900af",
+    "sourceRoot": "\\\\?\\D:\\project\\宠物\\output\\performance\\raw-log-snapshot-20261015T133007Z-248b13d8099441ca825b61bf2843bfde\\source",
+    "settings": {
+      "importSince": "2026-09-15T17:44:01.397097600+00:00",
+      "pendingFiles": 356,
+      "primarySourceId": "b597cc48d616d37907aab0f7a232444fef7f9380f773bfce2867a705600900af",
+      "historyPending:b597cc48d616d37907aab0f7a232444fef7f9380f773bfce2867a705600900af": 103
+    },
+    "registeredFiles": 379,
+    "missingFiles": 0,
+    "unexpectedFiles": 0,
+    "historicalBytesCommittedAtNormalExit": 1657745926,
+    "bytesAddedAfterThresholdObserverStopped": 139172408,
+    "filesNotAtFrozenEnd": 103,
+    "generationCounts": {
+      "0": 379
+    },
+    "fullImportComplete": false
+  },
+  "sourceInputIntegrity": {
+    "posthashReceipt": "output\\performance\\fullraw-c14-shared-reader-ad0cf2f6c8a84d2bb0d7775513a09782\\post-c14-input-byte-verification.json",
+    "sha256": "1E67D1A1A5B6968767B213F1C8867572517C4B6A549E1A919711E94DAE06CC2A",
+    "verifiedFiles": 379,
+    "verifiedBytes": 4275752976,
+    "allMatchFrozenManifest": true,
+    "afterNormalExit": true,
+    "observerCompletionPosthashQualified": false,
+    "boundary": "Independent post-failure source preservation check; not the original protocol's post-EOF rehash or proof of completed import."
+  },
+  "normalExit": {
+    "nativeReviewer": "/root",
+    "rootReportedGetProcessTokenMeowEmpty": true,
+    "skyOwnedWindowsAfter": 0,
+    "exitRequestedUtc": "2026-10-15T18:12:48.579Z",
+    "shutdown": {
+      "accountFinished": true,
+      "at": "2026-10-15T18:12:50.016897500+00:00",
+      "deadlineReached": false,
+      "scannerFinished": true,
+      "stage": "exit-ready",
+      "waitMs": 1263.2989
+    },
+    "knownMemberExitSupplementStatusCounts": {
+      "creation-matched-exited": 8,
+      "process-unavailable": 16,
+      "identity-mismatch-no-action": 1
+    },
+    "knownMemberOriginalIdentities": 25,
+    "originalImageQueryUnknownNotAnExitProof": true,
+    "reusedPid71148NotActedUpon": true,
+    "postObserverNewBirthsGloballyEnumerated": false,
+    "auditorLiveOsQueryPerformed": false
+  },
+  "fileTimePrecision": {
+    "exactIdentityAuthority": "Original raw launch/Job/Python integers plus correction decimal string; never the rounded number in native-static-renderer-observation.json.",
+    "correctionSha256": "313F62B973C6A3B18CFDD0BFE3B25272FAB8D56B78507914C8F3AE60F1A3CF3A"
+  },
+  "evidenceDigests": {
+    "output\\performance\\fullraw-c14-shared-reader-ad0cf2f6c8a84d2bb0d7775513a09782\\observer\\plan.json": {
+      "bytes": 1598,
+      "sha256": "7BA23EF456FB55C979529B3DF1725C9352F60ADC08B6995F3789CF5FD462ABA8"
+    },
+    "output\\performance\\fullraw-c14-shared-reader-ad0cf2f6c8a84d2bb0d7775513a09782\\observer\\preflight.json": {
+      "bytes": 837,
+      "sha256": "B605B94070788F105797C9818E46AD41D1A13B92F41B93E91531128310EACD6D"
+    },
+    "output\\performance\\fullraw-c14-shared-reader-ad0cf2f6c8a84d2bb0d7775513a09782\\observer\\launch-binding.json": {
+      "bytes": 1631,
+      "sha256": "7C248C098C83CE5F15B4E7D35BC52F19D185931F6C0C87EA2CEB95E2905C277E"
+    },
+    "output\\performance\\fullraw-c14-shared-reader-ad0cf2f6c8a84d2bb0d7775513a09782\\observer\\import-job.jsonl": {
+      "bytes": 1636548,
+      "sha256": "BD71E057C998405F06EA1E9ED1684B71DF41F89C2AD6FAE9F00347E3600679C3"
+    },
+    "output\\performance\\fullraw-c14-shared-reader-ad0cf2f6c8a84d2bb0d7775513a09782\\observer\\import-state.jsonl": {
+      "bytes": 1969575,
+      "sha256": "CD7B9B4E8DB80EBA851B88CACE8C4E9DAB7DB4E3FBBBF598BA9C38D4852F68AA"
+    },
+    "output\\performance\\fullraw-c14-shared-reader-ad0cf2f6c8a84d2bb0d7775513a09782\\observer\\completion.json": {
+      "bytes": 506,
+      "sha256": "E45E6DFB1F3E8C768F59F7B61E4F793359C35552935EAE0A51A43864AC43E516"
+    },
+    "output\\performance\\fullraw-c14-shared-reader-ad0cf2f6c8a84d2bb0d7775513a09782\\observer\\summary.json": {
+      "bytes": 1494,
+      "sha256": "DFB88227B4F4D3BA8DA68483B6676ED5A90B43EABFE6A0B9C3D4AB42628E0070"
+    },
+    "output\\performance\\fullraw-c14-shared-reader-ad0cf2f6c8a84d2bb0d7775513a09782\\root-prelaunch-freeze.json": {
+      "bytes": 1640,
+      "sha256": "00585026B5D054792C0CD4BCE023E525079776F2C9BFC6EE04DAD3CEA529AEDE"
+    },
+    "output\\performance\\fullraw-c14-shared-reader-ad0cf2f6c8a84d2bb0d7775513a09782\\prepare-only.json": {
+      "bytes": 2467,
+      "sha256": "725AAEC6EBD6034B6184D58F3ACC77F39885C230B159C251D1C4E62D585F05BD"
+    },
+    "output\\performance\\fullraw-c14-shared-reader-ad0cf2f6c8a84d2bb0d7775513a09782\\process-image-diagnostics.jsonl": {
+      "bytes": 5420614,
+      "sha256": "72BBE01EF502D472AC5A23FD6A34ACFAE58A0B3D5340D0AB7BF2DC4F8352E7E8"
+    },
+    "output\\performance\\fullraw-c14-shared-reader-ad0cf2f6c8a84d2bb0d7775513a09782\\normal-exit.json": {
+      "bytes": 8533,
+      "sha256": "FD12989948360F0B1D6032CD4C2E46CEF7F7DFA00CBAE977CC098D42D6F43DA4"
+    },
+    "output\\performance\\fullraw-c14-shared-reader-ad0cf2f6c8a84d2bb0d7775513a09782\\known-members-exit-status.json": {
+      "bytes": 5850,
+      "sha256": "3C7826C0114276E3AD7E18FA73FA4175F55D5B64AF6145FE397F7D889BFEA071"
+    },
+    "output\\performance\\fullraw-c14-shared-reader-ad0cf2f6c8a84d2bb0d7775513a09782\\native-static-renderer-observation.json": {
+      "bytes": 1892,
+      "sha256": "4721CEEAEFB4930BD853A0D21A62CE34DD951048F4C2D80231568CAF242A2894"
+    },
+    "output\\performance\\fullraw-c14-shared-reader-ad0cf2f6c8a84d2bb0d7775513a09782\\native-static-renderer-filetime-precision-correction.json": {
+      "bytes": 1287,
+      "sha256": "313F62B973C6A3B18CFDD0BFE3B25272FAB8D56B78507914C8F3AE60F1A3CF3A"
+    },
+    "output\\performance\\fullraw-c14-shared-reader-ad0cf2f6c8a84d2bb0d7775513a09782\\data\\desktop-metrics.json": {
+      "bytes": 2470,
+      "sha256": "3194C4B693AF2D124D0A0AC5F1B559045F7C36156F154C022872295038731382"
+    },
+    "output\\performance\\fullraw-c14-shared-reader-ad0cf2f6c8a84d2bb0d7775513a09782\\independent-failure-audit.py": {
+      "bytes": 22525,
+      "sha256": "28AA8F02C8E9A1C6A9603A3A13A9A644C72F81FFA7BED375F9FCCA535E61E80D"
+    },
+    "output\\performance\\fullraw-c14-shared-reader-ad0cf2f6c8a84d2bb0d7775513a09782\\post-c14-input-byte-verification.json": {
+      "bytes": 90264,
+      "sha256": "1E67D1A1A5B6968767B213F1C8867572517C4B6A549E1A919711E94DAE06CC2A"
+    },
+    "output\\performance\\physical-import-memory-c14-shared-r1-predeclared-20261016-34d2b2f8303b4336bd893922182a54c7\\protocol.json": {
+      "bytes": 8585,
+      "sha256": "8F048E666202DF3822A295665BC3ED57CA6BD18D0CF6DA733B900780DFD8F565"
+    },
+    "output\\performance\\physical-import-memory-c14-shared-r1-predeclared-20261016-34d2b2f8303b4336bd893922182a54c7\\reduce.py": {
+      "bytes": 18585,
+      "sha256": "C18532E304865776B27FC2D0ED5695AF6E61FA44436712E12788D6B107F4163E"
+    }
+  },
+  "independentChecks": {
+    "passed": 13815,
+    "failed": 0,
+    "perSampleAndPathChecksIncluded": true
+  },
+  "limitations": [
+    "This is a measured valid memory counterexample above600MiB; not a completed4.275GB import or a qualified physical-memory run.",
+    "Shared-reader R1 recorded no observer error in this run; the prior C13 PermissionError failure remains a separate unchanged record.",
+    "Peak image identity attributes private bytes to executables, not command-line roles, app-server requests, allocation stacks or a proven retry cause.",
+    "The application continued after observer threshold stop. Later closed cursor progress is separate from the measured interval and does not extend or repair it.",
+    "Legacy_missing_baseline350 and record_too_large4 at threshold stop remain visible; no native/legacy semantic coverage pass is claimed.",
+    "Initial ImageName unknown statuses did not prove exit; later single-handle GetTimes/GetExitCode supplement supports8 exact exits,16 unavailable PIDs and1 unrelated reused PID. Descendants born after observation stop were not globally enumerated.",
+    "Post-failure379-file byte equality is source preservation only; no entire Codex-home zero-write claim or semantic totals/oracle reconciliation.",
+    "No idle600CPU/resident350MiB, warm startup, lifecycle30+30, nativeCSV, installation, P95 or wholeM4 qualification."
+  ],
+  "auditorActions": {
+    "nativeAppLaunched": false,
+    "appServerLaunched": false,
+    "uiOperated": false,
+    "cargoOrBuildRun": false,
+    "sourceWritten": false,
+    "dbWritten": false,
+    "readOnlyClosedDb": true,
+    "full379FilePosthashAuthorizedAndPerformed": true
+  },
+  "wholeM4Qualified": false,
+  "completeFirstImportQualified": false,
+  "physicalFirstImportSampledMemoryOnlyQualified": false
+}

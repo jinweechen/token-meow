@@ -1,0 +1,7 @@
+Use case: precise-object-edit.
+Asset type: high-resolution transparent PNG animation keyframe, one full-body character.
+Input image 1 is the exact edit target and registration master, NOT just an approximate style reference.
+Preserve its exact 1024x1536 canvas, original full-body placement, shoe soles and centerline. Camera and scaling are locked. Every unchanged body part must stay in its original pixel location so alternating this frame with the input does not make the face or body wobble. Do not redraw or reinterpret untouched areas.
+The same silver-lilac curled hair catgirl, green eyes, small balanced twin green daisy bows, ivory-and-green sailor dress at natural waist, two large plus four small skirt flowers, white tights and forward green Mary Jane shoes. Same delicate linework and colors. Single light short-fur cylindrical tail, never a fox brush. Natural hand anatomy without branched or merged fingers.
+Requested local animation change: Change ONLY both bent forearms/cuffs and small closed fists: raise the fists together about 16 pixels along a small celebratory arm arc, keeping fixed shoulders and coherent sleeve folds. Keep each fist naturally curled and thumbs anatomically placed. Head, expression, waist, skirt, legs and tail remain fixed. This is the accent of a restrained fist-pump.
+Output exactly one 1024x1536 RGBA frame, true transparent background. Preserve the original alpha outside the character. No text, labels, decorative effects, floor, shadow or background. Do not crop, center anew, zoom, or change costume details.

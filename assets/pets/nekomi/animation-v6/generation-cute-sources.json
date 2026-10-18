@@ -1,0 +1,72 @@
+[
+  {
+    "pose": "shy",
+    "frame": "enter",
+    "sourcePath": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14721-d045-7952-9ec0-d20885ed1524\\exec-077c1450-de65-4253-8a12-0e9af38412ea.png"
+  },
+  {
+    "pose": "shy",
+    "frame": "accent",
+    "sourcePath": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14721-d045-7952-9ec0-d20885ed1524\\exec-d30f1c6e-295b-42e9-b466-149e326e6e5e.png"
+  },
+  {
+    "pose": "affection",
+    "frame": "enter",
+    "sourcePath": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14721-d045-7952-9ec0-d20885ed1524\\exec-aa36a821-ca89-4f86-b300-f1baa62cb7fa.png"
+  },
+  {
+    "pose": "affection",
+    "frame": "accent",
+    "sourcePath": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14721-d045-7952-9ec0-d20885ed1524\\exec-e4cd730c-15da-4a0c-a037-062ccefacc4e.png"
+  },
+  {
+    "pose": "stretch",
+    "frame": "enter",
+    "sourcePath": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14721-d045-7952-9ec0-d20885ed1524\\exec-851e0c4b-16b9-47f3-8f20-8ed7ad49491c.png"
+  },
+  {
+    "pose": "wink",
+    "frame": "accent",
+    "sourcePath": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14721-d045-7952-9ec0-d20885ed1524\\exec-8b7b8d17-6708-44b3-b19d-b7bd3f433343.png"
+  },
+  {
+    "pose": "stretch",
+    "frame": "accent",
+    "sourcePath": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14721-d045-7952-9ec0-d20885ed1524\\exec-60647868-5445-40b7-8ca2-0b9d2dd019f5.png"
+  },
+  {
+    "pose": "wink",
+    "frame": "enter",
+    "sourcePath": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14721-d045-7952-9ec0-d20885ed1524\\exec-e09c56c5-6043-485d-b282-18dcb3278479.png"
+  },
+  {
+    "pose": "happy",
+    "frame": "enter",
+    "sourcePath": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14721-d045-7952-9ec0-d20885ed1524\\exec-15b0451c-abc1-4d7d-be96-222bfcca4d3e.png"
+  },
+  {
+    "pose": "happy",
+    "frame": "accent",
+    "sourcePath": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14721-d045-7952-9ec0-d20885ed1524\\exec-31b5b257-b331-4eca-a41c-9464c1349294.png"
+  },
+  {
+    "pose": "bow",
+    "frame": "enter",
+    "sourcePath": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14721-d045-7952-9ec0-d20885ed1524\\exec-653a790f-0459-4f1e-8ed8-3b48e10c1bfe.png"
+  },
+  {
+    "pose": "bow",
+    "frame": "accent",
+    "sourcePath": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14721-d045-7952-9ec0-d20885ed1524\\exec-22031860-1825-4f68-b51f-782b37ec3e5a.png"
+  },
+  {
+    "pose": "hug-tail",
+    "frame": "enter",
+    "sourcePath": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14721-d045-7952-9ec0-d20885ed1524\\exec-a2509163-0aea-4466-97c6-e67cf7a02f38.png"
+  },
+  {
+    "pose": "hug-tail",
+    "frame": "accent",
+    "sourcePath": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14721-d045-7952-9ec0-d20885ed1524\\exec-42b2e1ce-852f-47b6-bf43-621c235ac53d.png"
+  }
+]

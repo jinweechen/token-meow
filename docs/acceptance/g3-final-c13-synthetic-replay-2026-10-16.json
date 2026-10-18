@@ -1,0 +1,208 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-15T16:29:28.952643+00:00",
+  "status": "passed-scoped-synthetic-facts-and-replay",
+  "scope": "Unchanged authored G3 JSONL plus independent oracle replayed through frozen C13 ledger_audit -> production reader/Core, then copied files and reopened data. Historical synthetic contract facts and idempotency only.",
+  "productionBinding": {
+    "helper": "output\\build-candidates\\c13-snapshot-stream-lifecycle-retention-20261016\\ledger_audit.exe",
+    "helperSha256BeforeAndAfter": "79ED78A91611FAC759C7F362EFDC68A225C5EAF1152EDD558CF4A716BAD5B02F",
+    "candidateBuildReceipt": "output/build-candidates/c13-snapshot-stream-lifecycle-retention-20261016/build-receipt.json",
+    "candidateBuildReceiptSha256": "49C61611AD5331ABEE740E373F6D70FF4D7C3894922DA94F16F8F121A2597E05",
+    "frozenAdapterSha256": "A52EA212121030DE6777B7B597B9055B7B8F4EDBC9C850730EC60F1C98F8EBDD",
+    "frozenReaderSha256": "E4EA08414064E066CA80362E13CD3FFBAB1CECBAFDE1900E5496C21240C8BDEA"
+  },
+  "provenance": {
+    "preparation": "output\\performance\\g3-c13-replay-20261016-fdf9cc233ef84f548887c12d863fcaac\\c13-copy-preparation.json",
+    "preparationSha256": "16B87A1FEAB9B6888BD24F75BE96039E0F8C6330821C6823BBD1D6DCC02C2F19",
+    "originalRunnerSha256": "5FF5C61002AA65C89F28115A4C524A8120416D02D90C2CCC324C931E252C12E9",
+    "copyRunnerSha256": "5FF5C61002AA65C89F28115A4C524A8120416D02D90C2CCC324C931E252C12E9",
+    "runnerLogicUnchanged": true,
+    "manifestChangesOnly": [
+      "frozenAudit artifact binding",
+      "executionStatus root authorization note"
+    ],
+    "oracleAndAuthoredInputUnchangedBeforeAfter": [
+      {
+        "path": "source/sessions/01-roots.jsonl",
+        "expectedSha256": "C383F10F5508DBA8E71F3E14AED6EC4ACE7E6E810294D21D633D2C79D1AB3A96",
+        "afterSha256": {
+          "preparedOriginal": "C383F10F5508DBA8E71F3E14AED6EC4ACE7E6E810294D21D633D2C79D1AB3A96",
+          "copiedFixture": "C383F10F5508DBA8E71F3E14AED6EC4ACE7E6E810294D21D633D2C79D1AB3A96",
+          "runOriginal": "C383F10F5508DBA8E71F3E14AED6EC4ACE7E6E810294D21D633D2C79D1AB3A96"
+        },
+        "unchanged": true
+      },
+      {
+        "path": "source/sessions/02-child-a.jsonl",
+        "expectedSha256": "258989E5727CCBAEED0534FFCE3105A59A6679EA95F3E208AEB3ECCBBC06A7EE",
+        "afterSha256": {
+          "preparedOriginal": "258989E5727CCBAEED0534FFCE3105A59A6679EA95F3E208AEB3ECCBBC06A7EE",
+          "copiedFixture": "258989E5727CCBAEED0534FFCE3105A59A6679EA95F3E208AEB3ECCBBC06A7EE",
+          "runOriginal": "258989E5727CCBAEED0534FFCE3105A59A6679EA95F3E208AEB3ECCBBC06A7EE"
+        },
+        "unchanged": true
+      },
+      {
+        "path": "source/sessions/03-child-b.jsonl",
+        "expectedSha256": "625A99CDDB94AD029863FEECE8ACC78FC968E077C4597ACA52E38A8025580AFC",
+        "afterSha256": {
+          "preparedOriginal": "625A99CDDB94AD029863FEECE8ACC78FC968E077C4597ACA52E38A8025580AFC",
+          "copiedFixture": "625A99CDDB94AD029863FEECE8ACC78FC968E077C4597ACA52E38A8025580AFC",
+          "runOriginal": "625A99CDDB94AD029863FEECE8ACC78FC968E077C4597ACA52E38A8025580AFC"
+        },
+        "unchanged": true
+      },
+      {
+        "path": "oracle.json",
+        "expectedSha256": "1656DDF625017680B200F598B0BE7F21B606327F4423CB89B576411AA1C848D1",
+        "afterSha256": {
+          "preparedOriginal": "1656DDF625017680B200F598B0BE7F21B606327F4423CB89B576411AA1C848D1",
+          "copiedFixture": "1656DDF625017680B200F598B0BE7F21B606327F4423CB89B576411AA1C848D1"
+        },
+        "unchanged": true
+      }
+    ],
+    "factsComparedAgainstOriginalPerIdOracle": true,
+    "noOracleRewrite": true,
+    "oldC12ResultRetained": "output/performance/g3-synthetic-prepare-4791bf4062df4143a8ad0e4a9c3870d5/runs/run-26aa0017fae247e3a9caad3aeb0fadc9/result.json",
+    "oldC12ResultSha256": "BEFEE1B05E3D2DD56C517C4879F57B073E29CA38B41E97A2C65DCA2148A9C9BC"
+  },
+  "phases": [
+    {
+      "phase": "first",
+      "command": [
+        "D:\\project\\宠物\\output\\build-candidates\\c13-snapshot-stream-lifecycle-retention-20261016\\ledger_audit.exe",
+        "--source=D:\\project\\宠物\\output\\performance\\g3-c13-replay-20261016-fdf9cc233ef84f548887c12d863fcaac\\runs\\run-9a36c86e3dda4b9cb429d6b4ab130510\\source",
+        "--data=D:\\project\\宠物\\output\\performance\\g3-c13-replay-20261016-fdf9cc233ef84f548887c12d863fcaac\\runs\\run-9a36c86e3dda4b9cb429d6b4ab130510\\data",
+        "--scans=30",
+        "--out=D:\\project\\宠物\\output\\performance\\g3-c13-replay-20261016-fdf9cc233ef84f548887c12d863fcaac\\runs\\run-9a36c86e3dda4b9cb429d6b4ab130510\\first-audit.json"
+      ],
+      "exitCode": 0,
+      "scans": 4,
+      "elapsedMs": 589,
+      "counts": {
+        "inbox": 4,
+        "sessions": 3,
+        "tools": 4,
+        "turns": 6
+      },
+      "activity": {
+        "activeChildTurns": 0,
+        "activeTurns": 0,
+        "state": "idle",
+        "uncertainChildTurns": 0,
+        "uncertainTurns": 0
+      },
+      "totalTokens": null,
+      "nativeResponseCount": 0,
+      "trustedMeteredResponseCount": 0,
+      "legacyTokens": 0,
+      "emptyTables": {
+        "usage_responses": 0,
+        "legacy_usage_segments": 0,
+        "identity_conflicts": 0,
+        "ingestion_issues": 0
+      },
+      "integrity": [
+        "ok"
+      ],
+      "sourceFiles": 3,
+      "comparisonErrors": [],
+      "persistedFactCounts": {
+        "thread_metadata": 3,
+        "turns": 6,
+        "items": 4,
+        "inbox_events": 4
+      },
+      "rootInboxNotifyEligible": [
+        false,
+        false,
+        false,
+        false
+      ],
+      "auditSha256": "5325365FF3933C9124C844387BD2B5FA51A0118C23D3BB23FAAFC75B903F528D",
+      "factsSha256": "A3BE3138703A881DD1A59DF700827E04F1E5E3A2D8946F5D55C94F8CF3D7AAE0"
+    },
+    {
+      "phase": "reopen-with-copies",
+      "command": [
+        "D:\\project\\宠物\\output\\build-candidates\\c13-snapshot-stream-lifecycle-retention-20261016\\ledger_audit.exe",
+        "--source=D:\\project\\宠物\\output\\performance\\g3-c13-replay-20261016-fdf9cc233ef84f548887c12d863fcaac\\runs\\run-9a36c86e3dda4b9cb429d6b4ab130510\\source",
+        "--data=D:\\project\\宠物\\output\\performance\\g3-c13-replay-20261016-fdf9cc233ef84f548887c12d863fcaac\\runs\\run-9a36c86e3dda4b9cb429d6b4ab130510\\data",
+        "--scans=30",
+        "--out=D:\\project\\宠物\\output\\performance\\g3-c13-replay-20261016-fdf9cc233ef84f548887c12d863fcaac\\runs\\run-9a36c86e3dda4b9cb429d6b4ab130510\\reopen-with-copies-audit.json"
+      ],
+      "exitCode": 0,
+      "scans": 4,
+      "elapsedMs": 950,
+      "counts": {
+        "inbox": 4,
+        "sessions": 3,
+        "tools": 4,
+        "turns": 6
+      },
+      "activity": {
+        "activeChildTurns": 0,
+        "activeTurns": 0,
+        "state": "idle",
+        "uncertainChildTurns": 0,
+        "uncertainTurns": 0
+      },
+      "totalTokens": null,
+      "nativeResponseCount": 0,
+      "trustedMeteredResponseCount": 0,
+      "legacyTokens": 0,
+      "emptyTables": {
+        "usage_responses": 0,
+        "legacy_usage_segments": 0,
+        "identity_conflicts": 0,
+        "ingestion_issues": 0
+      },
+      "integrity": [
+        "ok"
+      ],
+      "sourceFiles": 6,
+      "comparisonErrors": [],
+      "persistedFactCounts": {
+        "thread_metadata": 3,
+        "turns": 6,
+        "items": 4,
+        "inbox_events": 4
+      },
+      "rootInboxNotifyEligible": [
+        false,
+        false,
+        false,
+        false
+      ],
+      "auditSha256": "2658032BD98512B736EF3926FFF357687746300F7E05922ED600652764D1AC99",
+      "factsSha256": "C52E200DA5851F46AA99E13568AD2EC5141C550E800FB6D5A62B754F9063B7EB"
+    }
+  ],
+  "copyReopenFullBusinessFactEquality": {
+    "passed": true,
+    "excludedFieldsOnly": [
+      "collectedAt"
+    ],
+    "fullPersistedFactsSaved": true,
+    "newLifecycleResultFieldsRetainedInEquality": true
+  },
+  "rawResult": "output\\performance\\g3-c13-replay-20261016-fdf9cc233ef84f548887c12d863fcaac\\runs\\run-9a36c86e3dda4b9cb429d6b4ab130510\\result.json",
+  "rawResultSha256": "B60BD1EAB030541F7B84C74F8726B9D22903B94264AD37B5BEC0C902065F63B4",
+  "errors": [],
+  "limits": [
+    "Synthetic contract input only; not real Codex 0.147.0 failed/subagent qualification",
+    "Historical imports only; no live notification, animation or OS toast proof",
+    "No main application, app-server, inference, installer or M4 qualification",
+    "Complete persisted facts are saved; collectedAt is excluded only from across-reopen equality",
+    "This reruns the original G3 oracle; the separate Core lifecycle-order regression proves usage-vs-terminal reordering, not this no-usage fixture alone.",
+    "The concurrent full raw Job is unrelated and remains unqualified until its own complete run is independently reduced.",
+    "Original runner execute-after-import flag name is retained; root latest explicit task authorizes the tiny two-call run during current fullraw."
+  ],
+  "applicationStarted": false,
+  "accountOrModelCalled": false,
+  "cargoRun": false,
+  "realSourceRead": false,
+  "productionInputsModified": false,
+  "wholeM4Qualified": false
+}

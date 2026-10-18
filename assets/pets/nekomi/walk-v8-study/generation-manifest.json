@@ -1,0 +1,75 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-17",
+  "tool": "image_gen.imagegen (built-in)",
+  "operation": "reference-guided raster generation/edit",
+  "postProcessing": "none; original PNG bytes copied unchanged",
+  "status": "research-only-not-production",
+  "images": [
+    {
+      "id": "side-model-study-v1",
+      "source": "C:/Users/Administrator/.codex/generated_images/01a14280-254e-70f3-ba61-b34c813b8e3a/exec-49c6af9d-d938-41fa-9cfd-aa76072e25ae.png",
+      "path": "candidates/side-model-study-v1.png",
+      "prompt": "prompts/side-model-study-v1.txt",
+      "reference": "../hd-v5-natural-tail/idle.png",
+      "transparentBackgroundRequested": true,
+      "status": "G1-rejected"
+    },
+    {
+      "id": "side-model-study-v2",
+      "source": "C:/Users/Administrator/.codex/generated_images/01a14280-254e-70f3-ba61-b34c813b8e3a/exec-0c179e3b-292e-446c-902f-54de9bdf5f2f.png",
+      "path": "candidates/side-model-study-v2.png",
+      "prompt": "prompts/side-model-study-v2.txt",
+      "reference": "candidates/side-model-study-v1.png",
+      "transparentBackgroundRequested": true,
+      "status": "G1-rejected"
+    },
+    {
+      "id": "side-model-study-v3",
+      "source": "C:/Users/Administrator/.codex/generated_images/01a14280-254e-70f3-ba61-b34c813b8e3a/exec-ad109d46-89d8-4482-97ac-a13ada980c1f.png",
+      "path": "candidates/side-model-study-v3.png",
+      "prompt": "prompts/side-model-study-v3.txt",
+      "reference": "candidates/side-model-study-v2.png",
+      "transparentBackgroundRequested": true,
+      "status": "G1-rejected"
+    },
+    {
+      "id": "side-model-study-v4",
+      "source": "C:/Users/Administrator/.codex/generated_images/01a14280-254e-70f3-ba61-b34c813b8e3a/exec-c3321b9b-6723-4da7-a63d-d36fda9c50a6.png",
+      "path": "side-model-study.png",
+      "prompt": "prompts/side-model-study-v4.txt",
+      "reference": "candidates/side-model-study-v3.png",
+      "transparentBackgroundRequested": true,
+      "status": "G1-structural-intent-only"
+    },
+    {
+      "id": "walk-blocking-sheet-v1",
+      "source": "C:/Users/Administrator/.codex/generated_images/01a14280-254e-70f3-ba61-b34c813b8e3a/exec-e8fb7279-16d4-4eba-8cf0-df804464e959.png",
+      "path": "candidates/walk-blocking-sheet-v1.png",
+      "prompt": "prompts/walk-blocking-sheet-v1.txt",
+      "reference": "side-model-study.png",
+      "transparentBackgroundRequested": true,
+      "status": "G2-rejected"
+    },
+    {
+      "id": "walk-blocking-sheet-v2",
+      "source": "C:/Users/Administrator/.codex/generated_images/01a14280-254e-70f3-ba61-b34c813b8e3a/exec-d48b427f-4933-4d61-97cb-e6de0ab56665.png",
+      "path": "candidates/walk-blocking-sheet-v2.png",
+      "prompt": "prompts/walk-blocking-sheet-v2.txt",
+      "reference": "candidates/walk-blocking-sheet-v1.png",
+      "transparentBackgroundRequested": true,
+      "status": "G2-rejected-regression"
+    },
+    {
+      "id": "06-down-b-single-v1",
+      "source": "C:/Users/Administrator/.codex/generated_images/01a14280-254e-70f3-ba61-b34c813b8e3a/exec-903453dc-2f32-40a8-be35-77d22584c211.png",
+      "path": "candidates/06-down-b-single-v1.png",
+      "prompt": "prompts/06-down-b-single-v1.txt",
+      "reference": "side-model-study.png",
+      "transparentBackgroundRequested": true,
+      "status": "pose-intent-only-needs-correction"
+    }
+  ],
+  "alphaCaution": "Native RGBA output is not proof of clean transparency. Glow and nonzero background opacity remain; no image is accepted as a transparent runtime sprite.",
+  "engineering": "mechanics-core.js and SVG diagrams are code-native motion references, not generated character artwork."
+}

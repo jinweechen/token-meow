@@ -1,0 +1,122 @@
+{
+  "schemaVersion": 1,
+  "generator": "builtin image_gen",
+  "pixelPostProcessing": false,
+  "status": "in-progress",
+  "selectedAssets": [
+    {
+      "id": "01-contact-a",
+      "relativePath": "frames/01-contact-a.png",
+      "sourcePath": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14280-254e-70f3-ba61-b34c813b8e3a\\exec-6cf4dd5e-a67c-474d-8036-163397bead75.png",
+      "promptPath": "prompts/01-contact-a-r3.txt",
+      "referencePaths": [
+        "C:\\Users\\Administrator\\.codex\\generated_images\\01a14280-254e-70f3-ba61-b34c813b8e3a\\exec-401dfa1d-45a0-4252-87ff-67c5d194350e.png"
+      ]
+    },
+    {
+      "id": "02-support-a",
+      "relativePath": "frames/02-support-a.png",
+      "sourcePath": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14280-254e-70f3-ba61-b34c813b8e3a\\exec-eba3accf-f8b1-48e9-977d-615aa045f8d9.png",
+      "promptPath": "prompts/02-support-a.txt",
+      "referencePaths": [
+        "D:\\project\\宠物\\assets\\pets\\nekomi\\walk-v7\\frames\\01-contact-a.png"
+      ]
+    },
+    {
+      "id": "03-passing-b",
+      "relativePath": "frames/03-passing-b.png",
+      "sourcePath": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14280-254e-70f3-ba61-b34c813b8e3a\\exec-4caf119b-bdc3-4755-a40c-a56113989e76.png",
+      "promptPath": "prompts/03-passing-b-r2.txt",
+      "referencePaths": [
+        "C:\\Users\\Administrator\\.codex\\generated_images\\01a14280-254e-70f3-ba61-b34c813b8e3a\\exec-56b88c1a-f611-4be4-9f8b-cc45b1a0ec02.png",
+        "C:\\Users\\Administrator\\.codex\\generated_images\\01a14280-254e-70f3-ba61-b34c813b8e3a\\exec-d54a433e-08d8-42fc-87b7-689b7f1b56ae.png"
+      ],
+      "actualToolReferencePaths": [
+        "D:\\project\\宠物\\assets\\pets\\nekomi\\walk-v7\\frames\\03-passing-b.png",
+        "D:\\project\\宠物\\assets\\pets\\nekomi\\walk-v7\\frames\\04-contact-b.png"
+      ]
+    },
+    {
+      "id": "04-contact-b",
+      "relativePath": "frames/04-contact-b.png",
+      "sourcePath": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14280-254e-70f3-ba61-b34c813b8e3a\\exec-619d6064-ccab-4501-8c83-2aa36a7c12ec.png",
+      "promptPath": "prompts/04-contact-b-r2.txt",
+      "referencePaths": [
+        "C:\\Users\\Administrator\\.codex\\generated_images\\01a14280-254e-70f3-ba61-b34c813b8e3a\\exec-d54a433e-08d8-42fc-87b7-689b7f1b56ae.png"
+      ],
+      "actualToolReferencePaths": [
+        "D:\\project\\宠物\\assets\\pets\\nekomi\\walk-v7\\frames\\04-contact-b.png"
+      ]
+    },
+    {
+      "id": "05-support-b",
+      "relativePath": "frames/05-support-b.png",
+      "sourcePath": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14280-254e-70f3-ba61-b34c813b8e3a\\exec-a4504334-bbcd-48ff-976a-6ce326fb789b.png",
+      "promptPath": "prompts/05-support-b.txt",
+      "referencePaths": [
+        "C:\\Users\\Administrator\\.codex\\generated_images\\01a14280-254e-70f3-ba61-b34c813b8e3a\\exec-d54a433e-08d8-42fc-87b7-689b7f1b56ae.png"
+      ],
+      "actualToolReferencePaths": [
+        "D:\\project\\宠物\\assets\\pets\\nekomi\\walk-v7\\frames\\04-contact-b.png"
+      ]
+    },
+    {
+      "id": "06-passing-a",
+      "relativePath": "frames/06-passing-a.png",
+      "sourcePath": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14280-254e-70f3-ba61-b34c813b8e3a\\exec-6cdb73cd-dbf0-45c9-88cc-db6179dfc0ec.png",
+      "promptPath": "prompts/06-passing-a.txt",
+      "referencePaths": [
+        "C:\\Users\\Administrator\\.codex\\generated_images\\01a14280-254e-70f3-ba61-b34c813b8e3a\\exec-d54a433e-08d8-42fc-87b7-689b7f1b56ae.png"
+      ],
+      "actualToolReferencePaths": [
+        "D:\\project\\宠物\\assets\\pets\\nekomi\\walk-v7\\frames\\04-contact-b.png"
+      ]
+    }
+  ],
+  "history": [
+    {
+      "id": "01-contact-a-first",
+      "sourcePath": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14280-254e-70f3-ba61-b34c813b8e3a\\exec-881a8bd6-25bd-4600-8ae2-ee6beeba924d.png",
+      "promptPath": "prompts/01-contact-a.txt",
+      "referencePaths": [
+        "D:\\project\\宠物\\assets\\pets\\nekomi\\animation-v6\\clips\\idle\\base.png"
+      ],
+      "decision": "not-selected",
+      "reason": "Excessive stride and shoe scale; skirt flower count drift and curled claw-like hands."
+    },
+    {
+      "id": "01-contact-a-r2",
+      "sourcePath": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14280-254e-70f3-ba61-b34c813b8e3a\\exec-401dfa1d-45a0-4252-87ff-67c5d194350e.png",
+      "promptPath": "prompts/01-contact-a-r2.txt",
+      "referencePaths": [
+        "C:\\Users\\Administrator\\.codex\\generated_images\\01a14280-254e-70f3-ba61-b34c813b8e3a\\exec-881a8bd6-25bd-4600-8ae2-ee6beeba924d.png",
+        "D:\\project\\宠物\\assets\\pets\\nekomi\\animation-v6\\clips\\idle\\base.png"
+      ],
+      "decision": "not-selected",
+      "reason": "Still extra center skirt flowers, claw-like hands and insufficient front heel contact."
+    },
+    {
+      "id": "03-passing-b",
+      "relativePath": "frames/03-passing-b.png",
+      "sourcePath": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14280-254e-70f3-ba61-b34c813b8e3a\\exec-56b88c1a-f611-4be4-9f8b-cc45b1a0ec02.png",
+      "promptPath": "prompts/03-passing-b.txt",
+      "referencePaths": [
+        "D:\\project\\宠物\\assets\\pets\\nekomi\\walk-v7\\frames\\01-contact-a.png"
+      ],
+      "decision": "not-selected",
+      "reason": "Superseded after independent gait review."
+    },
+    {
+      "id": "04-contact-b",
+      "relativePath": "frames/04-contact-b.png",
+      "sourcePath": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14280-254e-70f3-ba61-b34c813b8e3a\\exec-d54a433e-08d8-42fc-87b7-689b7f1b56ae.png",
+      "promptPath": "prompts/04-contact-b.txt",
+      "referencePaths": [
+        "D:\\project\\宠物\\assets\\pets\\nekomi\\walk-v7\\frames\\01-contact-a.png"
+      ],
+      "decision": "not-selected",
+      "reason": "Superseded after independent gait review."
+    }
+  ],
+  "referenceResolution": "referencePaths use immutable byte-identical source originals when a mutable working frame has since been revised; actualToolReferencePaths preserve the original call path."
+}

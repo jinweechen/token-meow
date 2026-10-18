@@ -1,0 +1,1774 @@
+{
+  "schemaVersion": 1,
+  "recordedAtUtc": "2026-10-15T22:30:18.136931+00:00",
+  "dateAsiaShanghai": "2026-10-16",
+  "status": "scoped-browser-ipc-evidence-consistent",
+  "scope": "Actual React/src/main.tsx Browser IPC using official Tauri mocks and authored independent Pulse/Details plus retained authored main Snapshot; no native process, production Core or account channel",
+  "executor": "root ran Playwright CLI; desktop subagent independently parsed the preserved complete files and verified their references and source hashes without replay",
+  "qualification": {
+    "browserIpcEvidenceConsistent": true,
+    "nativePassed": false,
+    "nativeAlphaPassed": false,
+    "realCorePassedByThisRun": false,
+    "fileCsvSavePassed": false,
+    "accountRpcPassed": false,
+    "osNotificationPassed": false,
+    "performancePassed": false,
+    "fullImportPassed": false,
+    "installerPassed": false,
+    "M4Passed": false
+  },
+  "checkCounts": {
+    "consistencyChecks": 34,
+    "passed": 34,
+    "failed": 0,
+    "notNewProductTestCases": true
+  },
+  "checks": [
+    {
+      "id": "44-original-cli-logs-present",
+      "passed": true,
+      "observed": 44,
+      "evidence": [
+        "01-pet-initial-snapshot.log",
+        "02-pet-idle-observe.log",
+        "03-open-card.log",
+        "04-card-observe.log",
+        "05-card-observe-corrected.log",
+        "06-hold-details.log",
+        "07-held-card-snapshot.log",
+        "08-held-details-observe.log",
+        "09-close-card.log",
+        "10-release-closed-details.log",
+        "11-closed-card-observe.log",
+        "12-hold-pulse.log",
+        "13-emit-held-pulse.log",
+        "14-domain-change.log",
+        "15-release-old-pulse.log",
+        "16-domain-observe.log",
+        "17-hide-native.log",
+        "18-hidden-first.log",
+        "19-hidden-second.log",
+        "20-show-native.log",
+        "21-active.log",
+        "22-active-care.log",
+        "23-idle.log",
+        "24-completion.log",
+        "25-playful-care.log",
+        "26-playful-screenshot.log",
+        "27-before-day-card-snapshot.log",
+        "28-open-domain-card.log",
+        "29-domain-card-observe.log",
+        "30-hold-day-details.log",
+        "31-emit-day-details.log",
+        "32-midnight.log",
+        "33-release-yesterday-details.log",
+        "34-midnight-observe.log",
+        "35-pet-final-all.log",
+        "36-setup-main.log",
+        "37-main-snapshot.log",
+        "38-main-select-subagent.log",
+        "39-main-role-observe.log",
+        "40-main-sessions.log",
+        "41-main-sessions-snapshot.log",
+        "42-main-export-fixture.log",
+        "43-main-final-all.log",
+        "44-browser-close.log"
+      ]
+    },
+    {
+      "id": "complete-final-json-parsed",
+      "passed": true,
+      "observed": {
+        "petCalls": 243,
+        "mainCalls": 14
+      },
+      "evidence": [
+        "35-pet-final-all.log",
+        "43-main-final-all.log"
+      ]
+    },
+    {
+      "id": "command-ids-unique-contiguous",
+      "passed": true,
+      "observed": {
+        "pet": 243,
+        "main": 14
+      },
+      "evidence": [
+        "35-pet-final-all.log",
+        "43-main-final-all.log"
+      ]
+    },
+    {
+      "id": "pet-never-requests-snapshot",
+      "passed": true,
+      "observed": {
+        "set_pet_interaction": 4,
+        "frontend_ready": 1,
+        "get_pet_pulse": 142,
+        "get_pet_details": 86,
+        "fixture:release": 3,
+        "fixture:setDomain": 1,
+        "fixture:setNativeVisible": 2,
+        "fixture:setActivity": 2,
+        "fixture:appendPrompt": 1,
+        "run_action": 1
+      },
+      "evidence": [
+        "35-pet-final-all.log"
+      ]
+    },
+    {
+      "id": "initial-pet-is-pulse-only",
+      "passed": true,
+      "observed": {
+        "set_pet_interaction": 1,
+        "frontend_ready": 1,
+        "get_pet_pulse": 10
+      },
+      "evidence": [
+        "02-pet-idle-observe.log",
+        "35-pet-final-all.log"
+      ]
+    },
+    {
+      "id": "initial-today-profile",
+      "passed": true,
+      "observed": {
+        "day": "2026-10-15",
+        "bodyText": "在这里，陪你慢慢创造\n3\nC18 · Browser IPC fixture · 非 Core / Native / 真实账户"
+      },
+      "evidence": [
+        "02-pet-idle-observe.log"
+      ]
+    },
+    {
+      "id": "card-author-values-visible",
+      "passed": true,
+      "observed": {
+        "card": true,
+        "bodyText": "在这里，陪你慢慢创造\n3\n小柚的小账本\n今日总 token\n1.2K\n加权缓存命中率\n80.0%\n回合首 token 耗时\n500 ms\n账户窗口剩余\n来源未提供\n待查看提醒\n3\n\n账户：来源未提供\n\n打开主面板\nC18 · Browser IPC fixture · 非 Core / Native / 真实账户"
+      },
+      "evidence": [
+        "03-open-card.log",
+        "05-card-observe-corrected.log"
+      ]
+    },
+    {
+      "id": "held-details-captured-not-recomputed",
+      "passed": true,
+      "observed": {
+        "heldId": 175,
+        "captured": {
+          "protocolVersion": 1,
+          "runtimeEpoch": "c18-browser-runtime-1",
+          "sourceScopeRevision": "c18-opaque:c18-source-scope-1:clear-0:2026-10-15",
+          "day": "2026-10-15",
+          "revision": "9007199254742172",
+          "asOf": "2026-10-15T15:59:59.900Z",
+          "overview": {
+            "totalTokens": 1200,
+            "cacheHitRate": 0.8
+          },
+          "latestTurn": {
+            "timeToFirstTokenMs": 500
+          },
+          "account": {
+            "status": "unavailable",
+            "sourceId": "c17-source-a",
+            "collectedAt": null,
+            "buckets": []
+          }
+        },
+        "releaseCall": {
+          "id": 185,
+          "command": "fixture:release",
+          "args": {
+            "id": 175,
+            "command": "get_pet_details",
+            "note": "root-held-details"
+          },
+          "fixedClockUtc": "2026-10-15T15:59:59.900Z",
+          "observedPerformanceMs": 305966
+        }
+      },
+      "evidence": [
+        "08-held-details-observe.log",
+        "10-release-closed-details.log",
+        "35-pet-final-all.log"
+      ]
+    },
+    {
+      "id": "closed-card-rejects-late-details",
+      "passed": true,
+      "observed": {
+        "before": {
+          "set_pet_interaction": 2,
+          "frontend_ready": 1,
+          "get_pet_pulse": 97,
+          "get_pet_details": 78
+        },
+        "after": {
+          "set_pet_interaction": 3,
+          "frontend_ready": 1,
+          "get_pet_pulse": 103,
+          "get_pet_details": 78,
+          "fixture:release": 1
+        },
+        "bodyText": "在这里，陪你慢慢创造\n3\nC18 · Browser IPC fixture · 非 Core / Native / 真实账户"
+      },
+      "evidence": [
+        "09-close-card.log",
+        "10-release-closed-details.log",
+        "11-closed-card-observe.log"
+      ]
+    },
+    {
+      "id": "closed-card-stays-details-free-until-reopen",
+      "passed": true,
+      "observed": {
+        "betweenIds": [
+          185,
+          224
+        ],
+        "commands": {
+          "fixture:release": 2,
+          "get_pet_pulse": 31,
+          "fixture:setDomain": 1,
+          "fixture:setNativeVisible": 2,
+          "fixture:setActivity": 2,
+          "fixture:appendPrompt": 1,
+          "run_action": 1
+        },
+        "reopenedDetailsId": 225
+      },
+      "evidence": [
+        "28-open-domain-card.log",
+        "35-pet-final-all.log"
+      ]
+    },
+    {
+      "id": "held-pulse-release-preserves-old-domain",
+      "passed": true,
+      "observed": {
+        "held": {
+          "id": 193,
+          "command": "get_pet_pulse",
+          "args": {
+            "cursor": {
+              "runtimeEpoch": "c18-browser-runtime-1",
+              "sourceScopeRevision": "c18-opaque:c18-source-scope-1:clear-0:2026-10-15",
+              "day": "2026-10-15",
+              "sequence": "9007199254740995"
+            }
+          },
+          "note": "root-held-pulse",
+          "captured": {
+            "protocolVersion": 1,
+            "runtimeEpoch": "c18-browser-runtime-1",
+            "sourceScopeRevision": "c18-opaque:c18-source-scope-1:clear-0:2026-10-15",
+            "day": "2026-10-15",
+            "revision": "9007199254742188",
+            "asOf": "2026-10-15T15:59:59.900Z",
+            "settings": {
+              "muted": true,
+              "reducedMotion": false,
+              "doNotDisturb": false,
+              "effectiveDoNotDisturb": false,
+              "petVisible": true,
+              "petScale": 1,
+              "privacyMode": false,
+              "workCareEnabled": true,
+              "careTone": "mixed",
+              "careIntervalMinutes": 25
+            },
+            "activity": {
+              "activeTurns": 0,
+              "uncertainTurns": 0,
+              "state": "idle"
+            },
+            "health": {
+              "lastSuccessfulScan": "2026-10-15T15:59:59.900Z",
+              "lastSourceEvent": null,
+              "issues": 0,
+              "conflicts": 0
+            },
+            "unreadCount": 3,
+            "prompts": [],
+            "promptFeed": {
+              "cursor": {
+                "runtimeEpoch": "c18-browser-runtime-1",
+                "sourceScopeRevision": "c18-opaque:c18-source-scope-1:clear-0:2026-10-15",
+                "day": "2026-10-15",
+                "sequence": "9007199254740995"
+              },
+              "baseline": false,
+              "dropped": {
+                "overflow": 0,
+                "expired": 0,
+                "invalidTime": 0,
+                "future": 0,
+                "ineligible": 0,
+                "otherDay": 0
+              }
+            }
+          }
+        },
+        "changeCall": {
+          "id": 194,
+          "command": "fixture:setDomain",
+          "args": {
+            "token": "c18-source-scope-2",
+            "total": 2400
+          },
+          "fixedClockUtc": "2026-10-15T15:59:59.900Z",
+          "observedPerformanceMs": 331655
+        },
+        "releaseCall": {
+          "id": 195,
+          "command": "fixture:release",
+          "args": {
+            "id": 193,
+            "command": "get_pet_pulse",
+            "note": "root-held-pulse"
+          },
+          "fixedClockUtc": "2026-10-15T15:59:59.900Z",
+          "observedPerformanceMs": 333493
+        }
+      },
+      "evidence": [
+        "13-emit-held-pulse.log",
+        "14-domain-change.log",
+        "15-release-old-pulse.log"
+      ]
+    },
+    {
+      "id": "domain-change-rebaselines-after-old-pulse",
+      "passed": true,
+      "observed": {
+        "baseline": {
+          "id": 196,
+          "command": "get_pet_pulse",
+          "args": {
+            "cursor": null
+          },
+          "fixedClockUtc": "2026-10-15T15:59:59.900Z",
+          "observedPerformanceMs": 333493,
+          "responseHeader": {
+            "runtimeEpoch": "c18-browser-runtime-1",
+            "sourceScopeRevision": "c18-opaque:c18-source-scope-2:clear-0:2026-10-15",
+            "revision": "9007199254742189",
+            "day": "2026-10-15"
+          }
+        },
+        "observedDomain": {
+          "runtimeEpoch": "c18-browser-runtime-1",
+          "sourceScopeRevision": "c18-opaque:c18-source-scope-2:clear-0:2026-10-15",
+          "day": "2026-10-15"
+        }
+      },
+      "evidence": [
+        "16-domain-observe.log",
+        "35-pet-final-all.log"
+      ]
+    },
+    {
+      "id": "synthetic-hidden-interval-has-no-pet-reads",
+      "passed": true,
+      "observed": {
+        "hideMs": 345010,
+        "showMs": 361374,
+        "durationMs": 16364,
+        "betweenCalls": [],
+        "counts": {
+          "set_pet_interaction": 3,
+          "frontend_ready": 1,
+          "get_pet_pulse": 115,
+          "get_pet_details": 78,
+          "fixture:release": 2,
+          "fixture:setDomain": 1,
+          "fixture:setNativeVisible": 1
+        }
+      },
+      "evidence": [
+        "17-hide-native.log",
+        "18-hidden-first.log",
+        "19-hidden-second.log",
+        "20-show-native.log",
+        "35-pet-final-all.log"
+      ]
+    },
+    {
+      "id": "synthetic-show-uses-null-cursor",
+      "passed": true,
+      "observed": {
+        "id": 203,
+        "command": "get_pet_pulse",
+        "args": {
+          "cursor": null
+        },
+        "fixedClockUtc": "2026-10-15T15:59:59.900Z",
+        "observedPerformanceMs": 361374,
+        "responseHeader": {
+          "runtimeEpoch": "c18-browser-runtime-1",
+          "sourceScopeRevision": "c18-opaque:c18-source-scope-2:clear-0:2026-10-15",
+          "revision": "9007199254742194",
+          "day": "2026-10-15"
+        }
+      },
+      "evidence": [
+        "35-pet-final-all.log"
+      ]
+    },
+    {
+      "id": "care-mixed-alternates-gentle-to-playful",
+      "passed": true,
+      "observed": {
+        "start": {
+          "tone": "gentle",
+          "kind": "start",
+          "bodyText": "1 个回合活动中\n3\n\n回合开始了，我在这里陪着。\n\n打开主面板\nC18 · Browser IPC fixture · 非 Core / Native / 真实账户"
+        },
+        "completion": {
+          "tone": "playful",
+          "kind": "complete",
+          "bodyText": "正常结束\n4\n\n这个回合正常完成啦～给你一朵小花。\n\n打开主面板\nC18 · Browser IPC fixture · 非 Core / Native / 真实账户"
+        }
+      },
+      "evidence": [
+        "21-active.log",
+        "22-active-care.log",
+        "23-idle.log",
+        "24-completion.log",
+        "25-playful-care.log"
+      ]
+    },
+    {
+      "id": "one-ack-after-live-prompt-without-new-arrival",
+      "passed": true,
+      "observed": {
+        "append": {
+          "id": 213,
+          "command": "fixture:appendPrompt",
+          "args": {
+            "id": "c18-live-complete-1",
+            "kind": "completion",
+            "status": "completed",
+            "createdAt": "2026-10-15T15:59:59.900Z"
+          },
+          "fixedClockUtc": "2026-10-15T15:59:59.900Z",
+          "observedPerformanceMs": 377641,
+          "sequence": "9007199254740996",
+          "inserted": true
+        },
+        "read": {
+          "id": 214,
+          "command": "get_pet_pulse",
+          "args": {
+            "cursor": {
+              "runtimeEpoch": "c18-browser-runtime-1",
+              "sourceScopeRevision": "c18-opaque:c18-source-scope-2:clear-0:2026-10-15",
+              "day": "2026-10-15",
+              "sequence": "9007199254740995"
+            }
+          },
+          "fixedClockUtc": "2026-10-15T15:59:59.900Z",
+          "observedPerformanceMs": 377642,
+          "responseHeader": {
+            "runtimeEpoch": "c18-browser-runtime-1",
+            "sourceScopeRevision": "c18-opaque:c18-source-scope-2:clear-0:2026-10-15",
+            "revision": "9007199254742202",
+            "day": "2026-10-15"
+          }
+        },
+        "ack": [
+          {
+            "id": 215,
+            "command": "run_action",
+            "args": {
+              "name": "acknowledge_delivery",
+              "payload": {
+                "id": "c18-live-complete-1"
+              }
+            },
+            "fixedClockUtc": "2026-10-15T15:59:59.900Z",
+            "observedPerformanceMs": 377840,
+            "feedHighAfter": "9007199254740996"
+          }
+        ],
+        "nextRead": {
+          "id": 216,
+          "command": "get_pet_pulse",
+          "args": {
+            "cursor": {
+              "runtimeEpoch": "c18-browser-runtime-1",
+              "sourceScopeRevision": "c18-opaque:c18-source-scope-2:clear-0:2026-10-15",
+              "day": "2026-10-15",
+              "sequence": "9007199254740996"
+            }
+          },
+          "fixedClockUtc": "2026-10-15T15:59:59.900Z",
+          "observedPerformanceMs": 379378,
+          "responseHeader": {
+            "runtimeEpoch": "c18-browser-runtime-1",
+            "sourceScopeRevision": "c18-opaque:c18-source-scope-2:clear-0:2026-10-15",
+            "revision": "9007199254742203",
+            "day": "2026-10-15"
+          }
+        }
+      },
+      "evidence": [
+        "24-completion.log",
+        "25-playful-care.log",
+        "35-pet-final-all.log"
+      ]
+    },
+    {
+      "id": "exact-decimal-cursor-above-js-safe-integer",
+      "passed": true,
+      "observed": {
+        "initialSequence": "9007199254740995",
+        "finalSequence": "9007199254740996"
+      },
+      "evidence": [
+        "35-pet-final-all.log"
+      ]
+    },
+    {
+      "id": "midnight-old-details-captured-and-released",
+      "passed": true,
+      "observed": {
+        "held": {
+          "id": 230,
+          "command": "get_pet_details",
+          "args": {
+            "request": {
+              "day": "2026-10-15",
+              "runtimeEpoch": "c18-browser-runtime-1",
+              "sourceScopeRevision": "c18-opaque:c18-source-scope-2:clear-0:2026-10-15"
+            }
+          },
+          "note": "root-held-details",
+          "captured": {
+            "protocolVersion": 1,
+            "runtimeEpoch": "c18-browser-runtime-1",
+            "sourceScopeRevision": "c18-opaque:c18-source-scope-2:clear-0:2026-10-15",
+            "day": "2026-10-15",
+            "revision": "9007199254742216",
+            "asOf": "2026-10-15T15:59:59.900Z",
+            "overview": {
+              "totalTokens": 2400,
+              "cacheHitRate": 0.8
+            },
+            "latestTurn": {
+              "timeToFirstTokenMs": 500
+            },
+            "account": {
+              "status": "unavailable",
+              "sourceId": "c17-source-a",
+              "collectedAt": null,
+              "buckets": []
+            }
+          }
+        },
+        "releaseCall": {
+          "id": 234,
+          "command": "fixture:release",
+          "args": {
+            "id": 230,
+            "command": "get_pet_details",
+            "note": "root-held-details"
+          },
+          "fixedClockUtc": "2026-10-15T16:00:00.100Z",
+          "observedPerformanceMs": 413950
+        }
+      },
+      "evidence": [
+        "30-hold-day-details.log",
+        "31-emit-day-details.log",
+        "32-midnight.log",
+        "33-release-yesterday-details.log"
+      ]
+    },
+    {
+      "id": "midnight-new-day-pulse-and-details",
+      "passed": true,
+      "observed": {
+        "newPulse": {
+          "id": 232,
+          "command": "get_pet_pulse",
+          "args": {
+            "cursor": null
+          },
+          "fixedClockUtc": "2026-10-15T16:00:00.100Z",
+          "observedPerformanceMs": 412000,
+          "responseHeader": {
+            "runtimeEpoch": "c18-browser-runtime-1",
+            "sourceScopeRevision": "c18-opaque:c18-source-scope-2:clear-0:2026-10-16",
+            "revision": "9007199254742218",
+            "day": "2026-10-16"
+          }
+        },
+        "newDetails": {
+          "id": 235,
+          "command": "get_pet_details",
+          "args": {
+            "request": {
+              "day": "2026-10-16",
+              "runtimeEpoch": "c18-browser-runtime-1",
+              "sourceScopeRevision": "c18-opaque:c18-source-scope-2:clear-0:2026-10-16"
+            }
+          },
+          "fixedClockUtc": "2026-10-15T16:00:00.100Z",
+          "observedPerformanceMs": 413950,
+          "responseHeader": {
+            "runtimeEpoch": "c18-browser-runtime-1",
+            "sourceScopeRevision": "c18-opaque:c18-source-scope-2:clear-0:2026-10-16",
+            "revision": "9007199254742220",
+            "day": "2026-10-16"
+          }
+        },
+        "observedDomain": {
+          "runtimeEpoch": "c18-browser-runtime-1",
+          "sourceScopeRevision": "c18-opaque:c18-source-scope-2:clear-0:2026-10-16",
+          "day": "2026-10-16"
+        }
+      },
+      "evidence": [
+        "34-midnight-observe.log",
+        "35-pet-final-all.log"
+      ]
+    },
+    {
+      "id": "midnight-observed-no-old-care-replay",
+      "passed": true,
+      "observed": {
+        "bodyText": "在这里，陪你慢慢创造\n小柚的小账本\n今日总 token\n2.4K\n加权缓存命中率\n80.0%\n回合首 token 耗时\n500 ms\n账户窗口剩余\n来源未提供\n待查看提醒\n0\n\n账户：来源未提供\n\n打开主面板\nC18 · Browser IPC fixture · 非 Core / Native / 真实账户",
+        "acknowledgementsThroughFinal": 1,
+        "pending": []
+      },
+      "evidence": [
+        "34-midnight-observe.log",
+        "35-pet-final-all.log"
+      ]
+    },
+    {
+      "id": "main-retains-full-snapshot-route",
+      "passed": true,
+      "observed": {
+        "commands": {
+          "frontend_ready": 1,
+          "get_snapshot": 12,
+          "export_csv": 1
+        },
+        "initialQuery": {
+          "from": "2026-10-09",
+          "to": "2026-10-15",
+          "includeLegacy": false
+        }
+      },
+      "evidence": [
+        "36-setup-main.log",
+        "43-main-final-all.log"
+      ]
+    },
+    {
+      "id": "main-ui-subagent-scope-keeps-440-and-25-percent",
+      "passed": true,
+      "observed": {
+        "selectedRole": "subagent",
+        "expectedAuthoredResponseIds": [
+          "c17-response-3"
+        ],
+        "expectedTotal": 440,
+        "expectedInput": 400,
+        "expectedCacheRead": 100,
+        "expectedCacheHitRate": 0.25,
+        "query": {
+          "from": "2026-10-09",
+          "to": "2026-10-15",
+          "includeLegacy": false,
+          "agentKind": "subagent"
+        }
+      },
+      "evidence": [
+        "38-main-select-subagent.log",
+        "39-main-role-observe.log",
+        "43-main-final-all.log"
+      ]
+    },
+    {
+      "id": "main-session-tab-keeps-the-same-global-role-scope",
+      "passed": true,
+      "observed": {
+        "expectedSession": "c17-source-b/same-thread",
+        "expectedTotal": 440,
+        "finalQuery": {
+          "from": "2026-10-09",
+          "to": "2026-10-15",
+          "includeLegacy": false,
+          "agentKind": "subagent"
+        }
+      },
+      "evidence": [
+        "40-main-sessions.log",
+        "41-main-sessions-snapshot.log",
+        "43-main-final-all.log"
+      ]
+    },
+    {
+      "id": "csv-ui-invokes-current-query-only",
+      "passed": true,
+      "observed": {
+        "exportCalls": [
+          {
+            "id": 13,
+            "command": "export_csv",
+            "args": {
+              "query": {
+                "from": "2026-10-09",
+                "to": "2026-10-15",
+                "includeLegacy": false,
+                "agentKind": "subagent"
+              }
+            },
+            "fixedClockUtc": "2026-10-15T15:59:59.900Z",
+            "observedPerformanceMs": 459322
+          }
+        ],
+        "authoredResult": null,
+        "fileSaved": false
+      },
+      "evidence": [
+        "42-main-export-fixture.log",
+        "43-main-final-all.log"
+      ]
+    },
+    {
+      "id": "observed-business-and-page-errors-empty",
+      "passed": true,
+      "observed": [
+        {
+          "file": "02-pet-idle-observe.log",
+          "errors": [],
+          "pageErrors": [],
+          "playwrightPageErrors": []
+        },
+        {
+          "file": "05-card-observe-corrected.log",
+          "errors": [],
+          "pageErrors": [],
+          "playwrightPageErrors": null
+        },
+        {
+          "file": "08-held-details-observe.log",
+          "errors": [],
+          "pageErrors": [],
+          "playwrightPageErrors": null
+        },
+        {
+          "file": "11-closed-card-observe.log",
+          "errors": [],
+          "pageErrors": [],
+          "playwrightPageErrors": null
+        },
+        {
+          "file": "16-domain-observe.log",
+          "errors": [],
+          "pageErrors": [],
+          "playwrightPageErrors": null
+        },
+        {
+          "file": "18-hidden-first.log",
+          "errors": [],
+          "pageErrors": [],
+          "playwrightPageErrors": null
+        },
+        {
+          "file": "19-hidden-second.log",
+          "errors": [],
+          "pageErrors": [],
+          "playwrightPageErrors": null
+        },
+        {
+          "file": "22-active-care.log",
+          "errors": [],
+          "pageErrors": [],
+          "playwrightPageErrors": null
+        },
+        {
+          "file": "25-playful-care.log",
+          "errors": [],
+          "pageErrors": [],
+          "playwrightPageErrors": null
+        },
+        {
+          "file": "29-domain-card-observe.log",
+          "errors": [],
+          "pageErrors": [],
+          "playwrightPageErrors": null
+        },
+        {
+          "file": "34-midnight-observe.log",
+          "errors": [],
+          "pageErrors": [],
+          "playwrightPageErrors": null
+        },
+        {
+          "file": "36-setup-main.log",
+          "errors": [],
+          "pageErrors": [],
+          "playwrightPageErrors": []
+        },
+        {
+          "file": "39-main-role-observe.log",
+          "errors": [],
+          "pageErrors": [],
+          "playwrightPageErrors": null
+        },
+        {
+          "file": "35-pet-final-all.log",
+          "errors": [],
+          "pageErrors": [],
+          "playwrightPageErrors": null
+        },
+        {
+          "file": "43-main-final-all.log",
+          "errors": [],
+          "pageErrors": [],
+          "playwrightPageErrors": null
+        }
+      ],
+      "evidence": [
+        "02-pet-idle-observe.log",
+        "05-card-observe-corrected.log",
+        "08-held-details-observe.log",
+        "11-closed-card-observe.log",
+        "16-domain-observe.log",
+        "18-hidden-first.log",
+        "19-hidden-second.log",
+        "22-active-care.log",
+        "25-playful-care.log",
+        "29-domain-card-observe.log",
+        "34-midnight-observe.log",
+        "36-setup-main.log",
+        "39-main-role-observe.log",
+        "35-pet-final-all.log",
+        "43-main-final-all.log"
+      ]
+    },
+    {
+      "id": "instrumentation-firstfail-retained-and-only-semicolon-removed",
+      "passed": true,
+      "observed": {
+        "toolErrorLogs": [
+          "04-card-observe.log"
+        ],
+        "correction": "Removed final semicolon in run-code expression; no product/fixture data change"
+      },
+      "evidence": [
+        "04-card-observe.log",
+        "observe-compact.firstfail.js",
+        "observe-compact.js",
+        "05-card-observe-corrected.log"
+      ]
+    },
+    {
+      "id": "console-hmr-errors-and-stale-mock-warnings-retained",
+      "passed": true,
+      "observed": {
+        "combinedErrorEntries": 6,
+        "errorsPerDocument": 3,
+        "websocketLocalNetworkEntries": 4,
+        "viteSummaryEntries": 2,
+        "staleMockWarningEntries": 9,
+        "consoleClean": false
+      },
+      "evidence": [
+        ".playwright-cli/console-2026-10-15T22-17-12-676Z.log"
+      ]
+    },
+    {
+      "id": "browser-close-and-server-interruption-bound",
+      "passed": true,
+      "observed": {
+        "browser": {
+          "sessionName": "c18-pet-read-model-20261016",
+          "closeChunkId": "d7b8c8",
+          "exitCode": 0,
+          "stdoutFile": "44-browser-close.log"
+        },
+        "vite": {
+          "execSessionId": 41490,
+          "terminationChunkId": "009287",
+          "operation": "write_stdin Ctrl+C",
+          "exitCode": 1,
+          "returnedOutputBytes": 0,
+          "stdoutFile": null,
+          "exitCodeInterpretation": "Explicit interruption of owned development server, not an application test failure"
+        },
+        "portProbe": {
+          "chunkId": "8a0174",
+          "command": "Get-NetTCPConnection -LocalPort 1420 -ErrorAction SilentlyContinue | Select-Object LocalAddress,LocalPort,State,OwningProcess",
+          "observed": "Seven 127.0.0.1:1420 TimeWait rows with OwningProcess 0, no Listen row",
+          "rawOutputFile": null
+        },
+        "classification": "Root-authored references to actual tool outputs, not reconstructed original stdout"
+      },
+      "evidence": [
+        "44-browser-close.log",
+        "root-tool-execution-metadata.json"
+      ]
+    },
+    {
+      "id": "step26-browser-image-bound-to-root-visual-review",
+      "passed": true,
+      "observed": {
+        "dimensions": [
+          360,
+          480
+        ],
+        "visualReviewer": "root",
+        "statement": {
+          "file": "26-playful-care.png",
+          "viewImageExecutedByRoot": true,
+          "observed": "Character and playful completion bubble visible; no horizontal clipping at 360 px viewport",
+          "doesNotProveNativeWindowAlphaOrPhysicalDesktopBehavior": true
+        },
+        "independentAuditorViewedPixels": false,
+        "alphaQualified": false
+      },
+      "evidence": [
+        "26-playful-care.png",
+        "root-tool-execution-metadata.json"
+      ]
+    },
+    {
+      "id": "original-receipts-and-root-metadata-unchanged",
+      "passed": true,
+      "observed": [
+        {
+          "path": "docs/acceptance/c18-pet-read-models-core-2026-10-16.json",
+          "bytes": 40245,
+          "sha256": "0AF6EE26F3361EB9135C5C115383C7A1D1E8349104A7FFC248D4BE3F3FC74915"
+        },
+        {
+          "path": "docs/acceptance/c18-source-review-2026-10-16.json",
+          "bytes": 15001,
+          "sha256": "1E1D86D2EF7E86B53AAE9448ACB5882F18DD0FC9B19F45CE8BC0AA4427329CC3"
+        },
+        {
+          "path": "output/implementation/c18-pet-frontend-6394a7cdafbd4c78ad82e411f3ff6ea5/targeted-validation-receipt.json",
+          "bytes": 5824,
+          "sha256": "750935F5B2BC51793C90CACE4F309E3CAA52DC0DD42EF0D9A6D1EBA67C9D8E8F"
+        },
+        {
+          "path": "output/implementation/c18-pet-watermark-reviewfix-e4ab745f1ab14fec81e20d21ff6a9818/incremental-validation-receipt.json",
+          "bytes": 5290,
+          "sha256": "B60714FC8129987625ED4D86A9933F4FFA69197E049ABEE2E27C8EC45A82DDF8"
+        },
+        {
+          "path": "output/playwright/c18-pet-read-model-20261016/preparation.json",
+          "bytes": 6411,
+          "sha256": "DC81125F61F6A6E09EB02F0705A69F726E8466F6DCD4772E0B0798A6F9CADA27"
+        },
+        {
+          "path": "output/playwright/c18-pet-read-model-20261016/root-tool-execution-metadata.json",
+          "bytes": 1374,
+          "sha256": "D68256C48664B3CF9F7F0110529DBDC05E82DEB634D85C6C3D13FFCCA4F4CB8B"
+        }
+      ],
+      "evidence": [
+        "docs/acceptance/c18-pet-read-models-core-2026-10-16.json",
+        "docs/acceptance/c18-source-review-2026-10-16.json",
+        "output/implementation/c18-pet-frontend-6394a7cdafbd4c78ad82e411f3ff6ea5/targeted-validation-receipt.json",
+        "output/implementation/c18-pet-watermark-reviewfix-e4ab745f1ab14fec81e20d21ff6a9818/incremental-validation-receipt.json",
+        "output/playwright/c18-pet-read-model-20261016/preparation.json",
+        "output/playwright/c18-pet-read-model-20261016/root-tool-execution-metadata.json"
+      ]
+    },
+    {
+      "id": "all-authored-fixture-inputs-remain-frozen",
+      "passed": true,
+      "observed": {
+        "fileCount": 22,
+        "drift": [],
+        "preparationStillAuthoringOnly": true
+      },
+      "evidence": [
+        "preparation.json",
+        "bootstrap.js"
+      ]
+    },
+    {
+      "id": "final-listed-frontend-source-hashes-match-frozen-evidence",
+      "passed": true,
+      "observed": {
+        "fileCount": 18,
+        "drift": [],
+        "captureTime": "after completed browser run; compared to original frozen source hashes"
+      },
+      "evidence": [
+        "docs/acceptance/c18-source-review-2026-10-16.json",
+        "incremental-validation-receipt.json"
+      ]
+    },
+    {
+      "id": "all-log-linked-artifacts-exist",
+      "passed": true,
+      "observed": {
+        "linkedPaths": [
+          ".playwright-cli/page-2026-10-15T22-18-15-447Z.yml",
+          ".playwright-cli/page-2026-10-15T22-22-28-680Z.yml",
+          ".playwright-cli/page-2026-10-15T22-24-09-027Z.yml",
+          ".playwright-cli/page-2026-10-15T22-24-48-733Z.yml",
+          ".playwright-cli/page-2026-10-15T22-24-52-456Z.yml",
+          ".playwright-cli/page-2026-10-15T22-25-03-780Z.yml",
+          "output/playwright/c18-pet-read-model-20261016/26-playful-care.png"
+        ],
+        "missing": []
+      },
+      "evidence": [
+        "01-pet-initial-snapshot.log",
+        "02-pet-idle-observe.log",
+        "03-open-card.log",
+        "04-card-observe.log",
+        "05-card-observe-corrected.log",
+        "06-hold-details.log",
+        "07-held-card-snapshot.log",
+        "08-held-details-observe.log",
+        "09-close-card.log",
+        "10-release-closed-details.log",
+        "11-closed-card-observe.log",
+        "12-hold-pulse.log",
+        "13-emit-held-pulse.log",
+        "14-domain-change.log",
+        "15-release-old-pulse.log",
+        "16-domain-observe.log",
+        "17-hide-native.log",
+        "18-hidden-first.log",
+        "19-hidden-second.log",
+        "20-show-native.log",
+        "21-active.log",
+        "22-active-care.log",
+        "23-idle.log",
+        "24-completion.log",
+        "25-playful-care.log",
+        "26-playful-screenshot.log",
+        "27-before-day-card-snapshot.log",
+        "28-open-domain-card.log",
+        "29-domain-card-observe.log",
+        "30-hold-day-details.log",
+        "31-emit-day-details.log",
+        "32-midnight.log",
+        "33-release-yesterday-details.log",
+        "34-midnight-observe.log",
+        "35-pet-final-all.log",
+        "36-setup-main.log",
+        "37-main-snapshot.log",
+        "38-main-select-subagent.log",
+        "39-main-role-observe.log",
+        "40-main-sessions.log",
+        "41-main-sessions-snapshot.log",
+        "42-main-export-fixture.log",
+        "43-main-final-all.log",
+        "44-browser-close.log"
+      ]
+    },
+    {
+      "id": "actual-entry-and-official-mock-guard-remain",
+      "passed": true,
+      "observed": {
+        "bootstrapSha256": "C601CC95F75F4E90B792CD2C67265B76D0F8BD4EEB4DDE0E9F8F199CDBAB5A3B",
+        "mechanism": "Only index entry script replaced; actual src/main.tsx imported after official mockIPC/mockWindows; authored Pet DTOs independent of Snapshot"
+      },
+      "evidence": [
+        "bootstrap.js",
+        "setup-pet.js",
+        "setup-main.js"
+      ]
+    }
+  ],
+  "commandCounts": {
+    "pet": {
+      "set_pet_interaction": 4,
+      "frontend_ready": 1,
+      "get_pet_pulse": 142,
+      "get_pet_details": 86,
+      "fixture:release": 3,
+      "fixture:setDomain": 1,
+      "fixture:setNativeVisible": 2,
+      "fixture:setActivity": 2,
+      "fixture:appendPrompt": 1,
+      "run_action": 1
+    },
+    "main": {
+      "frontend_ready": 1,
+      "get_snapshot": 12,
+      "export_csv": 1
+    }
+  },
+  "sourceFiles": [
+    {
+      "path": "src/App.tsx",
+      "bytes": 46739,
+      "sha256": "F884131AE4097A9FF44D3CD69F29B61CA2888CA70AA88561A2EA8091F22E2878"
+    },
+    {
+      "path": "src/features/overview/Overview.tsx",
+      "bytes": 18588,
+      "sha256": "423DB6E4B621F586A73203092A50C551B28EE8E878B7E0BB0B409E674FAFF9A3"
+    },
+    {
+      "path": "src/features/pet/CatGirl.tsx",
+      "bytes": 11188,
+      "sha256": "FCE623B28380C98968F144C888BC1993BF56B0FC6A271487B7D297F0F1E5176D"
+    },
+    {
+      "path": "src/features/pet/WorkCareBubble.tsx",
+      "bytes": 1933,
+      "sha256": "2804CFFE07090CBB54E2CF921F09F0159028B6A2F64BDF4F2109C26628D3E389"
+    },
+    {
+      "path": "src/features/pet/petLifecycle.ts",
+      "bytes": 9496,
+      "sha256": "CED25426198BB9DFF6AFAAF14C44F49C7E43A80319A63FAF570E3A801D5F8395"
+    },
+    {
+      "path": "src/features/pet/petProjection.ts",
+      "bytes": 1154,
+      "sha256": "BC75D4FE90C99FBAF4379725DCA6D7D07237B2189AA0D78E0197502437896E7C"
+    },
+    {
+      "path": "src/features/pet/presenter.ts",
+      "bytes": 1957,
+      "sha256": "E9DA8CB8EC6180DD960D83327F20729B0EDB38D873FDA505519C2EFA18474B2C"
+    },
+    {
+      "path": "src/features/pet/promptWatermark.ts",
+      "bytes": 1341,
+      "sha256": "B2549A7A0787F693528E7E346C8D0DE64EE045421267FEAB7E5AA3830C39788E"
+    },
+    {
+      "path": "src/features/pet/usePetStore.ts",
+      "bytes": 7439,
+      "sha256": "765F11F3D3D0925A8FD128FC1185C65F5B9DEDA7E972B40099E614690C57E812"
+    },
+    {
+      "path": "src/features/pet/workCareController.ts",
+      "bytes": 8498,
+      "sha256": "9C28AF81B9EE3BEBECD314542B856DCA7B03CB67EE16184005EC2855CE4F85C3"
+    },
+    {
+      "path": "src/features/pet/workCareSession.ts",
+      "bytes": 4467,
+      "sha256": "73B238C7D986FFA9391A25702F34FA675D8112479B1CBBED5B336FC5F472967A"
+    },
+    {
+      "path": "src/shared/bridge.ts",
+      "bytes": 1507,
+      "sha256": "A3CEE120FF1186F34D1DBA55F870B780E84529153D82B980D994F4B785AE177D"
+    },
+    {
+      "path": "src/shared/contracts.ts",
+      "bytes": 8867,
+      "sha256": "B92595190797F723F5CAE24814CE0CD82D4D626F49F89B0078FA953A94F321D3"
+    },
+    {
+      "path": "src/shared/demo.ts",
+      "bytes": 16028,
+      "sha256": "0567ABF8D4AA5D3FA5B2E5D3C97B188BEE2BAAAA2C70A36941FCBF9A7AD64505"
+    },
+    {
+      "path": "src/shared/pet.test.ts",
+      "bytes": 7036,
+      "sha256": "FB87FB1D4530A5A4FB3078A8C40705290F10555B2B31FA562562217FC982D700"
+    },
+    {
+      "path": "src/shared/petReadModel.test.ts",
+      "bytes": 13748,
+      "sha256": "622CF555FCCFFF6028BC3CE13C7D584D795B9E807B1CA2C00BAFE197891BBCEC"
+    },
+    {
+      "path": "src/shared/viewRefreshLoop.ts",
+      "bytes": 1827,
+      "sha256": "D96246144C0BD876D55416A9735F24BFF8E9677E20AB99795D107EDA5F50FED3"
+    },
+    {
+      "path": "src/shared/workCare.test.ts",
+      "bytes": 10429,
+      "sha256": "B9A4DB0869BB2DBEE8296DB31074001DF574E89FC3FE808E0DF366E98821D4AE"
+    }
+  ],
+  "sourceDrift": [],
+  "entrySourceAfterRun": {
+    "path": "src/main.tsx",
+    "bytes": 618,
+    "sha256": "66ED97195979A772529BEFB182A6AE66FD507A3D05ECD08BD3948B7B7115FBF5"
+  },
+  "frozenFixture": {
+    "preparation": {
+      "path": "output/playwright/c18-pet-read-model-20261016/preparation.json",
+      "bytes": 6411,
+      "sha256": "DC81125F61F6A6E09EB02F0705A69F726E8466F6DCD4772E0B0798A6F9CADA27"
+    },
+    "bootstrap": {
+      "path": "output/playwright/c18-pet-read-model-20261016/bootstrap.js",
+      "bytes": 23450,
+      "sha256": "C601CC95F75F4E90B792CD2C67265B76D0F8BD4EEB4DDE0E9F8F199CDBAB5A3B"
+    },
+    "authoredFileCount": 22,
+    "sourceDrift": [],
+    "originalPreparationExecutedField": false,
+    "authoringRecordNotRetrospectivelyRewritten": true
+  },
+  "scopeObservations": {
+    "hiddenInterval": {
+      "syntheticOnly": true,
+      "fromPerformanceMs": 345010,
+      "toPerformanceMs": 361374,
+      "durationMs": 16364
+    },
+    "heldReplyIds": {
+      "closedCardDetails": 175,
+      "oldSourcePulse": 193,
+      "oldDayDetails": 230
+    },
+    "rootVisualReview": {
+      "file": {
+        "path": "output/playwright/c18-pet-read-model-20261016/26-playful-care.png",
+        "bytes": 109733,
+        "sha256": "7A1EBEF386CAEF8995447163965D1F7D9683C084CC000CFAC3D8477CF9E5A875"
+      },
+      "statementSource": {
+        "path": "output/playwright/c18-pet-read-model-20261016/root-tool-execution-metadata.json",
+        "bytes": 1374,
+        "sha256": "D68256C48664B3CF9F7F0110529DBDC05E82DEB634D85C6C3D13FFCCA4F4CB8B"
+      },
+      "statement": {
+        "file": "26-playful-care.png",
+        "viewImageExecutedByRoot": true,
+        "observed": "Character and playful completion bubble visible; no horizontal clipping at 360 px viewport",
+        "doesNotProveNativeWindowAlphaOrPhysicalDesktopBehavior": true
+      },
+      "note": "Step26 is one screenshot filename, not26 screenshots; no native alpha qualification."
+    },
+    "mainRoleOracle": {
+      "authoredSelectedResponseIds": [
+        "c17-response-3"
+      ],
+      "totalTokens": 440,
+      "inputTokens": 400,
+      "cacheReadTokens": 100,
+      "cacheHitRate": 0.25,
+      "agentKind": "subagent",
+      "thread": "c17-source-b/same-thread"
+    },
+    "fixedClock": {
+      "initialUtc": "2026-10-15T15:59:59.900Z",
+      "afterSyntheticMidnightUtc": "2026-10-15T16:00:00.100Z",
+      "notActualClockRollover": true
+    }
+  },
+  "retainedFirstFailure": {
+    "kind": "observer instrumentation syntax",
+    "file": {
+      "path": "output/playwright/c18-pet-read-model-20261016/04-card-observe.log",
+      "bytes": 46,
+      "sha256": "1D145D5A6FAD5BA734CBAC4188787A66436C81BD8943CF6EF5C0AE33F3028D10"
+    },
+    "oldScript": {
+      "path": "output/playwright/c18-pet-read-model-20261016/observe-compact.firstfail.js",
+      "bytes": 1233,
+      "sha256": "A349BDA4FD8F897C3742B1555717FFAB16DB7922CED9210179FB416C827C9D12"
+    },
+    "correctedScript": {
+      "path": "output/playwright/c18-pet-read-model-20261016/observe-compact.js",
+      "bytes": 1205,
+      "sha256": "09838D2D0704CC29C40E3422CEB0E20DDD0820605BEB12ADAEF1550BFDA743FC"
+    },
+    "change": "Only final expression semicolon removed; no product or authored fixture data change",
+    "subsequentSuccessfulObservation": "05-card-observe-corrected.log"
+  },
+  "console": {
+    "file": {
+      "path": ".playwright-cli/console-2026-10-15T22-17-12-676Z.log",
+      "bytes": 4821,
+      "sha256": "1EFF0F5CA0D2DC10BC4609CD23F283B44DD00D47D0C3E84CD669377DA4DB6DF9"
+    },
+    "combinedErrorEntries": 6,
+    "errorsPerDocument": 3,
+    "localNetworkWebSocketErrors": 4,
+    "viteConnectionSummaryErrors": 2,
+    "tauriStaleMockWarnings": 9,
+    "consoleClean": false,
+    "businessErrors": [],
+    "pageErrors": []
+  },
+  "cleanup": {
+    "browserClose": {
+      "path": "output/playwright/c18-pet-read-model-20261016/44-browser-close.log",
+      "bytes": 48,
+      "sha256": "91B1D0666C989D42C1DC8794A56551ABD2276DF214E60CEFB85EDC25D4F52C9F"
+    },
+    "rootToolMetadata": {
+      "path": "output/playwright/c18-pet-read-model-20261016/root-tool-execution-metadata.json",
+      "bytes": 1374,
+      "sha256": "D68256C48664B3CF9F7F0110529DBDC05E82DEB634D85C6C3D13FFCCA4F4CB8B"
+    },
+    "browserExitCode": 0,
+    "viteExitCode": 1,
+    "viteReturnedOutputBytes": 0,
+    "viteOriginalStdoutFile": null,
+    "meaning": "Owned development server intentionally interrupted; root metadata references actual tool chunks, not reconstructed stdout. No current UI was relaunched by the auditor."
+  },
+  "references": [
+    {
+      "path": "docs/acceptance/c18-pet-read-models-core-2026-10-16.json",
+      "bytes": 40245,
+      "sha256": "0AF6EE26F3361EB9135C5C115383C7A1D1E8349104A7FFC248D4BE3F3FC74915"
+    },
+    {
+      "path": "docs/acceptance/c18-source-review-2026-10-16.json",
+      "bytes": 15001,
+      "sha256": "1E1D86D2EF7E86B53AAE9448ACB5882F18DD0FC9B19F45CE8BC0AA4427329CC3"
+    },
+    {
+      "path": "output/implementation/c18-pet-frontend-6394a7cdafbd4c78ad82e411f3ff6ea5/targeted-validation-receipt.json",
+      "bytes": 5824,
+      "sha256": "750935F5B2BC51793C90CACE4F309E3CAA52DC0DD42EF0D9A6D1EBA67C9D8E8F"
+    },
+    {
+      "path": "output/implementation/c18-pet-watermark-reviewfix-e4ab745f1ab14fec81e20d21ff6a9818/incremental-validation-receipt.json",
+      "bytes": 5290,
+      "sha256": "B60714FC8129987625ED4D86A9933F4FFA69197E049ABEE2E27C8EC45A82DDF8"
+    },
+    {
+      "path": "output/playwright/c18-pet-read-model-20261016/preparation.json",
+      "bytes": 6411,
+      "sha256": "DC81125F61F6A6E09EB02F0705A69F726E8466F6DCD4772E0B0798A6F9CADA27"
+    },
+    {
+      "path": "output/playwright/c18-pet-read-model-20261016/root-tool-execution-metadata.json",
+      "bytes": 1374,
+      "sha256": "D68256C48664B3CF9F7F0110529DBDC05E82DEB634D85C6C3D13FFCCA4F4CB8B"
+    }
+  ],
+  "evidence": [
+    {
+      "path": ".playwright-cli/console-2026-10-15T22-17-12-676Z.log",
+      "bytes": 4821,
+      "sha256": "1EFF0F5CA0D2DC10BC4609CD23F283B44DD00D47D0C3E84CD669377DA4DB6DF9"
+    },
+    {
+      "path": ".playwright-cli/page-2026-10-15T22-18-15-447Z.yml",
+      "bytes": 1432,
+      "sha256": "B89429C09251A98065A9D3F92C32CE80EAD5E4CC9EC64B58B9BEDAF3A20B206B"
+    },
+    {
+      "path": ".playwright-cli/page-2026-10-15T22-22-28-680Z.yml",
+      "bytes": 468,
+      "sha256": "FC4925EEB89C9C5A60DDF44B39A8B485C4102139FFF2C8F57B77F8976CBE26D5"
+    },
+    {
+      "path": ".playwright-cli/page-2026-10-15T22-24-09-027Z.yml",
+      "bytes": 1432,
+      "sha256": "1E8507BA3055A9EEEF1DEA1A552C2D208904A18B048BF2D80A669085BD88362A"
+    },
+    {
+      "path": ".playwright-cli/page-2026-10-15T22-24-48-733Z.yml",
+      "bytes": 10461,
+      "sha256": "DB6A4F4537439E8E649AD2B6AA6FE7F920A28DC670C42E19E775467CABD222CF"
+    },
+    {
+      "path": ".playwright-cli/page-2026-10-15T22-24-52-456Z.yml",
+      "bytes": 6202,
+      "sha256": "229707B5359DBBDBC0C26F8BB959E719B5FB283708F745A6820A3905A25AFB8B"
+    },
+    {
+      "path": ".playwright-cli/page-2026-10-15T22-25-03-780Z.yml",
+      "bytes": 6202,
+      "sha256": "220793BF9BB2DFCB4A6CA14DEAD35595F35726AD7C0EDD2480BF2A4B98DAE9D6"
+    },
+    {
+      "path": "output/playwright/c18-pet-read-model-20261016/01-pet-initial-snapshot.log",
+      "bytes": 649,
+      "sha256": "A187E01A6998B26FD3458A9336CA154A84F4DE192F8DEFC1A8123ECCC9CF8089"
+    },
+    {
+      "path": "output/playwright/c18-pet-read-model-20261016/02-pet-idle-observe.log",
+      "bytes": 10208,
+      "sha256": "22EAB4FC15625766D15B47D313445E0CD4F791C1EC9601A20047EE63D40539A8"
+    },
+    {
+      "path": "output/playwright/c18-pet-read-model-20261016/03-open-card.log",
+      "bytes": 383,
+      "sha256": "82CAE3C023A298160F077E9CF629E527DBFF8ABF2B1EE1F6D5728CC7CAF7E9C9"
+    },
+    {
+      "path": "output/playwright/c18-pet-read-model-20261016/04-card-observe.log",
+      "bytes": 46,
+      "sha256": "1D145D5A6FAD5BA734CBAC4188787A66436C81BD8943CF6EF5C0AE33F3028D10"
+    },
+    {
+      "path": "output/playwright/c18-pet-read-model-20261016/05-card-observe-corrected.log",
+      "bytes": 5892,
+      "sha256": "3A761D0CD6107E5E868ABD65E91888321CEF7A83F8E87641AE1A0C7582277A2D"
+    },
+    {
+      "path": "output/playwright/c18-pet-read-model-20261016/06-hold-details.log",
+      "bytes": 299,
+      "sha256": "4568539C4974E980686D3D8316FA84A60BCAB2FCC7C8C3EE2B2C847D144A115D"
+    },
+    {
+      "path": "output/playwright/c18-pet-read-model-20261016/07-held-card-snapshot.log",
+      "bytes": 1635,
+      "sha256": "C1C0D5F23EEE018553DA45E37D63D69BC98D1C14C7005AD1E4E22ECA370E442A"
+    },
+    {
+      "path": "output/playwright/c18-pet-read-model-20261016/08-held-details-observe.log",
+      "bytes": 6608,
+      "sha256": "A8C030ADFB24B00045C3AE589D0B5D7291BE1266897EBB201D05C6D0129280AA"
+    },
+    {
+      "path": "output/playwright/c18-pet-read-model-20261016/09-close-card.log",
+      "bytes": 326,
+      "sha256": "CDA4EEA8409B413CEDF4F7D970C0A16C6C6DF792EC4F875724719FFA975C0CC8"
+    },
+    {
+      "path": "output/playwright/c18-pet-read-model-20261016/10-release-closed-details.log",
+      "bytes": 1073,
+      "sha256": "19C80F1806B01AB363C580CE0DA8E09E8420CE7DE6ABA08A7242494E772D56E6"
+    },
+    {
+      "path": "output/playwright/c18-pet-read-model-20261016/11-closed-card-observe.log",
+      "bytes": 5240,
+      "sha256": "52E4EE21E2D7652EB4A0C6974126526E72C699EF053FF1F8FC22665F9F840157"
+    },
+    {
+      "path": "output/playwright/c18-pet-read-model-20261016/12-hold-pulse.log",
+      "bytes": 291,
+      "sha256": "74DB0E8B268F4370DDBADD0247F3A89D9ED0153BBA2A0DC1C6B0DEC0E4202448"
+    },
+    {
+      "path": "output/playwright/c18-pet-read-model-20261016/13-emit-held-pulse.log",
+      "bytes": 88936,
+      "sha256": "FE465BD8C785D73E86EADF8FC06DB2E26FEF0A33083D7CF086F34E8F09292542"
+    },
+    {
+      "path": "output/playwright/c18-pet-read-model-20261016/14-domain-change.log",
+      "bytes": 4293,
+      "sha256": "A7A796CD4522BB2A23E170B1B685E98C24ADE83FF7AB33C317E283FF46901BF9"
+    },
+    {
+      "path": "output/playwright/c18-pet-read-model-20261016/15-release-old-pulse.log",
+      "bytes": 1626,
+      "sha256": "8773583341AA4D79F6F227588FD90CCBBABDE408E174267A87515E65CBF36E3A"
+    },
+    {
+      "path": "output/playwright/c18-pet-read-model-20261016/16-domain-observe.log",
+      "bytes": 5139,
+      "sha256": "2A2C60F74D7B15E9C7B2B985D5B69C896F06BAD1C01EF033638457B1A60495AC"
+    },
+    {
+      "path": "output/playwright/c18-pet-read-model-20261016/17-hide-native.log",
+      "bytes": 4281,
+      "sha256": "DAC545BB0205BBBC2B08397BE62C5C442B9BAAE355A139BCF07F4335C837573A"
+    },
+    {
+      "path": "output/playwright/c18-pet-read-model-20261016/18-hidden-first.log",
+      "bytes": 4790,
+      "sha256": "090AC45221C1C1FBA81FCDC168169F76F61F10B67E35135F662F0595FC72DBDC"
+    },
+    {
+      "path": "output/playwright/c18-pet-read-model-20261016/19-hidden-second.log",
+      "bytes": 4790,
+      "sha256": "090AC45221C1C1FBA81FCDC168169F76F61F10B67E35135F662F0595FC72DBDC"
+    },
+    {
+      "path": "output/playwright/c18-pet-read-model-20261016/20-show-native.log",
+      "bytes": 4279,
+      "sha256": "236945FD3FE5A4DCF1D9A914324B9E11D2E564505A182077F9CB859AA545DC95"
+    },
+    {
+      "path": "output/playwright/c18-pet-read-model-20261016/21-active.log",
+      "bytes": 4275,
+      "sha256": "B1C81192CA6DB374E2EBE376E2F887A3D9A99E89B06218E100552EFBF7805E4C"
+    },
+    {
+      "path": "output/playwright/c18-pet-read-model-20261016/22-active-care.log",
+      "bytes": 4865,
+      "sha256": "D86853B56CC838851BFB36B2E0FDD0D9F853626240AFACD06F6C00DC68332257"
+    },
+    {
+      "path": "output/playwright/c18-pet-read-model-20261016/23-idle.log",
+      "bytes": 4273,
+      "sha256": "778B96AD630111CD2BE9FAADA219BCF05FB546C5D0E345EAECE3DC595D18F31E"
+    },
+    {
+      "path": "output/playwright/c18-pet-read-model-20261016/24-completion.log",
+      "bytes": 4495,
+      "sha256": "3A22534B429EA26CAB8F1E04E7B4BE572938656477C53108A56460F70FFB0CAF"
+    },
+    {
+      "path": "output/playwright/c18-pet-read-model-20261016/25-playful-care.log",
+      "bytes": 5279,
+      "sha256": "D5A6797910449D50809EB682FDA6BE8AACD3576A70F4D7E1F4CD2F8C6E06D3FC"
+    },
+    {
+      "path": "output/playwright/c18-pet-read-model-20261016/26-playful-care.png",
+      "bytes": 109733,
+      "sha256": "7A1EBEF386CAEF8995447163965D1F7D9683C084CC000CFAC3D8477CF9E5A875"
+    },
+    {
+      "path": "output/playwright/c18-pet-read-model-20261016/26-playful-screenshot.log",
+      "bytes": 392,
+      "sha256": "54C2F494A2D47E8EC20A3646775900E7D39B56A2F2EFF6C100D55C4A2BD5211B"
+    },
+    {
+      "path": "output/playwright/c18-pet-read-model-20261016/27-before-day-card-snapshot.log",
+      "bytes": 868,
+      "sha256": "33789D07FD5FF9954E0EE51857F88E3276A7AC8685D3511874E180FCE1421644"
+    },
+    {
+      "path": "output/playwright/c18-pet-read-model-20261016/28-open-domain-card.log",
+      "bytes": 383,
+      "sha256": "8D8C1741BC8146F30940333825F526C1C76DEB45096B6EB12E7FF69C4D19E896"
+    },
+    {
+      "path": "output/playwright/c18-pet-read-model-20261016/29-domain-card-observe.log",
+      "bytes": 5821,
+      "sha256": "109C46F9FE9CCB01683F5B3729A45A08C851412B573027D3984CB2F900658C37"
+    },
+    {
+      "path": "output/playwright/c18-pet-read-model-20261016/30-hold-day-details.log",
+      "bytes": 299,
+      "sha256": "4568539C4974E980686D3D8316FA84A60BCAB2FCC7C8C3EE2B2C847D144A115D"
+    },
+    {
+      "path": "output/playwright/c18-pet-read-model-20261016/31-emit-day-details.log",
+      "bytes": 103330,
+      "sha256": "8226DB60DB939716CE6934FB36D7069A7DAA6C3609C9291F85FE42A99C7E9D3C"
+    },
+    {
+      "path": "output/playwright/c18-pet-read-model-20261016/32-midnight.log",
+      "bytes": 4350,
+      "sha256": "41DBE96A370C631B96877CE2C978F0E5C955C259B6CAE68A1CE5C652E4D8CE28"
+    },
+    {
+      "path": "output/playwright/c18-pet-read-model-20261016/33-release-yesterday-details.log",
+      "bytes": 1073,
+      "sha256": "52DBCBB194FA354080D800594B0A89EF5993834317E6D70DE8C4872BDF1F008E"
+    },
+    {
+      "path": "output/playwright/c18-pet-read-model-20261016/34-midnight-observe.log",
+      "bytes": 5668,
+      "sha256": "008C8FBB1D15628CA3B7D9B49F6DCA5EE319DDEF8083868734880119BA0A5BC6"
+    },
+    {
+      "path": "output/playwright/c18-pet-read-model-20261016/35-pet-final-all.log",
+      "bytes": 111884,
+      "sha256": "F50AE205C64503983EFC4F801350FCE4C1497609E74CCCA7EAD2287DCC78E13E"
+    },
+    {
+      "path": "output/playwright/c18-pet-read-model-20261016/36-setup-main.log",
+      "bytes": 9337,
+      "sha256": "887511F55DB707F2C8D17A164572A730373E62752E3A4656B8E2A9E6DFCCB04E"
+    },
+    {
+      "path": "output/playwright/c18-pet-read-model-20261016/37-main-snapshot.log",
+      "bytes": 11846,
+      "sha256": "7BF300E3BE608CBE31AF14823517BCB1A41BDBEA965938DF4BA5F795FD6BE1DE"
+    },
+    {
+      "path": "output/playwright/c18-pet-read-model-20261016/38-main-select-subagent.log",
+      "bytes": 319,
+      "sha256": "12DB8CEBD5BAD7799521029FAA412D2FE43CD4A718AEA907318984AE73908DA3"
+    },
+    {
+      "path": "output/playwright/c18-pet-read-model-20261016/39-main-role-observe.log",
+      "bytes": 6023,
+      "sha256": "6D3130ED830BA7338974B3206DC38A72B77C1527CC7820749AA11AEF72B084D5"
+    },
+    {
+      "path": "output/playwright/c18-pet-read-model-20261016/40-main-sessions.log",
+      "bytes": 318,
+      "sha256": "1657BC1EF8EC820368365C790148C9745F85DF8C82C1749CA099BD48C5BF2BFD"
+    },
+    {
+      "path": "output/playwright/c18-pet-read-model-20261016/41-main-sessions-snapshot.log",
+      "bytes": 6483,
+      "sha256": "A8B5548338285B4A54F34EDAA38023DB0AD50162EAD4B06899E19BF7B48513FA"
+    },
+    {
+      "path": "output/playwright/c18-pet-read-model-20261016/42-main-export-fixture.log",
+      "bytes": 313,
+      "sha256": "164F23AAD06488884344B82EF8AC1335A9850914C7C365A29CB563DF1692EC73"
+    },
+    {
+      "path": "output/playwright/c18-pet-read-model-20261016/43-main-final-all.log",
+      "bytes": 8578,
+      "sha256": "CC6E9584FDF363F273BA27B56E5581924F26F88946A6CEFE79E32739A80B989D"
+    },
+    {
+      "path": "output/playwright/c18-pet-read-model-20261016/44-browser-close.log",
+      "bytes": 48,
+      "sha256": "91B1D0666C989D42C1DC8794A56551ABD2276DF214E60CEFB85EDC25D4F52C9F"
+    },
+    {
+      "path": "output/playwright/c18-pet-read-model-20261016/bootstrap.js",
+      "bytes": 23450,
+      "sha256": "C601CC95F75F4E90B792CD2C67265B76D0F8BD4EEB4DDE0E9F8F199CDBAB5A3B"
+    },
+    {
+      "path": "output/playwright/c18-pet-read-model-20261016/control-active.js",
+      "bytes": 174,
+      "sha256": "2B533F642214CD2EC2E7F2A8FCBBC878E3CF4CC3FD882CE85DAE51B2204D3C7D"
+    },
+    {
+      "path": "output/playwright/c18-pet-read-model-20261016/control-dnd-off.js",
+      "bytes": 171,
+      "sha256": "EA113AABE964BED7C1BB357410085B64FB45928A3DFF3CA732B848193EB46167"
+    },
+    {
+      "path": "output/playwright/c18-pet-read-model-20261016/control-dnd-on.js",
+      "bytes": 170,
+      "sha256": "A5EAAC4BAC1626E98AA51C77581E88C31F457CB4F5B876B5D4CFF741C61B77AF"
+    },
+    {
+      "path": "output/playwright/c18-pet-read-model-20261016/control-document-hide.js",
+      "bytes": 175,
+      "sha256": "046BF543CDD79FB7CDF9538A33DC24AAB51790EF242A8DAE1F738C81BA325E76"
+    },
+    {
+      "path": "output/playwright/c18-pet-read-model-20261016/control-document-show.js",
+      "bytes": 176,
+      "sha256": "434510E96191870DF04FD4F8ED3667A9750A8B945C0EF7B36474493BC7B3B3B3"
+    },
+    {
+      "path": "output/playwright/c18-pet-read-model-20261016/control-domain.js",
+      "bytes": 194,
+      "sha256": "FCDA81DB091A6A763A708B51D048240136A44DFE125A032C9AE0B867393FFB71"
+    },
+    {
+      "path": "output/playwright/c18-pet-read-model-20261016/control-emit-ledger.js",
+      "bytes": 213,
+      "sha256": "7221009A475DFBAAD40599DDDD9D0C329872091F1FE3D459CFCEEA4930186757"
+    },
+    {
+      "path": "output/playwright/c18-pet-read-model-20261016/control-hide-native.js",
+      "bytes": 181,
+      "sha256": "1C8B5F92029C96C85CC6F7B6AFA608D214FB386174CC7D7526D2C25A18B55703"
+    },
+    {
+      "path": "output/playwright/c18-pet-read-model-20261016/control-hold-details.js",
+      "bytes": 174,
+      "sha256": "5F3977C3832EADE16BFD60CCA9FE75B07E1DBC675755EF8C4CC99B638F4C67F7"
+    },
+    {
+      "path": "output/playwright/c18-pet-read-model-20261016/control-hold-pulse.js",
+      "bytes": 170,
+      "sha256": "1CA947C7F417CE54B334849D018A1F82666C6293975EBB2CD4DA432E363A0E42"
+    },
+    {
+      "path": "output/playwright/c18-pet-read-model-20261016/control-idle.js",
+      "bytes": 174,
+      "sha256": "F8433A5177ADBC3972899342C8C292B8CBE50C67E1D41AB309DAA07AA2051793"
+    },
+    {
+      "path": "output/playwright/c18-pet-read-model-20261016/control-midnight.js",
+      "bytes": 251,
+      "sha256": "3FF421D0728108030C8A7BF82A5AD30377214E5E872CBDBD84E1BCFDF2E11383"
+    },
+    {
+      "path": "output/playwright/c18-pet-read-model-20261016/control-pause.js",
+      "bytes": 173,
+      "sha256": "17119EC1C4AF94FE69E6857CFF0AD3D3D5CB4C39FF0E9AA93FADBC64FDF6F6CD"
+    },
+    {
+      "path": "output/playwright/c18-pet-read-model-20261016/control-prompt-complete.js",
+      "bytes": 324,
+      "sha256": "F45FD6A6AC67F748BE937A4EE2460733780E7BFBD81CD2960CD3914E821C65DA"
+    },
+    {
+      "path": "output/playwright/c18-pet-read-model-20261016/control-reject-one.js",
+      "bytes": 339,
+      "sha256": "C5365C9064122E7744C60D5C38AE3D2B4D5C7A8EB8045BDE4A3D246CE3ADF130"
+    },
+    {
+      "path": "output/playwright/c18-pet-read-model-20261016/control-release-one.js",
+      "bytes": 337,
+      "sha256": "3EAB6CE734BF23DDBC10CE72734487F1013180EC5B0EAA86C24F7E0186948E61"
+    },
+    {
+      "path": "output/playwright/c18-pet-read-model-20261016/control-resume.js",
+      "bytes": 174,
+      "sha256": "F0B73DD76BB5C795B92E217D647249380FDA43921F70E5395E13B04A8B8661DC"
+    },
+    {
+      "path": "output/playwright/c18-pet-read-model-20261016/control-show-native.js",
+      "bytes": 180,
+      "sha256": "A4E584900BFF32EACBD2A3733C4CF728AF58976A1AC4A541B73706C27281FB5E"
+    },
+    {
+      "path": "output/playwright/c18-pet-read-model-20261016/observe-all.js",
+      "bytes": 252,
+      "sha256": "2DE8CB77B6CA8DC34BFD7F1FCBD15079428D3593B84469CF1C86B83932E00DAA"
+    },
+    {
+      "path": "output/playwright/c18-pet-read-model-20261016/observe-compact.firstfail.js",
+      "bytes": 1233,
+      "sha256": "A349BDA4FD8F897C3742B1555717FFAB16DB7922CED9210179FB416C827C9D12"
+    },
+    {
+      "path": "output/playwright/c18-pet-read-model-20261016/observe-compact.js",
+      "bytes": 1205,
+      "sha256": "09838D2D0704CC29C40E3422CEB0E20DDD0820605BEB12ADAEF1550BFDA743FC"
+    },
+    {
+      "path": "output/playwright/c18-pet-read-model-20261016/observe.js",
+      "bytes": 1013,
+      "sha256": "DAD909F991DCC22321E7A4E6A4D4F9E0FFFD775BC30D404FC13DF7EF3B2177C8"
+    },
+    {
+      "path": "output/playwright/c18-pet-read-model-20261016/preparation.initial-authoring.json",
+      "bytes": 5564,
+      "sha256": "09C279D00823E2C67507A1241243DDDFD69558DBB5F8A72018737FA8BAA19D04"
+    },
+    {
+      "path": "output/playwright/c18-pet-read-model-20261016/preparation.json",
+      "bytes": 6411,
+      "sha256": "DC81125F61F6A6E09EB02F0705A69F726E8466F6DCD4772E0B0798A6F9CADA27"
+    },
+    {
+      "path": "output/playwright/c18-pet-read-model-20261016/root-tool-execution-metadata.json",
+      "bytes": 1374,
+      "sha256": "D68256C48664B3CF9F7F0110529DBDC05E82DEB634D85C6C3D13FFCCA4F4CB8B"
+    },
+    {
+      "path": "output/playwright/c18-pet-read-model-20261016/setup-main.js",
+      "bytes": 1680,
+      "sha256": "A1BB7D4CD971ADBA117D270D929AE7AA459D3E86CA19DC52FD8A497CA2BA6B7A"
+    },
+    {
+      "path": "output/playwright/c18-pet-read-model-20261016/setup-pet.js",
+      "bytes": 1691,
+      "sha256": "B05217324F9A65BF5175ADDECD31FA70B849BCCB8FAC9B46499597C27FF7E380"
+    }
+  ],
+  "auditHelper": {
+    "path": "output/implementation/c18-browser-evidence-audit-5f406d7f613b4e4299a46aa0f652bcec/audit.py",
+    "bytes": 23855,
+    "sha256": "52924CB8C5BBA2CD49DCA0010DA0D0F229CA6CD3322EC52A3366D34C3E2C9036"
+  },
+  "limitations": [
+    "The check count describes file/evidence consistency, not a number of new product tests or Native scenarios. Original backend78 and frontend35distinct/44executions remain separately attributed to their immutable receipts.",
+    "The browser used dev source and authored Tauri IPC. Its Snapshot, Pulse, Details, source changes, visibility and fixed clock are fixtures, not production Rust/SQLite or physical Windows facts.",
+    "Details profile deliberately remains2400 after the synthetic day change; this verifies a new-day request and old reply rejection, not actual production midnight metering.",
+    "No real CSV file was written or native SaveDialog exercised; only the current Query invocation and fixture null result are observed.",
+    "No Native transparency/alpha, click-through, focus, OS account/notification, external tool, installer, startup, P95, renderer memory or M4 claim follows from this run.",
+    "The single step26 PNG was viewed by root. The independent auditor verified its file identity and dimensions and relied on the explicitly attributed root visual statement; it did not rerun or silently add visual observations.",
+    "Existing HMR local-network errors, mock callback warnings, observer firstfail, historical failures and prior receipts are preserved. No source/fixture modification or browser restart was performed during formalization."
+  ]
+}

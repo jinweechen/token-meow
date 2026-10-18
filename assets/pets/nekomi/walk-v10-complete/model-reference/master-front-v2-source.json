@@ -1,0 +1,58 @@
+{
+  "status": "candidate-pending-independent-review",
+  "tool": "built-in image_gen",
+  "transparent_background": true,
+  "originalPath": "C:/Users/Administrator/.codex/generated_images/01a148ad-080e-7062-8576-ca95b7a366b3/exec-7621909f-0726-4ffb-9b3f-c62b662e6538.png",
+  "workspacePath": "D:/project/宠物/assets/pets/nekomi/walk-v10-complete/model-reference/master-front-v2.png",
+  "inputImages": [
+    {
+      "order": 1,
+      "path": "D:/project/宠物/assets/pets/nekomi/walk-v10-complete/model-reference/master-front-v1.png",
+      "role": "edit target"
+    },
+    {
+      "order": 2,
+      "path": "D:/project/宠物/assets/pets/nekomi/walk-v10-complete/model-reference/turnaround-side-hair-bow-v4-length.png",
+      "role": "design authority"
+    }
+  ],
+  "promptPath": "D:/project/宠物/assets/pets/nekomi/walk-v10-complete/prompts/master-front-v2.txt",
+  "prompt": "Use case: precise-object-edit\nAsset type: corrected MASTER FRONT character sprite, one full figure, true transparent 1024x1536.\nInput images: Image 1 is the EDIT TARGET, preserve this exact character, face, detailed curls, style, hands, shoes, pose and placement. Image 2 is the design authority for the outfit accessories and skirt construction.\nPrimary request: make only these two wardrobe corrections to Image 1, retaining the character's anatomy and original native high-resolution detail.\n1. LENGTHEN THE SKIRT downward by about 65 pixels. Keep natural waist at y690–700, lower pelvis hidden around y850. Reconstruct the continuous cream skirt folds, floral panel, green band and cream ruffle so the LOWEST FRONT RUFFLE now lies around y1100, within y1070–1110, instead of around y1035. The hem band and daisies move coherently downward with the lower skirt; use the same floral arrangement and trim construction, no extra flowers. The longer skirt simply covers more of the upper white tights. Do not move, shorten or stretch the underlying legs, knees or shoes.\n2. REDUCE BOTH small front-left/front-right waist bows so each measures only about 45–55 pixels wide and 50–65 pixels tall on this 1024px canvas. Keep their existing symmetrical attachment sites on the green natural-waist belt. They must be obviously smaller than the roughly 145px-wide chest bow. No central waist bow or flower.\nEverything else must remain stable: ears top about y15–30, chin y450, head center, shoulder positions, arms and relaxed fingers, white tights, forward-facing paired Mary Jane shoes with soles near y1480, tail curve, colors, shadows and high-resolution clean linework. Preserve one thumb and four fingers per hand with natural overlaps, no fist. Maintain the long hair silhouette and both small side hair bows with front-facing daisies. One chest bow only.\nBackground: actual alpha transparency outside the physical figure, no glow, shadow, backdrop, checker pattern, text, watermark, extra limb or extra character.",
+  "validation": "pending visual review, not animation acceptance",
+  "visualReview": [
+    "Targeted native redraw visibly lowered the hem to about y1100 and reduced both waist bows.",
+    "Head, hair, continuous arm chains, relaxed hands and shoes remained stable.",
+    "No independent approval or full cross-view registration acceptance."
+  ],
+  "metadata": {
+    "size": [
+      1024,
+      1536
+    ],
+    "mode": "RGBA",
+    "alphaExtrema": [
+      0,
+      254
+    ],
+    "fullyTransparentPixels": 790133,
+    "nonzeroAlphaPixels": 782731,
+    "alphaGreaterThan127BBox": [
+      93,
+      11,
+      937,
+      1484
+    ],
+    "outsideAlphaSamples": {
+      "(0, 0)": 0,
+      "(0, 500)": 0,
+      "(0, 750)": 0,
+      "(1023, 750)": 0,
+      "(50, 100)": 0,
+      "(512, 1510)": 0
+    }
+  },
+  "workspaceSHA256": "7ec89e91a67884a6e524b788e328a763aaebe502c2a5b5c887b5679fd7620997",
+  "originalSHA256": "7ec89e91a67884a6e524b788e328a763aaebe502c2a5b5c887b5679fd7620997",
+  "byteCopyVerified": true,
+  "promptFileMatchesExactPrompt": true
+}

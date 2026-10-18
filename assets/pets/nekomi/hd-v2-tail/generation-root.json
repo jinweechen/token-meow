@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-16",
+  "generator": "builtin image_gen",
+  "pixelPostProcessing": false,
+  "status": "superseded-by-rear-outlet-revision",
+  "reason": "User observed visible tail still emerged below hem; these drafts do not implement requested visible rear-outlet silhouette.",
+  "assets": [
+    {
+      "pose": "idle",
+      "file": "idle.png",
+      "sourceOriginalPath": "C:/Users/Administrator/.codex/generated_images/01a14280-254e-70f3-ba61-b34c813b8e3a/exec-135f03be-3a1d-46a3-a356-ad54e5854068.png",
+      "prompt": "prompts/idle.txt"
+    },
+    {
+      "pose": "active",
+      "file": "active.png",
+      "sourceOriginalPath": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14280-254e-70f3-ba61-b34c813b8e3a\\exec-1241b275-143a-47eb-91bf-d624d8866fc0.png",
+      "prompt": "prompts/active.txt"
+    },
+    {
+      "pose": "complete",
+      "file": "complete.png",
+      "sourceOriginalPath": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14280-254e-70f3-ba61-b34c813b8e3a\\exec-9aa597cf-2ae4-42b9-bf7d-15c4b2c44761.png",
+      "prompt": "prompts/complete.txt"
+    },
+    {
+      "pose": "alert",
+      "file": "alert.png",
+      "sourceOriginalPath": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14280-254e-70f3-ba61-b34c813b8e3a\\exec-09979242-365d-4c70-8777-6f0c5ee5c55d.png",
+      "prompt": "prompts/alert.txt"
+    },
+    {
+      "pose": "sleep",
+      "file": "sleep.png",
+      "sourceOriginalPath": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14280-254e-70f3-ba61-b34c813b8e3a\\exec-c022bfc7-683c-4efd-82c6-d4c2fe94886a.png",
+      "prompt": "prompts/sleep.txt"
+    }
+  ]
+}

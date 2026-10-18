@@ -1,0 +1,518 @@
+{
+  "schemaVersion": 2,
+  "createdAtUtc": "2026-10-17T07:32:55+00:00",
+  "assetRoot": "D:\\project\\宠物\\assets\\pets\\nekomi\\walk-v10-complete",
+  "sourceDirectories": [
+    {
+      "path": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14280-254e-70f3-ba61-b34c813b8e3a",
+      "exists": true
+    },
+    {
+      "path": "C:\\Users\\Administrator\\.codex\\generated_images\\01a148a3-42fd-7200-9a55-f8a2b93cf502",
+      "exists": true
+    }
+  ],
+  "pixelEditingPerformed": false,
+  "scope": "Metadata, exact source bytes and saved prompt associations only; no visual or animation acceptance",
+  "historicalFilesPreserved": true,
+  "inventoryCoverage": {
+    "pngCount": 16,
+    "byteEqualOriginalCount": 10,
+    "codeNativeGuideCount": 6,
+    "unresolvedSources": [],
+    "unresolvedPrompts": []
+  },
+  "limitations": [
+    "All PNGs under v10 are inventoried, including historical candidates and code-native pose guides.",
+    "A guide is not a generated character frame and is not an accepted animation asset.",
+    "No prompt is selected merely because its revision number is greatest.",
+    "Reference files report current on-disk SHA; the original call-time SHA is unknown unless explicitly recorded.",
+    "Byte identity, RGBA and matching dimensions do not establish anatomy, visible tail roots or cycle continuity."
+  ],
+  "entries": [
+    {
+      "relativePath": "candidates/05-spatial-revision-v5.png",
+      "bytes": 1883912,
+      "sha256": "a645cae0eb4973d1a29807e4f34adaf38fa94fb94fe1d5c3a694884ebddbfc55",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "bitDepth": 8,
+      "pngColorType": 6,
+      "alphaExtrema": [
+        0,
+        254
+      ],
+      "alphaZeroPixels": 897103,
+      "alphaNonZeroPixels": 675761,
+      "nonTransparentBBox": [
+        51,
+        21,
+        984,
+        1504
+      ],
+      "bboxConvention": "[left, top, right, bottom], alpha > 0; right/bottom exclusive",
+      "assetKind": "imagegen-asset",
+      "originalGeneratedPaths": [
+        "C:\\Users\\Administrator\\.codex\\generated_images\\01a148a3-42fd-7200-9a55-f8a2b93cf502\\exec-0bea5a2d-feec-488d-a563-d6812d5a99fc.png"
+      ],
+      "sourceBytesEqual": true,
+      "sourceStatus": "byte-equal-original-found"
+    },
+    {
+      "relativePath": "candidates/05-tail-root-v1.png",
+      "bytes": 1857542,
+      "sha256": "e0992d471d7f5aa672e41209bb1169bf92b95ad2d4486877330e3b924536ad00",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "bitDepth": 8,
+      "pngColorType": 6,
+      "alphaExtrema": [
+        0,
+        254
+      ],
+      "alphaZeroPixels": 901232,
+      "alphaNonZeroPixels": 671632,
+      "nonTransparentBBox": [
+        25,
+        17,
+        1006,
+        1498
+      ],
+      "bboxConvention": "[left, top, right, bottom], alpha > 0; right/bottom exclusive",
+      "assetKind": "imagegen-asset",
+      "originalGeneratedPaths": [
+        "C:\\Users\\Administrator\\.codex\\generated_images\\01a14280-254e-70f3-ba61-b34c813b8e3a\\exec-4cd3b854-0fe2-4799-acb0-fcb93fbdba02.png"
+      ],
+      "sourceBytesEqual": true,
+      "sourceStatus": "byte-equal-original-found"
+    },
+    {
+      "relativePath": "candidates/05-tail-root-v2.png",
+      "bytes": 1854221,
+      "sha256": "ea073b52e25a0beb451300babac876395b07c64daf2a3c51f31bc77b1865cb9d",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "bitDepth": 8,
+      "pngColorType": 6,
+      "alphaExtrema": [
+        0,
+        254
+      ],
+      "alphaZeroPixels": 912491,
+      "alphaNonZeroPixels": 660373,
+      "nonTransparentBBox": [
+        0,
+        17,
+        1002,
+        1522
+      ],
+      "bboxConvention": "[left, top, right, bottom], alpha > 0; right/bottom exclusive",
+      "assetKind": "imagegen-asset",
+      "originalGeneratedPaths": [
+        "C:\\Users\\Administrator\\.codex\\generated_images\\01a148a3-42fd-7200-9a55-f8a2b93cf502\\exec-4f026f48-20a0-4f0a-8f2e-5a6ea889112f.png"
+      ],
+      "sourceBytesEqual": true,
+      "sourceStatus": "byte-equal-original-found"
+    },
+    {
+      "relativePath": "candidates/05-tail-root-v3.png",
+      "bytes": 1850512,
+      "sha256": "169cee204fd36b105506f1e15037c6eb0247bc02626c97e962a1baf273517176",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "bitDepth": 8,
+      "pngColorType": 6,
+      "alphaExtrema": [
+        0,
+        254
+      ],
+      "alphaZeroPixels": 926287,
+      "alphaNonZeroPixels": 646577,
+      "nonTransparentBBox": [
+        33,
+        18,
+        1008,
+        1500
+      ],
+      "bboxConvention": "[left, top, right, bottom], alpha > 0; right/bottom exclusive",
+      "assetKind": "imagegen-asset",
+      "originalGeneratedPaths": [
+        "C:\\Users\\Administrator\\.codex\\generated_images\\01a148a3-42fd-7200-9a55-f8a2b93cf502\\exec-328c44c1-53d6-49cc-806d-9e325d16cdff.png"
+      ],
+      "sourceBytesEqual": true,
+      "sourceStatus": "byte-equal-original-found"
+    },
+    {
+      "relativePath": "candidates/05-tail-root-v4-hand-clearance.png",
+      "bytes": 1854634,
+      "sha256": "827dc3db31e0b1936ba053b243481c5d63aba5920e18cbea599fe660d3af3797",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "bitDepth": 8,
+      "pngColorType": 6,
+      "alphaExtrema": [
+        0,
+        254
+      ],
+      "alphaZeroPixels": 922536,
+      "alphaNonZeroPixels": 650328,
+      "nonTransparentBBox": [
+        41,
+        21,
+        1010,
+        1490
+      ],
+      "bboxConvention": "[left, top, right, bottom], alpha > 0; right/bottom exclusive",
+      "assetKind": "imagegen-asset",
+      "originalGeneratedPaths": [
+        "C:\\Users\\Administrator\\.codex\\generated_images\\01a148a3-42fd-7200-9a55-f8a2b93cf502\\exec-34d463bc-db21-4400-a8d8-2dadea2f3e42.png"
+      ],
+      "sourceBytesEqual": true,
+      "sourceStatus": "byte-equal-original-found"
+    },
+    {
+      "relativePath": "frames/01-contact-near.png",
+      "bytes": 1834786,
+      "sha256": "f2508fa58374874a20a198f844f963e50c27746729144e5a521e1116d790fb64",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "bitDepth": 8,
+      "pngColorType": 6,
+      "alphaExtrema": [
+        0,
+        254
+      ],
+      "alphaZeroPixels": 931152,
+      "alphaNonZeroPixels": 641712,
+      "nonTransparentBBox": [
+        41,
+        23,
+        976,
+        1490
+      ],
+      "bboxConvention": "[left, top, right, bottom], alpha > 0; right/bottom exclusive",
+      "assetKind": "imagegen-asset",
+      "originalGeneratedPaths": [
+        "C:\\Users\\Administrator\\.codex\\generated_images\\01a14280-254e-70f3-ba61-b34c813b8e3a\\exec-61ee0a4a-c5b4-4e78-a290-e3944ab27f78.png"
+      ],
+      "sourceBytesEqual": true,
+      "sourceStatus": "byte-equal-original-found"
+    },
+    {
+      "relativePath": "frames/02-near-flat-recovery.png",
+      "bytes": 1835819,
+      "sha256": "0df9baaae57fe9ce937b63424483beef8922599a761faedac6453808e12c8616",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "bitDepth": 8,
+      "pngColorType": 6,
+      "alphaExtrema": [
+        0,
+        254
+      ],
+      "alphaZeroPixels": 928900,
+      "alphaNonZeroPixels": 643964,
+      "nonTransparentBBox": [
+        0,
+        22,
+        1002,
+        1512
+      ],
+      "bboxConvention": "[left, top, right, bottom], alpha > 0; right/bottom exclusive",
+      "assetKind": "imagegen-asset",
+      "originalGeneratedPaths": [
+        "C:\\Users\\Administrator\\.codex\\generated_images\\01a14280-254e-70f3-ba61-b34c813b8e3a\\exec-68fbbc74-74fd-451f-a1fd-f371af744108.png"
+      ],
+      "sourceBytesEqual": true,
+      "sourceStatus": "byte-equal-original-found"
+    },
+    {
+      "relativePath": "frames/03-far-passing.png",
+      "bytes": 1783621,
+      "sha256": "22b063f4efee09cbfda92f782651e32757e2ef193d566e0833fe6dc4176f54f9",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "bitDepth": 8,
+      "pngColorType": 6,
+      "alphaExtrema": [
+        0,
+        254
+      ],
+      "alphaZeroPixels": 969934,
+      "alphaNonZeroPixels": 602930,
+      "nonTransparentBBox": [
+        0,
+        29,
+        974,
+        1490
+      ],
+      "bboxConvention": "[left, top, right, bottom], alpha > 0; right/bottom exclusive",
+      "assetKind": "imagegen-asset",
+      "originalGeneratedPaths": [
+        "C:\\Users\\Administrator\\.codex\\generated_images\\01a14280-254e-70f3-ba61-b34c813b8e3a\\exec-eb813d6d-58c6-422f-949e-d85382bb8a37.png"
+      ],
+      "sourceBytesEqual": true,
+      "sourceStatus": "byte-equal-original-found"
+    },
+    {
+      "relativePath": "frames/04-near-toe-far-reach.png",
+      "bytes": 1810403,
+      "sha256": "c2528d58f99500f4a3ca16eee6336cada7fb13a11bbbb49fe4789fb01812b56b",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "bitDepth": 8,
+      "pngColorType": 6,
+      "alphaExtrema": [
+        0,
+        254
+      ],
+      "alphaZeroPixels": 928806,
+      "alphaNonZeroPixels": 644058,
+      "nonTransparentBBox": [
+        89,
+        17,
+        982,
+        1506
+      ],
+      "bboxConvention": "[left, top, right, bottom], alpha > 0; right/bottom exclusive",
+      "assetKind": "imagegen-asset",
+      "originalGeneratedPaths": [
+        "C:\\Users\\Administrator\\.codex\\generated_images\\01a14280-254e-70f3-ba61-b34c813b8e3a\\exec-9a270500-bab6-4d2b-b60c-1b7da8f325c7.png"
+      ],
+      "sourceBytesEqual": true,
+      "sourceStatus": "byte-equal-original-found"
+    },
+    {
+      "relativePath": "frames/05-contact-far.png",
+      "bytes": 1827158,
+      "sha256": "a535e050eefd10b968cdc62fd67a1394ddc1fc76eecd1cb053449ea8423e5524",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "bitDepth": 8,
+      "pngColorType": 6,
+      "alphaExtrema": [
+        0,
+        254
+      ],
+      "alphaZeroPixels": 917811,
+      "alphaNonZeroPixels": 655053,
+      "nonTransparentBBox": [
+        35,
+        21,
+        992,
+        1504
+      ],
+      "bboxConvention": "[left, top, right, bottom], alpha > 0; right/bottom exclusive",
+      "assetKind": "imagegen-asset",
+      "originalGeneratedPaths": [
+        "C:\\Users\\Administrator\\.codex\\generated_images\\01a14280-254e-70f3-ba61-b34c813b8e3a\\exec-838ef3c0-7ff5-4265-b327-16084e61ded6.png"
+      ],
+      "sourceBytesEqual": true,
+      "sourceStatus": "byte-equal-original-found"
+    },
+    {
+      "relativePath": "pose-guides/02-near-flat-recovery-guide.png",
+      "bytes": 117365,
+      "sha256": "f694a90291405d823f7a3bd237f5430129f009b950753a72a927f4864619521d",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "bitDepth": 8,
+      "pngColorType": 6,
+      "alphaExtrema": [
+        255,
+        255
+      ],
+      "alphaZeroPixels": 0,
+      "alphaNonZeroPixels": 1572864,
+      "nonTransparentBBox": [
+        0,
+        0,
+        1024,
+        1536
+      ],
+      "bboxConvention": "[left, top, right, bottom], alpha > 0; right/bottom exclusive",
+      "assetKind": "code-native-pose-guide",
+      "originalGeneratedPaths": [],
+      "sourceBytesEqual": null,
+      "sourceStatus": "not-applicable-code-native-guide"
+    },
+    {
+      "relativePath": "pose-guides/03-far-passing-guide.png",
+      "bytes": 114345,
+      "sha256": "4dec6c32094963c3f3720e65fb24abe64b39c20b411442da46d7898f06c79e4c",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "bitDepth": 8,
+      "pngColorType": 6,
+      "alphaExtrema": [
+        255,
+        255
+      ],
+      "alphaZeroPixels": 0,
+      "alphaNonZeroPixels": 1572864,
+      "nonTransparentBBox": [
+        0,
+        0,
+        1024,
+        1536
+      ],
+      "bboxConvention": "[left, top, right, bottom], alpha > 0; right/bottom exclusive",
+      "assetKind": "code-native-pose-guide",
+      "originalGeneratedPaths": [],
+      "sourceBytesEqual": null,
+      "sourceStatus": "not-applicable-code-native-guide"
+    },
+    {
+      "relativePath": "pose-guides/04-near-toe-far-reach-guide.png",
+      "bytes": 122103,
+      "sha256": "5b95d1b5fe73253313efd5502d07f288c220a1379849e8c2a1defed2ef6a59b9",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "bitDepth": 8,
+      "pngColorType": 6,
+      "alphaExtrema": [
+        255,
+        255
+      ],
+      "alphaZeroPixels": 0,
+      "alphaNonZeroPixels": 1572864,
+      "nonTransparentBBox": [
+        0,
+        0,
+        1024,
+        1536
+      ],
+      "bboxConvention": "[left, top, right, bottom], alpha > 0; right/bottom exclusive",
+      "assetKind": "code-native-pose-guide",
+      "originalGeneratedPaths": [],
+      "sourceBytesEqual": null,
+      "sourceStatus": "not-applicable-code-native-guide"
+    },
+    {
+      "relativePath": "pose-guides/06-far-flat-recovery-guide.png",
+      "bytes": 117907,
+      "sha256": "d58b9afa27da72e5583a599cfb4998dfc5c8356c488196f2e0753f7e5292b6ca",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "bitDepth": 8,
+      "pngColorType": 6,
+      "alphaExtrema": [
+        255,
+        255
+      ],
+      "alphaZeroPixels": 0,
+      "alphaNonZeroPixels": 1572864,
+      "nonTransparentBBox": [
+        0,
+        0,
+        1024,
+        1536
+      ],
+      "bboxConvention": "[left, top, right, bottom], alpha > 0; right/bottom exclusive",
+      "assetKind": "code-native-pose-guide",
+      "originalGeneratedPaths": [],
+      "sourceBytesEqual": null,
+      "sourceStatus": "not-applicable-code-native-guide"
+    },
+    {
+      "relativePath": "pose-guides/07-near-passing-guide.png",
+      "bytes": 115845,
+      "sha256": "8cb9c7e95911c4721ec3e3e8eccd2bb7fd8d80c1c77f0274cabcaacf726abac2",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "bitDepth": 8,
+      "pngColorType": 6,
+      "alphaExtrema": [
+        255,
+        255
+      ],
+      "alphaZeroPixels": 0,
+      "alphaNonZeroPixels": 1572864,
+      "nonTransparentBBox": [
+        0,
+        0,
+        1024,
+        1536
+      ],
+      "bboxConvention": "[left, top, right, bottom], alpha > 0; right/bottom exclusive",
+      "assetKind": "code-native-pose-guide",
+      "originalGeneratedPaths": [],
+      "sourceBytesEqual": null,
+      "sourceStatus": "not-applicable-code-native-guide"
+    },
+    {
+      "relativePath": "pose-guides/08-far-toe-near-reach-guide.png",
+      "bytes": 118417,
+      "sha256": "1437a8338091385512bd4c7c351c76201adb363f06c0650df9c9f6fb5fbaf286",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "bitDepth": 8,
+      "pngColorType": 6,
+      "alphaExtrema": [
+        255,
+        255
+      ],
+      "alphaZeroPixels": 0,
+      "alphaNonZeroPixels": 1572864,
+      "nonTransparentBBox": [
+        0,
+        0,
+        1024,
+        1536
+      ],
+      "bboxConvention": "[left, top, right, bottom], alpha > 0; right/bottom exclusive",
+      "assetKind": "code-native-pose-guide",
+      "originalGeneratedPaths": [],
+      "sourceBytesEqual": null,
+      "sourceStatus": "not-applicable-code-native-guide"
+    }
+  ]
+}

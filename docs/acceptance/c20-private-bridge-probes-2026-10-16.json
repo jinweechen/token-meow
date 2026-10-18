@@ -1,0 +1,243 @@
+{
+  "observedThroughUtc": "2026-10-16T03:11:30.265415+00:00",
+  "scope": "Private unauthenticated file-auth empty-source native stdio bridge probes; one retained preflight rejection plus three bounded runtime phases, not a single continuous run.",
+  "status": "scoped-private-probes-pass-with-v1-preflight-rejection-retained",
+  "productionSource": {
+    "path": "src-tauri/src/account_bridge.rs",
+    "sha256": "E796C3BBCFD579E1BEA2EE461E61555D19C17DEF43B9DD9960812F5296D65D81",
+    "prefixBytes": 106649,
+    "bindingSource": "retained frozen input receipts; no production source changed by this receipt"
+  },
+  "protection": {
+    "warningCommitMiB": 96,
+    "hardCommitMiB": 128,
+    "limitsChanged": false,
+    "ownedJobSha256": "EF123B117164C675691DCD8B3308619CA34FA575A615042AE75FA3F04965EC5F",
+    "readGuardSha256": "EA91E4D0FB7707E44FDDDD60217D1A3677C2F3A462EFEA79BBB1B267BC9894C6",
+    "handleInheritance": "explicit stdin/stdout/stderr only",
+    "globalEnumeration": false,
+    "runtimeNaturalCompletionMeaning": "Outer helper Jobs reached root0/active0 after production owned bridge shutdown; does not assert every bridge child exited naturally.",
+    "frozenCompilerDependencyArtifactsReused": 25
+  },
+  "privateSourceBoundary": {
+    "initialEntries": [
+      "config.toml"
+    ],
+    "configText": "cli_auth_credentials_store = \"file\"\n",
+    "configSha256": "4A6D91CF2BED4EF5AC8ED28723E0074689259534722F855CBB8F690FA7ED069A",
+    "initialAuthOrSessionOrDatabaseFiles": 0,
+    "dataDirectoriesInitiallyEmpty": true,
+    "runtimeEnvironmentKeys": [
+      "APPDATA",
+      "CODEX_HOME",
+      "HOME",
+      "HOMEDRIVE",
+      "HOMEPATH",
+      "LOCALAPPDATA",
+      "PATH",
+      "SYSTEMROOT",
+      "TEMP",
+      "TMP",
+      "USERPROFILE",
+      "WINDIR"
+    ],
+    "privateHomeAppDataTempAndWorkCwd": true,
+    "hostEnvironmentValuesLogged": false,
+    "realUserSourceOrAuthOrConfigurationCopied": false,
+    "modelMethodsCalled": 0,
+    "rateLimitsOrUsageMethodsCalled": 0,
+    "noGUIOrAppOrInstallerRun": true
+  },
+  "codexBinary": {
+    "path": "C:\\Users\\Administrator\\.codex\\packages\\standalone\\releases\\0.147.0-x86_64-pc-windows-msvc\\bin\\codex.exe",
+    "sha256": "935A1911ED2556E4FFCEC995F4886AC2AC425863BA26FED264DF62E30272AD9D",
+    "bytes": 298668336,
+    "identity": {
+      "bytes": 298668336,
+      "creationFileTimeDecimal": "134307171030000000",
+      "lastWriteFileTimeDecimal": "134305399189977580",
+      "volumeSerialDecimal": "443943573",
+      "fileIdDecimal": "6192449488198956"
+    },
+    "identityPreservedInV2AndV3": true,
+    "sameDenyWriteDeleteGuardHeldForEachCompleteExperiment": true,
+    "priorRuntimeFullHashReads": {
+      "v1": 0,
+      "v2": 1,
+      "v3": 1
+    },
+    "receiptAuthorFullHashReads": 0
+  },
+  "v1": {
+    "base": "output/implementation/c20-bridge-probe-plan-4fb6cd8b896b4cb0aaeed1560c412a19",
+    "runtimeOutcome": "runtime-preflight-rejected-before-binary-hash-and-child",
+    "preflightError": "reparse/symlink rejected",
+    "rejectedReparseAncestor": "C:\\Users\\Administrator\\AppData\\Local\\Programs\\OpenAI\\Codex\\bin",
+    "reparseKind": "directory junction (is_symlink false, reparse attribute0x400)",
+    "runtimeJobsCreated": 0,
+    "bridgeChildrenStarted": 0,
+    "accountOrModelRpcSent": false,
+    "guardUnchanged": true,
+    "compile": {
+      "status": "compiled-root-zero-owned-descendants-cleaned",
+      "helperSha256": "2A7C369B43228E54ED9109446C9E0E4A2CCAC86F7D13D0607933C9AA75FA30C1",
+      "helperBytes": 587776,
+      "cleanupVerified": true,
+      "naturalWholeJobCompletion": false
+    },
+    "evidenceSha256": {
+      "inputs.frozen.json": "CD896E0CEE236C9D6431A932D6C07A2713DABE170163AE85943AFC0FB8BFE5D9",
+      "compiled-helper.json": "8349E673FF73963B22884783A65200B9AE793051628F34BEE0D596295A08F547",
+      "compile.execution.json": "75F640C774A2611864F39121053E1EEE6839802C757686479DBDCD68FB9D4F36",
+      "runtime-preflight-first-failure.json": "36BEC004CA51A7B2BFA946F2334BF8C330C3D7A60DB28EE84FC71933F495E044"
+    }
+  },
+  "v2": {
+    "base": "output/implementation/c20-bridge-probe-plan-v2-0da6b94082444f238ed7be37a1d3e18e",
+    "outcome": "two fresh independent phases passed; immediate shutdown",
+    "privateSourceSha256": "E491E660B8B6BA3DA71744781E6592430E5AA3C335B562610864C259F393A38B",
+    "helperSha256": "7D6B6B3616338183ADB041CA0A350ACA5DCC72C3086326F06F68DB80B5B47794",
+    "helperBytes": 587776,
+    "compileNaturalWholeJobCompletion": false,
+    "compileCleanupVerified": true,
+    "initialize": {
+      "initializeMs": 3154,
+      "helperElapsedMs": 3174,
+      "accountMethodsCalled": 0,
+      "directoryStatus": "not-requested",
+      "resourceDiagnostic": null,
+      "timerJoined": true,
+      "outerSeconds": 30,
+      "innerCancelSeconds": 10,
+      "job": {
+        "ownershipId": "1b3c8004-78a7-491c-8a51-772c8f075dbc",
+        "elapsedSeconds": 3.5455932999029756,
+        "rootExitCode": 0,
+        "rootExitVerified": true,
+        "totalProcesses": 4,
+        "finalActiveProcesses": 0,
+        "cleanupVerified": true,
+        "naturalWholeJobCompletion": true,
+        "timedOut": false,
+        "assignedBeforeResume": true
+      }
+    },
+    "directory": {
+      "initializeMs": 3053,
+      "helperElapsedMs": 3063,
+      "directoryStatus": "complete",
+      "count": 0,
+      "accountMethodsCalled": 0,
+      "resourceDiagnostic": null,
+      "timerJoined": true,
+      "outerSeconds": 30,
+      "innerCancelSeconds": 10,
+      "job": {
+        "ownershipId": "25749249-e578-4444-a8c0-f4e460e3df1b",
+        "elapsedSeconds": 3.175674600061029,
+        "rootExitCode": 0,
+        "rootExitVerified": true,
+        "totalProcesses": 4,
+        "finalActiveProcesses": 0,
+        "cleanupVerified": true,
+        "naturalWholeJobCompletion": true,
+        "timedOut": false,
+        "assignedBeforeResume": true
+      }
+    },
+    "evidenceSha256": {
+      "inputs.frozen.json": "7B2479A7F528B651B65B13D8C5EA16732A05F62A576ACC640C41A602C3461BE7",
+      "compiled-helper.json": "281B2F84B4435D49F713CC973543F9F5AB8E027D193AE095ABE4B9A981C02B11",
+      "compile.execution.json": "FEC42DE1C8E180622F4B9DD66B09A2F673CAB9C7CA2E897EAE6E39E9AC329634",
+      "runtime-summary.json": "E5AEF0C61F6FFF8BAD2F7FC0FF1243F1838443FEBAEB8D24A6AA21C51AD6A726",
+      "initialize-started.json": "6813A1DC02B1377EEEC3AC49FE9EA10271808507FA182BF7518D71A1917EBAF6",
+      "initialize-summary.json": "B83D1BBC72C0D98FC0F44C19FF0D0A38B73CC7544E1A1D8F14D7D73568EEAC82",
+      "initialize.execution.json": "A04F033F6C611B6222C87AACDE4BF4A5665D572F9DED69EC73E9A3ABEC6571C9",
+      "runs/initialize/report.jsonl": "47C1EA0790427DAE5461041191C14276C2D60D29234E9E2B10E5C71D2E5CF26C",
+      "directory-started.json": "1E7B8A0EF887086A857ED62E0709C79D48A69DABB5AD66692EFE4D49E357B6B9",
+      "directory-summary.json": "A418FCA44C5F7851B470E5C466EA3649A367663AD21CA917C6260E1667E4369A",
+      "directory.execution.json": "BA6FF0028887FE7E4B961D6E96096B2A6835AD993C218D75CB3268920D361676",
+      "runs/directory/report.jsonl": "2ED548503298DD7CDFE2975EBEC8966934A982CDADBA4C8016A571007884C680"
+    }
+  },
+  "v3": {
+    "base": "output/implementation/c20-bridge-probe-plan-v3-615c7cf7b1d344c99ac97d49d8c907f4",
+    "outcome": "verified null-account subset, empty directory and125s residence passed",
+    "privateSourceSha256": "9A118A0238291DEB2FA84887960E91F44A13268A491D2F975E4FB8739B99FFFB",
+    "shimSha256": "C4871909D30D90D3514D398AF2B12969F746E8098906CD4BED4251A00354EFBF",
+    "helperSha256": "D2B141EAEDF84DC258FF40B1B425D4F5AC89A7BA12D5B08CAB52C40B7EEE4175",
+    "helperBytes": 600576,
+    "compileNaturalWholeJobCompletion": true,
+    "compileCleanupVerified": true,
+    "firstNullAccountReadMs": 3741,
+    "accountReadCallSitesInvoked": 2,
+    "accountMethodWhitelist": [
+      "account/read(refreshToken:false)"
+    ],
+    "firstAccountVerifiedNull": true,
+    "directoryCount": 0,
+    "residenceMs": 125054,
+    "secondAccountReadAtResidenceMs": 120033,
+    "secondAccountVerifiedNull": true,
+    "resourcePollIntervalMs": 100,
+    "resourceDiagnostic": null,
+    "resourceObservedEarly": false,
+    "timerJoined": true,
+    "helperElapsedMs": 128805,
+    "outerSeconds": 170,
+    "innerCancelSeconds": 150,
+    "cleanupSeconds": 5,
+    "job": {
+      "ownershipId": "66cb27ec-2897-433f-9184-3b169e8ad19f",
+      "elapsedSeconds": 129.1659182999283,
+      "rootExitCode": 0,
+      "rootExitVerified": true,
+      "totalProcesses": 4,
+      "finalActiveProcesses": 0,
+      "cleanupVerified": true,
+      "naturalWholeJobCompletion": true,
+      "timedOut": false,
+      "assignedBeforeResume": true
+    },
+    "fullProductionRefreshExercised": false,
+    "evidenceSha256": {
+      "inputs.frozen.json": "65747A78428AD15DF3FFE7D2DF0329307827BD95846701637B6D0DE1FF957898",
+      "compiled-helper.json": "758FA61A1C807D468705A191FACA762AFA1524B594FCC8E4A1FF0E6296019C92",
+      "compile.execution.json": "7AF428CC2BA68B414F57CB4E5AC487CC9F0101C53FB9528B3E763122F5E5BEAB",
+      "runtime-summary.json": "43D8838059B92A3AFD7B0198A661B58A57DF0D30564146DB74B1918B2C94EB4C",
+      "residency-started.json": "62D0BC8E6686E243171B4585EEA80D54541BB870C1E23280E2EAB4E378138BBD",
+      "residency-summary.json": "7979CB1ACB154F8AD86C0039DC6ACFBAC8175748BF3ACC59B5A61E39043CA578",
+      "residency.execution.json": "14BC7C80D7AD179E8B2B4C5D361CA79536B7C91F038AEC7503B32D50E6884ECA",
+      "runs/residency/report.jsonl": "469EE5DAAC62B797219F30F4F714D08EB8F925C781EDBD7A9019A6D117D70B8F"
+    }
+  },
+  "conclusions": {
+    "v2GapAddressed": "v3 adds null-account reads and125s transport residence to v2 immediate shutdown; the second null read occurred once after120s.",
+    "resourceEventObservedInThesePrivateRuns": false,
+    "peakCommitMeasured": false,
+    "historicalC19ResourceCauseReproduced": false,
+    "historicalC19Receipt": {
+      "path": "docs/acceptance/c19-native-ui-scoped-2026-10-16.json",
+      "sha256": "F88EE4378495E1603997302D6CC7293D7501269297DF77870358313E104B4099",
+      "retainedObservation": "Directory unavailable after96MiB bridge warning; count/lastSuccess null; cause remains unresolved."
+    },
+    "authenticatedAccountQualified": false,
+    "realDirectoryWorkloadQualified": false,
+    "NativeGUIQualified": false,
+    "M4Passed": false,
+    "productionResidenceOrResourceLimitChangeJustifiedByThesePasses": false,
+    "furtherPrivateProbeExpansionPlanned": false,
+    "NativeQualified": false,
+    "productionResidenceShorteningProposed": false
+  },
+  "verification": {
+    "referencePaths": "workspace-relative; per-version evidence names resolve under base",
+    "smallReferencedJsonAndJsonlHashesChecked": true,
+    "binaryHelperAndLibraryHashesRetainedFromExecutionBindings": true,
+    "binaryHelperOrLibraryRehashedByReceiptAuthor": false,
+    "programsExecutedByReceiptAuthor": false,
+    "productionOldRawAndThreeMarkdownReportsModified": false,
+    "compilationCleanupNote": "v1/v2 compiler roots exited0 and owned residual descendants were cleaned; those compiler Jobs were not natural whole-Job completion. v3 compiler Job completed naturally.",
+    "smallReceiptCrossHashesAndHeldBinaryIdentitiesMatched": true
+  }
+}

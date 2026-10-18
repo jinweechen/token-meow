@@ -1,0 +1,283 @@
+{
+  "format": "nekomi-hd-tail-generation-provenance-v1",
+  "generatedWith": "built-in image_gen.imagegen",
+  "recordedAt": "2026-10-16T19:44:47.088804+08:00",
+  "pixelPostProcessing": false,
+  "originalGeneratedPngBytesPreserved": true,
+  "requestedScope": "Tail-only edits to four accepted hd-v1 independent pose assets, using hd-v2-tail idle as tail construction reference. hd-v1 and src were not modified.",
+  "assets": [
+    {
+      "pose": "affection",
+      "file": "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v2-tail\\affection.png",
+      "sourceOriginalPath": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14300-0b89-7203-9229-f4f2b07417b4\\exec-1b318040-9012-43d1-af58-3c3aa71a9bf7.png",
+      "prompt": "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v2-tail\\prompts\\affection.txt",
+      "promptSha256": "68627641397f33f5489e1dd28902e8959f0c8062d7d10cdf7072a37b7a40fa0c",
+      "sharedInvariantsIncluded": true,
+      "input1ExactEditTarget": {
+        "file": "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v1\\affection.png",
+        "sha256": "eb002e7bf7e5824c6e087ef54019a5956dd6d036b297274503ccb15c24b8171c"
+      },
+      "input2TailConstructionReference": {
+        "file": "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v2-tail\\idle.png",
+        "sha256": "fe67324e29f217a7b3793012ca395a510eb6c9cd0b0407dd3a630be1c1855e1d"
+      },
+      "sha256": "d058badde0222d49429923e7eeae1185b05c1b86cdaba6ba2127f25b0f55d4d4",
+      "sourceSha256": "d058badde0222d49429923e7eeae1185b05c1b86cdaba6ba2127f25b0f55d4d4",
+      "byteIdenticalToGeneratedSource": true,
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "bytes": 1949262,
+      "alphaBboxes": {
+        "1": [
+          0,
+          24,
+          1003,
+          1511
+        ],
+        "16": [
+          89,
+          49,
+          993,
+          1467
+        ],
+        "128": [
+          90,
+          50,
+          992,
+          1466
+        ],
+        "250": [
+          90,
+          51,
+          990,
+          1464
+        ]
+      },
+      "bboxConvention": "left, top, right-exclusive, bottom-exclusive",
+      "visibleHeightAlpha16": 1418,
+      "marginsAlpha16": {
+        "left": 89,
+        "top": 49,
+        "right": 31,
+        "bottom": 69
+      },
+      "maximumEdgeAlpha": 1,
+      "edgePixelsAlpha16": 0,
+      "nativeImageReviewStatus": "no-clear-structural-defect-observed",
+      "visualReview": {
+        "posePreservation": "Warm open-eye smile, chest hand and opposite hanging hand retained. No newly visible finger branch; bodice, waist seam and forward shoes remain consistent.",
+        "tail": "Slim furred proximal segment emerges from behind the viewer-right skirt, then widens gradually into a moderate comma-shaped fluffy body. Tail sits behind the leg at the occluded root and separates from the thigh after emergence."
+      },
+      "realCompositeReviewStatus": "pending-root-unified-browser-review"
+    },
+    {
+      "pose": "stretch",
+      "file": "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v2-tail\\stretch.png",
+      "sourceOriginalPath": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14300-0b89-7203-9229-f4f2b07417b4\\exec-a2e576bf-054a-4dec-aa9c-8c6411f8565c.png",
+      "prompt": "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v2-tail\\prompts\\stretch.txt",
+      "promptSha256": "9c28162f5b3f283958c134139d26ef91d9e22f12a0de1ba95daa8c04cf2c1570",
+      "sharedInvariantsIncluded": true,
+      "input1ExactEditTarget": {
+        "file": "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v1\\stretch.png",
+        "sha256": "773eb3b5134a2a441ff820826713982d2764cc18c7508733ae8700bbf1e5f6b3"
+      },
+      "input2TailConstructionReference": {
+        "file": "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v2-tail\\idle.png",
+        "sha256": "fe67324e29f217a7b3793012ca395a510eb6c9cd0b0407dd3a630be1c1855e1d"
+      },
+      "sha256": "d39ee0559f68c75e21a32c50a0ebc9bad3a5f7709b3e01a925906af5efcb1efe",
+      "sourceSha256": "d39ee0559f68c75e21a32c50a0ebc9bad3a5f7709b3e01a925906af5efcb1efe",
+      "byteIdenticalToGeneratedSource": true,
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "bytes": 1933546,
+      "alphaBboxes": {
+        "1": [
+          0,
+          17,
+          1008,
+          1496
+        ],
+        "16": [
+          99,
+          47,
+          995,
+          1469
+        ],
+        "128": [
+          100,
+          48,
+          994,
+          1468
+        ],
+        "250": [
+          101,
+          51,
+          992,
+          1467
+        ]
+      },
+      "bboxConvention": "left, top, right-exclusive, bottom-exclusive",
+      "visibleHeightAlpha16": 1422,
+      "marginsAlpha16": {
+        "left": 99,
+        "top": 47,
+        "right": 29,
+        "bottom": 67
+      },
+      "maximumEdgeAlpha": 1,
+      "edgePixelsAlpha16": 0,
+      "nativeImageReviewStatus": "no-clear-structural-defect-observed",
+      "visualReview": {
+        "posePreservation": "Closed-eye yawn, overhead small human fist and other fist near mouth retained. Raised arm and ears complete; knees, waist seam and forward shoes remain consistent.",
+        "tail": "Continuous narrower root is visible beneath the viewer-right skirt; gradual furred volume increase and soft upturned end replace the previous heavy brush shape. No extra tail or hand-tail connection."
+      },
+      "realCompositeReviewStatus": "pending-root-unified-browser-review"
+    },
+    {
+      "pose": "wink",
+      "file": "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v2-tail\\wink.png",
+      "sourceOriginalPath": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14300-0b89-7203-9229-f4f2b07417b4\\exec-86319bfc-2bfb-4e27-9885-f374133ccb13.png",
+      "prompt": "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v2-tail\\prompts\\wink.txt",
+      "promptSha256": "10a6dc9467a5a97eb03659970734963a8310c6d73829ba73e61b6db9eb245473",
+      "sharedInvariantsIncluded": true,
+      "input1ExactEditTarget": {
+        "file": "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v1\\wink.png",
+        "sha256": "ab4e892a85c9231250aad076dbd05bee722676b67f1cbaf904fef9b117085415"
+      },
+      "input2TailConstructionReference": {
+        "file": "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v2-tail\\idle.png",
+        "sha256": "fe67324e29f217a7b3793012ca395a510eb6c9cd0b0407dd3a630be1c1855e1d"
+      },
+      "sha256": "94170cafc49e06d8dce9989ecf0c0f68c050032719781e4690c7e2f15fcbaf7c",
+      "sourceSha256": "94170cafc49e06d8dce9989ecf0c0f68c050032719781e4690c7e2f15fcbaf7c",
+      "byteIdenticalToGeneratedSource": true,
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "bytes": 1939069,
+      "alphaBboxes": {
+        "1": [
+          0,
+          17,
+          1002,
+          1536
+        ],
+        "16": [
+          94,
+          42,
+          996,
+          1450
+        ],
+        "128": [
+          95,
+          42,
+          995,
+          1449
+        ],
+        "250": [
+          101,
+          44,
+          993,
+          1448
+        ]
+      },
+      "bboxConvention": "left, top, right-exclusive, bottom-exclusive",
+      "visibleHeightAlpha16": 1408,
+      "marginsAlpha16": {
+        "left": 94,
+        "top": 42,
+        "right": 28,
+        "bottom": 86
+      },
+      "maximumEdgeAlpha": 1,
+      "edgePixelsAlpha16": 0,
+      "nativeImageReviewStatus": "no-clear-structural-defect-observed",
+      "visualReview": {
+        "posePreservation": "Single-eye wink, hand on waist and opposite hanging hand retained. Fingers use the original relaxed overlaps; no visible new extra digit. Waist bow overlap and forward shoes preserved.",
+        "tail": "Tail emerges under skirt occlusion, with a continuous narrowing root and open U/comma sweep. It reads behind the skirt and leg, without an abrupt wide stump or closed ring."
+      },
+      "realCompositeReviewStatus": "pending-root-unified-browser-review"
+    },
+    {
+      "pose": "happy",
+      "file": "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v2-tail\\happy.png",
+      "sourceOriginalPath": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14300-0b89-7203-9229-f4f2b07417b4\\exec-4873889b-a347-4ccd-8e32-f7fee3a34a33.png",
+      "prompt": "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v2-tail\\prompts\\happy.txt",
+      "promptSha256": "92b42a75b1aca0f13073beca6efc4fc78f7b9075697eb53bdd22259fb2932e4c",
+      "sharedInvariantsIncluded": true,
+      "input1ExactEditTarget": {
+        "file": "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v1\\happy.png",
+        "sha256": "8ea7b980d272902862aeae101d2f6e0b21f0b42720aece42af9886e23f05643a"
+      },
+      "input2TailConstructionReference": {
+        "file": "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v2-tail\\idle.png",
+        "sha256": "fe67324e29f217a7b3793012ca395a510eb6c9cd0b0407dd3a630be1c1855e1d"
+      },
+      "sha256": "14ee5c95ee2dc0677c9d907b5f8f4806d6082203a4cfae9b60ad4741b4c9861c",
+      "sourceSha256": "14ee5c95ee2dc0677c9d907b5f8f4806d6082203a4cfae9b60ad4741b4c9861c",
+      "byteIdenticalToGeneratedSource": true,
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "bytes": 1864907,
+      "alphaBboxes": {
+        "1": [
+          0,
+          17,
+          992,
+          1536
+        ],
+        "16": [
+          114,
+          96,
+          981,
+          1455
+        ],
+        "128": [
+          115,
+          97,
+          979,
+          1454
+        ],
+        "250": [
+          126,
+          98,
+          976,
+          1454
+        ]
+      },
+      "bboxConvention": "left, top, right-exclusive, bottom-exclusive",
+      "visibleHeightAlpha16": 1359,
+      "marginsAlpha16": {
+        "left": 114,
+        "top": 96,
+        "right": 43,
+        "bottom": 81
+      },
+      "maximumEdgeAlpha": 1,
+      "edgePixelsAlpha16": 0,
+      "nativeImageReviewStatus": "no-clear-structural-defect-observed",
+      "visualReview": {
+        "posePreservation": "Crescent smiling eyes, open smile, five-digit waving hand and opposite relaxed hand retained. Fine framing variation is possible from generative editing; source pose, dress segmentation and parallel forward shoes remain visually consistent.",
+        "tail": "New slimmer root-to-body transition replaces the oversized prior tail. Proximal segment remains furred and volumetric, with readable gap farther from the thigh; one tapered upturned tip."
+      },
+      "realCompositeReviewStatus": "pending-root-unified-browser-review"
+    }
+  ],
+  "limitations": [
+    "Generative local edits retain the named poses and visual details but do not assert pixel-identical preservation outside the requested tail area.",
+    "Hidden pelvis attachment and digits under normal occlusion cannot be directly inspected from a frontal 2D illustration. Tail construction is an artistic design choice.",
+    "Raw low-alpha RGB haze in image previews does not establish visible halo. Final light/dark browser compositing is coordinated by the root agent and remains pending in this report."
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "status": "baseline-assets-completed-with-listed-limitations",
+  "newPngs": 11,
+  "selectedPngs": 114,
+  "clips": 16,
+  "twelveActionsMissing": [],
+  "walkDirections": [
+    "left",
+    "right"
+  ],
+  "turnarounds": [
+    "left-to-right",
+    "right-to-left"
+  ],
+  "runtimeIntegrated": false,
+  "audit": "OMISSION-AUDIT-v12.txt",
+  "evidence": "evidence/left-completion-20261018/review-summary.json"
+}

@@ -1,0 +1,510 @@
+{
+  "schemaVersion": 2,
+  "createdAtUtc": "2026-10-17T07:32:55+00:00",
+  "assetRoot": "D:\\project\\宠物\\assets\\pets\\nekomi\\walk-v10-complete",
+  "sourceDirectories": [
+    {
+      "path": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14280-254e-70f3-ba61-b34c813b8e3a",
+      "exists": true
+    },
+    {
+      "path": "C:\\Users\\Administrator\\.codex\\generated_images\\01a148a3-42fd-7200-9a55-f8a2b93cf502",
+      "exists": true
+    }
+  ],
+  "pixelEditingPerformed": false,
+  "scope": "Metadata, exact source bytes and saved prompt associations only; no visual or animation acceptance",
+  "historicalFilesPreserved": true,
+  "inventoryCoverage": {
+    "pngCount": 16,
+    "byteEqualOriginalCount": 10,
+    "codeNativeGuideCount": 6,
+    "unresolvedSources": [],
+    "unresolvedPrompts": []
+  },
+  "limitations": [
+    "All PNGs under v10 are inventoried, including historical candidates and code-native pose guides.",
+    "A guide is not a generated character frame and is not an accepted animation asset.",
+    "No prompt is selected merely because its revision number is greatest.",
+    "Reference files report current on-disk SHA; the original call-time SHA is unknown unless explicitly recorded.",
+    "Byte identity, RGBA and matching dimensions do not establish anatomy, visible tail roots or cycle continuity."
+  ],
+  "tool": "built-in image_gen.imagegen for byte-matched character assets; code-native guides identified separately",
+  "entries": [
+    {
+      "id": "candidates/05-spatial-revision-v5",
+      "output": "candidates/05-spatial-revision-v5.png",
+      "sha256": "a645cae0eb4973d1a29807e4f34adaf38fa94fb94fe1d5c3a694884ebddbfc55",
+      "bytes": 1883912,
+      "nativeSize": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "assetKind": "imagegen-asset",
+      "originalGeneratedPaths": [
+        "C:\\Users\\Administrator\\.codex\\generated_images\\01a148a3-42fd-7200-9a55-f8a2b93cf502\\exec-0bea5a2d-feec-488d-a563-d6812d5a99fc.png"
+      ],
+      "sourceBytesEqual": true,
+      "sourceStatus": "byte-equal-original-found",
+      "promptStatus": "recorded",
+      "promptRecords": [
+        {
+          "path": "D:\\project\\宠物\\assets\\pets\\nekomi\\walk-v10-complete\\prompts\\05-spatial-revision-v5.txt",
+          "exists": true,
+          "bytes": 3699,
+          "sha256": "74e401a12ce2d75997c5bf6b9f1a37b41715a5053549c936cb55c361db2607ef",
+          "associationEvidence": "same PNG SHA256 as candidates/05-spatial-revision-v5.png; same-stem saved prompt",
+          "referenceStatus": "not-recorded-do-not-infer",
+          "referenceFiles": [],
+          "referenceEvidence": null,
+          "recordedOriginalTargetSha256": null
+        }
+      ],
+      "visualReviewStatus": "not-assessed-by-this-script"
+    },
+    {
+      "id": "candidates/05-tail-root-v1",
+      "output": "candidates/05-tail-root-v1.png",
+      "sha256": "e0992d471d7f5aa672e41209bb1169bf92b95ad2d4486877330e3b924536ad00",
+      "bytes": 1857542,
+      "nativeSize": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "assetKind": "imagegen-asset",
+      "originalGeneratedPaths": [
+        "C:\\Users\\Administrator\\.codex\\generated_images\\01a14280-254e-70f3-ba61-b34c813b8e3a\\exec-4cd3b854-0fe2-4799-acb0-fcb93fbdba02.png"
+      ],
+      "sourceBytesEqual": true,
+      "sourceStatus": "byte-equal-original-found",
+      "promptStatus": "recorded",
+      "promptRecords": [
+        {
+          "path": "D:\\project\\宠物\\assets\\pets\\nekomi\\walk-v10-complete\\prompts\\05-tail-root-v1.txt",
+          "exists": true,
+          "bytes": 1859,
+          "sha256": "9080a15a8a905485f38147477d6a61598905a12d81aa18e964cd2febcc75b479",
+          "associationEvidence": "same PNG SHA256 as candidates/05-tail-root-v1.png; same-stem saved prompt",
+          "referenceStatus": "explicit-project-record",
+          "referenceFiles": [
+            {
+              "path": "D:\\project\\宠物\\assets\\pets\\nekomi\\walk-v10-complete\\frames\\05-contact-far.png",
+              "exists": true,
+              "bytes": 1827158,
+              "sha256": "a535e050eefd10b968cdc62fd67a1394ddc1fc76eecd1cb053449ea8423e5524",
+              "recordedCallTimeSha256": "a535e050eefd10b968cdc62fd67a1394ddc1fc76eecd1cb053449ea8423e5524",
+              "currentFileMatchesRecordedSha256": true,
+              "originalGeneratedPathsForRecordedSha256": [
+                "C:\\Users\\Administrator\\.codex\\generated_images\\01a14280-254e-70f3-ba61-b34c813b8e3a\\exec-838ef3c0-7ff5-4265-b327-16084e61ded6.png"
+              ]
+            }
+          ],
+          "referenceEvidence": "HANDOFF-20261017.txt and saved precise-object-edit prompt",
+          "recordedOriginalTargetSha256": "a535e050eefd10b968cdc62fd67a1394ddc1fc76eecd1cb053449ea8423e5524"
+        }
+      ],
+      "visualReviewStatus": "not-assessed-by-this-script"
+    },
+    {
+      "id": "candidates/05-tail-root-v2",
+      "output": "candidates/05-tail-root-v2.png",
+      "sha256": "ea073b52e25a0beb451300babac876395b07c64daf2a3c51f31bc77b1865cb9d",
+      "bytes": 1854221,
+      "nativeSize": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "assetKind": "imagegen-asset",
+      "originalGeneratedPaths": [
+        "C:\\Users\\Administrator\\.codex\\generated_images\\01a148a3-42fd-7200-9a55-f8a2b93cf502\\exec-4f026f48-20a0-4f0a-8f2e-5a6ea889112f.png"
+      ],
+      "sourceBytesEqual": true,
+      "sourceStatus": "byte-equal-original-found",
+      "promptStatus": "recorded",
+      "promptRecords": [
+        {
+          "path": "D:\\project\\宠物\\assets\\pets\\nekomi\\walk-v10-complete\\prompts\\05-tail-root-v2.txt",
+          "exists": true,
+          "bytes": 2063,
+          "sha256": "5a3ff8f5b9f870d064279e840b0567b1e46f549fa6c73e3a71503fd9da03f889",
+          "associationEvidence": "same PNG SHA256 as candidates/05-tail-root-v2.png; same-stem saved prompt",
+          "referenceStatus": "explicit-project-record",
+          "referenceFiles": [
+            {
+              "path": "D:\\project\\宠物\\assets\\pets\\nekomi\\walk-v10-complete\\frames\\05-contact-far.png",
+              "exists": true,
+              "bytes": 1827158,
+              "sha256": "a535e050eefd10b968cdc62fd67a1394ddc1fc76eecd1cb053449ea8423e5524",
+              "recordedCallTimeSha256": "a535e050eefd10b968cdc62fd67a1394ddc1fc76eecd1cb053449ea8423e5524",
+              "currentFileMatchesRecordedSha256": true,
+              "originalGeneratedPathsForRecordedSha256": [
+                "C:\\Users\\Administrator\\.codex\\generated_images\\01a14280-254e-70f3-ba61-b34c813b8e3a\\exec-838ef3c0-7ff5-4265-b327-16084e61ded6.png"
+              ]
+            },
+            {
+              "path": "D:\\project\\宠物\\assets\\pets\\nekomi\\walk-v10-complete\\candidates\\05-tail-root-v1.png",
+              "exists": true,
+              "bytes": 1857542,
+              "sha256": "e0992d471d7f5aa672e41209bb1169bf92b95ad2d4486877330e3b924536ad00",
+              "recordedCallTimeSha256": "e0992d471d7f5aa672e41209bb1169bf92b95ad2d4486877330e3b924536ad00",
+              "currentFileMatchesRecordedSha256": true,
+              "originalGeneratedPathsForRecordedSha256": [
+                "C:\\Users\\Administrator\\.codex\\generated_images\\01a14280-254e-70f3-ba61-b34c813b8e3a\\exec-4cd3b854-0fe2-4799-acb0-fcb93fbdba02.png"
+              ]
+            }
+          ],
+          "referenceEvidence": "Saved prompt explicitly identifies original frame 05 and rejected tail-root v1",
+          "recordedOriginalTargetSha256": "a535e050eefd10b968cdc62fd67a1394ddc1fc76eecd1cb053449ea8423e5524"
+        }
+      ],
+      "visualReviewStatus": "not-assessed-by-this-script"
+    },
+    {
+      "id": "candidates/05-tail-root-v3",
+      "output": "candidates/05-tail-root-v3.png",
+      "sha256": "169cee204fd36b105506f1e15037c6eb0247bc02626c97e962a1baf273517176",
+      "bytes": 1850512,
+      "nativeSize": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "assetKind": "imagegen-asset",
+      "originalGeneratedPaths": [
+        "C:\\Users\\Administrator\\.codex\\generated_images\\01a148a3-42fd-7200-9a55-f8a2b93cf502\\exec-328c44c1-53d6-49cc-806d-9e325d16cdff.png"
+      ],
+      "sourceBytesEqual": true,
+      "sourceStatus": "byte-equal-original-found",
+      "promptStatus": "recorded",
+      "promptRecords": [
+        {
+          "path": "D:\\project\\宠物\\assets\\pets\\nekomi\\walk-v10-complete\\prompts\\05-tail-root-v3.txt",
+          "exists": true,
+          "bytes": 1573,
+          "sha256": "162d23e3ca532154d4f5566c48809402258e4955e2bee84363d50d8dcb7bd7a3",
+          "associationEvidence": "same PNG SHA256 as candidates/05-tail-root-v3.png; same-stem saved prompt",
+          "referenceStatus": "not-recorded-do-not-infer",
+          "referenceFiles": [],
+          "referenceEvidence": null,
+          "recordedOriginalTargetSha256": null
+        }
+      ],
+      "visualReviewStatus": "not-assessed-by-this-script"
+    },
+    {
+      "id": "candidates/05-tail-root-v4-hand-clearance",
+      "output": "candidates/05-tail-root-v4-hand-clearance.png",
+      "sha256": "827dc3db31e0b1936ba053b243481c5d63aba5920e18cbea599fe660d3af3797",
+      "bytes": 1854634,
+      "nativeSize": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "assetKind": "imagegen-asset",
+      "originalGeneratedPaths": [
+        "C:\\Users\\Administrator\\.codex\\generated_images\\01a148a3-42fd-7200-9a55-f8a2b93cf502\\exec-34d463bc-db21-4400-a8d8-2dadea2f3e42.png"
+      ],
+      "sourceBytesEqual": true,
+      "sourceStatus": "byte-equal-original-found",
+      "promptStatus": "recorded",
+      "promptRecords": [
+        {
+          "path": "D:\\project\\宠物\\assets\\pets\\nekomi\\walk-v10-complete\\prompts\\05-tail-root-v4-hand-clearance.txt",
+          "exists": true,
+          "bytes": 2069,
+          "sha256": "ea0c66c033d9aeff23ebdd19cb644158efefd228de91e70062836335e82b5ce9",
+          "associationEvidence": "same PNG SHA256 as candidates/05-tail-root-v4-hand-clearance.png; same-stem saved prompt",
+          "referenceStatus": "not-recorded-do-not-infer",
+          "referenceFiles": [],
+          "referenceEvidence": null,
+          "recordedOriginalTargetSha256": null
+        }
+      ],
+      "visualReviewStatus": "not-assessed-by-this-script"
+    },
+    {
+      "id": "frames/01-contact-near",
+      "output": "frames/01-contact-near.png",
+      "sha256": "f2508fa58374874a20a198f844f963e50c27746729144e5a521e1116d790fb64",
+      "bytes": 1834786,
+      "nativeSize": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "assetKind": "imagegen-asset",
+      "originalGeneratedPaths": [
+        "C:\\Users\\Administrator\\.codex\\generated_images\\01a14280-254e-70f3-ba61-b34c813b8e3a\\exec-61ee0a4a-c5b4-4e78-a290-e3944ab27f78.png"
+      ],
+      "sourceBytesEqual": true,
+      "sourceStatus": "byte-equal-original-found",
+      "promptStatus": "recorded",
+      "promptRecords": [
+        {
+          "path": "D:\\project\\宠物\\assets\\pets\\nekomi\\walk-v9-study\\prompts\\01-contact-near-dressed-v2.txt",
+          "exists": true,
+          "bytes": 1005,
+          "sha256": "6440e08a63b7feb49ddafa08b82c1cbd2a838cbc6da19848de93e613f16f549d",
+          "associationEvidence": "D:\\project\\宠物\\assets\\pets\\nekomi\\walk-v9-study\\generation-manifest.json#01-contact-near-dressed-v2",
+          "referenceStatus": "historical-generation-manifest",
+          "referenceFiles": [
+            {
+              "path": "D:\\project\\宠物\\assets\\pets\\nekomi\\walk-v9-study\\candidates\\01-contact-near-dressed-v1.png",
+              "exists": true,
+              "bytes": 1847861,
+              "sha256": "7fb4fafafa858f71a845f174f7674b670fd1808e1499b90cebfedcb5f5a587d4"
+            }
+          ],
+          "transparentBackgroundRequested": true,
+          "historicalStatus": "selected-static-candidate-foot-contact-redrawn",
+          "historicalOutput": "D:\\project\\宠物\\assets\\pets\\nekomi\\walk-v9-study\\candidates\\01-contact-near-dressed-v2.png",
+          "historicalOriginalGeneratedPath": "C:/Users/Administrator/.codex/generated_images/01a14280-254e-70f3-ba61-b34c813b8e3a/exec-61ee0a4a-c5b4-4e78-a290-e3944ab27f78.png"
+        }
+      ],
+      "visualReviewStatus": "not-assessed-by-this-script"
+    },
+    {
+      "id": "frames/02-near-flat-recovery",
+      "output": "frames/02-near-flat-recovery.png",
+      "sha256": "0df9baaae57fe9ce937b63424483beef8922599a761faedac6453808e12c8616",
+      "bytes": 1835819,
+      "nativeSize": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "assetKind": "imagegen-asset",
+      "originalGeneratedPaths": [
+        "C:\\Users\\Administrator\\.codex\\generated_images\\01a14280-254e-70f3-ba61-b34c813b8e3a\\exec-68fbbc74-74fd-451f-a1fd-f371af744108.png"
+      ],
+      "sourceBytesEqual": true,
+      "sourceStatus": "byte-equal-original-found",
+      "promptStatus": "recorded",
+      "promptRecords": [
+        {
+          "path": "D:\\project\\宠物\\assets\\pets\\nekomi\\walk-v10-complete\\prompts\\02-near-flat-recovery-v1.txt",
+          "exists": true,
+          "bytes": 2567,
+          "sha256": "db9747b5c3e52b60b9f15d152ae9dc20229d002c69daafb0d2a855b125388f56",
+          "associationEvidence": "HANDOFF-20261017.txt: original exec-68fbbc74-74fd-451f-a1fd-f371af744108.png",
+          "referenceStatus": "not-recorded-do-not-infer",
+          "referenceFiles": []
+        }
+      ],
+      "visualReviewStatus": "not-assessed-by-this-script"
+    },
+    {
+      "id": "frames/03-far-passing",
+      "output": "frames/03-far-passing.png",
+      "sha256": "22b063f4efee09cbfda92f782651e32757e2ef193d566e0833fe6dc4176f54f9",
+      "bytes": 1783621,
+      "nativeSize": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "assetKind": "imagegen-asset",
+      "originalGeneratedPaths": [
+        "C:\\Users\\Administrator\\.codex\\generated_images\\01a14280-254e-70f3-ba61-b34c813b8e3a\\exec-eb813d6d-58c6-422f-949e-d85382bb8a37.png"
+      ],
+      "sourceBytesEqual": true,
+      "sourceStatus": "byte-equal-original-found",
+      "promptStatus": "recorded",
+      "promptRecords": [
+        {
+          "path": "D:\\project\\宠物\\assets\\pets\\nekomi\\walk-v10-complete\\prompts\\03-far-passing-v1.txt",
+          "exists": true,
+          "bytes": 2608,
+          "sha256": "2934ce899939ed24728e228d4470e8a2e6f9b9b64999c537ef304a12c4576c5b",
+          "associationEvidence": "HANDOFF-20261017.txt: original exec-eb813d6d-58c6-422f-949e-d85382bb8a37.png",
+          "referenceStatus": "not-recorded-do-not-infer",
+          "referenceFiles": []
+        }
+      ],
+      "visualReviewStatus": "not-assessed-by-this-script"
+    },
+    {
+      "id": "frames/04-near-toe-far-reach",
+      "output": "frames/04-near-toe-far-reach.png",
+      "sha256": "c2528d58f99500f4a3ca16eee6336cada7fb13a11bbbb49fe4789fb01812b56b",
+      "bytes": 1810403,
+      "nativeSize": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "assetKind": "imagegen-asset",
+      "originalGeneratedPaths": [
+        "C:\\Users\\Administrator\\.codex\\generated_images\\01a14280-254e-70f3-ba61-b34c813b8e3a\\exec-9a270500-bab6-4d2b-b60c-1b7da8f325c7.png"
+      ],
+      "sourceBytesEqual": true,
+      "sourceStatus": "byte-equal-original-found",
+      "promptStatus": "recorded",
+      "promptRecords": [
+        {
+          "path": "D:\\project\\宠物\\assets\\pets\\nekomi\\walk-v10-complete\\prompts\\04-near-toe-far-reach-v1.txt",
+          "exists": true,
+          "bytes": 2567,
+          "sha256": "7c15cee8bd30337f02b61c8d8712cdb127fd8b1af913b5a30df32440034c963a",
+          "associationEvidence": "HANDOFF-20261017.txt: original exec-9a270500-bab6-4d2b-b60c-1b7da8f325c7.png",
+          "referenceStatus": "not-recorded-do-not-infer",
+          "referenceFiles": []
+        }
+      ],
+      "visualReviewStatus": "not-assessed-by-this-script"
+    },
+    {
+      "id": "frames/05-contact-far",
+      "output": "frames/05-contact-far.png",
+      "sha256": "a535e050eefd10b968cdc62fd67a1394ddc1fc76eecd1cb053449ea8423e5524",
+      "bytes": 1827158,
+      "nativeSize": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "assetKind": "imagegen-asset",
+      "originalGeneratedPaths": [
+        "C:\\Users\\Administrator\\.codex\\generated_images\\01a14280-254e-70f3-ba61-b34c813b8e3a\\exec-838ef3c0-7ff5-4265-b327-16084e61ded6.png"
+      ],
+      "sourceBytesEqual": true,
+      "sourceStatus": "byte-equal-original-found",
+      "promptStatus": "recorded",
+      "promptRecords": [
+        {
+          "path": "D:\\project\\宠物\\assets\\pets\\nekomi\\walk-v9-study\\prompts\\05-contact-far-dressed-v2.txt",
+          "exists": true,
+          "bytes": 951,
+          "sha256": "74d2ef94713264c8c9e0c1d0a1f7ea407b0a2f4ab229ae16833fb02edd48a17e",
+          "associationEvidence": "D:\\project\\宠物\\assets\\pets\\nekomi\\walk-v9-study\\generation-manifest.json#05-contact-far-dressed-v2",
+          "referenceStatus": "historical-generation-manifest",
+          "referenceFiles": [
+            {
+              "path": "D:\\project\\宠物\\assets\\pets\\nekomi\\walk-v9-study\\candidates\\05-contact-far-dressed-v1.png",
+              "exists": true,
+              "bytes": 1830125,
+              "sha256": "36699e6c690b9a8ef51704b183410b2bdd4f7748a532dff9a3b5520aa6cb6957"
+            }
+          ],
+          "transparentBackgroundRequested": true,
+          "historicalStatus": "selected-static-candidate-hand-fix-not-substantial",
+          "historicalOutput": "D:\\project\\宠物\\assets\\pets\\nekomi\\walk-v9-study\\candidates\\05-contact-far-dressed-v2.png",
+          "historicalOriginalGeneratedPath": "C:/Users/Administrator/.codex/generated_images/01a14280-254e-70f3-ba61-b34c813b8e3a/exec-838ef3c0-7ff5-4265-b327-16084e61ded6.png"
+        }
+      ],
+      "visualReviewStatus": "not-assessed-by-this-script"
+    },
+    {
+      "id": "pose-guides/02-near-flat-recovery-guide",
+      "output": "pose-guides/02-near-flat-recovery-guide.png",
+      "sha256": "f694a90291405d823f7a3bd237f5430129f009b950753a72a927f4864619521d",
+      "bytes": 117365,
+      "nativeSize": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "assetKind": "code-native-pose-guide",
+      "originalGeneratedPaths": [],
+      "sourceBytesEqual": null,
+      "sourceStatus": "not-applicable-code-native-guide",
+      "promptStatus": "not-applicable-code-native-guide",
+      "promptRecords": [],
+      "visualReviewStatus": "not-assessed-by-this-script"
+    },
+    {
+      "id": "pose-guides/03-far-passing-guide",
+      "output": "pose-guides/03-far-passing-guide.png",
+      "sha256": "4dec6c32094963c3f3720e65fb24abe64b39c20b411442da46d7898f06c79e4c",
+      "bytes": 114345,
+      "nativeSize": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "assetKind": "code-native-pose-guide",
+      "originalGeneratedPaths": [],
+      "sourceBytesEqual": null,
+      "sourceStatus": "not-applicable-code-native-guide",
+      "promptStatus": "not-applicable-code-native-guide",
+      "promptRecords": [],
+      "visualReviewStatus": "not-assessed-by-this-script"
+    },
+    {
+      "id": "pose-guides/04-near-toe-far-reach-guide",
+      "output": "pose-guides/04-near-toe-far-reach-guide.png",
+      "sha256": "5b95d1b5fe73253313efd5502d07f288c220a1379849e8c2a1defed2ef6a59b9",
+      "bytes": 122103,
+      "nativeSize": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "assetKind": "code-native-pose-guide",
+      "originalGeneratedPaths": [],
+      "sourceBytesEqual": null,
+      "sourceStatus": "not-applicable-code-native-guide",
+      "promptStatus": "not-applicable-code-native-guide",
+      "promptRecords": [],
+      "visualReviewStatus": "not-assessed-by-this-script"
+    },
+    {
+      "id": "pose-guides/06-far-flat-recovery-guide",
+      "output": "pose-guides/06-far-flat-recovery-guide.png",
+      "sha256": "d58b9afa27da72e5583a599cfb4998dfc5c8356c488196f2e0753f7e5292b6ca",
+      "bytes": 117907,
+      "nativeSize": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "assetKind": "code-native-pose-guide",
+      "originalGeneratedPaths": [],
+      "sourceBytesEqual": null,
+      "sourceStatus": "not-applicable-code-native-guide",
+      "promptStatus": "not-applicable-code-native-guide",
+      "promptRecords": [],
+      "visualReviewStatus": "not-assessed-by-this-script"
+    },
+    {
+      "id": "pose-guides/07-near-passing-guide",
+      "output": "pose-guides/07-near-passing-guide.png",
+      "sha256": "8cb9c7e95911c4721ec3e3e8eccd2bb7fd8d80c1c77f0274cabcaacf726abac2",
+      "bytes": 115845,
+      "nativeSize": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "assetKind": "code-native-pose-guide",
+      "originalGeneratedPaths": [],
+      "sourceBytesEqual": null,
+      "sourceStatus": "not-applicable-code-native-guide",
+      "promptStatus": "not-applicable-code-native-guide",
+      "promptRecords": [],
+      "visualReviewStatus": "not-assessed-by-this-script"
+    },
+    {
+      "id": "pose-guides/08-far-toe-near-reach-guide",
+      "output": "pose-guides/08-far-toe-near-reach-guide.png",
+      "sha256": "1437a8338091385512bd4c7c351c76201adb363f06c0650df9c9f6fb5fbaf286",
+      "bytes": 118417,
+      "nativeSize": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "assetKind": "code-native-pose-guide",
+      "originalGeneratedPaths": [],
+      "sourceBytesEqual": null,
+      "sourceStatus": "not-applicable-code-native-guide",
+      "promptStatus": "not-applicable-code-native-guide",
+      "promptRecords": [],
+      "visualReviewStatus": "not-assessed-by-this-script"
+    }
+  ]
+}

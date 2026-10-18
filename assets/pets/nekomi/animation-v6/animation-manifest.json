@@ -1,0 +1,2795 @@
+{
+  "schemaVersion": 1,
+  "packId": "nekomi-animation-v6",
+  "assetType": "animation-keyframes-and-separable-raster-layers",
+  "status": "approved",
+  "canvas": [
+    1024,
+    1536
+  ],
+  "pixelPolicy": "unaltered-native-originals",
+  "runtimeIntegrated": false,
+  "limitations": [
+    "Discrete animation keyframes are not interpolated in-between animation.",
+    "Raster layers and pivot metadata do not constitute a rigged Live2D model or an SDK export.",
+    "No walking gait is included in the twelve gesture clips.",
+    "All visual reviews apply only to their recorded current hashes."
+  ],
+  "frames": [
+    {
+      "id": "idle/base",
+      "path": "clips/idle/base.png",
+      "exists": true,
+      "errors": [],
+      "warnings": [
+        "Top visible margin is only 9 pixels"
+      ],
+      "bytes": 1897997,
+      "sha256": "1dc3f07e64139e7b4b641399ea9f2920d210940795acfeb9cab9cb8600ee54f3",
+      "bitDepth": 8,
+      "colorType": 6,
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds16": [
+        93,
+        9,
+        947,
+        1455
+      ],
+      "edgeMaxAlpha": 0,
+      "visibleHeight16": 1446,
+      "sourceBytesEqual": true
+    },
+    {
+      "id": "idle/enter",
+      "path": "clips/idle/enter.png",
+      "exists": true,
+      "errors": [],
+      "warnings": [
+        "Low-alpha edge residue: 1/255; visually inspect compositing",
+        "Top visible margin is only 9 pixels"
+      ],
+      "bytes": 1900239,
+      "sha256": "cf09dfcf3fdf5ae04c6ba54b59a6c43c7c419e020d12eb26e5c47aa6b40f6fe4",
+      "bitDepth": 8,
+      "colorType": 6,
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds16": [
+        94,
+        9,
+        947,
+        1456
+      ],
+      "edgeMaxAlpha": 1,
+      "visibleHeight16": 1447,
+      "sourceBytesEqual": true,
+      "promptSha256": "c5c50383d24e5ad9f973ee2a3ba2244c9f79baa82f8877cad730d47b704454c0"
+    },
+    {
+      "id": "idle/accent",
+      "path": "clips/idle/accent.png",
+      "exists": true,
+      "errors": [],
+      "warnings": [
+        "Low-alpha edge residue: 1/255; visually inspect compositing",
+        "Top visible margin is only 9 pixels"
+      ],
+      "bytes": 1931607,
+      "sha256": "a230a90036cc6581498f3aa8e7399cd280677e55f4733fd128189399530095ae",
+      "bitDepth": 8,
+      "colorType": 6,
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds16": [
+        94,
+        9,
+        947,
+        1456
+      ],
+      "edgeMaxAlpha": 1,
+      "visibleHeight16": 1447,
+      "sourceBytesEqual": true,
+      "promptSha256": "5707b5dbbe2c9ff37e3da92f2027426fb4f3ac23efdab2118002c55c62372ed3"
+    },
+    {
+      "id": "active/base",
+      "path": "clips/active/base.png",
+      "exists": true,
+      "errors": [],
+      "warnings": [
+        "Low-alpha edge residue: 1/255; visually inspect compositing",
+        "Top visible margin is only 9 pixels"
+      ],
+      "bytes": 1954202,
+      "sha256": "5c36c72372418ca6e904c46d795f5e4b11094a1ce527393b70d2949b26ae651d",
+      "bitDepth": 8,
+      "colorType": 6,
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds16": [
+        82,
+        9,
+        954,
+        1456
+      ],
+      "edgeMaxAlpha": 1,
+      "visibleHeight16": 1447,
+      "sourceBytesEqual": true
+    },
+    {
+      "id": "active/enter",
+      "path": "clips/active/enter.png",
+      "exists": true,
+      "errors": [],
+      "warnings": [
+        "Top visible margin is only 9 pixels"
+      ],
+      "bytes": 1944259,
+      "sha256": "3f564b553bc3cd2304d86d905e941e5f58a6c10f16d00c4270e8b460b15a7c85",
+      "bitDepth": 8,
+      "colorType": 6,
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds16": [
+        82,
+        9,
+        954,
+        1457
+      ],
+      "edgeMaxAlpha": 0,
+      "visibleHeight16": 1448,
+      "sourceBytesEqual": true,
+      "promptSha256": "95082849d18fce991796137f9c424227723ade1b260d9b350ea8deb228267289"
+    },
+    {
+      "id": "active/accent",
+      "path": "clips/active/accent.png",
+      "exists": true,
+      "errors": [],
+      "warnings": [
+        "Top visible margin is only 9 pixels"
+      ],
+      "bytes": 1947323,
+      "sha256": "032c9fcffb9556145bd40ab9240716c95bdfe71cfe7e5e47506f3ec49a360de5",
+      "bitDepth": 8,
+      "colorType": 6,
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds16": [
+        82,
+        9,
+        953,
+        1457
+      ],
+      "edgeMaxAlpha": 0,
+      "visibleHeight16": 1448,
+      "sourceBytesEqual": true,
+      "promptSha256": "355c33ffb41c516e7ac0f5cac0e4335f0a3a0b206fc7bcb2721f01027caf62b9"
+    },
+    {
+      "id": "complete/base",
+      "path": "clips/complete/base.png",
+      "exists": true,
+      "errors": [],
+      "warnings": [
+        "Low-alpha edge residue: 1/255; visually inspect compositing",
+        "Top visible margin is only 9 pixels"
+      ],
+      "bytes": 1925353,
+      "sha256": "99ac410ecefc9a334f5c374be52b82219856414468d55316020b8c3c9716b77b",
+      "bitDepth": 8,
+      "colorType": 6,
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds16": [
+        92,
+        9,
+        952,
+        1478
+      ],
+      "edgeMaxAlpha": 1,
+      "visibleHeight16": 1469,
+      "sourceBytesEqual": true
+    },
+    {
+      "id": "complete/enter",
+      "path": "clips/complete/enter.png",
+      "exists": true,
+      "errors": [],
+      "warnings": [
+        "Low-alpha edge residue: 1/255; visually inspect compositing",
+        "Top visible margin is only 9 pixels"
+      ],
+      "bytes": 1914423,
+      "sha256": "dd285c7794a438e5a1c6db9515d56c9f8213adc72de127106dc35a2cf43cb02c",
+      "bitDepth": 8,
+      "colorType": 6,
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds16": [
+        93,
+        9,
+        953,
+        1481
+      ],
+      "edgeMaxAlpha": 1,
+      "visibleHeight16": 1472,
+      "sourceBytesEqual": true,
+      "promptSha256": "a89d90f3fd887565b597b0190cebb8b32e19a9243298e0558bbdb56fd76da082"
+    },
+    {
+      "id": "complete/accent",
+      "path": "clips/complete/accent.png",
+      "exists": true,
+      "errors": [],
+      "warnings": [
+        "Low-alpha edge residue: 1/255; visually inspect compositing",
+        "Top visible margin is only 9 pixels"
+      ],
+      "bytes": 1918026,
+      "sha256": "0f7ead60ccbe9e06ae747bea6c309a503385c8d9c9ba7d8c0b8925c0d4abf9b0",
+      "bitDepth": 8,
+      "colorType": 6,
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds16": [
+        93,
+        9,
+        953,
+        1479
+      ],
+      "edgeMaxAlpha": 1,
+      "visibleHeight16": 1470,
+      "sourceBytesEqual": true,
+      "promptSha256": "8367a7b951ea9de0e696878f2068391f6a8552c80d0235726bfef5f76f973153"
+    },
+    {
+      "id": "alert/base",
+      "path": "clips/alert/base.png",
+      "exists": true,
+      "errors": [],
+      "warnings": [
+        "Low-alpha edge residue: 1/255; visually inspect compositing",
+        "Top visible margin is only 7 pixels"
+      ],
+      "bytes": 2000182,
+      "sha256": "3f760e7a72b410cb139d1fe26ef12ea9922f9b581b441d37d5cc19969bb38a44",
+      "bitDepth": 8,
+      "colorType": 6,
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds16": [
+        83,
+        7,
+        951,
+        1505
+      ],
+      "edgeMaxAlpha": 1,
+      "visibleHeight16": 1498,
+      "sourceBytesEqual": true
+    },
+    {
+      "id": "alert/enter",
+      "path": "clips/alert/enter.png",
+      "exists": true,
+      "errors": [],
+      "warnings": [
+        "Top visible margin is only 7 pixels"
+      ],
+      "bytes": 1997605,
+      "sha256": "6aa8da48c9095596c1ccd1c4078fc8b7c3688516413cdc3fb617379cfd676b80",
+      "bitDepth": 8,
+      "colorType": 6,
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds16": [
+        83,
+        7,
+        953,
+        1505
+      ],
+      "edgeMaxAlpha": 0,
+      "visibleHeight16": 1498,
+      "sourceBytesEqual": true,
+      "promptSha256": "fddc3600c0c3b7d7cce0a7ee898b29d2a33f9490de9be901cd6b0c0d056812ae"
+    },
+    {
+      "id": "alert/accent",
+      "path": "clips/alert/accent.png",
+      "exists": true,
+      "errors": [],
+      "warnings": [
+        "Low-alpha edge residue: 2/255; visually inspect compositing",
+        "Top visible margin is only 7 pixels"
+      ],
+      "bytes": 2000107,
+      "sha256": "350eced1c8f8651878f80b8df75c676a8bd2ff22ee51e7594243b442f9926233",
+      "bitDepth": 8,
+      "colorType": 6,
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds16": [
+        83,
+        7,
+        952,
+        1505
+      ],
+      "edgeMaxAlpha": 2,
+      "visibleHeight16": 1498,
+      "sourceBytesEqual": true,
+      "promptSha256": "6990022b602d6fe7c77ccd32a82a9cd97326d55bb4cff934cf5c718384d1b0fd"
+    },
+    {
+      "id": "sleep/base",
+      "path": "clips/sleep/base.png",
+      "exists": true,
+      "errors": [],
+      "warnings": [
+        "Top visible margin is only 9 pixels"
+      ],
+      "bytes": 1977048,
+      "sha256": "82807f92f908e3c628c88d1685f3f99ee0e6adb820e0fb024c2316deef157d53",
+      "bitDepth": 8,
+      "colorType": 6,
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds16": [
+        76,
+        9,
+        970,
+        1492
+      ],
+      "edgeMaxAlpha": 0,
+      "visibleHeight16": 1483,
+      "sourceBytesEqual": true
+    },
+    {
+      "id": "sleep/enter",
+      "path": "clips/sleep/enter.png",
+      "exists": true,
+      "errors": [],
+      "warnings": [
+        "Low-alpha edge residue: 1/255; visually inspect compositing",
+        "Top visible margin is only 9 pixels"
+      ],
+      "bytes": 2001090,
+      "sha256": "4e88961b07dda9b50563f367d1867fc6f27a4ea97bf8957726638cb220b4c4ff",
+      "bitDepth": 8,
+      "colorType": 6,
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds16": [
+        77,
+        9,
+        970,
+        1493
+      ],
+      "edgeMaxAlpha": 1,
+      "visibleHeight16": 1484,
+      "sourceBytesEqual": true,
+      "promptSha256": "738cda0f37d746c5bef9346ed42f2fa78990000606ab6797df335ec1a348dd8a"
+    },
+    {
+      "id": "sleep/accent",
+      "path": "clips/sleep/accent.png",
+      "exists": true,
+      "errors": [],
+      "warnings": [
+        "Low-alpha edge residue: 1/255; visually inspect compositing",
+        "Top visible margin is only 9 pixels"
+      ],
+      "bytes": 1993500,
+      "sha256": "0c6b497058e3455b2e1278c41a39d8d3a124e91cfe1ae79803609bfa7fe52b48",
+      "bitDepth": 8,
+      "colorType": 6,
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds16": [
+        76,
+        9,
+        970,
+        1493
+      ],
+      "edgeMaxAlpha": 1,
+      "visibleHeight16": 1484,
+      "sourceBytesEqual": true,
+      "promptSha256": "ed41dd1b73523a784041b178453634df5b55295e8abd41e4c217d4644c4e9403"
+    },
+    {
+      "id": "shy/base",
+      "path": "clips/shy/base.png",
+      "exists": true,
+      "errors": [],
+      "warnings": [
+        "Low-alpha edge residue: 1/255; visually inspect compositing",
+        "Top visible margin is only 4 pixels"
+      ],
+      "bytes": 1910862,
+      "sha256": "58702f963888360a923b62633a8d9a2c21ae828dbe7372696720bcdbe641359b",
+      "bitDepth": 8,
+      "colorType": 6,
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds16": [
+        95,
+        4,
+        937,
+        1474
+      ],
+      "edgeMaxAlpha": 1,
+      "visibleHeight16": 1470,
+      "sourceBytesEqual": true
+    },
+    {
+      "id": "shy/enter",
+      "path": "clips/shy/enter.png",
+      "exists": true,
+      "errors": [],
+      "warnings": [
+        "Low-alpha edge residue: 2/255; visually inspect compositing",
+        "Top visible margin is only 4 pixels"
+      ],
+      "bytes": 1929379,
+      "sha256": "92c36f94f09384d267ba7e94ae11e0edcbf0fcb8509c8399c6893d18084b0b5f",
+      "bitDepth": 8,
+      "colorType": 6,
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds16": [
+        95,
+        4,
+        938,
+        1475
+      ],
+      "edgeMaxAlpha": 2,
+      "visibleHeight16": 1471,
+      "sourceBytesEqual": true,
+      "promptSha256": "df1c9be7bc636b819ee0871721f74c4e7067df2b38d858f9fa2ace8269a8e6a5"
+    },
+    {
+      "id": "shy/accent",
+      "path": "clips/shy/accent.png",
+      "exists": true,
+      "errors": [],
+      "warnings": [
+        "Low-alpha edge residue: 1/255; visually inspect compositing",
+        "Top visible margin is only 4 pixels"
+      ],
+      "bytes": 1921560,
+      "sha256": "a846d6c09d266054958c1e38729a99334fbf4ae756c8fd5b9ca7da82bf12ddcf",
+      "bitDepth": 8,
+      "colorType": 6,
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds16": [
+        95,
+        4,
+        938,
+        1475
+      ],
+      "edgeMaxAlpha": 1,
+      "visibleHeight16": 1471,
+      "sourceBytesEqual": true,
+      "promptSha256": "989720b1855f5cbc66160efbbe74ececb80804bb14267e913ebadf89a48944e4"
+    },
+    {
+      "id": "affection/base",
+      "path": "clips/affection/base.png",
+      "exists": true,
+      "errors": [],
+      "warnings": [
+        "Low-alpha edge residue: 1/255; visually inspect compositing",
+        "Top visible margin is only 9 pixels"
+      ],
+      "bytes": 1971820,
+      "sha256": "f018661a8d4b05eaff868a8ee429ed509266a844c9ea0edcd9c955093ee600d9",
+      "bitDepth": 8,
+      "colorType": 6,
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds16": [
+        71,
+        9,
+        970,
+        1498
+      ],
+      "edgeMaxAlpha": 1,
+      "visibleHeight16": 1489,
+      "sourceBytesEqual": true
+    },
+    {
+      "id": "affection/enter",
+      "path": "clips/affection/enter.png",
+      "exists": true,
+      "errors": [],
+      "warnings": [
+        "Low-alpha edge residue: 1/255; visually inspect compositing",
+        "Top visible margin is only 9 pixels"
+      ],
+      "bytes": 1972573,
+      "sha256": "cc04968ff3581961e256a048324c59257a8c0b774159dc337ceb048d116c20ee",
+      "bitDepth": 8,
+      "colorType": 6,
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds16": [
+        72,
+        9,
+        970,
+        1498
+      ],
+      "edgeMaxAlpha": 1,
+      "visibleHeight16": 1489,
+      "sourceBytesEqual": true,
+      "promptSha256": "491aebf2d6d4c44d74c144bd882726258bd66f54edd4ffa37c91126b9b6cd0dd"
+    },
+    {
+      "id": "affection/accent",
+      "path": "clips/affection/accent.png",
+      "exists": true,
+      "errors": [],
+      "warnings": [
+        "Top visible margin is only 9 pixels"
+      ],
+      "bytes": 1967029,
+      "sha256": "9e9389123a0d80788a0bde86ca233a859df2049b394d377853b5ff30276c1291",
+      "bitDepth": 8,
+      "colorType": 6,
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds16": [
+        72,
+        9,
+        971,
+        1498
+      ],
+      "edgeMaxAlpha": 0,
+      "visibleHeight16": 1489,
+      "sourceBytesEqual": true,
+      "promptSha256": "26b52bd8f76f929ed74c58b315ba3b53049e85e821d2cbe81791b490ecb56600"
+    },
+    {
+      "id": "stretch/base",
+      "path": "clips/stretch/base.png",
+      "exists": true,
+      "errors": [],
+      "warnings": [
+        "Low-alpha edge residue: 1/255; visually inspect compositing",
+        "Top visible margin is only 13 pixels"
+      ],
+      "bytes": 1930001,
+      "sha256": "597c35b4ceaa1fc6ccc077b8e3d7a4745988fd6646ccf7b813d3b941399e4b46",
+      "bitDepth": 8,
+      "colorType": 6,
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds16": [
+        91,
+        13,
+        959,
+        1490
+      ],
+      "edgeMaxAlpha": 1,
+      "visibleHeight16": 1477,
+      "sourceBytesEqual": true
+    },
+    {
+      "id": "stretch/enter",
+      "path": "clips/stretch/enter.png",
+      "exists": true,
+      "errors": [],
+      "warnings": [
+        "Low-alpha edge residue: 1/255; visually inspect compositing",
+        "Top visible margin is only 13 pixels"
+      ],
+      "bytes": 1929842,
+      "sha256": "2592f2be6899ce18a93d3aebe5c724ffb72145154038de6de236b7fa8c808cf7",
+      "bitDepth": 8,
+      "colorType": 6,
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds16": [
+        92,
+        13,
+        959,
+        1491
+      ],
+      "edgeMaxAlpha": 1,
+      "visibleHeight16": 1478,
+      "sourceBytesEqual": true,
+      "promptSha256": "de06987cac5317a37cd755ae37073eb8e39546d31f8d2b282ccc96e04fe0f556"
+    },
+    {
+      "id": "stretch/accent",
+      "path": "clips/stretch/accent.png",
+      "exists": true,
+      "errors": [],
+      "warnings": [
+        "Low-alpha edge residue: 1/255; visually inspect compositing",
+        "Top visible margin is only 13 pixels"
+      ],
+      "bytes": 1944963,
+      "sha256": "eab6e80087f78d4deda1b96abc5a67089f869c1071ece1c0bc3156d4f80b08f3",
+      "bitDepth": 8,
+      "colorType": 6,
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds16": [
+        91,
+        13,
+        959,
+        1491
+      ],
+      "edgeMaxAlpha": 1,
+      "visibleHeight16": 1478,
+      "sourceBytesEqual": true,
+      "promptSha256": "8f416d4b7a20bfcc6f2ee783630c39d22cabc0de343623ca4c994e100cb630e6"
+    },
+    {
+      "id": "wink/base",
+      "path": "clips/wink/base.png",
+      "exists": true,
+      "errors": [],
+      "warnings": [],
+      "bytes": 1908589,
+      "sha256": "d1920435d7b3f1f36b1dc8b7fb5cc2dfac9d15e5c1680d10c6f9d75840728737",
+      "bitDepth": 8,
+      "colorType": 6,
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds16": [
+        95,
+        37,
+        954,
+        1469
+      ],
+      "edgeMaxAlpha": 0,
+      "visibleHeight16": 1432,
+      "sourceBytesEqual": true
+    },
+    {
+      "id": "wink/enter",
+      "path": "clips/wink/enter.png",
+      "exists": true,
+      "errors": [],
+      "warnings": [
+        "Low-alpha edge residue: 1/255; visually inspect compositing"
+      ],
+      "bytes": 1917795,
+      "sha256": "95d41af277708f2483a8ca50d0539354f04eae110b0f4b76352005fea5e84666",
+      "bitDepth": 8,
+      "colorType": 6,
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds16": [
+        93,
+        37,
+        955,
+        1470
+      ],
+      "edgeMaxAlpha": 1,
+      "visibleHeight16": 1433,
+      "sourceBytesEqual": true,
+      "promptSha256": "e894c3875bdaabac13d7ca2b687fc15f448edc5c293274fa244e8e916ed7a1b4"
+    },
+    {
+      "id": "wink/accent",
+      "path": "clips/wink/accent.png",
+      "exists": true,
+      "errors": [],
+      "warnings": [],
+      "bytes": 1912690,
+      "sha256": "e77ed16d0773ff295f7463817258a477bfa189d8b0d5d9e0b91960cb2188af76",
+      "bitDepth": 8,
+      "colorType": 6,
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds16": [
+        95,
+        37,
+        955,
+        1470
+      ],
+      "edgeMaxAlpha": 0,
+      "visibleHeight16": 1433,
+      "sourceBytesEqual": true,
+      "promptSha256": "7253efd73b9afb57aaccbbff81336fda7b0266e19c440a5bc50ecc8e4d35c80e"
+    },
+    {
+      "id": "happy/base",
+      "path": "clips/happy/base.png",
+      "exists": true,
+      "errors": [],
+      "warnings": [
+        "Low-alpha edge residue: 2/255; visually inspect compositing",
+        "Top visible margin is only 6 pixels"
+      ],
+      "bytes": 1958445,
+      "sha256": "67894210ffafe8d82367dd38d0dbd46cd738f0d4d1bc3c941d5d64d1b6ab8900",
+      "bitDepth": 8,
+      "colorType": 6,
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds16": [
+        82,
+        6,
+        971,
+        1499
+      ],
+      "edgeMaxAlpha": 2,
+      "visibleHeight16": 1493,
+      "sourceBytesEqual": true
+    },
+    {
+      "id": "happy/enter",
+      "path": "clips/happy/enter.png",
+      "exists": true,
+      "errors": [],
+      "warnings": [
+        "Top visible margin is only 7 pixels"
+      ],
+      "bytes": 1959660,
+      "sha256": "59d9a586b1d5987e74bff067506e3d8b6cd5d02070b87486754dc78f0c10db1a",
+      "bitDepth": 8,
+      "colorType": 6,
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds16": [
+        82,
+        7,
+        972,
+        1499
+      ],
+      "edgeMaxAlpha": 0,
+      "visibleHeight16": 1492,
+      "sourceBytesEqual": true,
+      "promptSha256": "bbe74cce7ffc97e46763feebcd658e8d03628eb1db8dc9fbd01e478237aa9244"
+    },
+    {
+      "id": "happy/accent",
+      "path": "clips/happy/accent.png",
+      "exists": true,
+      "errors": [],
+      "warnings": [
+        "Low-alpha edge residue: 1/255; visually inspect compositing",
+        "Top visible margin is only 6 pixels"
+      ],
+      "bytes": 1973742,
+      "sha256": "d9d75bfc91b5438f3a14bc3a6d6de0a72f44adb01b82a5b986af70d4a5572644",
+      "bitDepth": 8,
+      "colorType": 6,
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds16": [
+        81,
+        6,
+        973,
+        1499
+      ],
+      "edgeMaxAlpha": 1,
+      "visibleHeight16": 1493,
+      "sourceBytesEqual": true,
+      "promptSha256": "58e0b723fff24d7a4c03d216e2aff469aec9af8d0ecf6c9b735bac5629814357"
+    },
+    {
+      "id": "bow/base",
+      "path": "clips/bow/base.png",
+      "exists": true,
+      "errors": [],
+      "warnings": [
+        "Low-alpha edge residue: 1/255; visually inspect compositing",
+        "Top visible margin is only 16 pixels"
+      ],
+      "bytes": 1925086,
+      "sha256": "717c6783d18c5d58d6ccea4e1a117cf3877c5583440445969f260889882197a7",
+      "bitDepth": 8,
+      "colorType": 6,
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds16": [
+        91,
+        16,
+        948,
+        1460
+      ],
+      "edgeMaxAlpha": 1,
+      "visibleHeight16": 1444,
+      "sourceBytesEqual": true
+    },
+    {
+      "id": "bow/enter",
+      "path": "clips/bow/enter.png",
+      "exists": true,
+      "errors": [],
+      "warnings": [
+        "Low-alpha edge residue: 1/255; visually inspect compositing",
+        "Top visible margin is only 9 pixels"
+      ],
+      "bytes": 1928529,
+      "sha256": "7cc19a6bb30fdbf0705780d5410cc0011ff0019015efaa31913bb7c0d4884cea",
+      "bitDepth": 8,
+      "colorType": 6,
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds16": [
+        92,
+        9,
+        948,
+        1461
+      ],
+      "edgeMaxAlpha": 1,
+      "visibleHeight16": 1452,
+      "sourceBytesEqual": true,
+      "promptSha256": "eeb65016996172948189545152305242d0dfbc6030a2d10885c78e3c7220689f"
+    },
+    {
+      "id": "bow/accent",
+      "path": "clips/bow/accent.png",
+      "exists": true,
+      "errors": [],
+      "warnings": [
+        "Low-alpha edge residue: 1/255; visually inspect compositing"
+      ],
+      "bytes": 1947051,
+      "sha256": "ff5bec4d222fad30b7fbc6623ae96ef591e83f200743dc2f24e7015b7049ea95",
+      "bitDepth": 8,
+      "colorType": 6,
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds16": [
+        91,
+        24,
+        948,
+        1462
+      ],
+      "edgeMaxAlpha": 1,
+      "visibleHeight16": 1438,
+      "sourceBytesEqual": true,
+      "promptSha256": "63c91a345b350184db9f3b1a34ac5c28d4e1bad2c639b22d1b6d6167b16041c8"
+    },
+    {
+      "id": "hug-tail/base",
+      "path": "clips/hug-tail/base.png",
+      "exists": true,
+      "errors": [],
+      "warnings": [
+        "Low-alpha edge residue: 1/255; visually inspect compositing"
+      ],
+      "bytes": 1961967,
+      "sha256": "28f5729c95e5a3762bac9e6d463857d8ebecd7c80d2b92eea1af58016d6a0902",
+      "bitDepth": 8,
+      "colorType": 6,
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds16": [
+        94,
+        55,
+        931,
+        1491
+      ],
+      "edgeMaxAlpha": 1,
+      "visibleHeight16": 1436,
+      "sourceBytesEqual": true
+    },
+    {
+      "id": "hug-tail/enter",
+      "path": "clips/hug-tail/enter.png",
+      "exists": true,
+      "errors": [],
+      "warnings": [],
+      "bytes": 1968403,
+      "sha256": "f026036028bdd3ddccdb13efc6c445d8df526d09e7f3d461678808aed6cbac7b",
+      "bitDepth": 8,
+      "colorType": 6,
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds16": [
+        94,
+        55,
+        932,
+        1491
+      ],
+      "edgeMaxAlpha": 0,
+      "visibleHeight16": 1436,
+      "sourceBytesEqual": true,
+      "promptSha256": "10d0c7ef5ed4ce163421cc541d7cb117a539b78a8e817b7df89b90eed814145e"
+    },
+    {
+      "id": "hug-tail/accent",
+      "path": "clips/hug-tail/accent.png",
+      "exists": true,
+      "errors": [],
+      "warnings": [
+        "Low-alpha edge residue: 1/255; visually inspect compositing"
+      ],
+      "bytes": 1987595,
+      "sha256": "991cab6d947336f3cee32b4768d16435a47c299f3fcda195529e69bb878ecc5c",
+      "bitDepth": 8,
+      "colorType": 6,
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds16": [
+        94,
+        55,
+        932,
+        1491
+      ],
+      "edgeMaxAlpha": 1,
+      "visibleHeight16": 1436,
+      "sourceBytesEqual": true,
+      "promptSha256": "a0068ba91f9ec00229908113be95dfaaecc86dce3e94c0e4b9df308140234190"
+    },
+    {
+      "id": "idle/half-blink",
+      "path": "clips/idle/half-blink.png",
+      "exists": true,
+      "errors": [],
+      "warnings": [
+        "Top visible margin is only 9 pixels"
+      ],
+      "bytes": 1903637,
+      "sha256": "f19592142efa970fd6f1f62eefee59e941bf4444bac697eb91946f7a604663e2",
+      "bitDepth": 8,
+      "colorType": 6,
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds16": [
+        94,
+        9,
+        948,
+        1456
+      ],
+      "edgeMaxAlpha": 0,
+      "visibleHeight16": 1447,
+      "sourceBytesEqual": true,
+      "promptSha256": "f1b2a61006fdf960399bb0fbc480dc7f2718ebe63f1035804e20dff87ef02456"
+    },
+    {
+      "id": "idle/closed-blink",
+      "path": "clips/idle/closed-blink.png",
+      "exists": true,
+      "errors": [],
+      "warnings": [
+        "Low-alpha edge residue: 1/255; visually inspect compositing",
+        "Top visible margin is only 9 pixels"
+      ],
+      "bytes": 1903446,
+      "sha256": "22d1911bb02b2843ba4d98dd12e5f8f80d5903e1288baf2af04998ceb0b52c8b",
+      "bitDepth": 8,
+      "colorType": 6,
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds16": [
+        94,
+        9,
+        947,
+        1456
+      ],
+      "edgeMaxAlpha": 1,
+      "visibleHeight16": 1447,
+      "sourceBytesEqual": true,
+      "promptSha256": "8de4f9c296254b43730198658a3e2eabe7abbd1a17f1665bc22e515f1a71fd7d"
+    },
+    {
+      "id": "layer/tail",
+      "path": "layers/tail.png",
+      "exists": true,
+      "errors": [],
+      "warnings": [
+        "Layer placement uses nonuniform scale; visually inspect shape distortion"
+      ],
+      "bytes": 768694,
+      "sha256": "23956bcc3e6a65a6ca4382e4c752c823145c94bfd105e92dd7bbc8bc54fb79c3",
+      "bitDepth": 8,
+      "colorType": 6,
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds16": [
+        498,
+        628,
+        896,
+        1302
+      ],
+      "edgeMaxAlpha": 0,
+      "visibleHeight16": 674,
+      "sourceBytesEqual": true,
+      "promptSha256": "9259c3e3072d7d9b412f300287e0a441370a01b5127eeff078e7b1668203b3ab",
+      "placementMatrix": [
+        0.8040201,
+        0,
+        0,
+        0.84866469,
+        113.59798995,
+        162.03857567
+      ]
+    },
+    {
+      "id": "layer/ear-left",
+      "path": "layers/ear-left.png",
+      "exists": true,
+      "errors": [],
+      "warnings": [
+        "Layer placement uses nonuniform scale; visually inspect shape distortion"
+      ],
+      "bytes": 782385,
+      "sha256": "239e348f9d0491c7c59996ebec3ffcbbd6470df01af2f90e89f885f8593bf673",
+      "bitDepth": 8,
+      "colorType": 6,
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds16": [
+        215,
+        67,
+        636,
+        579
+      ],
+      "edgeMaxAlpha": 0,
+      "visibleHeight16": 512,
+      "sourceBytesEqual": true,
+      "promptSha256": "6eb3c6e2ee42f36c77c7e646f7f12d595c44219b53e9ddbc9e11ba0c46a0fe7f",
+      "placementMatrix": [
+        0.37292162,
+        0,
+        0,
+        0.3984375,
+        197.82185273,
+        -17.6953125
+      ]
+    },
+    {
+      "id": "layer/ear-right",
+      "path": "layers/ear-right.png",
+      "exists": true,
+      "errors": [],
+      "warnings": [
+        "Layer placement uses nonuniform scale; visually inspect shape distortion"
+      ],
+      "bytes": 643412,
+      "sha256": "cc8841edb4fa4ddc83079e0eebf3a2df19a2a57603847bf14ead5cd0f77ccdff",
+      "bitDepth": 8,
+      "colorType": 6,
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds16": [
+        540,
+        25,
+        788,
+        327
+      ],
+      "edgeMaxAlpha": 0,
+      "visibleHeight16": 302,
+      "sourceBytesEqual": true,
+      "promptSha256": "b0ed7f4413b41d6c278ea639791f860459eb8d27f70f6e9f2cd130e1a86a40cf",
+      "placementMatrix": [
+        0.66532258,
+        0,
+        0,
+        0.67549669,
+        226.72580645,
+        -7.88741722
+      ]
+    },
+    {
+      "id": "layer/hair-back",
+      "path": "layers/hair-back.png",
+      "exists": true,
+      "errors": [],
+      "warnings": [
+        "Low-alpha edge residue: 1/255; visually inspect compositing",
+        "Layer placement uses nonuniform scale; visually inspect shape distortion"
+      ],
+      "bytes": 1801141,
+      "sha256": "1e61c3d0b84fb2a530a01a9bf92577d4dfd1d12ca02db73d10056aedffe8789d",
+      "bitDepth": 8,
+      "colorType": 6,
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds16": [
+        20,
+        136,
+        1003,
+        1111
+      ],
+      "edgeMaxAlpha": 1,
+      "visibleHeight16": 975,
+      "sourceBytesEqual": true,
+      "promptSha256": "e59027de539278d354a4c388afae54c55da4b05b517180827b1d1b5fcc349b1c",
+      "placementMatrix": [
+        0.87080366,
+        0,
+        0,
+        0.7825641,
+        76.58392675,
+        -44.42871795
+      ]
+    },
+    {
+      "id": "layer/leg-left",
+      "path": "layers/leg-left.png",
+      "exists": true,
+      "errors": [],
+      "warnings": [
+        "Layer placement uses nonuniform scale; visually inspect shape distortion"
+      ],
+      "bytes": 724674,
+      "sha256": "80fa5d118237de3525163fd72a0dd5aa4b136f517783283c347d61eb4815bb8c",
+      "bitDepth": 8,
+      "colorType": 6,
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds16": [
+        393,
+        684,
+        540,
+        1335
+      ],
+      "edgeMaxAlpha": 0,
+      "visibleHeight16": 651,
+      "sourceBytesEqual": true,
+      "promptSha256": "164a05a0db40d9883b919f3622fba4235eedda97cbcebb56a9e1ed4dd1684c1f",
+      "placementMatrix": [
+        0.88435374,
+        0,
+        0,
+        0.75268817,
+        43.44897959,
+        451.16129032
+      ]
+    },
+    {
+      "id": "layer/leg-right",
+      "path": "layers/leg-right.png",
+      "exists": true,
+      "errors": [],
+      "warnings": [
+        "Low-alpha edge residue: 1/255; visually inspect compositing",
+        "Layer placement uses nonuniform scale; visually inspect shape distortion"
+      ],
+      "bytes": 803612,
+      "sha256": "28e2578a967747c8fca0e9b27c0aba8555e061f8dd4f6b89db6dcc0d843cde05",
+      "bitDepth": 8,
+      "colorType": 6,
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds16": [
+        464,
+        656,
+        685,
+        1405
+      ],
+      "edgeMaxAlpha": 1,
+      "visibleHeight16": 749,
+      "sourceBytesEqual": true,
+      "promptSha256": "dec9695e0e6b285c520f90fdf767105a7f358c3cfbc2724fffd6035b1f57486a",
+      "placementMatrix": [
+        0.75316456,
+        0,
+        0,
+        0.66285714,
+        149.14556962,
+        524.68571429
+      ]
+    },
+    {
+      "id": "layer/skirt",
+      "path": "layers/skirt.png",
+      "exists": true,
+      "errors": [],
+      "warnings": [
+        "Layer placement uses nonuniform scale; visually inspect shape distortion"
+      ],
+      "bytes": 1129510,
+      "sha256": "1c35da11ec143a0b57237e0819a8b39f564ee8a101e95ff4a42be5fccaa9d1e2",
+      "bitDepth": 8,
+      "colorType": 6,
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds16": [
+        36,
+        485,
+        988,
+        1088
+      ],
+      "edgeMaxAlpha": 0,
+      "visibleHeight16": 603,
+      "sourceBytesEqual": true,
+      "promptSha256": "47e20d186ae043fb5865752b72e4431fb619b6f2c9a2d1e3cb4a9ef4858b1908",
+      "placementMatrix": [
+        0.66176471,
+        0,
+        0,
+        0.58374793,
+        181.17647059,
+        402.88225539
+      ]
+    },
+    {
+      "id": "layer/arm-left",
+      "path": "layers/arm-left.png",
+      "exists": true,
+      "errors": [],
+      "warnings": [
+        "Layer placement uses nonuniform scale; visually inspect shape distortion"
+      ],
+      "bytes": 780131,
+      "sha256": "efd07800350b2ee7bce43cfbc5f43695ddebb7688971125e8e162534ee389cce",
+      "bitDepth": 8,
+      "colorType": 6,
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds16": [
+        217,
+        429,
+        546,
+        1114
+      ],
+      "edgeMaxAlpha": 0,
+      "visibleHeight16": 685,
+      "sourceBytesEqual": true,
+      "promptSha256": "e50a8ef7630497567b83848d6091be94e20439a10421775eaa027de86c0fe493",
+      "placementMatrix": [
+        0.56838906,
+        0,
+        0,
+        0.61459854,
+        121.65957447,
+        235.33722628
+      ]
+    },
+    {
+      "id": "layer/arm-right",
+      "path": "layers/arm-right.png",
+      "exists": true,
+      "errors": [],
+      "warnings": [
+        "Layer placement uses nonuniform scale; visually inspect shape distortion"
+      ],
+      "bytes": 922080,
+      "sha256": "1d2b9ef4f6546516063c6394c10a29a33e2a5f83805d58729f02c3f52778e3b4",
+      "bitDepth": 8,
+      "colorType": 6,
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds16": [
+        500,
+        435,
+        915,
+        1261
+      ],
+      "edgeMaxAlpha": 0,
+      "visibleHeight16": 826,
+      "sourceBytesEqual": true,
+      "promptSha256": "a70300d56a4e5bdd9d1bee9292fc4d81b56e6a2701da240749b70e74458d060c",
+      "placementMatrix": [
+        0.45301205,
+        0,
+        0,
+        0.50968523,
+        385.4939759,
+        277.28692494
+      ]
+    },
+    {
+      "id": "layer/body",
+      "path": "layers/body.png",
+      "exists": true,
+      "errors": [],
+      "warnings": [
+        "Layer placement uses nonuniform scale; visually inspect shape distortion"
+      ],
+      "bytes": 1086449,
+      "sha256": "bc19068d15441b763e68eee397014525223950ddd45a603fafd82d636a1f9b9d",
+      "bitDepth": 8,
+      "colorType": 6,
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds16": [
+        232,
+        325,
+        799,
+        1008
+      ],
+      "edgeMaxAlpha": 0,
+      "visibleHeight16": 683,
+      "sourceBytesEqual": true,
+      "promptSha256": "cbc8002aed70b62f073e5249cf110c43dd46cb8372676dac4e351ff2e17b0dbe",
+      "placementMatrix": [
+        0.46737213,
+        0,
+        0,
+        0.44802343,
+        276.5696649,
+        289.39238653
+      ]
+    },
+    {
+      "id": "layer/face-base",
+      "path": "layers/face-base.png",
+      "exists": true,
+      "errors": [],
+      "warnings": [
+        "Layer placement uses nonuniform scale; visually inspect shape distortion"
+      ],
+      "bytes": 735870,
+      "sha256": "bb244841821bcd4a34a368def211161ba8ee436883065668d021023d0d22ef57",
+      "bitDepth": 8,
+      "colorType": 6,
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds16": [
+        323,
+        176,
+        702,
+        572
+      ],
+      "edgeMaxAlpha": 0,
+      "visibleHeight16": 396,
+      "sourceBytesEqual": true,
+      "promptSha256": "0d2d351d086ed8419d51f39cac5a848754b4b704d503a0c2d826566589600f49",
+      "placementMatrix": [
+        0.90765172,
+        0,
+        0,
+        0.77525253,
+        52.82849604,
+        9.55555556
+      ]
+    },
+    {
+      "id": "layer/eye-left",
+      "path": "layers/eye-left.png",
+      "exists": true,
+      "errors": [],
+      "warnings": [],
+      "bytes": 650550,
+      "sha256": "acc524ea4dd868ab8acfd8206f5e05d9aa884ab98bd8cebadbe2fad31dc61180",
+      "bitDepth": 8,
+      "colorType": 6,
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds16": [
+        194,
+        380,
+        581,
+        664
+      ],
+      "edgeMaxAlpha": 0,
+      "visibleHeight16": 284,
+      "sourceBytesEqual": true,
+      "promptSha256": "c23825123d9e53a107f812c46f5bba10c101e18773c9e6feab6f645fe63058c1",
+      "placementMatrix": [
+        0.27648579,
+        0,
+        0,
+        0.27816901,
+        322.36175711,
+        200.29577465
+      ]
+    },
+    {
+      "id": "layer/eye-right",
+      "path": "layers/eye-right.png",
+      "exists": true,
+      "errors": [],
+      "warnings": [
+        "Layer placement uses nonuniform scale; visually inspect shape distortion"
+      ],
+      "bytes": 673523,
+      "sha256": "0cb5f20dcd9966e21813695e5287ca7c5d9a251fdf9920ee94e0d43f53834691",
+      "bitDepth": 8,
+      "colorType": 6,
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds16": [
+        367,
+        601,
+        785,
+        893
+      ],
+      "edgeMaxAlpha": 0,
+      "visibleHeight16": 292,
+      "sourceBytesEqual": true,
+      "promptSha256": "27be5ed54d3e8407958ac8346f888f8761fbee506816b4f4d72831f918485b5d",
+      "placementMatrix": [
+        0.24641148,
+        0,
+        0,
+        0.28082192,
+        467.56698565,
+        125.2260274
+      ]
+    },
+    {
+      "id": "layer/eye-white-left",
+      "path": "layers/eye-white-left.png",
+      "exists": true,
+      "errors": [],
+      "warnings": [],
+      "bytes": 654538,
+      "sha256": "977f2351acaa6739204f7277437b098c8cf122084e006c6d0e43dd8c60e8a72a",
+      "bitDepth": 8,
+      "colorType": 6,
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds16": [
+        193,
+        380,
+        582,
+        668
+      ],
+      "edgeMaxAlpha": 0,
+      "visibleHeight16": 288,
+      "sourceBytesEqual": true,
+      "promptSha256": "0bf8291969183e3b7074525c4d026f5f313fabd3d4f9f676f417f6ada9882261",
+      "placementMatrix": [
+        0.27506427,
+        0,
+        0,
+        0.27430556,
+        322.9125964,
+        201.76388889
+      ]
+    },
+    {
+      "id": "layer/eye-white-right",
+      "path": "layers/eye-white-right.png",
+      "exists": true,
+      "errors": [],
+      "warnings": [
+        "Layer placement uses nonuniform scale; visually inspect shape distortion"
+      ],
+      "bytes": 722430,
+      "sha256": "88610c0c7eee40eadaa3add1465385cfa850decd6afeb6bba76640928eb724bc",
+      "bitDepth": 8,
+      "colorType": 6,
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds16": [
+        292,
+        573,
+        864,
+        949
+      ],
+      "edgeMaxAlpha": 0,
+      "visibleHeight16": 376,
+      "sourceBytesEqual": true,
+      "promptSha256": "96aaaf927e44a3918b8fae1dc655af2881094b7956b2faab4b6cd8fa64e63a99",
+      "placementMatrix": [
+        0.18006993,
+        0,
+        0,
+        0.21808511,
+        505.41958042,
+        169.03723404
+      ]
+    },
+    {
+      "id": "layer/iris-left",
+      "path": "layers/iris-left.png",
+      "exists": true,
+      "errors": [],
+      "warnings": [
+        "Layer placement uses nonuniform scale; visually inspect shape distortion"
+      ],
+      "bytes": 620955,
+      "sha256": "9677d7f5da03c4153903907ddf53e0d66064267d7e2bc6b225c34b82415f8b8e",
+      "bitDepth": 8,
+      "colorType": 6,
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds16": [
+        313,
+        406,
+        571,
+        659
+      ],
+      "edgeMaxAlpha": 0,
+      "visibleHeight16": 253,
+      "sourceBytesEqual": true,
+      "promptSha256": "29d412c29efc27d3a967cbc4a2e8048e3aaeb5ebc60bf4ab18ade9c4d2ae0847",
+      "placementMatrix": [
+        0.29069767,
+        0,
+        0,
+        0.25296443,
+        311.01162791,
+        215.29644269
+      ]
+    },
+    {
+      "id": "layer/iris-right",
+      "path": "layers/iris-right.png",
+      "exists": true,
+      "errors": [],
+      "warnings": [],
+      "bytes": 781098,
+      "sha256": "3cb8fd8e89752d253671966e20be6cdc6059a6b248faa23a7ef77d03f65cba27",
+      "bitDepth": 8,
+      "colorType": 6,
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds16": [
+        284,
+        555,
+        734,
+        983
+      ],
+      "edgeMaxAlpha": 0,
+      "visibleHeight16": 428,
+      "sourceBytesEqual": true,
+      "promptSha256": "0e4f20491ed34455f9e58fa433a26bb5c7449758c76960a930f3127f15cf8d1d",
+      "placementMatrix": [
+        0.16666667,
+        0,
+        0,
+        0.16121495,
+        514.66666667,
+        215.52570093
+      ]
+    },
+    {
+      "id": "layer/eye-closed-left",
+      "path": "layers/eye-closed-left.png",
+      "exists": true,
+      "errors": [],
+      "warnings": [
+        "Layer placement uses nonuniform scale; visually inspect shape distortion"
+      ],
+      "bytes": 406927,
+      "sha256": "74f0ff81cee94f552ff2eb28bc627d24ba395a6b2288c4b40537f477a8d0c6e3",
+      "bitDepth": 8,
+      "colorType": 6,
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds16": [
+        358,
+        406,
+        511,
+        446
+      ],
+      "edgeMaxAlpha": 0,
+      "visibleHeight16": 40,
+      "sourceBytesEqual": true,
+      "promptSha256": "999bd3ad8845591aacf8a15bdff1ab27a12e268f2e82bbfcaaa879a50c27bdc4",
+      "placementMatrix": [
+        0.67320261,
+        0,
+        0,
+        0.525,
+        136.99346405,
+        126.85
+      ]
+    },
+    {
+      "id": "layer/eye-closed-right",
+      "path": "layers/eye-closed-right.png",
+      "exists": true,
+      "errors": [],
+      "warnings": [
+        "Layer placement uses nonuniform scale; visually inspect shape distortion"
+      ],
+      "bytes": 438834,
+      "sha256": "388febb34630c342ba5ee7a40f0c34492dbb35bf662dbde8599d90b04ce212a5",
+      "bitDepth": 8,
+      "colorType": 6,
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds16": [
+        581,
+        520,
+        820,
+        583
+      ],
+      "edgeMaxAlpha": 0,
+      "visibleHeight16": 63,
+      "sourceBytesEqual": true,
+      "promptSha256": "164adc5c77ad7ffd99c7ba29bbe9a945bcf5877a155cea93f3aa904312bd97be",
+      "placementMatrix": [
+        0.41422594,
+        0,
+        0,
+        0.33333333,
+        319.33472803,
+        158.66666667
+      ]
+    },
+    {
+      "id": "layer/eyebrow-left",
+      "path": "layers/eyebrow-left.png",
+      "exists": true,
+      "errors": [],
+      "warnings": [
+        "Low-alpha edge residue: 1/255; visually inspect compositing",
+        "Layer placement uses nonuniform scale; visually inspect shape distortion"
+      ],
+      "bytes": 413258,
+      "sha256": "7eb707c5e3297626841ec272b3b989f63566c6c622010b50bf9759e4234ff441",
+      "bitDepth": 8,
+      "colorType": 6,
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        251
+      ],
+      "visibleBounds16": [
+        378,
+        276,
+        466,
+        302
+      ],
+      "edgeMaxAlpha": 1,
+      "visibleHeight16": 26,
+      "sourceBytesEqual": true,
+      "promptSha256": "d88c2979ea04b59fc720ef4b510a59647069ad9862eac69d44a32a1e5cae434c",
+      "placementMatrix": [
+        0.61363636,
+        0,
+        0,
+        0.38461538,
+        165.04545455,
+        148.84615385
+      ]
+    },
+    {
+      "id": "layer/eyebrow-right",
+      "path": "layers/eyebrow-right.png",
+      "exists": true,
+      "errors": [],
+      "warnings": [
+        "Layer placement uses nonuniform scale; visually inspect shape distortion"
+      ],
+      "bytes": 461522,
+      "sha256": "ee5a07b30d5a3bc42df527e75f2d838b2666de5b264faf3bfc5f03f6eb6827a2",
+      "bitDepth": 8,
+      "colorType": 6,
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        253
+      ],
+      "visibleBounds16": [
+        562,
+        270,
+        674,
+        300
+      ],
+      "edgeMaxAlpha": 0,
+      "visibleHeight16": 30,
+      "sourceBytesEqual": true,
+      "promptSha256": "7aa6e40b4072f85d4b1e4dd4ff886a022fc82cddd4b2a92fedc402874e4af171",
+      "placementMatrix": [
+        0.48214286,
+        0,
+        0,
+        0.33333333,
+        307.03571429,
+        161.0
+      ]
+    },
+    {
+      "id": "layer/mouth-neutral",
+      "path": "layers/mouth-neutral.png",
+      "exists": true,
+      "errors": [],
+      "warnings": [
+        "Layer placement uses nonuniform scale; visually inspect shape distortion"
+      ],
+      "bytes": 501648,
+      "sha256": "f6c6ba9f414d0e1308d0761a5972a480439f6e3bbe4feff9f637e0425f6f96f8",
+      "bitDepth": 8,
+      "colorType": 6,
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        247
+      ],
+      "visibleBounds16": [
+        468,
+        513,
+        555,
+        528
+      ],
+      "edgeMaxAlpha": 0,
+      "visibleHeight16": 15,
+      "sourceBytesEqual": true,
+      "promptSha256": "b608a5dd1f94900b97200862c74652c3deed87f7cca777b309926c49a528c830",
+      "placementMatrix": [
+        0.47126437,
+        0,
+        0,
+        0.6,
+        282.44827586,
+        92.2
+      ]
+    },
+    {
+      "id": "layer/mouth-open",
+      "path": "layers/mouth-open.png",
+      "exists": true,
+      "errors": [],
+      "warnings": [
+        "Layer placement uses nonuniform scale; visually inspect shape distortion"
+      ],
+      "bytes": 466259,
+      "sha256": "c64493856051a74bf30553b0d56e521dd517e7286dc0430ad0453269eae6021f",
+      "bitDepth": 8,
+      "colorType": 6,
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds16": [
+        457,
+        534,
+        584,
+        599
+      ],
+      "edgeMaxAlpha": 0,
+      "visibleHeight16": 65,
+      "sourceBytesEqual": true,
+      "promptSha256": "dbaa95ed602a160b366f083d38be8ff54b77a018364937da66e08b9ec1222ff8",
+      "placementMatrix": [
+        0.31496063,
+        0,
+        0,
+        0.49230769,
+        360.06299213,
+        131.10769231
+      ]
+    },
+    {
+      "id": "layer/hair-front",
+      "path": "layers/hair-front.png",
+      "exists": true,
+      "errors": [],
+      "warnings": [
+        "Layer placement uses nonuniform scale; visually inspect shape distortion"
+      ],
+      "bytes": 1140589,
+      "sha256": "6c3b6e6de442072e7d19549e3e6b01ef36084f7ea1da484199a2f7b14b5c55bc",
+      "bitDepth": 8,
+      "colorType": 6,
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds16": [
+        151,
+        50,
+        873,
+        668
+      ],
+      "edgeMaxAlpha": 0,
+      "visibleHeight16": 618,
+      "sourceBytesEqual": true,
+      "promptSha256": "d237d6898af59ac156aae0337974943e18bda10ac75af0de426ff594d3663513",
+      "placementMatrix": [
+        0.5567867,
+        0,
+        0,
+        0.52427184,
+        232.92520776,
+        35.78640777
+      ]
+    },
+    {
+      "id": "layer/hair-side-left",
+      "path": "layers/hair-side-left.png",
+      "exists": true,
+      "errors": [],
+      "warnings": [
+        "Layer placement uses nonuniform scale; visually inspect shape distortion"
+      ],
+      "bytes": 598998,
+      "sha256": "a77d354abcd1c2c8528a1ec111b9182a9803085ec2462863a8ad90c762ed2f76",
+      "bitDepth": 8,
+      "colorType": 6,
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds16": [
+        308,
+        260,
+        467,
+        563
+      ],
+      "edgeMaxAlpha": 0,
+      "visibleHeight16": 303,
+      "sourceBytesEqual": true,
+      "promptSha256": "b0c4e8412ecc2c689b643e20c15c3525cebf7253c673bf2a4052610e32f46498",
+      "placementMatrix": [
+        0.74842767,
+        0,
+        0,
+        0.7689769,
+        96.48427673,
+        71.0660066
+      ]
+    },
+    {
+      "id": "layer/hair-side-right",
+      "path": "layers/hair-side-right.png",
+      "exists": true,
+      "errors": [],
+      "warnings": [
+        "Layer placement uses nonuniform scale; visually inspect shape distortion"
+      ],
+      "bytes": 750764,
+      "sha256": "9433256c81765010e12da38a151ab2e492b0402b8fbec9c4c12c244639751e4a",
+      "bitDepth": 8,
+      "colorType": 6,
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds16": [
+        557,
+        247,
+        832,
+        868
+      ],
+      "edgeMaxAlpha": 0,
+      "visibleHeight16": 621,
+      "sourceBytesEqual": true,
+      "promptSha256": "bed0632dd8cda80ba1261a45414fe84dd4eaee2c92a4c1e8e736203ed82889f3",
+      "placementMatrix": [
+        0.42545455,
+        0,
+        0,
+        0.37520129,
+        364.02181818,
+        178.3252818
+      ]
+    },
+    {
+      "id": "layer/bow-left",
+      "path": "layers/bow-left.png",
+      "exists": true,
+      "errors": [],
+      "warnings": [],
+      "bytes": 765212,
+      "sha256": "f3fd635540f0b79d27cdd88caaae1d429bc56ac6ae92beeea38fdd635e841871",
+      "bitDepth": 8,
+      "colorType": 6,
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds16": [
+        121,
+        312,
+        517,
+        722
+      ],
+      "edgeMaxAlpha": 0,
+      "visibleHeight16": 410,
+      "sourceBytesEqual": true,
+      "promptSha256": "f5b2f47ee0f80d1e6f5d34c44057fc48bf4bf9fdaad36e3f8e9128a6326f80a4",
+      "placementMatrix": [
+        0.26515152,
+        0,
+        0,
+        0.26097561,
+        224.91666667,
+        120.57560976
+      ]
+    },
+    {
+      "id": "layer/bow-right",
+      "path": "layers/bow-right.png",
+      "exists": true,
+      "errors": [],
+      "warnings": [
+        "Layer placement uses nonuniform scale; visually inspect shape distortion"
+      ],
+      "bytes": 542542,
+      "sha256": "7b200b1f23ce8fd51853a769c817fd81443bfce17beb9fd671064b888d6e7e66",
+      "bitDepth": 8,
+      "colorType": 6,
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds16": [
+        613,
+        226,
+        776,
+        384
+      ],
+      "edgeMaxAlpha": 0,
+      "visibleHeight16": 158,
+      "sourceBytesEqual": true,
+      "promptSha256": "467430116c47d8eb72330c9f9a05b8d9dddc5532c1aa2e99d8f4523ed76d3e89",
+      "placementMatrix": [
+        0.69325153,
+        0,
+        0,
+        0.67721519,
+        240.03680982,
+        48.94936709
+      ]
+    }
+  ],
+  "clips": [
+    {
+      "id": "idle",
+      "label": "待机",
+      "canvas": [
+        1024,
+        1536
+      ],
+      "sharedTransform": {
+        "scale": 1,
+        "anchor": [
+          512,
+          1490
+        ],
+        "translate": [
+          0,
+          0
+        ]
+      },
+      "loop": true,
+      "playback": "finite-local-discrete-keyframes",
+      "fallback": "idle/base",
+      "sequence": [
+        {
+          "frame": "idle/base",
+          "durationMs": 800
+        },
+        {
+          "frame": "idle/enter",
+          "durationMs": 220
+        },
+        {
+          "frame": "idle/base",
+          "durationMs": 180
+        },
+        {
+          "frame": "idle/accent",
+          "durationMs": 300
+        },
+        {
+          "frame": "idle/base",
+          "durationMs": 600
+        },
+        {
+          "frame": "idle/half-blink",
+          "durationMs": 75
+        },
+        {
+          "frame": "idle/closed-blink",
+          "durationMs": 100
+        },
+        {
+          "frame": "idle/half-blink",
+          "durationMs": 75
+        },
+        {
+          "frame": "idle/base",
+          "durationMs": 1200
+        }
+      ],
+      "note": "Local variations inside the existing pose only, not a full transition from idle. Timing is editable. Frames share one canvas and transform; no per-frame fit or crossfade. Sleep depicts tail variation, not chest/abdomen breathing deformation.",
+      "sequenceSha256": "21882fd0b9b03a6d22a894c96f544a38b9ef32b1aaa380a82b34a4ac3eb97fc5"
+    },
+    {
+      "id": "active",
+      "label": "工作回应",
+      "canvas": [
+        1024,
+        1536
+      ],
+      "sharedTransform": {
+        "scale": 1,
+        "anchor": [
+          512,
+          1490
+        ],
+        "translate": [
+          0,
+          0
+        ]
+      },
+      "loop": true,
+      "playback": "finite-local-discrete-keyframes",
+      "fallback": "active/base",
+      "sequence": [
+        {
+          "frame": "active/base",
+          "durationMs": 800
+        },
+        {
+          "frame": "active/enter",
+          "durationMs": 220
+        },
+        {
+          "frame": "active/base",
+          "durationMs": 180
+        },
+        {
+          "frame": "active/accent",
+          "durationMs": 300
+        },
+        {
+          "frame": "active/base",
+          "durationMs": 600
+        }
+      ],
+      "note": "Local variations inside the existing pose only, not a full transition from idle. Timing is editable. Frames share one canvas and transform; no per-frame fit or crossfade. Sleep depicts tail variation, not chest/abdomen breathing deformation.",
+      "sequenceSha256": "b93ceb0339711b04512aa3491057c0291921f70b42432593fada008ca23e3bd1"
+    },
+    {
+      "id": "complete",
+      "label": "完成庆祝",
+      "canvas": [
+        1024,
+        1536
+      ],
+      "sharedTransform": {
+        "scale": 1,
+        "anchor": [
+          512,
+          1490
+        ],
+        "translate": [
+          0,
+          0
+        ]
+      },
+      "loop": true,
+      "playback": "finite-local-discrete-keyframes",
+      "fallback": "complete/base",
+      "sequence": [
+        {
+          "frame": "complete/base",
+          "durationMs": 800
+        },
+        {
+          "frame": "complete/enter",
+          "durationMs": 220
+        },
+        {
+          "frame": "complete/base",
+          "durationMs": 180
+        },
+        {
+          "frame": "complete/accent",
+          "durationMs": 300
+        },
+        {
+          "frame": "complete/base",
+          "durationMs": 600
+        }
+      ],
+      "note": "Local variations inside the existing pose only, not a full transition from idle. Timing is editable. Frames share one canvas and transform; no per-frame fit or crossfade. Sleep depicts tail variation, not chest/abdomen breathing deformation.",
+      "sequenceSha256": "4ec271abbe18b1599f31a7239c96fa76b59a57a4c7da7ce7a74f4bab6066f314"
+    },
+    {
+      "id": "alert",
+      "label": "提醒",
+      "canvas": [
+        1024,
+        1536
+      ],
+      "sharedTransform": {
+        "scale": 1,
+        "anchor": [
+          512,
+          1490
+        ],
+        "translate": [
+          0,
+          0
+        ]
+      },
+      "loop": true,
+      "playback": "finite-local-discrete-keyframes",
+      "fallback": "alert/base",
+      "sequence": [
+        {
+          "frame": "alert/base",
+          "durationMs": 800
+        },
+        {
+          "frame": "alert/enter",
+          "durationMs": 220
+        },
+        {
+          "frame": "alert/base",
+          "durationMs": 180
+        },
+        {
+          "frame": "alert/accent",
+          "durationMs": 300
+        },
+        {
+          "frame": "alert/base",
+          "durationMs": 600
+        }
+      ],
+      "note": "Local variations inside the existing pose only, not a full transition from idle. Timing is editable. Frames share one canvas and transform; no per-frame fit or crossfade. Sleep depicts tail variation, not chest/abdomen breathing deformation.",
+      "sequenceSha256": "d4187b5d5217fcb9f70e620dc8dcc702e84ebe983a38ce85c68e04c42f6352dc"
+    },
+    {
+      "id": "sleep",
+      "label": "睡眠",
+      "canvas": [
+        1024,
+        1536
+      ],
+      "sharedTransform": {
+        "scale": 1,
+        "anchor": [
+          512,
+          1490
+        ],
+        "translate": [
+          0,
+          0
+        ]
+      },
+      "loop": true,
+      "playback": "finite-local-discrete-keyframes",
+      "fallback": "sleep/base",
+      "sequence": [
+        {
+          "frame": "sleep/base",
+          "durationMs": 900
+        },
+        {
+          "frame": "sleep/enter",
+          "durationMs": 700
+        },
+        {
+          "frame": "sleep/base",
+          "durationMs": 700
+        },
+        {
+          "frame": "sleep/accent",
+          "durationMs": 700
+        },
+        {
+          "frame": "sleep/base",
+          "durationMs": 900
+        }
+      ],
+      "note": "Local variations inside the existing pose only, not a full transition from idle. Timing is editable. Frames share one canvas and transform; no per-frame fit or crossfade. Sleep depicts tail variation, not chest/abdomen breathing deformation.",
+      "sequenceSha256": "bc1a672f2f3b10f81b300a15288527687b73baa8b5776f33eaf34b9c942e974c"
+    },
+    {
+      "id": "shy",
+      "label": "害羞",
+      "canvas": [
+        1024,
+        1536
+      ],
+      "sharedTransform": {
+        "scale": 1,
+        "anchor": [
+          512,
+          1490
+        ],
+        "translate": [
+          0,
+          0
+        ]
+      },
+      "loop": true,
+      "playback": "finite-local-discrete-keyframes",
+      "fallback": "shy/base",
+      "sequence": [
+        {
+          "frame": "shy/base",
+          "durationMs": 800
+        },
+        {
+          "frame": "shy/enter",
+          "durationMs": 220
+        },
+        {
+          "frame": "shy/base",
+          "durationMs": 180
+        },
+        {
+          "frame": "shy/accent",
+          "durationMs": 300
+        },
+        {
+          "frame": "shy/base",
+          "durationMs": 600
+        }
+      ],
+      "note": "Local variations inside the existing pose only, not a full transition from idle. Timing is editable. Frames share one canvas and transform; no per-frame fit or crossfade. Sleep depicts tail variation, not chest/abdomen breathing deformation.",
+      "sequenceSha256": "efb49f2687d06463a4576cc8456b919de8bd2e082d87ef5539a386ac1a22164b"
+    },
+    {
+      "id": "affection",
+      "label": "亲昵",
+      "canvas": [
+        1024,
+        1536
+      ],
+      "sharedTransform": {
+        "scale": 1,
+        "anchor": [
+          512,
+          1490
+        ],
+        "translate": [
+          0,
+          0
+        ]
+      },
+      "loop": true,
+      "playback": "finite-local-discrete-keyframes",
+      "fallback": "affection/base",
+      "sequence": [
+        {
+          "frame": "affection/base",
+          "durationMs": 800
+        },
+        {
+          "frame": "affection/enter",
+          "durationMs": 220
+        },
+        {
+          "frame": "affection/base",
+          "durationMs": 180
+        },
+        {
+          "frame": "affection/accent",
+          "durationMs": 300
+        },
+        {
+          "frame": "affection/base",
+          "durationMs": 600
+        }
+      ],
+      "note": "Local variations inside the existing pose only, not a full transition from idle. Timing is editable. Frames share one canvas and transform; no per-frame fit or crossfade. Sleep depicts tail variation, not chest/abdomen breathing deformation.",
+      "sequenceSha256": "d84dc987fdf7ff428081f837e3ec6c11e1f62e74ee58e1b252329c329d883b47"
+    },
+    {
+      "id": "stretch",
+      "label": "伸懒腰",
+      "canvas": [
+        1024,
+        1536
+      ],
+      "sharedTransform": {
+        "scale": 1,
+        "anchor": [
+          512,
+          1490
+        ],
+        "translate": [
+          0,
+          0
+        ]
+      },
+      "loop": true,
+      "playback": "finite-local-discrete-keyframes",
+      "fallback": "stretch/base",
+      "sequence": [
+        {
+          "frame": "stretch/base",
+          "durationMs": 800
+        },
+        {
+          "frame": "stretch/enter",
+          "durationMs": 220
+        },
+        {
+          "frame": "stretch/base",
+          "durationMs": 180
+        },
+        {
+          "frame": "stretch/accent",
+          "durationMs": 300
+        },
+        {
+          "frame": "stretch/base",
+          "durationMs": 600
+        }
+      ],
+      "note": "Local variations inside the existing pose only, not a full transition from idle. Timing is editable. Frames share one canvas and transform; no per-frame fit or crossfade. Sleep depicts tail variation, not chest/abdomen breathing deformation.",
+      "sequenceSha256": "656f956ae359811255c4adc2e0a8f2378906d666bbe981ac671c173044abb6e3"
+    },
+    {
+      "id": "wink",
+      "label": "眨单眼",
+      "canvas": [
+        1024,
+        1536
+      ],
+      "sharedTransform": {
+        "scale": 1,
+        "anchor": [
+          512,
+          1490
+        ],
+        "translate": [
+          0,
+          0
+        ]
+      },
+      "loop": true,
+      "playback": "finite-local-discrete-keyframes",
+      "fallback": "wink/base",
+      "sequence": [
+        {
+          "frame": "wink/base",
+          "durationMs": 800
+        },
+        {
+          "frame": "wink/enter",
+          "durationMs": 220
+        },
+        {
+          "frame": "wink/base",
+          "durationMs": 180
+        },
+        {
+          "frame": "wink/accent",
+          "durationMs": 300
+        },
+        {
+          "frame": "wink/base",
+          "durationMs": 600
+        }
+      ],
+      "note": "Local variations inside the existing pose only, not a full transition from idle. Timing is editable. Frames share one canvas and transform; no per-frame fit or crossfade. Sleep depicts tail variation, not chest/abdomen breathing deformation.",
+      "sequenceSha256": "d21eaaa2294dffe6647c4dd4af372ee092ba34ea504c25967ff83d06a8d5401f"
+    },
+    {
+      "id": "happy",
+      "label": "开心",
+      "canvas": [
+        1024,
+        1536
+      ],
+      "sharedTransform": {
+        "scale": 1,
+        "anchor": [
+          512,
+          1490
+        ],
+        "translate": [
+          0,
+          0
+        ]
+      },
+      "loop": true,
+      "playback": "finite-local-discrete-keyframes",
+      "fallback": "happy/base",
+      "sequence": [
+        {
+          "frame": "happy/base",
+          "durationMs": 800
+        },
+        {
+          "frame": "happy/enter",
+          "durationMs": 220
+        },
+        {
+          "frame": "happy/base",
+          "durationMs": 180
+        },
+        {
+          "frame": "happy/accent",
+          "durationMs": 300
+        },
+        {
+          "frame": "happy/base",
+          "durationMs": 600
+        }
+      ],
+      "note": "Local variations inside the existing pose only, not a full transition from idle. Timing is editable. Frames share one canvas and transform; no per-frame fit or crossfade. Sleep depicts tail variation, not chest/abdomen breathing deformation.",
+      "sequenceSha256": "8b309c399e32ed7f13179a2dd96b402337c4a686725134b5d6cf7874c0844369"
+    },
+    {
+      "id": "bow",
+      "label": "鞠躬",
+      "canvas": [
+        1024,
+        1536
+      ],
+      "sharedTransform": {
+        "scale": 1,
+        "anchor": [
+          512,
+          1490
+        ],
+        "translate": [
+          0,
+          0
+        ]
+      },
+      "loop": true,
+      "playback": "finite-local-discrete-keyframes",
+      "fallback": "bow/base",
+      "sequence": [
+        {
+          "frame": "bow/base",
+          "durationMs": 800
+        },
+        {
+          "frame": "bow/enter",
+          "durationMs": 220
+        },
+        {
+          "frame": "bow/base",
+          "durationMs": 180
+        },
+        {
+          "frame": "bow/accent",
+          "durationMs": 300
+        },
+        {
+          "frame": "bow/base",
+          "durationMs": 600
+        }
+      ],
+      "note": "Local variations inside the existing pose only, not a full transition from idle. Timing is editable. Frames share one canvas and transform; no per-frame fit or crossfade. Sleep depicts tail variation, not chest/abdomen breathing deformation.",
+      "sequenceSha256": "3f82735ee232fe986e0fd5968942c8cff73d6a9ad8d459200c37a1fba046ee8a"
+    },
+    {
+      "id": "hug-tail",
+      "label": "抱尾巴",
+      "canvas": [
+        1024,
+        1536
+      ],
+      "sharedTransform": {
+        "scale": 1,
+        "anchor": [
+          512,
+          1490
+        ],
+        "translate": [
+          0,
+          0
+        ]
+      },
+      "loop": true,
+      "playback": "finite-local-discrete-keyframes",
+      "fallback": "hug-tail/base",
+      "sequence": [
+        {
+          "frame": "hug-tail/base",
+          "durationMs": 800
+        },
+        {
+          "frame": "hug-tail/enter",
+          "durationMs": 220
+        },
+        {
+          "frame": "hug-tail/base",
+          "durationMs": 180
+        },
+        {
+          "frame": "hug-tail/accent",
+          "durationMs": 300
+        },
+        {
+          "frame": "hug-tail/base",
+          "durationMs": 600
+        }
+      ],
+      "note": "Local variations inside the existing pose only, not a full transition from idle. Timing is editable. Frames share one canvas and transform; no per-frame fit or crossfade. Sleep depicts tail variation, not chest/abdomen breathing deformation.",
+      "sequenceSha256": "5a02fe9116e3bd8a05aa5206e2d1e5480f4049d8f1976b4e97d66c6315bc0bd2"
+    }
+  ],
+  "layerManifest": "layers/layer-manifest.json"
+}

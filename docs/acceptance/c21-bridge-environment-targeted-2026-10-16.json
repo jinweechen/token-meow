@@ -1,0 +1,394 @@
+{
+  "schema": "c21-bridge-environment-targeted-v1",
+  "createdAtUtc": "2026-10-16T05:02:21.718062+00:00",
+  "status": "current-source-targeted-tests-passed-compiler-artifact-cleanup-not-natural",
+  "scope": "Independent final47BE/DF7 source validation;32 bridge+14 desktop named tests.125 listed is not125 executed;46 named results include a no-role fixture helper and are not46 product Native scenarios.",
+  "sourceBinding": {
+    "inputCount": 30,
+    "changedFromPassedC21Count": 1,
+    "unchangedCount": 29,
+    "changedFromPassedC21": [
+      "src-tauri/src/account_bridge.rs"
+    ],
+    "sourceFiles": [
+      {
+        "path": "src-tauri/src/account_bridge.rs",
+        "bytes": 116924,
+        "sha256": "47BE23199A78F0B8D141A7BB4B7BC625DF93927951AC27D0DE14748CDE778E1E"
+      },
+      {
+        "path": "src-tauri/src/desktop.rs",
+        "bytes": 119454,
+        "sha256": "DF7AC920215B51298F5FF44CF9D8C82315ADA3879AC51CF811A4B6EBF37E4B8F"
+      }
+    ],
+    "baselineSha256": "C8293305BBEFDFCF367E528A01DAFEAB455AF6D9340F02FD0C040431C68F4108",
+    "postformatInputsSha256": "6BF12871C20D92A03C78483AD8A3395B730222F00457A93DE7EE9FD077300215",
+    "rootSourceReadySha256": "5CFA2CAD74D648DF47F51EA8EB94BE81627DD322BBC4CD4D49B1F193A9669A01",
+    "formatterActor": "bridge_probe",
+    "formatterExitCode": 0,
+    "rootReviewedFinalPatchAndHashes": true,
+    "smallCurrentInputsChecked": true
+  },
+  "environmentChange": {
+    "deniedInheritedKeys": [
+      "CODEX_HOME",
+      "CODEX_ACCESS_TOKEN",
+      "CODEX_API_KEY",
+      "CODEX_APP_TOOLS_PIPE_PATH",
+      "CODEX_INTERNAL_ORIGINATOR_OVERRIDE",
+      "CODEX_THREAD_ID",
+      "CODEX_SESSION_ID",
+      "CODEX_TOOL_CALL_ID",
+      "CODEX_TASK_WORKSPACE_VERIFYING_IDENTITY"
+    ],
+    "comparison": "ASCII case-insensitive, inherited entries only",
+    "overrideContract": "Explicit selected CODEX_HOME and existing fixture overrides appended after inherited filtering; generic override de-duplication retained",
+    "preserved": "Other variables including CODEX_PERMISSION_PROFILE, sandbox/security/unknown CODEX keys, CODEX_CA_CERTIFICATE, ordinary Windows/home/temp/PATH, proxy and certificate variables remain inherited unless explicitly overridden",
+    "testsUseOnlySyntheticTables": true,
+    "globalEnvironmentMutatedByNewTests": false,
+    "scope": "Only these9 inherited parent credential/task keys are excluded. Security/unknown CODEX/proxy/certificate and ordinary HOME/Windows variables remain. Explicit selected CODEX_HOME and fixture overrides preserve precedence. Not all-provider authentication isolation,96MiB causality or memory-reduction proof."
+  },
+  "execution": {
+    "stages": {
+      "compiler": {
+        "ownershipId": "8530ad32-af34-42cd-ae74-ca36244337c5",
+        "processId": 64796,
+        "elapsedSeconds": 64.9623653003946,
+        "status": "compiled-root-zero-owned-descendants-cleaned",
+        "timeoutSeconds": 180,
+        "cleanupTimeoutSeconds": 5,
+        "naturalWholeJobCompletion": false,
+        "cleanupVerified": true,
+        "errors": [],
+        "root": {
+          "creationFileTimeDecimal": "134366002282150084",
+          "exitFileTimeDecimal": "134366002931718017",
+          "exitCode": 0,
+          "waitSignaled": true,
+          "exited": true
+        },
+        "job": {
+          "totalProcesses": 10,
+          "activeProcesses": 0,
+          "totalTerminatedProcesses": 0
+        },
+        "sawRootExitedWithActiveDescendants": true,
+        "rootExitedWithActiveDescendantsObservation": {
+          "elapsedSeconds": 64.96207460016012,
+          "root": {
+            "creationFileTimeDecimal": "134366002282150084",
+            "exitFileTimeDecimal": "134366002931718017",
+            "exitCode": 0,
+            "waitSignaled": true,
+            "exited": true
+          },
+          "job": {
+            "totalProcesses": 10,
+            "activeProcesses": 1,
+            "totalTerminatedProcesses": 0
+          }
+        }
+      },
+      "harness-list": {
+        "ownershipId": "92f4f822-34c0-4858-9d17-1de87a670512",
+        "processId": 16580,
+        "elapsedSeconds": 0.5322803002782166,
+        "status": "completed",
+        "timeoutSeconds": 30,
+        "cleanupTimeoutSeconds": 5,
+        "naturalWholeJobCompletion": true,
+        "cleanupVerified": true,
+        "errors": [],
+        "root": {
+          "creationFileTimeDecimal": "134366003037990449",
+          "exitFileTimeDecimal": "134366003040020200",
+          "exitCode": 0,
+          "waitSignaled": true,
+          "exited": true
+        },
+        "job": {
+          "totalProcesses": 2,
+          "activeProcesses": 0,
+          "totalTerminatedProcesses": 0
+        },
+        "sawRootExitedWithActiveDescendants": false,
+        "rootExitedWithActiveDescendantsObservation": null
+      },
+      "bridge-tests": {
+        "ownershipId": "5490bb2f-9b55-4024-b850-09fe3e358a73",
+        "processId": 65468,
+        "elapsedSeconds": 0.33746449975296855,
+        "status": "completed",
+        "timeoutSeconds": 45,
+        "cleanupTimeoutSeconds": 5,
+        "naturalWholeJobCompletion": true,
+        "cleanupVerified": true,
+        "errors": [],
+        "root": {
+          "creationFileTimeDecimal": "134366003040543546",
+          "exitFileTimeDecimal": "134366003043725509",
+          "exitCode": 0,
+          "waitSignaled": true,
+          "exited": true
+        },
+        "job": {
+          "totalProcesses": 14,
+          "activeProcesses": 0,
+          "totalTerminatedProcesses": 0
+        },
+        "sawRootExitedWithActiveDescendants": false,
+        "rootExitedWithActiveDescendantsObservation": null
+      },
+      "desktop-tests": {
+        "ownershipId": "c0d89bc0-7b61-4767-916e-59b904c4668b",
+        "processId": 52988,
+        "elapsedSeconds": 0.05842730030417442,
+        "status": "completed",
+        "timeoutSeconds": 45,
+        "cleanupTimeoutSeconds": 5,
+        "naturalWholeJobCompletion": true,
+        "cleanupVerified": true,
+        "errors": [],
+        "root": {
+          "creationFileTimeDecimal": "134366003044318332",
+          "exitFileTimeDecimal": "134366003044632650",
+          "exitCode": 0,
+          "waitSignaled": true,
+          "exited": true
+        },
+        "job": {
+          "totalProcesses": 2,
+          "activeProcesses": 0,
+          "totalTerminatedProcesses": 0
+        },
+        "sawRootExitedWithActiveDescendants": false,
+        "rootExitedWithActiveDescendantsObservation": null
+      }
+    },
+    "compilerCleanupInterpretation": "Compiler root exited0 while its own Job still had one active member; valid artifact policy performed owned cleanup to Job0. naturalWholeJobCompletion=false is retained; no residual image/role is inferred. Other three stages completed naturally.",
+    "ownerTerminalReportedByRoot": {
+      "sessionId": 91567,
+      "exitCode": 0,
+      "basis": "Root reported terminal completion; receipt author did not poll this session."
+    }
+  },
+  "harness": {
+    "sha256": "7E3A9E4A36F4B231F337A3458D004EFA90BAE0CFF3B1095DE231E516034198F7",
+    "bytes": 6574592,
+    "freshCargoArtifact": true,
+    "cargoExitCode": 0,
+    "sameHandleCopyAndX64PeVerified": true,
+    "guardHeldAcrossListAndBothDomains": true,
+    "guardClosed": true,
+    "oldCacheSha256": "79FC8197DFF4D65276AE3B6E916EEE15174BF45FC984D3B5C17BDD9E90048DD2",
+    "oldCacheBytes": 6551040,
+    "largeBinaryRehashedByReceiptAuthor": false
+  },
+  "tests": {
+    "listed": 125,
+    "priorListed": 123,
+    "added": 2,
+    "executedNamedResults": 46,
+    "bridgePassed": 32,
+    "desktopPassed": 14,
+    "newEnvironmentTests": [
+      "account_bridge::tests::bridge_environment_applies_selected_home_and_fixture_overrides_exactly",
+      "account_bridge::tests::bridge_environment_strips_only_listed_inherited_auth_and_task_keys"
+    ],
+    "previousFourResourceTestsRerunInCurrentDomains": [
+      "account_bridge::tests::resource_stop_observation_is_authoritative_without_reads_or_fact_changes",
+      "desktop::tests::resource_stop_sync_after_clear_or_rebind_never_restores_old_facts",
+      "desktop::tests::resource_stop_sync_preserves_current_facts_and_directory_success_once",
+      "desktop::tests::resource_stop_sync_rejects_wrong_binding_generation_disabled_and_unsupported"
+    ],
+    "fullNamesAndStatusesReference": "output/implementation/c21-env-validation-plan-81c70182369441cf92bfb7a10fe4aee0/validation-result.json",
+    "exactListAndSelectionReference": "output/implementation/c21-env-validation-plan-81c70182369441cf92bfb7a10fe4aee0/actual-test-selection.json",
+    "helper": "account_bridge::tests::owned_bridge_test_child returns directly without synthetic role; counted once among32,not an additional Native product scenario",
+    "wholeCratePassed": false
+  },
+  "retained": {
+    "core": {
+      "receipt": "docs/acceptance/c19-retention-v6-core-composite-2026-10-16.json",
+      "sha256": "361938F8E382BD8C4BA2B2AFF9E49CC6B1948EAACAA609C07EBC93A8F1699E49",
+      "distinctCases": 79,
+      "historicalExecutions": 80,
+      "currentExecutionCount": 0,
+      "firstFailureAndOnlyCorrectedExactRerunPreserved": true
+    },
+    "previousResourceStateSync": {
+      "receipt": "docs/acceptance/c21-resource-state-sync-targeted-2026-10-16.json",
+      "sha256": "815BE51E11F76A0BA364A1FAA586DBF8F2068D566817316C31930BC7C9718F08",
+      "bridgeSourceSha256": "6019E5E6C56E4E4F8B8293778158A215A48375F46C8BB13AA750074BEC26F39B",
+      "scope": "Original30+14/123-list source6019 record unchanged,not rebound to final47BE. Its4 authored resource tests were rerun in the current32+14 domains."
+    },
+    "currentReviewableProductCandidate": "C20R1",
+    "C20R1BuildAndNativeReboundToC21": false
+  },
+  "qualification": {
+    "targetedEnvironmentAndResourceRegressionPassed": true,
+    "core79Rerun": false,
+    "C21AppNsisOrCliBuiltByThisRun": false,
+    "AppGuiProbeOrRealCodexAccountModelExecuted": false,
+    "nativeStatePropagationLatencyMeasured": false,
+    "allProviderEnvironmentAuthenticationIsolated": false,
+    "resourceWarningRootCauseProven": false,
+    "realAccountDirectoryRecoveryProven": false,
+    "memoryReductionProven": false,
+    "resourceQualified": false,
+    "installerQualified": false,
+    "M4Passed": false,
+    "goalComplete": false
+  },
+  "limitations": [
+    "Current environment fix closes the explicit inherited-key boundary; it does not establish why earlier96MiB warnings occurred.",
+    "Existing idle worker cadence is code behavior,not measured Native propagation latency.",
+    "Old source6019 receipt,earlier C20R1/C19 product and failed evidence retain their original attribution.",
+    "This is a test harness compilation and selected test execution,not a C21 product build or full125-case run."
+  ],
+  "finalization": {
+    "sourceOrFrozenNineteenFilesModified": false,
+    "oldEvidenceModified": false,
+    "threeMarkdownWrites": 0,
+    "appProbeBuildTestOrUiRun": false,
+    "sessionPolled": false,
+    "largeBinaryReadOrRehashed": false
+  },
+  "references": [
+    {
+      "path": "output/implementation/c21-env-validation-plan-81c70182369441cf92bfb7a10fe4aee0/plan-manifest.json",
+      "bytes": 3655,
+      "sha256": "C553DD1D61EA7EC05DAB8402D261648B949A6D91112ADEF200F438F5C14FD7FF"
+    },
+    {
+      "path": "output/implementation/c21-env-validation-plan-81c70182369441cf92bfb7a10fe4aee0/execution-release.json",
+      "bytes": 797,
+      "sha256": "E7DEFC28EC9CBB79DEC0EA79F6AC06A6C898065F48644F55BAFA6FA6D0D19F22"
+    },
+    {
+      "path": "output/implementation/c21-env-validation-plan-81c70182369441cf92bfb7a10fe4aee0/commands.json",
+      "bytes": 949,
+      "sha256": "7F07BF0C466E68C789C825A6E75C4A4A331C210361F5505BE75496A620C3FBA1"
+    },
+    {
+      "path": "output/implementation/c21-env-validation-plan-81c70182369441cf92bfb7a10fe4aee0/inputs.baseline.c21.json",
+      "bytes": 5263,
+      "sha256": "C8293305BBEFDFCF367E528A01DAFEAB455AF6D9340F02FD0C040431C68F4108"
+    },
+    {
+      "path": "output/implementation/c21-env-validation-plan-81c70182369441cf92bfb7a10fe4aee0/inputs.postformat.frozen.json",
+      "bytes": 5273,
+      "sha256": "6BF12871C20D92A03C78483AD8A3395B730222F00457A93DE7EE9FD077300215"
+    },
+    {
+      "path": "output/implementation/c21-env-validation-plan-81c70182369441cf92bfb7a10fe4aee0/root-source-ready.json",
+      "bytes": 2152,
+      "sha256": "5CFA2CAD74D648DF47F51EA8EB94BE81627DD322BBC4CD4D49B1F193A9669A01"
+    },
+    {
+      "path": "output/implementation/c21-env-validation-plan-81c70182369441cf92bfb7a10fe4aee0/compiler.execution.json",
+      "bytes": 1812,
+      "sha256": "344634EAD74FF4BBF60E429DD18F12D62A61DB7428B02BFE9F4F68D730F5D1EE"
+    },
+    {
+      "path": "output/implementation/c21-env-validation-plan-81c70182369441cf92bfb7a10fe4aee0/compile-wrapper-result.json",
+      "bytes": 2459,
+      "sha256": "A84645F4AA28D05F3FE712549ABB16B67235E95F727439B69EDC8DDE64CAB101"
+    },
+    {
+      "path": "output/implementation/c21-env-validation-plan-81c70182369441cf92bfb7a10fe4aee0/compiled-harness.frozen.json",
+      "bytes": 513,
+      "sha256": "8FE7A18B0A99CB90ACF344DBB805D97814AC6D1B8E8A1F552482AC9737549270"
+    },
+    {
+      "path": "output/implementation/c21-env-validation-plan-81c70182369441cf92bfb7a10fe4aee0/cargo-return.json",
+      "bytes": 438,
+      "sha256": "22C4C862DD4A52731504BFECFAEC49428D0FE95F7E7ACD3E4619389999C5413E"
+    },
+    {
+      "path": "output/implementation/c21-env-validation-plan-81c70182369441cf92bfb7a10fe4aee0/cargo.stdout.jsonl",
+      "bytes": 388573,
+      "sha256": "8C74E4D88A8E5B774E2CE4E4A81F3F751D5C2F9C4E1EE1FB59AD9678ACB63439"
+    },
+    {
+      "path": "output/implementation/c21-env-validation-plan-81c70182369441cf92bfb7a10fe4aee0/cargo.stderr.log",
+      "bytes": 124,
+      "sha256": "2D14527529E7715A7D517AD5E59851E66571CA89F5302D2DDED3C17B3AB473D7"
+    },
+    {
+      "path": "output/implementation/c21-env-validation-plan-81c70182369441cf92bfb7a10fe4aee0/harness-list.execution.json",
+      "bytes": 1329,
+      "sha256": "23876246AB80D7EBE609F87434E868CEDBE8D5E44A6C9CEB424F566F5420E2A6"
+    },
+    {
+      "path": "output/implementation/c21-env-validation-plan-81c70182369441cf92bfb7a10fe4aee0/harness-list.stdout.log",
+      "bytes": 12203,
+      "sha256": "1CC7DA4763983D6480560C8EDE8070B5C64DF17F29D8D3B6768F29046F2ED651"
+    },
+    {
+      "path": "output/implementation/c21-env-validation-plan-81c70182369441cf92bfb7a10fe4aee0/bridge-tests.execution.json",
+      "bytes": 1372,
+      "sha256": "C9C1A5FCD2AE77044263C3360ACB2F470C8D9C5D1722FFF4DEBA0BDCE60A74D6"
+    },
+    {
+      "path": "output/implementation/c21-env-validation-plan-81c70182369441cf92bfb7a10fe4aee0/bridge-tests.stdout.log",
+      "bytes": 3264,
+      "sha256": "3C619A334230776DDDED148B87CF49B099AB866A0556FDE9FCB030F13D73167F"
+    },
+    {
+      "path": "output/implementation/c21-env-validation-plan-81c70182369441cf92bfb7a10fe4aee0/desktop-tests.execution.json",
+      "bytes": 1364,
+      "sha256": "D58AF3680A8041403220719BD711FD8778D17CD4BA004B0CBD5E38E97D3296F6"
+    },
+    {
+      "path": "output/implementation/c21-env-validation-plan-81c70182369441cf92bfb7a10fe4aee0/desktop-tests.stdout.log",
+      "bytes": 1426,
+      "sha256": "6CBF0891C1AA1A8F8DCF16D639AEADF08B352806963B4CE22B829B133548B8A7"
+    },
+    {
+      "path": "output/implementation/c21-env-validation-plan-81c70182369441cf92bfb7a10fe4aee0/actual-test-selection.json",
+      "bytes": 24946,
+      "sha256": "CDF09C99A1CF6F40D5CE90558E91AF51923ABA73C74999572FEBA4863EA48ED5"
+    },
+    {
+      "path": "output/implementation/c21-env-validation-plan-81c70182369441cf92bfb7a10fe4aee0/validation-result.json",
+      "bytes": 7499,
+      "sha256": "E3B0560D166F05B56043931229860F8F3DF757D9FB7DFBEDA177AEE59BD96349"
+    },
+    {
+      "path": "output/implementation/c21-env-validation-plan-81c70182369441cf92bfb7a10fe4aee0/old-cache-harness.json",
+      "bytes": 549,
+      "sha256": "CDEA08EE85502D9063107EAE3A4E130810B639F77DA246C70BA04B74156BA836"
+    },
+    {
+      "path": "output/implementation/c21-bridge-child-environment-b7cbb695685644e4b77d241cb7474a13/manifest.json",
+      "bytes": 2821,
+      "sha256": "0426D8EF94E960E462E0272149108FA84BAF6D37886FB5CA253F2D3EEF0C7096"
+    },
+    {
+      "path": "output/implementation/c21-bridge-child-environment-b7cbb695685644e4b77d241cb7474a13/change.patch",
+      "bytes": 6568,
+      "sha256": "4091FE57899DD593B715ABA5C4AF52EE5DC685B043353A95F2A22693841CBBA4"
+    },
+    {
+      "path": "docs/acceptance/c21-resource-state-sync-targeted-2026-10-16.json",
+      "bytes": 44751,
+      "sha256": "815BE51E11F76A0BA364A1FAA586DBF8F2068D566817316C31930BC7C9718F08"
+    },
+    {
+      "path": "docs/acceptance/c19-retention-v6-core-composite-2026-10-16.json",
+      "bytes": 35334,
+      "sha256": "361938F8E382BD8C4BA2B2AFF9E49CC6B1948EAACAA609C07EBC93A8F1699E49"
+    },
+    {
+      "path": "docs/acceptance/c20r1-native-care-scoped-2026-10-16.json",
+      "bytes": 31506,
+      "sha256": "BA501BA9BB7313145BFB326A3AFACF17B0170F0564C3F02FD457EE26F6840D9E"
+    },
+    {
+      "path": "output/build-candidates/c20r1-bridge-diagnostic-20261016/build-receipt.json",
+      "bytes": 42322,
+      "sha256": "199045156A3F5B62A72FE990EF1D869E0E7F33A2FE802C4C56E302611641ABB5"
+    }
+  ]
+}

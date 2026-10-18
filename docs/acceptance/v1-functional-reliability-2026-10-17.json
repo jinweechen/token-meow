@@ -1,0 +1,144 @@
+{
+  "status": "SCOPED_V1_FUNCTIONAL_REPAIRS_VALIDATED_NATIVE_NOT_RUN",
+  "createdAtUtc": "2026-10-17T02:36:34.162450+00:00",
+  "requirements": {
+    "F02": "Normal input and cache-write response coverage rendered separately from input-weighted cache coverage; unknown/zero/partial/full remain distinct.",
+    "F03_F04": "Scoped turn/tool/inbox facts retain session navigation without usage; time and TTFT preserved, source/model/provider/root/project/agent intersections retained. Session token total is null without trusted usage and zero for a recorded zero response.",
+    "F09": "Explicit tool results survive weak outputs/begins; out-of-order results refine unknown; contradictory explicit outcomes preserve a bounded evidence pair and remain unknown. No parameter/output bodies stored.",
+    "F12": "Snapshot/CSV/dashboard use one strict calendar parser. Domain changes revoke accepted/in-flight UI state; pending local domain mutations block new reads, stale successes/errors cannot restore facts."
+  },
+  "core": {
+    "negative-c30": {
+      "result": {
+        "path": "output/implementation/v1-tool-session-fixture-check-20261017-r3/negative-c30/result.json",
+        "sha256": "6CF97860D88B8D0B2847C1775E77A9496F834839C484EAF3EBAA5BFA336C5A24"
+      },
+      "testsPassed": 8,
+      "testsFailed": 9,
+      "jobs": {
+        "compile": {
+          "status": "compiled-root-zero-owned-descendants-cleaned",
+          "naturalWholeJobCompletion": false,
+          "elapsedSeconds": 197.2742203003727
+        },
+        "tests": {
+          "status": "nonzero-exit",
+          "naturalWholeJobCompletion": true,
+          "elapsedSeconds": 25.58003079984337
+        }
+      },
+      "guards": {
+        "sourceCount": 840,
+        "guardedCount": 848,
+        "postChecksPassed": true,
+        "allHandlesClosed": true,
+        "errors": []
+      }
+    },
+    "positive-fixed": {
+      "result": {
+        "path": "output/implementation/v1-tool-session-fixture-check-20261017-r3/positive-fixed/result.json",
+        "sha256": "1EA41B900D3E8ED4367FD1400B43A97B6F514BA4D7FD61E6FF6B53E92B899250"
+      },
+      "testsPassed": 17,
+      "testsFailed": 0,
+      "jobs": {
+        "compile": {
+          "status": "compiled-root-zero-owned-descendants-cleaned",
+          "naturalWholeJobCompletion": false,
+          "elapsedSeconds": 14.820357999764383
+        },
+        "tests": {
+          "status": "completed",
+          "naturalWholeJobCompletion": true,
+          "elapsedSeconds": 19.604737399611622
+        }
+      },
+      "guards": {
+        "sourceCount": 840,
+        "guardedCount": 848,
+        "postChecksPassed": true,
+        "allHandlesClosed": true,
+        "errors": []
+      }
+    }
+  },
+  "rustProjection": {
+    "currentMatchingFiles": 42,
+    "wholeTestSuiteRun": false,
+    "context": "840 frozen inputs per phase: retained C30 context with two added test modules; positive replaces three existing Core modules, five overlay files total. C30 frontend/dist/packaged docs are intentionally historical; no App build claim."
+  },
+  "frontend": {
+    "primary": {
+      "path": "output/implementation/query-domain-invalidation-20261017/result.json",
+      "sha256": "3C142B19E136385A67792C408B6A351EDCA88315CAA82AB249D2BFBC88C3080D"
+    },
+    "continuation": {
+      "path": "output/implementation/session-unknown-tokens-20261017/result.json",
+      "sha256": "0D36DBA2C301E5C6AF85233239D7082B6CF65875E29BBBF1A7072D8BE4D37E84"
+    },
+    "primaryTests": 21,
+    "continuationTests": 11,
+    "totalExecutions": 32,
+    "distinctTestNames": 26,
+    "overlap": "Six existing usage tests repeated; not 32 distinct tests or 26 freshly rerun tests on final source.",
+    "typechecksPassed": 2,
+    "browserGroupsByRun": [
+      9,
+      3
+    ],
+    "sourceBoundary": "Primary source matches 133/136 current files; continuation matches 136/136. Only Panels/contracts/demo changed between them. Browser groups are separate synthetic IPC/props runs, not one continuous Native run."
+  },
+  "scopeAudit": {
+    "path": "output/implementation/v1-functional-fix-scope-audit-20261017/audit.json",
+    "sha256": "78A826D62B76C8FD36EC1D5E3605DFAF04365F28D33B9506FFF3195E9B1772F8"
+  },
+  "contract": {
+    "path": "docs/contracts/v0.3-implementation.md",
+    "sha256": "98C2BF3E6C4272ABDAA1BAF2A72C998B464E7CAFEBA74A9481A116177E964F7F"
+  },
+  "rootVisuallyReviewed": [
+    {
+      "path": "output/playwright/query-domain-invalidation-20261017/coverage-partial-expanded.png",
+      "sha256": "0E55FFADE46FA0ED52CD47E302891BA55980CDE8E8FE8E37FB70F6CEBE4FEE3A"
+    },
+    {
+      "path": "output/playwright/query-domain-invalidation-20261017/current-after-domain-reset.png",
+      "sha256": "1B0F06B096B923D095F485D643A65BAB91CC43F9292CE484BADF0617A72EF44D"
+    },
+    {
+      "path": "output/playwright/session-unknown-tokens-20261017/session-null-and-zero.png",
+      "sha256": "2BA92AA5ED7CCFA391A3C09D28AD6E498AEECA07BCCD44C2E5BB376E03B8C1CC"
+    },
+    {
+      "path": "output/playwright/session-unknown-tokens-20261017/unknown-session-detail.png",
+      "sha256": "632864844F396EC2BD8BA97230172B73E48ADE9BFC1E53493C7EF1B484EC844C"
+    }
+  ],
+  "preservedFirstFailures": [
+    "Old-algorithm 9 expected failures and their original stdout/exit101 remain in negative-c30.",
+    "Initial frontend confirmation-dialog obstruction retained in query-domain-invalidation first-failure.json; corrected harness did not change production code.",
+    "Earlier frozen snapshots superseded before execution were retained; no compiler or test ran on those superseded snapshots."
+  ],
+  "historicalToolDataLimit": "No parser-version migration or automatic cursor replay. Previously downgraded rows need later explicit evidence, or explicit import that actually re-encounters retained evidence; rereading does not promise to resolve contradictory outcomes.",
+  "c30ArchivedProductsFreshlyVerifiedUnchanged": {
+    "token-meow.exe": "7B9B5FF5777E5D0E50BAF2179DBADBAB4A8628870284CD490DE354C258EE717E",
+    "TokenMeow_0.1.0_x64-setup.exe": "5731124416DD1C16F80A8741930CD0C08C6133B918AC0197D23284BBD24F991C",
+    "ledger_audit.exe": "E907E66432580289CA6A3C55958CD177DC64A4D4B2CA4AFCC3F9A85050DB3F9C"
+  },
+  "newAppOrInstallerBuilt": false,
+  "applicationExecuted": false,
+  "installerExecuted": false,
+  "productionCliExecuted": false,
+  "realCodexOrModelExecuted": false,
+  "NativeAccepted": false,
+  "M4Complete": false,
+  "goalComplete": false,
+  "remaining": [
+    "F08 midnight first-batch live budget alert loss identified by read-only audit; design and regression verification pending.",
+    "Approved walking gait, actual movement/input-stop and monitor/DPI acceptance.",
+    "Current-package physical desktop menu closure, automatic care/play, real launcher picker/start and Windows continuation.",
+    "Installer/upgrade/uninstall, performance and full V1/M4 acceptance.",
+    "File-drop/window-edge play not supplied; extension priority remains distinct from V1 mandatory scope."
+  ]
+}

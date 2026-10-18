@@ -1,0 +1,11 @@
+{
+  "tool": "built-in image_gen.imagegen",
+  "prompt": "../prompts/turnaround-side-hair-bow-v3.txt",
+  "input": "turnaround-rear-accessories-v2.png",
+  "output": "turnaround-side-hair-bow-v3.png",
+  "originalGeneratedPath": "C:/Users/Administrator/.codex/generated_images/01a148a3-42fd-7200-9a55-f8a2b93cf502/exec-e34a5de8-0059-4ccd-8d9f-bf05e31b7983.png",
+  "transparentBackgroundRequested": false,
+  "scope": "side hair bow orientation; corrected rear decorations retained",
+  "reviewStatus": "pending-static-accessory-review",
+  "remaining": ["arm anatomy and cross-view proportions need review", "not approved animation master or complete cycle"]
+}

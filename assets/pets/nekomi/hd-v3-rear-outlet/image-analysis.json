@@ -1,0 +1,693 @@
+{
+  "format": "nekomi-hd-tail-image-analysis-v1",
+  "analyzedAtUtc": "2026-10-16T12:23:18.401259+00:00",
+  "inputFolder": "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v3-rear-outlet",
+  "expectedCount": 12,
+  "actualCount": 10,
+  "expectedPoses": [
+    "idle",
+    "active",
+    "complete",
+    "alert",
+    "sleep",
+    "shy",
+    "affection",
+    "stretch",
+    "wink",
+    "happy",
+    "bow",
+    "hug-tail"
+  ],
+  "missing": [
+    "shy",
+    "hug-tail"
+  ],
+  "unexpectedTopLevelPngFiles": [],
+  "errors": [],
+  "complete": false,
+  "allPresentAssetsPassTechnicalChecks": true,
+  "failedTechnicalPoses": [],
+  "packPassesTechnicalChecks": false,
+  "analysisOnly": "PNG bytes are read and decoded without resizing, recoloring or saving pixels. Only this JSON report is written. alpha>=16 bounds describe the practical visible silhouette; alpha>=1/128/250 bounds are also recorded. Bounds are left, top, right-exclusive, bottom-exclusive. No visual-anatomy or provenance acceptance is inferred from numerical checks.",
+  "provenanceRecordsPresent": [
+    "generation-cute.json",
+    "generation-root.json"
+  ],
+  "provenanceChecksStillRequired": [
+    "Map each of the twelve expected pose names to exactly one selected generated source and its exact saved prompt.",
+    "Compare the selected source SHA256, recorded SHA256 and current PNG SHA256; historical rejected attempts must remain distinguished.",
+    "Verify saved prompt paths and hashes. Normal standing edits use hd-v1/<pose>.png as input1 and accepted hd-v3-rear-outlet/idle.png as tail-only input2.",
+    "For idle and the separate hug-tail redesign, retain their actual reference chain and selected attempt instead of inventing the two-input standing-edit history.",
+    "Match final browser review evidence to the current PNG hash and record light/dark compositing, tail connection, preserved gesture and complete margins."
+  ],
+  "assets": [
+    {
+      "pose": "idle",
+      "file": "idle.png",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "imageFormat": "PNG",
+      "bytes": 1898074,
+      "sha256": "2d722617b4f36772f3785b5bb206c79f61631ed4c99847ef76f51f915607d40e",
+      "alphaBounds": {
+        "1": [
+          73,
+          8,
+          994,
+          1499
+        ],
+        "16": [
+          93,
+          10,
+          990,
+          1449
+        ],
+        "128": [
+          93,
+          11,
+          989,
+          1448
+        ],
+        "250": [
+          96,
+          14,
+          986,
+          1447
+        ]
+      },
+      "visibleCharacterHeight": 1439,
+      "visibleMargins": {
+        "left": 93,
+        "top": 10,
+        "right": 34,
+        "bottom": 87
+      },
+      "maxEdgeAlpha": 0,
+      "maxEdgeAlphaBySide": {
+        "top": 0,
+        "bottom": 0,
+        "left": 0,
+        "right": 0
+      },
+      "edgePixelsAlpha16": 0,
+      "passesPng": true,
+      "passesDimensions": true,
+      "passesRgba": true,
+      "passesNativeHeight": true,
+      "passesEdge": true,
+      "passesTechnicalChecks": true,
+      "prompt": {
+        "file": "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v3-rear-outlet\\prompts\\idle.txt",
+        "exists": true,
+        "sha256": "9f4b98f5f8ffbbd9effd8de023c71040ae7280b2a7d4c3b968b91c2e7b9a2e27"
+      },
+      "warnings": [
+        "One or more alpha>=16 margins are below 30 px; inspect full-figure framing visually."
+      ]
+    },
+    {
+      "pose": "active",
+      "file": "active.png",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "imageFormat": "PNG",
+      "bytes": 1927895,
+      "sha256": "cc2e1f8d8e229ea0f90c9d20a5d6cab2f3351c86733c4316d491422ed7d836e4",
+      "alphaBounds": {
+        "1": [
+          41,
+          13,
+          1008,
+          1536
+        ],
+        "16": [
+          95,
+          15,
+          998,
+          1451
+        ],
+        "128": [
+          95,
+          15,
+          997,
+          1450
+        ],
+        "250": [
+          97,
+          16,
+          995,
+          1449
+        ]
+      },
+      "visibleCharacterHeight": 1436,
+      "visibleMargins": {
+        "left": 95,
+        "top": 15,
+        "right": 26,
+        "bottom": 85
+      },
+      "maxEdgeAlpha": 1,
+      "maxEdgeAlphaBySide": {
+        "top": 0,
+        "bottom": 1,
+        "left": 0,
+        "right": 0
+      },
+      "edgePixelsAlpha16": 0,
+      "passesPng": true,
+      "passesDimensions": true,
+      "passesRgba": true,
+      "passesNativeHeight": true,
+      "passesEdge": true,
+      "passesTechnicalChecks": true,
+      "prompt": {
+        "file": "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v3-rear-outlet\\prompts\\active.txt",
+        "exists": true,
+        "sha256": "b18e91a95a852d322c1fa32233cc3d7a9e317bb177a9a049fd65d16944f59af1"
+      },
+      "warnings": [
+        "One or more alpha>=16 margins are below 30 px; inspect full-figure framing visually.",
+        "Nonzero low-alpha edge pixels exist; judge visible haze using real light/dark compositing."
+      ]
+    },
+    {
+      "pose": "complete",
+      "file": "complete.png",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "imageFormat": "PNG",
+      "bytes": 1934587,
+      "sha256": "4a108202d0b14e51f90882c95864b6ce6bda8e3e71f7aec10898bf0ec4f2a6c4",
+      "alphaBounds": {
+        "1": [
+          0,
+          15,
+          1023,
+          1536
+        ],
+        "16": [
+          89,
+          17,
+          978,
+          1428
+        ],
+        "128": [
+          89,
+          18,
+          977,
+          1427
+        ],
+        "250": [
+          95,
+          19,
+          975,
+          1426
+        ]
+      },
+      "visibleCharacterHeight": 1411,
+      "visibleMargins": {
+        "left": 89,
+        "top": 17,
+        "right": 46,
+        "bottom": 108
+      },
+      "maxEdgeAlpha": 1,
+      "maxEdgeAlphaBySide": {
+        "top": 0,
+        "bottom": 1,
+        "left": 1,
+        "right": 0
+      },
+      "edgePixelsAlpha16": 0,
+      "passesPng": true,
+      "passesDimensions": true,
+      "passesRgba": true,
+      "passesNativeHeight": true,
+      "passesEdge": true,
+      "passesTechnicalChecks": true,
+      "prompt": {
+        "file": "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v3-rear-outlet\\prompts\\complete.txt",
+        "exists": true,
+        "sha256": "7e1dce747bf71ff906a171d6dfbf57f9584e98907e761a26cc50ec83f9b6c5c0"
+      },
+      "warnings": [
+        "One or more alpha>=16 margins are below 30 px; inspect full-figure framing visually.",
+        "Nonzero low-alpha edge pixels exist; judge visible haze using real light/dark compositing."
+      ]
+    },
+    {
+      "pose": "alert",
+      "file": "alert.png",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "imageFormat": "PNG",
+      "bytes": 1907243,
+      "sha256": "957ceaddbfb47bac920221f9acad8cd9c95a796a57dd72ca25e05beec69df942",
+      "alphaBounds": {
+        "1": [
+          27,
+          17,
+          1010,
+          1517
+        ],
+        "16": [
+          106,
+          22,
+          988,
+          1426
+        ],
+        "128": [
+          107,
+          23,
+          987,
+          1425
+        ],
+        "250": [
+          108,
+          24,
+          985,
+          1424
+        ]
+      },
+      "visibleCharacterHeight": 1404,
+      "visibleMargins": {
+        "left": 106,
+        "top": 22,
+        "right": 36,
+        "bottom": 110
+      },
+      "maxEdgeAlpha": 0,
+      "maxEdgeAlphaBySide": {
+        "top": 0,
+        "bottom": 0,
+        "left": 0,
+        "right": 0
+      },
+      "edgePixelsAlpha16": 0,
+      "passesPng": true,
+      "passesDimensions": true,
+      "passesRgba": true,
+      "passesNativeHeight": true,
+      "passesEdge": true,
+      "passesTechnicalChecks": true,
+      "prompt": {
+        "file": "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v3-rear-outlet\\prompts\\alert.txt",
+        "exists": true,
+        "sha256": "9b61277eca37d916e9eeb43021fa1153644f476863bbbe45c922460f469d4b10"
+      },
+      "warnings": [
+        "One or more alpha>=16 margins are below 30 px; inspect full-figure framing visually."
+      ]
+    },
+    {
+      "pose": "sleep",
+      "file": "sleep.png",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "imageFormat": "PNG",
+      "bytes": 1894912,
+      "sha256": "1f90f09c494f77bebd56dde1f8795b5ec81ab0a0ba932e4b5aaea763a272858d",
+      "alphaBounds": {
+        "1": [
+          0,
+          3,
+          1010,
+          1536
+        ],
+        "16": [
+          111,
+          41,
+          965,
+          1456
+        ],
+        "128": [
+          111,
+          42,
+          964,
+          1456
+        ],
+        "250": [
+          114,
+          43,
+          962,
+          1455
+        ]
+      },
+      "visibleCharacterHeight": 1415,
+      "visibleMargins": {
+        "left": 111,
+        "top": 41,
+        "right": 59,
+        "bottom": 80
+      },
+      "maxEdgeAlpha": 1,
+      "maxEdgeAlphaBySide": {
+        "top": 0,
+        "bottom": 1,
+        "left": 1,
+        "right": 0
+      },
+      "edgePixelsAlpha16": 0,
+      "passesPng": true,
+      "passesDimensions": true,
+      "passesRgba": true,
+      "passesNativeHeight": true,
+      "passesEdge": true,
+      "passesTechnicalChecks": true,
+      "prompt": {
+        "file": "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v3-rear-outlet\\prompts\\sleep.txt",
+        "exists": true,
+        "sha256": "d942c2ae7b995c38f594fc3e2d8229ef83ea3ec43d3d5637eb69cfc3d214c0ae"
+      },
+      "warnings": [
+        "Nonzero low-alpha edge pixels exist; judge visible haze using real light/dark compositing."
+      ]
+    },
+    {
+      "pose": "affection",
+      "file": "affection.png",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "imageFormat": "PNG",
+      "bytes": 1920653,
+      "sha256": "c0dab7bc35a974c53e9f76bb00e2ddfae4b52d3a577e61174f844fd36ac58f79",
+      "alphaBounds": {
+        "1": [
+          69,
+          17,
+          1000,
+          1516
+        ],
+        "16": [
+          87,
+          28,
+          989,
+          1436
+        ],
+        "128": [
+          88,
+          28,
+          988,
+          1435
+        ],
+        "250": [
+          94,
+          31,
+          986,
+          1434
+        ]
+      },
+      "visibleCharacterHeight": 1408,
+      "visibleMargins": {
+        "left": 87,
+        "top": 28,
+        "right": 35,
+        "bottom": 100
+      },
+      "maxEdgeAlpha": 0,
+      "maxEdgeAlphaBySide": {
+        "top": 0,
+        "bottom": 0,
+        "left": 0,
+        "right": 0
+      },
+      "edgePixelsAlpha16": 0,
+      "passesPng": true,
+      "passesDimensions": true,
+      "passesRgba": true,
+      "passesNativeHeight": true,
+      "passesEdge": true,
+      "passesTechnicalChecks": true,
+      "prompt": {
+        "file": "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v3-rear-outlet\\prompts\\affection.txt",
+        "exists": true,
+        "sha256": "cfb3647d9a7f49e8e587907c9abf428d78a3678b3d9a43f92dc5b1a6723ddd6b"
+      },
+      "warnings": [
+        "One or more alpha>=16 margins are below 30 px; inspect full-figure framing visually."
+      ]
+    },
+    {
+      "pose": "stretch",
+      "file": "stretch.png",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "imageFormat": "PNG",
+      "bytes": 1910977,
+      "sha256": "2d4958e67a3256a79b5be4d3364a8b924d4cd0f2aec21b3d099dd81a8ca5c467",
+      "alphaBounds": {
+        "1": [
+          0,
+          0,
+          1002,
+          1474
+        ],
+        "16": [
+          100,
+          39,
+          970,
+          1471
+        ],
+        "128": [
+          101,
+          40,
+          968,
+          1470
+        ],
+        "250": [
+          107,
+          42,
+          966,
+          1469
+        ]
+      },
+      "visibleCharacterHeight": 1432,
+      "visibleMargins": {
+        "left": 100,
+        "top": 39,
+        "right": 54,
+        "bottom": 65
+      },
+      "maxEdgeAlpha": 1,
+      "maxEdgeAlphaBySide": {
+        "top": 1,
+        "bottom": 0,
+        "left": 1,
+        "right": 0
+      },
+      "edgePixelsAlpha16": 0,
+      "passesPng": true,
+      "passesDimensions": true,
+      "passesRgba": true,
+      "passesNativeHeight": true,
+      "passesEdge": true,
+      "passesTechnicalChecks": true,
+      "prompt": {
+        "file": "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v3-rear-outlet\\prompts\\stretch.txt",
+        "exists": true,
+        "sha256": "c466bba81abe5624c13e350e9d2c9f425745f503ba1d50295c24b6eb514634e2"
+      },
+      "warnings": [
+        "Nonzero low-alpha edge pixels exist; judge visible haze using real light/dark compositing."
+      ]
+    },
+    {
+      "pose": "wink",
+      "file": "wink.png",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "imageFormat": "PNG",
+      "bytes": 1907992,
+      "sha256": "04bd9a34e6604356f56ad01c2df57912ef6d30806c235db38d3784bac9d4df8f",
+      "alphaBounds": {
+        "1": [
+          55,
+          19,
+          1014,
+          1504
+        ],
+        "16": [
+          95,
+          42,
+          977,
+          1451
+        ],
+        "128": [
+          95,
+          43,
+          975,
+          1450
+        ],
+        "250": [
+          107,
+          45,
+          974,
+          1449
+        ]
+      },
+      "visibleCharacterHeight": 1409,
+      "visibleMargins": {
+        "left": 95,
+        "top": 42,
+        "right": 47,
+        "bottom": 85
+      },
+      "maxEdgeAlpha": 0,
+      "maxEdgeAlphaBySide": {
+        "top": 0,
+        "bottom": 0,
+        "left": 0,
+        "right": 0
+      },
+      "edgePixelsAlpha16": 0,
+      "passesPng": true,
+      "passesDimensions": true,
+      "passesRgba": true,
+      "passesNativeHeight": true,
+      "passesEdge": true,
+      "passesTechnicalChecks": true,
+      "prompt": {
+        "file": "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v3-rear-outlet\\prompts\\wink.txt",
+        "exists": true,
+        "sha256": "ef373a5dcc3edfa0f2efee5ddf015479f946dd9f2eb8c0a6ffe171a3292f9c4a"
+      },
+      "warnings": []
+    },
+    {
+      "pose": "happy",
+      "file": "happy.png",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "imageFormat": "PNG",
+      "bytes": 1840565,
+      "sha256": "12441a4677dd45c0b79e6a4e3445405b755bda9eb1ba837b9b7880640ff1e6d5",
+      "alphaBounds": {
+        "1": [
+          41,
+          47,
+          1006,
+          1458
+        ],
+        "16": [
+          117,
+          91,
+          983,
+          1456
+        ],
+        "128": [
+          118,
+          92,
+          981,
+          1455
+        ],
+        "250": [
+          120,
+          94,
+          979,
+          1454
+        ]
+      },
+      "visibleCharacterHeight": 1365,
+      "visibleMargins": {
+        "left": 117,
+        "top": 91,
+        "right": 41,
+        "bottom": 80
+      },
+      "maxEdgeAlpha": 0,
+      "maxEdgeAlphaBySide": {
+        "top": 0,
+        "bottom": 0,
+        "left": 0,
+        "right": 0
+      },
+      "edgePixelsAlpha16": 0,
+      "passesPng": true,
+      "passesDimensions": true,
+      "passesRgba": true,
+      "passesNativeHeight": true,
+      "passesEdge": true,
+      "passesTechnicalChecks": true,
+      "prompt": {
+        "file": "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v3-rear-outlet\\prompts\\happy.txt",
+        "exists": true,
+        "sha256": "b5fbc66fb8003d5e947b6aa310cb64c73dc0e56251d6c28685ab7e8e5bc5a6cc"
+      },
+      "warnings": []
+    },
+    {
+      "pose": "bow",
+      "file": "bow.png",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "imageFormat": "PNG",
+      "bytes": 1879061,
+      "sha256": "f2fe46a99b8b2b9f4e64252514984c5f8de425a83eb9ec6319e3be82156329a3",
+      "alphaBounds": {
+        "1": [
+          49,
+          0,
+          1008,
+          1536
+        ],
+        "16": [
+          96,
+          46,
+          963,
+          1448
+        ],
+        "128": [
+          97,
+          47,
+          962,
+          1447
+        ],
+        "250": [
+          107,
+          48,
+          960,
+          1446
+        ]
+      },
+      "visibleCharacterHeight": 1402,
+      "visibleMargins": {
+        "left": 96,
+        "top": 46,
+        "right": 61,
+        "bottom": 88
+      },
+      "maxEdgeAlpha": 1,
+      "maxEdgeAlphaBySide": {
+        "top": 1,
+        "bottom": 1,
+        "left": 0,
+        "right": 0
+      },
+      "edgePixelsAlpha16": 0,
+      "passesPng": true,
+      "passesDimensions": true,
+      "passesRgba": true,
+      "passesNativeHeight": true,
+      "passesEdge": true,
+      "passesTechnicalChecks": true,
+      "prompt": {
+        "file": "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v3-rear-outlet\\prompts\\bow.txt",
+        "exists": true,
+        "sha256": "2a967936b2e0e35f45bc718abbd398df8045c27ff78964008ab50aa8a65670fe"
+      },
+      "warnings": [
+        "Nonzero low-alpha edge pixels exist; judge visible haze using real light/dark compositing."
+      ]
+    }
+  ]
+}

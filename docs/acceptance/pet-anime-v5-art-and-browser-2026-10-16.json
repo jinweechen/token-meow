@@ -1,0 +1,190 @@
+{
+  "recordedAt": "2026-10-16T05:16:41.211Z",
+  "scope": "v5 character art, production source integration, resource integrity and browser rendering; not native desktop or installer qualification",
+  "conclusion": "accepted-within-scope",
+  "generatedWith": "OpenAI built-in imagegen; selected original PNGs copied unchanged to project assets",
+  "activeSkin": "nekomi-anime-v5",
+  "uniquePoses": 12,
+  "logicalFrames": 13,
+  "visual": {
+    "allPosesReviewed": true,
+    "actualFrameHeight": 289,
+    "handInspectionScale": 5,
+    "legInspectionScale": 2,
+    "independentCoreAndCuteReviews": true,
+    "findings": "No definite extra digits, forked finger roots/tips or implausible leg alignment found in reviewed stylized poses. Natural occlusion retained; two open-palm greeting poses and ten other natural gestures.",
+    "backgrounds": [
+      "light",
+      "dark"
+    ],
+    "noVisibleNeighboringFrameFragments": true,
+    "rasterLimitation": "Finger contours are readable at pet size; 5x enlargement remains raster-soft and is not a high-resolution anatomical study."
+  },
+  "resources": {
+    "originalBytesPreserved": true,
+    "strictTransparentCorners": true,
+    "maximumFrameEdgeAlpha": 1,
+    "decodedBytesIncludingFallback": 12941312,
+    "limitBytes": 16777216
+  },
+  "tests": {
+    "command": "node node_modules/tsx/dist/cli.mjs --test src/shared/atlasRegistry.test.ts src/shared/windowAtlasOwner.test.ts",
+    "passed": 10,
+    "failed": 0,
+    "skipped": 0,
+    "exitCode": 0
+  },
+  "build": {
+    "command": "pnpm build",
+    "exitCode": 0,
+    "typecheckPassed": true,
+    "viteBuildPassed": true,
+    "warning": "Vite warns that the inline sprite-containing JS chunk exceeds 500 kB; assets remain within the existing decoded-memory budget."
+  },
+  "distribution": {
+    "command": "node scripts/distribution-manifest.mjs",
+    "exitCode": 0,
+    "unresolved": []
+  },
+  "browser": {
+    "result": "output/playwright/atlas-v5-product-check-result.json",
+    "actualProductionComponent": true,
+    "renderedBlobHashesMatchOriginals": true,
+    "frames": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ],
+    "viewport": {
+      "width": 280,
+      "height": 340
+    },
+    "pageErrors": []
+  },
+  "preservedHistory": [
+    "v4 assets and manifest retained",
+    "provenance-anime-v4.json retained",
+    "rejected drafts and earlier visual findings retained"
+  ],
+  "notExecuted": [
+    "Native Windows application replacement or installer rebuild",
+    "Native focus/collector/performance qualification"
+  ],
+  "evidence": [
+    {
+      "path": "assets/pets/nekomi/manifest-anime-v5.json",
+      "bytes": 4692,
+      "sha256": "df1475298bbb34f3e8ec14f5bc14bf8f0e5752e98651a6e360c721760c0d8d78"
+    },
+    {
+      "path": "assets/pets/nekomi/provenance.json",
+      "bytes": 3999,
+      "sha256": "fa7866ce74b4c1166009349c1162fd09e2c7843c0ccbf6389a1b32c02b2faec4"
+    },
+    {
+      "path": "assets/pets/nekomi/character-anime-v5-core.png",
+      "bytes": 1985251,
+      "sha256": "ddf4b909ae13d353de98e160bf2d0644eb5a09c7b4b72bc1fe99d4b7e921d567"
+    },
+    {
+      "path": "assets/pets/nekomi/character-anime-v5-cute.png",
+      "bytes": 1881928,
+      "sha256": "b1b5dce1ee4cf4a1d4c4583868182151a8c89d9a19736e035495f7be3f4b543b"
+    },
+    {
+      "path": "assets/pets/nekomi/static.svg",
+      "bytes": 695,
+      "sha256": "34493ec534cdd6a136fd61cb036893b09ac5183c721c42cd369906729552aae6"
+    },
+    {
+      "path": "assets/pets/nekomi/imagegen-prompt-anime-v5-core.txt",
+      "bytes": 2704,
+      "sha256": "a5d4d0882e5ada74dc70a87f7250906db866ab89cc888685e18f9e6273a18ca3"
+    },
+    {
+      "path": "assets/pets/nekomi/imagegen-prompt-anime-v5-cute.txt",
+      "bytes": 2163,
+      "sha256": "a0e7bccef48e54adb3a41d9ce863be3ecaa76b83c944dfe03c489644d2507a7b"
+    },
+    {
+      "path": "src/features/pet/builtinSkin.ts",
+      "bytes": 1007,
+      "sha256": "1ccde2565800c74355b4647e19ca780bee1413b9384cff6f549a89878dc27578"
+    },
+    {
+      "path": "scripts/distribution-manifest.mjs",
+      "bytes": 21119,
+      "sha256": "4362eeb13151a4df6a7bbf8d66745ee855b5023051f909dd9a0786ed4a778cc4"
+    },
+    {
+      "path": "src/shared/atlasRegistry.test.ts",
+      "bytes": 8170,
+      "sha256": "6936ac9719f4a9716571e88d6bf034e353888d367c903b10eefdc23644683fe9"
+    },
+    {
+      "path": "src/shared/windowAtlasOwner.test.ts",
+      "bytes": 8955,
+      "sha256": "184d89a630b364274ec1af69fd9de14454efbc0b864414d3747e2b100720b547"
+    },
+    {
+      "path": "output/imagegen/single-pose-review-20261016/atlas-review-01.json",
+      "bytes": 2064,
+      "sha256": "45d443a401110c6efeff29d41e7c24074a3ae523369f3b3ec1cb8ae6b557cda0"
+    },
+    {
+      "path": "output/imagegen/single-pose-review-20261016/atlas-review-02.json",
+      "bytes": 2726,
+      "sha256": "6a1f4bb606cb066b82baedecc317eb047d6e7325d7e9e43cab843237169a832d"
+    },
+    {
+      "path": "output/imagegen/single-pose-review-20261016/frame-alpha-02.json",
+      "bytes": 2881,
+      "sha256": "01bb64dbb6a12b759eb69e0d8198ddcec1f757562ab0cb57bd5c7f06c9a07a61"
+    },
+    {
+      "path": "output/playwright/atlas-v5-product-check-result.json",
+      "bytes": 24444,
+      "sha256": "55f1a52ec4db2c367f9e539826d024f388adb3681f4273dbfe1046d8f832baf7"
+    },
+    {
+      "path": "output/playwright/atlas-v5-product-visual-review.json",
+      "bytes": 1427,
+      "sha256": "a9fb4d152392bc44e2f4878b69e26980d22321a46e7351a0a878baa9e4476669"
+    },
+    {
+      "path": "output/playwright/atlas-v5-product-check-attempt1.log",
+      "bytes": 74,
+      "sha256": "c81be53789fbbc01c8ed4b5799982e6761dd2e6495cc2612bd9e3bb0890deafe"
+    },
+    {
+      "path": "output/playwright/atlas-v5-unit-tests.log",
+      "bytes": 1340,
+      "sha256": "093e65581a4bf7af05c7049ca938f431507a6f1d42316d6bef84d5736aee9514"
+    },
+    {
+      "path": "output/playwright/atlas-v5-overview-light.png",
+      "bytes": 825664,
+      "sha256": "4671ee95859652aeb4bb55b176bf281565748cf91c84732324843f493f19653f"
+    },
+    {
+      "path": "output/playwright/atlas-v5-overview-dark.png",
+      "bytes": 833594,
+      "sha256": "90f9da782eadf7ad34a42a5a7f2ea471c80917e663228eaecf7384911f4f936c"
+    },
+    {
+      "path": "output/distribution-licenses/manifest.json",
+      "bytes": 203545,
+      "sha256": "fe6900d944b1c8a43ea0684e0cdd321401954bbeb4b89b3d8269c8865680420b"
+    }
+  ]
+}

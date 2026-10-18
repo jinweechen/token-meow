@@ -1,0 +1,125 @@
+{
+  "schemaVersion": 1,
+  "atUtc": "2026-10-18T03:22:58.094161+00:00",
+  "scope": "用户选择先完成可独立实现的其它扩展开发；不代替整个V1.0验收",
+  "implemented": [
+    "本地PNG目录包导入、全帧校验、预览、显式选择、移除、内置回退",
+    "保守透明区域命中、原生尺寸/owner/帧握手、一秒失效恢复",
+    "15秒临时交互、原生单调时钟恢复当前偏好、托盘与Ctrl+Alt+I"
+  ],
+  "parallelWorkspaceCleanup": {
+    "provenance": "Not authored by this agent tree; preserved current files",
+    "removed": [
+      "src/features/pet/hdPoseRegistry.ts",
+      "src/shared/hdPoseRegistry.test.ts"
+    ],
+    "added": [
+      "src/features/pet/petWindowLifetime.ts"
+    ],
+    "frontendTestsBeforeCleanup": 236,
+    "frontendTestsCurrent": 225,
+    "oldTestsReceipt": "output/implementation/p1-local-extensions-20261018/frontend-tests-final.log"
+  },
+  "defaultEnabled": false,
+  "developmentProcessFlag": "TOKEN_MEOW_P1_DEVELOPMENT=1",
+  "qualification": {
+    "frontendTests": {
+      "passed": 225,
+      "failed": 0,
+      "evidence": {
+        "path": "output/implementation/p1-local-extensions-20261018/frontend-tests-post-guard.log",
+        "bytes": 23740,
+        "sha256": "fc19a6aff8ce0b75a972a91d8ad55f78a95f4c7a8037f659f0724b6b68a5203b"
+      }
+    },
+    "frontendBuildAndTypecheck": {
+      "path": "output/implementation/p1-local-extensions-20261018/frontend-build-post-guard.log",
+      "bytes": 3597,
+      "sha256": "4793e1a364096593ddd38b6d549d7a610e1c64be92d947b049c0e04767bc1c16"
+    },
+    "desktopMetadataCheck": {
+      "path": "output/implementation/p1-local-extensions-20261018/cargo-check-post-guard.result.json",
+      "bytes": 196141,
+      "sha256": "ef90e46d94e639bc83659a831ad044dfd4f616923eff4b3ce05bd65a88ddaf46"
+    },
+    "rustExactModuleTests": {
+      "passed": 18,
+      "evidence": {
+        "path": "output/implementation/p1-local-png-pointer-harness-20261018-r3/test/result.json",
+        "bytes": 2225,
+        "sha256": "4f741558d945f463e74b8ec97ba7f9b5122d3c0b8d9c86db7e3db5154aafd833"
+      },
+      "realTauriImageDecoder": true,
+      "shim": false,
+      "fullApplicationTest": false
+    },
+    "browserMock": {
+      "path": "output/playwright/local-png-skin-20261018-a41c6e9b/receipt.json",
+      "bytes": 26034,
+      "sha256": "28de07cfc58ed52b405756372abe7fb6d93e60334449cce76e9d5f8be7a82a6e"
+    },
+    "browserMockBoundSourcesStillMatch": true,
+    "browserMockIsNativeEvidence": false,
+    "frontendDistEntries": [
+      {
+        "path": "dist/assets/index-DHZzukkh.css",
+        "bytes": 76294,
+        "sha256": "4db19a06e620390d859c6cfb6f7c6a9def22791a3230d119d87eeb5b0519fb0d"
+      },
+      {
+        "path": "dist/assets/index-hX6m4j8K.js",
+        "bytes": 496967,
+        "sha256": "39dbf443f77501239d042740db30ec086c11c38867ea7e96377e5f31c6e90c9d"
+      },
+      {
+        "path": "dist/index.html",
+        "bytes": 660,
+        "sha256": "753db1f198fc32a22eaabfd8e34a8965be85ae263548b53aedebdf804624786d"
+      }
+    ],
+    "sourceInputs": {
+      "path": "output/implementation/p1-local-extensions-20261018/source-inputs-post-guard.json",
+      "bytes": 28201,
+      "sha256": "3678e5f4aace0ffcd0586f77cf7a1a1c315501f4350a7f0784a6f4693c8a4500"
+    },
+    "rustFormat": {
+      "path": "output/implementation/p1-local-extensions-20261018/rustfmt-post-guard.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  "historicalFailuresRetained": [
+    "docs/acceptance/c34-v11-v1-build-failure-2026-10-18.json",
+    "output/implementation/p1-local-extensions-20261018/cargo-check.result.json",
+    "output/implementation/p1-local-png-pointer-harness-20261018-r1/compile/first-failure.json",
+    "output/implementation/p1-local-png-pointer-harness-20261018-r2/test/first-failure.json"
+  ],
+  "firstMetadataCheck": "Cargo root0 but owned helper exceeded600s; cleanup verified. Final source-bound check completed naturally.",
+  "firstHarnessFailure": "Cached dependencies contain LLVM bitcode; lto=off led to LNK1107. Separate r2 uses ThinLTO; no product source weakened.",
+  "guardFailureFix": {
+    "diagnosis": {
+      "path": "output/implementation/p1-local-png-guard-diagnosis-20261018-r1/result.json",
+      "bytes": 9642,
+      "sha256": "cd314e450c96f0b8471c850c45ba5719a3a3fc5dc4f0e882e5d35ed684a26f8f"
+    },
+    "behavior": "Only host-owned store directories share READ|WRITE without DELETE; untrusted source directories/files keep read-only sharing."
+  },
+  "currentWindowsAppBuilt": false,
+  "currentInstallerBuilt": false,
+  "NativeQualified": false,
+  "resourcesQualified": false,
+  "wholeV1Qualified": false,
+  "historicalC33SourceEqualityExtended": false,
+  "systemSettingsChanged": false,
+  "otherUserProcessesStopped": false,
+  "paidModelCalled": false,
+  "remaining": [
+    "资源恢复后冻结并构建新版Windows App、NSIS和CLI",
+    "新版原生导入窗口、跨进程透明点击、焦点、快捷键、DPI、隐藏/睡眠与生命周期验收",
+    "600秒资源、完整导入、安装回滚与发布验收"
+  ],
+  "externalExtensionsDeferred": [
+    "Live2D/VRM需要SDK与可用模型/动作素材",
+    "真实Claude/Gemini适配需要对应真实来源与配置场景"
+  ]
+}

@@ -1,0 +1,917 @@
+{
+  "status": "SCOPED_HD_INTEGRATION_AND_CANDIDATE_BUILD_PASSED_NATIVE_DEFERRED",
+  "createdAtUtc": "2026-10-16T10:35:57.247215+00:00",
+  "scope": "十二张内置高清原图接入、旧图集清理和隔离候选构建；前端、组合浏览器、构建及Native边界分别记录。",
+  "source": {
+    "root": "D:\\project\\宠物\\output\\isolated-build-roots\\hd-frontend16-f5ec7776aac54242b9cd62c5e3fcd821",
+    "inputs": "D:\\project\\宠物\\output\\implementation\\hd-isolated-frontend16-plan-f5ec7776aac54242b9cd62c5e3fcd821\\inputs.frozen.json",
+    "inputCount": 101,
+    "inputsSha256": "9CF96D233B93CA00376E9080261206BF9F8D3C5671ABC699244E1AF483879211",
+    "copyReceipt": "D:\\project\\宠物\\output\\implementation\\hd-isolated-frontend16-plan-f5ec7776aac54242b9cd62c5e3fcd821\\source-copy.receipt.json",
+    "copyReceiptSha256": "8499F6FACB222F3590103828CF33BF8CE8D2B336F87D1C5AA08AB7210B0CBE46",
+    "excludedParallelMainWipPaths": [
+      "src/App.tsx",
+      "src/features/overview/Overview.tsx",
+      "src/shared/format.test.ts",
+      "src/shared/format.ts",
+      "src/shared/viewRefreshLoop.test.ts",
+      "src/shared/viewRefreshLoop.ts"
+    ],
+    "boundary": "六文件采用已记录C24基线before字节加已审HD入口修改；当前主目录并行WIP保留不回滚。本回执只绑定上述隔离输入，不借此验收主目录并行前端新增行为。",
+    "laterMainDifferences": {
+      "receipt": "D:\\project\\宠物\\output\\implementation\\hd-delivery-root-20261016\\parallel-main-differences.json",
+      "sha256": "DA3C38B1A5919D09D10F8B61EC165532EE58BDD5148EE2468B0FB058AB85915B",
+      "files": 20,
+      "scope": "Six initial frontend WIP paths were excluded at HD101 capture. Later parallel backend modifications/additions are also outside this C24-HD isolated source; all current main changes remain preserved."
+    }
+  },
+  "materials": {
+    "runtimeManifest": "assets/pets/nekomi/manifest-hd-v1.json",
+    "runtimeManifestSha256": "BC80DCBFA62E243CDA1CEA14A078507B2ADEE258E999EDF1734627E1F1B511A1",
+    "sourceDirectory": "assets/pets/nekomi/hd-v1/",
+    "originalPngs": 12,
+    "canvas": [
+      1024,
+      1536
+    ],
+    "totalEncodedBytes": 23120473,
+    "poses": [
+      {
+        "pose": "idle",
+        "path": "assets/pets/nekomi/hd-v1/idle.png",
+        "width": 1024,
+        "height": 1536,
+        "bytes": 1901008,
+        "sha256": "f1d2c01a123ff0616612d11f5ddba7055f93405b7c3273f640438652ce02962d",
+        "bounds": [
+          114,
+          91,
+          993,
+          1452
+        ]
+      },
+      {
+        "pose": "active",
+        "path": "assets/pets/nekomi/hd-v1/active.png",
+        "width": 1024,
+        "height": 1536,
+        "bytes": 1919345,
+        "sha256": "a5e69f390c4d567bac00b5117e3762474e40b6b278ab5ca21679802340872cfc",
+        "bounds": [
+          113,
+          91,
+          994,
+          1453
+        ]
+      },
+      {
+        "pose": "complete",
+        "path": "assets/pets/nekomi/hd-v1/complete.png",
+        "width": 1024,
+        "height": 1536,
+        "bytes": 1973274,
+        "sha256": "43b0bca6f4aca7211f66f78e331dcfd2ebe1f7f92d9ed6fc85e85cfb5bc7fd9b",
+        "bounds": [
+          89,
+          47,
+          1003,
+          1458
+        ]
+      },
+      {
+        "pose": "alert",
+        "path": "assets/pets/nekomi/hd-v1/alert.png",
+        "width": 1024,
+        "height": 1536,
+        "bytes": 1958280,
+        "sha256": "8640829380318ac26e5f5def3376c5399b6ab6964dc614f53428182b3eef100b",
+        "bounds": [
+          108,
+          51,
+          994,
+          1455
+        ]
+      },
+      {
+        "pose": "sleep",
+        "path": "assets/pets/nekomi/hd-v1/sleep.png",
+        "width": 1024,
+        "height": 1536,
+        "bytes": 1922022,
+        "sha256": "ca1751662ff2238e9dc24b505d12c3a4083b4906370e62aab317419d97816686",
+        "bounds": [
+          111,
+          42,
+          993,
+          1453
+        ]
+      },
+      {
+        "pose": "shy",
+        "path": "assets/pets/nekomi/hd-v1/shy.png",
+        "width": 1024,
+        "height": 1536,
+        "bytes": 1909180,
+        "sha256": "a12948612b207480bd49b5259e1df9d749a6cc73e2fec5300c0ce003d41c0c28",
+        "bounds": [
+          124,
+          67,
+          997,
+          1452
+        ]
+      },
+      {
+        "pose": "affection",
+        "path": "assets/pets/nekomi/hd-v1/affection.png",
+        "width": 1024,
+        "height": 1536,
+        "bytes": 1993313,
+        "sha256": "eb002e7bf7e5824c6e087ef54019a5956dd6d036b297274503ccb15c24b8171c",
+        "bounds": [
+          89,
+          49,
+          996,
+          1466
+        ]
+      },
+      {
+        "pose": "stretch",
+        "path": "assets/pets/nekomi/hd-v1/stretch.png",
+        "width": 1024,
+        "height": 1536,
+        "bytes": 1960476,
+        "sha256": "773eb3b5134a2a441ff820826713982d2764cc18c7508733ae8700bbf1e5f6b3",
+        "bounds": [
+          99,
+          47,
+          998,
+          1468
+        ]
+      },
+      {
+        "pose": "wink",
+        "path": "assets/pets/nekomi/hd-v1/wink.png",
+        "width": 1024,
+        "height": 1536,
+        "bytes": 1940362,
+        "sha256": "ab4e892a85c9231250aad076dbd05bee722676b67f1cbaf904fef9b117085415",
+        "bounds": [
+          94,
+          41,
+          996,
+          1450
+        ]
+      },
+      {
+        "pose": "happy",
+        "path": "assets/pets/nekomi/hd-v1/happy.png",
+        "width": 1024,
+        "height": 1536,
+        "bytes": 1897026,
+        "sha256": "8ea7b980d272902862aeae101d2f6e0b21f0b42720aece42af9886e23f05643a",
+        "bounds": [
+          119,
+          106,
+          991,
+          1455
+        ]
+      },
+      {
+        "pose": "bow",
+        "path": "assets/pets/nekomi/hd-v1/bow.png",
+        "width": 1024,
+        "height": 1536,
+        "bytes": 1943071,
+        "sha256": "cf28613909ce3c94d8598ad8210ba77024a7b7d8b7d2acebc7d9942b7f61b287",
+        "bounds": [
+          97,
+          59,
+          997,
+          1456
+        ]
+      },
+      {
+        "pose": "hug-tail",
+        "path": "assets/pets/nekomi/hd-v1/hug-tail.png",
+        "width": 1024,
+        "height": 1536,
+        "bytes": 1803116,
+        "sha256": "6a570731fd3b93bd58a797ef076979f2693b6a7f092a5ae6536f473263cd4f60",
+        "bounds": [
+          127,
+          10,
+          941,
+          1474
+        ]
+      }
+    ],
+    "sourcePngPixelsChanged": false,
+    "existingArtOnlyReceipt": "docs/acceptance/pet-hd-v1-materials-2026-10-16.json"
+  },
+  "implementation": {
+    "default": "twelve-independent-hd-originals",
+    "logicalFrames": 13,
+    "distinctPoses": 12,
+    "loader": "按需同源读取，精确长度/SHA/PNG头/解码尺寸/四角透明校验；串行decode立即关闭bitmap，cache+pending decoder最多两个6MiB槽；过期请求不发布；失败可显式重试；窗口终止撤销URL，BFCache保留。",
+    "limits": {
+      "encodedPerFileBytes": 4194304,
+      "encodedPackBytes": 33554432,
+      "managedImageSlotsIncludingPending": 2,
+      "managedRgbaBytes": 12582912
+    },
+    "layout": "仅CSS按alpha轮廓元数据统一可见高度、居中和脚底位置；原PNG不裁切、不缩图重写。",
+    "quiet": "DND静态睡眠；减少动画使用新的HD待机姿态；故障用通用静态占位并保留文字。",
+    "boundary": "上述资源槽上限是应用资源所有权合同，不是Chromium/GPU/整应用进程内存实测。真实步态、走动、文件拖入和窗口边缘玩法未实现。"
+  },
+  "cleanup": {
+    "authorization": "用户明确授权删除旧图集、旧文件与旧代码。",
+    "removedAssetInventory": "D:\\project\\宠物\\output\\implementation\\hd-cleanup-root-20261016\\removed-assets.json",
+    "removedAssetInventorySha256": "85F28AB91D48F38857043276E33F6B26081B8A884221C8033BFCF1885556BA3A",
+    "removedMainOldAssetFiles": 29,
+    "removedModules": [
+      "src/features/pet/builtinSkin.ts",
+      "src/features/pet/builtinAtlas.ts",
+      "src/features/pet/windowAtlasOwner.ts",
+      "src/features/pet/spriteSheetRegistry.ts",
+      "src/features/pet/assetRegistry.ts",
+      "src/features/pet/manifest.ts"
+    ],
+    "removedOldTests": [
+      "src/shared/atlasRegistry.test.ts",
+      "src/shared/windowAtlasOwner.test.ts",
+      "src/shared/spriteSheet.test.ts"
+    ],
+    "preservedBehavior": "pet.test保留4项动画/事实呈现/提示水位行为；poseController现有测试保留未重跑；HD原图/metadata/提示词/来源记录保留；PNG检查提取到png.ts。",
+    "sealedC23Changed": false,
+    "independentAudit": {
+      "status": "PASSED_REPORTED_BY_ROOT_AND_BRIDGE_DIAG",
+      "sealedC23FiveBoundShaUnchanged": true,
+      "boundary": "清理与C23五项既定摘要保持经独立复核；不等于新候选已构建或可发布。"
+    }
+  },
+  "frontend": {
+    "status": "PASSED_SCOPED_HEADLESS_CHECKS",
+    "checks": "D:\\project\\宠物\\output\\implementation\\hd-isolated-frontend16-plan-f5ec7776aac54242b9cd62c5e3fcd821\\checks.json",
+    "checksSha256": "A7F480B7BFBD7B238073F5A985B9ED1DB4EA2DDB5F7430A32BF2E9FDA3FCA305",
+    "typecheckExit0": true,
+    "testsPassed": 16,
+    "testNames": [
+      "HD default maps real work states and all seven cute poses to twelve independent originals",
+      "twelve original silhouettes share displayed height and soles without clipping their visible bounds",
+      "HD catalog pins all twelve original PNGs and loads only requested poses within two slots",
+      "HD latest request aborts a pending read and never publishes a stale response",
+      "HD decode is serial, same-pose requests share work and stale decode cannot evict the latest pose",
+      "HD cache evicts before a third decode and a cached latest selection survives a late decoder",
+      "HD disposal revokes cached URLs immediately and closes a late bitmap without revival",
+      "HD rejects wrong bytes, malformed PNG, oversized stream and decoder faults, then permits retry",
+      "HD thirty view lifetimes release all URLs and decoders without retaining a skin history",
+      "HD definitions reject unsafe catalog entries and preserve the separate file and pack budgets",
+      "HD default reader refuses cross-origin and data URLs without making a network request",
+      "HD window lifetime retains BFCache, then removes its listener and releases every URL",
+      "bounded prompts deduplicate, expire, and failed results interrupt celebration",
+      "hidden/reduced/DND suppression clears transient prompts without replay",
+      "presenter keeps parallel activity and unknown independent from health",
+      "production prompt watermark ignores first load, historical import, result revisions and hidden backlog"
+    ],
+    "viteExit0": true,
+    "distFiles": [
+      {
+        "path": "assets/active-FY5yafE3.png",
+        "bytes": 1919345,
+        "sha256": "A5E69F390C4D567BAC00B5117E3762474E40B6B278AB5CA21679802340872CFC"
+      },
+      {
+        "path": "assets/affection-COK7TBND.png",
+        "bytes": 1993313,
+        "sha256": "EB002E7BF7E5824C6E087EF54019A5956DD6D036B297274503CCB15C24B8171C"
+      },
+      {
+        "path": "assets/alert-BSSGWGAP.png",
+        "bytes": 1958280,
+        "sha256": "8640829380318AC26E5F5DEF3376C5399B6AB6964DC614F53428182B3EEF100B"
+      },
+      {
+        "path": "assets/bow-DW8BjYLu.png",
+        "bytes": 1943071,
+        "sha256": "CF28613909CE3C94D8598AD8210BA77024A7B7D8B7D2ACEBC7D9942B7F61B287"
+      },
+      {
+        "path": "assets/complete-C_3vw8ys.png",
+        "bytes": 1973274,
+        "sha256": "43B0BCA6F4ACA7211F66F78E331DCFD2EBE1F7F92D9ED6FC85E85CFB5BC7FD9B"
+      },
+      {
+        "path": "assets/happy-BbOp-n0I.png",
+        "bytes": 1897026,
+        "sha256": "8EA7B980D272902862AEAE101D2F6E0B21F0B42720AECE42AF9886E23F05643A"
+      },
+      {
+        "path": "assets/hug-tail-NC7MAImu.png",
+        "bytes": 1803116,
+        "sha256": "6A570731FD3B93BD58A797EF076979F2693B6A7F092A5AE6536F473263CD4F60"
+      },
+      {
+        "path": "assets/idle-BVPw7ASR.png",
+        "bytes": 1901008,
+        "sha256": "F1D2C01A123FF0616612D11F5DDBA7055F93405B7C3273F640438652CE02962D"
+      },
+      {
+        "path": "assets/index-B0fJK0RA.js",
+        "bytes": 337375,
+        "sha256": "2E4790A64FB57DA07C7F0D3165C03DE41A5AD959B873934D58B9D6686FCD1829"
+      },
+      {
+        "path": "assets/index-DfuJIMZB.css",
+        "bytes": 39861,
+        "sha256": "E97AF08CA6DFC47DCE05BDCFDB4AF1562A24E47A68E65233A5DCD32464111DA4"
+      },
+      {
+        "path": "assets/shy-AYcqStkS.png",
+        "bytes": 1909180,
+        "sha256": "A12948612B207480BD49B5259E1DF9D749A6CC73E2FEC5300C0CE003D41C0C28"
+      },
+      {
+        "path": "assets/sleep-bjY8guoz.png",
+        "bytes": 1922022,
+        "sha256": "CA1751662FF2238E9DC24B505D12C3A4083B4906370E62AAB317419D97816686"
+      },
+      {
+        "path": "assets/stretch-BfJEnRjs.png",
+        "bytes": 1960476,
+        "sha256": "773EB3B5134A2A441FF820826713982D2764CC18C7508733AE8700BBF1E5F6B3"
+      },
+      {
+        "path": "assets/wink-B__dYoRe.png",
+        "bytes": 1940362,
+        "sha256": "AB4E892A85C9231250AAD076DBD05BEE722676B67F1CBAF904FEF9B117085415"
+      },
+      {
+        "path": "favicon.svg",
+        "bytes": 307,
+        "sha256": "422D5A1AD45F98A75A67DF86E70F77439648B66EE7BD07A5144C222DD92C6318"
+      },
+      {
+        "path": "index.html",
+        "bytes": 660,
+        "sha256": "8016BE7D69A3FFDC507597DADA148F6381B9A6BD15773508E373DA44D660627D"
+      }
+    ],
+    "execution": "D:\\project\\宠物\\output\\implementation\\hd-isolated-frontend16-plan-f5ec7776aac54242b9cd62c5e3fcd821\\execution.json",
+    "executionSha256": "FF32CADA90A9CC916210886D65AE763CAE56C0EB119148C9587C3480CC19BFF8",
+    "elapsedSeconds": 60.77503320015967,
+    "rootExitCode": 0,
+    "naturalWholeJobCompletion": true,
+    "activeProcesses": 0,
+    "guardedCount": 112,
+    "allHandlesClosed": true,
+    "retainedFailure": "output/implementation/hd-clean-frontend16-plan-10da79eb6d224bd9b35103a2a0b2837f：TS2352首次类型检查失败，tests/Vite未运行；未覆盖该失败。"
+  },
+  "browser": {
+    "status": "PASSED_SCOPED_COMPOSITE_NOT_SINGLE_CONTINUOUS_RUN_NOT_NATIVE",
+    "compositeScope": "第二跑6组交互、12姿态、20图、受控URL生命周期与11个CDP PNG body绑定；独立sleep补测补齐第12个CDP body。不是一次连续全套运行。",
+    "secondRun": {
+      "root": "D:\\project\\宠物\\output\\playwright\\hd-clean-network-author-711cada72ace4984bec3849108f1ecb3",
+      "scenarios": "D:\\project\\宠物\\output\\playwright\\hd-clean-network-author-711cada72ace4984bec3849108f1ecb3\\browser-output\\browser-scenarios.json",
+      "scenariosSha256": "F8E43034128B71001822FDED11CFEFAD9DA2DED0B27C833CE42986287B6BF110",
+      "networkObservation": "D:\\project\\宠物\\output\\playwright\\hd-clean-network-author-711cada72ace4984bec3849108f1ecb3\\browser-output\\network-observation.json",
+      "networkObservationSha256": "528F094C0B8397DED3456D20361AB8D743B6D69636FA65881AA4BC6FEF459FF7",
+      "companionGroups": 6,
+      "hdPoses": 12,
+      "captures": 20,
+      "cdpOriginalPngBodies": 11,
+      "soleMissing": [
+        "/assets/sleep-bjY8guoz.png"
+      ],
+      "originalAggregateStatus": "FAILED_RETAINED",
+      "rootExitCode": 1,
+      "naturalWholeJobCompletion": true,
+      "elapsedSeconds": 29.961081400047988,
+      "activeProcesses": 0,
+      "all131GuardsClosed": true,
+      "pageErrors": [],
+      "blockedRequests": [],
+      "otherNetworkErrors": []
+    },
+    "sleepSupplement": {
+      "root": "D:\\project\\宠物\\output\\playwright\\hd-sleep-only-author-7f928838439c4786a89c6057d0d03a8d",
+      "result": "D:\\project\\宠物\\output\\playwright\\hd-sleep-only-author-7f928838439c4786a89c6057d0d03a8d\\browser-output\\browser-result.json",
+      "resultSha256": "57BE68B9DE3E34C185163EED7715A94D0749DEA17F3981CD6BEE885F6AA44CEA",
+      "status": "PASSED_ONE_DND_SLEEP_REQUEST",
+      "newScenarios": 1,
+      "newCaptures": 1,
+      "cdpBody": {
+        "status": "verified",
+        "bytes": 1922022,
+        "sha256": "CA1751662FF2238E9DC24B505D12C3A4083B4906370E62AAB317419D97816686",
+        "httpStatus": 200,
+        "mime": "image/png",
+        "completedAt": "2026-10-16T10:25:57.914Z"
+      },
+      "pageOwnedBlob": {
+        "url": "blob:http://127.0.0.1:54122/03c97be0-700f-4de5-addf-fc187ca2dfc0",
+        "bytes": 1922022,
+        "sha256": "CA1751662FF2238E9DC24B505D12C3A4083B4906370E62AAB317419D97816686"
+      },
+      "serverFinishedOriginal": [
+        {
+          "pathname": "/assets/sleep-bjY8guoz.png",
+          "bytes": 1922022,
+          "sha256": "CA1751662FF2238E9DC24B505D12C3A4083B4906370E62AAB317419D97816686",
+          "mime": "image/png",
+          "startedAt": "2026-10-16T10:25:57.870Z",
+          "finished": true,
+          "closedBeforeFinish": false,
+          "finishedAt": "2026-10-16T10:25:57.871Z"
+        }
+      ],
+      "timing": {
+        "dndRequestedAt": "2026-10-16T10:25:57.865Z",
+        "cdpBodyStartedAt": "2026-10-16T10:25:57.874Z",
+        "cdpAttemptSettledBeforePagehideAt": "2026-10-16T10:25:58.575Z",
+        "syntheticTerminalAt": "2026-10-16T10:25:58.592Z"
+      },
+      "terminalOwnedUrls": 0,
+      "rootExitCode": 0,
+      "naturalWholeJobCompletion": true,
+      "elapsedSeconds": 3.521838500164449,
+      "activeProcesses": 0,
+      "all155GuardsClosed": true,
+      "qualification": "TWELVE_ORIGINALS_COMPOSITE_WITH_TWELVE_CDP_BODY_READS"
+    },
+    "networkPngBindings": {
+      "idle": {
+        "bytes": 1901008,
+        "sha256": "F1D2C01A123FF0616612D11F5DDBA7055F93405B7C3273F640438652CE02962D",
+        "url": "http://127.0.0.1:59387/assets/idle-BVPw7ASR.png",
+        "mime": "image/png",
+        "sourcePath": "assets/pets/nekomi/hd-v1/idle.png",
+        "basis": "RETAINED_SECOND_RUN_CDP_HTTP_RESPONSE_BODY"
+      },
+      "affection": {
+        "bytes": 1993313,
+        "sha256": "EB002E7BF7E5824C6E087EF54019A5956DD6D036B297274503CCB15C24B8171C",
+        "url": "http://127.0.0.1:59387/assets/affection-COK7TBND.png",
+        "mime": "image/png",
+        "sourcePath": "assets/pets/nekomi/hd-v1/affection.png",
+        "basis": "RETAINED_SECOND_RUN_CDP_HTTP_RESPONSE_BODY"
+      },
+      "stretch": {
+        "bytes": 1960476,
+        "sha256": "773EB3B5134A2A441FF820826713982D2764CC18C7508733AE8700BBF1E5F6B3",
+        "url": "http://127.0.0.1:59387/assets/stretch-BfJEnRjs.png",
+        "mime": "image/png",
+        "sourcePath": "assets/pets/nekomi/hd-v1/stretch.png",
+        "basis": "RETAINED_SECOND_RUN_CDP_HTTP_RESPONSE_BODY"
+      },
+      "shy": {
+        "bytes": 1909180,
+        "sha256": "A12948612B207480BD49B5259E1DF9D749A6CC73E2FEC5300C0CE003D41C0C28",
+        "url": "http://127.0.0.1:59387/assets/shy-AYcqStkS.png",
+        "mime": "image/png",
+        "sourcePath": "assets/pets/nekomi/hd-v1/shy.png",
+        "basis": "RETAINED_SECOND_RUN_CDP_HTTP_RESPONSE_BODY"
+      },
+      "wink": {
+        "bytes": 1940362,
+        "sha256": "AB4E892A85C9231250AAD076DBD05BEE722676B67F1CBAF904FEF9B117085415",
+        "url": "http://127.0.0.1:59387/assets/wink-B__dYoRe.png",
+        "mime": "image/png",
+        "sourcePath": "assets/pets/nekomi/hd-v1/wink.png",
+        "basis": "RETAINED_SECOND_RUN_CDP_HTTP_RESPONSE_BODY"
+      },
+      "happy": {
+        "bytes": 1897026,
+        "sha256": "8EA7B980D272902862AEAE101D2F6E0B21F0B42720AECE42AF9886E23F05643A",
+        "url": "http://127.0.0.1:59387/assets/happy-BbOp-n0I.png",
+        "mime": "image/png",
+        "sourcePath": "assets/pets/nekomi/hd-v1/happy.png",
+        "basis": "RETAINED_SECOND_RUN_CDP_HTTP_RESPONSE_BODY"
+      },
+      "bow": {
+        "bytes": 1943071,
+        "sha256": "CF28613909CE3C94D8598AD8210BA77024A7B7D8B7D2ACEBC7D9942B7F61B287",
+        "url": "http://127.0.0.1:59387/assets/bow-DW8BjYLu.png",
+        "mime": "image/png",
+        "sourcePath": "assets/pets/nekomi/hd-v1/bow.png",
+        "basis": "RETAINED_SECOND_RUN_CDP_HTTP_RESPONSE_BODY"
+      },
+      "hug-tail": {
+        "bytes": 1803116,
+        "sha256": "6A570731FD3B93BD58A797EF076979F2693B6A7F092A5AE6536F473263CD4F60",
+        "url": "http://127.0.0.1:59387/assets/hug-tail-NC7MAImu.png",
+        "mime": "image/png",
+        "sourcePath": "assets/pets/nekomi/hd-v1/hug-tail.png",
+        "basis": "RETAINED_SECOND_RUN_CDP_HTTP_RESPONSE_BODY"
+      },
+      "active": {
+        "bytes": 1919345,
+        "sha256": "A5E69F390C4D567BAC00B5117E3762474E40B6B278AB5CA21679802340872CFC",
+        "url": "http://127.0.0.1:59387/assets/active-FY5yafE3.png",
+        "mime": "image/png",
+        "sourcePath": "assets/pets/nekomi/hd-v1/active.png",
+        "basis": "RETAINED_SECOND_RUN_CDP_HTTP_RESPONSE_BODY"
+      },
+      "alert": {
+        "bytes": 1958280,
+        "sha256": "8640829380318AC26E5F5DEF3376C5399B6AB6964DC614F53428182B3EEF100B",
+        "url": "http://127.0.0.1:59387/assets/alert-BSSGWGAP.png",
+        "mime": "image/png",
+        "sourcePath": "assets/pets/nekomi/hd-v1/alert.png",
+        "basis": "RETAINED_SECOND_RUN_CDP_HTTP_RESPONSE_BODY"
+      },
+      "complete": {
+        "bytes": 1973274,
+        "sha256": "43B0BCA6F4ACA7211F66F78E331DCFD2EBE1F7F92D9ED6FC85E85CFB5BC7FD9B",
+        "url": "http://127.0.0.1:59387/assets/complete-C_3vw8ys.png",
+        "mime": "image/png",
+        "sourcePath": "assets/pets/nekomi/hd-v1/complete.png",
+        "basis": "RETAINED_SECOND_RUN_CDP_HTTP_RESPONSE_BODY"
+      },
+      "sleep": {
+        "bytes": 1922022,
+        "sha256": "CA1751662FF2238E9DC24B505D12C3A4083B4906370E62AAB317419D97816686",
+        "sourcePath": "assets/pets/nekomi/hd-v1/sleep.png",
+        "basis": "CDP_HTTP_RESPONSE_BODY"
+      }
+    },
+    "retainedFirstFailure": {
+      "path": "D:\\project\\宠物\\output\\playwright\\hd-clean-isolated-author-57131c02f5a045909905bc97f494c640\\browser-output\\browser-failure.json",
+      "sha256": "12BAD000EF8FFF5588D6DB7EF681281412D8FAC643DB2A0D40B6AC98D8DC9E4B",
+      "rootExitCode": 1,
+      "naturalWholeJobCompletion": true,
+      "all131GuardsClosed": true,
+      "resultOverwritten": false
+    },
+    "retainedSecondFailure": {
+      "path": "D:\\project\\宠物\\output\\playwright\\hd-clean-network-author-711cada72ace4984bec3849108f1ecb3\\browser-output\\browser-failure.json",
+      "sha256": "5743377F60EBCAC67DF665E6A4D8B47CF99EC3730EB9421D94463B67C13A6B9F",
+      "resultOverwritten": false
+    },
+    "diagnosticBoundary": "sleep补测在页面/姿态保持不变、terminal前开始并完成CDP body读取；1922022B及SHA与原图、页面Blob、HTTP发送一致。支持先前观察/清理时序造成缺证的判断，未作原失败的独立因果分离实验，不推断产品素材损坏。",
+    "visualReview": {
+      "status": "PASSED_SCOPED_21_CAPTURES",
+      "reviewedBy": "root",
+      "reviewedCaptures": 21,
+      "acceptedCaptures": 21,
+      "captures": [
+        {
+          "name": "settings-launcher-added-then-removed",
+          "path": "D:\\project\\宠物\\output\\playwright\\hd-clean-network-author-711cada72ace4984bec3849108f1ecb3\\browser-output\\settings-launcher-added-then-removed.png",
+          "bytes": 156230,
+          "sha256": "8BBFAF0EAACF5DCBACA97A841FBD6BC62AED8BD5715ACF1D5F2095E114899D24",
+          "reviewedBy": "root",
+          "result": "PASSED_SCOPED"
+        },
+        {
+          "name": "pet-native-context-playing",
+          "path": "D:\\project\\宠物\\output\\playwright\\hd-clean-network-author-711cada72ace4984bec3849108f1ecb3\\browser-output\\pet-native-context-playing.png",
+          "bytes": 72709,
+          "sha256": "D5C025F2564524F053CDC225902B50059564C695ECDA88D5EC48FC46876A6361",
+          "reviewedBy": "root",
+          "result": "PASSED_SCOPED"
+        },
+        {
+          "name": "pet-playing-expired",
+          "path": "D:\\project\\宠物\\output\\playwright\\hd-clean-network-author-711cada72ace4984bec3849108f1ecb3\\browser-output\\pet-playing-expired.png",
+          "bytes": 72344,
+          "sha256": "31487A3B3F4B74A47297EE9AA7EE62622F95D61A80F8B0AB6555BB7F072B7408",
+          "reviewedBy": "root",
+          "result": "PASSED_SCOPED"
+        },
+        {
+          "name": "pet-work-app-context",
+          "path": "D:\\project\\宠物\\output\\playwright\\hd-clean-network-author-711cada72ace4984bec3849108f1ecb3\\browser-output\\pet-work-app-context.png",
+          "bytes": 73670,
+          "sha256": "9C938D781ECC429C08B931B8D93F805EF1A86BB21CB71F2A83F01FCEDF9CC01B",
+          "reviewedBy": "root",
+          "result": "PASSED_SCOPED"
+        },
+        {
+          "name": "pet-manual-tap-preempts-playing",
+          "path": "D:\\project\\宠物\\output\\playwright\\hd-clean-network-author-711cada72ace4984bec3849108f1ecb3\\browser-output\\pet-manual-tap-preempts-playing.png",
+          "bytes": 73583,
+          "sha256": "E19B66C13F16AEBF783CD449608CCC0AF97C17ED9A19E48CAF52EE38FE78056D",
+          "reviewedBy": "root",
+          "result": "PASSED_SCOPED"
+        },
+        {
+          "name": "pet-dnd-stays-quiet",
+          "path": "D:\\project\\宠物\\output\\playwright\\hd-clean-network-author-711cada72ace4984bec3849108f1ecb3\\browser-output\\pet-dnd-stays-quiet.png",
+          "bytes": 71541,
+          "sha256": "130445B306C3D31B2D651AAB0DDB6526AC45D80096A22B1501C2E6CA9BD81881",
+          "reviewedBy": "root",
+          "result": "PASSED_SCOPED"
+        },
+        {
+          "name": "pet-menu-16-top",
+          "path": "D:\\project\\宠物\\output\\playwright\\hd-clean-network-author-711cada72ace4984bec3849108f1ecb3\\browser-output\\pet-menu-16-top.png",
+          "bytes": 32719,
+          "sha256": "FACA7BDF763CE2B0F1BD5F5729E76F8DD45390C384A0BD93CF34BECF302498F2",
+          "reviewedBy": "root",
+          "result": "PASSED_SCOPED"
+        },
+        {
+          "name": "pet-menu-16-exit-reachable",
+          "path": "D:\\project\\宠物\\output\\playwright\\hd-clean-network-author-711cada72ace4984bec3849108f1ecb3\\browser-output\\pet-menu-16-exit-reachable.png",
+          "bytes": 35467,
+          "sha256": "9BC6BDE2F1E2E5EF4C5F2EDD2E19BD6191A9BC9B1B2CF4581565743BC7006DC5",
+          "reviewedBy": "root",
+          "result": "PASSED_SCOPED"
+        },
+        {
+          "name": "hd-pose-idle",
+          "path": "D:\\project\\宠物\\output\\playwright\\hd-clean-network-author-711cada72ace4984bec3849108f1ecb3\\browser-output\\hd-pose-idle.png",
+          "bytes": 73918,
+          "sha256": "5ACF6F0E410D8E8DC8646862739C407E5275A5C08768C57B21042ACBED14BC75",
+          "reviewedBy": "root",
+          "result": "PASSED_SCOPED"
+        },
+        {
+          "name": "hd-pose-shy",
+          "path": "D:\\project\\宠物\\output\\playwright\\hd-clean-network-author-711cada72ace4984bec3849108f1ecb3\\browser-output\\hd-pose-shy.png",
+          "bytes": 69828,
+          "sha256": "D8F4DF470923305F317F9DF918FEC2B926A72B4D50EDC4EC6C106D521543ACF1",
+          "reviewedBy": "root",
+          "result": "PASSED_SCOPED"
+        },
+        {
+          "name": "hd-pose-affection",
+          "path": "D:\\project\\宠物\\output\\playwright\\hd-clean-network-author-711cada72ace4984bec3849108f1ecb3\\browser-output\\hd-pose-affection.png",
+          "bytes": 72690,
+          "sha256": "28EE78463282A695EC264D12460E738EDC92C17DEE402C15AEC5E16AB5845954",
+          "reviewedBy": "root",
+          "result": "PASSED_SCOPED"
+        },
+        {
+          "name": "hd-pose-stretch",
+          "path": "D:\\project\\宠物\\output\\playwright\\hd-clean-network-author-711cada72ace4984bec3849108f1ecb3\\browser-output\\hd-pose-stretch.png",
+          "bytes": 72016,
+          "sha256": "7A109B8AE5C999D1B36ECE32F198A27ADBA4E27E0A7F1D3B1F0B64292241D36B",
+          "reviewedBy": "root",
+          "result": "PASSED_SCOPED"
+        },
+        {
+          "name": "hd-pose-wink",
+          "path": "D:\\project\\宠物\\output\\playwright\\hd-clean-network-author-711cada72ace4984bec3849108f1ecb3\\browser-output\\hd-pose-wink.png",
+          "bytes": 71527,
+          "sha256": "E61229E2C93403D73DD0F8876B5E1D0DF01921E2BC9948289DA89AB5D9939AF4",
+          "reviewedBy": "root",
+          "result": "PASSED_SCOPED"
+        },
+        {
+          "name": "hd-pose-happy",
+          "path": "D:\\project\\宠物\\output\\playwright\\hd-clean-network-author-711cada72ace4984bec3849108f1ecb3\\browser-output\\hd-pose-happy.png",
+          "bytes": 73341,
+          "sha256": "C15D8020DB5A857F36BD83A9D4D2A5749B1218A420EBC222EA30DABF53DA5374",
+          "reviewedBy": "root",
+          "result": "PASSED_SCOPED"
+        },
+        {
+          "name": "hd-pose-bow",
+          "path": "D:\\project\\宠物\\output\\playwright\\hd-clean-network-author-711cada72ace4984bec3849108f1ecb3\\browser-output\\hd-pose-bow.png",
+          "bytes": 71723,
+          "sha256": "4F2ACECBFF88831F9645B932CAFD41906E58F3F9E13D420FE91ECCCDC3F46780",
+          "reviewedBy": "root",
+          "result": "PASSED_SCOPED"
+        },
+        {
+          "name": "hd-pose-hug-tail",
+          "path": "D:\\project\\宠物\\output\\playwright\\hd-clean-network-author-711cada72ace4984bec3849108f1ecb3\\browser-output\\hd-pose-hug-tail.png",
+          "bytes": 60393,
+          "sha256": "94C48782E1C659B2BC08E152F358B5538B1737F7505F980AFB448CB97D977097",
+          "reviewedBy": "root",
+          "result": "PASSED_SCOPED"
+        },
+        {
+          "name": "hd-pose-active",
+          "path": "D:\\project\\宠物\\output\\playwright\\hd-clean-network-author-711cada72ace4984bec3849108f1ecb3\\browser-output\\hd-pose-active.png",
+          "bytes": 75320,
+          "sha256": "9B5953A4784CCFA8F463DAB543F79CCE6AC0B9CB5513EA9984A7C6DE0EFFC7DD",
+          "reviewedBy": "root",
+          "result": "PASSED_SCOPED"
+        },
+        {
+          "name": "hd-pose-alert",
+          "path": "D:\\project\\宠物\\output\\playwright\\hd-clean-network-author-711cada72ace4984bec3849108f1ecb3\\browser-output\\hd-pose-alert.png",
+          "bytes": 75315,
+          "sha256": "CF52DE34058E371FD9C581C84FBDB8CDC65BF5514EFC2227B48BB5363293E249",
+          "reviewedBy": "root",
+          "result": "PASSED_SCOPED"
+        },
+        {
+          "name": "hd-pose-complete",
+          "path": "D:\\project\\宠物\\output\\playwright\\hd-clean-network-author-711cada72ace4984bec3849108f1ecb3\\browser-output\\hd-pose-complete.png",
+          "bytes": 74744,
+          "sha256": "9E61806174D8F53B2F3D23D63770A6C3198AA0E6B04FEBA95BAA21770CEA8DA6",
+          "reviewedBy": "root",
+          "result": "PASSED_SCOPED"
+        },
+        {
+          "name": "hd-pose-sleep",
+          "path": "D:\\project\\宠物\\output\\playwright\\hd-clean-network-author-711cada72ace4984bec3849108f1ecb3\\browser-output\\hd-pose-sleep.png",
+          "bytes": 71541,
+          "sha256": "130445B306C3D31B2D651AAB0DDB6526AC45D80096A22B1501C2E6CA9BD81881",
+          "reviewedBy": "root",
+          "result": "PASSED_SCOPED"
+        },
+        {
+          "name": "hd-sleep-only",
+          "path": "D:\\project\\宠物\\output\\playwright\\hd-sleep-only-author-7f928838439c4786a89c6057d0d03a8d\\browser-output\\hd-sleep-only.png",
+          "bytes": 71541,
+          "sha256": "130445B306C3D31B2D651AAB0DDB6526AC45D80096A22B1501C2E6CA9BD81881",
+          "reviewedBy": "root",
+          "result": "PASSED_SCOPED"
+        }
+      ],
+      "observations": [
+        "透明背景",
+        "人体比例及脚底对齐",
+        "十二姿态不裁切",
+        "工作应用文字与DND状态正常",
+        "16项菜单可滚动且退出可达",
+        "设置布局正常"
+      ],
+      "boundary": "root逐张实际核读第二跑20图及sleep补测1图；首跑20图虽已看，不计入本21图记录。非Native。"
+    },
+    "limitations": [
+      "Tauri IPC/活动/应用/选择器均为模拟；真实CatGirl、Chromium、CSS与PNG解码。",
+      "组合通过不回写两个原aggregate失败，也不称一次连续整套通过。",
+      "synthetic pagehide只验证浏览器绑定监听，不是Native窗口关闭或操作系统/GPU内存证明。",
+      "不提升真实桌面输入、账户、安装、性能或M4资格。"
+    ]
+  },
+  "candidate": {
+    "status": "BUILT_STATIC_CHECKED_NOT_EXECUTED",
+    "artifacts": {
+      "App": {
+        "name": "token-meow.exe",
+        "path": "D:\\project\\宠物\\output\\build-candidates\\c24-hd-source-save-20261016\\token-meow.exe",
+        "sourcePath": "D:\\DevCache\\cargo-token-meow\\release\\token-meow.exe",
+        "bytes": 36466176,
+        "sha256": "98DCE225C60C1FF7D1F76CCF309B31F7645241EA1A70CDB6A61ECD21D7BA7314",
+        "status": "BUILT_ARCHIVED_SHA_VERIFIED_NOT_EXECUTED"
+      },
+      "NSIS": {
+        "name": "TokenMeow_0.1.0_x64-setup.exe",
+        "path": "D:\\project\\宠物\\output\\build-candidates\\c24-hd-source-save-20261016\\TokenMeow_0.1.0_x64-setup.exe",
+        "sourcePath": "D:\\DevCache\\cargo-token-meow\\release\\bundle\\nsis\\TokenMeow_0.1.0_x64-setup.exe",
+        "bytes": 27040620,
+        "sha256": "6FB0254D4027D353212A7A697FA12EC6A9E2A67A06212D8BD517809DBA4A8EFD",
+        "status": "BUILT_ARCHIVED_SHA_VERIFIED_NOT_EXECUTED"
+      },
+      "CLI": {
+        "name": "ledger_audit.exe",
+        "path": "D:\\project\\宠物\\output\\build-candidates\\c24-hd-source-save-20261016\\ledger_audit.exe",
+        "sourcePath": "D:\\DevCache\\cargo-token-meow\\release\\examples\\ledger_audit.exe",
+        "bytes": 3804672,
+        "sha256": "F9964C04D54BFD3D205DD1F9DB933E57C51CA3766ECEDF83AA39F8CF8F0AEDD2",
+        "status": "BUILT_ARCHIVED_SHA_VERIFIED_NOT_EXECUTED"
+      }
+    },
+    "legalDistributionStatus": "485_RESOURCES_COPIED_HASH_MATCHED_485_NSIS_FILE_COMMANDS_14_STATIC_CHECKS_PASSED",
+    "newNativeExecuted": false,
+    "installerExecuted": false,
+    "M4Passed": false,
+    "root": "D:\\project\\宠物\\output\\build-candidates\\c24-hd-source-save-20261016",
+    "sourceManifest": "D:\\project\\宠物\\output\\implementation\\hd-build-root-freeze-20261016\\source-inputs.build.frozen.json",
+    "sourceManifestSha256": "A56EEDAE3628B010789C2C68142A96DA20F00907DAB33306A7D0294B327246A7",
+    "sourceInputs": 627,
+    "productionInputs": 625,
+    "validationFixtures": 2,
+    "validationProjections": "D:\\project\\宠物\\output\\implementation\\hd-build-root-freeze-20261016\\validation-projections.json",
+    "validationProjectionsSha256": "953DD25F182B251B71877198A76230E7BC0EF2B14C3BF83A353FC5912FDA2767",
+    "frontendExactRows": 101,
+    "retainedBackendProjectionRows": 31,
+    "preparedHdLegalFiles": 485,
+    "appBuildProgress": "COMPLETED_APP_AND_NSIS_EXIT0; CLI_EXIT0; source627 equal before/after-app/after; all source guards closed.",
+    "buildReceipt": {
+      "path": "D:\\project\\宠物\\output\\build-candidates\\c24-hd-source-save-20261016\\build-receipt.json",
+      "sha256": "3924A070D780EAC3D9A8012EE038A100178C60CDF32B8BF9EC0B2B0B99861EAC"
+    },
+    "linkProvenance": {
+      "path": "D:\\project\\宠物\\output\\build-candidates\\c24-hd-source-save-20261016\\link-provenance.json",
+      "sha256": "558896BF71D868EA0CAF4FE516C87EABE6C21F408D7DA272ADB3954F94F93439"
+    },
+    "frontendByteBinding": {
+      "path": "D:\\project\\宠物\\output\\implementation\\hd-delivery-root-20261016\\frontend-byte-binding.json",
+      "sha256": "639E9A17845493E660A576659087AB918AB38BB4348FDD74753838D7848170E8",
+      "files": 16
+    },
+    "checksums": {
+      "file": "SHA256SUMS.txt",
+      "entries": 508,
+      "sha256": "9A00A9ED9FE0B01256A751221B296B1D6E73CCD5A424AEBE1F0AD89675238F65"
+    },
+    "buildOwnership": {
+      "app": {
+        "argv": [
+          "C:\\Users\\Administrator\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "D:\\project\\宠物\\output\\build-candidates\\c24-hd-source-save-20261016\\run-owned-build.py",
+          "--owned-phase-wrapper=app"
+        ],
+        "cwd": "D:\\project\\宠物\\output\\build-candidates\\c24-hd-source-save-20261016",
+        "ownershipId": "70f031cb-530f-43e0-81ec-b363cc2cfea3",
+        "startedAtUtc": "2026-10-16T10:26:34.819032+00:00",
+        "timeoutSeconds": 600,
+        "cleanupTimeoutSeconds": 5,
+        "createdSuspended": true,
+        "assignedBeforeResume": true,
+        "resumed": true,
+        "timedOut": false,
+        "cleanupVerified": true,
+        "status": "completed",
+        "errors": [],
+        "sawRootExitedWithActiveDescendants": false,
+        "rootExitedWithActiveDescendantsObservation": null,
+        "compilerRootZeroArtifactCleanupPolicy": true,
+        "naturalWholeJobCompletion": true,
+        "processId": 41000,
+        "root": {
+          "creationFileTimeDecimal": "134366199948207910",
+          "exitFileTimeDecimal": "134366202625438015",
+          "exitCode": 0,
+          "waitSignaled": true,
+          "exited": true
+        },
+        "job": {
+          "totalProcesses": 54,
+          "activeProcesses": 0,
+          "totalTerminatedProcesses": 0
+        },
+        "handleInheritance": "explicit stdin/stdout/stderr only",
+        "globalEnumeration": false,
+        "finishedAtUtc": "2026-10-16T10:31:02.557152+00:00",
+        "elapsedSeconds": 267.7375965001993,
+        "cpuWindowReleaseVerified": true
+      },
+      "example": {
+        "argv": [
+          "C:\\Users\\Administrator\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "D:\\project\\宠物\\output\\build-candidates\\c24-hd-source-save-20261016\\run-owned-build.py",
+          "--owned-phase-wrapper=example"
+        ],
+        "cwd": "D:\\project\\宠物\\output\\build-candidates\\c24-hd-source-save-20261016",
+        "ownershipId": "24c34d47-32c6-465c-bb56-bf433397e460",
+        "startedAtUtc": "2026-10-16T10:31:16.023716+00:00",
+        "timeoutSeconds": 600,
+        "cleanupTimeoutSeconds": 5,
+        "createdSuspended": true,
+        "assignedBeforeResume": true,
+        "resumed": true,
+        "timedOut": false,
+        "cleanupVerified": true,
+        "status": "compiled-root-zero-owned-descendants-cleaned",
+        "errors": [],
+        "sawRootExitedWithActiveDescendants": true,
+        "rootExitedWithActiveDescendantsObservation": {
+          "elapsedSeconds": 125.32305249990895,
+          "root": {
+            "creationFileTimeDecimal": "134366202760246248",
+            "exitFileTimeDecimal": "134366204013404842",
+            "exitCode": 0,
+            "waitSignaled": true,
+            "exited": true
+          },
+          "job": {
+            "totalProcesses": 23,
+            "activeProcesses": 1,
+            "totalTerminatedProcesses": 0
+          }
+        },
+        "compilerRootZeroArtifactCleanupPolicy": true,
+        "naturalWholeJobCompletion": false,
+        "processId": 46408,
+        "root": {
+          "creationFileTimeDecimal": "134366202760246248",
+          "exitFileTimeDecimal": "134366204013404842",
+          "exitCode": 0,
+          "waitSignaled": true,
+          "exited": true
+        },
+        "job": {
+          "totalProcesses": 23,
+          "activeProcesses": 0,
+          "totalTerminatedProcesses": 0
+        },
+        "handleInheritance": "explicit stdin/stdout/stderr only",
+        "globalEnumeration": false,
+        "finishedAtUtc": "2026-10-16T10:33:21.347414+00:00",
+        "elapsedSeconds": 125.32352869957685,
+        "cpuWindowReleaseVerified": true
+      }
+    },
+    "buildOwnershipBoundary": "App Job267.7376s natural whole-Job completion. CLI compiler/wrapper root0 with archived artifact, then predeclared owned-descendant cleanup; CLI naturalWholeJobCompletion=false, final activeProcesses0 and cleanup verified. No application/CLI/installer execution."
+  },
+  "retainedEvidence": {
+    "C23": "原v4封存候选保持原样；App/NSIS/CLI尚未执行，按用户要求延后桌面测试。",
+    "Rust52": {
+      "receipt": "docs/acceptance/c24-source-save-targeted-2026-10-16.json",
+      "receiptSha256": "406E6D0A0A0C58440B62A5B778CB5F4A8DAFFAAC5476A92F0BCACB04FDD1A5CA",
+      "status": "HISTORICAL_RETAINED_NOT_RERUN",
+      "boundary": "原C24来源/CSV/桥接52项按本候选31项后端投影的精确不变输入保留，未重跑。HD101前端另外绑定；不验证主目录并行前端工作、新Native、安装或整应用性能。"
+    }
+  },
+  "pendingRootFill": [
+    "Windows桌面实机、安装/升级/卸载、资源与性能及完整M4按用户后续安排单独验收。"
+  ]
+}

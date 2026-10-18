@@ -1,0 +1,257 @@
+{
+  "schema_version": 1,
+  "skin_id": "nekomi-hd-v1",
+  "renderer_kind": "builtin-hd-poses-css",
+  "author": "Token 喵项目设计 · OpenAI imagegen AI 辅助生成",
+  "source": "AI-assisted，2026-10-16；12 张独立原生透明 PNG，原图字节未改写；来源、提示词与透明轮廓测量见 hd-v1/manifest.json、generation-*.json、image-analysis.json 及 prompts/。",
+  "license": "LicenseRef-Project-Owned",
+  "attribution": "小柚 · 12 种独立高清姿态 · AI 辅助生成内置资源",
+  "poses": [
+    {
+      "pose": "idle",
+      "path": "assets/pets/nekomi/hd-v1/idle.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 1901008,
+      "sha256": "f1d2c01a123ff0616612d11f5ddba7055f93405b7c3273f640438652ce02962d",
+      "bounds": [
+        114,
+        91,
+        993,
+        1452
+      ]
+    },
+    {
+      "pose": "active",
+      "path": "assets/pets/nekomi/hd-v1/active.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 1919345,
+      "sha256": "a5e69f390c4d567bac00b5117e3762474e40b6b278ab5ca21679802340872cfc",
+      "bounds": [
+        113,
+        91,
+        994,
+        1453
+      ]
+    },
+    {
+      "pose": "complete",
+      "path": "assets/pets/nekomi/hd-v1/complete.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 1973274,
+      "sha256": "43b0bca6f4aca7211f66f78e331dcfd2ebe1f7f92d9ed6fc85e85cfb5bc7fd9b",
+      "bounds": [
+        89,
+        47,
+        1003,
+        1458
+      ]
+    },
+    {
+      "pose": "alert",
+      "path": "assets/pets/nekomi/hd-v1/alert.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 1958280,
+      "sha256": "8640829380318ac26e5f5def3376c5399b6ab6964dc614f53428182b3eef100b",
+      "bounds": [
+        108,
+        51,
+        994,
+        1455
+      ]
+    },
+    {
+      "pose": "sleep",
+      "path": "assets/pets/nekomi/hd-v1/sleep.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 1922022,
+      "sha256": "ca1751662ff2238e9dc24b505d12c3a4083b4906370e62aab317419d97816686",
+      "bounds": [
+        111,
+        42,
+        993,
+        1453
+      ]
+    },
+    {
+      "pose": "shy",
+      "path": "assets/pets/nekomi/hd-v1/shy.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 1909180,
+      "sha256": "a12948612b207480bd49b5259e1df9d749a6cc73e2fec5300c0ce003d41c0c28",
+      "bounds": [
+        124,
+        67,
+        997,
+        1452
+      ]
+    },
+    {
+      "pose": "affection",
+      "path": "assets/pets/nekomi/hd-v1/affection.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 1993313,
+      "sha256": "eb002e7bf7e5824c6e087ef54019a5956dd6d036b297274503ccb15c24b8171c",
+      "bounds": [
+        89,
+        49,
+        996,
+        1466
+      ]
+    },
+    {
+      "pose": "stretch",
+      "path": "assets/pets/nekomi/hd-v1/stretch.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 1960476,
+      "sha256": "773eb3b5134a2a441ff820826713982d2764cc18c7508733ae8700bbf1e5f6b3",
+      "bounds": [
+        99,
+        47,
+        998,
+        1468
+      ]
+    },
+    {
+      "pose": "wink",
+      "path": "assets/pets/nekomi/hd-v1/wink.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 1940362,
+      "sha256": "ab4e892a85c9231250aad076dbd05bee722676b67f1cbaf904fef9b117085415",
+      "bounds": [
+        94,
+        41,
+        996,
+        1450
+      ]
+    },
+    {
+      "pose": "happy",
+      "path": "assets/pets/nekomi/hd-v1/happy.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 1897026,
+      "sha256": "8ea7b980d272902862aeae101d2f6e0b21f0b42720aece42af9886e23f05643a",
+      "bounds": [
+        119,
+        106,
+        991,
+        1455
+      ]
+    },
+    {
+      "pose": "bow",
+      "path": "assets/pets/nekomi/hd-v1/bow.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 1943071,
+      "sha256": "cf28613909ce3c94d8598ad8210ba77024a7b7d8b7d2acebc7d9942b7f61b287",
+      "bounds": [
+        97,
+        59,
+        997,
+        1456
+      ]
+    },
+    {
+      "pose": "hug-tail",
+      "path": "assets/pets/nekomi/hd-v1/hug-tail.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 1803116,
+      "sha256": "6a570731fd3b93bd58a797ef076979f2693b6a7f092a5ae6536f473263cd4f60",
+      "bounds": [
+        127,
+        10,
+        941,
+        1474
+      ]
+    }
+  ],
+  "actions": {
+    "idle": {
+      "start": 200,
+      "loop": 6000,
+      "end": 200,
+      "fallback": "static",
+      "frames": {
+        "start": 0,
+        "loop": 0,
+        "end": 0
+      }
+    },
+    "active": {
+      "start": 200,
+      "loop": 1800,
+      "end": 200,
+      "fallback": "idle",
+      "frames": {
+        "start": 1,
+        "loop": 1,
+        "end": 1
+      }
+    },
+    "complete": {
+      "start": 250,
+      "loop": 1500,
+      "end": 250,
+      "fallback": "idle",
+      "frames": {
+        "start": 2,
+        "loop": 2,
+        "end": 2
+      }
+    },
+    "alert": {
+      "start": 250,
+      "loop": 2200,
+      "end": 250,
+      "fallback": "idle",
+      "frames": {
+        "start": 3,
+        "loop": 3,
+        "end": 3
+      }
+    },
+    "sleep": {
+      "start": 300,
+      "loop": 7000,
+      "end": 300,
+      "fallback": "idle",
+      "frames": {
+        "start": 4,
+        "loop": 4,
+        "end": 4
+      }
+    }
+  },
+  "variants": {
+    "idle": [
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ],
+    "tap": [
+      7,
+      6,
+      9,
+      12,
+      10,
+      11,
+      8
+    ]
+  },
+  "static_pose": "idle"
+}

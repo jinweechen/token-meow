@@ -1,0 +1,214 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-17",
+  "generator": "builtin image_gen",
+  "pixelPostProcessing": false,
+  "scope": "Master idle, four primary-state poses and three-view design board",
+  "status": "independent-visual-review-complete",
+  "assets": [
+    {
+      "pose": "idle",
+      "file": "idle.png",
+      "sourceOriginalPath": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14280-254e-70f3-ba61-b34c813b8e3a\\exec-5da6f85c-b02d-4265-98bc-7ff6c8841008.png",
+      "sha256": "1dc3f07e64139e7b4b641399ea9f2920d210940795acfeb9cab9cb8600ee54f3",
+      "prompt": "prompts/idle.txt",
+      "promptSha256": "e09f1f75a107c8b867794da9e01cef54feebfbcaf768e9abd824891c2651374e",
+      "referencePaths": [
+        "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v4-occlusion\\idle.png"
+      ],
+      "referenceHashes": [
+        {
+          "path": "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v4-occlusion\\idle.png",
+          "sha256": "fd13e13bbfa1a58083d7047b6819f76eaf0c1d2ee16fba43483c54f0f894a3ea"
+        }
+      ],
+      "originalBytesVerified": true,
+      "independentReview": {
+        "decision": "go",
+        "sha256": "1dc3f07e64139e7b4b641399ea9f2920d210940795acfeb9cab9cb8600ee54f3",
+        "report": "D:\\project\\宠物\\output\\imagegen\\hd-v5-design-20261017\\independent-review.json",
+        "limitations": [
+          "The hidden tail route and clothing opening require turnaround confirmation.",
+          "This is visual anatomy review of a stylized 2D image, not a skeletal rig verification."
+        ]
+      }
+    },
+    {
+      "pose": "active",
+      "file": "active.png",
+      "sourceOriginalPath": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14280-254e-70f3-ba61-b34c813b8e3a\\exec-65096dc8-33c0-42b8-bf20-70d48171438e.png",
+      "sha256": "5c36c72372418ca6e904c46d795f5e4b11094a1ce527393b70d2949b26ae651d",
+      "prompt": "prompts/active.txt",
+      "promptSha256": "b6fd0fee22aea47c02ea1c9182116988b1c13af2c05012cb4c8fea863cd63ac2",
+      "referencePaths": [
+        "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v5-natural-tail\\idle.png",
+        "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v5-natural-tail\\reference\\turnaround-before-belt.png"
+      ],
+      "referenceHashes": [
+        {
+          "path": "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v5-natural-tail\\idle.png",
+          "sha256": "1dc3f07e64139e7b4b641399ea9f2920d210940795acfeb9cab9cb8600ee54f3"
+        },
+        {
+          "path": "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v5-natural-tail\\reference\\turnaround-before-belt.png",
+          "sha256": "67d9acfaa0f8cc6ddf0f7489ee62785f35022a15133885934e3ad17635dfc31f"
+        }
+      ],
+      "originalBytesVerified": true,
+      "independentReview": {
+        "decision": "go",
+        "sha256": "5c36c72372418ca6e904c46d795f5e4b11094a1ce527393b70d2949b26ae651d",
+        "report": "D:\\project\\宠物\\output\\imagegen\\hd-v5-design-20261017\\independent-review.json",
+        "limitations": [
+          "Front view occludes tail root; no independent claim about hidden joint geometry."
+        ]
+      }
+    },
+    {
+      "pose": "complete",
+      "file": "complete.png",
+      "sourceOriginalPath": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14280-254e-70f3-ba61-b34c813b8e3a\\exec-47dfd549-fe01-4ad1-8666-3a0e27a4f60f.png",
+      "sha256": "99ac410ecefc9a334f5c374be52b82219856414468d55316020b8c3c9716b77b",
+      "prompt": "prompts/complete.txt",
+      "promptSha256": "db4cac1cfb8682c27e283bbb9469d841d06c64b78d0ea8c027e6adcc3f999917",
+      "referencePaths": [
+        "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v5-natural-tail\\idle.png",
+        "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v5-natural-tail\\reference\\turnaround-before-belt.png"
+      ],
+      "referenceHashes": [
+        {
+          "path": "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v5-natural-tail\\idle.png",
+          "sha256": "1dc3f07e64139e7b4b641399ea9f2920d210940795acfeb9cab9cb8600ee54f3"
+        },
+        {
+          "path": "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v5-natural-tail\\reference\\turnaround-before-belt.png",
+          "sha256": "67d9acfaa0f8cc6ddf0f7489ee62785f35022a15133885934e3ad17635dfc31f"
+        }
+      ],
+      "originalBytesVerified": true,
+      "independentReview": {
+        "decision": "go",
+        "sha256": "99ac410ecefc9a334f5c374be52b82219856414468d55316020b8c3c9716b77b",
+        "report": "D:\\project\\宠物\\output\\imagegen\\hd-v5-design-20261017\\independent-review.json",
+        "limitations": [
+          "Front view occludes tail root; no independent claim about hidden joint geometry."
+        ]
+      }
+    },
+    {
+      "pose": "alert",
+      "file": "alert.png",
+      "sourceOriginalPath": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14280-254e-70f3-ba61-b34c813b8e3a\\exec-ee282a68-2a81-4675-9aff-f683735da770.png",
+      "sha256": "3f760e7a72b410cb139d1fe26ef12ea9922f9b581b441d37d5cc19969bb38a44",
+      "prompt": "prompts/alert.txt",
+      "promptSha256": "9bef7b69beec373bc64e1d293b43e62e7765ed85f5b6e34add1ec116e2d9b6d8",
+      "referencePaths": [
+        "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v5-natural-tail\\idle.png",
+        "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v5-natural-tail\\reference\\turnaround-before-belt.png"
+      ],
+      "referenceHashes": [
+        {
+          "path": "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v5-natural-tail\\idle.png",
+          "sha256": "1dc3f07e64139e7b4b641399ea9f2920d210940795acfeb9cab9cb8600ee54f3"
+        },
+        {
+          "path": "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v5-natural-tail\\reference\\turnaround-before-belt.png",
+          "sha256": "67d9acfaa0f8cc6ddf0f7489ee62785f35022a15133885934e3ad17635dfc31f"
+        }
+      ],
+      "originalBytesVerified": true,
+      "independentReview": {
+        "decision": "go",
+        "sha256": "3f760e7a72b410cb139d1fe26ef12ea9922f9b581b441d37d5cc19969bb38a44",
+        "report": "D:\\project\\宠物\\output\\imagegen\\hd-v5-design-20261017\\independent-review.json",
+        "limitations": [
+          "Tucked-hand fingers are intentionally occluded rather than independently visible."
+        ]
+      }
+    },
+    {
+      "pose": "sleep",
+      "file": "sleep.png",
+      "sourceOriginalPath": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14280-254e-70f3-ba61-b34c813b8e3a\\exec-3a0509c6-832e-4c43-95b5-1aed137a381b.png",
+      "sha256": "82807f92f908e3c628c88d1685f3f99ee0e6adb820e0fb024c2316deef157d53",
+      "prompt": "prompts/sleep-flower-final.txt",
+      "promptSha256": "89db3720c0f3b7fe7846a634d07ef9111487c34cd0ee2b73af00e5f17ae5ded3",
+      "referencePaths": [
+        "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v5-natural-tail\\reference\\sleep-five-flower-draft.png"
+      ],
+      "referenceHashes": [
+        {
+          "path": "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v5-natural-tail\\reference\\sleep-five-flower-draft.png",
+          "sha256": "7239337bf81c535693ede0bad09c245c59a1f2e52ae6c0dcfed871f381bdba2e"
+        }
+      ],
+      "originalBytesVerified": true,
+      "independentReview": {
+        "decision": "go",
+        "sha256": "82807f92f908e3c628c88d1685f3f99ee0e6adb820e0fb024c2316deef157d53",
+        "report": "D:\\project\\宠物\\output\\imagegen\\hd-v5-design-20261017\\independent-review.json",
+        "limitations": [
+          "Some digits are partly covered by the opposite hand; this is not a five-finger spread."
+        ]
+      }
+    },
+    {
+      "pose": "turnaround",
+      "file": "reference/turnaround.png",
+      "sourceOriginalPath": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14280-254e-70f3-ba61-b34c813b8e3a\\exec-9504104e-b659-4131-ad19-0f8b39a59bb0.png",
+      "sha256": "2ec76b1ed4cb6c23f14af1cef1d63941197a40a9f3412c06f07b7277315b0e26",
+      "prompt": "prompts/turnaround-belt-repair.txt",
+      "promptSha256": "b7e32f801c8352ad1a32d6fff4c7be204a38f61bc183220c9bf4bf1a419f12af",
+      "referencePaths": [
+        "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v5-natural-tail\\reference\\turnaround-before-belt.png"
+      ],
+      "referenceHashes": [
+        {
+          "path": "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v5-natural-tail\\reference\\turnaround-before-belt.png",
+          "sha256": "67d9acfaa0f8cc6ddf0f7489ee62785f35022a15133885934e3ad17635dfc31f"
+        }
+      ],
+      "originalBytesVerified": true,
+      "independentReview": {
+        "decision": "go",
+        "sha256": "2ec76b1ed4cb6c23f14af1cef1d63941197a40a9f3412c06f07b7277315b0e26",
+        "report": "D:\\project\\宠物\\output\\imagegen\\hd-v5-design-20261017\\independent-review.json",
+        "limitations": [
+          "The sheet is a coherent illustration guide, not geometric proof from a single 3D model.",
+          "Side proximal root is occluded; the back view supplies the explicit opening evidence."
+        ]
+      }
+    }
+  ],
+  "history": [
+    {
+      "pose": "sleep",
+      "sourceOriginalPath": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14280-254e-70f3-ba61-b34c813b8e3a\\exec-d1f16fef-bb71-4e6a-b7e7-9e7f155cca16.png",
+      "file": "reference/sleep-before-flower-repair.png",
+      "prompt": "prompts/sleep.txt",
+      "reason": "Seven skirt flowers rather than the master six; retained draft, not selected."
+    },
+    {
+      "pose": "sleep",
+      "sourceOriginalPath": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14280-254e-70f3-ba61-b34c813b8e3a\\exec-6a45ab66-e252-449f-828e-1e28606bd314.png",
+      "file": "reference/sleep-five-flower-draft.png",
+      "prompt": "prompts/sleep-flower-repair.txt",
+      "reason": "Model removed two flowers instead of one, leaving five. Targeted final repair restores one small flower."
+    },
+    {
+      "pose": "turnaround",
+      "sourceOriginalPath": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14280-254e-70f3-ba61-b34c813b8e3a\\exec-15f1072d-8d12-4b3a-a505-e2f908b3bfc4.png",
+      "file": "reference/turnaround-direction-draft.png",
+      "prompt": "prompts/turnaround.txt",
+      "reason": "Back-view tail direction was inconsistent with front. Retained draft; not selected."
+    },
+    {
+      "pose": "turnaround",
+      "sourceOriginalPath": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14280-254e-70f3-ba61-b34c813b8e3a\\exec-05f06c8a-803d-4002-906f-cbcc1194d06c.png",
+      "file": "reference/turnaround-before-belt.png",
+      "prompt": "prompts/turnaround-direction-repair.txt",
+      "reason": "Tail direction corrected; rear green waistband still missing. This exact intermediate was the construction input used while front poses were generated."
+    }
+  ],
+  "reviewStatusNote": "Each selected current PNG SHA received explicit independent reviewer go. Producer self-review and rejected-attempt history are retained as historical records."
+}

@@ -1,0 +1,7 @@
+Tail visibility correction for complete.
+Use case: precise-object-edit. Image1 is the pose target; image2 is the accepted tail occlusion master.
+Keep the entire character, pose, hands, face, clothing, waist ribbon, skirt and feet exactly as in image1. Fix ONLY the rejected tail placement.
+The model left a white tail strip beside the waist/upper skirt. DELETE ALL OF IT. Absolutely NO visible tail fur is allowed above y950 in this1024x1536 target. The wide white strip running next to the upper skirt/under hair must be removed, restoring the normal dress contour and transparency outside it.
+The tail's true base and whole upstream section are completely behind the body and skirt, invisible. Only a middle section first appears BELOW the lower green skirt band, from behind the viewer-right low ruffled SIDE edge, approximatelyx790-830,y980. The ruffle cloth is in front and occludes its upper part. Do not draw a root or hole on waist, sleeve, side dress or hem.
+Copy image2's LOWER-SIDE OCCLUSION exactly. The visible tail hangs outside the right calf with a soft narrow S, substantial middle section tapering to one soft tip, modest fluff and width. Tail fur must not trace the upper/middle skirt diagonal. There must be a clear empty background area between the lower long hair and the visible tail, with the skirt itself separating them. Preserve the natural character gesture and dimensions.
+Native1024x1536 RGBA true transparency, full figure, no cropped outlines, background, floor, shadow, text or diagrams.

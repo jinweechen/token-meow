@@ -1,0 +1,141 @@
+{
+  "schemaVersion": 1,
+  "status": "engineering-reference-only-not-character-art",
+  "canvas": [
+    768,
+    768
+  ],
+  "fixedScalePixelsPerMetre": 400,
+  "fixedGroundY": 700,
+  "fixedRootX": 384,
+  "coordinateTransform": "same source-to-SVG scale; remove overall root x only for in-place viewing; no per-frame bounds normalization",
+  "modelRevision": "upright-short-stride-study-20261017",
+  "files": [
+    {
+      "path": "01-near-contact.svg",
+      "phase": 0,
+      "time": 0,
+      "name": "近脚接触",
+      "bodyVerticalState": "falling",
+      "rootVerticalSpeed": -0.04616454576226141
+    },
+    {
+      "path": "02-near-support.svg",
+      "phase": 0.125,
+      "time": 0.16,
+      "name": "近脚承重",
+      "bodyVerticalState": "rising",
+      "rootVerticalSpeed": 0.06354004615394075
+    },
+    {
+      "path": "03-far-passing.svg",
+      "phase": 0.3,
+      "time": 0.384,
+      "name": "远脚通过",
+      "bodyVerticalState": "apex",
+      "rootVerticalSpeed": 0
+    },
+    {
+      "path": "04-far-forward-swing.svg",
+      "phase": 0.375,
+      "time": 0.48,
+      "name": "远脚前摆",
+      "bodyVerticalState": "falling",
+      "rootVerticalSpeed": -0.06354004615394075
+    },
+    {
+      "path": "05-far-contact.svg",
+      "phase": 0.5,
+      "time": 0.64,
+      "name": "远脚接触",
+      "bodyVerticalState": "falling",
+      "rootVerticalSpeed": -0.04616454576226143
+    },
+    {
+      "path": "06-far-support.svg",
+      "phase": 0.625,
+      "time": 0.8,
+      "name": "远脚承重",
+      "bodyVerticalState": "rising",
+      "rootVerticalSpeed": 0.06354004615394074
+    },
+    {
+      "path": "07-near-passing.svg",
+      "phase": 0.8,
+      "time": 1.024,
+      "name": "近脚通过",
+      "bodyVerticalState": "apex",
+      "rootVerticalSpeed": 1.9236706937217898e-17
+    },
+    {
+      "path": "08-near-forward-swing.svg",
+      "phase": 0.8750000000000001,
+      "time": 1.12,
+      "name": "近脚前摆",
+      "bodyVerticalState": "falling",
+      "rootVerticalSpeed": -0.06354004615394085
+    }
+  ],
+  "contactSheet": "eight-phase-reference.svg",
+  "validation": {
+    "scope": "Deterministic engineering model only; no character artwork or animation acceptance",
+    "sampleCount": 1201,
+    "finiteDifferenceStepSeconds": 0.00001,
+    "passed": true,
+    "checks": {
+      "finiteCoordinates": true,
+      "constantSegmentLengths": true,
+      "kneesOnAnatomicalForwardBendBranch": true,
+      "positiveExtensionMargin": true,
+      "noSoleBelowGround": true,
+      "stanceWorldContactFixed": true,
+      "rootAndLocalStanceMatch": true,
+      "constantForwardSpeed": true,
+      "periodicLocalPositions": true,
+      "periodicLocalVelocitySeam": true,
+      "noOneSidedVelocityJumpAtLoop": true,
+      "nearFarIdentityFixed": true,
+      "sameSideArmOpposesLegAtContact": true,
+      "eightDistinctPosesPerLeg": true,
+      "moreThanColorSwap": true
+    },
+    "metrics": {
+      "maximumSegmentLengthError": 2.7755575615628914e-16,
+      "maximumStanceWorldSpeed": 0,
+      "maximumLocalStanceSpeedMismatch": 6.824707465824531e-12,
+      "maximumRootSpeedError": 6.824707465824531e-12,
+      "maximumLocalCyclePositionSeam": 8.326672684688674e-17,
+      "maximumLocalCycleVelocitySeam": 6.9388939039072276e-12,
+      "maximumOneSidedVelocityJumpAtLoop": 2.1031787422742806e-8,
+      "minimumAnatomicalForwardBendOffset": 0.06139651972362023,
+      "minimumKneeRelativeToHipX": -0.025105135817486468,
+      "kneeFlexionDegrees": {
+        "all": [
+          16.417791411935184,
+          51.98871591977715
+        ],
+        "stance": [
+          19.164955974929285,
+          24.774970922053114
+        ],
+        "swing": [
+          16.417791411935184,
+          51.98871591977715
+        ]
+      },
+      "maximumLegReach": 0.8511885040714003,
+      "maximumLegExtensionRatio": 0.9897540745016283,
+      "minimumRemainingExtension": 0.008811495928599644,
+      "maximumKneeExtensionDegrees": 163.58220858806482,
+      "maximumReachAt": {
+        "id": "far",
+        "phase": 0.6308333333333334,
+        "time": 0.16746666666666665
+      },
+      "minimumSoleHeight": 0,
+      "nearDistinctKeyPoses": 8,
+      "farDistinctKeyPoses": 8,
+      "distinctUnlabelledKeyGeometry": 4
+    }
+  }
+}

@@ -1,0 +1,16 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs/promises';
+const options = Object.fromEntries(process.argv.slice(2).map(arg => { const i = arg.indexOf('='); return [arg.slice(2, i), arg.slice(i + 1)]; }));
+if (!options.oracle || !options.actual) throw Error('--oracle=<redacted oracle.json> and --actual=<ledger audit.json> required');
+const oracle = JSON.parse(await fs.readFile(options.oracle, 'utf8')).expected;
+const actual = JSON.parse(await fs.readFile(options.actual, 'utf8'));
+const overview = actual.result.overview;
+const mappings = { inputTokens: 'input_tokens', outputTokens: 'output_tokens', totalTokens: 'total_tokens', cachedInputTokens: 'cached_input_tokens', cacheWriteInputTokens: 'cache_write_input_tokens', reasoningOutputTokens: 'reasoning_output_tokens' };
+for (const [normalized, original] of Object.entries(mappings)) assert.equal(overview[normalized], oracle.sums[original], normalized);
+assert.equal(overview.responseCount, oracle.meteredResponses, 'metered response count');
+assert.equal(overview.excludedResponses, oracle.conflicts + oracle.invalid, 'excluded response scope');
+assert.equal(actual.result.health.pendingFiles, 0, 'unread files remain');
+if (oracle.sums.input_tokens > 0) assert.ok(Math.abs(overview.cacheHitRate - oracle.sums.cached_input_tokens / oracle.sums.input_tokens) < 1e-12, 'weighted cache ratio');
+const result = { observedAt: new Date().toISOString(), status: 'passed', expectedResponses: oracle.meteredResponses, expectedTotal: oracle.sums.total_tokens, observedTotal: overview.totalTokens, actualScans: actual.scans, actualElapsedMs: actual.elapsedMs, scope: 'native response accounting against independent redacted-source oracle; excludes native UI, live account, installer and release qualification' };
+if (options.out) await fs.writeFile(options.out, JSON.stringify(result, null, 2) + '\n');
+process.stdout.write(JSON.stringify(result, null, 2) + '\n');

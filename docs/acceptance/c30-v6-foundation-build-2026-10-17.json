@@ -1,0 +1,148 @@
+{
+  "status": "C30_BUILT_STATIC_AND_WEB_VALIDATED_NATIVE_DEFERRED",
+  "createdAtUtc": "2026-10-17T02:11:50.686501+00:00",
+  "sourceInputs": 796,
+  "baseInputs": 270,
+  "freshLegalInputs": 526,
+  "distFiles": 42,
+  "runtimePng": 38,
+  "runtimeClips": 12,
+  "provenanceDocuments": 65,
+  "staticChecks": 14,
+  "checksumEntries": 575,
+  "allChecksumsFreshlyVerified": true,
+  "products": [
+    {
+      "name": "token-meow.exe",
+      "bytes": 87722496,
+      "sha256": "7B9B5FF5777E5D0E50BAF2179DBADBAB4A8628870284CD490DE354C258EE717E"
+    },
+    {
+      "name": "TokenMeow_0.1.0_x64-setup.exe",
+      "bytes": 78179437,
+      "sha256": "5731124416DD1C16F80A8741930CD0C08C6133B918AC0197D23284BBD24F991C"
+    },
+    {
+      "name": "ledger_audit.exe",
+      "bytes": 3826688,
+      "sha256": "E907E66432580289CA6A3C55958CD177DC64A4D4B2CA4AFCC3F9A85050DB3F9C"
+    }
+  ],
+  "buildReceipt": {
+    "path": "output/build-candidates/c30-v6-foundation-20261017/build-receipt.json",
+    "sha256": "3AF3A018991C87B8EF2A76EAAD44681207BEB898DCD649BF0622B717302DEDC9"
+  },
+  "linkProvenance": {
+    "path": "output/build-candidates/c30-v6-foundation-20261017/link-provenance.json",
+    "sha256": "7A5FF1786239727855E09E4AF1273C2F45F55F776C1CE5CDC5C5C105AA9B4807"
+  },
+  "checksums": {
+    "path": "output/build-candidates/c30-v6-foundation-20261017/SHA256SUMS.txt",
+    "sha256": "F6ABB43B671133FB4C65BA151D6C7F92478E95F0BC392B9B6CC38CFC0B770D15"
+  },
+  "freshBuiltWeb": {
+    "path": "output/playwright/c30-built-web-20261017/final-binding.json",
+    "sha256": "F612E3C451B2FD7FE3EC4EEDE33D86E88DDEC8EDCFB44DAF7D8C74BE05F0148B"
+  },
+  "frozenInputAudit": {
+    "path": "output/implementation/c30-frozen-input-audit-20261017/audit.json",
+    "sha256": "46EB7580D0F80DF065D4D2676AC6C76E6E092FBD79C8FAEFE2C0EA64EF93C876"
+  },
+  "scopedChecks": [
+    {
+      "reference": {
+        "path": "output/implementation/core-health-knowledge-20261017/scoped-summary.json",
+        "sha256": "10573E97673CAF85E21B35192FD3CECD7AD07796CD552D8BDEA9281D3AC8209A"
+      },
+      "scope": "11 temporary-fixture health/history/pet tests; prior 6 failing counterexamples preserved; 27/27 Core projection and 3/3 delivered files match, not whole C30 test suite."
+    },
+    {
+      "reference": {
+        "path": "output/implementation/roaming-edge-direction-20261017/test-only-confirmation/result.json",
+        "sha256": "B2ACC836E115C703744A3EF76F8D4830C9ACB14247A541E13A249B3F76554172"
+      },
+      "scope": "18 pure planner tests; exact planner module matches. Original owner timeout preserved; test-only confirmation completed naturally. Native integration compiled, not executed."
+    },
+    {
+      "reference": {
+        "path": "output/playwright/usage-required-metrics-20261017/result.json",
+        "sha256": "F733FB3AC884AEF9DF1DE0E63058532EBC5FCD95FA38AADEB903BD1CFC03C6A9"
+      },
+      "scope": "6 existing usage tests and 6 synthetic-props mounted browser cases, typecheck/build; 97/97 input projection matches."
+    }
+  ],
+  "retainedEvidenceBoundaries": [
+    "v6 old 51-test/browser receipt: 13/16 original source files match; all 40 asset/manifest inputs match. CatGirl/styles changed; generator excluded. Do not rebind old bundle.",
+    "Readiness 29 cases: 3/3 declared source files match; receipt did not close all command dependencies. Not whole-frontend acceptance.",
+    "Readiness mounted 19 cases: 131/132 source match; only UsageDashboard changed; readiness implementation/test projection 8/8. Synthetic IPC only.",
+    "r3 Rust 55 tests: 32/36 source projection match; queries/pet/desktop/planner changed plus new health_tests. Do not claim whole current-main PASS."
+  ],
+  "rootReviewedScreenshots": [
+    {
+      "path": "output/playwright/c30-built-web-20261017/main-expanded.png",
+      "sha256": "D3A62255764620A914B2F7EC9BF24D4A39439D1A5DA87F61AC3807F06C2C63C0"
+    },
+    {
+      "path": "output/playwright/c30-built-web-20261017/pet-demo-transparent.png",
+      "sha256": "583DB608B149488202F31F180B3341951C5178EC724AD031689B2BDDAD1AFB73"
+    }
+  ],
+  "phaseClosure": {
+    "dependencies": {
+      "status": "completed",
+      "naturalWholeJobCompletion": true,
+      "activeProcesses": 0
+    },
+    "frontend": {
+      "status": "completed",
+      "naturalWholeJobCompletion": true,
+      "activeProcesses": 0
+    },
+    "legal": {
+      "status": "completed",
+      "naturalWholeJobCompletion": true,
+      "activeProcesses": 0
+    },
+    "app": {
+      "status": "compiled-root-zero-owned-descendants-cleaned",
+      "naturalWholeJobCompletion": false,
+      "activeProcesses": 0
+    },
+    "cli": {
+      "status": "compiled-root-zero-owned-descendants-cleaned",
+      "naturalWholeJobCompletion": false,
+      "activeProcesses": 0
+    },
+    "seal": {
+      "status": "completed",
+      "naturalWholeJobCompletion": true,
+      "activeProcesses": 0
+    }
+  },
+  "firstFailuresPreserved": [
+    "output/implementation/c30-build-preflight-20261017/root-release-preparation-first-failure.json",
+    "output/implementation/core-health-knowledge-20261017/negative-old-logic",
+    "output/implementation/roaming-edge-direction-20261017/execution.json",
+    "output/playwright/usage-required-metrics-20261017: initial CLI syntax and benign harness favicon error retained"
+  ],
+  "oldC24ProductsFreshlyVerifiedUnchanged": {
+    "token-meow.exe": "98DCE225C60C1FF7D1F76CCF309B31F7645241EA1A70CDB6A61ECD21D7BA7314",
+    "TokenMeow_0.1.0_x64-setup.exe": "6FB0254D4027D353212A7A697FA12EC6A9E2A67A06212D8BD517809DBA4A8EFD",
+    "ledger_audit.exe": "F9964C04D54BFD3D205DD1F9DB933E57C51CA3766ECEDF83AA39F8CF8F0AEDD2"
+  },
+  "applicationExecuted": false,
+  "installerExecuted": false,
+  "cliExecuted": false,
+  "realCodexOrModelExecuted": false,
+  "walkingEnabled": false,
+  "NativeAccepted": false,
+  "M4Complete": false,
+  "goalComplete": false,
+  "remaining": [
+    "Approve real gait materials, connect gait presentation and enable actual movement, then test input stop and monitor/DPI behavior.",
+    "Current candidate Native tests: physical desktop click closes menu, automatic care/play and real app quick launch.",
+    "File-drop/window-edge interaction is not supplied.",
+    "Current whole V1 F01-F12, real ledger/bridge continuation, installer/upgrade/uninstall and performance/M4 acceptance remain scoped or incomplete."
+  ],
+  "scope": "Post-build root review only; no product execution or whole-source test claim. Does not alter sealed candidates or source."
+}

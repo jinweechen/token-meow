@@ -1,0 +1,93 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-15T13:54:19.0800802Z",
+  "scope": "first 600 seconds of complete frozen ordinary JSONL first import, not the complete import interval",
+  "applicationVersion": "0.1.0",
+  "executableSha256": "C11DD01F757FFD0E6F07FB6926A334E48D7A19BFB3C083CCDEC3E05441AA05C2",
+  "source": {
+    "scope": "all 379 ordinary JSONL files in captured source inventory; complete original lines, unredacted private local input",
+    "files": 379,
+    "bytes": 4275752976,
+    "manifestSha256": "8AC284E97D6E9E72958AD35A8A0D76EB1F036822415DA3B295ECFF36A3F67378",
+    "rawSnapshotExcludedFromDistribution": true
+  },
+  "resource": {
+    "observedSeconds": 600.0124898,
+    "samples": 592,
+    "privateSampledPeakMiB": 542.41015625,
+    "privateTimeWeightedMeanMiB": 438.48029226836803,
+    "cpuMeanPercentIncludingExitedChildren": 0.9031930043889118,
+    "logicalProcessors": 12,
+    "measurementErrors": [
+      "sample-gap-exceeds-2.5-seconds"
+    ],
+    "gate": "not-qualified"
+  },
+  "samplerGap": {
+    "seconds": 3.7985444,
+    "fromUtc": "2026-10-15T13:46:28.6431378Z",
+    "toUtc": "2026-10-15T13:46:32.4416822Z",
+    "thresholdSeconds": 2.5,
+    "cause": "not established; next run will avoid concurrent compilation"
+  },
+  "postWindowProgress": {
+    "utc": "2026-10-15T21:50:51.759407+08:00",
+    "scope": "post-600-second first-import partial ledger progress only",
+    "sourceFilesDiscovered": 379,
+    "historyCursorBytes": 793102010,
+    "sourceBytesExpected": 4275752976,
+    "usageResponses": 18482,
+    "settings": {
+      "importSince": "2026-09-15T13:39:12.849358900+00:00",
+      "historyPending:ed1af6bea5c61641311ac5c2ce941386f2b7b5bcf8616e6f1ba138f7f87760aa": 185,
+      "pendingFiles": 357
+    },
+    "importCompleted": false,
+    "wholeM4Qualified": false
+  },
+  "readiness": {
+    "firstImportShellUpperMs": 1638.4275,
+    "appPetInstantMs": 1365.1689,
+    "warmImportedLedgerQualified": false,
+    "reason": "Database was prepared with schema/static preference only; this is the first import, not an imported-ledger warm run."
+  },
+  "runtimeObserver": {
+    "gate": "not-qualified",
+    "causes": [
+      "ordinary Windows path versus extended canonical path falsely rejected by old observer",
+      "interval coverage and sampling gaps"
+    ],
+    "correctedHelperSha256": "87E3B1CB81CEC50A82B063D1E22292A1D608FA32AB5D5683E2712CF993C94FC1",
+    "oldEvidencePreserved": true
+  },
+  "normalExit": {
+    "accountFinished": true,
+    "at": "2026-10-15T21:52:15.112557+08:00",
+    "deadlineReached": false,
+    "scannerFinished": true,
+    "stage": "exit-ready",
+    "waitMs": 67.7816
+  },
+  "productPerformanceGate": "not-qualified",
+  "fullImportPeakQualified": false,
+  "idleCpuMemoryQualified": false,
+  "wholeM4Qualified": false,
+  "evidence": [
+    {
+      "path": "D:\\project\\宠物\\output\\performance\\fullraw-c11-d239d9e2a6bc44d6a9fc080a75a40ceb\\import-20261015-215014-412-e05b7c18.summary.json",
+      "sha256": "D120A96264EACBCF16EE14F86CD966B76ED3124A90856952075C9C6CD9949856"
+    },
+    {
+      "path": "D:\\project\\宠物\\output\\performance\\fullraw-c11-d239d9e2a6bc44d6a9fc080a75a40ceb\\import-job.jsonl",
+      "sha256": "560CC298689BD33D6197B874A3DD4505680F73CD19E56668BC792C0F98746467"
+    },
+    {
+      "path": "D:\\project\\宠物\\output\\performance\\fullraw-c11-d239d9e2a6bc44d6a9fc080a75a40ceb\\import-runtime-state.jsonl",
+      "sha256": "40BD9EDD257F23758E4DFF1157BCC9218366E05EAA8B2305939A1FCA41E2B6A6"
+    },
+    {
+      "path": "D:\\project\\宠物\\output\\performance\\fullraw-c11-d239d9e2a6bc44d6a9fc080a75a40ceb\\prepare.json",
+      "sha256": "C9863E9080AAEF24F0BBF28A59C9D25DD59BD805B718F731F703C1AE9F566BB5"
+    }
+  ]
+}

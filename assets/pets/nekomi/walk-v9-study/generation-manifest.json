@@ -1,0 +1,178 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-17",
+  "tool": "built-in image_gen.imagegen",
+  "scope": "Side walk keypose studies and two dressed sprite candidates; not a completed cycle",
+  "entries": [
+    {
+      "id": "01-contact-near-v1",
+      "output": "candidates/01-contact-near-v1.png",
+      "prompt": "prompts/01-contact-near-v1.txt",
+      "referencePaths": [
+        "../walk-v8-study/side-model-study.png"
+      ],
+      "transparentBackgroundRequested": false,
+      "status": "superseded-wide-stride",
+      "originalGeneratedPath": "C:/Users/Administrator/.codex/generated_images/01a14280-254e-70f3-ba61-b34c813b8e3a/exec-07aedd23-c24c-4c22-9182-0c2eb747fbe0.png"
+    },
+    {
+      "id": "05-contact-far-v1",
+      "output": "candidates/05-contact-far-v1.png",
+      "prompt": "prompts/05-contact-far-v1.txt",
+      "referencePaths": [
+        "candidates/01-contact-near-v1.png"
+      ],
+      "transparentBackgroundRequested": false,
+      "status": "superseded-wide-stride",
+      "originalGeneratedPath": "C:/Users/Administrator/.codex/generated_images/01a14280-254e-70f3-ba61-b34c813b8e3a/exec-59e441f4-76d6-40a6-8858-b185c17d52b8.png"
+    },
+    {
+      "id": "01-contact-near-v2",
+      "output": "candidates/01-contact-near-v2.png",
+      "prompt": "prompts/01-contact-near-v2.txt",
+      "referencePaths": [
+        "candidates/01-contact-near-v1.png"
+      ],
+      "transparentBackgroundRequested": false,
+      "status": "static-contact-candidate",
+      "originalGeneratedPath": "C:/Users/Administrator/.codex/generated_images/01a14280-254e-70f3-ba61-b34c813b8e3a/exec-2d7489ef-b5ed-4af9-927a-735ae3b228fc.png"
+    },
+    {
+      "id": "05-contact-far-v2",
+      "output": "candidates/05-contact-far-v2.png",
+      "prompt": "prompts/05-contact-far-v2.txt",
+      "referencePaths": [
+        "candidates/05-contact-far-v1.png"
+      ],
+      "transparentBackgroundRequested": false,
+      "status": "static-contact-candidate",
+      "originalGeneratedPath": "C:/Users/Administrator/.codex/generated_images/01a14280-254e-70f3-ba61-b34c813b8e3a/exec-59bc7dd4-3cf1-487f-ba2d-3dd3672cb7d4.png"
+    },
+    {
+      "id": "03-passing-far-v1",
+      "output": "candidates/03-passing-far-v1.png",
+      "prompt": "prompts/03-passing-far-v1.txt",
+      "referencePaths": [
+        "candidates/01-contact-near-v2.png"
+      ],
+      "transparentBackgroundRequested": false,
+      "status": "rejected-backward-kick",
+      "originalGeneratedPath": "C:/Users/Administrator/.codex/generated_images/01a14280-254e-70f3-ba61-b34c813b8e3a/exec-8d14470b-c608-4559-a918-71492de6542d.png"
+    },
+    {
+      "id": "07-passing-near-v1",
+      "output": "candidates/07-passing-near-v1.png",
+      "prompt": "prompts/07-passing-near-v1.txt",
+      "referencePaths": [
+        "candidates/05-contact-far-v2.png"
+      ],
+      "transparentBackgroundRequested": false,
+      "status": "rejected-high-kick",
+      "originalGeneratedPath": "C:/Users/Administrator/.codex/generated_images/01a14280-254e-70f3-ba61-b34c813b8e3a/exec-81a10463-18f3-4bc5-a8cc-1e3a8972a365.png"
+    },
+    {
+      "id": "03-passing-far-v2",
+      "output": "candidates/03-passing-far-v2.png",
+      "prompt": "prompts/03-passing-far-v2.txt",
+      "referencePaths": [
+        "candidates/03-passing-far-v1.png"
+      ],
+      "transparentBackgroundRequested": false,
+      "status": "rejected-far-ankle-too-far-back",
+      "originalGeneratedPath": "C:/Users/Administrator/.codex/generated_images/01a14280-254e-70f3-ba61-b34c813b8e3a/exec-74c8e81e-bf70-4139-b312-6e87e54f0353.png"
+    },
+    {
+      "id": "07-passing-near-v2",
+      "output": "candidates/07-passing-near-v2.png",
+      "prompt": "prompts/07-passing-near-v2.txt",
+      "referencePaths": [
+        "candidates/07-passing-near-v1.png"
+      ],
+      "transparentBackgroundRequested": false,
+      "status": "needs-limb-length-and-arm-phase-correction",
+      "originalGeneratedPath": "C:/Users/Administrator/.codex/generated_images/01a14280-254e-70f3-ba61-b34c813b8e3a/exec-b8c95a5d-6c35-4010-9497-d7d70b763072.png"
+    },
+    {
+      "id": "03-passing-far-v3",
+      "output": "candidates/03-passing-far-v3.png",
+      "prompt": "prompts/03-passing-far-v3.txt",
+      "referencePaths": [
+        "candidates/03-passing-far-v2.png",
+        "candidates/07-passing-near-v2.png"
+      ],
+      "transparentBackgroundRequested": false,
+      "status": "rejected-no-material-pose-fix",
+      "originalGeneratedPath": "C:/Users/Administrator/.codex/generated_images/01a14280-254e-70f3-ba61-b34c813b8e3a/exec-868f6145-125f-4eb7-868c-7c18e62d3462.png"
+    },
+    {
+      "id": "03-passing-far-v4",
+      "output": "candidates/03-passing-far-v4.png",
+      "prompt": "prompts/03-passing-far-v4.txt",
+      "referencePaths": [
+        "candidates/07-passing-near-v2.png"
+      ],
+      "transparentBackgroundRequested": false,
+      "status": "rejected-backward-kick-regression",
+      "originalGeneratedPath": "C:/Users/Administrator/.codex/generated_images/01a14280-254e-70f3-ba61-b34c813b8e3a/exec-cd941e67-c340-4dfe-a6cd-f18026e500f6.png"
+    },
+    {
+      "id": "03-passing-far-v5",
+      "output": "candidates/03-passing-far-v5.png",
+      "prompt": "prompts/03-passing-far-v5.txt",
+      "referencePaths": [
+        "candidates/03-passing-far-v3.png",
+        "pose-guides/03-passing-far-guide.png"
+      ],
+      "transparentBackgroundRequested": false,
+      "status": "passing-overlap-improved-pair-unmatched",
+      "originalGeneratedPath": "C:/Users/Administrator/.codex/generated_images/01a14280-254e-70f3-ba61-b34c813b8e3a/exec-35561d4d-a1f6-49a7-b032-3430e387b83c.png"
+    },
+    {
+      "id": "01-contact-near-dressed-v1",
+      "output": "candidates/01-contact-near-dressed-v1.png",
+      "prompt": "prompts/01-contact-near-dressed-v1.txt",
+      "referencePaths": [
+        "candidates/01-contact-near-v2.png",
+        "../walk-v8-study/side-model-study.png",
+        "../hd-v5-natural-tail/idle.png"
+      ],
+      "transparentBackgroundRequested": true,
+      "status": "superseded-rear-foot-contact-high",
+      "originalGeneratedPath": "C:/Users/Administrator/.codex/generated_images/01a14280-254e-70f3-ba61-b34c813b8e3a/exec-6020afa6-3158-41d2-968d-061efbc3e228.png"
+    },
+    {
+      "id": "05-contact-far-dressed-v1",
+      "output": "candidates/05-contact-far-dressed-v1.png",
+      "prompt": "prompts/05-contact-far-dressed-v1.txt",
+      "referencePaths": [
+        "candidates/05-contact-far-v2.png",
+        "candidates/01-contact-near-dressed-v1.png"
+      ],
+      "transparentBackgroundRequested": true,
+      "status": "static-dressed-candidate-hand-refinement-needed",
+      "originalGeneratedPath": "C:/Users/Administrator/.codex/generated_images/01a14280-254e-70f3-ba61-b34c813b8e3a/exec-07960fe8-c241-4cc0-9149-cd54dee01b77.png"
+    },
+    {
+      "id": "01-contact-near-dressed-v2",
+      "output": "candidates/01-contact-near-dressed-v2.png",
+      "prompt": "prompts/01-contact-near-dressed-v2.txt",
+      "referencePaths": [
+        "candidates/01-contact-near-dressed-v1.png"
+      ],
+      "transparentBackgroundRequested": true,
+      "status": "selected-static-candidate-foot-contact-redrawn",
+      "originalGeneratedPath": "C:/Users/Administrator/.codex/generated_images/01a14280-254e-70f3-ba61-b34c813b8e3a/exec-61ee0a4a-c5b4-4e78-a290-e3944ab27f78.png"
+    },
+    {
+      "id": "05-contact-far-dressed-v2",
+      "output": "candidates/05-contact-far-dressed-v2.png",
+      "prompt": "prompts/05-contact-far-dressed-v2.txt",
+      "referencePaths": [
+        "candidates/05-contact-far-dressed-v1.png"
+      ],
+      "transparentBackgroundRequested": true,
+      "status": "selected-static-candidate-hand-fix-not-substantial",
+      "originalGeneratedPath": "C:/Users/Administrator/.codex/generated_images/01a14280-254e-70f3-ba61-b34c813b8e3a/exec-838ef3c0-7ff5-4265-b327-16084e61ded6.png"
+    }
+  ]
+}

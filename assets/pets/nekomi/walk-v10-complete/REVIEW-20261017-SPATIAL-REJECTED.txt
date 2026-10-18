@@ -1,0 +1,31 @@
+当前状态：未通过；停止新的图像生成，不扩展现有错误母稿。
+
+用户明确纠正：
+1. 05-tail-root-v3 后手、袖口与尾根穿模。
+2. 双脚不能压在相同深度、同一水平投影线上。
+3. 向右走时解剖学右腿为近侧，右鞋更朝向屏幕；左鞋位于远侧，不能照搬同一鞋体朝向。
+
+本轮实际输出（均保留原输出，未修改 frames）
+05-tail-root-v2：长裂口仍在，不通过。
+05-tail-root-v3：长裂口缩小，但后手/袖口与尾根穿模，用户否定，不通过。
+05-tail-root-v4-hand-clearance：后袖口仍与尾巴混淆，臂链读不清，不通过。
+05-spatial-revision-v5：近右后鞋与远左前鞋出现深度差，近鞋鞋面朝向有所改善；不是通过结论。尾根开口消失、尾巴变粗，后手仍贴尾根，不通过。
+
+上述均1024x1536内置imagegen原图的原字节副本，没有裁切、形变、抠图或拼接。来源与exact prompts保存在本目录及generation-manifest-v2.json。
+
+生成调用与参考：
+v2 -> frames/05-contact-far.png + candidates/05-tail-root-v1.png
+原图 exec-4f026f48-20a0-4f0a-8f2e-5a6ea889112f.png
+v3 -> candidates/05-tail-root-v2.png
+原图 exec-328c44c1-53d6-49cc-806d-9e325d16cdff.png
+v4 -> candidates/05-tail-root-v3.png
+原图 exec-34d463bc-db21-4400-a8d8-2dadea2f3e42.png
+v5 -> frames/05-contact-far.png
+原图 exec-0bea5a2d-feec-488d-a563-d6812d5a99fc.png
+均位于 C:/Users/Administrator/.codex/generated_images/01a148a3-42fd-7200-9a55-f8a2b93cf502/。
+05-spatial-revision-v6.txt 仅为尚未使用的提示词，没有调用生成。
+06/08-v2提示词也未调用；06、07、08实际PNG仍缺失。
+
+原方案失效项：strict 90-degree 双鞋平行、统一y1483单地线不得继续作为验收条件。近远是人物固定右/左身份，不能因前后摆腿互换；鞋体朝向、腿链与地面透视必须一起成立，不能只把某只鞋上下平移。
+
+剩余未完成：可用单帧母稿、8帧统一修订及实际慢速循环验收、侧面分层。没有动画验收通过结论，没有改桌宠运行时，没有提交推送。

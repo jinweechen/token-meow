@@ -1,0 +1,217 @@
+{
+  "schemaVersion": 1,
+  "createdOn": "2026-10-16",
+  "tool": "OpenAI built-in imagegen",
+  "scope": "Three independent HD pose originals: shy, bow, hug-tail. No src or current v5 runtime atlas changes.",
+  "reference": {
+    "file": "assets/pets/nekomi/hd-v1/idle.png",
+    "sha256": "f1d2c01a123ff0616612d11f5ddba7055f93405b7c3273f640438652ce02962d"
+  },
+  "sharedInvariants": {
+    "file": "assets/pets/nekomi/hd-v1/prompts/pose-invariants.txt",
+    "sha256": "9557b0a3fd175d0d3aa8bf975432a02c6cee9f4e0a6d8f0aec1c408e883a5ba3",
+    "includedInEveryPrompt": true
+  },
+  "requestedCanvas": [
+    1024,
+    1536
+  ],
+  "requestedTransparentBackground": true,
+  "pixelModifications": "none; all accepted PNGs are byte-identical copies of built-in generated originals",
+  "measurementMethod": "Read-only Pillow alpha-channel inspection at thresholds 1,16,128,250; half-open bounds [left,top,right,bottom]. Source PNG pixels were not modified. Low-alpha RGB previews were not treated as evidence of a matte.",
+  "images": [
+    {
+      "pose": "bow",
+      "file": "assets/pets/nekomi/hd-v1/bow.png",
+      "originalGeneratedPath": "C:/Users/Administrator/.codex/generated_images/01a14289-f0b5-7113-b2b9-40aa19554575/exec-bc41a818-5f34-4a79-927b-a87b24dacdca.png",
+      "originalCopiedByteForByte": true,
+      "promptPath": "assets/pets/nekomi/hd-v1/prompts/bow.txt",
+      "promptSha256": "163b676297310c554d55d97c19e1a31f177e369f9deab60ab19b88f49dc3f2af",
+      "sha256": "cf28613909ce3c94d8598ad8210ba77024a7b7d8b7d2acebc7d9942b7f61b287",
+      "bytes": 1943071,
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "bboxByAlphaThreshold": {
+        "1": [
+          45,
+          51,
+          1012,
+          1516
+        ],
+        "16": [
+          97,
+          59,
+          997,
+          1456
+        ],
+        "128": [
+          98,
+          60,
+          996,
+          1455
+        ],
+        "250": [
+          110,
+          63,
+          994,
+          1454
+        ]
+      },
+      "visibleAlpha16Height": 1397,
+      "minimumVisibleHeight1200Passed": true,
+      "edgeMaxAlpha": {
+        "top": 0,
+        "bottom": 0,
+        "left": 0,
+        "right": 0
+      },
+      "visualReview": {
+        "status": "accepted-local-art-review",
+        "hands": "Two distinct wrists and naturally overlapped hands; fingers remain continuous with reasonable occlusion. No clear extra, fused or forked digits identified.",
+        "feet": "Both shoe tips face forward and remain nearly parallel; knees and ankles align comfortably.",
+        "clothing": "Small chest bow, visible bodice, waist seam and existing hem/flowers preserved. Mild upper-body bow has closed eyes and relaxed stacked hands.",
+        "framing": "Complete character, native visible alpha>=16 height 1397px. Right visible margin is approximately 27px; no clipping.",
+        "compositeReview": "Root agent reported light/dark browser composition passed; central root evidence is authoritative."
+      }
+    },
+    {
+      "pose": "shy",
+      "file": "assets/pets/nekomi/hd-v1/shy.png",
+      "originalGeneratedPath": "C:/Users/Administrator/.codex/generated_images/01a14289-f0b5-7113-b2b9-40aa19554575/exec-16db8507-ca75-4567-ad18-9e5bb58ffbdb.png",
+      "originalCopiedByteForByte": true,
+      "promptPath": "assets/pets/nekomi/hd-v1/prompts/shy.txt",
+      "promptSha256": "4062b5203f74148f1a0aa1a565121d5158c3681d668fa5b7f4074d7e1924e5ee",
+      "sha256": "a12948612b207480bd49b5259e1df9d749a6cc73e2fec5300c0ce003d41c0c28",
+      "bytes": 1909180,
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "bboxByAlphaThreshold": {
+        "1": [
+          41,
+          19,
+          1004,
+          1520
+        ],
+        "16": [
+          124,
+          67,
+          997,
+          1452
+        ],
+        "128": [
+          125,
+          68,
+          995,
+          1451
+        ],
+        "250": [
+          139,
+          71,
+          993,
+          1450
+        ]
+      },
+      "visibleAlpha16Height": 1385,
+      "minimumVisibleHeight1200Passed": true,
+      "edgeMaxAlpha": {
+        "top": 0,
+        "bottom": 0,
+        "left": 0,
+        "right": 0
+      },
+      "visualReview": {
+        "status": "accepted-local-art-review",
+        "hands": "One hand lightly touches cheek with readable skin boundaries and natural overlapping fingers; other hand hangs relaxed. No clear extra, fused or forked digits identified.",
+        "feet": "Both shoe tips face forward and remain nearly parallel; no apparent knock-knee or crossed-foot pose.",
+        "clothing": "Identity, small chest bow, clear bodice, natural waist seam, side bows and skirt design retained.",
+        "framing": "Second attempt restores full-ear top clearance and master-like sole baseline; visible alpha>=16 height 1385px. Right visible margin approximately 27px; no clipping.",
+        "compositeReview": "Awaiting consolidated root light/dark browser review."
+      }
+    },
+    {
+      "pose": "hug-tail",
+      "file": "assets/pets/nekomi/hd-v1/hug-tail.png",
+      "originalGeneratedPath": "C:/Users/Administrator/.codex/generated_images/01a14289-f0b5-7113-b2b9-40aa19554575/exec-88dcb1ad-4fab-45a2-afb7-bdce86241313.png",
+      "originalCopiedByteForByte": true,
+      "promptPath": "assets/pets/nekomi/hd-v1/prompts/hug-tail.txt",
+      "promptSha256": "711a55166047b63488656bc4e23563f2d7bb77b68965d45029024c8b6f75e9bb",
+      "sha256": "6a570731fd3b93bd58a797ef076979f2693b6a7f092a5ae6536f473263cd4f60",
+      "bytes": 1803116,
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "bboxByAlphaThreshold": {
+        "1": [
+          123,
+          1,
+          1004,
+          1495
+        ],
+        "16": [
+          127,
+          10,
+          941,
+          1474
+        ],
+        "128": [
+          128,
+          10,
+          940,
+          1473
+        ],
+        "250": [
+          139,
+          13,
+          931,
+          1472
+        ]
+      },
+      "visibleAlpha16Height": 1464,
+      "minimumVisibleHeight1200Passed": true,
+      "edgeMaxAlpha": {
+        "top": 0,
+        "bottom": 0,
+        "left": 0,
+        "right": 0
+      },
+      "visualReview": {
+        "status": "accepted-local-art-review-with-framing-note",
+        "hands": "Two distinguishable hands gently wrap the same tail at different heights. Natural finger occlusion and separate thumbs; no clear extra or forked fingers identified.",
+        "feet": "Both shoe tips remain forward and nearly parallel; stance is uncrossed.",
+        "clothing": "Chest bow and natural waist remain at plausible locations; hands/tail partially occlude the bodice and waist rather than relocating them.",
+        "framing": "Visible alpha>=16 height 1464px. The highest ear tip has approximately 10px clearance; complete and not clipped. Root instruction permits slightly reduced margins without repeated regeneration.",
+        "compositeReview": "Awaiting consolidated root light/dark browser review."
+      }
+    }
+  ],
+  "rejectedCandidates": [
+    {
+      "pose": "shy",
+      "file": "output/imagegen/hd-poses-20261016/shy-attempt-01.png",
+      "originalGeneratedPath": "C:/Users/Administrator/.codex/generated_images/01a14289-f0b5-7113-b2b9-40aa19554575/exec-48a8ee67-2265-4928-97bd-a67920f31aad.png",
+      "promptPath": "assets/pets/nekomi/hd-v1/prompts/shy-attempt-01.txt",
+      "sha256": "c16c97bad7b5ce4e787c2160e6a8415b7b82b804ca3d25d0f8512539be7b8db9",
+      "reason": "Superseded by one targeted framing iteration to restore master-like top margin and figure scale before the root's later relaxed-margin instruction.",
+      "bboxAlpha16": [
+        93,
+        10,
+        1004,
+        1485
+      ],
+      "pixelsModified": false
+    }
+  ],
+  "limitations": [
+    "These are separate HD source assets, not a new runtime renderer or 1200px petScale implementation.",
+    "Individual raw-image art reviews do not replace the root's consolidated light/dark composition and complete-set consistency checks."
+  ]
+}
+

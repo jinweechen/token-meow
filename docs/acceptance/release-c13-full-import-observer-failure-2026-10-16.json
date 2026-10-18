@@ -1,0 +1,274 @@
+{
+  "kind": "release-c13-full-import-v1-observer-failure-independent-review",
+  "observedAt": "2026-10-15T16:44:47.857438+00:00",
+  "gate": "not-qualified-observer-error-incomplete-import",
+  "wholeM4Qualified": false,
+  "scope": "Independent read-only review of the retained C13 v1 observation, closed ledger and all frozen JSONL bytes. No application, installer, build or UI was launched by this audit.",
+  "candidate": {
+    "name": "c13-snapshot-stream-lifecycle-retention-20261016",
+    "executableSha256": "9C3F3B6B5C44349C7E9580C072B2BA99D85D85961D793B2F43E69374987AA70E",
+    "path": "output/build-candidates/c13-snapshot-stream-lifecycle-retention-20261016/token-meow.exe"
+  },
+  "binding": {
+    "protocol": "full-first-import-v1",
+    "kind": "import-start",
+    "jobId": "492762b2-9c9c-488f-928c-a1aefd3cfb72",
+    "rootProcessId": 56208,
+    "rootCreationFileTime": 134365550534896221,
+    "executablePath": "D:\\project\\宠物\\output\\build-candidates\\c13-snapshot-stream-lifecycle-retention-20261016\\token-meow.exe",
+    "executableSha256": "9C3F3B6B5C44349C7E9580C072B2BA99D85D85961D793B2F43E69374987AA70E",
+    "sourceManifestSha256": "8AC284E97D6E9E72958AD35A8A0D76EB1F036822415DA3B295ECFF36A3F67378",
+    "planSha256": "02E52F59AA9A0F7A9FD9B11DAEDE76B4A5E88757F3982EFB90EC54287B2D0D1B",
+    "prepareReceiptSha256": "c7229f34c664e35a5498e41af1f4d78d286dcac167429f1523bd8ac0857d38ab",
+    "inputFiles": 379,
+    "inputBytes": 4275752976,
+    "sourceId": "a166fbd0d03490312f194afe500dcc4353cd51dd91d1f7bee0bc607c8fff9f37",
+    "importSince": "2026-09-15T16:22:28.638279600+00:00",
+    "clearWatermark": null,
+    "assignBeforeResume": true,
+    "breakawayAllowed": false,
+    "helperOutsideJob": true,
+    "jobCpuIncludesExited": true,
+    "logicalProcessors": 12,
+    "cpuName": "12th Gen Intel(R) Core(TM) i5-12400",
+    "maxSeconds": 3600,
+    "sampleMilliseconds": 1000,
+    "maximumSampleGapSeconds": 2.5,
+    "privatePeakLimitMiB": 600,
+    "requiredFreshCompleteIterations": 3,
+    "baselineBeforeResume": true,
+    "utc": "2026-10-15T16:24:13.5035735Z",
+    "observerSourceSha256": "CD08ADC6F8837F03BBD40315D2AD81D4E513058342EE7FCBA507A1BBA753F619",
+    "sidecarSha256": "B34C493382295609CF9634887FE83159584F1F6F31E4DF947C8F693CC279A28C",
+    "resourceJobSha256": "28C8A2A0D5A4D369DE7D9F044B73816AE9834F330A7480AA974BF1276AADBD7B"
+  },
+  "rawEvidence": {
+    "completion.json": {
+      "path": "output/performance/fullraw-c13-bad4057710fb4ca8ba00410b23b55a09/observer/completion.json",
+      "bytes": 547,
+      "sha256": "B5613B7CDED1FE8C80D451151B2F89612D29BFDE36C559D919F717C68A5BD952"
+    },
+    "import-job.jsonl": {
+      "path": "output/performance/fullraw-c13-bad4057710fb4ca8ba00410b23b55a09/observer/import-job.jsonl",
+      "bytes": 517123,
+      "sha256": "0B2CBDDE35CB1DFD093905A152E02B5CF3CFAA0DAADBC74AC674D0E12D0E75B5"
+    },
+    "import-state.jsonl": {
+      "path": "output/performance/fullraw-c13-bad4057710fb4ca8ba00410b23b55a09/observer/import-state.jsonl",
+      "bytes": 550930,
+      "sha256": "E057B311EB97AD975C361ED3A2C2033853A44896D6DA8696DA14AB025883D971"
+    },
+    "launch-binding.json": {
+      "path": "output/performance/fullraw-c13-bad4057710fb4ca8ba00410b23b55a09/observer/launch-binding.json",
+      "bytes": 1630,
+      "sha256": "90809FC757F66A905D2412447DA381C30D8D8CA032356B6D8909C3B0676EE258"
+    },
+    "plan.json": {
+      "path": "output/performance/fullraw-c13-bad4057710fb4ca8ba00410b23b55a09/observer/plan.json",
+      "bytes": 1550,
+      "sha256": "02E52F59AA9A0F7A9FD9B11DAEDE76B4A5E88757F3982EFB90EC54287B2D0D1B"
+    },
+    "preflight.json": {
+      "path": "output/performance/fullraw-c13-bad4057710fb4ca8ba00410b23b55a09/observer/preflight.json",
+      "bytes": 691,
+      "sha256": "EC8E8DE0C3D3E1F799509BDE353AE6BE9685C05BEAC0AD71058F6B940636EA7C"
+    },
+    "stop.json": {
+      "path": "output/performance/fullraw-c13-bad4057710fb4ca8ba00410b23b55a09/observer/stop.json",
+      "bytes": 62,
+      "sha256": "38FE740EE8735ADE104DFF3FECB479ED6AF1F1C97DA4C8B2CD4878FDD0747BDC"
+    },
+    "summary.json": {
+      "path": "output/performance/fullraw-c13-bad4057710fb4ca8ba00410b23b55a09/observer/summary.json",
+      "bytes": 2019,
+      "sha256": "73F4FC00070D4F7263FA1C031E2EEE759FFC7D91EA9D062A83B37552CC2FA2C5"
+    }
+  },
+  "rawObserverFilesUnchangedDuringAudit": true,
+  "originalGate": {
+    "protocol": "full-first-import-v1",
+    "gate": "not-qualified",
+    "reason": "observation-error",
+    "measurementQualified": true,
+    "completionQualified": false,
+    "completionBindingValid": true,
+    "sidecarExitCode": 0
+  },
+  "partialObservation": {
+    "seconds": 381.2582829,
+    "samples": 377,
+    "sampledPeakPrivateMiB": 503.4609375,
+    "timeWeightedMeanPrivateMiB": 304.0114072401454,
+    "normalizedMeanCpuPercent": 1.265682884743783,
+    "measurementErrors": [],
+    "maximumObservedSampleGapSeconds": 1.9486009000000006,
+    "limitMiB": 600,
+    "withinMemoryLimitForObservedSamplesOnly": true,
+    "scope": "A valid partial import observation, not the complete first-import peak and never idle-600s qualification."
+  },
+  "completionFailure": {
+    "kind": "import-completion",
+    "protocol": "full-first-import-v1",
+    "status": "observation-error",
+    "completionQualified": false,
+    "scanReachedFrozenEnd": false,
+    "errors": [
+      "PermissionError:[Errno 13] Permission denied: 'D:\\\\project\\\\宠物\\\\output\\\\performance\\\\fullraw-c13-bad4057710fb4ca8ba00410b23b55a09\\\\data\\\\desktop-metrics.json'"
+    ],
+    "observedAt": "2026-10-15T16:30:34.690732+00:00",
+    "jobId": "492762b2-9c9c-488f-928c-a1aefd3cfb72",
+    "rootProcessId": 56208,
+    "rootCreationFileTime": 134365550534896221
+  },
+  "lastSuccessfulObserverState": {
+    "kind": "import-state",
+    "observedAt": "2026-10-15T16:30:34.188686+00:00",
+    "rootProcessId": 56208,
+    "rootCreationFileTime": 134365550534896221,
+    "jobId": "492762b2-9c9c-488f-928c-a1aefd3cfb72",
+    "sourceId": "a166fbd0d03490312f194afe500dcc4353cd51dd91d1f7bee0bc607c8fff9f37",
+    "inputFiles": 379,
+    "inputBytes": 4275752976,
+    "registeredFiles": 379,
+    "missingFiles": 0,
+    "filesNotAtFrozenEnd": 198,
+    "unexpectedFiles": 0,
+    "historicalBytesCommitted": 752696373,
+    "historyPendingFiles": 198,
+    "pendingFiles": 377,
+    "paused": false,
+    "cancelled": false,
+    "collectorIteration": 142,
+    "collectorSuccessAt": "2026-10-15T16:30:28.581861900+00:00",
+    "allFrozenCursorsAtEnd": false,
+    "coverageWithoutKnownSkipOrUnsupported": false,
+    "issuesByKind": {
+      "legacy_missing_baseline": 347,
+      "record_too_large": 3
+    },
+    "unsupportedFiles": 0,
+    "configuredStatic": true,
+    "ordinaryRuntime": true,
+    "mainHidden": true,
+    "petVisible": true,
+    "rendererConsumptionEvidence": "Core reducedMotion configuration only; native renderer observation remains separate",
+    "freshCompleteIterations": 0
+  },
+  "closedLedgerAfterLaterNormalExit": {
+    "kind": "closed-c13-v1-ledger-read-only-audit",
+    "observedAt": "2026-10-15T16:44:47.830860+00:00",
+    "sqliteUri": "mode=ro&immutable=1",
+    "integrityCheck": [
+      "ok"
+    ],
+    "database": {
+      "path": "output/performance/fullraw-c13-bad4057710fb4ca8ba00410b23b55a09/data/ledger.sqlite3",
+      "bytes": 157360128,
+      "sha256": "DB164843961EFDD40482541A4124B6AA38944DE51E45EB1C253350BEB0205C2E"
+    },
+    "databaseUnchangedDuringAudit": true,
+    "walBytes": 0,
+    "tableCounts": {
+      "source_instances": 1,
+      "source_files": 379,
+      "ingested_records": 207375,
+      "usage_responses": 24645,
+      "legacy_usage_segments": 24027,
+      "turns": 1502,
+      "items": 23152,
+      "inbox_events": 289,
+      "ingestion_issues": 354
+    },
+    "sourceId": "a166fbd0d03490312f194afe500dcc4353cd51dd91d1f7bee0bc607c8fff9f37",
+    "enabledSources": 1,
+    "sourceRootSamefileAsFrozenInput": true,
+    "registeredFrozenFiles": 379,
+    "missingFrozenFiles": 0,
+    "historicalOffsetsSum": 1044394754,
+    "frozenBytes": 4275752976,
+    "historicalFilesAtFrozenEnd": 220,
+    "historicalFilesNotAtFrozenEnd": 159,
+    "liveFilesNotAtFrozenEnd": 0,
+    "historyPendingSetting": 159,
+    "pendingFilesSetting": 366,
+    "lastSourceCheck": {
+      "checkedAt": "2026-10-15T16:36:53.283Z",
+      "files": 10,
+      "issues": 0,
+      "pendingFiles": 374,
+      "unsupportedFiles": 0
+    },
+    "issuesByKind": {
+      "legacy_missing_baseline": 350,
+      "record_too_large": 4
+    },
+    "storedUsageCountFieldsSum": {},
+    "storedCountScope": "Raw persisted usage_responses count fields only; not a recomputed trusted overview."
+  },
+  "shutdown": {
+    "metrics": {
+      "accountFinished": true,
+      "at": "2026-10-15T16:37:01.252717500+00:00",
+      "deadlineReached": false,
+      "scannerFinished": true,
+      "stage": "exit-ready",
+      "waitMs": 2533.8718
+    },
+    "metricsFile": {
+      "path": "output/performance/fullraw-c13-bad4057710fb4ca8ba00410b23b55a09/data/desktop-metrics.json",
+      "bytes": 2456,
+      "sha256": "06BE5108E20499F9928EE213E4526A52AC278D29B5A1AFD64A8E19D654765EDB"
+    },
+    "rootAttestation": {
+      "applicationNotRunningConfirmedByRoot": true,
+      "effectiveShutdownRequestedAt": "2026-10-15T16:36:58.6838576Z",
+      "exitReadyAt": "2026-10-15T16:37:01.2527175Z",
+      "firstExitAttempt": "The first click did not request shutdown: the menu lost focus and dismissed. It is not counted as an effective exit request.",
+      "effectiveAction": "Root explicitly activated the owned menu and refreshed before the later actual Exit request."
+    },
+    "scope": "Both application workers completed before the deadline; this is the actual final shutdown only. No resource sampling covers the interval after observer termination."
+  },
+  "frozenInputAfterExit": {
+    "kind": "post-c13-v1-frozen-input-byte-verification",
+    "startedAt": "2026-10-15T16:44:42.266301+00:00",
+    "completedAt": "2026-10-15T16:44:46.569158+00:00",
+    "elapsedSeconds": 4.303305700421333,
+    "sourceManifestSha256": "8AC284E97D6E9E72958AD35A8A0D76EB1F036822415DA3B295ECFF36A3F67378",
+    "fileCount": 379,
+    "bytes": 4275752976,
+    "mismatchCount": 0,
+    "allExpectedFilesPresent": true,
+    "scope": "Entire frozen private JSONL inputs only; no claim that the whole isolated Codex home is unchanged.",
+    "sourceAccess": "read-only rb; bounded 2 MiB hashing; no source writes",
+    "deliveryEligible": false
+  },
+  "privateAuditFiles": {
+    "inputVerification": {
+      "path": "output/performance/fullraw-c13-bad4057710fb4ca8ba00410b23b55a09/post-exit-independent-audit-20261016/input-byte-verification.json",
+      "bytes": 156443,
+      "sha256": "1D00A16554ACC51099C7C75337A73224371F67700C1B8AD8F2EE37301918EA4B"
+    },
+    "closedLedger": {
+      "path": "output/performance/fullraw-c13-bad4057710fb4ca8ba00410b23b55a09/post-exit-independent-audit-20261016/closed-ledger-audit.json",
+      "bytes": 129441,
+      "sha256": "E75F69841A68F0D5CD68B4EC9E63272A3FA3E4DF41BB87572113FF40E7A110DF"
+    },
+    "auditSource": {
+      "path": "output/performance/fullraw-c13-bad4057710fb4ca8ba00410b23b55a09/post-exit-independent-audit-20261016/audit.py",
+      "bytes": 15192,
+      "sha256": "6C0CF7AADB270A0D3EB83C8A4FE6555EB9F78F3771566A46A772EC245518D86E"
+    }
+  },
+  "limitations": [
+    "The retained strict v1 gate and its original files are unchanged; no retrospective coverage or resource gate relaxation.",
+    "PermissionError is an observer failure. Its cause is not inferred from this receipt; it is not a measured application memory-threshold failure.",
+    "History remained incomplete both when the observer stopped and after the later normal application exit.",
+    "The closed ledger continued advancing after observer termination; its later counts cannot qualify the earlier measured interval.",
+    "Known issues include legacy baseline warnings and oversized records; byte-cursor completion would not alone prove complete semantic coverage.",
+    "Only the 379 frozen JSONL files are asserted unchanged, not the whole isolated Codex home or the live original Codex directory.",
+    "No complete import peak, warm start, idle CPU/memory, installation or whole M4 pass is claimed.",
+    "Earlier C11/C12 measurements and failures remain attributed to their own binaries and inputs."
+  ],
+  "auditStartedAt": "2026-10-15T16:44:42.208645+00:00",
+  "auditElapsedSeconds": 5.651098200120032
+}

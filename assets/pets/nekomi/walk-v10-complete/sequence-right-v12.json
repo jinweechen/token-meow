@@ -1,0 +1,109 @@
+{
+  "schemaVersion": 1,
+  "title": "右向行走 v12 · 8 相位",
+  "canvas": {
+    "width": 1024,
+    "height": 1536
+  },
+  "review": {
+    "status": "reviewed-baseline-with-tolerances",
+    "notes": [
+      "原速和半速各至少两轮完整循环；已检查08→01。",
+      "左向8张实际查看棋盘/浅色/深色，新增转身与代表帧约1200px检查；右向图片SHA不变。",
+      "允许小幅比例、花纹与卡通节奏差异；未认定严格无滑步。",
+      "证据：output/imagegen/left-completion-20261018/review-summary.json"
+    ]
+  },
+  "frames": [
+    {
+      "id": "01-contact-near",
+      "phase": 1,
+      "label": "01 · 近脚接触",
+      "path": "frames-v11/01-contact-near.png",
+      "durationMs": 160,
+      "reviewStatus": "reviewed-baseline-with-tolerances",
+      "notes": [],
+      "sha256": "eb6158fbc47641535bba247dc83fecb1e4b292b06c14aa221e6acadbe0bf83c8",
+      "nearAnatomicalSide": "right"
+    },
+    {
+      "id": "02-near-flat-recovery",
+      "phase": 2,
+      "label": "02 · 近腿承重 / 远腿回收",
+      "path": "frames-v11/02-near-flat-recovery.png",
+      "durationMs": 160,
+      "reviewStatus": "reviewed-baseline-with-tolerances",
+      "notes": [],
+      "sha256": "20900d6b7c7efccbbfa340e98ba7f93e8f58ba327d3844c3540ab7a8ae729135",
+      "nearAnatomicalSide": "right"
+    },
+    {
+      "id": "03-far-passing",
+      "phase": 3,
+      "label": "03 · 远脚经过",
+      "path": "frames-v11/03-far-passing.png",
+      "durationMs": 160,
+      "reviewStatus": "reviewed-baseline-with-tolerances",
+      "notes": [],
+      "sha256": "e4035a49bcf9db50a6afd6ae0cfd94aaf4d79767dfc64e5bc8909f1195098c68",
+      "nearAnatomicalSide": "right"
+    },
+    {
+      "id": "04-near-toe-far-reach",
+      "phase": 4,
+      "label": "04 · 近脚抬跟 / 远脚前摆",
+      "path": "frames-v11/04-near-toe-far-reach.png",
+      "durationMs": 160,
+      "reviewStatus": "reviewed-baseline-with-tolerances",
+      "notes": [],
+      "sha256": "a787bc62d4917fcaaa127eb2562f7a462901f2566b61492559ed0f3759c3b55a",
+      "nearAnatomicalSide": "right"
+    },
+    {
+      "id": "05-contact-far",
+      "phase": 5,
+      "label": "05 · 远脚接触",
+      "path": "frames-v11/05-contact-far.png",
+      "durationMs": 160,
+      "reviewStatus": "reviewed-baseline-with-tolerances",
+      "notes": [],
+      "sha256": "da5a7ce6ecec5f5ba4a0d6b5199bf240f4b148a2b7aae3c0d78b40dd92e9c95b",
+      "nearAnatomicalSide": "right"
+    },
+    {
+      "id": "06-far-flat-recovery",
+      "phase": 6,
+      "label": "06 · 远腿承重 / 近腿回收",
+      "path": "frames-v11/06-far-flat-recovery.png",
+      "durationMs": 160,
+      "reviewStatus": "reviewed-baseline-with-tolerances",
+      "notes": [],
+      "sha256": "bb81960fb8ca7bca3a946fdb837f592162007be22693f38710b44c45a717ec94",
+      "nearAnatomicalSide": "right"
+    },
+    {
+      "id": "07-near-passing",
+      "phase": 7,
+      "label": "07 · 近脚经过",
+      "path": "frames-v11/07-near-passing.png",
+      "durationMs": 160,
+      "reviewStatus": "reviewed-baseline-with-tolerances",
+      "notes": [],
+      "sha256": "6529d3b3d8e406be6a05161fc6dbecf86f4c095c78096272adc3dee75634d864",
+      "nearAnatomicalSide": "right"
+    },
+    {
+      "id": "08-far-toe-near-reach",
+      "phase": 8,
+      "label": "08 · 远脚抬跟 / 近脚前摆",
+      "path": "frames-v11/08-far-toe-near-reach.png",
+      "durationMs": 160,
+      "reviewStatus": "reviewed-baseline-with-tolerances",
+      "notes": [],
+      "sha256": "316198cfd814fc0fd96324205258fbe8c51241ac1934f887dd86a3bd1f8c1646",
+      "nearAnatomicalSide": "right"
+    }
+  ],
+  "direction": "right",
+  "nearAnatomicalSide": "right"
+}

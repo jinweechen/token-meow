@@ -1,0 +1,70 @@
+{
+  "scope": "idle only",
+  "assets": [
+    {
+      "pose": "idle",
+      "file": "idle.png",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "imageFormat": "PNG",
+      "bytes": 1916729,
+      "sha256": "fd13e13bbfa1a58083d7047b6819f76eaf0c1d2ee16fba43483c54f0f894a3ea",
+      "alphaBounds": {
+        "1": [
+          27,
+          7,
+          1012,
+          1518
+        ],
+        "16": [
+          93,
+          9,
+          947,
+          1452
+        ],
+        "128": [
+          94,
+          10,
+          946,
+          1451
+        ],
+        "250": [
+          96,
+          13,
+          945,
+          1450
+        ]
+      },
+      "visibleCharacterHeight": 1443,
+      "visibleMargins": {
+        "left": 93,
+        "top": 9,
+        "right": 77,
+        "bottom": 84
+      },
+      "maxEdgeAlpha": 0,
+      "maxEdgeAlphaBySide": {
+        "top": 0,
+        "bottom": 0,
+        "left": 0,
+        "right": 0
+      },
+      "edgePixelsAlpha16": 0,
+      "passesPng": true,
+      "passesDimensions": true,
+      "passesRgba": true,
+      "passesNativeHeight": true,
+      "passesEdge": true,
+      "passesTechnicalChecks": true,
+      "prompt": {
+        "file": "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v4-occlusion\\prompts\\idle.txt",
+        "exists": true,
+        "sha256": "768fcfcc823f865a8ba23311a90ac22d8fe5e4001a1abea20fe4f8e87c730223"
+      },
+      "warnings": [
+        "One or more alpha>=16 margins are below 30 px; inspect full-figure framing visually."
+      ]
+    }
+  ]
+}

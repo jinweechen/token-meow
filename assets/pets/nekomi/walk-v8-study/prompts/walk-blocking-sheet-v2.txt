@@ -1,0 +1,20 @@
+Correct this exact 8-frame right-facing walk blocking sheet. Maintain the character, side profile, gray full-length training unitard, simple flat study style, 4-column x2-row grid, 1536x1024 transparent canvas, numbers 01–08. This is motion mechanics correction, not beautification.
+
+FIRST: consistent near/far depth and identity in EVERY cell. Near camera leg is ALWAYS solid teal from its own HIP through THIGH -> KNEE -> SHIN -> teal SHOE, always drawn IN FRONT OF the gray far leg at overlaps. This is true even when the teal leg points BACKWARD to the left. The far leg is ALWAYS gray and BEHIND teal, even while reaching forward. Both originate within the same small pelvis but have separate continuous chains.
+Specifically repair 04,06,07: the teal hip dot currently sits on a gray upper thigh, making it appear to change identity. Rebuild a connected teal upper thigh starting at that near hip. In 04 teal thigh slopes down/back-left over the gray leg root; gray thigh slopes down/front-right behind it. In 06 teal thigh slopes back-left and knee bends so its foot lifts behind, all in foreground; gray far thigh descends into forward support behind teal. In 07 teal thigh slopes modestly front-right from its own visible teal hip, passing in foreground of gray support; teal knee bends and foot is off ground. Gray hip marker must be gray and partly occluded if appropriate. No teal dot on gray thigh. Keep 01,02,03,05,08 leg-phase intentions.
+
+SECOND: arms counter-swing continuously, SAME-SIDE arm opposite SAME-SIDE leg. Near arm always teal down to its hand; far arm always gray. Repair:
+01 near arm gently back-left, far arm forward-right.
+02 near arm back-left but moving toward vertical.
+03 near arm approximately vertical, passing neutral; far arm neutral too.
+04 near arm gently forward-right, far arm gently back-left.
+05 near arm forward-right, far arm back-left.
+06 near arm still forward but moving toward vertical; its elbow, forearm and hand ALL TEAL, no gray forearm patch.
+07 near arm approximately vertical, passing neutral.
+08 near arm gently back-left, far arm forward-right, ready to join 01. DO NOT keep near arm forward when near leg is forward.
+Hands small simple side-view human hand blocks; modest swing, no splayed fingers.
+
+THIRD: 07 is currently a high-knee march. Reduce teal knee lift and fold to match the gentle gray passing-leg shape of 03, with the roles opposite. Compact casual step, feet only clear floor enough for walking. Anatomical lengths constant.
+
+FOURTH: align all eight cells at one consistent character size and local ground baseline y500 in EACH 384x512 cell. The second row currently has ground at local y486; REDRAW its body/leg proportions to match the first row's scale with the floor at local y500 (global y1012). Do not move the ground line alone; shoes must touch the guide when supporting. Preserve ears inside cells at about local y20 and do not compress row-two bodies. Allow only small purposeful up/down body bob.
+Retain side-view profile throughout, no forward-looking faces. Keep figures clear of cell boundaries and one tail each. No extra labels, background, checkerboard, shadows or polished textures.

@@ -1,0 +1,675 @@
+{
+  "schemaVersion": 1,
+  "canvas": [
+    1024,
+    1536
+  ],
+  "status": "reviewed-live-reflection-with-visible-joints",
+  "nativePngPolicy": "unchanged original bytes",
+  "coordinateSystem": "Canonical right view: x right, y down; anatomical RIGHT near. Left view applies canvas reflection and displayIdMapping: anatomical LEFT near.",
+  "placementPolicy": "uniform scale and translation for live layered assembly only; no baked or rewritten PNG",
+  "reference": "../model-reference/master-right-v3.png",
+  "layers": [
+    {
+      "id": "hair-back",
+      "path": "layers-side-v11/hair-back.png",
+      "anatomicalSide": "center",
+      "parent": "torso",
+      "pivot": [
+        570,
+        180
+      ],
+      "zIndex": 15,
+      "targetBBox": [
+        140,
+        60,
+        630,
+        880
+      ],
+      "sourceBBox127": [
+        60,
+        216,
+        787,
+        1306
+      ],
+      "placement": [
+        0.6740027510316369,
+        0,
+        0,
+        0.6740027510316369,
+        99.5598349381018,
+        -42.916093535075674
+      ],
+      "visibleDefault": true,
+      "sha256": "5b21dfbd35079df931872b30686af6e819cf0aa2d8932813d4efc2ff08496e57"
+    },
+    {
+      "id": "head-front",
+      "path": "layers-side-v11/head-front.png",
+      "anatomicalSide": "center",
+      "parent": "torso",
+      "pivot": [
+        590,
+        420
+      ],
+      "zIndex": 70,
+      "targetBBox": [
+        440,
+        10,
+        780,
+        475
+      ],
+      "sourceBBox127": [
+        272,
+        59,
+        975,
+        1075
+      ],
+      "placement": [
+        0.45767716535433073,
+        0,
+        0,
+        0.45767716535433073,
+        324.6382874015748,
+        -17.00295275590554
+      ],
+      "visibleDefault": true,
+      "sha256": "6ceccea913258e58b4590e8fac929aa8866053e8786a17ef085504e3493f39ed"
+    },
+    {
+      "id": "torso",
+      "path": "layers-side-v11/torso.png",
+      "anatomicalSide": "center",
+      "parent": null,
+      "pivot": [
+        590,
+        680
+      ],
+      "zIndex": 30,
+      "targetBBox": [
+        470,
+        430,
+        705,
+        790
+      ],
+      "sourceBBox127": [
+        279,
+        262,
+        853,
+        1228
+      ],
+      "placement": [
+        0.4744525547445255,
+        0,
+        0,
+        0.4744525547445255,
+        327.62773722627736,
+        305.6934306569343
+      ],
+      "visibleDefault": true,
+      "sha256": "6521e163516227a68dc5139c00e844f34bc4c55c3c640c0ad548b5037cac1c92"
+    },
+    {
+      "id": "skirt-front",
+      "path": "layers-side-v11/skirt-front.png",
+      "anatomicalSide": "center",
+      "parent": "torso",
+      "pivot": [
+        620,
+        690
+      ],
+      "zIndex": 50,
+      "targetBBox": [
+        340,
+        680,
+        870,
+        1100
+      ],
+      "sourceBBox127": [
+        144,
+        481,
+        988,
+        1163
+      ],
+      "placement": [
+        0.6158357771260997,
+        0,
+        0,
+        0.6158357771260997,
+        256.43695014662757,
+        383.782991202346
+      ],
+      "visibleDefault": true,
+      "sha256": "0a9dd208947b0feb62a7f49955c76b447ec2ed58378722a430216be54061d47d"
+    },
+    {
+      "id": "skirt-back",
+      "path": "layers-side-v11/skirt-back-v2.png",
+      "anatomicalSide": "center",
+      "parent": "torso",
+      "pivot": [
+        590,
+        690
+      ],
+      "zIndex": 25,
+      "targetBBox": [
+        340,
+        680,
+        690,
+        1100
+      ],
+      "sourceBBox127": [
+        30,
+        393,
+        1019,
+        1196
+      ],
+      "placement": [
+        0.3538928210313448,
+        0,
+        0,
+        0.3538928210313448,
+        329.38321536905966,
+        608.8321536905966
+      ],
+      "visibleDefault": true,
+      "sha256": "693e6461429313c1f404d1c466be676c048505742427607cf3dc76f98fa40753"
+    },
+    {
+      "id": "near-right-upper-arm",
+      "path": "layers-side-v11/near-right-upper-arm.png",
+      "anatomicalSide": "right-near",
+      "parent": "torso",
+      "pivot": [
+        550,
+        505
+      ],
+      "zIndex": 55,
+      "targetBBox": [
+        505,
+        475,
+        625,
+        680
+      ],
+      "sourceBBox127": [
+        307,
+        312,
+        721,
+        1070
+      ],
+      "placement": [
+        0.2704485488126649,
+        0,
+        0,
+        0.2704485488126649,
+        425.9894459102902,
+        390.6200527704485
+      ],
+      "visibleDefault": true,
+      "sha256": "6c4ead16650cf5f6c33a20e50dc6081dc024dab42ce73ebb9e0dc305837799f0"
+    },
+    {
+      "id": "near-right-forearm",
+      "path": "layers-side-v11/near-right-forearm.png",
+      "anatomicalSide": "right-near",
+      "parent": "near-right-upper-arm",
+      "pivot": [
+        565,
+        655
+      ],
+      "zIndex": 56,
+      "targetBBox": [
+        515,
+        640,
+        675,
+        850
+      ],
+      "sourceBBox127": [
+        320,
+        461,
+        752,
+        1120
+      ],
+      "placement": [
+        0.3186646433990895,
+        0,
+        0,
+        0.3186646433990895,
+        424.195751138088,
+        493.0955993930197
+      ],
+      "visibleDefault": true,
+      "sha256": "d06f530b76cb3eee67e0a868da23feafc36163dc2750f4f6076ff718b5f92317"
+    },
+    {
+      "id": "near-right-hand",
+      "path": "layers-side-v11/near-right-hand.png",
+      "anatomicalSide": "right-near",
+      "parent": "near-right-forearm",
+      "pivot": [
+        620,
+        820
+      ],
+      "zIndex": 57,
+      "targetBBox": [
+        580,
+        810,
+        665,
+        970
+      ],
+      "sourceBBox127": [
+        418,
+        527,
+        715,
+        1134
+      ],
+      "placement": [
+        0.26359143327841844,
+        0,
+        0,
+        0.26359143327841844,
+        473.17545304777593,
+        671.0873146622735
+      ],
+      "visibleDefault": true,
+      "sha256": "d12c15c98dd5111da41faed70c7dab8700e76a53dcadf792ecf5a821e2f4e0fb"
+    },
+    {
+      "id": "far-left-upper-arm",
+      "path": "layers-side-v11/far-left-upper-arm.png",
+      "anatomicalSide": "left-far",
+      "parent": "torso",
+      "pivot": [
+        610,
+        505
+      ],
+      "zIndex": 5,
+      "targetBBox": [
+        575,
+        475,
+        670,
+        680
+      ],
+      "sourceBBox127": [
+        317,
+        337,
+        729,
+        994
+      ],
+      "placement": [
+        0.23058252427184467,
+        0,
+        0,
+        0.23058252427184467,
+        501.90533980582524,
+        424.0473300970874
+      ],
+      "visibleDefault": true,
+      "sha256": "be4d95e275e6714351cd0e50643a96c917688e39381ad6f83b0c9e50b2fbb044"
+    },
+    {
+      "id": "far-left-forearm",
+      "path": "layers-side-v11/far-left-forearm.png",
+      "anatomicalSide": "left-far",
+      "parent": "far-left-upper-arm",
+      "pivot": [
+        625,
+        655
+      ],
+      "zIndex": 6,
+      "targetBBox": [
+        590,
+        640,
+        720,
+        845
+      ],
+      "sourceBBox127": [
+        308,
+        376,
+        765,
+        1134
+      ],
+      "placement": [
+        0.2704485488126649,
+        0,
+        0,
+        0.2704485488126649,
+        509.9043535620053,
+        538.311345646438
+      ],
+      "visibleDefault": true,
+      "sha256": "eb16d946c03591a8fe6f8288f00108496d2dd3f73dbab4fd24530f62cb38fff2"
+    },
+    {
+      "id": "far-left-hand",
+      "path": "layers-side-v11/far-left-hand.png",
+      "anatomicalSide": "left-far",
+      "parent": "far-left-forearm",
+      "pivot": [
+        685,
+        815
+      ],
+      "zIndex": 7,
+      "targetBBox": [
+        660,
+        805,
+        730,
+        945
+      ],
+      "sourceBBox127": [
+        315,
+        401,
+        686,
+        1137
+      ],
+      "placement": [
+        0.18867924528301888,
+        0,
+        0,
+        0.18867924528301888,
+        600.566037735849,
+        729.9056603773585
+      ],
+      "visibleDefault": true,
+      "sha256": "1789a88967ac42f066b2148cf24ecf97568d80e7a47ea2ed9aadcb48fb04b99a"
+    },
+    {
+      "id": "near-right-thigh",
+      "path": "layers-side-v11/near-right-thigh-v3.png",
+      "anatomicalSide": "right-near",
+      "parent": "torso",
+      "pivot": [
+        585,
+        870
+      ],
+      "zIndex": 20,
+      "targetBBox": [
+        500,
+        840,
+        635,
+        1175
+      ],
+      "sourceBBox127": [
+        369,
+        40,
+        656,
+        1481
+      ],
+      "placement": [
+        0.23247744621790423,
+        0,
+        0,
+        0.23247744621790423,
+        455.8553088133241,
+        830.7009021512838
+      ],
+      "visibleDefault": true,
+      "sha256": "d808a9a03f5510de5488932f8ad0aad1049be7a9fe16335f515943fe83a1319e"
+    },
+    {
+      "id": "near-right-shin",
+      "path": "layers-side-v11/near-right-shin.png",
+      "anatomicalSide": "right-near",
+      "parent": "near-right-thigh",
+      "pivot": [
+        560,
+        1150
+      ],
+      "zIndex": 21,
+      "targetBBox": [
+        470,
+        1130,
+        620,
+        1400
+      ],
+      "sourceBBox127": [
+        410,
+        558,
+        666,
+        1251
+      ],
+      "placement": [
+        0.40404040404040403,
+        0,
+        0,
+        0.40404040404040403,
+        332.62626262626264,
+        894.5454545454545
+      ],
+      "visibleDefault": true,
+      "sha256": "ab915f51939bb013e6ebe2b255472460657febf3548acaaefe6a24e73435456c"
+    },
+    {
+      "id": "near-right-shoe",
+      "path": "layers-side-v11/near-right-shoe.png",
+      "anatomicalSide": "right-near",
+      "parent": "near-right-shin",
+      "pivot": [
+        550,
+        1370
+      ],
+      "zIndex": 22,
+      "targetBBox": [
+        450,
+        1340,
+        705,
+        1520
+      ],
+      "sourceBBox127": [
+        184,
+        441,
+        901,
+        1353
+      ],
+      "placement": [
+        0.3486750348675035,
+        0,
+        0,
+        0.3486750348675035,
+        385.84379358437934,
+        1038.2426778242677
+      ],
+      "visibleDefault": true,
+      "sha256": "b92ed473717537dc862e1cbc8727a06d436d38f1f0d231cd4405d6ff8d0d9e36"
+    },
+    {
+      "id": "far-left-thigh",
+      "path": "layers-side-v11/far-left-thigh-v3.png",
+      "anatomicalSide": "left-far",
+      "parent": "torso",
+      "pivot": [
+        615,
+        870
+      ],
+      "zIndex": 8,
+      "targetBBox": [
+        565,
+        840,
+        680,
+        1165
+      ],
+      "sourceBBox127": [
+        359,
+        90,
+        677,
+        1458
+      ],
+      "placement": [
+        0.2448830409356725,
+        0,
+        0,
+        0.2448830409356725,
+        488.1505847953216,
+        817.9605263157895
+      ],
+      "visibleDefault": true,
+      "sha256": "0c6e646176a1d03cdcab42f38e5efc9214edefc3cef0efba6ddc708b0bc5b3c0"
+    },
+    {
+      "id": "far-left-shin",
+      "path": "layers-side-v11/far-left-shin.png",
+      "anatomicalSide": "left-far",
+      "parent": "far-left-thigh",
+      "pivot": [
+        610,
+        1145
+      ],
+      "zIndex": 9,
+      "targetBBox": [
+        550,
+        1125,
+        680,
+        1375
+      ],
+      "sourceBBox127": [
+        428,
+        593,
+        629,
+        1141
+      ],
+      "placement": [
+        0.4835766423357664,
+        0,
+        0,
+        0.4835766423357664,
+        359.42974452554745,
+        833.2390510948906
+      ],
+      "visibleDefault": true,
+      "sha256": "12b61b0f4cc047f8ec3dd347b17cf457e17f901c3871388a34c75611082b0c54"
+    },
+    {
+      "id": "far-left-shoe",
+      "path": "layers-side-v11/far-left-shoe.png",
+      "anatomicalSide": "left-far",
+      "parent": "far-left-shin",
+      "pivot": [
+        625,
+        1340
+      ],
+      "zIndex": 10,
+      "targetBBox": [
+        560,
+        1310,
+        740,
+        1445
+      ],
+      "sourceBBox127": [
+        399,
+        833,
+        776,
+        1284
+      ],
+      "placement": [
+        0.47745358090185674,
+        0,
+        0,
+        0.47745358090185674,
+        369.49602122015915,
+        816.9496021220159
+      ],
+      "visibleDefault": true,
+      "sha256": "7df5cea3b6619a75b765bd755b5b799e86923d7075c48cc1e7a1dfedac4e8ff3"
+    },
+    {
+      "id": "tail",
+      "path": "layers-side-v11/tail.png",
+      "anatomicalSide": "center",
+      "parent": "torso",
+      "pivot": [
+        450,
+        800
+      ],
+      "zIndex": 40,
+      "targetBBox": [
+        260,
+        770,
+        485,
+        1370
+      ],
+      "sourceBBox127": [
+        274,
+        208,
+        669,
+        1372
+      ],
+      "placement": [
+        0.5154639175257731,
+        0,
+        0,
+        0.5154639175257731,
+        129.45876288659795,
+        662.7835051546392
+      ],
+      "visibleDefault": true,
+      "sha256": "18c67008fbd26d3efd22797fd0bf44ac120b0a6f3c8eb776d8ba37faf48c3a65"
+    }
+  ],
+  "rangePresets": {
+    "neutral": {},
+    "near-forward": {
+      "near-right-upper-arm": -25,
+      "near-right-forearm": -15,
+      "near-right-thigh": -25,
+      "near-right-shin": 25,
+      "far-left-upper-arm": 25,
+      "far-left-thigh": 20,
+      "far-left-shin": 15,
+      "tail": 5
+    },
+    "far-forward": {
+      "near-right-upper-arm": 25,
+      "near-right-forearm": 15,
+      "near-right-thigh": 20,
+      "near-right-shin": 15,
+      "far-left-upper-arm": -25,
+      "far-left-thigh": -25,
+      "far-left-shin": 25,
+      "tail": -5
+    }
+  },
+  "placementRevision": 2,
+  "version": "v12",
+  "views": {
+    "right": {
+      "reference": "model-reference/master-right-v3.png",
+      "canvasTransform": [
+        1,
+        0,
+        0,
+        1,
+        0,
+        0
+      ],
+      "nearAnatomicalSide": "right"
+    },
+    "left": {
+      "reference": "model-reference/master-left-v1.png",
+      "canvasTransform": [
+        -1,
+        0,
+        0,
+        1,
+        1024,
+        0
+      ],
+      "nearAnatomicalSide": "left",
+      "displayIdMapping": {
+        "near-right-upper-arm": "near-left-upper-arm",
+        "near-right-forearm": "near-left-forearm",
+        "near-right-hand": "near-left-hand",
+        "near-right-thigh": "near-left-thigh",
+        "near-right-shin": "near-left-shin",
+        "near-right-shoe": "near-left-shoe",
+        "far-left-upper-arm": "far-right-upper-arm",
+        "far-left-forearm": "far-right-forearm",
+        "far-left-hand": "far-right-hand",
+        "far-left-thigh": "far-right-thigh",
+        "far-left-shin": "far-right-shin",
+        "far-left-shoe": "far-right-shoe"
+      },
+      "method": "live-reflection-of-retained-right-parts",
+      "limitation": "Same 18 original right-side raster PNGs reflected only in the viewer; no independent left-layer drawing or bound rig claimed."
+    }
+  }
+}

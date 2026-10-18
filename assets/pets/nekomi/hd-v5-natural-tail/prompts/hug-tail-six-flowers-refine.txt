@@ -1,0 +1,5 @@
+Precise local edit ONLY. This image is otherwise approved in structure and framing.
+Remove exactly ONE surplus small green flower on the skirt: the LEFTMOST small skirt flower, centered approximately x294,y892 on the1024x1536 image, immediately to the left of the large viewer-left skirt flower. Replace only this one flower with matching plain ivory skirt fabric.
+KEEP the large viewer-left flower around x360,y887 and KEEP its TWO other small flowers near x324,y914 and x392,y932. KEEP the viewer-right group unchanged (one large, two small). The final SKIRT has exactly two large and four small green flowers, six total.
+Do not touch any hair/chest/shoe daisies. Do not move or redraw the character, hands, tail, face, hair, ears, clothing silhouette, shoes or original framing. Keep the same continuous thin tail held low in both hands and the current clean ear/foot margins.
+Native1024x1536 RGBA PNG with actual transparent background, no additions, no text, no glow or halo.

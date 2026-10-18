@@ -1,0 +1,78 @@
+{
+  "schemaVersion": 1,
+  "status": "production-parts-with-source-anchors",
+  "variants": [
+    {
+      "id": "hand-right-wave",
+      "path": "hand-right-wave.png",
+      "anatomicalSide": "right",
+      "view": "front-palm",
+      "sourceWristAnchor": [
+        590,
+        1220
+      ],
+      "sourceBBox127": [
+        109,
+        301,
+        965,
+        1257
+      ],
+      "sha256": "c523c95595c1aa1012ade51aabb58e4b5ef86de4fb86b9c2a1c0290a899e70dd",
+      "registration": "independent original canvas; attach by wrist anchor; pose-specific view"
+    },
+    {
+      "id": "hand-right-fist",
+      "path": "hand-right-fist.png",
+      "anatomicalSide": "right",
+      "view": "three-quarter",
+      "sourceWristAnchor": [
+        450,
+        1080
+      ],
+      "sourceBBox127": [
+        287,
+        436,
+        822,
+        1096
+      ],
+      "sha256": "da6b23fa2fe3e23f2afed3fee2a74d965488e6993bfc0de22bf34d582213a4c9",
+      "registration": "independent original canvas; attach by wrist anchor; pose-specific view"
+    },
+    {
+      "id": "hand-right-cup",
+      "path": "hand-right-cup.png",
+      "anatomicalSide": "right",
+      "view": "palm-up",
+      "sourceWristAnchor": [
+        755,
+        485
+      ],
+      "sourceBBox127": [
+        121,
+        449,
+        896,
+        1106
+      ],
+      "sha256": "e470a283033d22a8cabfcbc525dd4cbaee666affbb046f77d2b939a4e1f8eecb",
+      "registration": "independent original canvas; attach by wrist anchor; pose-specific view"
+    },
+    {
+      "id": "hand-left-cup",
+      "path": "hand-left-cup.png",
+      "anatomicalSide": "left",
+      "view": "palm-up",
+      "sourceWristAnchor": [
+        155,
+        1080
+      ],
+      "sourceBBox127": [
+        108,
+        509,
+        937,
+        1144
+      ],
+      "sha256": "3061968cb983e0dd1e953641899f0a66f986eead5341c7cfb60bf2b3bba088b0",
+      "registration": "independent original canvas; attach by wrist anchor; pose-specific view"
+    }
+  ]
+}

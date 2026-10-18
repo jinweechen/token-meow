@@ -1,0 +1,38 @@
+{
+  "observedAt": "2026-10-15T08:23:20.1005377Z",
+  "scope": "live production account bridge example; account and state-db directory read-only native stdio",
+  "source": "src-tauri/src/account_bridge.rs",
+  "sourceSha256": "BD4F037159880DE914B8875683EFDF895EDABA3C85D00004EEB6F3392C701A53",
+  "command": "account_bridge_audit.exe --source=<configured Codex root> --out=<workspace>/output/live-account-bridge-20261015.json",
+  "account": {
+    "status": "connected",
+    "bucketCount": 1,
+    "validWindowCount": 1,
+    "absentSecondaryPreserved": true,
+    "dailyUsageBucketCount": 77,
+    "verifiedHistoricalAccountScope": false
+  },
+  "directory": {
+    "status": "complete",
+    "count": 555,
+    "archived": 59,
+    "contentFieldsPresent": false
+  },
+  "processes": {
+    "existingCodexBefore": 9,
+    "codexAfter": 9,
+    "newRemainingCodex": 0,
+    "missingPriorCodex": 0,
+    "sourceConfigAndAuthUnchanged": true
+  },
+  "evidence": [
+    "output/live-account-bridge-20261015.json",
+    "output/live-account-process-20261015.json"
+  ],
+  "limitations": [
+    "No inference, login, task control, hooks or configuration changes were performed.",
+    "Missing stable account scope is not inferred from email or plan.",
+    "Directory metadata does not prove runtime activity.",
+    "This does not replace native product, notification, account-switch or installer acceptance."
+  ]
+}

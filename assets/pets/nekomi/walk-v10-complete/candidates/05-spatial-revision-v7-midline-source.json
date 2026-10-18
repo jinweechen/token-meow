@@ -1,0 +1,73 @@
+{
+  "schemaVersion": 1,
+  "recordedAtUtc": "2026-10-17T10:38:17+00:00",
+  "tool": "built-in image_gen.imagegen",
+  "prompt": "../prompts/05-spatial-revision-v7-midline.txt",
+  "input": "05-spatial-revision-v5.png",
+  "output": "05-spatial-revision-v7-midline.png",
+  "originalGeneratedPath": "C:/Users/Administrator/.codex/generated_images/01a148a3-42fd-7200-9a55-f8a2b93cf502/exec-724f5b5b-181e-4651-bae1-ea26f9eb08fd.png",
+  "transparentBackgroundRequested": true,
+  "scope": "rear-pelvis midline and far-left-arm occlusion correction",
+  "reviewStatus": "needs-revision-not-approved",
+  "selectedIntoFrames": false,
+  "remaining": [
+    "Far left hand is partly occluded by the tail.",
+    "Tail root remains high; tail volume and length still need correction."
+  ],
+  "metadata": {
+    "path": "D:\\project\\宠物\\assets\\pets\\nekomi\\walk-v10-complete\\candidates\\05-spatial-revision-v7-midline.png",
+    "bytes": 1860385,
+    "sha256": "a514976a2d1c63de79de968ee84d63f2a45231996f1561d7083930b67faf78eb",
+    "size": [
+      1024,
+      1536
+    ],
+    "mode": "RGBA",
+    "hasAlphaChannel": true,
+    "effectiveAlphaExtrema": [
+      0,
+      254
+    ],
+    "nonTransparentBBox": [
+      33,
+      20,
+      998,
+      1508
+    ],
+    "bboxConvention": "[left,top,right,bottom]; alpha>0; right/bottom exclusive"
+  },
+  "originalGeneratedFile": {
+    "path": "C:\\Users\\Administrator\\.codex\\generated_images\\01a148a3-42fd-7200-9a55-f8a2b93cf502\\exec-724f5b5b-181e-4651-bae1-ea26f9eb08fd.png",
+    "bytes": 1860385,
+    "sha256": "a514976a2d1c63de79de968ee84d63f2a45231996f1561d7083930b67faf78eb"
+  },
+  "sourceBytesEqual": true,
+  "promptRecord": {
+    "path": "D:\\project\\宠物\\assets\\pets\\nekomi\\walk-v10-complete\\prompts\\05-spatial-revision-v7-midline.txt",
+    "bytes": 2854,
+    "sha256": "47719c72d01afdd2bf6f307b82aa78e090e09e781bbcaf05c9fc223833b9f7fd"
+  },
+  "inputReference": {
+    "path": "D:\\project\\宠物\\assets\\pets\\nekomi\\walk-v10-complete\\candidates\\05-spatial-revision-v5.png",
+    "bytes": 1883912,
+    "sha256": "a645cae0eb4973d1a29807e4f34adaf38fa94fb94fe1d5c3a694884ebddbfc55",
+    "size": [
+      1024,
+      1536
+    ],
+    "mode": "RGBA",
+    "hasAlphaChannel": true,
+    "effectiveAlphaExtrema": [
+      0,
+      254
+    ],
+    "nonTransparentBBox": [
+      51,
+      21,
+      984,
+      1504
+    ],
+    "bboxConvention": "[left,top,right,bottom]; alpha>0; right/bottom exclusive"
+  },
+  "mappingEvidence": "Explicit generation output/input/prompt mapping supplied by the parent task handoff on 2026-10-17"
+}

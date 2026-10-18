@@ -1,0 +1,5 @@
+Use case: precise-object-edit. Image 1 is the passing walk frame to edit. Image 2 is the next opposite contact frame for ARM PHASE guidance only. Keep the entire head, face, hair, body location, waist, dress, legs, shoes, tail and transparent background from image 1 UNCHANGED.
+Change ONLY BOTH ARMS/HANDS into the halfway counter-swing between these poses:
+The camera-near arm starts at image1's LEFT shoulder and must swing a little FORWARD over the front/near side of the dress, its relaxed hand approximately x620,y890, the sleeve diagonally slanting down-right. This is less far forward than the hand in image2.
+The camera-far arm starts at image1's RIGHT shoulder and swings BACK, elbow close to side, hand near x690,y875 partly occluded behind the dress/body. Do NOT leave it extended toward the right edge.
+Both hands relaxed, side/back view, straight gently curved human fingers, natural separated thumb, no claw-like hooked fingers. Keep arm lengths and sleeve shape consistent. No new body parts. Both arm motions are fore/aft and opposite the same-side legs. Retain the exact fixed 1024x1536 canvas and true alpha.

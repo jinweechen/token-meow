@@ -1,0 +1,73 @@
+{
+  "schemaVersion": 1,
+  "recordedAtUtc": "2026-10-17T10:38:17+00:00",
+  "tool": "built-in image_gen.imagegen",
+  "prompt": "../prompts/05-spatial-revision-v8-low-root.txt",
+  "input": "05-spatial-revision-v7-midline.png",
+  "output": "05-spatial-revision-v8-low-root.png",
+  "originalGeneratedPath": "C:/Users/Administrator/.codex/generated_images/01a148a3-42fd-7200-9a55-f8a2b93cf502/exec-1c00e344-3b44-4a81-9560-ad76c2d0d50d.png",
+  "transparentBackgroundRequested": true,
+  "scope": "lower tail-root and narrower shorter tail attempt",
+  "reviewStatus": "needs-revision-not-approved",
+  "selectedIntoFrames": false,
+  "remaining": [
+    "Still unapproved; do not promote this candidate to a frame or animation master.",
+    "Model proportions, anatomy, perspective and occlusion still require consistent master review."
+  ],
+  "metadata": {
+    "path": "D:\\project\\宠物\\assets\\pets\\nekomi\\walk-v10-complete\\candidates\\05-spatial-revision-v8-low-root.png",
+    "bytes": 1846571,
+    "sha256": "c0934d2c7e3ad6bc051539050b6352bdd7db519c3f26224b431b0769b913dcae",
+    "size": [
+      1024,
+      1536
+    ],
+    "mode": "RGBA",
+    "hasAlphaChannel": true,
+    "effectiveAlphaExtrema": [
+      0,
+      254
+    ],
+    "nonTransparentBBox": [
+      33,
+      19,
+      1006,
+      1509
+    ],
+    "bboxConvention": "[left,top,right,bottom]; alpha>0; right/bottom exclusive"
+  },
+  "originalGeneratedFile": {
+    "path": "C:\\Users\\Administrator\\.codex\\generated_images\\01a148a3-42fd-7200-9a55-f8a2b93cf502\\exec-1c00e344-3b44-4a81-9560-ad76c2d0d50d.png",
+    "bytes": 1846571,
+    "sha256": "c0934d2c7e3ad6bc051539050b6352bdd7db519c3f26224b431b0769b913dcae"
+  },
+  "sourceBytesEqual": true,
+  "promptRecord": {
+    "path": "D:\\project\\宠物\\assets\\pets\\nekomi\\walk-v10-complete\\prompts\\05-spatial-revision-v8-low-root.txt",
+    "bytes": 2180,
+    "sha256": "3175ed2da7166b0cef46a9bada606ec8ea667eaf2046db521d6cb4792ede133c"
+  },
+  "inputReference": {
+    "path": "D:\\project\\宠物\\assets\\pets\\nekomi\\walk-v10-complete\\candidates\\05-spatial-revision-v7-midline.png",
+    "bytes": 1860385,
+    "sha256": "a514976a2d1c63de79de968ee84d63f2a45231996f1561d7083930b67faf78eb",
+    "size": [
+      1024,
+      1536
+    ],
+    "mode": "RGBA",
+    "hasAlphaChannel": true,
+    "effectiveAlphaExtrema": [
+      0,
+      254
+    ],
+    "nonTransparentBBox": [
+      33,
+      20,
+      998,
+      1508
+    ],
+    "bboxConvention": "[left,top,right,bottom]; alpha>0; right/bottom exclusive"
+  },
+  "mappingEvidence": "Explicit generation output/input/prompt mapping supplied by the parent task handoff on 2026-10-17"
+}

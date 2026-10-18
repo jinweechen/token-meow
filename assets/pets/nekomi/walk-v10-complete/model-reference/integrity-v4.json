@@ -1,0 +1,57 @@
+{
+  "scope": "metadata and source integrity only, not visual approval",
+  "entries": [
+    {
+      "output": "turnaround-rear-accessories-v2.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGB",
+      "sha256": "a6d512fd7e672c519e4ee562c32846f43671b99dcce85d69a12b69f6b12f1782",
+      "originalSha256": "a6d512fd7e672c519e4ee562c32846f43671b99dcce85d69a12b69f6b12f1782",
+      "originalByteEqual": true,
+      "inputSha256": "7adf6108e8837232ba3e79e79e1741194c023dbd115808ccff280f6bf1d5538c",
+      "promptSha256": "11cc261fb38794ec35fedf7f45119c10d3aa5d5240476c8f347b2fe7503e1f1f"
+    },
+    {
+      "output": "turnaround-rear-waist-v1.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGB",
+      "sha256": "7adf6108e8837232ba3e79e79e1741194c023dbd115808ccff280f6bf1d5538c",
+      "originalSha256": "7adf6108e8837232ba3e79e79e1741194c023dbd115808ccff280f6bf1d5538c",
+      "originalByteEqual": true,
+      "inputSha256": "2ec76b1ed4cb6c23f14af1cef1d63941197a40a9f3412c06f07b7277315b0e26",
+      "promptSha256": "b3d76b9e19ca343bf996b27d5ccc62dbe3c639c9c3a09a27fc6eddc64857ed68"
+    },
+    {
+      "output": "turnaround-side-hair-bow-v3.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGB",
+      "sha256": "b7d6506f945cb23b343a46fcde2be052b4dadbac47eb65f2d6ebe4c83531f316",
+      "originalSha256": "b7d6506f945cb23b343a46fcde2be052b4dadbac47eb65f2d6ebe4c83531f316",
+      "originalByteEqual": true,
+      "inputSha256": "a6d512fd7e672c519e4ee562c32846f43671b99dcce85d69a12b69f6b12f1782",
+      "promptSha256": "2d344d7eb202d4c9a34eb58cb4bb19b1ffb9eb9ed01c9a573366fe16551c7bda"
+    },
+    {
+      "output": "turnaround-side-hair-bow-v4-length.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGB",
+      "sha256": "051eedc0dd800129f345e4cbeb79e400969ce353a77777cf54a843b04b69a9d9",
+      "originalSha256": "051eedc0dd800129f345e4cbeb79e400969ce353a77777cf54a843b04b69a9d9",
+      "originalByteEqual": true,
+      "inputSha256": "b7d6506f945cb23b343a46fcde2be052b4dadbac47eb65f2d6ebe4c83531f316",
+      "promptSha256": "a44d9b39558468bf45ee5d9fa2922003aa8a490bd57bed0f36f363279c3ad92c"
+    }
+  ]
+}

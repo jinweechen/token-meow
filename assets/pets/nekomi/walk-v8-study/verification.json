@@ -1,0 +1,48 @@
+{
+  "date": "2026-10-17",
+  "scope": "walk-v8-study only",
+  "imageGeneration": {
+    "backend": "built-in image_gen",
+    "outputs": 7,
+    "selectedForStructuralIntent": "side-model-study.png",
+    "characterWalkAccepted": false,
+    "cleanAlphaAccepted": false
+  },
+  "verification": {
+    "sourceCopies": "7/7 byte-identical to native outputs",
+    "localReferencedFiles": "19/19 exist",
+    "previewScriptSyntax": "both valid",
+    "mechanicsParametersMatch": true,
+    "mechanicsSamples": 1201,
+    "mechanicsConstraintsPassed": true
+  },
+  "browser": {
+    "studyPreview": "http://127.0.0.1:1424/walk-v8-study/preview.html",
+    "mechanicsPreview": "http://127.0.0.1:1424/walk-v8-study/mechanics.html",
+    "observations": [
+      "Model and all study assets visibly loaded in fixed-grid preview",
+      "Updated model speed 0.406 m/s and hip 0.905 matched data",
+      "Original-speed travel control advanced world position",
+      "Quarter-speed and key-phase controls switched successfully",
+      "Static phase 07 visually inspected; near swing leg remained foreground and far leg supported"
+    ],
+    "limits": [
+      "Browser checks are functional controls and selected pose observations, not completed character motion acceptance",
+      "No foot heel-to-toe rolling",
+      "No character 1200px high review or transparency acceptance"
+    ],
+    "continuousPlaybackStabilityPassed": false,
+    "finalRecheck": {
+      "result": "IAB page crashed; subsequent tool read and reload blocked on its data URL error page",
+      "httpServiceStatus": 200,
+      "rootCause": "not established",
+      "evidencePolicy": "Earlier static screenshot and functional-control observations retained; no sustained playback acceptance"
+    }
+  },
+  "evidence": [
+    "../../../../output/imagegen/walk-v8-study-20261017/study-preview.png",
+    "../../../../output/imagegen/walk-v8-study-20261017/mechanics-passing.png"
+  ],
+  "runtimeChanges": false,
+  "archiveCreated": false
+}

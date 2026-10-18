@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "kind": "c14-native-partial-observation-clarification",
+  "recordedAtUtc": "2026-10-15T17:45:34.253530+00:00",
+  "priorReceipt": {
+    "path": "docs\\acceptance\\release-c14-native-visible-increments-partial-2026-10-16.json",
+    "sha256": "977873F1E5E13C04E6FA50C9E736A3747804E39365051411ABB5DFC38D606825",
+    "unchanged": true
+  },
+  "correction": {
+    "supersedesFields": [
+      "visualEvidence.rootSeparatelyReportedLaterUiaCount",
+      "visualEvidence.uiaBoundary statement that a later actual UIA3 was observed"
+    ],
+    "rootExplicitClarification": "The initial message UIA3 mixed expected/collector count with observation. No actual later UIA3 or readable event2 pixel count is asserted. Raw diagnosticUIA2 and collector3 are authoritative for their respective meanings.",
+    "actualPersistedDiagnosticUiaResponseCount": 2,
+    "actualPersistedCollectorTotalNewResponses": 3,
+    "actualEvent2VisibleResponseCount": null,
+    "event2ManuallyConfirmed": false,
+    "p95Qualified": false
+  },
+  "rawEvidence": {
+    "path": "output\\performance\\incremental-d7a8bc3ba8b044e7a971028de4f56cc4\\native-screenshot-increments.jsonl",
+    "sha256": "8BD4CA82ECDB1C7C08F44325823849CDFB06381B61CE84F32071B0AF75A6CFAA"
+  },
+  "status": "original-partial-not-qualified-preserved",
+  "dbOpened": false,
+  "uiOperated": false,
+  "wholeM4Qualified": false
+}

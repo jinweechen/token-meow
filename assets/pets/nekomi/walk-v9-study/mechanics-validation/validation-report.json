@@ -1,0 +1,209 @@
+{
+  "schemaVersion": 1,
+  "localDate": "2026-10-17",
+  "status": "engineering-checks-passed-not-character-acceptance",
+  "sources": {
+    "mechanics-core.js": "2b01f0a7edcd2d097943ace8151f4c1566256e30186a58afb951be6e56321d44",
+    "mechanics.html": "7f9213e295328ed48ab3406d7f5b55ed149755bd8f68edf5bb3620381159df31",
+    "mechanics.json": "fb33c0320f88c14abd6e90f0678116d4f9f3ce75ff068eaf94a5f12d82654131"
+  },
+  "defaultNumericValidation": {
+    "scope": "Deterministic engineering model only; no character artwork or animation acceptance",
+    "sampleCount": 1201,
+    "finiteDifferenceStepSeconds": 0.00001,
+    "earlySwingProbeCount": 9,
+    "boundaryChecks": [
+      {
+        "id": "near",
+        "phase": 0,
+        "positionExtrapolationDifference": 6.826691989481048e-13,
+        "oneSidedVelocityDifference": 1.3274104038174526e-8
+      },
+      {
+        "id": "near",
+        "phase": 0.12,
+        "positionExtrapolationDifference": 5.48803513080971e-13,
+        "oneSidedVelocityDifference": 1.8291855059145312e-8
+      },
+      {
+        "id": "near",
+        "phase": 0.3,
+        "positionExtrapolationDifference": 2.321198788735046e-13,
+        "oneSidedVelocityDifference": 5.0986992405910306e-9
+      },
+      {
+        "id": "near",
+        "phase": 0.6,
+        "positionExtrapolationDifference": 4.2693626411960395e-13,
+        "oneSidedVelocityDifference": 9.009459844833145e-9
+      },
+      {
+        "id": "near",
+        "phase": 1,
+        "positionExtrapolationDifference": 6.826691989481048e-13,
+        "oneSidedVelocityDifference": 1.3274104038174526e-8
+      },
+      {
+        "id": "far",
+        "phase": 0,
+        "positionExtrapolationDifference": 6.825581766456423e-13,
+        "oneSidedVelocityDifference": 1.3267165144270619e-8
+      },
+      {
+        "id": "far",
+        "phase": 0.12,
+        "positionExtrapolationDifference": 5.484979370464509e-13,
+        "oneSidedVelocityDifference": 1.830915876230488e-8
+      },
+      {
+        "id": "far",
+        "phase": 0.3,
+        "positionExtrapolationDifference": 2.327860126882797e-13,
+        "oneSidedVelocityDifference": 5.0938420148582955e-9
+      },
+      {
+        "id": "far",
+        "phase": 0.6,
+        "positionExtrapolationDifference": 4.2683911960494925e-13,
+        "oneSidedVelocityDifference": 8.902600878712974e-9
+      },
+      {
+        "id": "far",
+        "phase": 1,
+        "positionExtrapolationDifference": 6.829328769164533e-13,
+        "oneSidedVelocityDifference": 1.3278614319212066e-8
+      }
+    ],
+    "passed": true,
+    "checks": {
+      "finiteCoordinates": true,
+      "constantSegmentLengths": true,
+      "kneesOnAnatomicalForwardBendBranch": true,
+      "positiveExtensionMargin": true,
+      "noSoleBelowGround": true,
+      "rigidFootGeometry": true,
+      "actualContactPointFixed": true,
+      "rootAndLocalContactMatch": true,
+      "ankleMovesDuringFootRoll": true,
+      "toeClearImmediatelyAfterToeOff": true,
+      "constantForwardSpeed": true,
+      "periodicLocalPositions": true,
+      "periodicLocalVelocitySeam": true,
+      "noOneSidedVelocityJumpAtLoop": true,
+      "allFootPhaseBoundariesContinuous": true,
+      "nearFarIdentityFixed": true,
+      "sameSideArmOpposesLegAtContact": true,
+      "eightDistinctPosesPerLeg": true,
+      "moreThanColorSwap": true
+    },
+    "metrics": {
+      "maximumSegmentLengthError": 2.7755575615628914e-16,
+      "maximumActualContactWorldSpeed": 0,
+      "maximumActualContactWorldDrift": 0,
+      "maximumLocalContactSpeedMismatch": 6.824707465824531e-12,
+      "maximumAnkleSpeedDuringStance": 0.2558693324119288,
+      "maximumRigidFootDistanceError": 1.3877787807814457e-16,
+      "maximumFootAngleError": 1.1102230246251565e-16,
+      "minimumEarlySwingToeHeight": 0,
+      "maximumSwingSoleClearance": 0.07231587850199496,
+      "maximumBoundaryPositionDifference": 6.829328769164533e-13,
+      "maximumBoundaryVelocityDifference": 1.830915876230488e-8,
+      "maximumRootSpeedError": 6.824707465824531e-12,
+      "maximumLocalCyclePositionSeam": 1.1102230246251565e-16,
+      "maximumLocalCycleVelocitySeam": 1.1102230246251564e-11,
+      "maximumOneSidedVelocityJumpAtLoop": 1.3274104038174526e-8,
+      "minimumAnatomicalForwardBendOffset": 0.07158212067269265,
+      "minimumKneeRelativeToHipX": 0.06602894690754116,
+      "kneeFlexionDegrees": {
+        "all": [
+          19.165286405604405,
+          54.658334785282904
+        ],
+        "stance": [
+          19.165286405604405,
+          43.40684110768635
+        ],
+        "swing": [
+          25.84989051263372,
+          54.658334785282904
+        ]
+      },
+      "maximumLegReach": 0.8480000000000001,
+      "maximumLegExtensionRatio": 0.9860465116279071,
+      "minimumRemainingExtension": 0.0119999999999999,
+      "maximumKneeExtensionDegrees": 160.8347135943956,
+      "maximumReachAt": {
+        "id": "near",
+        "phase": 0.3,
+        "time": 0.384
+      },
+      "minimumSoleHeight": 0,
+      "nearDistinctKeyPoses": 8,
+      "farDistinctKeyPoses": 8,
+      "distinctUnlabelledKeyGeometry": 4
+    }
+  },
+  "negativeCases": {
+    "insufficientSwingClearance": {
+      "correctlyRejected": true,
+      "minimumSoleHeight": -0.004500482070939893,
+      "parameters": {
+        "heelContactDegrees": 1,
+        "toeOffDegrees": 45,
+        "swingLift": 0.000001,
+        "hipHeight": 0.8
+      }
+    },
+    "unreachableLeg": {
+      "correctlyRejected": true,
+      "message": "Unreachable two-bone IK target; no silent limb stretching",
+      "parameters": {
+        "hipHeight": 1.1
+      }
+    }
+  },
+  "nonBrowserDomHarness": {
+    "scope": "Initialization, DOM identifier wiring and sample/node counts only; no browser visual or performance acceptance",
+    "initialized": {
+      "sample": 130,
+      "validate": 1,
+      "createdNodes": 109,
+      "cachedPoints": 129
+    },
+    "twentyFourRenders": {
+      "currentPoseSamples": 24,
+      "validationRuns": 0,
+      "createdDomNodes": 0,
+      "cacheUnchanged": true
+    },
+    "configuredMaximumPaintHz": 30
+  },
+  "svg": {
+    "individualCount": 8,
+    "canvas": [
+      768,
+      768
+    ],
+    "rasterEmbeds": 0,
+    "files": [
+      "01-near-heel-contact.svg",
+      "02-near-flat-support.svg",
+      "03-far-passing.svg",
+      "04-near-toe-pivot.svg",
+      "05-far-heel-contact.svg",
+      "06-far-flat-support.svg",
+      "07-near-passing.svg",
+      "08-far-toe-pivot.svg"
+    ]
+  },
+  "v8SourceHashesPreserved": {
+    "mechanics-core.js": "963f4ecc6a2143ccc9058205a593e5210be51cb8d8a8a5c56dea6aa54acb6721",
+    "mechanics.html": "c5454d1be16856eb8e4960cdef24742bc87bbf5933fd28434c64501b004c0731",
+    "mechanics.json": "19ff54f3c1a625d752eb946ffe0a0f05b834427ecbba425ffa5e7001ddcb130c"
+  },
+  "limitations": [
+    "No browser or imagegen was called",
+    "IAB crash cause remains undiagnosed; no crash-fix claim",
+    "No character PNG acceptance or Q-style anatomy redefinition"
+  ]
+}

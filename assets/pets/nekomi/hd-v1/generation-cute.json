@@ -1,0 +1,348 @@
+{
+  "format": "nekomi-hd-generation-provenance-v1",
+  "generatedWith": "built-in image_gen.imagegen",
+  "reviewedAt": "2026-10-16T16:40:05.036005+08:00",
+  "pixelPostProcessing": false,
+  "originalPngBytesPreserved": true,
+  "reference": {
+    "file": "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v1\\idle.png",
+    "sha256": "f1d2c01a123ff0616612d11f5ddba7055f93405b7c3273f640438652ce02962d"
+  },
+  "assets": [
+    {
+      "pose": "affection",
+      "file": "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v1\\affection.png",
+      "sourceOriginalPath": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14300-0b89-7203-9229-f4f2b07417b4\\exec-000a6413-f4d1-46f4-a4e8-7dd0442412f9.png",
+      "prompt": "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v1\\prompts\\affection.txt",
+      "promptSha256": "50b7e56a64b1c43ad9528545c50a931991eda63b6b5a039883a1ccfc86819301",
+      "sharedInvariantsIncluded": true,
+      "reference": "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v1\\idle.png",
+      "sha256": "eb002e7bf7e5824c6e087ef54019a5956dd6d036b297274503ccb15c24b8171c",
+      "sourceSha256": "eb002e7bf7e5824c6e087ef54019a5956dd6d036b297274503ccb15c24b8171c",
+      "byteIdenticalToGeneratedSource": true,
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "bytes": 1993313,
+      "alphaBboxes": {
+        "1": [
+          33,
+          16,
+          999,
+          1500
+        ],
+        "16": [
+          89,
+          49,
+          996,
+          1466
+        ],
+        "128": [
+          90,
+          50,
+          994,
+          1465
+        ],
+        "250": [
+          100,
+          51,
+          992,
+          1463
+        ]
+      },
+      "bboxConvention": "left, top, right-exclusive, bottom-exclusive",
+      "visibleHeightAlpha16": 1417,
+      "marginsAlpha16": {
+        "left": 89,
+        "top": 49,
+        "right": 28,
+        "bottom": 70
+      },
+      "maximumEdgeAlpha": 0,
+      "edgePixelsAlpha16": 0,
+      "reviewStatus": "accepted",
+      "visualReview": {
+        "hands": "Chest hand has naturally grouped fingers with perspective occlusion; the opposite hand hangs loosely with an independent thumb. No visible forked stems, extra digits or fused finger roots.",
+        "clothing": "Small chest bow leaves a readable ivory bodice; skirt starts below the mint waist seam. Sleeves join wrists naturally.",
+        "legsAndFeet": "Comfortable knee-to-ankle alignment and near-parallel forward shoes; no evident knock-knee or reverse-bend silhouette.",
+        "composition": "Hair, ears, hands, soles and tail remain complete; real dark/light browser compositions are clean."
+      },
+      "visualEvidence": [
+        "D:\\project\\宠物\\output\\playwright\\hd-v1-affection-dark.png",
+        "D:\\project\\宠物\\output\\playwright\\hd-v1-affection-light.png"
+      ],
+      "visualEvidenceDetails": [
+        {
+          "file": "D:\\project\\宠物\\output\\playwright\\hd-v1-affection-dark.png",
+          "sha256": "5c4e942222361d683a9383ebae1851dd8d21b196d509605297f08349b6e139b8",
+          "modifiedAt": "2026-10-16T15:59:28.198866+08:00"
+        },
+        {
+          "file": "D:\\project\\宠物\\output\\playwright\\hd-v1-affection-light.png",
+          "sha256": "afd69f4bba17977fbb0062f768ab7a16cbe48f988aff90ac053e0c42c5d9540f",
+          "modifiedAt": "2026-10-16T15:59:28.594294+08:00"
+        }
+      ]
+    },
+    {
+      "pose": "stretch",
+      "file": "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v1\\stretch.png",
+      "sourceOriginalPath": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14300-0b89-7203-9229-f4f2b07417b4\\exec-ed65bf19-92a2-4340-adff-1dcd7859e304.png",
+      "prompt": "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v1\\prompts\\stretch.txt",
+      "promptSha256": "4dd406560691bd63b0670d86add33d88d75691532142151cceac12746ba45241",
+      "sharedInvariantsIncluded": true,
+      "reference": "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v1\\idle.png",
+      "sha256": "773eb3b5134a2a441ff820826713982d2764cc18c7508733ae8700bbf1e5f6b3",
+      "sourceSha256": "773eb3b5134a2a441ff820826713982d2764cc18c7508733ae8700bbf1e5f6b3",
+      "byteIdenticalToGeneratedSource": true,
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "bytes": 1960476,
+      "alphaBboxes": {
+        "1": [
+          33,
+          20,
+          1010,
+          1500
+        ],
+        "16": [
+          99,
+          47,
+          998,
+          1468
+        ],
+        "128": [
+          100,
+          47,
+          996,
+          1467
+        ],
+        "250": [
+          110,
+          50,
+          993,
+          1466
+        ]
+      },
+      "bboxConvention": "left, top, right-exclusive, bottom-exclusive",
+      "visibleHeightAlpha16": 1421,
+      "marginsAlpha16": {
+        "left": 99,
+        "top": 47,
+        "right": 26,
+        "bottom": 68
+      },
+      "maximumEdgeAlpha": 0,
+      "edgePixelsAlpha16": 0,
+      "reviewStatus": "accepted",
+      "visualReview": {
+        "hands": "Raised arm ends in a small closed human fist; the other fist is near the mouth. Curled fingers and thumb use normal occlusion; no visible branching or extraneous digit. Individual hidden digits cannot be counted independently.",
+        "clothing": "Sleeves follow the bent arms; modest bodice and natural waist seam remain readable.",
+        "legsAndFeet": "Leg length and comfortable stance retained; both shoes face forward nearly parallel.",
+        "composition": "Raised arm, ears and both fists remain inside the frame. Real dark/light compositions show no visible edge debris."
+      },
+      "visualEvidence": [
+        "D:\\project\\宠物\\output\\playwright\\hd-v1-stretch-dark.png",
+        "D:\\project\\宠物\\output\\playwright\\hd-v1-stretch-light.png"
+      ],
+      "visualEvidenceDetails": [
+        {
+          "file": "D:\\project\\宠物\\output\\playwright\\hd-v1-stretch-dark.png",
+          "sha256": "fba277b827cff29335b25c879c0cd44a87ecb437a44bbba002633defa9d764a4",
+          "modifiedAt": "2026-10-16T15:59:29.103165+08:00"
+        },
+        {
+          "file": "D:\\project\\宠物\\output\\playwright\\hd-v1-stretch-light.png",
+          "sha256": "cda188e713917b228d9baf09021901d095fb7079cc2f6d03ac077c8d2d011ec2",
+          "modifiedAt": "2026-10-16T15:59:29.470547+08:00"
+        }
+      ]
+    },
+    {
+      "pose": "wink",
+      "file": "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v1\\wink.png",
+      "sourceOriginalPath": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14300-0b89-7203-9229-f4f2b07417b4\\exec-a21b56fb-721b-4bb7-b68a-6c152a150c0c.png",
+      "prompt": "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v1\\prompts\\wink.txt",
+      "promptSha256": "baa22b7cd048a0db3c31f0abff877baf162981c9be52efd7a261dc171d7c2925",
+      "sharedInvariantsIncluded": true,
+      "reference": "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v1\\idle.png",
+      "sha256": "ab4e892a85c9231250aad076dbd05bee722676b67f1cbaf904fef9b117085415",
+      "sourceSha256": "ab4e892a85c9231250aad076dbd05bee722676b67f1cbaf904fef9b117085415",
+      "byteIdenticalToGeneratedSource": true,
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "bytes": 1940362,
+      "alphaBboxes": {
+        "1": [
+          87,
+          25,
+          1006,
+          1498
+        ],
+        "16": [
+          94,
+          41,
+          996,
+          1450
+        ],
+        "128": [
+          95,
+          42,
+          995,
+          1449
+        ],
+        "250": [
+          108,
+          44,
+          993,
+          1447
+        ]
+      },
+      "bboxConvention": "left, top, right-exclusive, bottom-exclusive",
+      "visibleHeightAlpha16": 1409,
+      "marginsAlpha16": {
+        "left": 94,
+        "top": 41,
+        "right": 28,
+        "bottom": 86
+      },
+      "maximumEdgeAlpha": 0,
+      "edgePixelsAlpha16": 0,
+      "reviewStatus": "accepted",
+      "visualReview": {
+        "hands": "Hip hand has relaxed overlapping fingers and a partly occluded thumb; finger tips do not branch from one stem. Opposite hanging hand has separate thumb/palm relation and natural close fingers.",
+        "clothing": "Hip hand overlaps the waist bow naturally; ivory bodice length and waist seam remain clear.",
+        "legsAndFeet": "Comfortable leg axes and nearly parallel forward shoes, without crossed or inward-facing feet.",
+        "composition": "Single-eye wink is legible; entire silhouette is contained with clean dark/light compositing."
+      },
+      "visualEvidence": [
+        "D:\\project\\宠物\\output\\playwright\\hd-v1-wink-dark.png",
+        "D:\\project\\宠物\\output\\playwright\\hd-v1-wink-light.png"
+      ],
+      "visualEvidenceDetails": [
+        {
+          "file": "D:\\project\\宠物\\output\\playwright\\hd-v1-wink-dark.png",
+          "sha256": "f63d67ff129670320dd0d9c64e4b376835a47081054ebf947b921ca32a64ca58",
+          "modifiedAt": "2026-10-16T16:09:38.638596+08:00"
+        },
+        {
+          "file": "D:\\project\\宠物\\output\\playwright\\hd-v1-wink-light.png",
+          "sha256": "f97d44f8dfde84f25760817cd67212e772674c8bd38c165941e659e91c0f8d54",
+          "modifiedAt": "2026-10-16T16:09:39.045322+08:00"
+        }
+      ]
+    },
+    {
+      "pose": "happy",
+      "file": "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v1\\happy.png",
+      "sourceOriginalPath": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14300-0b89-7203-9229-f4f2b07417b4\\exec-ea6dc6eb-ee56-4ccd-8004-5ddbc4a5dce5.png",
+      "prompt": "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v1\\prompts\\happy.txt",
+      "promptSha256": "4c3a9569edb210c8abfb91e1aeca33dae33336c1bcbc4954772fbd8e6d5fbd9d",
+      "sharedInvariantsIncluded": true,
+      "reference": "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v1\\idle.png",
+      "sha256": "8ea7b980d272902862aeae101d2f6e0b21f0b42720aece42af9886e23f05643a",
+      "sourceSha256": "8ea7b980d272902862aeae101d2f6e0b21f0b42720aece42af9886e23f05643a",
+      "byteIdenticalToGeneratedSource": true,
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "bytes": 1897026,
+      "alphaBboxes": {
+        "1": [
+          0,
+          17,
+          1023,
+          1536
+        ],
+        "16": [
+          119,
+          106,
+          991,
+          1455
+        ],
+        "128": [
+          120,
+          107,
+          990,
+          1454
+        ],
+        "250": [
+          126,
+          110,
+          989,
+          1453
+        ]
+      },
+      "bboxConvention": "left, top, right-exclusive, bottom-exclusive",
+      "visibleHeightAlpha16": 1349,
+      "marginsAlpha16": {
+        "left": 119,
+        "top": 106,
+        "right": 33,
+        "bottom": 81
+      },
+      "maximumEdgeAlpha": 1,
+      "edgePixelsAlpha16": 0,
+      "reviewStatus": "accepted",
+      "visualReview": {
+        "hands": "Wave shows four fingers with a natural length progression plus a separately attached side thumb. Opposite hand hangs relaxed; no visible extra or forked digit.",
+        "clothing": "Small chest bow and readable bodice/waist/skirt segmentation preserved after framing correction.",
+        "legsAndFeet": "Forward nearly parallel shoes and comfortable leg axes retained.",
+        "composition": "Final original PNG and refreshed real dark/light browser compositions reviewed. Hair, ears, hands, feet and tail are fully contained; no visible matte, halo, detached speck or clipping. Framing has safer margins and figure height close to the master."
+      },
+      "visualEvidence": [
+        "D:\\project\\宠物\\output\\playwright\\hd-v1-happy-dark.png",
+        "D:\\project\\宠物\\output\\playwright\\hd-v1-happy-light.png"
+      ],
+      "attempts": [
+        {
+          "attempt": 1,
+          "sourceOriginalPath": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14300-0b89-7203-9229-f4f2b07417b4\\exec-604ac31b-8c35-4e59-bd48-70eeda320d13.png",
+          "preservedCandidate": "D:\\project\\宠物\\output\\imagegen\\hd-poses-20261016\\happy-candidate-01.png",
+          "prompt": "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v1\\prompts\\happy-attempt1.txt",
+          "sha256": "b13d5a1f0549b02894913eec61bed071f071091056852068df66c66948326e8c",
+          "selected": false,
+          "reason": "Anatomy was accepted; superseded to improve framing and match the master scale more closely. Visible alpha16 top/right/bottom margins were 27/20/48 px."
+        },
+        {
+          "attempt": 2,
+          "sourceOriginalPath": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14300-0b89-7203-9229-f4f2b07417b4\\exec-ea6dc6eb-ee56-4ccd-8004-5ddbc4a5dce5.png",
+          "prompt": "D:\\project\\宠物\\assets\\pets\\nekomi\\hd-v1\\prompts\\happy.txt",
+          "sha256": "8ea7b980d272902862aeae101d2f6e0b21f0b42720aece42af9886e23f05643a",
+          "selected": true,
+          "reason": "Framing-only regeneration provides top/right/bottom margins 106/33/81 px without observed hand, clothing or foot regression."
+        }
+      ],
+      "visualEvidenceDetails": [
+        {
+          "file": "D:\\project\\宠物\\output\\playwright\\hd-v1-happy-dark.png",
+          "sha256": "d90073c4193eaeba39bbfcce24fef0b87f70368da7698c82ddef62380928e30c",
+          "modifiedAt": "2026-10-16T16:34:03.752908+08:00"
+        },
+        {
+          "file": "D:\\project\\宠物\\output\\playwright\\hd-v1-happy-light.png",
+          "sha256": "f76a5c8817a2fc80f8243dc063e9cb40250f52e67489ab35c355a9e0116a0662",
+          "modifiedAt": "2026-10-16T16:34:05.153292+08:00"
+        }
+      ]
+    }
+  ],
+  "reviewScope": "Four independent native-resolution PNG assets; full figure and enlarged hands, waist and shoes. This report does not claim application integration or continuous animation qualification.",
+  "limitations": [
+    "Stylized 2D hands use normal occlusion; hidden digits and joints cannot be independently measured.",
+    "Native effective figure heights differ from 1349 to 1421 px. Future presentation can align visible heights without editing these PNGs.",
+    "Affection/stretch/wink have right alpha16 margins of 28/26/28 px, below the approximate 30 px prompt target, but no visible clipping and zero edge alpha.",
+    "Happy has some edge pixels with alpha 1 of 255. No edge reaches alpha 16; assess visibility through the final real browser composites rather than raw hidden RGB previews."
+  ],
+  "overallStatus": "accepted-as-independent-pose-assets"
+}

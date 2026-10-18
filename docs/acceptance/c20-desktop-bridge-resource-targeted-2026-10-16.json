@@ -1,0 +1,237 @@
+{
+  "schemaVersion": 1,
+  "kind": "C20-desktop-bridge-resource-targeted-regression",
+  "createdAtUtc": "2026-10-16T03:21:53.143368+00:00",
+  "status": "scoped-compile-and-existing-desktop11-passed",
+  "scope": "desktop.rs accountBridgeResource diagnostic metric wiring; compile plus existing desktop regression only",
+  "sourceBinding": {
+    "desktopSha256": "9C0BB7892E2FE7670B93AE75EA5F5FB313DD56AA7DDE21357B4FF278FD92EC42",
+    "desktopBytes": 108925,
+    "accountBridgeSha256Unchanged": "E796C3BBCFD579E1BEA2EE461E61555D19C17DEF43B9DD9960812F5296D65D81",
+    "smallCompilationInputs": 30,
+    "onlyChangedFromC20Bridge": "src-tauri/src/desktop.rs",
+    "unchangedOtherInputs": 29,
+    "finalizerSmallInputsRechecked": true,
+    "planAuthorFilesRechecked": 15,
+    "rootLeafFormatBeforeEqualsAfter": true
+  },
+  "harnessBinding": {
+    "sha256": "BF1BAE5024A261941B11D54573EF7511EC2B0880431E006C2132EA313DEA776F",
+    "bytes": 6471168,
+    "origin": "same-handle compiler copy, frozen receipt and held guard across list/tests",
+    "largeHarnessRehashedByFinalizer": false,
+    "cargoFreshFlag": false,
+    "currentArtifactCompiled": true,
+    "singleSuccessfulBuildFinishedAndArtifact": true,
+    "releaseCustomProtocolOfflineLibNoRun": true
+  },
+  "freshExecution": {
+    "compileInvocationsAfterRelease": 1,
+    "listInvocations": 1,
+    "desktopTestInvocations": 1,
+    "listed": 119,
+    "exactPrior119NamesAndOrderVerified": true,
+    "selectedDesktop": 11,
+    "exactPrior11NamesAndOutputVerified": true,
+    "passed": 11,
+    "failed": 0,
+    "ignored": 0,
+    "filteredOut": 108,
+    "newAuthoredDesktopCases": 0,
+    "sourceAndHeldHarnessUnchanged": true,
+    "heldHarnessGuardClosed": true,
+    "stages": {
+      "compiler": {
+        "elapsedSeconds": 59.033676699735224,
+        "rootExitCode": 0,
+        "status": "completed",
+        "naturalWholeJobCompletion": true,
+        "jobTotalProcesses": 10,
+        "jobActiveProcesses": 0,
+        "jobTerminatedProcesses": 0,
+        "cleanupVerified": true,
+        "errors": []
+      },
+      "harness-list": {
+        "elapsedSeconds": 0.48420749977231026,
+        "rootExitCode": 0,
+        "status": "completed",
+        "naturalWholeJobCompletion": true,
+        "jobTotalProcesses": 2,
+        "jobActiveProcesses": 0,
+        "jobTerminatedProcesses": 0,
+        "cleanupVerified": true,
+        "errors": []
+      },
+      "desktop-tests": {
+        "elapsedSeconds": 0.057710499968379736,
+        "rootExitCode": 0,
+        "status": "completed",
+        "naturalWholeJobCompletion": true,
+        "jobTotalProcesses": 2,
+        "jobActiveProcesses": 0,
+        "jobTerminatedProcesses": 0,
+        "cleanupVerified": true,
+        "errors": []
+      }
+    },
+    "compilerArtifactCleanupExceptionConfiguredButNotUsed": true
+  },
+  "preflightFailuresPreserved": [
+    {
+      "kind": "root-manifest-review-schema-error",
+      "message": "KeyError: path; actual plan manifest uses name",
+      "basis": "root-preflight-correction.json attestation",
+      "productCases": 0,
+      "compilerJobs": 0,
+      "countedAsCompilerFailure": false
+    },
+    {
+      "kind": "entry-invoked-before-root-release-file",
+      "message": "[Errno 2] No such file or directory: 'D:\\\\project\\\\宠物\\\\output\\\\implementation\\\\c20-desktop-validation-plan-34c7e7e9aa854eb2af00221cbb421924\\\\execution-release.json'",
+      "firstFailureSha256": "26A1A3BCBFE6593E042765B98CBCEE8B5EDB926E9B17DB816A0AC26355D7C65E",
+      "admissionOutcome": "release admission rejected missing execution-release before compile marker/Job/child",
+      "ownedChildrenStarted": 0,
+      "productCases": 0,
+      "countedAsCompilerFailure": false,
+      "countedAsDesktopRerun": false
+    }
+  ],
+  "rootCorrectionAndRelease": {
+    "correctionSha256": "68CAF25A7848C4797CB4D619D26D966CBE4AAABB6E084EA577E0C5919ED999C0",
+    "executionReleaseSha256": "30F427B6D66960049FD4E65F7703E70993264A69DD5362A7D32AECEEB97428D0",
+    "releaseStatus": "root-released-C20-desktop-validation",
+    "explicitNewAuthorizationBeforeActualCompile": true,
+    "automaticRetry": false,
+    "originalFailureFileUnmodified": true
+  },
+  "retainedNotRerun": {
+    "Core79": {
+      "distinctCases": 79,
+      "historicalExecutions": 80,
+      "freshExecutions": 0,
+      "evidence": "docs/acceptance/c19-retention-v6-core-composite-2026-10-16.json"
+    },
+    "bridge29": {
+      "distinctCases": 29,
+      "freshExecutions": 0,
+      "evidence": "output/implementation/c20-bridge-validation-plan-50aae66246474d6385c44033a50c54b9/validation-result.json"
+    },
+    "historicalFailuresNotOverwritten": true
+  },
+  "qualification": {
+    "wholeCratePassed": false,
+    "AppBuilt": false,
+    "AppOrGUIExecuted": false,
+    "actualBridgeExecuted": false,
+    "accountOrModelCalled": false,
+    "runtimeDiagnosticPersistenceVerified": false,
+    "memoryReductionProven": false,
+    "originalResourceCauseProven": false,
+    "bridgeFunctionalityRepaired": false,
+    "NativePassed": false,
+    "M4Passed": false,
+    "goalComplete": false
+  },
+  "limitations": [
+    "Existing desktop11 regressions do not directly verify real Idle diagnostic capture, metrics write cadence or final desktop cleanup persistence.",
+    "Core79/bridge29 evidence is retained historical evidence, not fresh executions in this receipt.",
+    "Two root preflight failures are non-product admission/review failures; actual compile/list/desktop execution occurred once after explicit corrected release."
+  ],
+  "rawLeaf": "output/implementation/c20-desktop-validation-plan-34c7e7e9aa854eb2af00221cbb421924",
+  "references": [
+    {
+      "name": "plan-manifest.json",
+      "bytes": 3713,
+      "sha256": "E39CE9CEB8F9364EDB22CFD0DDDB3C388D4066CFE1FAC464DA5E57B976071481"
+    },
+    {
+      "name": "inputs.postformat.frozen.json",
+      "bytes": 6295,
+      "sha256": "E5166591BCDA8FB89E94D23F52A3318F2E393143D79BC41ADC863C44725C5753"
+    },
+    {
+      "name": "execution-release.json",
+      "bytes": 794,
+      "sha256": "30F427B6D66960049FD4E65F7703E70993264A69DD5362A7D32AECEEB97428D0"
+    },
+    {
+      "name": "root-preflight-correction.json",
+      "bytes": 654,
+      "sha256": "68CAF25A7848C4797CB4D619D26D966CBE4AAABB6E084EA577E0C5919ED999C0"
+    },
+    {
+      "name": "validation-first-failure.json",
+      "bytes": 237,
+      "sha256": "26A1A3BCBFE6593E042765B98CBCEE8B5EDB926E9B17DB816A0AC26355D7C65E"
+    },
+    {
+      "name": "compiler.execution.json",
+      "bytes": 1437,
+      "sha256": "66596CF5FC325D9E393CCE65532170D9E9A4FA1ABBEFEAA9925C9288E0AD032A"
+    },
+    {
+      "name": "compile-wrapper-result.json",
+      "bytes": 2467,
+      "sha256": "F0070C52EA9DFD33541059CE25F97527A339E00701E1A07F05538569D196AA0B"
+    },
+    {
+      "name": "compiled-harness.frozen.json",
+      "bytes": 477,
+      "sha256": "4FA2A9A47BAA3B995A210D9500A137194F7450D45B14AA4505C93C58DF1E5780"
+    },
+    {
+      "name": "cargo-return.json",
+      "bytes": 438,
+      "sha256": "22C4C862DD4A52731504BFECFAEC49428D0FE95F7E7ACD3E4619389999C5413E"
+    },
+    {
+      "name": "cargo.stdout.jsonl",
+      "bytes": 388573,
+      "sha256": "96525493810F43FDF8193C91415E4529BBEE1EE2E5FC0A92BE722B395D3E81AA"
+    },
+    {
+      "name": "harness-list.execution.json",
+      "bytes": 1338,
+      "sha256": "5E41C8FA92F20AE8D84DF64C47E90E47645F1CB90056E31652D248F7F589A71A"
+    },
+    {
+      "name": "harness-list.stdout.log",
+      "bytes": 11626,
+      "sha256": "BAED6CAE6EC4A302C71BB24F5CB1514F38C516095E038C78C69943DBED7FCFA7"
+    },
+    {
+      "name": "desktop-tests.execution.json",
+      "bytes": 1374,
+      "sha256": "008630BCF81C014602073544C12F80DF5DACE4B11404C8898DFCB3F955416C7F"
+    },
+    {
+      "name": "desktop-tests.stdout.log",
+      "bytes": 1129,
+      "sha256": "964F6FCDD90D2126E1FBFCFA459D642185208FA96873002FB0BCA06329814333"
+    },
+    {
+      "name": "actual-test-selection.json",
+      "bytes": 12127,
+      "sha256": "4EAE3077667866091EEE2D062692F56A7955D9C3BE2067FEE468ED4206461232"
+    },
+    {
+      "name": "validation-result.json",
+      "bytes": 2302,
+      "sha256": "F627B345A28FE98F6628411BC0EE2154C052681E89075218E08D1580B9C80648"
+    },
+    {
+      "name": "retained-evidence.json",
+      "bytes": 2081,
+      "sha256": "76EA456476D9B8E8E1D9EE81D33AA20C58207EB4F199B66F2972C37153EBA052"
+    }
+  ],
+  "finalization": {
+    "readOnlyEvidenceAudit": true,
+    "newTestsOrBuilds": 0,
+    "newBridgeOrUIActions": 0,
+    "largeHarnessBytesRead": 0,
+    "productionOrRawModified": false,
+    "otherReceiptsOrMarkdownModified": false
+  }
+}

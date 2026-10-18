@@ -1,0 +1,355 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-15T15:34:32.653688+00:00",
+  "scope": "Separate controlled diagnostic supplement: entire public Core::snapshot JSON stream digest and sampled private-memory comparison, frozen C12 vs queries-allocation-only release library; original diagnostic/acceptance receipts unchanged",
+  "libraries": {
+    "old": {
+      "path": "D:\\project\\宠物\\output\\performance\\c12-rlib-baseline-20261015-6966c23024b64f5dbfc4808202a054e1\\libtoken_meow_lib-8cd002f2d338a421.rlib",
+      "sha256": "E1DBC93E11B80DAB1B8E8771AB13BBD742540FEC5C96594A3A24DA81D6EF1174"
+    },
+    "new": {
+      "path": "D:\\project\\宠物\\output\\performance\\c13-queries-allocation-20261015-1543523d12cb45dfb5232f83b170a129\\libtoken_meow_lib-8cd002f2d338a421.rlib",
+      "sha256": "ED3FC57507809F6BDEAD687AFAD33091C6D7A1FAD5ECF49A74758763A6866895",
+      "ownerScope": "queries-allocation-only production change; concurrent adapter change was cfg-test-only, as recorded in the library owner receipt"
+    },
+    "profile": "custom-protocol/release; same frozen serde_json/chrono versions, cached sha2 dependency"
+  },
+  "baselineDatabase": {
+    "path": "D:\\project\\宠物\\output\\performance\\fullraw-c12-72aa034ae5514e11a4c2452c853d458d\\data\\ledger.sqlite3",
+    "bytes": 153272320,
+    "sha256": "5311F8CC93518D36E5860A2BD5730EDE86E5E9C883467C2B5CEC7F856325746A",
+    "walBytesAtCopy": 0,
+    "originalHashAfterComparison": "5311F8CC93518D36E5860A2BD5730EDE86E5E9C883467C2B5CEC7F856325746A",
+    "originalUnchanged": true,
+    "nativeResponseCountFromPriorReadOnlyAudit": 24082
+  },
+  "clones": [
+    {
+      "mode": "full",
+      "library": "old",
+      "path": "D:\\project\\宠物\\output\\performance\\c12-snapshot-semantic-parity-20261015-ledger\\clones\\old-full\\ledger.sqlite3",
+      "sha256": "5311F8CC93518D36E5860A2BD5730EDE86E5E9C883467C2B5CEC7F856325746A",
+      "bytes": 153272320
+    },
+    {
+      "mode": "today",
+      "library": "old",
+      "path": "D:\\project\\宠物\\output\\performance\\c12-snapshot-semantic-parity-20261015-ledger\\clones\\old-today\\ledger.sqlite3",
+      "sha256": "5311F8CC93518D36E5860A2BD5730EDE86E5E9C883467C2B5CEC7F856325746A",
+      "bytes": 153272320
+    },
+    {
+      "mode": "full",
+      "library": "new-queries-only",
+      "path": "D:\\project\\宠物\\output\\performance\\c12-snapshot-semantic-parity-20261015-ledger\\clones\\new-full\\ledger.sqlite3",
+      "sha256": "5311F8CC93518D36E5860A2BD5730EDE86E5E9C883467C2B5CEC7F856325746A",
+      "bytes": 153272320
+    },
+    {
+      "mode": "today",
+      "library": "new-queries-only",
+      "path": "D:\\project\\宠物\\output\\performance\\c12-snapshot-semantic-parity-20261015-ledger\\clones\\new-today\\ledger.sqlite3",
+      "sha256": "5311F8CC93518D36E5860A2BD5730EDE86E5E9C883467C2B5CEC7F856325746A",
+      "bytes": 153272320
+    }
+  ],
+  "method": {
+    "freshProcesses": 4,
+    "oneCoreOpenAndOneSnapshotPerProcess": true,
+    "scanCalls": 0,
+    "accountCalls": 0,
+    "nativeUiStarted": false,
+    "sourceLogReads": 0,
+    "serialization": "serde_json::to_writer of the entire returned Core snapshot into one counting+SHA256 writer, without allocating/persisting/printing the payload",
+    "canonicalization": "Existing serde_json Value object-map serialization order; array order and every returned field retained. Same serializer/dependency used for both libraries.",
+    "omittedFields": [],
+    "normalizedDynamicFields": [],
+    "queryModes": {
+      "full": {},
+      "today": {
+        "from": "2026-10-15",
+        "to": "2026-10-15"
+      }
+    },
+    "sampledPrivateMemory": "Win32 K32GetProcessMemoryInfo PrivateUsage sampled by a background thread at nominal 2ms; this is not a continuous allocation maximum",
+    "diagnosticWrapperNotHashed": "Process ID, clone data path and timing metadata belong to the observer wrapper, not Core::snapshot, and are not part of the compared object",
+    "tauriOverlayNotTested": "Desktop get_snapshot account/desktop overlays are not produced by the standalone public Core API and are outside this comparison"
+  },
+  "comparison": [
+    {
+      "mode": "full",
+      "sameQueryLocalDay": true,
+      "oldDigest": "49179b5d58d317249648d5ff3bcd33bef34bf8311f37b09afb19202f5851f737",
+      "newDigest": "49179b5d58d317249648d5ff3bcd33bef34bf8311f37b09afb19202f5851f737",
+      "completeSerializedValueDigestEqual": true,
+      "oldSerializedBytes": 16464124,
+      "newSerializedBytes": 16464124,
+      "oldSampledPeakMiB": 348.109375,
+      "newSampledPeakMiB": 161.73046875,
+      "oldSnapshotMs": 2188.356,
+      "newSnapshotMs": 1572.1342
+    },
+    {
+      "mode": "today",
+      "sameQueryLocalDay": true,
+      "oldDigest": "cbd7742e1ab08f292fefa4dd6259314ab49ee6ba0fbf19fa2e773b4a564b55f2",
+      "newDigest": "cbd7742e1ab08f292fefa4dd6259314ab49ee6ba0fbf19fa2e773b4a564b55f2",
+      "completeSerializedValueDigestEqual": true,
+      "oldSerializedBytes": 2102070,
+      "newSerializedBytes": 2102070,
+      "oldSampledPeakMiB": 347.1171875,
+      "newSampledPeakMiB": 156.6875,
+      "oldSnapshotMs": 1602.7552,
+      "newSnapshotMs": 1090.5582
+    }
+  ],
+  "results": {
+    "old": [
+      {
+        "library": "old-frozen-c12",
+        "mode": "full",
+        "exitCode": 0,
+        "elapsedSeconds": 3.905999999959022,
+        "result": {
+          "accountCalls": 0,
+          "afterDropPrivateBytes": 7712768,
+          "afterOpenPrivateBytes": 1011712,
+          "afterSnapshotPrivateBytes": 95944704,
+          "beforeOpenPrivateBytes": 733184,
+          "beforeSnapshotPrivateBytes": 1011712,
+          "canonicalSnapshotSha256": "49179b5d58d317249648d5ff3bcd33bef34bf8311f37b09afb19202f5851f737",
+          "claim": "controlled Core snapshot comparison only; not a native-app memory qualification or allocation attribution",
+          "coreOpenMs": 2.4248,
+          "countSerializationMs": 33.0003,
+          "dataDirectory": "\\\\?\\D:\\project\\宠物\\output\\performance\\c12-snapshot-semantic-parity-20261015-ledger\\clones\\old-full",
+          "desktopStarted": false,
+          "kind": "snapshot-only-diagnostic",
+          "mode": "full",
+          "processId": 32804,
+          "queryLocalDay": "2026-10-15",
+          "sampleCount": 1492,
+          "sampleErrors": 0,
+          "sampleMilliseconds": 2,
+          "sampledPeakSnapshotPrivateBytes": 365019136,
+          "scanCalls": 0,
+          "serializationCountingWriterWithoutPayloadBuffer": true,
+          "serializedBytes": 16464124,
+          "snapshotMs": 2188.356,
+          "sourceLogReads": 0,
+          "wholeProcessSampledPeakPrivateBytes": 365019136
+        },
+        "stderr": ""
+      },
+      {
+        "library": "old-frozen-c12",
+        "mode": "today",
+        "exitCode": 0,
+        "elapsedSeconds": 2.890000000130385,
+        "result": {
+          "accountCalls": 0,
+          "afterDropPrivateBytes": 7942144,
+          "afterOpenPrivateBytes": 974848,
+          "afterSnapshotPrivateBytes": 24424448,
+          "beforeOpenPrivateBytes": 704512,
+          "beforeSnapshotPrivateBytes": 974848,
+          "canonicalSnapshotSha256": "cbd7742e1ab08f292fefa4dd6259314ab49ee6ba0fbf19fa2e773b4a564b55f2",
+          "claim": "controlled Core snapshot comparison only; not a native-app memory qualification or allocation attribution",
+          "coreOpenMs": 1.6368,
+          "countSerializationMs": 3.5934,
+          "dataDirectory": "\\\\?\\D:\\project\\宠物\\output\\performance\\c12-snapshot-semantic-parity-20261015-ledger\\clones\\old-today",
+          "desktopStarted": false,
+          "kind": "snapshot-only-diagnostic",
+          "mode": "today",
+          "processId": 54596,
+          "queryLocalDay": "2026-10-15",
+          "sampleCount": 1214,
+          "sampleErrors": 0,
+          "sampleMilliseconds": 2,
+          "sampledPeakSnapshotPrivateBytes": 363978752,
+          "scanCalls": 0,
+          "serializationCountingWriterWithoutPayloadBuffer": true,
+          "serializedBytes": 2102070,
+          "snapshotMs": 1602.7552,
+          "sourceLogReads": 0,
+          "wholeProcessSampledPeakPrivateBytes": 363978752
+        },
+        "stderr": ""
+      }
+    ],
+    "new": [
+      {
+        "library": "new-queries-only",
+        "mode": "full",
+        "exitCode": 0,
+        "elapsedSeconds": 3.234999999869615,
+        "result": {
+          "accountCalls": 0,
+          "afterDropPrivateBytes": 6516736,
+          "afterOpenPrivateBytes": 1019904,
+          "afterSnapshotPrivateBytes": 89411584,
+          "beforeOpenPrivateBytes": 741376,
+          "beforeSnapshotPrivateBytes": 1019904,
+          "canonicalSnapshotSha256": "49179b5d58d317249648d5ff3bcd33bef34bf8311f37b09afb19202f5851f737",
+          "claim": "controlled Core snapshot comparison only; not a native-app memory qualification or allocation attribution",
+          "coreOpenMs": 2.0888,
+          "countSerializationMs": 32.825399999999995,
+          "dataDirectory": "\\\\?\\D:\\project\\宠物\\output\\performance\\c12-snapshot-semantic-parity-20261015-ledger\\clones\\new-full",
+          "desktopStarted": false,
+          "kind": "snapshot-only-diagnostic",
+          "mode": "full",
+          "processId": 53792,
+          "queryLocalDay": "2026-10-15",
+          "sampleCount": 1213,
+          "sampleErrors": 0,
+          "sampleMilliseconds": 2,
+          "sampledPeakSnapshotPrivateBytes": 169586688,
+          "scanCalls": 0,
+          "serializationCountingWriterWithoutPayloadBuffer": true,
+          "serializedBytes": 16464124,
+          "snapshotMs": 1572.1342,
+          "sourceLogReads": 0,
+          "wholeProcessSampledPeakPrivateBytes": 169586688
+        },
+        "stderr": ""
+      },
+      {
+        "library": "new-queries-only",
+        "mode": "today",
+        "exitCode": 0,
+        "elapsedSeconds": 2.390000000130385,
+        "result": {
+          "accountCalls": 0,
+          "afterDropPrivateBytes": 5541888,
+          "afterOpenPrivateBytes": 970752,
+          "afterSnapshotPrivateBytes": 22929408,
+          "beforeOpenPrivateBytes": 692224,
+          "beforeSnapshotPrivateBytes": 970752,
+          "canonicalSnapshotSha256": "cbd7742e1ab08f292fefa4dd6259314ab49ee6ba0fbf19fa2e773b4a564b55f2",
+          "claim": "controlled Core snapshot comparison only; not a native-app memory qualification or allocation attribution",
+          "coreOpenMs": 1.6360000000000001,
+          "countSerializationMs": 3.3078,
+          "dataDirectory": "\\\\?\\D:\\project\\宠物\\output\\performance\\c12-snapshot-semantic-parity-20261015-ledger\\clones\\new-today",
+          "desktopStarted": false,
+          "kind": "snapshot-only-diagnostic",
+          "mode": "today",
+          "processId": 12068,
+          "queryLocalDay": "2026-10-15",
+          "sampleCount": 985,
+          "sampleErrors": 0,
+          "sampleMilliseconds": 2,
+          "sampledPeakSnapshotPrivateBytes": 164298752,
+          "scanCalls": 0,
+          "serializationCountingWriterWithoutPayloadBuffer": true,
+          "serializedBytes": 2102070,
+          "snapshotMs": 1090.5582,
+          "sourceLogReads": 0,
+          "wholeProcessSampledPeakPrivateBytes": 164298752
+        },
+        "stderr": ""
+      }
+    ]
+  },
+  "concurrency": {
+    "rootReportedExternalProjectCompilation": true,
+    "externalProcessNotControlledOrTerminated": true,
+    "elapsedTimeInterpretation": "Descriptive observations only; no strict speed or throughput qualification claimed. Per-controlled-process private bytes and exact returned-value digests remain directly recorded."
+  },
+  "conclusion": {
+    "completeCoreSnapshotDigestAndLengthEqualForFullAndToday": true,
+    "sourcePayloadOrFieldsDroppedToReduceOutput": false,
+    "supportedFinding": "On this identical closed partial database, the new query allocation path has a substantially smaller sampled private peak while preserving every returned Core snapshot byte in both full/today modes.",
+    "notProven": [
+      "All possible query combinations/databases/formats",
+      "The unique cause of whole native application memory",
+      "Whole application memory after the change",
+      "Complete 4.275GB import or 600-second idle CPU/memory qualification",
+      "A final candidate build/native release pass",
+      "Repeatable speed improvement"
+    ]
+  },
+  "baselineReceiptRetained": "docs/acceptance/c12-snapshot-allocation-diagnostic-2026-10-15.json",
+  "evidence": [
+    {
+      "path": "output/performance/c12-snapshot-semantic-parity-20261015-ledger/snapshot-parity.rs",
+      "bytes": 6805,
+      "sha256": "24361DEC00D75A5BFDADD5F064EE2B54A218CDF67EAA63E66A7A9A4C66BCC453"
+    },
+    {
+      "path": "output/performance/c12-snapshot-semantic-parity-20261015-ledger/old-plan.json",
+      "bytes": 3135,
+      "sha256": "9CB5B18F10125820A8E7CFBCF9E7018FD8CCCB5BEB790732CB4E8EAD13801A4E"
+    },
+    {
+      "path": "output/performance/c12-snapshot-semantic-parity-20261015-ledger/new-plan.json",
+      "bytes": 2979,
+      "sha256": "7CABC3E16ADF7E6A5DB062724148EC2813F6BFCFFBB5F6A95749C25F58D4F27A"
+    },
+    {
+      "path": "output/performance/c12-snapshot-semantic-parity-20261015-ledger/old-compile.json",
+      "bytes": 1903,
+      "sha256": "58D72E975A126BA9EE11BA65906B9C56F5FC50AF0A67B177E6FE34AFE7A899A5"
+    },
+    {
+      "path": "output/performance/c12-snapshot-semantic-parity-20261015-ledger/old-compile.stdout.log",
+      "bytes": 0,
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "path": "output/performance/c12-snapshot-semantic-parity-20261015-ledger/old-compile.stderr.log",
+      "bytes": 0,
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "path": "output/performance/c12-snapshot-semantic-parity-20261015-ledger/new-compile.json",
+      "bytes": 1905,
+      "sha256": "FF7A39C5EDBC4CD565857CD022BE17D3CBF996FD03726F7CA6BEDB62F815F94F"
+    },
+    {
+      "path": "output/performance/c12-snapshot-semantic-parity-20261015-ledger/new-compile.stdout.log",
+      "bytes": 0,
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "path": "output/performance/c12-snapshot-semantic-parity-20261015-ledger/new-compile.stderr.log",
+      "bytes": 0,
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "path": "output/performance/c12-snapshot-semantic-parity-20261015-ledger/old-results.json",
+      "bytes": 3147,
+      "sha256": "4E988A0698E406FC0A0D285D9040C837F7B28A7263D37F1532FC6D222FE02C64"
+    },
+    {
+      "path": "output/performance/c12-snapshot-semantic-parity-20261015-ledger/new-results.json",
+      "bytes": 4196,
+      "sha256": "047BC05565FCEA31F594FD986E16F84A8100CBB12BD855A9697E9270742ABF03"
+    },
+    {
+      "path": "output/performance/c12-snapshot-semantic-parity-20261015-ledger/old-full.stdout.log",
+      "bytes": 986,
+      "sha256": "449703A11A834D17A32CEE493551E8429E4955AEEEEB64617D1E09D3C97632EF"
+    },
+    {
+      "path": "output/performance/c12-snapshot-semantic-parity-20261015-ledger/old-today.stdout.log",
+      "bytes": 985,
+      "sha256": "D1577738FAA03E25DB899A23D6FEBE378B0F385255E8D31EA08A0D3C7418DF2B"
+    },
+    {
+      "path": "output/performance/c12-snapshot-semantic-parity-20261015-ledger/new-full.stdout.log",
+      "bytes": 998,
+      "sha256": "6699EF68C0F6CCEC111BA2242AEE6301D2BAD3CC9D61F11D23266C12D5A3BD4D"
+    },
+    {
+      "path": "output/performance/c12-snapshot-semantic-parity-20261015-ledger/new-today.stdout.log",
+      "bytes": 996,
+      "sha256": "8562EBBC9F9E3A4546B3453CF745DBBAA54DB163C4A384D24B7AEA9D2B565DE8"
+    }
+  ],
+  "qualification": {
+    "diagnosticParityConfirmed": true,
+    "wholeM4Qualified": false,
+    "resourceGateQualified": false,
+    "productAcceptanceRunClaimed": false
+  },
+  "productionSourceEditedByThisTask": false
+}

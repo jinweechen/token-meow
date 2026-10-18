@@ -1,0 +1,225 @@
+.usage-query {
+  padding: 12px 14px;
+  margin-bottom: 16px;
+}
+.usage-query-top {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.usage-query .period-tabs {
+  flex-shrink: 0;
+}
+.usage-query .period-tabs button {
+  min-height: 32px;
+  padding: 6px 11px;
+}
+.usage-query-common {
+  display: flex;
+  flex: 1 1 270px;
+  gap: 8px;
+  min-width: 0;
+}
+.usage-query-common label {
+  flex: 1;
+  min-width: 0;
+}
+.usage-query select {
+  width: 100%;
+  min-height: 36px;
+  font-size: 12px;
+  color: var(--text-secondary);
+  border-color: var(--border);
+  background: var(--paper);
+}
+.usage-query-more {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-height: 36px;
+  padding: 7px 10px;
+  border: 1px solid var(--border);
+  background: var(--surface-subtle);
+  border-radius: 8px;
+  color: var(--text-secondary);
+  font-size: 12px;
+}
+.usage-query-more.active {
+  color: var(--action);
+  background: var(--soft);
+}
+.usage-query-more > span {
+  padding: 0 4px;
+  min-width: 18px;
+  border-radius: 4px;
+  background: var(--paper);
+}
+.usage-query-more[aria-expanded="true"] > .icon:last-child {
+  transform: rotate(90deg);
+}
+.usage-query .usage-query-refresh {
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--border);
+  background: var(--paper);
+}
+.usage-query-advanced {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  padding-top: 14px;
+  margin-top: 12px;
+  border-top: 1px solid var(--border);
+}
+.usage-query-advanced > label {
+  display: grid;
+  gap: 6px;
+  min-width: 0;
+  color: var(--text-secondary);
+  font-size: 11px;
+}
+.usage-query-dates {
+  display: flex;
+  align-items: end;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+  color: var(--text-secondary);
+  font-size: 12px;
+}
+.usage-query-dates label {
+  display: grid;
+  gap: 5px;
+}
+.usage-query-dates > span {
+  padding-bottom: 10px;
+}
+.usage-query-dates input {
+  min-height: 36px;
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+.usage-query-selection {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px 10px;
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border);
+  font-size: 11px;
+  color: var(--text-secondary);
+}
+.usage-query-chips {
+  display: flex;
+  flex: 1;
+  flex-wrap: wrap;
+  gap: 6px;
+  min-width: 0;
+}
+.usage-query-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  max-width: 260px;
+  min-height: 32px;
+  padding: 5px 8px;
+  background: var(--soft);
+  color: var(--ink);
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  font-size: 11px;
+}
+.usage-query-chip span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.usage-query-chip:hover {
+  border-color: var(--mint);
+}
+.usage-query-selection-actions {
+  display: inline-flex;
+  gap: 8px;
+  margin-left: auto;
+}
+.usage-query-selection-actions button {
+  font-size: 11px;
+  min-height: 32px;
+  padding: 4px 6px;
+  color: var(--action);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.workspace-page-actions {
+  display: grid;
+  justify-items: end;
+  gap: 5px;
+}
+.workspace-export-caption {
+  max-width: 240px;
+  color: var(--text-secondary);
+  font-size: 11px;
+  line-height: 1.5;
+  text-align: right;
+}
+@media (max-width: 760px) {
+  .usage-query {
+    padding: 12px;
+  }
+  .usage-query-common {
+    flex-basis: calc(100% - 148px);
+  }
+  .usage-query-advanced {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .usage-query-selection-label {
+    flex-basis: 100%;
+  }
+  .usage-query-selection-actions {
+    margin-left: 0;
+  }
+  .workspace-export-caption {
+    max-width: 160px;
+    font-size: 11px;
+  }
+}
+@media (max-width: 480px) {
+  .usage-query-top {
+    gap: 8px;
+  }
+  .usage-query-common {
+    flex: 1 0 100%;
+    order: 2;
+  }
+  .usage-query-more {
+    margin-left: auto;
+    order: 3;
+  }
+  .usage-query .usage-query-refresh {
+    order: 1;
+    margin-left: auto;
+  }
+  .usage-query .period-tabs button {
+    padding-inline: 9px;
+  }
+  .usage-query-advanced {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .usage-query-chips {
+    flex-basis: 100%;
+  }
+  .usage-query-chip {
+    max-width: 100%;
+  }
+  .usage-query-dates label {
+    flex: 1 1 130px;
+    min-width: 0;
+  }
+  .usage-query-dates input {
+    width: 100%;
+    min-width: 0;
+  }
+}

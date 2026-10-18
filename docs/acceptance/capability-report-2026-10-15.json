@@ -1,0 +1,77 @@
+{
+  "observedAt": "2026-10-15T14:11:51.393169+00:00",
+  "scope": "G1 scoped capability declaration metadata and SourceDetails presentation; no metering/normalization/reader changes",
+  "implementation": {
+    "capabilityCount": 12,
+    "supportedVersion": "0.147.0 only where verified; unknown null",
+    "testedVersion": "0.147.0 only where actual fixed evidence exists; unknown null",
+    "metadata": [
+      "channel",
+      "granularity",
+      "prerequisites",
+      "evidenceRefs",
+      "verifiedAt",
+      "verificationScope",
+      "versionPolicy"
+    ],
+    "verifiedAtPolicy": "Fixed 2026-10-15 for actual historical verification scope; context and external chat navigation remain null. Reopen/rebuild does not refresh dates.",
+    "runtimePolicy": "Static supported fields use null runtime (UI unverified), requestTiming remains unavailable, context remains unconfigured; sourceRuntime directory state is separate.",
+    "accountPolicy": "Quota and official account-day usage use independent app-server channel. UI current availability requires enabled exact primary sourceId-bound fresh connected snapshot with the corresponding supplied field; zero percent is valid, absent values unverified, passed reset or 240s expiry stale."
+  },
+  "sourceSha256": {
+    "src-tauri/src/core/adapter.rs": "abbf92bfcb045f3683aacd259527ca42a4eb7267004d99689ad4d6d2c27dccf8",
+    "src/shared/contracts.ts": "e117c0ea57e0636b2f9311d563b6de354a9a5ce5ea277cc53d01021b73cb5c3e",
+    "src/shared/sourceCapabilities.ts": "ef65719c3429104cbd15e9b110bd8c4fc3b64d47eccf5ad03059df97ba2f52e1",
+    "src/shared/sourceCapabilities.test.ts": "d22571a6d32448ac676e79c3b7f33430b3f4b57987a3ac50c337102b7c2152ae",
+    "src/features/sources/SourceDetails.tsx": "fd8e93db6be961c67eebd1bcafd47655d3c7fb713a7950fabd5c3b993b257dd9",
+    "src/styles.css": "b1dbc5120194bced3a887d816d7bc9fa4c6be6045dd85a171cb96e35200f3c8e"
+  },
+  "validation": {
+    "rust": {
+      "command": "cargo test --release --features custom-protocol --offline --target-dir D:\\DevCache\\cargo-token-meow --manifest-path src-tauri/Cargo.toml --lib core::adapter::capability_report_tests -- --nocapture",
+      "passed": 2,
+      "failed": 0,
+      "filteredOut": 73,
+      "elapsedSeconds": 0.62,
+      "cases": [
+        "capability_metadata_is_version_scoped_and_does_not_claim_live_rpc_success",
+        "registered_source_snapshot_preserves_declaration_and_runtime_boundaries"
+      ],
+      "assertions": [
+        "all 12 metadata records",
+        "fixed supported/tested versions and dates",
+        "all evidence files and named source tests exist",
+        "unsupported and unconfigured remain separate",
+        "production Core register -> snapshot -> reopen preserves metadata without scan or RPC"
+      ]
+    },
+    "frontend": {
+      "command": "pnpm exec tsx --test --test-concurrency=1 src/shared/sourceCapabilities.test.ts",
+      "passed": 3,
+      "failed": 0,
+      "cases": [
+        "fixed-scope metadata and missing -> unverified SSR",
+        "exact source-bound fresh account data and legitimate zero; stale, missing, disabled, other-source refusal",
+        "privacy hides source path and evidence refs"
+      ]
+    },
+    "typecheck": {
+      "command": "pnpm typecheck",
+      "exitCode": 0
+    }
+  },
+  "retainedCandidates": {
+    "releaseExeSha256": "c11dd01f757ffd0e6f07fb6926a334e48d7a19bfb3c083ccdec3e05441aa05c2",
+    "frontendJsSha256": "d9e72173ce4cccab993f60b31cabfbceabf1d7f41a4fc07a2affb84abc49cdc6",
+    "frontendCssSha256": "bd9958f5ef89e6bbacb8a06c915d52c111b2fd51ddfd89eb7c55ffe43a801731",
+    "rebuiltForThisChange": false
+  },
+  "limitations": [
+    "No new live account RPC, source scan, model request, native UI or external Codex chat navigation was performed.",
+    "UI behavior was verified with static rendering and pure presentation tests, not a browser layout run.",
+    "Current registered source client version is not automatically probed; support remains limited to the listed version and evidence corpus.",
+    "JSONL and app-server are independent channels even though declarations are stored in one source report.",
+    "No final dist or main release rebuild; retained C11 executable and old dist do not contain this metadata UI change.",
+    "Scoped test success does not satisfy whole M4 performance, native, installer or release qualification."
+  ]
+}

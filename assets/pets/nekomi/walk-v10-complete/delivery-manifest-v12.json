@@ -1,0 +1,2555 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-18",
+  "timezone": "Asia/Shanghai",
+  "status": "baseline-assets-delivered-with-known-variations",
+  "criteria": "User asked to speed up and accept non-perfect detail; structural readability and actual preview retained.",
+  "master": [
+    "walk-v10-complete/model-reference/master-front-v2.png",
+    "walk-v10-complete/model-reference/master-right-v3.png",
+    "walk-v10-complete/model-reference/master-back-v4.png",
+    "walk-v10-complete/model-reference/master-left-v1.png"
+  ],
+  "twelveActions": [
+    "idle",
+    "active",
+    "alert",
+    "complete",
+    "happy",
+    "wink",
+    "affection",
+    "shy",
+    "bow",
+    "stretch",
+    "hug-tail",
+    "sleep"
+  ],
+  "walkBasePhases": 8,
+  "sideLayers": 18,
+  "handReplacements": 4,
+  "retainedFrontLayers": 28,
+  "selectedPngCount": 114,
+  "imagePolicy": "Built-in image_gen; original PNG bytes retained; no pixel crop/warp/cutout/composite used to draw deliverable PNGs.",
+  "previewEvidence": {
+    "fullClips": "catalog-playback-0-3.txt,4-7.txt,8-10.txt,11-12.txt",
+    "walk": "walk-playback-cli-receipt.txt",
+    "layers": "18 actual native layers; neutral and two 25-degree range presets, real browser compositing checked",
+    "largeDisplay": "bow,stretch,sleep,walk representative frames at approx1200px; checker,light,dark backgrounds; entire catalog at desktop scale",
+    "v12": "output/imagegen/left-completion-20261018/",
+    "v12FullClips": "4 current full clips ending returnToIdle; 12 unchanged action clips retain v11 evidence",
+    "v12Cycles": "left/right at 1x and 0.5x, sequential multi-loop switching",
+    "v12Layers": "18 loaded; left neutral, two range presets, all18 toggles and animated range checked"
+  },
+  "knownLimitations": [
+    "Small design/hem/accessory differences remain between retained v6 and newly drawn frames.",
+    "Animation uses discrete keyframes; no dense in-between animation is claimed.",
+    "Walk has stylized short phase timing; exact world-foot no-slip qualification was not established.",
+    "Raster layer assembly shows visible knee/elbow joins; no seamless mesh-deformed rig is claimed.",
+    "Head/ears/bows are combined in the new side head layer; the retained front set supplies separate face/ear/bow parts.",
+    "Display QA at1200px is representative sampling, not every frame on all three backgrounds.",
+    "No runtime, installer, publishing or external rig integration was changed or qualified.",
+    "Left layered view reuses the 18 right-side raster parts using live reflection and anatomical relabeling. Left sequence PNGs are independently generated.",
+    "This is an asset-only delivery; an existing v11 runtime manifest remains unchanged and does not load v12 automatically."
+  ],
+  "historicalReuse": [
+    {
+      "path": "clips/active/base.png",
+      "matchesHistoricalSHA": true
+    },
+    {
+      "path": "clips/active/enter.png",
+      "matchesHistoricalSHA": true
+    },
+    {
+      "path": "clips/active/accent.png",
+      "matchesHistoricalSHA": true
+    },
+    {
+      "path": "clips/complete/base.png",
+      "matchesHistoricalSHA": true
+    },
+    {
+      "path": "clips/complete/enter.png",
+      "matchesHistoricalSHA": true
+    },
+    {
+      "path": "clips/complete/accent.png",
+      "matchesHistoricalSHA": true
+    },
+    {
+      "path": "clips/alert/base.png",
+      "matchesHistoricalSHA": true
+    },
+    {
+      "path": "clips/alert/enter.png",
+      "matchesHistoricalSHA": true
+    },
+    {
+      "path": "clips/alert/accent.png",
+      "matchesHistoricalSHA": true
+    },
+    {
+      "path": "clips/shy/base.png",
+      "matchesHistoricalSHA": true
+    },
+    {
+      "path": "clips/shy/enter.png",
+      "matchesHistoricalSHA": true
+    },
+    {
+      "path": "clips/shy/accent.png",
+      "matchesHistoricalSHA": true
+    },
+    {
+      "path": "clips/affection/base.png",
+      "matchesHistoricalSHA": true
+    },
+    {
+      "path": "clips/affection/enter.png",
+      "matchesHistoricalSHA": true
+    },
+    {
+      "path": "clips/affection/accent.png",
+      "matchesHistoricalSHA": true
+    },
+    {
+      "path": "clips/wink/base.png",
+      "matchesHistoricalSHA": true
+    },
+    {
+      "path": "clips/wink/enter.png",
+      "matchesHistoricalSHA": true
+    },
+    {
+      "path": "clips/wink/accent.png",
+      "matchesHistoricalSHA": true
+    },
+    {
+      "path": "clips/happy/base.png",
+      "matchesHistoricalSHA": true
+    },
+    {
+      "path": "clips/happy/enter.png",
+      "matchesHistoricalSHA": true
+    },
+    {
+      "path": "clips/happy/accent.png",
+      "matchesHistoricalSHA": true
+    },
+    {
+      "path": "clips/idle/half-blink.png",
+      "matchesHistoricalSHA": true
+    },
+    {
+      "path": "clips/idle/closed-blink.png",
+      "matchesHistoricalSHA": true
+    },
+    {
+      "path": "layers/tail.png",
+      "matchesHistoricalSHA": true
+    },
+    {
+      "path": "layers/ear-left.png",
+      "matchesHistoricalSHA": true
+    },
+    {
+      "path": "layers/ear-right.png",
+      "matchesHistoricalSHA": true
+    },
+    {
+      "path": "layers/hair-back.png",
+      "matchesHistoricalSHA": true
+    },
+    {
+      "path": "layers/leg-left.png",
+      "matchesHistoricalSHA": true
+    },
+    {
+      "path": "layers/leg-right.png",
+      "matchesHistoricalSHA": true
+    },
+    {
+      "path": "layers/skirt.png",
+      "matchesHistoricalSHA": true
+    },
+    {
+      "path": "layers/arm-left.png",
+      "matchesHistoricalSHA": true
+    },
+    {
+      "path": "layers/arm-right.png",
+      "matchesHistoricalSHA": true
+    },
+    {
+      "path": "layers/body.png",
+      "matchesHistoricalSHA": true
+    },
+    {
+      "path": "layers/face-base.png",
+      "matchesHistoricalSHA": true
+    },
+    {
+      "path": "layers/eye-left.png",
+      "matchesHistoricalSHA": true
+    },
+    {
+      "path": "layers/eye-right.png",
+      "matchesHistoricalSHA": true
+    },
+    {
+      "path": "layers/eye-white-left.png",
+      "matchesHistoricalSHA": true
+    },
+    {
+      "path": "layers/eye-white-right.png",
+      "matchesHistoricalSHA": true
+    },
+    {
+      "path": "layers/iris-left.png",
+      "matchesHistoricalSHA": true
+    },
+    {
+      "path": "layers/iris-right.png",
+      "matchesHistoricalSHA": true
+    },
+    {
+      "path": "layers/eye-closed-left.png",
+      "matchesHistoricalSHA": true
+    },
+    {
+      "path": "layers/eye-closed-right.png",
+      "matchesHistoricalSHA": true
+    },
+    {
+      "path": "layers/eyebrow-left.png",
+      "matchesHistoricalSHA": true
+    },
+    {
+      "path": "layers/eyebrow-right.png",
+      "matchesHistoricalSHA": true
+    },
+    {
+      "path": "layers/mouth-neutral.png",
+      "matchesHistoricalSHA": true
+    },
+    {
+      "path": "layers/mouth-open.png",
+      "matchesHistoricalSHA": true
+    },
+    {
+      "path": "layers/hair-front.png",
+      "matchesHistoricalSHA": true
+    },
+    {
+      "path": "layers/hair-side-left.png",
+      "matchesHistoricalSHA": true
+    },
+    {
+      "path": "layers/hair-side-right.png",
+      "matchesHistoricalSHA": true
+    },
+    {
+      "path": "layers/bow-left.png",
+      "matchesHistoricalSHA": true
+    },
+    {
+      "path": "layers/bow-right.png",
+      "matchesHistoricalSHA": true
+    }
+  ],
+  "items": [
+    {
+      "path": "animation-v6/clips/active/accent.png",
+      "sha256": "032c9fcffb9556145bd40ab9240716c95bdfe71cfe7e5e47506f3ec49a360de5",
+      "bytes": 1947323,
+      "canvas": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds127": [
+        82,
+        10,
+        953,
+        1456
+      ]
+    },
+    {
+      "path": "animation-v6/clips/active/base.png",
+      "sha256": "5c36c72372418ca6e904c46d795f5e4b11094a1ce527393b70d2949b26ae651d",
+      "bytes": 1954202,
+      "canvas": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds127": [
+        82,
+        10,
+        953,
+        1456
+      ]
+    },
+    {
+      "path": "animation-v6/clips/active/enter.png",
+      "sha256": "3f564b553bc3cd2304d86d905e941e5f58a6c10f16d00c4270e8b460b15a7c85",
+      "bytes": 1944259,
+      "canvas": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds127": [
+        82,
+        10,
+        953,
+        1456
+      ]
+    },
+    {
+      "path": "animation-v6/clips/affection/accent.png",
+      "sha256": "9e9389123a0d80788a0bde86ca233a859df2049b394d377853b5ff30276c1291",
+      "bytes": 1967029,
+      "canvas": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds127": [
+        72,
+        9,
+        970,
+        1498
+      ]
+    },
+    {
+      "path": "animation-v6/clips/affection/base.png",
+      "sha256": "f018661a8d4b05eaff868a8ee429ed509266a844c9ea0edcd9c955093ee600d9",
+      "bytes": 1971820,
+      "canvas": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds127": [
+        72,
+        9,
+        969,
+        1497
+      ]
+    },
+    {
+      "path": "animation-v6/clips/affection/enter.png",
+      "sha256": "cc04968ff3581961e256a048324c59257a8c0b774159dc337ceb048d116c20ee",
+      "bytes": 1972573,
+      "canvas": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds127": [
+        72,
+        9,
+        970,
+        1498
+      ]
+    },
+    {
+      "path": "animation-v6/clips/alert/accent.png",
+      "sha256": "350eced1c8f8651878f80b8df75c676a8bd2ff22ee51e7594243b442f9926233",
+      "bytes": 2000107,
+      "canvas": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds127": [
+        84,
+        7,
+        951,
+        1505
+      ]
+    },
+    {
+      "path": "animation-v6/clips/alert/base.png",
+      "sha256": "3f760e7a72b410cb139d1fe26ef12ea9922f9b581b441d37d5cc19969bb38a44",
+      "bytes": 2000182,
+      "canvas": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds127": [
+        84,
+        8,
+        951,
+        1504
+      ]
+    },
+    {
+      "path": "animation-v6/clips/alert/enter.png",
+      "sha256": "6aa8da48c9095596c1ccd1c4078fc8b7c3688516413cdc3fb617379cfd676b80",
+      "bytes": 1997605,
+      "canvas": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds127": [
+        84,
+        8,
+        952,
+        1505
+      ]
+    },
+    {
+      "path": "animation-v6/clips/complete/accent.png",
+      "sha256": "0f7ead60ccbe9e06ae747bea6c309a503385c8d9c9ba7d8c0b8925c0d4abf9b0",
+      "bytes": 1918026,
+      "canvas": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds127": [
+        94,
+        10,
+        952,
+        1478
+      ]
+    },
+    {
+      "path": "animation-v6/clips/complete/base.png",
+      "sha256": "99ac410ecefc9a334f5c374be52b82219856414468d55316020b8c3c9716b77b",
+      "bytes": 1925353,
+      "canvas": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds127": [
+        93,
+        10,
+        951,
+        1478
+      ]
+    },
+    {
+      "path": "animation-v6/clips/complete/enter.png",
+      "sha256": "dd285c7794a438e5a1c6db9515d56c9f8213adc72de127106dc35a2cf43cb02c",
+      "bytes": 1914423,
+      "canvas": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds127": [
+        94,
+        10,
+        952,
+        1480
+      ]
+    },
+    {
+      "path": "animation-v6/clips/happy/accent.png",
+      "sha256": "d9d75bfc91b5438f3a14bc3a6d6de0a72f44adb01b82a5b986af70d4a5572644",
+      "bytes": 1973742,
+      "canvas": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds127": [
+        82,
+        7,
+        972,
+        1499
+      ]
+    },
+    {
+      "path": "animation-v6/clips/happy/base.png",
+      "sha256": "67894210ffafe8d82367dd38d0dbd46cd738f0d4d1bc3c941d5d64d1b6ab8900",
+      "bytes": 1958445,
+      "canvas": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds127": [
+        83,
+        7,
+        970,
+        1498
+      ]
+    },
+    {
+      "path": "animation-v6/clips/happy/enter.png",
+      "sha256": "59d9a586b1d5987e74bff067506e3d8b6cd5d02070b87486754dc78f0c10db1a",
+      "bytes": 1959660,
+      "canvas": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds127": [
+        83,
+        7,
+        971,
+        1498
+      ]
+    },
+    {
+      "path": "animation-v6/clips/idle/closed-blink.png",
+      "sha256": "22d1911bb02b2843ba4d98dd12e5f8f80d5903e1288baf2af04998ceb0b52c8b",
+      "bytes": 1903446,
+      "canvas": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds127": [
+        94,
+        10,
+        947,
+        1455
+      ]
+    },
+    {
+      "path": "animation-v6/clips/idle/half-blink.png",
+      "sha256": "f19592142efa970fd6f1f62eefee59e941bf4444bac697eb91946f7a604663e2",
+      "bytes": 1903637,
+      "canvas": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds127": [
+        94,
+        10,
+        947,
+        1455
+      ]
+    },
+    {
+      "path": "animation-v6/clips/shy/accent.png",
+      "sha256": "a846d6c09d266054958c1e38729a99334fbf4ae756c8fd5b9ca7da82bf12ddcf",
+      "bytes": 1921560,
+      "canvas": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds127": [
+        96,
+        5,
+        938,
+        1475
+      ]
+    },
+    {
+      "path": "animation-v6/clips/shy/base.png",
+      "sha256": "58702f963888360a923b62633a8d9a2c21ae828dbe7372696720bcdbe641359b",
+      "bytes": 1910862,
+      "canvas": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds127": [
+        96,
+        5,
+        937,
+        1474
+      ]
+    },
+    {
+      "path": "animation-v6/clips/shy/enter.png",
+      "sha256": "92c36f94f09384d267ba7e94ae11e0edcbf0fcb8509c8399c6893d18084b0b5f",
+      "bytes": 1929379,
+      "canvas": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds127": [
+        96,
+        5,
+        938,
+        1474
+      ]
+    },
+    {
+      "path": "animation-v6/clips/wink/accent.png",
+      "sha256": "e77ed16d0773ff295f7463817258a477bfa189d8b0d5d9e0b91960cb2188af76",
+      "bytes": 1912690,
+      "canvas": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds127": [
+        96,
+        37,
+        954,
+        1470
+      ]
+    },
+    {
+      "path": "animation-v6/clips/wink/base.png",
+      "sha256": "d1920435d7b3f1f36b1dc8b7fb5cc2dfac9d15e5c1680d10c6f9d75840728737",
+      "bytes": 1908589,
+      "canvas": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds127": [
+        96,
+        38,
+        954,
+        1469
+      ]
+    },
+    {
+      "path": "animation-v6/clips/wink/enter.png",
+      "sha256": "95d41af277708f2483a8ca50d0539354f04eae110b0f4b76352005fea5e84666",
+      "bytes": 1917795,
+      "canvas": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds127": [
+        94,
+        37,
+        955,
+        1470
+      ]
+    },
+    {
+      "path": "animation-v6/layers/arm-left.png",
+      "sha256": "efd07800350b2ee7bce43cfbc5f43695ddebb7688971125e8e162534ee389cce",
+      "bytes": 780131,
+      "canvas": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds127": [
+        217,
+        430,
+        545,
+        1113
+      ]
+    },
+    {
+      "path": "animation-v6/layers/arm-right.png",
+      "sha256": "1d2b9ef4f6546516063c6394c10a29a33e2a5f83805d58729f02c3f52778e3b4",
+      "bytes": 922080,
+      "canvas": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds127": [
+        501,
+        435,
+        915,
+        1260
+      ]
+    },
+    {
+      "path": "animation-v6/layers/body.png",
+      "sha256": "bc19068d15441b763e68eee397014525223950ddd45a603fafd82d636a1f9b9d",
+      "bytes": 1086449,
+      "canvas": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds127": [
+        233,
+        327,
+        799,
+        1007
+      ]
+    },
+    {
+      "path": "animation-v6/layers/bow-left.png",
+      "sha256": "f3fd635540f0b79d27cdd88caaae1d429bc56ac6ae92beeea38fdd635e841871",
+      "bytes": 765212,
+      "canvas": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds127": [
+        122,
+        313,
+        516,
+        722
+      ]
+    },
+    {
+      "path": "animation-v6/layers/bow-right.png",
+      "sha256": "7b200b1f23ce8fd51853a769c817fd81443bfce17beb9fd671064b888d6e7e66",
+      "bytes": 542542,
+      "canvas": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds127": [
+        613,
+        227,
+        776,
+        384
+      ]
+    },
+    {
+      "path": "animation-v6/layers/ear-left.png",
+      "sha256": "239e348f9d0491c7c59996ebec3ffcbbd6470df01af2f90e89f885f8593bf673",
+      "bytes": 782385,
+      "canvas": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds127": [
+        216,
+        68,
+        635,
+        578
+      ]
+    },
+    {
+      "path": "animation-v6/layers/ear-right.png",
+      "sha256": "cc8841edb4fa4ddc83079e0eebf3a2df19a2a57603847bf14ead5cd0f77ccdff",
+      "bytes": 643412,
+      "canvas": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds127": [
+        543,
+        26,
+        787,
+        326
+      ]
+    },
+    {
+      "path": "animation-v6/layers/eye-closed-left.png",
+      "sha256": "74f0ff81cee94f552ff2eb28bc627d24ba395a6b2288c4b40537f477a8d0c6e3",
+      "bytes": 406927,
+      "canvas": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds127": [
+        361,
+        409,
+        505,
+        445
+      ]
+    },
+    {
+      "path": "animation-v6/layers/eye-closed-right.png",
+      "sha256": "388febb34630c342ba5ee7a40f0c34492dbb35bf662dbde8599d90b04ce212a5",
+      "bytes": 438834,
+      "canvas": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds127": [
+        584,
+        523,
+        817,
+        582
+      ]
+    },
+    {
+      "path": "animation-v6/layers/eye-left.png",
+      "sha256": "acc524ea4dd868ab8acfd8206f5e05d9aa884ab98bd8cebadbe2fad31dc61180",
+      "bytes": 650550,
+      "canvas": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds127": [
+        199,
+        384,
+        579,
+        660
+      ]
+    },
+    {
+      "path": "animation-v6/layers/eye-right.png",
+      "sha256": "0cb5f20dcd9966e21813695e5287ca7c5d9a251fdf9920ee94e0d43f53834691",
+      "bytes": 673523,
+      "canvas": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds127": [
+        371,
+        606,
+        779,
+        890
+      ]
+    },
+    {
+      "path": "animation-v6/layers/eye-white-left.png",
+      "sha256": "977f2351acaa6739204f7277437b098c8cf122084e006c6d0e43dd8c60e8a72a",
+      "bytes": 654538,
+      "canvas": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds127": [
+        195,
+        384,
+        581,
+        666
+      ]
+    },
+    {
+      "path": "animation-v6/layers/eye-white-right.png",
+      "sha256": "88610c0c7eee40eadaa3add1465385cfa850decd6afeb6bba76640928eb724bc",
+      "bytes": 722430,
+      "canvas": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds127": [
+        296,
+        578,
+        860,
+        946
+      ]
+    },
+    {
+      "path": "animation-v6/layers/eyebrow-left.png",
+      "sha256": "7eb707c5e3297626841ec272b3b989f63566c6c622010b50bf9759e4234ff441",
+      "bytes": 413258,
+      "canvas": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        251
+      ],
+      "visibleBounds127": [
+        384,
+        277,
+        459,
+        298
+      ]
+    },
+    {
+      "path": "animation-v6/layers/eyebrow-right.png",
+      "sha256": "ee5a07b30d5a3bc42df527e75f2d838b2666de5b264faf3bfc5f03f6eb6827a2",
+      "bytes": 461522,
+      "canvas": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        253
+      ],
+      "visibleBounds127": [
+        564,
+        271,
+        671,
+        298
+      ]
+    },
+    {
+      "path": "animation-v6/layers/face-base.png",
+      "sha256": "bb244841821bcd4a34a368def211161ba8ee436883065668d021023d0d22ef57",
+      "bytes": 735870,
+      "canvas": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds127": [
+        323,
+        176,
+        701,
+        572
+      ]
+    },
+    {
+      "path": "animation-v6/layers/hair-back.png",
+      "sha256": "1e61c3d0b84fb2a530a01a9bf92577d4dfd1d12ca02db73d10056aedffe8789d",
+      "bytes": 1801141,
+      "canvas": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds127": [
+        22,
+        137,
+        1003,
+        1110
+      ]
+    },
+    {
+      "path": "animation-v6/layers/hair-front.png",
+      "sha256": "6c3b6e6de442072e7d19549e3e6b01ef36084f7ea1da484199a2f7b14b5c55bc",
+      "bytes": 1140589,
+      "canvas": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds127": [
+        152,
+        51,
+        872,
+        667
+      ]
+    },
+    {
+      "path": "animation-v6/layers/hair-side-left.png",
+      "sha256": "a77d354abcd1c2c8528a1ec111b9182a9803085ec2462863a8ad90c762ed2f76",
+      "bytes": 598998,
+      "canvas": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds127": [
+        309,
+        265,
+        466,
+        562
+      ]
+    },
+    {
+      "path": "animation-v6/layers/hair-side-right.png",
+      "sha256": "9433256c81765010e12da38a151ab2e492b0402b8fbec9c4c12c244639751e4a",
+      "bytes": 750764,
+      "canvas": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds127": [
+        560,
+        248,
+        832,
+        867
+      ]
+    },
+    {
+      "path": "animation-v6/layers/iris-left.png",
+      "sha256": "9677d7f5da03c4153903907ddf53e0d66064267d7e2bc6b225c34b82415f8b8e",
+      "bytes": 620955,
+      "canvas": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds127": [
+        313,
+        406,
+        570,
+        658
+      ]
+    },
+    {
+      "path": "animation-v6/layers/iris-right.png",
+      "sha256": "3cb8fd8e89752d253671966e20be6cdc6059a6b248faa23a7ef77d03f65cba27",
+      "bytes": 781098,
+      "canvas": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds127": [
+        285,
+        556,
+        734,
+        982
+      ]
+    },
+    {
+      "path": "animation-v6/layers/leg-left.png",
+      "sha256": "80fa5d118237de3525163fd72a0dd5aa4b136f517783283c347d61eb4815bb8c",
+      "bytes": 724674,
+      "canvas": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds127": [
+        394,
+        686,
+        539,
+        1335
+      ]
+    },
+    {
+      "path": "animation-v6/layers/leg-right.png",
+      "sha256": "28e2578a967747c8fca0e9b27c0aba8555e061f8dd4f6b89db6dcc0d843cde05",
+      "bytes": 803612,
+      "canvas": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds127": [
+        465,
+        657,
+        684,
+        1404
+      ]
+    },
+    {
+      "path": "animation-v6/layers/mouth-neutral.png",
+      "sha256": "f6c6ba9f414d0e1308d0761a5972a480439f6e3bbe4feff9f637e0425f6f96f8",
+      "bytes": 501648,
+      "canvas": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        247
+      ],
+      "visibleBounds127": [
+        469,
+        514,
+        554,
+        527
+      ]
+    },
+    {
+      "path": "animation-v6/layers/mouth-open.png",
+      "sha256": "c64493856051a74bf30553b0d56e521dd517e7286dc0430ad0453269eae6021f",
+      "bytes": 466259,
+      "canvas": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds127": [
+        458,
+        535,
+        584,
+        599
+      ]
+    },
+    {
+      "path": "animation-v6/layers/skirt.png",
+      "sha256": "1c35da11ec143a0b57237e0819a8b39f564ee8a101e95ff4a42be5fccaa9d1e2",
+      "bytes": 1129510,
+      "canvas": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds127": [
+        37,
+        485,
+        987,
+        1087
+      ]
+    },
+    {
+      "path": "animation-v6/layers/tail.png",
+      "sha256": "23956bcc3e6a65a6ca4382e4c752c823145c94bfd105e92dd7bbc8bc54fb79c3",
+      "bytes": 768694,
+      "canvas": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds127": [
+        499,
+        633,
+        895,
+        1300
+      ]
+    },
+    {
+      "path": "walk-v10-complete/actions-v11/active/transition.png",
+      "sha256": "e1c86e4d91ff8fa110bd73a48468a9a60c663de8fa4746d248e231e433895cf7",
+      "bytes": 1974263,
+      "canvas": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds127": [
+        91,
+        11,
+        940,
+        1487
+      ]
+    },
+    {
+      "path": "walk-v10-complete/actions-v11/affection/transition.png",
+      "sha256": "d741cea53bb1d7e65f081781c5b343d475e828cc4839df7832e2508c5d00cdd9",
+      "bytes": 1986073,
+      "canvas": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds127": [
+        92,
+        5,
+        940,
+        1485
+      ]
+    },
+    {
+      "path": "walk-v10-complete/actions-v11/alert/transition.png",
+      "sha256": "5a887f537e0bd206af41631b64bcdfd20e7b761ebad16fd3ec300122e6312fd3",
+      "bytes": 1981596,
+      "canvas": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds127": [
+        94,
+        12,
+        937,
+        1485
+      ]
+    },
+    {
+      "path": "walk-v10-complete/actions-v11/bow/deep.png",
+      "sha256": "6f088115f873975bf232a28de8f8a40ac34d0d039fe6d2021df5f55837f29d8a",
+      "bytes": 2042791,
+      "canvas": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds127": [
+        38,
+        101,
+        986,
+        1509
+      ]
+    },
+    {
+      "path": "walk-v10-complete/actions-v11/bow/hold.png",
+      "sha256": "46623833ae83db47979038870995c20b103892b848eeae79848365b29ab3e020",
+      "bytes": 2002411,
+      "canvas": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds127": [
+        68,
+        16,
+        960,
+        1506
+      ]
+    },
+    {
+      "path": "walk-v10-complete/actions-v11/complete/transition.png",
+      "sha256": "cd76a45be1390ca43ce8826f44cf4caf5f0ddc4d4c8c7bedae6e0a8511ddb222",
+      "bytes": 1981272,
+      "canvas": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds127": [
+        83,
+        6,
+        947,
+        1484
+      ]
+    },
+    {
+      "path": "walk-v10-complete/actions-v11/happy/transition.png",
+      "sha256": "025a17a6f24bc3de54036df643ce36d767f67ea989725f1e5e606820828d08d3",
+      "bytes": 1971900,
+      "canvas": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds127": [
+        88,
+        11,
+        941,
+        1484
+      ]
+    },
+    {
+      "path": "walk-v10-complete/actions-v11/hug-tail/lift.png",
+      "sha256": "1bea1cabb89adbb08bb026c462d266737f209bad341200e4ace343ddefffa203",
+      "bytes": 1962794,
+      "canvas": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds127": [
+        59,
+        12,
+        924,
+        1488
+      ]
+    },
+    {
+      "path": "walk-v10-complete/actions-v11/hug-tail/reach.png",
+      "sha256": "5638ca6917c8f8b8eee021b7a2381c0b91d5b021502b41b564889bf16829d660",
+      "bytes": 1984321,
+      "canvas": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds127": [
+        54,
+        7,
+        921,
+        1485
+      ]
+    },
+    {
+      "path": "walk-v10-complete/actions-v11/idle/transition.png",
+      "sha256": "23d70411874767c1a0547f64cab08abecc6815e0261b3e5e2d637189c5fe325d",
+      "bytes": 1965638,
+      "canvas": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds127": [
+        93,
+        11,
+        938,
+        1485
+      ]
+    },
+    {
+      "path": "walk-v10-complete/actions-v11/shy/transition.png",
+      "sha256": "e08eb3c81302916e9524753b4ef261de6f52985c29d310e5be49ab4cbf3b842d",
+      "bytes": 1990539,
+      "canvas": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds127": [
+        93,
+        12,
+        938,
+        1485
+      ]
+    },
+    {
+      "path": "walk-v10-complete/actions-v11/sleep/lowering-v2.png",
+      "sha256": "3335cfccfbeb760e4e65092af49c554302a0e6b63abd6c63e3dc2403e370078a",
+      "bytes": 2029923,
+      "canvas": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds127": [
+        64,
+        245,
+        997,
+        1452
+      ]
+    },
+    {
+      "path": "walk-v10-complete/actions-v11/sleep/seated-breath.png",
+      "sha256": "eaf0a0364d7dcf197523a082322ad4a03d196c19e91c425ae7eae9f0b8c0c4db",
+      "bytes": 1886785,
+      "canvas": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds127": [
+        51,
+        351,
+        1021,
+        1470
+      ]
+    },
+    {
+      "path": "walk-v10-complete/actions-v11/sleep/seated.png",
+      "sha256": "870d659d91ad67420e1b0eab5f6d8e613d8859d43fbde85de9355c2798e49422",
+      "bytes": 1881699,
+      "canvas": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds127": [
+        51,
+        378,
+        1021,
+        1500
+      ]
+    },
+    {
+      "path": "walk-v10-complete/actions-v11/stretch/enter.png",
+      "sha256": "f711e7ac5fc209eec9e9d135d3a8512552df0327de43c89fb504e8b6e36b29d8",
+      "bytes": 1979464,
+      "canvas": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds127": [
+        82,
+        15,
+        951,
+        1484
+      ]
+    },
+    {
+      "path": "walk-v10-complete/actions-v11/stretch/hold.png",
+      "sha256": "44adb89c857cb1183ef83b597f1edea0539139e651e09f621310880286b1203e",
+      "bytes": 2010247,
+      "canvas": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds127": [
+        70,
+        6,
+        974,
+        1472
+      ]
+    },
+    {
+      "path": "walk-v10-complete/actions-v11/walk/start.png",
+      "sha256": "4eae3429a3227d9486eff39de92959730c064fe675287bce7bcf9b4f585e7a25",
+      "bytes": 1858028,
+      "canvas": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds127": [
+        151,
+        11,
+        907,
+        1497
+      ]
+    },
+    {
+      "path": "walk-v10-complete/actions-v11/wink/transition.png",
+      "sha256": "f47601a2b57c908df4ed6b4518f381cd39b2a6edd9eda28d921e6a4803ce3029",
+      "bytes": 1970838,
+      "canvas": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds127": [
+        92,
+        3,
+        951,
+        1487
+      ]
+    },
+    {
+      "path": "walk-v10-complete/actions-v12/walk-left/start.png",
+      "sha256": "3a2a3b01db8746260851d0c6a3bf50e960dc14426c7e25b30b287214c4981508",
+      "bytes": 1910861,
+      "canvas": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds127": [
+        99,
+        12,
+        975,
+        1501
+      ]
+    },
+    {
+      "path": "walk-v10-complete/actions-v12/walk-left/turn.png",
+      "sha256": "6f1e3a36e4d8a44440660494a688b8db5e73e0959153a0c17a978a63ff6be6f4",
+      "bytes": 1983113,
+      "canvas": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds127": [
+        121,
+        12,
+        939,
+        1521
+      ]
+    },
+    {
+      "path": "walk-v10-complete/frames-left-v12/01-contact-near.png",
+      "sha256": "584b652748987709a18eb17b941b6cc3e3a75d133c32b213b7b7ff7d3c841ecf",
+      "bytes": 2015962,
+      "canvas": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds127": [
+        37,
+        16,
+        1009,
+        1500
+      ]
+    },
+    {
+      "path": "walk-v10-complete/frames-left-v12/02-near-flat-recovery.png",
+      "sha256": "b5a50a55a52a6cbf0fe5b25a331d38f669f15051bb9fafc13bd3e89692db4e78",
+      "bytes": 1967956,
+      "canvas": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds127": [
+        62,
+        16,
+        1010,
+        1519
+      ]
+    },
+    {
+      "path": "walk-v10-complete/frames-left-v12/03-far-passing.png",
+      "sha256": "e46c02c60536aae788129b455b7c60584d242f559f3ad30c37843190beb14fbf",
+      "bytes": 1904779,
+      "canvas": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds127": [
+        115,
+        12,
+        986,
+        1514
+      ]
+    },
+    {
+      "path": "walk-v10-complete/frames-left-v12/04-near-toe-far-reach.png",
+      "sha256": "5cb9d2b1b0c2eb618fb192169882e4fa3d947caef30bee692a6724c79b4d2331",
+      "bytes": 1930914,
+      "canvas": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds127": [
+        53,
+        14,
+        984,
+        1496
+      ]
+    },
+    {
+      "path": "walk-v10-complete/frames-left-v12/05-contact-far.png",
+      "sha256": "ef4a91a560d929852013e3bdae3fa69bc57142658e236118384ef4649049fc06",
+      "bytes": 1971845,
+      "canvas": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds127": [
+        47,
+        13,
+        997,
+        1494
+      ]
+    },
+    {
+      "path": "walk-v10-complete/frames-left-v12/06-far-flat-recovery.png",
+      "sha256": "5e46b36f0ff802c0f0e73ab00db8db2bd12367f366a5ac5fcfce5991de649ebd",
+      "bytes": 1996511,
+      "canvas": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds127": [
+        62,
+        13,
+        1001,
+        1507
+      ]
+    },
+    {
+      "path": "walk-v10-complete/frames-left-v12/07-near-passing.png",
+      "sha256": "f2774fe1c957e39f075b9feed2c268783a6c68889ff58cd2bd02e9ac8d674de5",
+      "bytes": 1905537,
+      "canvas": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds127": [
+        100,
+        10,
+        969,
+        1511
+      ]
+    },
+    {
+      "path": "walk-v10-complete/frames-left-v12/08-far-toe-near-reach.png",
+      "sha256": "70f7e6cdcbd1ad00ef643fae7d5475a85e5ecb7400f5c4c9bc20ed95e8a1224c",
+      "bytes": 1914979,
+      "canvas": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds127": [
+        66,
+        12,
+        985,
+        1471
+      ]
+    },
+    {
+      "path": "walk-v10-complete/frames-v11/01-contact-near.png",
+      "sha256": "eb6158fbc47641535bba247dc83fecb1e4b292b06c14aa221e6acadbe0bf83c8",
+      "bytes": 1910380,
+      "canvas": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds127": [
+        84,
+        12,
+        982,
+        1492
+      ]
+    },
+    {
+      "path": "walk-v10-complete/frames-v11/02-near-flat-recovery.png",
+      "sha256": "20900d6b7c7efccbbfa340e98ba7f93e8f58ba327d3844c3540ab7a8ae729135",
+      "bytes": 1932624,
+      "canvas": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds127": [
+        72,
+        14,
+        935,
+        1500
+      ]
+    },
+    {
+      "path": "walk-v10-complete/frames-v11/03-far-passing.png",
+      "sha256": "e4035a49bcf9db50a6afd6ae0cfd94aaf4d79767dfc64e5bc8909f1195098c68",
+      "bytes": 1873888,
+      "canvas": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds127": [
+        159,
+        12,
+        873,
+        1506
+      ]
+    },
+    {
+      "path": "walk-v10-complete/frames-v11/04-near-toe-far-reach.png",
+      "sha256": "a787bc62d4917fcaaa127eb2562f7a462901f2566b61492559ed0f3759c3b55a",
+      "bytes": 1876290,
+      "canvas": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds127": [
+        151,
+        11,
+        951,
+        1517
+      ]
+    },
+    {
+      "path": "walk-v10-complete/frames-v11/05-contact-far.png",
+      "sha256": "da5a7ce6ecec5f5ba4a0d6b5199bf240f4b148a2b7aae3c0d78b40dd92e9c95b",
+      "bytes": 1885584,
+      "canvas": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds127": [
+        156,
+        15,
+        983,
+        1511
+      ]
+    },
+    {
+      "path": "walk-v10-complete/frames-v11/06-far-flat-recovery.png",
+      "sha256": "bb81960fb8ca7bca3a946fdb837f592162007be22693f38710b44c45a717ec94",
+      "bytes": 1829946,
+      "canvas": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds127": [
+        169,
+        22,
+        937,
+        1498
+      ]
+    },
+    {
+      "path": "walk-v10-complete/frames-v11/07-near-passing.png",
+      "sha256": "6529d3b3d8e406be6a05161fc6dbecf86f4c095c78096272adc3dee75634d864",
+      "bytes": 1829604,
+      "canvas": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds127": [
+        143,
+        9,
+        878,
+        1488
+      ]
+    },
+    {
+      "path": "walk-v10-complete/frames-v11/08-far-toe-near-reach.png",
+      "sha256": "316198cfd814fc0fd96324205258fbe8c51241ac1934f887dd86a3bd1f8c1646",
+      "bytes": 1842574,
+      "canvas": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds127": [
+        143,
+        9,
+        944,
+        1489
+      ]
+    },
+    {
+      "path": "walk-v10-complete/layers-side-v11/far-left-forearm.png",
+      "sha256": "eb16d946c03591a8fe6f8288f00108496d2dd3f73dbab4fd24530f62cb38fff2",
+      "bytes": 909337,
+      "canvas": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds127": [
+        308,
+        376,
+        765,
+        1134
+      ]
+    },
+    {
+      "path": "walk-v10-complete/layers-side-v11/far-left-hand.png",
+      "sha256": "1789a88967ac42f066b2148cf24ecf97568d80e7a47ea2ed9aadcb48fb04b99a",
+      "bytes": 824574,
+      "canvas": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds127": [
+        315,
+        401,
+        686,
+        1137
+      ]
+    },
+    {
+      "path": "walk-v10-complete/layers-side-v11/far-left-shin.png",
+      "sha256": "12b61b0f4cc047f8ec3dd347b17cf457e17f901c3871388a34c75611082b0c54",
+      "bytes": 695938,
+      "canvas": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds127": [
+        428,
+        593,
+        629,
+        1141
+      ]
+    },
+    {
+      "path": "walk-v10-complete/layers-side-v11/far-left-shoe.png",
+      "sha256": "7df5cea3b6619a75b765bd755b5b799e86923d7075c48cc1e7a1dfedac4e8ff3",
+      "bytes": 765434,
+      "canvas": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds127": [
+        399,
+        833,
+        776,
+        1284
+      ]
+    },
+    {
+      "path": "walk-v10-complete/layers-side-v11/far-left-thigh-v3.png",
+      "sha256": "0c6e646176a1d03cdcab42f38e5efc9214edefc3cef0efba6ddc708b0bc5b3c0",
+      "bytes": 1224840,
+      "canvas": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds127": [
+        359,
+        90,
+        677,
+        1458
+      ]
+    },
+    {
+      "path": "walk-v10-complete/layers-side-v11/far-left-upper-arm.png",
+      "sha256": "be4d95e275e6714351cd0e50643a96c917688e39381ad6f83b0c9e50b2fbb044",
+      "bytes": 833444,
+      "canvas": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds127": [
+        317,
+        337,
+        729,
+        994
+      ]
+    },
+    {
+      "path": "walk-v10-complete/layers-side-v11/hair-back.png",
+      "sha256": "5b21dfbd35079df931872b30686af6e819cf0aa2d8932813d4efc2ff08496e57",
+      "bytes": 1698334,
+      "canvas": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds127": [
+        60,
+        216,
+        787,
+        1306
+      ]
+    },
+    {
+      "path": "walk-v10-complete/layers-side-v11/hand-left-cup.png",
+      "sha256": "3061968cb983e0dd1e953641899f0a66f986eead5341c7cfb60bf2b3bba088b0",
+      "bytes": 998673,
+      "canvas": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds127": [
+        108,
+        509,
+        937,
+        1144
+      ]
+    },
+    {
+      "path": "walk-v10-complete/layers-side-v11/hand-right-cup.png",
+      "sha256": "e470a283033d22a8cabfcbc525dd4cbaee666affbb046f77d2b939a4e1f8eecb",
+      "bytes": 1067551,
+      "canvas": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds127": [
+        121,
+        449,
+        896,
+        1106
+      ]
+    },
+    {
+      "path": "walk-v10-complete/layers-side-v11/hand-right-fist.png",
+      "sha256": "da6b23fa2fe3e23f2afed3fee2a74d965488e6993bfc0de22bf34d582213a4c9",
+      "bytes": 944805,
+      "canvas": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds127": [
+        287,
+        436,
+        822,
+        1096
+      ]
+    },
+    {
+      "path": "walk-v10-complete/layers-side-v11/hand-right-wave.png",
+      "sha256": "c523c95595c1aa1012ade51aabb58e4b5ef86de4fb86b9c2a1c0290a899e70dd",
+      "bytes": 1190104,
+      "canvas": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds127": [
+        109,
+        301,
+        965,
+        1257
+      ]
+    },
+    {
+      "path": "walk-v10-complete/layers-side-v11/head-front.png",
+      "sha256": "6ceccea913258e58b4590e8fac929aa8866053e8786a17ef085504e3493f39ed",
+      "bytes": 1410633,
+      "canvas": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds127": [
+        272,
+        59,
+        975,
+        1075
+      ]
+    },
+    {
+      "path": "walk-v10-complete/layers-side-v11/near-right-forearm.png",
+      "sha256": "d06f530b76cb3eee67e0a868da23feafc36163dc2750f4f6076ff718b5f92317",
+      "bytes": 845080,
+      "canvas": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds127": [
+        320,
+        461,
+        752,
+        1120
+      ]
+    },
+    {
+      "path": "walk-v10-complete/layers-side-v11/near-right-hand.png",
+      "sha256": "d12c15c98dd5111da41faed70c7dab8700e76a53dcadf792ecf5a821e2f4e0fb",
+      "bytes": 777486,
+      "canvas": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds127": [
+        418,
+        527,
+        715,
+        1134
+      ]
+    },
+    {
+      "path": "walk-v10-complete/layers-side-v11/near-right-shin.png",
+      "sha256": "ab915f51939bb013e6ebe2b255472460657febf3548acaaefe6a24e73435456c",
+      "bytes": 749306,
+      "canvas": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds127": [
+        410,
+        558,
+        666,
+        1251
+      ]
+    },
+    {
+      "path": "walk-v10-complete/layers-side-v11/near-right-shoe.png",
+      "sha256": "b92ed473717537dc862e1cbc8727a06d436d38f1f0d231cd4405d6ff8d0d9e36",
+      "bytes": 1172774,
+      "canvas": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds127": [
+        184,
+        441,
+        901,
+        1353
+      ]
+    },
+    {
+      "path": "walk-v10-complete/layers-side-v11/near-right-thigh-v3.png",
+      "sha256": "d808a9a03f5510de5488932f8ad0aad1049be7a9fe16335f515943fe83a1319e",
+      "bytes": 1087766,
+      "canvas": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds127": [
+        369,
+        40,
+        656,
+        1481
+      ]
+    },
+    {
+      "path": "walk-v10-complete/layers-side-v11/near-right-upper-arm.png",
+      "sha256": "6c4ead16650cf5f6c33a20e50dc6081dc024dab42ce73ebb9e0dc305837799f0",
+      "bytes": 908829,
+      "canvas": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds127": [
+        307,
+        312,
+        721,
+        1070
+      ]
+    },
+    {
+      "path": "walk-v10-complete/layers-side-v11/skirt-back-v2.png",
+      "sha256": "693e6461429313c1f404d1c466be676c048505742427607cf3dc76f98fa40753",
+      "bytes": 1256585,
+      "canvas": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds127": [
+        30,
+        393,
+        1019,
+        1196
+      ]
+    },
+    {
+      "path": "walk-v10-complete/layers-side-v11/skirt-front.png",
+      "sha256": "0a9dd208947b0feb62a7f49955c76b447ec2ed58378722a430216be54061d47d",
+      "bytes": 1119675,
+      "canvas": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds127": [
+        144,
+        481,
+        988,
+        1163
+      ]
+    },
+    {
+      "path": "walk-v10-complete/layers-side-v11/tail.png",
+      "sha256": "18c67008fbd26d3efd22797fd0bf44ac120b0a6f3c8eb776d8ba37faf48c3a65",
+      "bytes": 1102429,
+      "canvas": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds127": [
+        274,
+        208,
+        669,
+        1372
+      ]
+    },
+    {
+      "path": "walk-v10-complete/layers-side-v11/torso.png",
+      "sha256": "6521e163516227a68dc5139c00e844f34bc4c55c3c640c0ad548b5037cac1c92",
+      "bytes": 1224684,
+      "canvas": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds127": [
+        279,
+        262,
+        853,
+        1228
+      ]
+    },
+    {
+      "path": "walk-v10-complete/model-reference/master-back-v4.png",
+      "sha256": "83a7ee10c44b450ff5e111f6a4aa38987d155710537129b720e646abf0604a7a",
+      "bytes": 1928478,
+      "canvas": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds127": [
+        88,
+        11,
+        937,
+        1485
+      ]
+    },
+    {
+      "path": "walk-v10-complete/model-reference/master-front-v2.png",
+      "sha256": "7ec89e91a67884a6e524b788e328a763aaebe502c2a5b5c887b5679fd7620997",
+      "bytes": 1958924,
+      "canvas": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds127": [
+        93,
+        11,
+        937,
+        1484
+      ]
+    },
+    {
+      "path": "walk-v10-complete/model-reference/master-left-v1.png",
+      "sha256": "5838c2ced158956e734c5d4c24219020fa8070ed27b3d1e3f0c3215ac4ee5425",
+      "bytes": 1861566,
+      "canvas": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds127": [
+        134,
+        12,
+        889,
+        1523
+      ]
+    },
+    {
+      "path": "walk-v10-complete/model-reference/master-right-v1.png",
+      "sha256": "9fe601f7ea4a0b400892ae05fb6858cce1755b54e7a45e0f7f12c3ca88f737ce",
+      "bytes": 1757141,
+      "canvas": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds127": [
+        133,
+        10,
+        868,
+        1517
+      ]
+    },
+    {
+      "path": "walk-v10-complete/model-reference/master-right-v3.png",
+      "sha256": "4798dd4f33e066e424e0f8177c8cd9a0d3758a60088d98c6ab2879d72233309b",
+      "bytes": 1763022,
+      "canvas": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds127": [
+        148,
+        8,
+        865,
+        1522
+      ]
+    }
+  ],
+  "version": "v12",
+  "walkDirections": [
+    "left",
+    "right"
+  ],
+  "walkBasePhasesPerDirection": 8,
+  "turnarounds": [
+    "left-to-right",
+    "right-to-left"
+  ],
+  "newNativePngCount": 11,
+  "originalV11Unchanged": true,
+  "reviewSummary": "evidence/left-completion-20261018/review-summary.json"
+}

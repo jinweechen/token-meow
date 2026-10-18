@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "title": "侧走母稿复核",
+  "canvas": { "width": 1024, "height": 1536 },
+  "referenceCharacterHeight": 1488,
+  "defaultVersion": "v8",
+  "defaultComparison": "v5",
+  "reviewNotes": [
+    "当前只修母稿，所有版本均待复核。",
+    "尾巴连接后骨盆正中；远侧左手与尾巴重叠时，应被尾巴遮挡。"
+  ],
+  "focusRegions": [
+    { "id": "tail-hands", "label": "尾根与双手", "x": 340, "y": 650, "width": 590, "height": 330 },
+    { "id": "shoes", "label": "双鞋", "x": 230, "y": 1240, "width": 730, "height": 285 }
+  ],
+  "versions": [
+    {
+      "id": "v5",
+      "label": "v5 · 空间修订旧稿",
+      "path": "candidates/05-spatial-revision-v5.png",
+      "reviewStatus": "needs-revision",
+      "reviewNotes": [
+        "保留为前后对比。",
+        "远侧左手画在尾巴前方，尾根与手臂的遮挡关系需修正。"
+      ]
+    },
+    {
+      "id": "v7",
+      "label": "v7 · 后骨盆中线修订",
+      "path": "candidates/05-spatial-revision-v7-midline.png",
+      "reviewStatus": "needs-revision",
+      "reviewNotes": [
+        "远侧左手已部分被尾巴遮挡。",
+        "尾根仍偏高，尾身仍过粗、过长；尚未通过。"
+      ]
+    },
+    {
+      "id": "v8",
+      "label": "v8 · 低后骨盆尾根修订",
+      "path": "candidates/05-spatial-revision-v8-low-root.png",
+      "reviewStatus": "pending-review",
+      "reviewNotes": [
+        "尾根降低、尾身收窄，远侧左手自然露在根段上方。",
+        "需逐项复核尾根中线、袖手遮挡和双脚近远透视；不是通过结论。"
+      ]
+    }
+  ]
+}

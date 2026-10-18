@@ -1,0 +1,66 @@
+{
+  "schemaVersion": 1,
+  "title": "小柚 v9 · 人物结构稿逐帧研究",
+  "status": "reviewed-keypose-study-incomplete",
+  "canvas": {
+    "width": 1024,
+    "height": 1536
+  },
+  "lowerBodyTop": 720,
+  "sequenceReview": {
+    "requiredPhases": 8,
+    "allPhasesReviewed": false,
+    "actualContactVerified": false,
+    "notes": [
+      "4 个结构关键姿势已静态复核；02、04、06、08 尚未绘制。",
+      "01/05 接触方向可保留；03/07 链长、摆脚高度和手臂相位仍不一致。",
+      "另有 2 张裙装透明候选见 dressed-preview.html，不代表完整动画。"
+    ]
+  },
+  "frames": [
+    {
+      "id": "01-contact-near-v2",
+      "phase": 1,
+      "label": "01 · 近脚接触",
+      "path": "candidates/01-contact-near-v2.png",
+      "reviewStatus": "reviewed-candidate",
+      "contactVerified": false,
+      "notes": [
+        "静态近远腿归属、脚跟/前掌接触及反摆可保留；跨帧实际支点尚未验证。"
+      ]
+    },
+    {
+      "id": "03-passing-far-v5",
+      "phase": 3,
+      "label": "03 · 远脚经过",
+      "path": "candidates/03-passing-far-v5.png",
+      "reviewStatus": "needs-revision",
+      "contactVerified": false,
+      "notes": [
+        "远脚经过与遮挡改善；与07的链长、摆脚高度及手臂相位尚未一致。"
+      ]
+    },
+    {
+      "id": "05-contact-far-v2",
+      "phase": 5,
+      "label": "05 · 远脚接触",
+      "path": "candidates/05-contact-far-v2.png",
+      "reviewStatus": "reviewed-candidate",
+      "contactVerified": false,
+      "notes": [
+        "近腿后摆时的前景归属、静态接触及反摆可保留；未验证完整循环。"
+      ]
+    },
+    {
+      "id": "07-passing-near-v2",
+      "phase": 7,
+      "label": "07 · 近脚经过",
+      "path": "candidates/07-passing-near-v2.png",
+      "reviewStatus": "needs-revision",
+      "contactVerified": false,
+      "notes": [
+        "经过方向可保留；链长、摆脚高度和手臂相位仍需与03统一。"
+      ]
+    }
+  ]
+}
