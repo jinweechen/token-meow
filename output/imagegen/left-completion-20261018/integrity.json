@@ -1,0 +1,342 @@
+[
+  {
+    "id": "master-left-v1",
+    "source": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14ad5-c365-7233-8895-9cecddb69f66\\exec-42e99e19-4da6-4f34-8ea2-61e369691cdb.png",
+    "destination": "model-reference/master-left-v1.png",
+    "prompt": "prompts/v12-master-left.txt",
+    "references": [
+      "model-reference/master-right-v3.png",
+      "model-reference/master-front-v2.png"
+    ],
+    "transparent_background": true,
+    "generation": "built-in imagegen",
+    "sha256": "5838c2ced158956e734c5d4c24219020fa8070ed27b3d1e3f0c3215ac4ee5425",
+    "originalSha256": "5838c2ced158956e734c5d4c24219020fa8070ed27b3d1e3f0c3215ac4ee5425",
+    "bytesEqual": true,
+    "promptSha256": "cebf775e6c80cef3ec2e083cd191b56ca6c227ee8c100a1ab0799d4ff87842af",
+    "inputs": [
+      {
+        "path": "model-reference/master-right-v3.png",
+        "sha256": "4798dd4f33e066e424e0f8177c8cd9a0d3758a60088d98c6ab2879d72233309b"
+      },
+      {
+        "path": "model-reference/master-front-v2.png",
+        "sha256": "7ec89e91a67884a6e524b788e328a763aaebe502c2a5b5c887b5679fd7620997"
+      }
+    ],
+    "canvas": [
+      1024,
+      1536
+    ],
+    "mode": "RGBA",
+    "alphaRange": [
+      0,
+      254
+    ]
+  },
+  {
+    "id": "01-contact-near",
+    "source": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14ad5-c365-7233-8895-9cecddb69f66\\exec-617ffecb-78f7-4bce-a19a-6184ba485e55.png",
+    "destination": "frames-left-v12/01-contact-near.png",
+    "prompt": "prompts/v12-left-01-contact-near.txt",
+    "references": [
+      "model-reference/master-left-v1.png"
+    ],
+    "transparent_background": true,
+    "generation": "built-in imagegen",
+    "sha256": "584b652748987709a18eb17b941b6cc3e3a75d133c32b213b7b7ff7d3c841ecf",
+    "originalSha256": "584b652748987709a18eb17b941b6cc3e3a75d133c32b213b7b7ff7d3c841ecf",
+    "bytesEqual": true,
+    "promptSha256": "328d46d4e68057e2fd19794a819eef679025c57ecb9adbaf7b20a82acce6153b",
+    "inputs": [
+      {
+        "path": "model-reference/master-left-v1.png",
+        "sha256": "5838c2ced158956e734c5d4c24219020fa8070ed27b3d1e3f0c3215ac4ee5425"
+      }
+    ],
+    "canvas": [
+      1024,
+      1536
+    ],
+    "mode": "RGBA",
+    "alphaRange": [
+      0,
+      254
+    ]
+  },
+  {
+    "id": "03-far-passing",
+    "source": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14ad5-c365-7233-8895-9cecddb69f66\\exec-728c0752-1519-4634-82e3-70e332bb1022.png",
+    "destination": "frames-left-v12/03-far-passing.png",
+    "prompt": "prompts/v12-left-03-far-passing.txt",
+    "references": [
+      "model-reference/master-left-v1.png"
+    ],
+    "transparent_background": true,
+    "generation": "built-in imagegen",
+    "sha256": "e46c02c60536aae788129b455b7c60584d242f559f3ad30c37843190beb14fbf",
+    "originalSha256": "e46c02c60536aae788129b455b7c60584d242f559f3ad30c37843190beb14fbf",
+    "bytesEqual": true,
+    "promptSha256": "bc945612590fd6a56747c986c381bb755fbbb618883acc5dc392ef135db0b27d",
+    "inputs": [
+      {
+        "path": "model-reference/master-left-v1.png",
+        "sha256": "5838c2ced158956e734c5d4c24219020fa8070ed27b3d1e3f0c3215ac4ee5425"
+      }
+    ],
+    "canvas": [
+      1024,
+      1536
+    ],
+    "mode": "RGBA",
+    "alphaRange": [
+      0,
+      254
+    ]
+  },
+  {
+    "id": "05-contact-far",
+    "source": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14ad5-c365-7233-8895-9cecddb69f66\\exec-57ea9a5c-5fd0-40de-a926-c1893b47babf.png",
+    "destination": "frames-left-v12/05-contact-far.png",
+    "prompt": "prompts/v12-left-05-contact-far.txt",
+    "references": [
+      "model-reference/master-left-v1.png"
+    ],
+    "transparent_background": true,
+    "generation": "built-in imagegen",
+    "sha256": "ef4a91a560d929852013e3bdae3fa69bc57142658e236118384ef4649049fc06",
+    "originalSha256": "ef4a91a560d929852013e3bdae3fa69bc57142658e236118384ef4649049fc06",
+    "bytesEqual": true,
+    "promptSha256": "42a95d244ddf7891c5763bcb4f78d3bd80adc22c860e3fc447a93a787d9697e2",
+    "inputs": [
+      {
+        "path": "model-reference/master-left-v1.png",
+        "sha256": "5838c2ced158956e734c5d4c24219020fa8070ed27b3d1e3f0c3215ac4ee5425"
+      }
+    ],
+    "canvas": [
+      1024,
+      1536
+    ],
+    "mode": "RGBA",
+    "alphaRange": [
+      0,
+      254
+    ]
+  },
+  {
+    "id": "07-near-passing",
+    "source": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14ad5-c365-7233-8895-9cecddb69f66\\exec-b0340a30-cd37-42f5-af7b-01be4ac3df77.png",
+    "destination": "frames-left-v12/07-near-passing.png",
+    "prompt": "prompts/v12-left-07-near-passing.txt",
+    "references": [
+      "model-reference/master-left-v1.png"
+    ],
+    "transparent_background": true,
+    "generation": "built-in imagegen",
+    "sha256": "f2774fe1c957e39f075b9feed2c268783a6c68889ff58cd2bd02e9ac8d674de5",
+    "originalSha256": "f2774fe1c957e39f075b9feed2c268783a6c68889ff58cd2bd02e9ac8d674de5",
+    "bytesEqual": true,
+    "promptSha256": "3a6f148b2d4b7feff2998efbe2a5062e25aaeb7aee52d9c0066b5e41e528158d",
+    "inputs": [
+      {
+        "path": "model-reference/master-left-v1.png",
+        "sha256": "5838c2ced158956e734c5d4c24219020fa8070ed27b3d1e3f0c3215ac4ee5425"
+      }
+    ],
+    "canvas": [
+      1024,
+      1536
+    ],
+    "mode": "RGBA",
+    "alphaRange": [
+      0,
+      254
+    ]
+  },
+  {
+    "id": "02-near-flat-recovery",
+    "source": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14ad5-c365-7233-8895-9cecddb69f66\\exec-0026e2b8-0377-45fa-a267-b2cdb739c668.png",
+    "destination": "frames-left-v12/02-near-flat-recovery.png",
+    "prompt": "prompts/v12-left-02-near-flat-recovery.txt",
+    "references": [
+      "model-reference/master-left-v1.png"
+    ],
+    "transparent_background": true,
+    "generation": "built-in imagegen",
+    "sha256": "b5a50a55a52a6cbf0fe5b25a331d38f669f15051bb9fafc13bd3e89692db4e78",
+    "originalSha256": "b5a50a55a52a6cbf0fe5b25a331d38f669f15051bb9fafc13bd3e89692db4e78",
+    "bytesEqual": true,
+    "promptSha256": "e04748e1636843089bd581cfe2cd5675e5a58516870966c4f0cf087ccddf50a9",
+    "inputs": [
+      {
+        "path": "model-reference/master-left-v1.png",
+        "sha256": "5838c2ced158956e734c5d4c24219020fa8070ed27b3d1e3f0c3215ac4ee5425"
+      }
+    ],
+    "canvas": [
+      1024,
+      1536
+    ],
+    "mode": "RGBA",
+    "alphaRange": [
+      0,
+      254
+    ]
+  },
+  {
+    "id": "04-near-toe-far-reach",
+    "source": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14ad5-c365-7233-8895-9cecddb69f66\\exec-b1bd1ee1-b037-443c-9d02-80df29b2ba8b.png",
+    "destination": "frames-left-v12/04-near-toe-far-reach.png",
+    "prompt": "prompts/v12-left-04-near-toe-far-reach.txt",
+    "references": [
+      "model-reference/master-left-v1.png"
+    ],
+    "transparent_background": true,
+    "generation": "built-in imagegen",
+    "sha256": "5cb9d2b1b0c2eb618fb192169882e4fa3d947caef30bee692a6724c79b4d2331",
+    "originalSha256": "5cb9d2b1b0c2eb618fb192169882e4fa3d947caef30bee692a6724c79b4d2331",
+    "bytesEqual": true,
+    "promptSha256": "e96a20cfecd38bdd7a674c7e2c150060b872c883b1ff6c25779ec427e18542f9",
+    "inputs": [
+      {
+        "path": "model-reference/master-left-v1.png",
+        "sha256": "5838c2ced158956e734c5d4c24219020fa8070ed27b3d1e3f0c3215ac4ee5425"
+      }
+    ],
+    "canvas": [
+      1024,
+      1536
+    ],
+    "mode": "RGBA",
+    "alphaRange": [
+      0,
+      254
+    ]
+  },
+  {
+    "id": "06-far-flat-recovery",
+    "source": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14ad5-c365-7233-8895-9cecddb69f66\\exec-d84cac83-c618-4d38-9be5-6bc1ffa2ebee.png",
+    "destination": "frames-left-v12/06-far-flat-recovery.png",
+    "prompt": "prompts/v12-left-06-far-flat-recovery.txt",
+    "references": [
+      "model-reference/master-left-v1.png"
+    ],
+    "transparent_background": true,
+    "generation": "built-in imagegen",
+    "sha256": "5e46b36f0ff802c0f0e73ab00db8db2bd12367f366a5ac5fcfce5991de649ebd",
+    "originalSha256": "5e46b36f0ff802c0f0e73ab00db8db2bd12367f366a5ac5fcfce5991de649ebd",
+    "bytesEqual": true,
+    "promptSha256": "afab4b37f7c900176e69ba70a658316d56c203841279a896d294ace51f3d34de",
+    "inputs": [
+      {
+        "path": "model-reference/master-left-v1.png",
+        "sha256": "5838c2ced158956e734c5d4c24219020fa8070ed27b3d1e3f0c3215ac4ee5425"
+      }
+    ],
+    "canvas": [
+      1024,
+      1536
+    ],
+    "mode": "RGBA",
+    "alphaRange": [
+      0,
+      254
+    ]
+  },
+  {
+    "id": "08-far-toe-near-reach",
+    "source": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14ad5-c365-7233-8895-9cecddb69f66\\exec-ca606838-0326-4277-a720-e931655a82b9.png",
+    "destination": "frames-left-v12/08-far-toe-near-reach.png",
+    "prompt": "prompts/v12-left-08-far-toe-near-reach.txt",
+    "references": [
+      "model-reference/master-left-v1.png"
+    ],
+    "transparent_background": true,
+    "generation": "built-in imagegen",
+    "sha256": "70f7e6cdcbd1ad00ef643fae7d5475a85e5ecb7400f5c4c9bc20ed95e8a1224c",
+    "originalSha256": "70f7e6cdcbd1ad00ef643fae7d5475a85e5ecb7400f5c4c9bc20ed95e8a1224c",
+    "bytesEqual": true,
+    "promptSha256": "98f802193d3415b5984c6292732f49657eab4b5c8ef49fbd7fe09f422c02cc10",
+    "inputs": [
+      {
+        "path": "model-reference/master-left-v1.png",
+        "sha256": "5838c2ced158956e734c5d4c24219020fa8070ed27b3d1e3f0c3215ac4ee5425"
+      }
+    ],
+    "canvas": [
+      1024,
+      1536
+    ],
+    "mode": "RGBA",
+    "alphaRange": [
+      0,
+      254
+    ]
+  },
+  {
+    "id": "turn-front-left",
+    "source": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14ad5-c365-7233-8895-9cecddb69f66\\exec-476d2298-3ed4-425d-a5e1-a4e27326a2ba.png",
+    "destination": "actions-v12/walk-left/turn.png",
+    "prompt": "prompts/v12-turn-front-left.txt",
+    "references": [
+      "model-reference/master-left-v1.png",
+      "model-reference/master-front-v2.png"
+    ],
+    "transparent_background": true,
+    "generation": "built-in imagegen",
+    "sha256": "6f1e3a36e4d8a44440660494a688b8db5e73e0959153a0c17a978a63ff6be6f4",
+    "originalSha256": "6f1e3a36e4d8a44440660494a688b8db5e73e0959153a0c17a978a63ff6be6f4",
+    "bytesEqual": true,
+    "promptSha256": "8d1275814cdf8237b287e18822a0b6d3abc1f1145fbea1e24abd263edf288d21",
+    "inputs": [
+      {
+        "path": "model-reference/master-left-v1.png",
+        "sha256": "5838c2ced158956e734c5d4c24219020fa8070ed27b3d1e3f0c3215ac4ee5425"
+      },
+      {
+        "path": "model-reference/master-front-v2.png",
+        "sha256": "7ec89e91a67884a6e524b788e328a763aaebe502c2a5b5c887b5679fd7620997"
+      }
+    ],
+    "canvas": [
+      1024,
+      1536
+    ],
+    "mode": "RGBA",
+    "alphaRange": [
+      0,
+      254
+    ]
+  },
+  {
+    "id": "start-left",
+    "source": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14ad5-c365-7233-8895-9cecddb69f66\\exec-d6b661c5-fad3-499d-9182-8343c33adeb9.png",
+    "destination": "actions-v12/walk-left/start.png",
+    "prompt": "prompts/v12-start-left.txt",
+    "references": [
+      "model-reference/master-left-v1.png"
+    ],
+    "transparent_background": true,
+    "generation": "built-in imagegen",
+    "sha256": "3a2a3b01db8746260851d0c6a3bf50e960dc14426c7e25b30b287214c4981508",
+    "originalSha256": "3a2a3b01db8746260851d0c6a3bf50e960dc14426c7e25b30b287214c4981508",
+    "bytesEqual": true,
+    "promptSha256": "cb1cf44db1ef0efa70576583313e9195b9b111d407cfef554adec62f927e7832",
+    "inputs": [
+      {
+        "path": "model-reference/master-left-v1.png",
+        "sha256": "5838c2ced158956e734c5d4c24219020fa8070ed27b3d1e3f0c3215ac4ee5425"
+      }
+    ],
+    "canvas": [
+      1024,
+      1536
+    ],
+    "mode": "RGBA",
+    "alphaRange": [
+      0,
+      254
+    ]
+  }
+]

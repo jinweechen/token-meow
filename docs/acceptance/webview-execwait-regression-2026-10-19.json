@@ -1,0 +1,387 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-19",
+  "status": "PRODUCTION_NSIS_WEBVIEW_EXECWAIT_BRANCHES_EIGHT_ISOLATED_CASES_PASSED_NOT_INSTALLATION",
+  "recordedAtUtc": "2026-10-18T22:59:57.083442+00:00",
+  "scope": "Real Windows NSIS ExecWait execution of two unmodified byte slices extracted from the fixed production template, using owned headless test executables. No real installer section, WebView binary/download, application, registry operation or GUI page was executed by these wrappers.",
+  "defectAndRepair": {
+    "template": "src-tauri/windows/installer.nsi",
+    "bootstrapperExecutableQuoted": true,
+    "bothCallsClearErrorsBeforeExecWait": true,
+    "successRequiresNoLaunchErrorAndExitZero": true,
+    "nonzeroOrLaunchErrorExits": 69,
+    "downloadAndUpgradeSelectionSemanticsChanged": false,
+    "inspector": "scripts/inspect-installer.ps1",
+    "twoNewChecksExamineActualGeneratedCompleteInstructionBlocks": true,
+    "actualNewProductionEngineInspectionPartOfThisReceipt": false,
+    "officialSemantics": "https://nsis.sourceforge.io/Reference/ExecWait"
+  },
+  "binding": {
+    "control": {
+      "path": "output/implementation/nsis-webview-execwait-regression-20261019-r1/control.json",
+      "bytes": 19093,
+      "sha256": "9D8A3B2B2B9642A798D2B588EE056D9675F107A1C3362B8E5004EA7AF7836E10"
+    },
+    "runner": {
+      "path": "output/implementation/nsis-webview-execwait-regression-20261019-r1/run.py",
+      "bytes": 11330,
+      "sha256": "9F876DA33F4B1E703E68DF521793228EA4306FC23F5DFDDD07A09D6F03F726BA"
+    },
+    "productionInputs": [
+      {
+        "path": "D:\\project\\宠物\\src-tauri\\windows\\installer.nsi",
+        "bytes": 31198,
+        "sha256": "5F4A7D1F7A4D8B3075E2CB48C0DD82559253E5C08B8275F4A08B9C617C660173"
+      },
+      {
+        "path": "D:\\project\\宠物\\scripts\\inspect-installer.ps1",
+        "bytes": 13733,
+        "sha256": "CAA77427745F98423C3E46616421D173D7709BF6B6B5E8D888AA349571EE0E15"
+      }
+    ],
+    "privateTemplateSnapshot": {
+      "path": "output/implementation/nsis-webview-execwait-regression-20261019-r1/production-template.nsi",
+      "bytes": 31198,
+      "sha256": "5F4A7D1F7A4D8B3075E2CB48C0DD82559253E5C08B8275F4A08B9C617C660173"
+    },
+    "privateInspectorSnapshot": {
+      "path": "output/implementation/nsis-webview-execwait-regression-20261019-r1/production-inspector.ps1",
+      "bytes": 13733,
+      "sha256": "CAA77427745F98423C3E46616421D173D7709BF6B6B5E8D888AA349571EE0E15"
+    },
+    "productionBranchByteSlices": {
+      "bootstrapper": {
+        "startByte": 18471,
+        "endByteExclusive": 18799,
+        "sliceSha256": "C004F8F60C280E6DAEE5478D95F28E37BDC44A93A61FE929CE981EB11099C398",
+        "sourceSha256": "5F4A7D1F7A4D8B3075E2CB48C0DD82559253E5C08B8275F4A08B9C617C660173"
+      },
+      "updater": {
+        "startByte": 19667,
+        "endByteExclusive": 20002,
+        "sliceSha256": "874471ACD4122A4016B2CF5D0B583647780B6F7B5749FF75E0C2E067DBE6E71C",
+        "sourceSha256": "5F4A7D1F7A4D8B3075E2CB48C0DD82559253E5C08B8275F4A08B9C617C660173"
+      }
+    },
+    "slicesByteEqualProductionOffsets": true,
+    "fourHelpersByteIdenticalToReviewedR5": true,
+    "controlsAndToolsExcludingControlFile": 47,
+    "allInputGuardsIncludingControl": 48,
+    "fixtureSource": {
+      "path": "output/implementation/nsis-webview-execwait-regression-20261019-r1/fixture.cs",
+      "bytes": 465,
+      "sha256": "ABCF72781DD4355891C54673C25AF7E59505692443210C443A6E498E3D1F875C"
+    },
+    "templateDiffFromExactC40Before": {
+      "path": "output/implementation/nsis-webview-execwait-regression-20261019-r1/production-template-fix.diff",
+      "bytes": 1183,
+      "sha256": "B8D22CE3DE55F6628DFD74C1581F3E51BA1DA3249905E16B3191BE562B63B529"
+    }
+  },
+  "actualCompile": {
+    "result": {
+      "path": "output/implementation/nsis-webview-execwait-regression-20261019-r1/compile/result.json",
+      "bytes": 8885,
+      "sha256": "0BF0A7C9C0B40B71E15D76D1E5261DA7DC37D9A796B348D9AD8DA19AFFBC9375"
+    },
+    "job": {
+      "path": "output/implementation/nsis-webview-execwait-regression-20261019-r1/compile/job.json",
+      "bytes": 5242,
+      "sha256": "21727BB881387DB75927B09E6EFD56C19AB63AE546A9D97D4B01EAC994C52751"
+    },
+    "compiledPeAndCompilerCommandBindings": {
+      "path": "output/implementation/nsis-webview-execwait-regression-20261019-r1/compile/compiled.json",
+      "bytes": 8074,
+      "sha256": "4E3A39124E0FA45BBB359927A2519A5E01DE1AA2E59EB5752E0DC1085E24C2D5"
+    },
+    "compilerCommands": 9,
+    "allCompilerExitCodesZero": true,
+    "compiledPeOutputs": 14,
+    "compiledPeHashesRechecked": true,
+    "rootExitCode": 0,
+    "naturalWholeJobCompletion": true,
+    "activeProcesses": 0,
+    "totalTerminatedProcesses": 0,
+    "elapsedSeconds": 0.9374243998900056,
+    "timeoutSeconds": 120,
+    "cleanupSeconds": 5,
+    "cleanupVerified": true,
+    "errors": []
+  },
+  "actualRegression": {
+    "result": {
+      "path": "output/implementation/nsis-webview-execwait-regression-20261019-r1/test/result.json",
+      "bytes": 4010,
+      "sha256": "7646C97578ADD86757B55063513FD90A6330D2D79C5EC0F3204ACC93CBD788F2"
+    },
+    "passed": 8,
+    "caseTimeoutSeconds": 20,
+    "cleanupSeconds": 5,
+    "cases": [
+      {
+        "case": "bootstrapper-success",
+        "configuredFixtureOutcome": "success",
+        "configuredFixtureExitCode": 0,
+        "expectedHarnessExitCode": 0,
+        "actualHarnessRootExitCode": 0,
+        "naturalWholeJobCompletion": true,
+        "activeProcesses": 0,
+        "totalTerminatedProcesses": 0,
+        "elapsedSeconds": 0.49236939987167716,
+        "job": {
+          "path": "output/implementation/nsis-webview-execwait-regression-20261019-r1/test/bootstrapper-success/job.json",
+          "bytes": 4113,
+          "sha256": "DD743A28F374C55B4C25BDF64DFAE0C2B730339D0A9C85AA038411C9563E00CC"
+        },
+        "fixtureInvocationMarker": {
+          "path": "output/implementation/nsis-webview-execwait-regression-20261019-r1/work/中文 目录/bootstrapper-success/calls.txt",
+          "bytes": 18,
+          "sha256": "DFD79C104208401B86F3D7159DEA27F54FCA14C878CFF9AC199608E5D449BDB1"
+        },
+        "exactArgumentsMatched": true,
+        "prefixTrapInvoked": false,
+        "cleanupVerified": true,
+        "timedOut": false,
+        "errors": []
+      },
+      {
+        "case": "bootstrapper-nonzero",
+        "configuredFixtureOutcome": "nonzero",
+        "configuredFixtureExitCode": 17,
+        "expectedHarnessExitCode": 69,
+        "actualHarnessRootExitCode": 69,
+        "naturalWholeJobCompletion": true,
+        "activeProcesses": 0,
+        "totalTerminatedProcesses": 0,
+        "elapsedSeconds": 0.3681378997862339,
+        "job": {
+          "path": "output/implementation/nsis-webview-execwait-regression-20261019-r1/test/bootstrapper-nonzero/job.json",
+          "bytes": 4115,
+          "sha256": "C171B56441418B3A2FE502D0ABD0DA3B5777CB62809B5F63CA29A096554035F7"
+        },
+        "fixtureInvocationMarker": {
+          "path": "output/implementation/nsis-webview-execwait-regression-20261019-r1/work/中文 目录/bootstrapper-nonzero/calls.txt",
+          "bytes": 18,
+          "sha256": "DFD79C104208401B86F3D7159DEA27F54FCA14C878CFF9AC199608E5D449BDB1"
+        },
+        "exactArgumentsMatched": true,
+        "prefixTrapInvoked": false,
+        "cleanupVerified": true,
+        "timedOut": false,
+        "errors": []
+      },
+      {
+        "case": "bootstrapper-missing",
+        "configuredFixtureOutcome": "missing",
+        "configuredFixtureExitCode": null,
+        "expectedHarnessExitCode": 69,
+        "actualHarnessRootExitCode": 69,
+        "naturalWholeJobCompletion": true,
+        "activeProcesses": 0,
+        "totalTerminatedProcesses": 0,
+        "elapsedSeconds": 0.38465770008042455,
+        "job": {
+          "path": "output/implementation/nsis-webview-execwait-regression-20261019-r1/test/bootstrapper-missing/job.json",
+          "bytes": 4116,
+          "sha256": "C7B33897C795D2F17A4240B960A8F3BEE942C405C3261D870C8CE676F33E2C5A"
+        },
+        "fixtureInvocationMarker": null,
+        "exactArgumentsMatched": null,
+        "prefixTrapInvoked": false,
+        "cleanupVerified": true,
+        "timedOut": false,
+        "errors": []
+      },
+      {
+        "case": "bootstrapper-bad-image",
+        "configuredFixtureOutcome": "bad-image",
+        "configuredFixtureExitCode": null,
+        "expectedHarnessExitCode": 69,
+        "actualHarnessRootExitCode": 69,
+        "naturalWholeJobCompletion": true,
+        "activeProcesses": 0,
+        "totalTerminatedProcesses": 0,
+        "elapsedSeconds": 0.2242686003446579,
+        "job": {
+          "path": "output/implementation/nsis-webview-execwait-regression-20261019-r1/test/bootstrapper-bad-image/job.json",
+          "bytes": 4119,
+          "sha256": "BF2B4C9418DEA2DF09061C785E004B0D025CF9944BC0721642C21ABB50C83403"
+        },
+        "fixtureInvocationMarker": null,
+        "exactArgumentsMatched": null,
+        "prefixTrapInvoked": false,
+        "cleanupVerified": true,
+        "timedOut": false,
+        "errors": []
+      },
+      {
+        "case": "updater-success",
+        "configuredFixtureOutcome": "success",
+        "configuredFixtureExitCode": 0,
+        "expectedHarnessExitCode": 0,
+        "actualHarnessRootExitCode": 0,
+        "naturalWholeJobCompletion": true,
+        "activeProcesses": 0,
+        "totalTerminatedProcesses": 0,
+        "elapsedSeconds": 0.3596139997243881,
+        "job": {
+          "path": "output/implementation/nsis-webview-execwait-regression-20261019-r1/test/updater-success/job.json",
+          "bytes": 4101,
+          "sha256": "689C334F75BA863711F2092B7C703675D13CB9B7C72E28C32F0A8E085D7F07AE"
+        },
+        "fixtureInvocationMarker": {
+          "path": "output/implementation/nsis-webview-execwait-regression-20261019-r1/work/中文 目录/updater-success/calls.txt",
+          "bytes": 58,
+          "sha256": "2D8F4980F408B22378AC730DC85515575ADFDF4F61F15C345D0081CB2E685CF5"
+        },
+        "exactArgumentsMatched": true,
+        "prefixTrapInvoked": false,
+        "cleanupVerified": true,
+        "timedOut": false,
+        "errors": []
+      },
+      {
+        "case": "updater-nonzero",
+        "configuredFixtureOutcome": "nonzero",
+        "configuredFixtureExitCode": 17,
+        "expectedHarnessExitCode": 69,
+        "actualHarnessRootExitCode": 69,
+        "naturalWholeJobCompletion": true,
+        "activeProcesses": 0,
+        "totalTerminatedProcesses": 0,
+        "elapsedSeconds": 0.34130300022661686,
+        "job": {
+          "path": "output/implementation/nsis-webview-execwait-regression-20261019-r1/test/updater-nonzero/job.json",
+          "bytes": 4106,
+          "sha256": "0547422735DE10AA622B6BD0444BAD781233CB4E432909AA81710817EE133584"
+        },
+        "fixtureInvocationMarker": {
+          "path": "output/implementation/nsis-webview-execwait-regression-20261019-r1/work/中文 目录/updater-nonzero/calls.txt",
+          "bytes": 58,
+          "sha256": "2D8F4980F408B22378AC730DC85515575ADFDF4F61F15C345D0081CB2E685CF5"
+        },
+        "exactArgumentsMatched": true,
+        "prefixTrapInvoked": false,
+        "cleanupVerified": true,
+        "timedOut": false,
+        "errors": []
+      },
+      {
+        "case": "updater-missing",
+        "configuredFixtureOutcome": "missing",
+        "configuredFixtureExitCode": null,
+        "expectedHarnessExitCode": 69,
+        "actualHarnessRootExitCode": 69,
+        "naturalWholeJobCompletion": true,
+        "activeProcesses": 0,
+        "totalTerminatedProcesses": 0,
+        "elapsedSeconds": 0.18689640006050467,
+        "job": {
+          "path": "output/implementation/nsis-webview-execwait-regression-20261019-r1/test/updater-missing/job.json",
+          "bytes": 4105,
+          "sha256": "55CCE397D449F47FF7EE441F4A62B90063D09A6B2F8D4388DC83B4D8CC658B44"
+        },
+        "fixtureInvocationMarker": null,
+        "exactArgumentsMatched": null,
+        "prefixTrapInvoked": false,
+        "cleanupVerified": true,
+        "timedOut": false,
+        "errors": []
+      },
+      {
+        "case": "updater-bad-image",
+        "configuredFixtureOutcome": "bad-image",
+        "configuredFixtureExitCode": null,
+        "expectedHarnessExitCode": 69,
+        "actualHarnessRootExitCode": 69,
+        "naturalWholeJobCompletion": true,
+        "activeProcesses": 0,
+        "totalTerminatedProcesses": 0,
+        "elapsedSeconds": 0.45234169997274876,
+        "job": {
+          "path": "output/implementation/nsis-webview-execwait-regression-20261019-r1/test/updater-bad-image/job.json",
+          "bytes": 4109,
+          "sha256": "DE7E24FB5AEC21C2820A8B201022B6AEFF9DE4D9E4A4065172685693E1F72ECF"
+        },
+        "fixtureInvocationMarker": null,
+        "exactArgumentsMatched": null,
+        "prefixTrapInvoked": false,
+        "cleanupVerified": true,
+        "timedOut": false,
+        "errors": []
+      }
+    ],
+    "nineDistinctJobOwnershipIdsIncludingCompile": true,
+    "allJobsNaturalAndEmptyWithNoTermination": true,
+    "staleErrorsAndZeroExitVariablePreseeded": true,
+    "chineseAndSpacePathsUsed": true,
+    "ownedUnquotedPrefixTrapNeverInvoked": true,
+    "automaticRetry": false
+  },
+  "guardClosure": [
+    {
+      "receipt": {
+        "path": "output/implementation/nsis-webview-execwait-regression-20261019-r1/compile/input-guards.json",
+        "bytes": 145,
+        "sha256": "1DF7D586F596DE90D9EB942E2997A6F13BDA93F2E69EFB1B29880E67E3C937A1"
+      },
+      "count": 48,
+      "postHashesMatched": true,
+      "allHandlesClosed": true,
+      "errors": []
+    },
+    {
+      "receipt": {
+        "path": "output/implementation/nsis-webview-execwait-regression-20261019-r1/test/input-guards.json",
+        "bytes": 145,
+        "sha256": "1DF7D586F596DE90D9EB942E2997A6F13BDA93F2E69EFB1B29880E67E3C937A1"
+      },
+      "count": 48,
+      "postHashesMatched": true,
+      "allHandlesClosed": true,
+      "errors": []
+    },
+    {
+      "receipt": {
+        "path": "output/implementation/nsis-webview-execwait-regression-20261019-r1/test/artifact-guards.json",
+        "bytes": 145,
+        "sha256": "55562903B5049EAACDDC9DAB9A6443A6137428BCF7452C737B203AEA6FB83AC7"
+      },
+      "count": 16,
+      "postHashesMatched": true,
+      "allHandlesClosed": true,
+      "errors": []
+    }
+  ],
+  "qualification": {
+    "isolatedProductionBranchRegressionPassed": true,
+    "actualInstallationQualified": false,
+    "actualWebViewDownloadOrInstallQualified": false,
+    "RegistryIntegrationQualified": false,
+    "finalInstallerUiQualified": false,
+    "upgradeQualified": false,
+    "uninstallQualified": false,
+    "NativeQualified": false,
+    "PerformanceQualified": false,
+    "V1Complete": false
+  },
+  "retainedC40Boundary": {
+    "existingFormal": {
+      "path": "docs/acceptance/c40-full-source-custom-installer-2026-10-19.json",
+      "bytes": 26081,
+      "sha256": "3A573246C8903A63536324429733A2A26E175404BD7E1F5866FD1C4742F95773"
+    },
+    "existingC40ArtifactsOrReceiptsModified": false,
+    "c40EmbeddedEngineContainsThisSourceFix": false,
+    "currentC40MissingWebViewExecutionGapRetained": true,
+    "laterEngineOnlyRepackageMustHaveIndependentSourceLegalPayloadAndWpfBinding": true,
+    "recommendedDownloadChangedByThisReceipt": false
+  },
+  "limits": [
+    "These wrappers exit from .onInit and have empty install sections; production installation and registry behavior are not exercised.",
+    "The fixture exits according to owned case data; it is not a Microsoft WebView2 bootstrapper/updater.",
+    "Negative wrappers naturally return69 as expected; this is not a claim that all eight root exit codes are zero.",
+    "This source fix and scoped test result do not patch or qualify the already-built C40 engine or WPF installer."
+  ],
+  "commitOrPushPerformed": false
+}

@@ -1,0 +1,182 @@
+{
+  "status": "C38_SCOPED_BASE_DRAG_QUIT_AND_CLOSED_SETTINGS_PASSED_EXPANDED_DRAG_FAILURES_RETAINED",
+  "recordedAtUtc": "2026-10-18T19:22:17.980580+00:00",
+  "runRoot": "D:\\project\\宠物\\output\\performance\\c38-ui-native-default-20261019-r1",
+  "executable": {
+    "path": "D:\\project\\宠物\\output\\build-candidates\\c38-current-v1-20261019\\token-meow.exe",
+    "bytes": 137726464,
+    "sha256": "22D4005DE03667846999D9A3D7F021D97DEBF90A71064A4F3C4332A1984F3E25"
+  },
+  "staticBuild": "docs/acceptance/c38-current-build-2026-10-19.json",
+  "retainedC37Matrix": {
+    "receipt": {
+      "path": "D:\\project\\宠物\\docs\\acceptance\\c37-ui-native-scoped-2026-10-19.json",
+      "bytes": 18886,
+      "sha256": "B58CD924FCA51572EE11BDD3229BCB76DAC91ABB7917B5F6CEE513052E07E926"
+    },
+    "scope": "C37 popup50/100/200/menu/normalquit and old fast-drag failure stay with C37; not rerun or rebound to C38"
+  },
+  "source": {
+    "frozenSourceManifest": {
+      "path": "D:\\project\\宠物\\output\\build-candidates\\c38-current-v1-20261019\\source-inputs.json",
+      "bytes": 88501,
+      "sha256": "9850810A59A908983B5A959632E3581612BB8BC1272E3C1AC732F3490783B214"
+    },
+    "postOwnerCheck": {
+      "path": "D:\\project\\宠物\\output\\performance\\c38-ui-native-default-20261019-r1\\source-after.json",
+      "bytes": 440,
+      "sha256": "E634080BD02AF494009B9A1974ABD2C91455B30446B9FEAC7B6F21D1E4B4C697"
+    },
+    "sourceFiles": 9,
+    "hashesMatched": true,
+    "frozenCore": {
+      "path": "D:\\project\\宠物\\output\\isolated-build-roots\\c38-current-v1-20261019\\src-tauri\\src\\core.rs",
+      "bytes": 48926,
+      "sha256": "C99F8D6175A98843B72F64D50D67F591B7436B97857D123DB4BBA426400FF607"
+    }
+  },
+  "uiActions": {
+    "path": "D:\\project\\宠物\\output\\performance\\c38-ui-native-default-20261019-r1\\ui\\actions.jsonl",
+    "bytes": 19833,
+    "sha256": "2E01D4BF61B58EA5EA1382F680B7C79DC881D5A6E582C950004DC7C2896C0C18"
+  },
+  "actionCount": 10,
+  "scenarios": [
+    {
+      "id": "02-base-short-drag",
+      "status": "limited-physical-move-passed",
+      "before": [
+        1624,
+        676
+      ],
+      "after": [
+        1544,
+        596
+      ],
+      "actualDelta": [
+        -80,
+        -80
+      ],
+      "nativeAdmissionObserved": true
+    },
+    {
+      "id": "04-expanded-short-drag",
+      "status": "failed-retained",
+      "outcome": "popup collapsed only; base stayed1544,596",
+      "newNativeAdmissionObserved": false
+    },
+    {
+      "id": "06-expanded-long-drag",
+      "status": "failed-retained",
+      "outcome": "popup collapsed only; base stayed1544,596",
+      "newNativeAdmissionObserved": false
+    }
+  ],
+  "normalMenuQuit": {
+    "outcome": "owned-exit-proven",
+    "rootExitCode": 0,
+    "activeProcesses": 0,
+    "identities": 18,
+    "totalProcesses": 18,
+    "receiverStopped": true,
+    "ownerHandlesClosed": true,
+    "immediateTargetWindows": 2,
+    "settledTargetWindows": 0,
+    "status": "scoped-passed",
+    "actions": [
+      "07",
+      "08",
+      "09",
+      "10"
+    ],
+    "click": [
+      80,
+      377
+    ],
+    "sameHandleAll18ExitsProven": true,
+    "finalReceiverFrozenAfterStopJoin": true,
+    "scope": "this single actual normal-menu quit"
+  },
+  "closedAudit": {
+    "receipt": {
+      "path": "D:\\project\\宠物\\output\\implementation\\c38-native-closed-audit-20261019-r1\\result.json",
+      "bytes": 3833,
+      "sha256": "79D5DC8AE8D50EEF897FA031083EF3F9AE4AEBA11ADBE00F07CD98A48F12C3DB"
+    },
+    "control": {
+      "path": "D:\\project\\宠物\\output\\implementation\\c38-native-closed-audit-20261019-r1\\control-inputs.json",
+      "bytes": 1618,
+      "sha256": "AB731A462479003E52DAE7CF7EFAE171941B927CB864988226F08E490D98E412"
+    },
+    "actualBinding": {
+      "path": "D:\\project\\宠物\\output\\implementation\\c38-native-closed-audit-20261019-r1\\binding.actual.json",
+      "bytes": 863,
+      "sha256": "4B36B99DF0E5EFE1F4B0DF0DC1ACFB1859D77DCBC3612D7E83E4EDE0894ACC04"
+    },
+    "checksPassed": 7,
+    "metadataReadGuards": {
+      "count": 47,
+      "postChecksPassed": true,
+      "allHandlesClosed": true,
+      "errors": []
+    },
+    "auditReadGuards": {
+      "count": 54,
+      "postChecksPassed": true,
+      "allHandlesClosed": true,
+      "errors": []
+    },
+    "schema": 6,
+    "syntheticUsage": {
+      "sourceFiles": 9,
+      "totalTokens": 3050,
+      "responseCount": 8
+    },
+    "finalSettings": {
+      "logicalX": 1544,
+      "logicalY": 596,
+      "monitorScaleFactor": 1,
+      "petScale": 1,
+      "clickThrough": false,
+      "alphaHitTest": false,
+      "petVisible": true
+    },
+    "settingOrigins": {
+      "petScale": "frozen Core default_settings",
+      "clickThrough": "preferences",
+      "alphaHitTest": "frozen Core default_settings",
+      "petVisible": "frozen Core default_settings"
+    },
+    "finalBaseSize": [
+      280,
+      340
+    ],
+    "popupExpandedGeometryPersisted": false,
+    "onlyPrivateImmutableCopyOpenedBySQLite": true,
+    "originalDatabaseWritten": false,
+    "CSVExportedOrAudited": false
+  },
+  "qualification": {
+    "basicShortDragLimitedPassed": true,
+    "normalMenuQuitScopedPassed": true,
+    "closedSettingsScopedPassed": true,
+    "expandedDragQualified": false,
+    "fullManualDragQualified": false,
+    "wholeNativeQualified": false,
+    "completeLifecycleQualified": false,
+    "performanceQualified": false,
+    "installationQualified": false,
+    "M4Complete": false,
+    "wholeV1Complete": false
+  },
+  "followUp": {
+    "revision": "C39 source correction in progress",
+    "nativeRetestRequired": true,
+    "currentC38FinalDeliveryClaimed": false
+  },
+  "notes": [
+    "Root performed actual Native UI actions. This document builder did not launch UI or rerun SQL.",
+    "The two expanded-drag failures remain independent of the successful short base drag and normal quit. No all-drag acceptance is claimed.",
+    "The final position oracle came from root UI/window evidence before SQL. C37 fixed1360/352 and action count25 were not reused."
+  ]
+}

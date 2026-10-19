@@ -1,0 +1,208 @@
+{
+  "date": "2026-10-19",
+  "status": "C39_PARTIAL_COPY_SNAPSHOT_PAYLOAD_DIAGNOSTIC_COMPLETE_NOT_PERFORMANCE_ACCEPTANCE",
+  "basis": {
+    "archivedC39CoreRlib": {
+      "path": "output/build-candidates/c39-current-v1-20261019/link-inputs/cli/libtoken_meow_lib-2021ed073e7e236c.rlib",
+      "bytes": 9160966,
+      "sha256": "FEBB8F4F0E2646AC42B6B6B82E9B5A771A289B6A4CEF151AABE2E6F4E9F6898B"
+    },
+    "dependencyScope": "Archived C39 headless Core rlib plus the currently resolved, pinned matching dependencies (88 dependency artifacts); not a byte-for-byte reproduction of the old App or its entire historical toolchain.",
+    "probe": {
+      "bytes": 3111936,
+      "sha256": "C870E2D3304D194B7BB56E61258DFE94CCE2544EA4BFB006FDAFB21C9A07250A"
+    },
+    "workCopyInitial": {
+      "bytes": 502398976,
+      "sha256": "6C40DEEC75304EADC6B098F667B67563A537DC69F9560073DAD21C520FF2B49D",
+      "copyReaderAndWriterExplicitlyClosed": true,
+      "sealedGuardHeldAcrossRun": true,
+      "partialImportDatabase": true,
+      "sealedSourceCopyReceipt": "output/implementation/c39-full379-closed-analysis-20261019-r1/copy-audit-r2.json"
+    }
+  },
+  "execution": {
+    "compile": {
+      "resultPassed": true,
+      "compilerOwnedCleanup": true,
+      "job": {
+        "rootExitCode": 0,
+        "jobActiveProcesses": 0,
+        "totalProcesses": 4,
+        "totalTerminatedProcesses": 0,
+        "naturalWholeJobCompletion": false,
+        "cleanupVerified": true,
+        "timedOut": false,
+        "errors": []
+      },
+      "inputGuards": {
+        "count": 117,
+        "expected": 117,
+        "postChecksPassed": true,
+        "allHandlesClosed": true,
+        "errors": []
+      }
+    },
+    "run": {
+      "resultPassed": true,
+      "job": {
+        "rootExitCode": 0,
+        "jobActiveProcesses": 0,
+        "totalProcesses": 2,
+        "totalTerminatedProcesses": 0,
+        "naturalWholeJobCompletion": true,
+        "cleanupVerified": true,
+        "timedOut": false,
+        "errors": []
+      },
+      "inputGuards": {
+        "count": 117,
+        "expected": 117,
+        "postChecksPassed": true,
+        "allHandlesClosed": true,
+        "errors": []
+      },
+      "executableGuards": {
+        "count": 1,
+        "expected": 1,
+        "postChecksPassed": true,
+        "allHandlesClosed": true,
+        "errors": []
+      },
+      "sealedCopyGuards": {
+        "count": 1,
+        "expected": 1,
+        "postChecksPassed": true,
+        "allHandlesClosed": true,
+        "errors": []
+      }
+    },
+    "AppExecuted": false,
+    "CargoExecuted": false,
+    "scanCalls": 0,
+    "modelCalls": 0,
+    "bridgeCalls": 0,
+    "originalOrSealedDatabaseWritten": false,
+    "disposableWorkCopyOpenedByCore": true
+  },
+  "query": {
+    "from": "2026-10-13",
+    "to": "2026-10-19",
+    "timezone": "Asia/Shanghai",
+    "includeLegacy": false,
+    "dashboardRequest": {
+      "page": 0,
+      "pageSize": 20,
+      "quality": "all"
+    },
+    "order": [
+      "snapshot",
+      "serialize and measure snapshot fields",
+      "drop snapshot",
+      "dashboard",
+      "serialize and measure dashboard fields",
+      "drop dashboard"
+    ]
+  },
+  "measurements": {
+    "snapshot": {
+      "serializedBytes": 19015469,
+      "queryMs": 2184.6639,
+      "serializeMs": 18.075899999999997,
+      "loadMs": null,
+      "buildMs": null
+    },
+    "dashboard": {
+      "serializedBytes": 19117034,
+      "queryMs": 2305.2856,
+      "serializeMs": 19.0105,
+      "loadMs": null,
+      "buildMs": null
+    },
+    "sharedTools": {
+      "serializedBytes": 17866126,
+      "rows": 27037
+    },
+    "sharedTurns": {
+      "serializedBytes": 975068,
+      "rows": 1064
+    },
+    "usageDashboard": {
+      "serializedBytes": 101547
+    },
+    "singleObservationPerApi": true,
+    "coldWarmComparison": false,
+    "loadBuildSplitAvailable": false,
+    "timingScope": "Single public-API wall times, snapshot first and dashboard second on the same disposable Core. These do not measure Native mutex waiting, IPC, WebView allocation, startup or full import."
+  },
+  "interpretation": {
+    "evidence": "The tools field accounts for most of this measured complete response payload. This supports making tool details opt-in for panels that do not display them.",
+    "implementationStatus": "Unreleased source now has an explicit panel-only tools projection; its correctness and Windows behavior await R5 and a new current Windows candidate (C40 or later).",
+    "measuredNewProjection": false,
+    "claimedRssReduction": false,
+    "claimedPerformanceImprovement": false
+  },
+  "evidence": [
+    {
+      "path": "output/implementation/c39-snapshot-payload-profile-20261019-r1/run/result.json",
+      "bytes": 6217,
+      "sha256": "AFA9037F7594C780185EDD6607B577997941A0A66E1B5D1EAADF06C16E02FF92"
+    },
+    {
+      "path": "output/implementation/c39-snapshot-payload-profile-20261019-r1/compile/result.json",
+      "bytes": 517,
+      "sha256": "2F0D074CA04FEEF89D8F9E998CF341BF7AA6105543C63463B142E2DE0050ED77"
+    },
+    {
+      "path": "output/implementation/c39-snapshot-payload-profile-20261019-r1/compile/job.json",
+      "bytes": 16290,
+      "sha256": "094B5CA014357A74422CB0F86BD7DD58200A5991F5CF886B878C1DF572348D76"
+    },
+    {
+      "path": "output/implementation/c39-snapshot-payload-profile-20261019-r1/compile/input-guards.json",
+      "bytes": 147,
+      "sha256": "2520EA862BA520B90A1912371966B38F8CAC520A2488502FF75C263959AE9AD2"
+    },
+    {
+      "path": "output/implementation/c39-snapshot-payload-profile-20261019-r1/run/job.json",
+      "bytes": 14814,
+      "sha256": "552806456860B13861AD9180EB2F7FE598CFF6D029AC7EA7B8D23799D13E5A46"
+    },
+    {
+      "path": "output/implementation/c39-snapshot-payload-profile-20261019-r1/run/input-guards.json",
+      "bytes": 147,
+      "sha256": "2520EA862BA520B90A1912371966B38F8CAC520A2488502FF75C263959AE9AD2"
+    },
+    {
+      "path": "output/implementation/c39-snapshot-payload-profile-20261019-r1/run/executable-guards.json",
+      "bytes": 143,
+      "sha256": "660086A4E7BF79B99BC7392793FBB7ED1D404AE91B5EE0D8F7A70AC2A95210EA"
+    },
+    {
+      "path": "output/implementation/c39-snapshot-payload-profile-20261019-r1/run/sealed-copy-guards.json",
+      "bytes": 143,
+      "sha256": "660086A4E7BF79B99BC7392793FBB7ED1D404AE91B5EE0D8F7A70AC2A95210EA"
+    },
+    {
+      "path": "output/implementation/c39-snapshot-payload-profile-20261019-r1/run/work-copy.json",
+      "bytes": 345,
+      "sha256": "1756F8684105126BE6DA1D2B66823352CE1D82C4E389D6951135095004258B50"
+    },
+    {
+      "path": "output/implementation/c39-snapshot-payload-profile-20261019-r1/runner-control-manifest.json",
+      "bytes": 3868,
+      "sha256": "B82C101EFEA6A35AFAF554D43DECCF5B0F8324BA5202592DB6BEB2061E140C66"
+    },
+    {
+      "path": "output/implementation/c39-snapshot-payload-profile-20261019-r1/link-closure.json",
+      "bytes": 20647,
+      "sha256": "804B76E3F168005466EA1B5011CC70D9D771CA3791D1F81AF44A56182F649DFB"
+    }
+  ],
+  "preservedFailure": "c39-full379-import-failure-2026-10-19.json",
+  "completeImportClaim": false,
+  "coldWarmStartupQualified": false,
+  "idleResourceQualified": false,
+  "wholeNativeAccepted": false,
+  "wholeV1Qualified": false
+}

@@ -34,6 +34,8 @@ export interface AnimationClipHost {
 interface LoadRequest {
   clip: string;
   staticOnly: boolean;
+  ids: readonly string[];
+  key: string;
   pending: boolean;
   started: boolean;
   generation: number;
@@ -157,9 +159,8 @@ export class AnimationClipRegistry {
       if (!validId(clip.id) || this.clips.has(clip.id) || !this.frames.has(clip.fallback) ||
         !Array.isArray(clip.sequence) || !clip.sequence.length || clip.sequence.length > 64 ||
         clip.sequence.some((step) => !this.frames.has(step.frame) ||
-          !Number.isSafeInteger(step.durationMs) || step.durationMs < 1 || step.durationMs > 60_000) ||
-        new Set([clip.fallback, ...clip.sequence.map((step) => step.frame)]).size > MAX_CLIP_FRAMES)
-        throw Error("动画片段清单或十二帧预算无效");
+          !Number.isSafeInteger(step.durationMs) || step.durationMs < 1 || step.durationMs > 60_000))
+        throw Error("动画片段清单无效");
       this.clips.set(clip.id, { id: clip.id, fallback: clip.fallback,
         sequence: clip.sequence.map((step) => ({ ...step })) });
     }
@@ -171,7 +172,34 @@ export class AnimationClipRegistry {
       this.cancel();
       return Promise.reject(Error("未知动画片段"));
     }
-    if (this.current?.clip === clip && this.current.staticOnly === staticOnly) return this.current.ready;
+    const definition = this.clips.get(clip)!;
+    const ids = staticOnly ? [definition.fallback] : [...new Set([definition.fallback,
+      ...definition.sequence.map((step) => step.frame)])];
+    if (ids.length > MAX_CLIP_FRAMES) {
+      this.cancel();
+      return Promise.reject(Error("长动画必须使用十二帧有界窗口加载"));
+    }
+    return this.request(clip, staticOnly, ids);
+  }
+
+  /** Explicit bounded admission for built-in long clips. Caller clears the old
+   * native region/DOM before this method releases its URLs; no implicit preload.
+   */
+  loadWindow(clip: string, frameIds: readonly string[]): Promise<AnimationClipAsset | null> {
+    if (this.disposed) return Promise.resolve(null);
+    const definition = this.clips.get(clip);
+    const allowed = definition && new Set([definition.fallback, ...definition.sequence.map((step) => step.frame)]);
+    if (!definition || !Array.isArray(frameIds) || frameIds.length < 1 || frameIds.length > MAX_CLIP_FRAMES ||
+        new Set(frameIds).size !== frameIds.length || frameIds.some((id) => !allowed!.has(id))) {
+      this.cancel();
+      return Promise.reject(Error("动画窗口成员或十二帧预算无效"));
+    }
+    return this.request(clip, false, [...frameIds]);
+  }
+
+  private request(clip: string, staticOnly: boolean, ids: readonly string[]): Promise<AnimationClipAsset | null> {
+    const key = JSON.stringify([clip, staticOnly, ids]);
+    if (this.current?.key === key) return this.current.ready;
     const generation = ++this.generation;
     this.cancelCurrent();
     this.releaseUrls();
@@ -181,7 +209,7 @@ export class AnimationClipRegistry {
       resolve = done;
       reject = failed;
     });
-    const request: LoadRequest = { clip, staticOnly, pending: true, started: false,
+    const request: LoadRequest = { clip, staticOnly, ids, key, pending: true, started: false,
       generation, controller, ready, resolve, reject };
     this.current = request;
     void this.drain();
@@ -210,7 +238,7 @@ export class AnimationClipRegistry {
         if (!request || !request.pending || request.started) break;
         request.started = true;
         try {
-          const asset = await this.readClip(request.clip, request.staticOnly,
+          const asset = await this.readClip(request.clip, request.ids,
             request.generation, request.controller.signal);
           if (this.current === request) {
             request.pending = false;
@@ -239,11 +267,8 @@ export class AnimationClipRegistry {
     this.cache.clear();
   }
 
-  private async readClip(clipId: string, staticOnly: boolean, generation: number, signal: AbortSignal) {
+  private async readClip(clipId: string, ids: readonly string[], generation: number, signal: AbortSignal) {
     if (!this.valid(generation)) return null;
-    const clip = this.clips.get(clipId)!;
-    const ids = staticOnly ? [clip.fallback] : [...new Set([clip.fallback,
-      ...clip.sequence.map((step) => step.frame)])];
     try {
       for (const id of ids) {
         if (!this.valid(generation)) return null;
@@ -323,4 +348,28 @@ export class AnimationClipRegistry {
     this.cancel();
     this.disposed = true;
   }
+}
+
+/** Contiguous look-ahead, preserving the catalog's steps without truncating it.
+ * Repeated frames do not consume slots. The first over-budget new frame starts
+ * the next window when playback reaches it; this is a plan, not a preload.
+ */
+export function planAnimationWindow(clip: AnimationClipDefinition, startIndex: number | null,
+  terminalFrame = clip.fallback): readonly string[] {
+  if (startIndex === null) return [terminalFrame];
+  if (!Number.isSafeInteger(startIndex) || startIndex < 0 || startIndex >= clip.sequence.length)
+    throw Error("动画窗口起点无效");
+  const ids = new Set<string>();
+  for (const step of clip.sequence.slice(startIndex)) {
+    if (!ids.has(step.frame) && ids.size === MAX_CLIP_FRAMES) break;
+    ids.add(step.frame);
+  }
+  return [...ids];
+}
+
+/** A delayed ACK from an old renderer cannot release a replacement's URLs. */
+export async function loadAnimationWindow(registry: AnimationClipRegistry, clip: string,
+  ids: readonly string[], clear: () => Promise<boolean>, live: () => boolean) {
+  if (!live() || !await clear() || !live()) return null;
+  return registry.loadWindow(clip, ids);
 }

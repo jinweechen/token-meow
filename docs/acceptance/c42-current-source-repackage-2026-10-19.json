@@ -1,0 +1,423 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-19",
+  "recordedAtUtc": "2026-10-19T00:23:32.781338+00:00",
+  "status": "C42_CURRENT_SOURCE_BUILD_STATIC20_AND_ACTUAL_ARCHIVE645_PASSED_SCOPED_ONLY",
+  "scope": "Fresh current-source Windows App + internal NSIS engine + WPF custom setup build, followed by independent selective 7z extraction and SHA/byte audit of all645 installation destinations. This receipt qualifies only build/static/archive layers.",
+  "candidateRoot": "output/build-candidates/c42-current-v1-20261019",
+  "userInstallerCandidate": {
+    "path": "output/build-candidates/c42-current-v1-20261019/release/TokenMeow_0.1.0_x64-custom-setup.exe",
+    "bytes": 128808960,
+    "sha256": "C805C9AE5A29D4CBFA68F3B56190CABB6201EF04E123D56390A1BECB29AAA78F"
+  },
+  "distributableReleaseFiles": [
+    {
+      "path": "output/build-candidates/c42-current-v1-20261019/release/TokenMeow_0.1.0_x64-custom-setup.exe",
+      "bytes": 128808960,
+      "sha256": "C805C9AE5A29D4CBFA68F3B56190CABB6201EF04E123D56390A1BECB29AAA78F"
+    },
+    {
+      "path": "output/build-candidates/c42-current-v1-20261019/release/receipt.json",
+      "bytes": 324655,
+      "sha256": "5AE8397CB35E4E20F85D5EC04E2386EB078D5EE796C821311CA639481DB4605E"
+    },
+    {
+      "path": "output/build-candidates/c42-current-v1-20261019/release/SHA256SUMS.txt",
+      "bytes": 182,
+      "sha256": "FBBDDDB7258E7D7316BF09112B96BE0AB98B381099209EC367D99A05C5BFEF14"
+    }
+  ],
+  "internalProducts": {
+    "actualApplication": {
+      "path": "output/build-candidates/c42-current-v1-20261019/work/application.exe",
+      "bytes": 137805312,
+      "sha256": "24D974E830044991A239DB548B4EB0E90F5A94B9EABFE328533C20A18AB42786"
+    },
+    "engine": {
+      "path": "output/c42t/x86_64-pc-windows-msvc/release/bundle/nsis/TokenMeow_0.1.0_x64-setup.exe",
+      "bytes": 126774619,
+      "sha256": "0232F9D04A4EB4F34156B4343CC8069FD06E84BFE15264C5B9FD5A9479672E92"
+    },
+    "embeddedLegalManifest": {
+      "path": "output/build-candidates/c42-current-v1-20261019/work/legal-manifest.json",
+      "bytes": 268000,
+      "sha256": "D85152E5F9C50C7D95E21A853D206044A6840C2916D4DA3774133C06996ACE7F"
+    },
+    "engineIsInternalNotUserDistributable": true,
+    "baseAndNsisPayloadShaEqualityClaimed": false,
+    "actualExtractedNssApplicationIsExecutionBinding": true
+  },
+  "build": {
+    "mode": "Build",
+    "applicationRecompiledByThisRun": true,
+    "freshHeadlessCliBuilt": false,
+    "cargoTargetDirectory": "output/c42t",
+    "control": {
+      "path": "output/implementation/c42-current-source-build-20261019-r1/control-manifest.json",
+      "bytes": 2292,
+      "sha256": "D27A52875ADA4C364483304E3A05F6538031FAABE4E125648393851EF25D94C3"
+    },
+    "rootReviewAddendum": {
+      "path": "output/implementation/c42-current-source-build-20261019-r1/root-review-addendum.json",
+      "bytes": 1713,
+      "sha256": "E0AAE348EF46151A99FCD2B69AD9E4136D6290DE35F1F1BF2B664300544FE3DC"
+    },
+    "rootReviewAddendumIsPreExecutionEvidence": "Its buildExecuted=false reflects its pre-launch capture time, not this later terminal result.",
+    "result": {
+      "path": "output/implementation/c42-current-source-build-20261019-r1/result.json",
+      "bytes": 3644,
+      "sha256": "9A9DEF9DB56371BA5F1F32E196CB0AD9708B87666DF2C8DBADF6F0A7CBFE5E1B"
+    },
+    "productionReceipt": {
+      "path": "output/build-candidates/c42-current-v1-20261019/release/receipt.json",
+      "bytes": 324655,
+      "sha256": "5AE8397CB35E4E20F85D5EC04E2386EB078D5EE796C821311CA639481DB4605E"
+    },
+    "job": {
+      "path": "output/implementation/c42-current-source-build-20261019-r1/job.json",
+      "bytes": 1357138,
+      "sha256": "696C83ED4955D54DBFDE5D3089BBC6191E8DC9E64D2B39A90943EF85DFB9B767"
+    },
+    "processId": 2584,
+    "rootCreationFileTimeDecimal": "134368413101005403",
+    "elapsedSeconds": 749.99180050008,
+    "deadlineSeconds": 1800,
+    "cleanupSeconds": 5,
+    "rootExitCode": 0,
+    "activeProcesses": 0,
+    "totalProcesses": 660,
+    "totalTerminatedProcesses": 0,
+    "naturalWholeJobCompletion": false,
+    "ownedBuildCleanup": true,
+    "ownedCleanup": true,
+    "cleanupVerified": true,
+    "timedOut": false,
+    "errors": [],
+    "terminationCounterDoesNotOverrideCleanupClassification": "The recorded zero terminated counter does not change ownedBuildCleanup=true or naturalWholeJobCompletion=false.",
+    "commands": [
+      {
+        "name": "resolve-tauri",
+        "exitCode": 0,
+        "pipeErrors": []
+      },
+      {
+        "name": "legal",
+        "exitCode": 0,
+        "pipeErrors": []
+      },
+      {
+        "name": "tauri",
+        "exitCode": 0,
+        "pipeErrors": []
+      },
+      {
+        "name": "engine-list",
+        "exitCode": 0,
+        "pipeErrors": []
+      },
+      {
+        "name": "application",
+        "exitCode": 0,
+        "pipeErrors": []
+      },
+      {
+        "name": "legal-manifest",
+        "exitCode": 0,
+        "pipeErrors": []
+      },
+      {
+        "name": "custom-shell",
+        "exitCode": 0,
+        "pipeErrors": []
+      }
+    ],
+    "productionHeldInputRows": 991,
+    "heldInputPostHashesAndIdentitiesMatched": true,
+    "allProductionInputHandlesClosed": true,
+    "finalOutputDirectoryGuardHeldAtReceiptWrite": true,
+    "receiptInputClosureExcludesFinalOutputDirectoryGuard": true,
+    "terminalProof": {
+      "validatedBeforeCleanup": true,
+      "postHashesAndIdentitiesMatched": true,
+      "allOutputHandlesClosed": true,
+      "heldFiles": 5,
+      "heldFolders": 13,
+      "bufferBytes": 65536
+    },
+    "requestedTauriArguments": [
+      "build",
+      "--ci",
+      "--target",
+      "x86_64-pc-windows-msvc",
+      "--bundles",
+      "nsis",
+      "--",
+      "--locked",
+      "--offline",
+      "--jobs",
+      "1",
+      "--config",
+      "profile.release.package.token-meow.codegen-units=16"
+    ],
+    "AppExecutedByBuildOwner": false,
+    "installerExecutedByBuildOwner": false,
+    "codeSignedByThisRun": false
+  },
+  "reviewedSourceChanges": {
+    "files": [
+      {
+        "path": "src-tauri/src/core.rs",
+        "bytes": 49448,
+        "sha256": "59463C1F22921894E75EEE25315590A98921660958EF5070FD852C9176729E95",
+        "matchedProductionHeldInput": true,
+        "role": "current App/source input"
+      },
+      {
+        "path": "src-tauri/src/desktop.rs",
+        "bytes": 215191,
+        "sha256": "5ADDCFB00D142C067A1C5875645378DAF7EC192D04D24B5FD9184D509537924C",
+        "matchedProductionHeldInput": true,
+        "role": "current App/source input"
+      },
+      {
+        "path": "src-tauri/src/core/source_watch_tests.rs",
+        "bytes": 3283,
+        "sha256": "D2631BD07E09D5684F0246AE5C7F8E97841C36223385CA904E8B7E24946CF04F",
+        "matchedProductionHeldInput": true,
+        "role": "current App/source input"
+      },
+      {
+        "path": "src-tauri/windows/installer.nsi",
+        "bytes": 31198,
+        "sha256": "5F4A7D1F7A4D8B3075E2CB48C0DD82559253E5C08B8275F4A08B9C617C660173",
+        "matchedProductionHeldInput": true,
+        "role": "current App/source input"
+      },
+      {
+        "path": "scripts/inspect-installer.ps1",
+        "bytes": 13733,
+        "sha256": "CAA77427745F98423C3E46616421D173D7709BF6B6B5E8D888AA349571EE0E15",
+        "matchedProductionHeldInput": false,
+        "role": "separately reviewed static inspector; not a production held-input row"
+      }
+    ],
+    "narrowWatcherRootReadIncludedInFreshApp": true,
+    "watcherSemantics": "Watcher reads typed enabled Codex root configuration without the full Core.sources health/fact aggregation; existing is_dir/sort/dedup/retry/wake behavior is retained.",
+    "scalarCollectorTimingIncludedInFreshApp": true,
+    "telemetryPatchSha256": "CFC27284A40EE7EDCA665B25074F844DCEC31F29646701583DD3D7D5D68FF522",
+    "WebView2ExecWaitErrorGatesIncluded": true,
+    "noMeasuredThroughputOrMemoryBenefitClaimed": true
+  },
+  "retainedFocusedValidation": {
+    "sourceWatchFormal": {
+      "path": "docs/acceptance/source-watch-config-read-2026-10-19.json",
+      "bytes": 14221,
+      "sha256": "9A0E7C0FD03B84B2313BCEAFA2D5A40D590C8CB894B1A64375E5AAA5805EF4A7"
+    },
+    "threeExactWatcherTestsPassed": 3,
+    "exactTestNames": [
+      "core::source_watch_tests::watcher_config_read_survives_broken_health_and_missing_fact_tables",
+      "core::source_watch_tests::watcher_roots_exclude_disabled_and_non_codex_sources",
+      "core::source_watch_tests::watcher_roots_follow_relocation_and_reenable"
+    ],
+    "scope": "Retained narrow watcher contract tests. The later scalar timing addition was not compiled by that earlier lib-test PE; C42 supplies fresh production App compilation, not a rerun of those tests or a full lib suite.",
+    "fullLibSuitePassedByThisReceipt": false
+  },
+  "staticInspection": {
+    "receipt": {
+      "path": "output/implementation/c42-current-source-build-20261019-r1/static-inspection.json",
+      "bytes": 5892,
+      "sha256": "6C5E210FAA14A789CF3BEF2EE4501D8CE590A83837BFB4473F4E8FEC6E1AA456"
+    },
+    "checks": 20,
+    "passed": 20,
+    "generatedTemplate": {
+      "path": "output/c42t/x86_64-pc-windows-msvc/release/nsis/x64/installer.nsi",
+      "bytes": 236187,
+      "sha256": "807EB846C367B856863433CBD4B07D287AD2ADE160B1AEC13C4671306B231FAC"
+    },
+    "applicationMachine": "x64",
+    "engineMachine": "x86",
+    "applicationSignatureStatus": "NotSigned",
+    "engineSignatureStatus": "NotSigned",
+    "runtimePoliciesProvenOnlyStatically": true
+  },
+  "actualArchiveAudit": {
+    "control": {
+      "path": "output/implementation/c42-engine-payload-audit-20261019-r1/control-manifest.json",
+      "bytes": 3628,
+      "sha256": "A643379FA7735CD07EB336138608EB78F6E5E66B63385E315C1AB84B527D40E6"
+    },
+    "result": {
+      "path": "output/implementation/c42-engine-payload-audit-20261019-r1/result.json",
+      "bytes": 2233,
+      "sha256": "BE60E0855CA45D1F6B7DB4357BF3395F53D5607D698BAAEC6AC08DA253DB807E"
+    },
+    "payloadHashes": {
+      "path": "output/implementation/c42-engine-payload-audit-20261019-r1/payloads.json",
+      "bytes": 188827,
+      "sha256": "C9E0F24D4B2FA89A54EDBE84358BBC7DE27B6ABC6116D5A4C5FED1119F3B143B"
+    },
+    "expectedSourceMap": {
+      "path": "output/implementation/c42-engine-payload-audit-20261019-r1/expected-source-map.json",
+      "bytes": 204706,
+      "sha256": "21D048239BAC5590B5B303EC9047D560340BCD68BE2A02281A09BBDD6DC3E5C7"
+    },
+    "job": {
+      "path": "output/implementation/c42-engine-payload-audit-20261019-r1/job.json",
+      "bytes": 10957,
+      "sha256": "15246494B061AA1347C6DE7B92CD3D1049A109B75EC94FB28F4428EB76DFBBC6"
+    },
+    "fixedExtractionOnly": "pinned7z.exe x; no engine/App/setup execution",
+    "actualInstallationFiles": 645,
+    "actualApplicationFiles": 1,
+    "actualResourceFiles": 644,
+    "actualShaAndBytesAllMatched": true,
+    "sourceExpectation": "644 exact File /a destinations in the actual C42 generated NSIS template mapped to same C42 closed production receipt heldInputs; App bound to actualEnginePayload. No C40/C41 resource hash substitution.",
+    "processId": 67560,
+    "rootCreationFileTimeDecimal": "134368428394342829",
+    "elapsedSeconds": 3.206930300220847,
+    "deadlineSeconds": 180,
+    "cleanupSeconds": 5,
+    "rootExitCode": 0,
+    "activeProcesses": 0,
+    "totalProcesses": 2,
+    "totalTerminatedProcesses": 0,
+    "naturalWholeJobCompletion": true,
+    "ownedCleanup": false,
+    "cleanupVerified": true,
+    "timedOut": false,
+    "errors": [],
+    "internalNonTargetEntries": [
+      {
+        "destination": "$PLUGINSDIR/System.dll",
+        "Size": "12288"
+      },
+      {
+        "destination": "$PLUGINSDIR/modern-wizard.bmp",
+        "Size": "26494"
+      },
+      {
+        "destination": "$PLUGINSDIR/nsDialogs.dll",
+        "Size": "9728"
+      },
+      {
+        "destination": "$PLUGINSDIR/nsis_tauri_utils.dll",
+        "Size": "34304"
+      },
+      {
+        "destination": "$PLUGINSDIR/StartMenu.dll",
+        "Size": "13316"
+      },
+      {
+        "destination": "$PLUGINSDIR/NSISdl.dll",
+        "Size": "15360"
+      },
+      {
+        "destination": "uninstall.exe",
+        "Size": ""
+      }
+    ],
+    "internalEntriesNotExtractedOrExecuted": true,
+    "allArchivePathsSafeAndUnique": true,
+    "preparationOnlyPathResolutionErrorRetained": {
+      "path": "output/implementation/c42-engine-payload-audit-20261019-r1/preparation-error.json",
+      "bytes": 432,
+      "sha256": "A9B48ECFBAC4800E1A0177EF56A1FB1CCB4C2A409EBAAD312A7DB46D0F5EC950"
+    }
+  },
+  "closedGuards": [
+    {
+      "receipt": {
+        "path": "output/implementation/c42-current-source-build-20261019-r1/control-tool-guards.json",
+        "bytes": 145,
+        "sha256": "82C9DD204526388511EE2E964BCEECC449C776890FB7E5A0110C9C44E42D517D"
+      },
+      "count": 11,
+      "expected": 11,
+      "postChecksPassed": true,
+      "allHandlesClosed": true,
+      "errors": [],
+      "guardBufferBytes": 65536
+    },
+    {
+      "receipt": {
+        "path": "output/implementation/c42-engine-payload-audit-20261019-r1/input-guards.json",
+        "bytes": 145,
+        "sha256": "19CAD80A4447D80CEC0E339DAB828056E350090FA29A8A748F953C89ED4D7C16"
+      },
+      "count": 45,
+      "expected": 45,
+      "postChecksPassed": true,
+      "allHandlesClosed": true,
+      "errors": [],
+      "guardBufferBytes": 65536
+    },
+    {
+      "receipt": {
+        "path": "output/implementation/c42-engine-payload-audit-20261019-r1/payload-guards.json",
+        "bytes": 147,
+        "sha256": "C2A3FD2408AE51F07B47C8239710E81DA358E4BDAEC4F94E28C47077075B85D6"
+      },
+      "count": 645,
+      "expected": 645,
+      "postChecksPassed": true,
+      "allHandlesClosed": true,
+      "errors": [],
+      "guardBufferBytes": 65536
+    }
+  ],
+  "archiveDirectoryGuardsClosed": true,
+  "retainedHistoricalEvidence": {
+    "C39Full379Failure": {
+      "path": "docs/acceptance/c39-full379-import-failure-2026-10-19.json",
+      "bytes": 5010,
+      "sha256": "902B7E1D471D73E8F32C21B18253C02AFFD81B1EB2D0A0C9FBB77A27942BF3D1"
+    },
+    "C40Full379Failure": {
+      "path": "docs/acceptance/c40-full379-import-failure-2026-10-19.json",
+      "bytes": 18675,
+      "sha256": "1B00E0B9892C725898FFBFC98C9D72F226C2E8096DB8B5E606E89F9AB73513C0"
+    },
+    "C40Build": {
+      "path": "docs/acceptance/c40-full-source-custom-installer-2026-10-19.json",
+      "bytes": 26081,
+      "sha256": "3A573246C8903A63536324429733A2A26E175404BD7E1F5866FD1C4742F95773"
+    },
+    "C41RepackageAndArchive": {
+      "path": "docs/acceptance/c41-webview-execwait-repackage-2026-10-19.json",
+      "bytes": 15251,
+      "sha256": "A833C6CC18182D71216C356C35BB9398E6AF94AF20EFE33C3286EF3645E60940"
+    },
+    "oldReceiptsOrFailuresOverwritten": false,
+    "oldPerformanceOrNativeEvidenceRequalifiedByNewBuild": false
+  },
+  "qualification": {
+    "currentSourceBuildPassed": true,
+    "freshApplicationBuild": true,
+    "static20Passed": true,
+    "actualArchive645Passed": true,
+    "finalInstallerUiVisualAccepted": false,
+    "installationAccepted": false,
+    "upgradeAccepted": false,
+    "uninstallAccepted": false,
+    "realMissingWebViewDownloadOrInstallAccepted": false,
+    "NativeAccepted": false,
+    "performanceAccepted": false,
+    "incrementalP95Accepted": false,
+    "full379ImportAccepted": false,
+    "warmStartupAccepted": false,
+    "idleResourcesAccepted": false,
+    "M4Complete": false,
+    "V1Complete": false
+  },
+  "limits": [
+    "Build uses an explicitly classified owned-descendant cleanup path; archive extraction completed naturally. They are separate Jobs and do not form one continuous natural run.",
+    "Separate root-owned C42 Native functional activity is outside this build/archive receipt; no Native acceptance is inferred here.",
+    "No installation, upgrade, uninstall, real WebView2 download, paid model, real account or live ledger validation was performed by these build/archive owners.",
+    "No fresh headless CLI is included. C39 historical CLI evidence is retained at its original scope.",
+    "Source changes and successful compilation do not establish improved first-import, memory, idle, startup or incremental latency thresholds.",
+    "Unsigned release: code signing was not performed by this build."
+  ],
+  "commitOrPushPerformed": false
+}

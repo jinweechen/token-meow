@@ -27,6 +27,7 @@ import { useLocalPetSkins } from "./pet/useLocalPetSkins";
 import { localPetSkinClient } from "./pet/localPetSkinClient";
 import { TemporaryInteractionSettings } from "./pet/TemporaryInteractionSettings";
 import { usePetExtensionCapabilities } from "./pet/usePetExtensionCapabilities";
+import { BuiltinAnimationPreview } from "./pet/BuiltinAnimationPreview";
 import {
   agentKindLabel,
   identityValue,
@@ -1105,6 +1106,7 @@ export function SettingsPanel({
           />
           {!extensions.enabled && <p className="muted">本地皮肤、透明命中与临时交互待新版 Windows 原生验收，当前尚未开放。</p>}
           <LocalPetSkinSettings model={skins} client={localPetSkinClient} disabled={pending || !extensions.enabled} />
+          <BuiltinAnimationPreview reducedMotion={settings.reducedMotion === true} />
           <section className="card character-info">
             <Icon name="cat" size={26} />
             <div>

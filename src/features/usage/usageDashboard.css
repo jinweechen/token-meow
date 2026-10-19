@@ -114,6 +114,53 @@
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 16px;
 }
+.usage-collection-notice {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px 18px;
+  margin-bottom: 16px;
+  padding: 13px 16px;
+  border: 1px solid var(--usage-border);
+  border-radius: 10px;
+  background: var(--usage-soft);
+  color: var(--usage-muted);
+  line-height: 1.65;
+  overflow-wrap: anywhere;
+}
+.usage-collection-notice.needs-attention {
+  border-color: var(--usage-warning-border);
+  background: var(--usage-warning-bg);
+  color: var(--usage-warning);
+}
+.usage-collection-notice > div {
+  flex: 1 1 300px;
+  min-width: 0;
+}
+.usage-collection-notice strong {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+}
+.usage-collection-notice p {
+  margin: 3px 0;
+  font-size: 12px;
+}
+.usage-collection-notice small {
+  display: block;
+  font-size: 11px;
+}
+.usage-collection-notice button {
+  flex-shrink: 0;
+  padding: 6px 0;
+  color: var(--usage-accent-strong);
+  font-weight: 550;
+}
+.usage-collection-notice button:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
 .usage-metric {
   border: 1px solid var(--usage-border);
   border-radius: var(--radius-card, 12px);

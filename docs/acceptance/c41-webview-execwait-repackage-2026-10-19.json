@@ -1,0 +1,389 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-19",
+  "recordedAtUtc": "2026-10-18T23:14:54.093934+00:00",
+  "status": "C41_NSIS_ONLY_REPACKAGE_AND_ACTUAL_ARCHIVE_BINDING_PASSED_NOT_INSTALLED_NATIVE_OR_PERFORMANCE_QUALIFIED",
+  "scope": "Actual new NSIS engine with the two WebView2 ExecWait source fixes, followed by the production ReuseEngine WPF package. The application is the exact C40 actual NSIS payload, not newly compiled. Independent selective 7z extraction hashes all645 installation destinations.",
+  "candidateRoot": "output/build-candidates/c41-current-v1-20261019",
+  "recommendedUserEntry": {
+    "path": "output/build-candidates/c41-current-v1-20261019/release/TokenMeow_0.1.0_x64-custom-setup.exe",
+    "bytes": 128791040,
+    "sha256": "7CB3F71A16D37E756026D4B9132485B8BA5F33C9CDA9D3E0A1F5FF079E035190"
+  },
+  "distributableReleaseFiles": [
+    {
+      "path": "output/build-candidates/c41-current-v1-20261019/release/TokenMeow_0.1.0_x64-custom-setup.exe",
+      "bytes": 128791040,
+      "sha256": "7CB3F71A16D37E756026D4B9132485B8BA5F33C9CDA9D3E0A1F5FF079E035190"
+    },
+    {
+      "path": "output/build-candidates/c41-current-v1-20261019/release/receipt.json",
+      "bytes": 15425,
+      "sha256": "050630F2CE34F26016563C7F9E11F5DBE38112FBFCBCF511853099FCBFFE6259"
+    },
+    {
+      "path": "output/build-candidates/c41-current-v1-20261019/release/SHA256SUMS.txt",
+      "bytes": 182,
+      "sha256": "3FA9F67E8B956D635FE06A705238A3F33C93F3F47FF99AB1EC5B9AC4313E095F"
+    }
+  ],
+  "internalProducts": {
+    "engine": {
+      "path": "output/implementation/c41-webview-execwait-repackage-20261019-r1/engine/TokenMeow_0.1.0_x64-engine.exe",
+      "bytes": 126756753,
+      "sha256": "DB485D09EF49CF0F6FBBEC5D80F87EE0BCA95773388CD735D760F67EDB4304E4"
+    },
+    "actualApplication": {
+      "path": "output/build-candidates/c41-current-v1-20261019/work/application.exe",
+      "bytes": 137782272,
+      "sha256": "6EBAE13471CD2A74F79AAD7F91DA13C693B2868D1F62A8858E45881C1D43C15C"
+    },
+    "legalOverlay": {
+      "path": "output/implementation/c41-webview-execwait-repackage-20261019-r1/engine/legal-overlay/manifest.json",
+      "bytes": 275421,
+      "sha256": "9AF87CB6280CB399E231F7BBECC6968531048669055267BFCED6D6D46339653A"
+    }
+  },
+  "build": {
+    "mode": "ReuseEngine",
+    "applicationRecompiledByThisRun": false,
+    "cargoTargetDirectory": null,
+    "RustOrCargoExecuted": false,
+    "engineExecuted": false,
+    "AppExecuted": false,
+    "originalC40FilesModified": false,
+    "control": {
+      "path": "output/implementation/c41-webview-execwait-repackage-20261019-r1/control-manifest.json",
+      "bytes": 5804,
+      "sha256": "904ED4D00774C996077C9C16CFD5EF878E3BCD2D4375A6AA3F584B6BDE8FA417"
+    },
+    "compileResult": {
+      "path": "output/implementation/c41-webview-execwait-repackage-20261019-r1/compile/result.json",
+      "bytes": 1980,
+      "sha256": "B2E354E7B657AD798C66DD1D382CAA3A092D89E9EF2AA166A5166AE0CEC8E94B"
+    },
+    "packageResult": {
+      "path": "output/implementation/c41-webview-execwait-repackage-20261019-r1/package/result.json",
+      "bytes": 4061,
+      "sha256": "D4D76DA8A2E17BB114E214CB2DA2D77FFD6AE4ECA5788799883546C24BB8FE69"
+    },
+    "jobs": [
+      {
+        "operation": "engineCompile",
+        "receipt": {
+          "path": "output/implementation/c41-webview-execwait-repackage-20261019-r1/compile/job.json",
+          "bytes": 105668,
+          "sha256": "1F396C6322D8530E7A1A0C4ED7A2ECCEFAA528474B4FFA9D38144CCF3E486DA7"
+        },
+        "rootExitCode": 0,
+        "totalProcesses": 3,
+        "activeProcesses": 0,
+        "totalTerminatedProcesses": 0,
+        "elapsedSeconds": 48.63580729998648,
+        "naturalWholeJobCompletion": true,
+        "ownedCleanup": false,
+        "errors": []
+      },
+      {
+        "operation": "productionReuseEnginePackage",
+        "receipt": {
+          "path": "output/implementation/c41-webview-execwait-repackage-20261019-r1/package/job.json",
+          "bytes": 36103,
+          "sha256": "DFB58FF73CEE28660D191F4CB55231F5774EEDD934AF06A19B0E5884CC1F29DA"
+        },
+        "rootExitCode": 0,
+        "totalProcesses": 12,
+        "activeProcesses": 0,
+        "totalTerminatedProcesses": 0,
+        "elapsedSeconds": 14.952816000208259,
+        "naturalWholeJobCompletion": true,
+        "ownedCleanup": false,
+        "errors": []
+      },
+      {
+        "operation": "readOnlyArchiveExtract",
+        "receipt": {
+          "path": "output/implementation/c41-engine-payload-audit-20261019-r1/job.json",
+          "bytes": 14203,
+          "sha256": "5BE9374C30EEC7CF9FBAE6C2E558768D4F24D561D4D867EF51F01666D30BE647"
+        },
+        "rootExitCode": 0,
+        "totalProcesses": 2,
+        "activeProcesses": 0,
+        "totalTerminatedProcesses": 0,
+        "elapsedSeconds": 4.722287800163031,
+        "naturalWholeJobCompletion": true,
+        "ownedCleanup": false,
+        "errors": []
+      }
+    ],
+    "oldTemplatePlusExactlyTwoByteDeltasEqualsCurrentTemplate": true,
+    "sourceTemplateSha256": "5F4A7D1F7A4D8B3075E2CB48C0DD82559253E5C08B8275F4A08B9C617C660173",
+    "inspectorSha256": "CAA77427745F98423C3E46616421D173D7709BF6B6B5E8D888AA349571EE0E15",
+    "generatedDiff": {
+      "path": "output/implementation/c41-webview-execwait-repackage-20261019-r1/generated.diff",
+      "bytes": 3988,
+      "sha256": "25BABAC9DBC9A13AF967586B0208BA706AC43FBB7B0C2BA9A7747AC2272E0436"
+    },
+    "templateDiff": {
+      "path": "output/implementation/c41-webview-execwait-repackage-20261019-r1/template.diff",
+      "bytes": 1171,
+      "sha256": "AEB190F8E683A922CF63AA6CCBF3121EEBE81D36B9B45F322B89D3A2F7890391"
+    },
+    "legalDiff": {
+      "path": "output/implementation/c41-webview-execwait-repackage-20261019-r1/legal.diff",
+      "bytes": 1606,
+      "sha256": "D54B99B247AAE68A0659E5A7DBDEA9E3AE72A8F0DB064B31B3474005EBE1E9CD"
+    }
+  },
+  "regression": {
+    "formal": {
+      "path": "docs/acceptance/webview-execwait-regression-2026-10-19.json",
+      "bytes": 15865,
+      "sha256": "401C5AD127C1DC7410932703991C7C5A7F00702025834171C5724424E0DFDDAA"
+    },
+    "productionBranchCases": 8,
+    "compilePlusCaseJobsNatural": 9,
+    "expectedCaseExitCodes": {
+      "0": 2,
+      "69": 6
+    },
+    "realWebViewDownloadOrInstall": false,
+    "casesNotRepeatedByThisAudit": true
+  },
+  "staticInspection": {
+    "receipt": {
+      "path": "output/implementation/c41-webview-execwait-repackage-20261019-r1/static-inspection.json",
+      "bytes": 6061,
+      "sha256": "EE258B26822EA16BF3BE91226AFFADA0A04FC4C5B49FFEC525DBD10F29B3353B"
+    },
+    "checks": 20,
+    "passed": 20,
+    "actualEngineVersion": "0.1.0",
+    "AppMachine": "x64",
+    "engineMachine": "x86",
+    "signatureStatus": "NotSigned"
+  },
+  "actualArchiveAudit": {
+    "control": {
+      "path": "output/implementation/c41-engine-payload-audit-20261019-r1/control-manifest.json",
+      "bytes": 2132,
+      "sha256": "9DA7CC32FF89B9D9762FBE3659C0478756D54AA29819B3F9453FEE1DA91C60FB"
+    },
+    "result": {
+      "path": "output/implementation/c41-engine-payload-audit-20261019-r1/result.json",
+      "bytes": 2249,
+      "sha256": "748DB9559BF9CEA789ACC00DBA6C1FD93843B7C5DB77D659200161720CF43950"
+    },
+    "payloadHashes": {
+      "path": "output/implementation/c41-engine-payload-audit-20261019-r1/payloads.json",
+      "bytes": 188783,
+      "sha256": "185E8D4F7F6390D857E44860BE5BC01843CDF30039A41B519686B111DA3FFA49"
+    },
+    "actualInstallationFiles": 645,
+    "actualApplicationFiles": 1,
+    "actualResourceFiles": 644,
+    "actualShaAndBytesAllMatched": true,
+    "exactC40UnchangedResourceShaCount": 643,
+    "onlyResourceOverlay": "licenses/manifest.json",
+    "internalNonTargetEntries": [
+      {
+        "destination": "$PLUGINSDIR/System.dll",
+        "Size": "12288"
+      },
+      {
+        "destination": "$PLUGINSDIR/modern-wizard.bmp",
+        "Size": "26494"
+      },
+      {
+        "destination": "$PLUGINSDIR/nsDialogs.dll",
+        "Size": "9728"
+      },
+      {
+        "destination": "$PLUGINSDIR/nsis_tauri_utils.dll",
+        "Size": "34304"
+      },
+      {
+        "destination": "$PLUGINSDIR/StartMenu.dll",
+        "Size": "13316"
+      },
+      {
+        "destination": "$PLUGINSDIR/NSISdl.dll",
+        "Size": "15360"
+      },
+      {
+        "destination": "uninstall.exe",
+        "Size": ""
+      }
+    ],
+    "internalEntriesNotExtractedOrExecuted": true,
+    "allArchivePathsSafeAndUnique": true,
+    "sourceExpectation": "643 resource hashes from the closed C40 production receipt; one legal overlay and exact C40 App. No claim that all original resources were rehashed during preparation.",
+    "extractCommandScope": "Pinned7z x with fixed include-paths.txt; fresh private extraction;180s plus5s cleanup; no Cargo cache lease"
+  },
+  "closedGuards": [
+    {
+      "receipt": {
+        "path": "output/implementation/c41-webview-execwait-repackage-20261019-r1/compile/input-guards.json",
+        "bytes": 149,
+        "sha256": "FDED64C8007F59BBF2F83EF1A062CE348DD94D3347161C51F7F40BE8F7C2DE67"
+      },
+      "count": 1136,
+      "expected": 1136,
+      "postChecksPassed": true,
+      "allHandlesClosed": true,
+      "errors": [],
+      "guardBufferBytes": 65536
+    },
+    {
+      "receipt": {
+        "path": "output/implementation/c41-webview-execwait-repackage-20261019-r1/package/input-guards.json",
+        "bytes": 149,
+        "sha256": "FB97FCB200464E31EF473E0EEBA3C3BF3707A72028643B2A366B0597DF1D84AB"
+      },
+      "count": 1139,
+      "expected": 1139,
+      "postChecksPassed": true,
+      "allHandlesClosed": true,
+      "errors": [],
+      "guardBufferBytes": 65536
+    },
+    {
+      "receipt": {
+        "path": "output/implementation/c41-engine-payload-audit-20261019-r1/input-guards.json",
+        "bytes": 145,
+        "sha256": "94CAF8403C93E4DE0BE12D13447D814528AB5ACD8DAB169C17D41BC6FA02F1D8"
+      },
+      "count": 34,
+      "expected": 34,
+      "postChecksPassed": true,
+      "allHandlesClosed": true,
+      "errors": [],
+      "guardBufferBytes": 65536
+    },
+    {
+      "receipt": {
+        "path": "output/implementation/c41-engine-payload-audit-20261019-r1/payload-guards.json",
+        "bytes": 147,
+        "sha256": "C2A3FD2408AE51F07B47C8239710E81DA358E4BDAEC4F94E28C47077075B85D6"
+      },
+      "count": 645,
+      "expected": 645,
+      "postChecksPassed": true,
+      "allHandlesClosed": true,
+      "errors": [],
+      "guardBufferBytes": 65536
+    }
+  ],
+  "terminalOutputGuards": {
+    "compile": {
+      "validatedBeforeCleanup": true,
+      "postHashesAndIdentitiesMatched": true,
+      "allOutputHandlesClosed": true,
+      "phase": "compile",
+      "bufferBytes": 65536,
+      "artifacts": {
+        "engine": {
+          "path": "D:\\project\\宠物\\output\\implementation\\c41-webview-execwait-repackage-20261019-r1\\engine\\TokenMeow_0.1.0_x64-engine.exe",
+          "bytes": 126756753,
+          "sha256": "DB485D09EF49CF0F6FBBEC5D80F87EE0BCA95773388CD735D760F67EDB4304E4",
+          "identity": {
+            "bytes": 126756753,
+            "creationFileTimeDecimal": "134368384800748036",
+            "lastWriteFileTimeDecimal": "134368385276089104",
+            "volumeSerialDecimal": "2187661927",
+            "fileIdDecimal": "562949957312450"
+          }
+        }
+      },
+      "actualPayloadVerificationDeferredToProductionReuseEngine": true,
+      "heldFiles": 1,
+      "heldFolders": 7
+    },
+    "package": {
+      "validatedBeforeCleanup": true,
+      "postHashesAndIdentitiesMatched": true,
+      "allOutputHandlesClosed": true,
+      "phase": "package",
+      "bufferBytes": 65536,
+      "artifacts": {
+        "setup": {
+          "path": "D:\\project\\宠物\\output\\build-candidates\\c41-current-v1-20261019\\release\\TokenMeow_0.1.0_x64-custom-setup.exe",
+          "bytes": 128791040,
+          "sha256": "7CB3F71A16D37E756026D4B9132485B8BA5F33C9CDA9D3E0A1F5FF079E035190",
+          "identity": {
+            "bytes": 128791040,
+            "creationFileTimeDecimal": "134368385531268899",
+            "lastWriteFileTimeDecimal": "134368385531901849",
+            "volumeSerialDecimal": "2187661927",
+            "fileIdDecimal": "562949957312479"
+          }
+        },
+        "receipt": {
+          "path": "D:\\project\\宠物\\output\\build-candidates\\c41-current-v1-20261019\\release\\receipt.json",
+          "bytes": 15425,
+          "sha256": "050630F2CE34F26016563C7F9E11F5DBE38112FBFCBCF511853099FCBFFE6259",
+          "identity": {
+            "bytes": 15425,
+            "creationFileTimeDecimal": "134368385536433233",
+            "lastWriteFileTimeDecimal": "134368385536453239",
+            "volumeSerialDecimal": "2187661927",
+            "fileIdDecimal": "562949957312480"
+          }
+        },
+        "checksums": {
+          "path": "D:\\project\\宠物\\output\\build-candidates\\c41-current-v1-20261019\\release\\SHA256SUMS.txt",
+          "bytes": 182,
+          "sha256": "3FA9F67E8B956D635FE06A705238A3F33C93F3F47FF99AB1EC5B9AC4313E095F",
+          "identity": {
+            "bytes": 182,
+            "creationFileTimeDecimal": "134368385536483344",
+            "lastWriteFileTimeDecimal": "134368385536483344",
+            "volumeSerialDecimal": "2187661927",
+            "fileIdDecimal": "562949957312481"
+          }
+        }
+      },
+      "sameC40AppSha256": "6EBAE13471CD2A74F79AAD7F91DA13C693B2868D1F62A8858E45881C1D43C15C",
+      "heldFiles": 5,
+      "heldFolders": 11
+    }
+  },
+  "retainedBoundaries": {
+    "C40FullSourceBuild": {
+      "path": "docs/acceptance/c40-full-source-custom-installer-2026-10-19.json",
+      "bytes": 26081,
+      "sha256": "3A573246C8903A63536324429733A2A26E175404BD7E1F5866FD1C4742F95773"
+    },
+    "C40EngineWebViewLaunchGapRemainsHistorical": true,
+    "C40ApplicationExactShaPreserved": true,
+    "currentSourceWatchNarrowReadFixIncludedInApplication": false,
+    "C40Full379PerformanceRunStillPendingAsReported": true,
+    "C39Full379Failure": {
+      "path": "docs/acceptance/c39-full379-import-failure-2026-10-19.json",
+      "bytes": 5010,
+      "sha256": "902B7E1D471D73E8F32C21B18253C02AFFD81B1EB2D0A0C9FBB77A27942BF3D1"
+    },
+    "historicalFailuresOrReceiptsOverwritten": false
+  },
+  "qualification": {
+    "buildAndActualArchiveBindingPassed": true,
+    "freshApplicationBuild": false,
+    "installerUiVisualAccepted": false,
+    "installationAccepted": false,
+    "upgradeAccepted": false,
+    "uninstallAccepted": false,
+    "realMissingWebViewDownloadOrInstallAccepted": false,
+    "NativeAccepted": false,
+    "performanceAccepted": false,
+    "V1Complete": false
+  },
+  "limits": [
+    "Only release setup, receipt and checksums are the recommended distribution; the NSIS engine is internal.",
+    "An isolated eight-case production branch regression is not a Microsoft WebView2 network/download/install test.",
+    "Exact App SHA can associate C40 Native observations with this payload; it does not turn an in-progress or failed performance run into a pass.",
+    "The new watcher source change has not been rebuilt into this App.",
+    "The old prototype preview is not a visual pass for this package. No actual installation or product execution occurred in this audit."
+  ],
+  "commitOrPushPerformed": false
+}

@@ -2,7 +2,8 @@ import assert from "node:assert/strict";
 import test from "node:test";
 import { createHash } from "node:crypto";
 import { AnimationClipRegistry, type AnimationClipDefinition, type AnimationClipHost,
-  type AnimationFrameDefinition } from "../features/pet/animationClipRegistry";
+  type AnimationFrameDefinition, loadAnimationWindow, planAnimationWindow } from "../features/pet/animationClipRegistry";
+import { KeyframePlayer, playbackClip } from "../features/pet/keyframePlayer";
 import { bindPetWindowLifetime } from "../features/pet/petWindowLifetime";
 
 const RGBA = 1024 * 1536 * 4;
@@ -427,7 +428,6 @@ test("catalog rejects invalid bounds, unsafe paths, extra frames, excessive clip
     (frames) => { frames[1].path = frames[0].path; },
     (frames) => { frames.push({ ...frames[0], id: "extra", path: "assets/pets/extra.png" }); },
     (frames) => { for (const frame of frames) frame.bytes = 4 * 1024 * 1024; },
-    (_, clips) => { clips[0].sequence = Array.from({ length: 13 }, (_, i) => ({ frame: `frame/${i}`, durationMs: 1 })); },
     (_, clips) => { clips[0].fallback = "missing"; },
     (_, clips) => { clips[0].sequence = [{ frame: "missing", durationMs: 1 }]; },
     (_, clips) => { clips[0].sequence = [{ frame: "frame/0", durationMs: 0 }]; },
@@ -496,4 +496,133 @@ test("window lifetime keeps BFCache, while terminal pagehide releases all curren
   target.dispatchEvent(new Event("pagehide"));
   assert.equal(disposals, 1);
   assert.equal(await registry.load("idle"), null);
+});
+
+function turnFixture() {
+  const data = fixture();
+  // Thirty-two reviewed steps, including a repeated reverse tail, need twenty-
+  // three distinct images. A window must not trim either the steps or the tail.
+  const indices = [...Array.from({ length: 23 }, (_, i) => i),
+    ...Array.from({ length: 9 }, (_, i) => 22 - i)];
+  const turn = { id: "turn", fallback: "frame/0", loop: false,
+    sequence: indices.map((i) => ({ frame: `frame/${i}`, durationMs: 100 })) };
+  data.clips.push(turn);
+  return { data, turn };
+}
+
+test("long clips require explicit windows and static-only still reads just fallback", async () => {
+  const { data, turn } = turnFixture(), count = tracker(data, 12);
+  const registry = new AnimationClipRegistry(data.frames, data.sources, data.clips, count.host);
+  await assert.rejects(registry.load("turn"), /有界窗口/);
+  assert.equal(count.fetched.length, 0);
+  assert.deepEqual(Object.keys((await registry.load("turn", true))!.frames), [turn.fallback]);
+  assert.equal(count.counts().maxSlots, 1);
+  const first = planAnimationWindow(turn, 0);
+  assert.deepEqual(first, Array.from({ length: 12 }, (_, i) => `frame/${i}`));
+  assert.equal(Object.keys((await registry.loadWindow("turn", first))!.frames).length, 12);
+  assert.equal(count.counts().maxSlots, 12);
+  for (const ids of [[], [...first, "frame/12"], ["frame/1", "frame/1"], ["frame/30"], ["undeclared"]]) {
+    await assert.rejects(registry.loadWindow("turn", ids), /窗口/);
+    assert.equal(count.urls.size, 0, "invalid admission releases the prior window");
+  }
+  assert.throws(() => planAnimationWindow(turn, -1), /起点/);
+  assert.throws(() => planAnimationWindow(turn, 32), /起点/);
+  registry.dispose();
+});
+
+test("a 23-image turn preserves all 32 timed steps across ACK and serial IO within twelve slots", async () => {
+  const { data, turn } = turnFixture(), count = tracker(data, 12);
+  const registry = new AnimationClipRegistry(data.frames, data.sources, data.clips, count.host);
+  let asset = (await registry.loadWindow("turn", planAnimationWindow(turn, 0)))!;
+  const clock = new KeyframePlayer(), seen: string[] = [];
+  clock.start(playbackClip(turn), 0);
+  let now = 0, boundaries = 0;
+  for (const [index, step] of turn.sequence.entries()) {
+    let sample = clock.readPosition(now);
+    assert.equal(sample.stepIndex, index);
+    assert.equal(sample.nextInMs, step.durationMs);
+    if (!asset.frames[sample.frame]) {
+      const paused = clock.pause(now), ack = deferred<boolean>();
+      const priorUrls = [...count.urls], priorReads = count.fetched.length;
+      const next = loadAnimationWindow(registry, "turn", planAnimationWindow(turn, paused.stepIndex),
+        () => ack.promise, () => true);
+      now += 50_000; // Long renderer ACK/IO must not consume any turn step.
+      assert.deepEqual(clock.readPosition(now), paused);
+      assert.deepEqual([...count.urls], priorUrls, "old images remain owned until native clear ACK");
+      assert.equal(count.fetched.length, priorReads, "no preload while clear is pending");
+      ack.resolve(true);
+      asset = (await next)!;
+      sample = clock.resume(now);
+      assert.deepEqual(sample, paused);
+      assert.ok(priorUrls.every((url) => !count.urls.has(url)), "ACK precedes old URL release");
+      boundaries++;
+    }
+    assert.ok(asset.frames[sample.frame]);
+    seen.push(sample.frame);
+    now += step.durationMs;
+  }
+  assert.deepEqual(seen, turn.sequence.map((step) => step.frame));
+  assert.equal(boundaries, 1);
+  assert.deepEqual(clock.readPosition(now), { frame: turn.sequence.at(-1)!.frame,
+    nextInMs: null, stepIndex: null });
+  assert.equal(count.fetched.length, 23);
+  assert.equal(count.counts().maxSlots, 12);
+  assert.equal(count.counts().maxDecoders, 1);
+  assert.equal(count.counts().closed, 23);
+  registry.dispose();
+  assert.equal(count.urls.size, 0);
+});
+
+test("a late old-window ACK cannot evict the replacement's images or fetch stale frames", async () => {
+  const { data, turn } = turnFixture(), count = tracker(data, 12), ack = deferred<boolean>();
+  const registry = new AnimationClipRegistry(data.frames, data.sources, data.clips, count.host);
+  await registry.loadWindow("turn", planAnimationWindow(turn, 0));
+  let live = true;
+  const old = loadAnimationWindow(registry, "turn", planAnimationWindow(turn, 12),
+    () => ack.promise, () => live);
+  live = false;
+  const replacement = await registry.load("active");
+  const urls = [...count.urls], reads = [...count.fetched];
+  ack.resolve(true);
+  assert.equal(await old, null);
+  assert.equal(replacement?.clip, "active");
+  assert.deepEqual([...count.urls], urls);
+  assert.deepEqual(count.fetched, reads);
+  assert.equal(registry.diagnostics().clip, "active");
+  const denied = await loadAnimationWindow(registry, "turn", planAnimationWindow(turn, 12),
+    async () => false, () => true);
+  assert.equal(denied, null);
+  assert.deepEqual([...count.urls], urls, "failed clear also retains the current window");
+  registry.dispose();
+});
+
+test("blocked long-window decode retains only its latest replacement and never exceeds twelve slots", async () => {
+  const { data } = turnFixture(), count = tracker(data, 12), entered = deferred(), release = deferred();
+  const original = count.host.decode;
+  let calls = 0;
+  count.host.decode = async (blob) => {
+    const bitmap = await original(blob);
+    if (++calls === 1) { entered.resolve(); await release.promise; }
+    return bitmap;
+  };
+  const registry = new AnimationClipRegistry(data.frames, data.sources, data.clips, count.host);
+  const first = registry.loadWindow("turn", ["frame/0", "frame/1"]);
+  await entered.promise;
+  const pending = [];
+  for (let index = 0; index < 1000; index++) {
+    pending.push(registry.loadWindow("turn", [`frame/${index % 23}`]));
+    assert.equal(registry.diagnostics().queuedRequests, 1);
+    assert.equal(registry.diagnostics().pendingDecodes, 1);
+  }
+  assert.equal(await first, null);
+  assert.deepEqual(await Promise.all(pending.slice(0, -1)), Array(999).fill(null));
+  assert.equal(count.fetched.length, 1);
+  release.resolve();
+  assert.deepEqual(Object.keys((await pending.at(-1))!.frames), [`frame/${999 % 23}`]);
+  assert.equal(count.fetched.length, 2);
+  assert.equal(count.counts().created, 1, "late cancelled decode never creates a URL");
+  assert.equal(count.counts().closed, 2);
+  assert.equal(count.counts().maxDecoders, 1);
+  registry.dispose();
+  assert.equal(count.urls.size, 0);
 });

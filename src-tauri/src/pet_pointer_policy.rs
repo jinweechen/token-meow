@@ -65,6 +65,7 @@ pub enum PolicyError {
     InvalidMask,
     TooComplex,
     AlreadyPublished,
+    RuntimeUnavailable,
     Expired,
     Exhausted,
 }
@@ -112,6 +113,7 @@ pub struct PetPointerPolicy {
     alpha_enabled: bool,
     click_through: bool,
     visible: bool,
+    runtime_blocked: bool,
     temporary_deadline: Option<u64>,
 }
 
@@ -150,6 +152,15 @@ impl PetPointerPolicy {
     pub fn set_visible(&mut self, visible: bool) {
         if self.visible != visible {
             self.visible = visible;
+            self.reset_context();
+        }
+    }
+
+    /// Native pause/stop/exit admission, independent of actual window visibility.
+    /// Both edges discard the old frame and leases; resuming cannot revive them.
+    pub fn set_runtime_available(&mut self, available: bool) {
+        if self.runtime_blocked != !available {
+            self.runtime_blocked = !available;
             self.reset_context();
         }
     }
@@ -193,6 +204,11 @@ impl PetPointerPolicy {
         {
             return Err(PolicyError::InvalidFrameKey);
         }
+        // A paused renderer may still ACK clearing its old image before releasing
+        // URLs/bitmaps. This is clear-only: it never stages a publishable frame.
+        if self.runtime_blocked {
+            return Ok(());
+        }
         self.frame = Some(Frame {
             revision,
             key: frame_key,
@@ -202,6 +218,7 @@ impl PetPointerPolicy {
     }
 
     pub fn publish_mask(&mut self, payload: FrameMask, now_ms: u64) -> Result<(), PolicyError> {
+        self.check_runtime()?;
         self.check_frame(payload.owner, payload.revision, Some(&payload.frame_key))?;
         let frame = self.frame.as_mut().ok_or(PolicyError::StaleRevision)?;
         if frame.published {
@@ -224,6 +241,7 @@ impl PetPointerPolicy {
     }
 
     pub fn renew(&mut self, owner: u64, revision: u64, now_ms: u64) -> Result<(), PolicyError> {
+        self.check_runtime()?;
         self.check_frame(owner, revision, None)?;
         match self.mask.as_mut() {
             Some(mask) if mask.revision == revision && now_ms < mask.deadline => {
@@ -237,14 +255,21 @@ impl PetPointerPolicy {
         }
     }
 
-    pub fn begin_temporary(&mut self, now_ms: u64, requested_ms: Option<u64>) {
-        if self.visible {
-            let duration = requested_ms
-                .unwrap_or(DEFAULT_TEMPORARY_MS)
-                .clamp(1, MAX_TEMPORARY_MS);
-            self.temporary_deadline = Some(now_ms.saturating_add(duration));
-            self.generation = self.generation.wrapping_add(1);
+    pub fn begin_temporary(
+        &mut self,
+        now_ms: u64,
+        requested_ms: Option<u64>,
+    ) -> Result<(), PolicyError> {
+        self.check_runtime()?;
+        if !self.visible {
+            return Err(PolicyError::RuntimeUnavailable);
         }
+        let duration = requested_ms
+            .unwrap_or(DEFAULT_TEMPORARY_MS)
+            .clamp(1, MAX_TEMPORARY_MS);
+        self.temporary_deadline = Some(now_ms.saturating_add(duration));
+        self.generation = self.generation.wrapping_add(1);
+        Ok(())
     }
 
     pub fn cancel_temporary(&mut self) {
@@ -253,7 +278,7 @@ impl PetPointerPolicy {
         }
     }
 
-    /// Call on the existing native monotonic 50 ms tick, before any early return.
+    /// Call on the existing native monotonic tick, before any early return.
     /// This method performs no focus, foreground, persistence or OS operations.
     pub fn plan(&mut self, now_ms: u64) -> Plan<'_> {
         if self
@@ -272,13 +297,14 @@ impl PetPointerPolicy {
         let remaining = self
             .temporary_deadline
             .map_or(0, |deadline| deadline.saturating_sub(now_ms));
-        let region = if remaining == 0 && self.visible && self.alpha_enabled {
-            self.mask
-                .as_ref()
-                .map_or(Region::FullWindow, |mask| Region::Rects(&mask.rects))
-        } else {
-            Region::FullWindow
-        };
+        let region =
+            if remaining == 0 && self.visible && !self.runtime_blocked && self.alpha_enabled {
+                self.mask
+                    .as_ref()
+                    .map_or(Region::FullWindow, |mask| Region::Rects(&mask.rects))
+            } else {
+                Region::FullWindow
+            };
         Plan {
             viewport: self.viewport,
             generation: self.generation,
@@ -291,6 +317,14 @@ impl PetPointerPolicy {
     fn check_owner(&self, owner: u64) -> Result<(), PolicyError> {
         if !self.owner_active || owner == 0 || owner != self.owner {
             Err(PolicyError::StaleOwner)
+        } else {
+            Ok(())
+        }
+    }
+
+    fn check_runtime(&self) -> Result<(), PolicyError> {
+        if self.runtime_blocked {
+            Err(PolicyError::RuntimeUnavailable)
         } else {
             Ok(())
         }
@@ -539,17 +573,108 @@ mod tests {
     fn temporary_restores_current_preference_and_hidden_cancels() {
         let (mut policy, _) = ready();
         policy.set_preferences(true, true);
-        policy.begin_temporary(100, None);
+        policy.begin_temporary(100, None).unwrap();
         assert!(!policy.plan(100).ignore_cursor_events);
         assert_eq!(policy.plan(100).region, Region::FullWindow);
         policy.set_preferences(true, false);
         assert!(!policy.plan(15_100).ignore_cursor_events);
         policy.set_preferences(true, true);
-        policy.begin_temporary(20_000, Some(u64::MAX));
+        policy.begin_temporary(20_000, Some(u64::MAX)).unwrap();
         assert_eq!(policy.plan(20_000).temporary_remaining_ms, 30_000);
         policy.set_visible(false);
         assert!(policy.plan(20_001).ignore_cursor_events);
         assert_eq!(policy.plan(20_001).temporary_remaining_ms, 0);
+    }
+    #[test]
+    fn runtime_pause_rejects_late_commands_and_restores_current_preference() {
+        let (mut policy, owner) = ready();
+        policy.publish_mask(payload(owner), 0).unwrap();
+        policy.set_runtime_available(true);
+        assert!(matches!(policy.plan(50).region, Region::Rects(_)));
+        policy.set_preferences(true, true);
+        policy.begin_temporary(100, None).unwrap();
+        assert!(!policy.plan(100).ignore_cursor_events);
+
+        policy.set_runtime_available(false);
+        let paused = policy.plan(101);
+        assert_eq!(paused.region, Region::FullWindow);
+        assert!(paused.ignore_cursor_events);
+        assert_eq!(paused.temporary_remaining_ms, 0);
+        assert_eq!(
+            policy.publish_mask(payload(owner), 102),
+            Err(PolicyError::RuntimeUnavailable)
+        );
+        assert_eq!(
+            policy.renew(owner, 1, 102),
+            Err(PolicyError::RuntimeUnavailable)
+        );
+        assert_eq!(
+            policy.begin_temporary(102, None),
+            Err(PolicyError::RuntimeUnavailable)
+        );
+
+        // Neither visible HWND state nor a preference update reopens admission.
+        policy.set_visible(true);
+        policy.set_preferences(true, false);
+        assert_eq!(
+            policy.begin_temporary(103, None),
+            Err(PolicyError::RuntimeUnavailable)
+        );
+        assert!(!policy.plan(103).ignore_cursor_events);
+        policy.set_runtime_available(true);
+        let resumed = policy.plan(104);
+        assert_eq!(resumed.region, Region::FullWindow);
+        assert_eq!(resumed.temporary_remaining_ms, 0);
+        assert!(!resumed.ignore_cursor_events);
+        assert_eq!(policy.renew(owner, 1, 104), Err(PolicyError::StaleRevision));
+        policy.begin_temporary(105, None).unwrap();
+        assert_eq!(
+            policy.plan(105).temporary_remaining_ms,
+            DEFAULT_TEMPORARY_MS
+        );
+    }
+    #[test]
+    fn paused_clear_ack_cannot_stage_or_revive_a_frame_after_resume() {
+        let (mut policy, owner) = ready();
+        policy.publish_mask(payload(owner), 0).unwrap();
+        policy.set_runtime_available(false);
+        // Permit clearing the old DOM/URLs while paused, without an active frame.
+        policy.begin_frame(owner, 2, "paused-clear".into()).unwrap();
+        let mut during_pause = payload(owner);
+        during_pause.revision = 2;
+        during_pause.frame_key = "paused-clear".into();
+        assert_eq!(
+            policy.publish_mask(during_pause, 100),
+            Err(PolicyError::RuntimeUnavailable)
+        );
+
+        // Resume before the OLD 1000 ms mask deadline: the old lease still cannot
+        // return, nor can a clear-only ACK become a publishable frame on resume.
+        policy.set_runtime_available(true);
+        assert_eq!(
+            policy.publish_mask(payload(owner), 101),
+            Err(PolicyError::StaleRevision)
+        );
+        let mut cleared = payload(owner);
+        cleared.revision = 2;
+        cleared.frame_key = "paused-clear".into();
+        assert_eq!(
+            policy.publish_mask(cleared, 101),
+            Err(PolicyError::StaleRevision)
+        );
+        assert_eq!(
+            policy.begin_frame(owner, 2, "paused-clear".into()),
+            Err(PolicyError::StaleRevision)
+        );
+        assert_eq!(policy.plan(101).region, Region::FullWindow);
+        policy
+            .begin_frame(owner, 3, "fresh-after-resume".into())
+            .unwrap();
+        let mut fresh = payload(owner);
+        fresh.revision = 3;
+        fresh.frame_key = "fresh-after-resume".into();
+        policy.publish_mask(fresh, 102).unwrap();
+        assert!(matches!(policy.plan(102).region, Region::Rects(_)));
     }
     #[test]
     fn complex_or_empty_regions_fall_back_without_truncation() {

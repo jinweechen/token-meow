@@ -23,9 +23,43 @@
   --action: #334d3d;
   --table-cell-padding-y: 10px;
   --table-cell-padding-x: 12px;
+  --scrollbar-thumb: #b7c8bd;
+  --scrollbar-thumb-hover: #8fa797;
 }
 * {
   box-sizing: border-box;
+}
+html:not(.pet-mode),
+:where(.app-shell, .modal-backdrop) * {
+  scrollbar-width: thin;
+  scrollbar-color: var(--scrollbar-thumb) transparent;
+}
+html:not(.pet-mode) {
+  scrollbar-gutter: stable;
+}
+html:not(.pet-mode)::-webkit-scrollbar,
+:where(.app-shell, .modal-backdrop) ::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+html:not(.pet-mode)::-webkit-scrollbar-track,
+:where(.app-shell, .modal-backdrop) ::-webkit-scrollbar-track {
+  background: transparent;
+}
+html:not(.pet-mode)::-webkit-scrollbar-thumb,
+:where(.app-shell, .modal-backdrop) ::-webkit-scrollbar-thumb {
+  border: 2px solid transparent;
+  border-radius: 8px;
+  background: var(--scrollbar-thumb);
+  background-clip: padding-box;
+}
+html:not(.pet-mode)::-webkit-scrollbar-thumb:hover,
+:where(.app-shell, .modal-backdrop) ::-webkit-scrollbar-thumb:hover {
+  background-color: var(--scrollbar-thumb-hover);
+}
+html:not(.pet-mode)::-webkit-scrollbar-corner,
+:where(.app-shell, .modal-backdrop) ::-webkit-scrollbar-corner {
+  background: transparent;
 }
 body {
   margin: 0;
@@ -2110,6 +2144,7 @@ body.pet-mode #root {
   min-height: 100vh;
 }
 .pet-window {
+  --pet-character-max-height: calc(min(100vh, var(--pet-stage-height, 100vh)) - 51px);
   width: 100vw;
   height: 100vh;
   background: transparent;
@@ -2119,8 +2154,8 @@ body.pet-mode #root {
 }
 .pet-character-button {
   position: absolute;
-  left: 1%;
-  right: 1%;
+  right: calc(min(100vw, var(--pet-stage-width, 100vw)) * 0.01);
+  width: min(98%, calc(var(--pet-stage-width, 100vw) * 0.98));
   bottom: 45px;
   padding: 0;
   touch-action: none;
@@ -2132,15 +2167,15 @@ body.pet-mode #root {
 }
 .pet-character-button .character {
   width: 100%;
-  max-height: calc(100vh - 51px);
+  max-height: var(--pet-character-max-height);
 }
 .pet-character-button .pet-sprite {
-  width: min(100%, calc((100vh - 51px) * var(--pet-frame-ratio, 1)));
+  width: min(100%, calc(var(--pet-character-max-height) * var(--pet-frame-ratio, 1)));
   margin-inline: auto;
 }
 .pet-character-button .character svg,
 .pet-character-button .character img {
-  max-height: calc(100vh - 51px);
+  max-height: var(--pet-character-max-height);
   object-fit: contain;
 }
 .pet-status-badge {
@@ -2198,8 +2233,8 @@ body.pet-mode #root {
 }
 .pet-affection-button {
   position: absolute;
-  top: 12px;
-  left: 12px;
+  top: max(12px, calc(100vh - var(--pet-stage-height, 100vh) + 12px));
+  left: max(12px, calc(100vw - var(--pet-stage-width, 100vw) + 12px));
   width: 25px;
   height: 25px;
   border: 1px solid #e0e8d8;
@@ -2267,6 +2302,14 @@ body.pet-mode #root {
   max-height: calc(100vh - 24px);
   overflow-y: auto;
   overscroll-behavior: contain;
+}
+.pet-popover,
+.pet-care-bubble {
+  scrollbar-width: none;
+}
+.pet-popover::-webkit-scrollbar,
+.pet-care-bubble::-webkit-scrollbar {
+  display: none;
 }
 .pet-popover .section-heading {
   margin-bottom: 9px;

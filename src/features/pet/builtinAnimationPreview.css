@@ -1,0 +1,7 @@
+.builtin-animation-controls { display: flex; flex-wrap: wrap; align-items: end; gap: .6rem; }
+.builtin-animation-controls label { display: grid; gap: .35rem; color: var(--muted); font-size: .85rem; }
+.builtin-animation-controls select { min-width: 10rem; }
+.builtin-animation-stage { width: min(100%, 240px); aspect-ratio: 1024 / 1536; margin: 1rem auto; display: grid; place-items: center; border: 1px solid var(--border, #e5ede7); border-radius: 12px; overflow: hidden; background: repeating-conic-gradient(#e4ece7 0% 25%, #fafcfb 0% 50%) 50% / 16px 16px; }
+.builtin-animation-stage img { display: block; width: 100%; height: 100%; object-fit: contain; }
+.builtin-animation-stage span { padding: 1rem; color: #476052; }
+.builtin-animation-player p { color: var(--muted); font-size: .85rem; }

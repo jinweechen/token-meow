@@ -159,35 +159,36 @@ async function npmPackage(name, from) {
 for (const name of Object.keys(project.dependencies).sort()) await npmPackage(name, workspace);
 npm.sort((a, b) => a.name.localeCompare(b.name));
 
-const assetManifestPath = 'assets/pets/nekomi/manifest-animation-v11.json';
+const assetManifestPath = 'assets/pets/nekomi/manifest-animation-v12.json';
 const assetPath = path.join(workspace, assetManifestPath);
 const asset = JSON.parse(await fs.readFile(assetPath, 'utf8'));
 const clipIds = ['idle', 'active', 'alert', 'complete', 'happy', 'wink',
-  'affection', 'shy', 'bow', 'stretch', 'hug-tail', 'sleep', 'walk'];
+  'affection', 'shy', 'bow', 'stretch', 'hug-tail', 'sleep',
+  'walk-right', 'walk-left', 'walk-left-to-right', 'walk-right-to-left'];
 const assetSourceRoot = 'assets/pets/nekomi/';
 const animationSourceRoot = `${assetSourceRoot}walk-v10-complete/`;
 const retainedAnimationRoot = `${assetSourceRoot}animation-v6/`;
-if (asset.schema_version !== 2 || asset.skin_id !== 'nekomi-animation-v11'
+if (asset.schema_version !== 2 || asset.skin_id !== 'nekomi-animation-v12'
     || asset.renderer_kind !== 'builtin-animation-clips' || !Array.isArray(asset.frames)
-    || asset.frames.length !== 52 || new Set(asset.frames.map(frame => frame.id)).size !== 52
-    || !Array.isArray(asset.clips) || asset.clips.length !== 13
+    || asset.frames.length !== 63 || new Set(asset.frames.map(frame => frame.id)).size !== 63
+    || !Array.isArray(asset.clips) || asset.clips.length !== 16
     || JSON.stringify(asset.clips.map(clip => clip.id)) !== JSON.stringify(clipIds)
     || asset.license !== 'LicenseRef-Project-Owned'
-    || asset.bounds_alpha_threshold !== 127) throw Error('Review the v11 animation clip manifest.');
-const assetSourceManifestPath = `${animationSourceRoot}catalog-v11.json`;
+    || asset.bounds_alpha_threshold !== 127) throw Error('Review the v12 animation clip manifest.');
+const assetSourceManifestPath = `${animationSourceRoot}catalog-v12.json`;
 const assetSourceManifestBytes = await fs.readFile(path.join(workspace, assetSourceManifestPath));
 if (asset.source_archive?.manifest?.path !== assetSourceManifestPath
     || asset.source_archive.manifest.sha256 !== digest(assetSourceManifestBytes)) {
   throw Error('Animation source manifest differs from the runtime source binding.');
 }
 const assetSource = JSON.parse(assetSourceManifestBytes.toString('utf8'));
-const deliveryPath = `${animationSourceRoot}delivery-manifest-v11.json`;
+const deliveryPath = `${animationSourceRoot}delivery-manifest-v12.json`;
 const delivery = JSON.parse(await fs.readFile(path.join(workspace, deliveryPath), 'utf8'));
 if (assetSource.schemaVersion !== 1 || JSON.stringify(assetSource.canvas) !== '[1024,1536]'
     || !Array.isArray(assetSource.clips)
     || JSON.stringify(assetSource.clips.map(clip => clip.id)) !== JSON.stringify(clipIds)
     || delivery.schemaVersion !== 1 || delivery.status !== 'baseline-assets-delivered-with-known-variations'
-    || !Array.isArray(delivery.items)) throw Error('Review the delivered v11 animation source pack.');
+    || !Array.isArray(delivery.items)) throw Error('Review the delivered v12 animation source pack.');
 // The source catalog deliberately reuses v6 PNGs through ../animation-v6 paths.
 // Normalize those finite source references into canonical project-relative paths;
 // never allow catalog data to supply arbitrary files to the distributor.
@@ -216,7 +217,7 @@ for (const clip of assetSource.clips) {
     sourceFrames.set(id, { ...source, path: sourcePath });
   }
 }
-if (sourceFrames.size !== 52) throw Error('Review the v11 animation source frame count.');
+if (sourceFrames.size !== 63) throw Error('Review the v12 animation source frame count.');
 const frontFrame = 'walk-v10-complete/model-reference/master-front-v2';
 for (const clip of asset.clips) {
   const source = assetSource.clips.find(candidate => candidate.id === clip.id);
@@ -238,7 +239,7 @@ for (const clip of asset.clips) {
         || !Number.isSafeInteger(step.durationMs) || step.durationMs < 16 || step.durationMs > 10000
         || !['entry', 'body', 'exit', 'returnToIdle'].includes(step.segment))
       || JSON.stringify(clip.sequence) !== JSON.stringify(expectedSequence)
-      || new Set([clip.fallback, ...clip.sequence.map(step => step.frame)]).size > 12
+      || new Set([clip.fallback, ...clip.sequence.map(step => step.frame)]).size > 64
       || (loops ? JSON.stringify(clip.loopRange) !== JSON.stringify({ start: bodyStart, end: bodyEnd })
         || bodyStart < 0 || bodyEnd <= bodyStart
         || source.frames.slice(bodyStart, bodyEnd).some(step => step.segment !== 'body')
@@ -295,11 +296,21 @@ const assetProvenance = [];
 const sourceRecordRoot = 'output/imagegen/completion-20261018/';
 const sourceRecordDocuments = ['master', 'walk-key', 'walk-fill', 'actions-a',
   'actions-b', 'actions-c', 'actions-d', 'actions-e']
-  .map(name => `${sourceRecordRoot}source-records-${name}.json`);
+  .map(name => `${sourceRecordRoot}source-records-${name}.json`)
+  .concat(['source-records.json', 'integrity.json', 'review-summary.json']
+    .map(name => `output/imagegen/left-completion-20261018/${name}`));
+const v12Documents = ['catalog-v11.json', 'delivery-manifest-v11.json',
+  'DELIVERY-v12-20261018.txt', 'OMISSION-AUDIT-v12.txt', 'sequence-left-v12.json', 'sequence-right-v12.json']
+  .map(name => `${animationSourceRoot}${name}`);
+const v12Prompts = ['v12-master-left', 'v12-left-01-contact-near', 'v12-left-03-far-passing',
+  'v12-left-05-contact-far', 'v12-left-07-near-passing', 'v12-left-02-near-flat-recovery',
+  'v12-left-04-near-toe-far-reach', 'v12-left-06-far-flat-recovery', 'v12-left-08-far-toe-near-reach',
+  'v12-turn-front-left', 'v12-start-left'].map(name => `${animationSourceRoot}prompts/${name}.txt`);
 const requiredGenerationDocuments = [deliveryPath, `${animationSourceRoot}generation-manifest-v2.json`,
+  `${animationSourceRoot}DELIVERY-20261018.txt`,
   `${retainedAnimationRoot}generation-root.json`, `${retainedAnimationRoot}generation-cute.json`,
-  ...sourceRecordDocuments];
-const assetSourceDocuments = [assetManifestPath, assetSourceManifestPath, deliveryPath,
+  ...v12Documents, ...v12Prompts, ...sourceRecordDocuments];
+const assetSourceDocuments = [assetManifestPath, assetSourceManifestPath, deliveryPath, ...v12Documents, ...v12Prompts,
   ...['DELIVERY-20261018.txt', 'generation-manifest-v2.json', 'sequence-v11.json'].map(file => `${animationSourceRoot}${file}`),
   ...['README.txt', 'generation-root.json', 'generation-cute.json', 'generation-cute-sources.json',
     'generation-cute-planned.json', 'root-specs.json'].map(file => `${retainedAnimationRoot}${file}`),
@@ -324,6 +335,7 @@ for (const name of ['manifest.json', 'generation-root.json', 'generation-extra.j
 }
 if (!Array.isArray(asset.source_archive.generation)
     || new Set(asset.source_archive.generation.map(record => record.path)).size !== asset.source_archive.generation.length
+    || asset.source_archive.generation.length !== requiredGenerationDocuments.length
     || requiredGenerationDocuments.some(file => !asset.source_archive.generation.some(record => record.path === file))) {
   throw Error('Animation catalog omitted the finite new and retained generation provenance.');
 }
@@ -364,12 +376,18 @@ const cliRoot = await fs.realpath(path.join(workspace, 'node_modules', '@tauri-a
 const cliPackage = JSON.parse(await fs.readFile(path.join(cliRoot, 'package.json'), 'utf8'));
 if (cliPackage.version !== '2.12.3') throw Error('Review the pinned installer template when the Tauri CLI changes.');
 const templateBytes = await fs.readFile(path.join(workspace, 'src-tauri', 'windows', 'installer.nsi'));
+const installerSupportingSources = await Promise.all(['installer-hooks.nsh', 'installer-engine.nsh'].map(async file => {
+  const source = `src-tauri/windows/${file}`;
+  const bytes = await fs.readFile(path.join(workspace, source));
+  return { source, bytes: bytes.length, sha256: digest(bytes) };
+}));
 const installerTools = [{ name: '@tauri-apps/cli installer template', version: cliPackage.version,
   license: cliPackage.license, licenseTexts: await collectLicenseTexts(cliRoot, 'installer-tauri-cli-2.12.3'),
   upstreamSource: 'https://github.com/tauri-apps/tauri/blob/tauri-cli-v2.12.3/crates/tauri-bundler/src/bundle/windows/nsis/installer.nsi',
   upstreamSha256: '8ae02c66f8adb4a0d15d97f984fbacd2b44262d8a4d03fefaf6177f67f7008e5',
   localSource: 'src-tauri/windows/installer.nsi', localSha256: digest(templateBytes),
-  modification: 'Source/license header and exact-owned Run entry condition for ordinary uninstall; all other upstream behavior retained.' }];
+  localSupportingSources: installerSupportingSources,
+  modification: 'Hidden current-user installer for the custom WPF shell; non-silent installs refused, query-only running-app checks, known same-directory NSIS in-place upgrades, unsupported migration and downgrade refusal, and exact-owned Run entry maintenance. Existing ordinary uninstall UI and data choice retained.' }];
 const nsisRoot = path.join(process.env.LOCALAPPDATA ?? '', 'tauri', 'NSIS');
 const nsisVersion = execFileSync(path.join(nsisRoot, 'makensis.exe'), ['/VERSION'], { encoding: 'utf8', windowsHide: true }).trim();
 if (nsisVersion !== 'v3.13') throw Error('Review installer notices for a different NSIS version.');

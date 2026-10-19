@@ -1,0 +1,149 @@
+{
+  "status": "V12_SOURCE_AND_SCOPED_REAL_BROWSER_CHECKS_PASSED",
+  "recordedAtUtc": "2026-10-18T16:20:13.689675+00:00",
+  "runtime": {
+    "manifest": {
+      "path": "D:\\project\\宠物\\assets\\pets\\nekomi\\manifest-animation-v12.json",
+      "bytes": 70932,
+      "sha256": "cec4f21093cfaaa2ecf75a583ff624c9e12c565f5566f944313ba751b9c5f0e1"
+    },
+    "frames": 63,
+    "clips": 16,
+    "originalPngBytesUnchanged": true,
+    "generationProvenanceDocuments": 33,
+    "windowSlotsIncludingDecode": 12,
+    "turns": [
+      {
+        "id": "walk-left-to-right",
+        "steps": 32,
+        "distinctOriginals": 23,
+        "sourceDurationMs": 6560,
+        "actualClickToCompleteMs": 7276.800000190735
+      },
+      {
+        "id": "walk-right-to-left",
+        "steps": 32,
+        "distinctOriginals": 23,
+        "sourceDurationMs": 6560,
+        "actualClickToCompleteMs": 7314.900000095367
+      }
+    ]
+  },
+  "sourceInputs": {
+    "path": "D:\\project\\宠物\\output\\implementation\\v12-runtime-integration-20261018-r1\\integration-source-inputs.json",
+    "bytes": 84878,
+    "sha256": "87083f8f25b058470ae1112f8e2f1f00e021c2b418b1de78d461d82db4323ab8"
+  },
+  "validation": {
+    "frontendTests": {
+      "pass": 239,
+      "fail": 0,
+      "log": {
+        "path": "D:\\project\\宠物\\output\\implementation\\v12-runtime-integration-20261018-r1\\frontend-tests.log",
+        "bytes": 24951,
+        "sha256": "2ac0361e5e514c09e3e5f43d8c31c7b9ec9dbab049792769753fe198d4ec2c2e"
+      }
+    },
+    "typecheckAndProductionBuild": {
+      "passed": true,
+      "log": {
+        "path": "D:\\project\\宠物\\output\\implementation\\v12-runtime-integration-20261018-r1\\frontend-build.log",
+        "bytes": 4166,
+        "sha256": "98a6d381f2f4753b20196a6b31e870218e189f98a21cf3cb8ceaaf7a941cb0b8"
+      }
+    },
+    "catalogCheck": {
+      "exitCode": 0,
+      "log": {
+        "path": "D:\\project\\宠物\\output\\implementation\\v12-runtime-integration-20261018-r1\\catalog-check.log",
+        "bytes": 214,
+        "sha256": "9c5000e4d68ac5cf304220770c56ade99dbb4fcc59beffff51d6a9e9cb7b1050"
+      }
+    },
+    "distributionManifest": {
+      "path": "D:\\project\\宠物\\output\\distribution-licenses\\manifest.json",
+      "bytes": 267387,
+      "sha256": "0b0c28ff4a768ecc85a82907fea1b06e74ddd43cca9963c75db2e68a3b7c66c1"
+    },
+    "realBrowser": {
+      "browser": "HeadlessChrome/154.0.0.0",
+      "url": "http://127.0.0.1:1420",
+      "demoDataOnly": true,
+      "clipsPassed": 16,
+      "decodedOriginals": 63,
+      "completeVisualOrderPassed": true,
+      "batches": [
+        {
+          "path": "D:\\project\\宠物\\output\\playwright\\v12-runtime-20261018-r1\\report-00-03-run1.json",
+          "bytes": 44271,
+          "sha256": "ba5ecc62ff397962dce0e4a9960f2f2fdedfb1a9086e67671e5bcc73a218b0b7"
+        },
+        {
+          "path": "D:\\project\\宠物\\output\\playwright\\v12-runtime-20261018-r1\\report-04-07-run1.json",
+          "bytes": 43592,
+          "sha256": "f61ef0985b56f9436eba8a9dc09bac48a8d230343e0df0ad03ae5521d1f9d403"
+        },
+        {
+          "path": "D:\\project\\宠物\\output\\playwright\\v12-runtime-20261018-r1\\report-08-11-run1.json",
+          "bytes": 34491,
+          "sha256": "c28b0ada02b0077ffaad54a6e2138e4ca2f79fcaea2e5472fbb41e1c1539c2ce"
+        },
+        {
+          "path": "D:\\project\\宠物\\output\\playwright\\v12-runtime-20261018-r1\\report-12-15-run1.json",
+          "bytes": 146834,
+          "sha256": "a76bf5ce56f33e666d1d536703c919bf7a632137c685313469c2af18987c3cae"
+        }
+      ],
+      "boundaryChecksPassed": 4,
+      "boundary": {
+        "path": "D:\\project\\宠物\\output\\playwright\\v12-runtime-20261018-r1\\report-boundary-run1.json",
+        "bytes": 5318,
+        "sha256": "1f592e8d0a19a7f9be20f088eeab3378a6628914f352c55da4eb6a963e4b8372"
+      },
+      "pngFetchFaultChecksPassed": 2,
+      "pngFetchFault": {
+        "path": "D:\\project\\宠物\\output\\playwright\\v12-runtime-20261018-r1\\report-png-fault-r2-run1.json",
+        "bytes": 1464,
+        "sha256": "5eb13490ddc7eec8d6b8d6f4ad2fce58eb29ae17b080e2b259f19b41466d6365"
+      },
+      "retainedHarnessFailure": {
+        "report": {
+          "path": "D:\\project\\宠物\\output\\playwright\\v12-runtime-20261018-r1\\report-png-fault-run1.json",
+          "bytes": 754,
+          "sha256": "9cc2c4be75b7b5d0b389319f618384162ba5b885022cbd3ac9f3ec1e30314ad1"
+        },
+        "reason": "First harness selected Vite module URL rather than PNG data fetch; no product failure claimed"
+      },
+      "visualReview": {
+        "reviewed": true,
+        "result": "Character, left direction, transparent stage and control labels readable; no clipping observed",
+        "images": [
+          {
+            "path": "D:\\project\\宠物\\output\\playwright\\v12-runtime-20261018-r1\\left-walk-card.png",
+            "bytes": 102275,
+            "sha256": "cefc63c3a902ef22ee3d963f5c535343632b65e840a19146a70bbdcf707ce085"
+          },
+          {
+            "path": "D:\\project\\宠物\\output\\playwright\\v12-runtime-20261018-r1\\left-walk-body-stage-mve12bup.png",
+            "bytes": 89942,
+            "sha256": "e4953bdbadf4e7cf34455813c327d8e927f45c57017867bf0d612b39d1e1767a"
+          },
+          {
+            "path": "D:\\project\\宠物\\output\\playwright\\v12-runtime-20261018-r1\\left-walk-body-card-mve12bup.png",
+            "bytes": 110597,
+            "sha256": "5b1ce9a2a5afa9405686ae363e60bb2ebc97e162c3a6569e8efeca59ac7dddd5"
+          }
+        ]
+      }
+    }
+  },
+  "limits": [
+    "Discrete reviewed-baseline-with-tolerances artwork; no strict no-slide gait qualification",
+    "All side walks and turns remain in-place; Native movement permission remains false",
+    "Local PNG v1 remains thirteen logical clip names and twelve distinct frames per clip",
+    "Windows build, Native UI, whole-application memory/CPU, installation and release acceptance remain separate"
+  ],
+  "windowsBuilt": false,
+  "nativeAccepted": false,
+  "releaseAccepted": false
+}

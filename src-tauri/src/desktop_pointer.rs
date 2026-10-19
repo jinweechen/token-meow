@@ -19,6 +19,32 @@ fn policy_error(error: crate::pet_pointer_policy::PolicyError) -> String {
     format!("透明命中状态已变化：{error:?}")
 }
 
+fn runtime_available(shared: &Shared) -> bool {
+    !shared.native_paused.load(Ordering::Acquire)
+        && !shared.stop.load(Ordering::Acquire)
+        && !shared.exiting.load(Ordering::Acquire)
+}
+
+/// Revoke policy state before metrics/IPC. HWND changes remain on the existing
+/// GUI tick, outside this mutex and outside the native event callback's borrow.
+pub(super) fn refresh_runtime_admission(shared: &Shared) {
+    if let Ok(mut pointer) = shared.pointer.lock() {
+        pointer
+            .policy
+            .set_runtime_available(runtime_available(shared));
+    }
+}
+
+fn require_runtime_available(shared: &Shared) -> Result<(), String> {
+    if shared.stop.load(Ordering::Acquire) || shared.exiting.load(Ordering::Acquire) {
+        Err("应用正在退出".into())
+    } else if shared.native_paused.load(Ordering::Acquire) {
+        Err("系统暂停期间不能开始临时交互".into())
+    } else {
+        Ok(())
+    }
+}
+
 pub(super) fn reset(shared: &Shared) {
     if let Ok(mut pointer) = shared.pointer.lock() {
         pointer.policy.reset_context();
@@ -34,7 +60,8 @@ pub(super) fn sync(window: &WebviewWindow, shared: &Shared) -> Result<Option<Vie
     let viewport = crate::pet_pointer_region::read_viewport(hwnd).ok();
     #[cfg(not(windows))]
     let viewport: Option<Viewport> = None;
-    let blocked = shared.native_dragging.load(Ordering::Acquire)
+    let dragging = shared.native_dragging.load(Ordering::Acquire);
+    let blocked = dragging
         || shared
             .pet_interaction
             .lock()
@@ -42,6 +69,9 @@ pub(super) fn sync(window: &WebviewWindow, shared: &Shared) -> Result<Option<Vie
             .unwrap_or(true);
     let (stamp, ignore, remaining, rects, applied, previous_ignore) = {
         let mut pointer = shared.pointer.lock().map_err(|_| lock_error())?;
+        pointer
+            .policy
+            .set_runtime_available(runtime_available(shared));
         pointer.policy.set_visible(visible);
         pointer.policy.set_viewport(viewport);
         let applied = pointer.applied;
@@ -52,7 +82,10 @@ pub(super) fn sync(window: &WebviewWindow, shared: &Shared) -> Result<Option<Vie
         }
         (
             (plan.generation, blocked),
-            plan.ignore_cursor_events,
+            // A temporary click-through lease may end as dragging closes a
+            // popup. Keep the active gesture reachable until its native owner
+            // releases it, without changing the saved click-through setting.
+            if dragging { false } else { plan.ignore_cursor_events },
             plan.temporary_remaining_ms,
             match plan.region {
                 Region::FullWindow => None,
@@ -88,8 +121,13 @@ pub(super) fn sync(window: &WebviewWindow, shared: &Shared) -> Result<Option<Vie
             .map_err(|e| e.to_string())?;
     }
     let mut pointer = shared.pointer.lock().map_err(|_| lock_error())?;
+    pointer
+        .policy
+        .set_runtime_available(runtime_available(shared));
     let current = pointer.policy.plan(now(shared));
-    let unchanged = current.generation == stamp.0 && current.ignore_cursor_events == ignore;
+    let current_ignore = if shared.native_dragging.load(Ordering::Acquire) { false }
+        else { current.ignore_cursor_events };
+    let unchanged = current.generation == stamp.0 && current_ignore == ignore;
     pointer.applied = unchanged.then_some(stamp);
     pointer.ignore = unchanged.then_some(ignore);
     Ok(viewport)
@@ -206,6 +244,7 @@ pub(super) async fn renew_pet_pointer_mask(
 ) -> Result<bool, String> {
     pet_only(&window)?;
     on_main(app, move |window, shared| {
+        sync(window, shared)?;
         let result = shared
             .pointer
             .lock()
@@ -241,12 +280,17 @@ pub(super) async fn release_pet_pointer_renderer(
 pub(super) fn temporary(app: &AppHandle) -> Result<(), String> {
     require_p1_development()?;
     let shared = app.state::<SharedState>();
-    shared
-        .pointer
-        .lock()
-        .map_err(|_| lock_error())?
-        .policy
-        .begin_temporary(now(&shared), None);
+    require_runtime_available(&shared)?;
+    {
+        let mut pointer = shared.pointer.lock().map_err(|_| lock_error())?;
+        pointer
+            .policy
+            .set_runtime_available(runtime_available(&shared));
+        pointer
+            .policy
+            .begin_temporary(now(&shared), None)
+            .map_err(policy_error)?;
+    }
     schedule_pet_motion(app, &shared);
     Ok(())
 }
@@ -254,12 +298,15 @@ pub(super) fn temporary(app: &AppHandle) -> Result<(), String> {
 pub(super) async fn begin_pet_temporary_interaction(app: AppHandle) -> Result<Value, String> {
     require_p1_development()?;
     on_main(app, |window, shared| {
+        require_runtime_available(shared)?;
+        sync(window, shared)?;
         shared
             .pointer
             .lock()
             .map_err(|_| lock_error())?
             .policy
-            .begin_temporary(now(shared), None);
+            .begin_temporary(now(shared), None)
+            .map_err(policy_error)?;
         sync(window, shared)?;
         let remaining = shared
             .pointer

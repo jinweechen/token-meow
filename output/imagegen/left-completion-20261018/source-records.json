@@ -1,0 +1,125 @@
+[
+  {
+    "id": "master-left-v1",
+    "source": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14ad5-c365-7233-8895-9cecddb69f66\\exec-42e99e19-4da6-4f34-8ea2-61e369691cdb.png",
+    "destination": "model-reference/master-left-v1.png",
+    "prompt": "prompts/v12-master-left.txt",
+    "references": [
+      "model-reference/master-right-v3.png",
+      "model-reference/master-front-v2.png"
+    ],
+    "transparent_background": true,
+    "generation": "built-in imagegen"
+  },
+  {
+    "id": "01-contact-near",
+    "source": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14ad5-c365-7233-8895-9cecddb69f66\\exec-617ffecb-78f7-4bce-a19a-6184ba485e55.png",
+    "destination": "frames-left-v12/01-contact-near.png",
+    "prompt": "prompts/v12-left-01-contact-near.txt",
+    "references": [
+      "model-reference/master-left-v1.png"
+    ],
+    "transparent_background": true,
+    "generation": "built-in imagegen"
+  },
+  {
+    "id": "03-far-passing",
+    "source": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14ad5-c365-7233-8895-9cecddb69f66\\exec-728c0752-1519-4634-82e3-70e332bb1022.png",
+    "destination": "frames-left-v12/03-far-passing.png",
+    "prompt": "prompts/v12-left-03-far-passing.txt",
+    "references": [
+      "model-reference/master-left-v1.png"
+    ],
+    "transparent_background": true,
+    "generation": "built-in imagegen"
+  },
+  {
+    "id": "05-contact-far",
+    "source": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14ad5-c365-7233-8895-9cecddb69f66\\exec-57ea9a5c-5fd0-40de-a926-c1893b47babf.png",
+    "destination": "frames-left-v12/05-contact-far.png",
+    "prompt": "prompts/v12-left-05-contact-far.txt",
+    "references": [
+      "model-reference/master-left-v1.png"
+    ],
+    "transparent_background": true,
+    "generation": "built-in imagegen"
+  },
+  {
+    "id": "07-near-passing",
+    "source": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14ad5-c365-7233-8895-9cecddb69f66\\exec-b0340a30-cd37-42f5-af7b-01be4ac3df77.png",
+    "destination": "frames-left-v12/07-near-passing.png",
+    "prompt": "prompts/v12-left-07-near-passing.txt",
+    "references": [
+      "model-reference/master-left-v1.png"
+    ],
+    "transparent_background": true,
+    "generation": "built-in imagegen"
+  },
+  {
+    "id": "02-near-flat-recovery",
+    "source": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14ad5-c365-7233-8895-9cecddb69f66\\exec-0026e2b8-0377-45fa-a267-b2cdb739c668.png",
+    "destination": "frames-left-v12/02-near-flat-recovery.png",
+    "prompt": "prompts/v12-left-02-near-flat-recovery.txt",
+    "references": [
+      "model-reference/master-left-v1.png"
+    ],
+    "transparent_background": true,
+    "generation": "built-in imagegen"
+  },
+  {
+    "id": "04-near-toe-far-reach",
+    "source": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14ad5-c365-7233-8895-9cecddb69f66\\exec-b1bd1ee1-b037-443c-9d02-80df29b2ba8b.png",
+    "destination": "frames-left-v12/04-near-toe-far-reach.png",
+    "prompt": "prompts/v12-left-04-near-toe-far-reach.txt",
+    "references": [
+      "model-reference/master-left-v1.png"
+    ],
+    "transparent_background": true,
+    "generation": "built-in imagegen"
+  },
+  {
+    "id": "06-far-flat-recovery",
+    "source": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14ad5-c365-7233-8895-9cecddb69f66\\exec-d84cac83-c618-4d38-9be5-6bc1ffa2ebee.png",
+    "destination": "frames-left-v12/06-far-flat-recovery.png",
+    "prompt": "prompts/v12-left-06-far-flat-recovery.txt",
+    "references": [
+      "model-reference/master-left-v1.png"
+    ],
+    "transparent_background": true,
+    "generation": "built-in imagegen"
+  },
+  {
+    "id": "08-far-toe-near-reach",
+    "source": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14ad5-c365-7233-8895-9cecddb69f66\\exec-ca606838-0326-4277-a720-e931655a82b9.png",
+    "destination": "frames-left-v12/08-far-toe-near-reach.png",
+    "prompt": "prompts/v12-left-08-far-toe-near-reach.txt",
+    "references": [
+      "model-reference/master-left-v1.png"
+    ],
+    "transparent_background": true,
+    "generation": "built-in imagegen"
+  },
+  {
+    "id": "turn-front-left",
+    "source": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14ad5-c365-7233-8895-9cecddb69f66\\exec-476d2298-3ed4-425d-a5e1-a4e27326a2ba.png",
+    "destination": "actions-v12/walk-left/turn.png",
+    "prompt": "prompts/v12-turn-front-left.txt",
+    "references": [
+      "model-reference/master-left-v1.png",
+      "model-reference/master-front-v2.png"
+    ],
+    "transparent_background": true,
+    "generation": "built-in imagegen"
+  },
+  {
+    "id": "start-left",
+    "source": "C:\\Users\\Administrator\\.codex\\generated_images\\01a14ad5-c365-7233-8895-9cecddb69f66\\exec-d6b661c5-fad3-499d-9182-8343c33adeb9.png",
+    "destination": "actions-v12/walk-left/start.png",
+    "prompt": "prompts/v12-start-left.txt",
+    "references": [
+      "model-reference/master-left-v1.png"
+    ],
+    "transparent_background": true,
+    "generation": "built-in imagegen"
+  }
+]

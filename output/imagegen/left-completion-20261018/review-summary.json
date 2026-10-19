@@ -1,0 +1,134 @@
+{
+  "scope": "v12 asset baseline with known tolerances; not strict G0-G5 or runtime acceptance",
+  "cycleChecks": [
+    {
+      "direction": "left",
+      "speed": "1",
+      "changes": 17,
+      "sequential": true,
+      "wraps": 2
+    },
+    {
+      "direction": "left",
+      "speed": "0.5",
+      "changes": 17,
+      "sequential": true,
+      "wraps": 2
+    },
+    {
+      "direction": "right",
+      "speed": "1",
+      "changes": 17,
+      "sequential": true,
+      "wraps": 2
+    },
+    {
+      "direction": "right",
+      "speed": "0.5",
+      "changes": 17,
+      "sequential": true,
+      "wraps": 2
+    }
+  ],
+  "fullClips": [
+    {
+      "id": "walk-right",
+      "frames": 26,
+      "endsAt": "returnToIdle",
+      "sequential": true
+    },
+    {
+      "id": "walk-left",
+      "frames": 26,
+      "endsAt": "returnToIdle",
+      "sequential": true
+    },
+    {
+      "id": "walk-left-to-right",
+      "frames": 32,
+      "endsAt": "returnToIdle",
+      "sequential": true
+    },
+    {
+      "id": "walk-right-to-left",
+      "frames": 32,
+      "endsAt": "returnToIdle",
+      "sequential": true
+    }
+  ],
+  "loadedSequencePngs": 63,
+  "retainedTwelveActions": [
+    "idle",
+    "active",
+    "alert",
+    "complete",
+    "happy",
+    "wink",
+    "affection",
+    "shy",
+    "bow",
+    "stretch",
+    "hug-tail",
+    "sleep"
+  ],
+  "twelveActionFramesUnchanged": true,
+  "allClipsHaveFourSegments": true,
+  "all114PngsExistAndHashMatch": true,
+  "new11OriginalBytesEqual": true,
+  "alphaRanges": [
+    [
+      0,
+      247
+    ],
+    [
+      0,
+      251
+    ],
+    [
+      0,
+      253
+    ],
+    [
+      0,
+      254
+    ]
+  ],
+  "alphaNote": "Native tool PNGs may peak at254 alpha. Transparent exterior and visible subject checked; native alpha never rewritten to255.",
+  "leftLayerDisplay": "18 right-side originals reflected live with left/right anatomical mapping; visible joints retained",
+  "allEntryLinks200": true,
+  "visualReview": {
+    "leftEightAllFrames": [
+      "checker",
+      "light",
+      "dark"
+    ],
+    "largeLeft1200px": [
+      "turn checker",
+      "master light",
+      "start dark",
+      "far-passing checker",
+      "near-passing dark"
+    ],
+    "leftLayerViews": [
+      "neutral checker",
+      "near-forward light",
+      "far-forward dark"
+    ],
+    "fourViewReference": true
+  },
+  "observations": [
+    "Single left-facing profile throughout the eight new walk frames; two passing poses visibly lift different overlapping legs; head, ears, hands, shoes and tail stay on canvas.",
+    "Tail emerges at the rear dress/pelvis area, no extra limbs or extra tail seen. Minor body/hem/flower variation and stylized contact-height variance retained.",
+    "Original twelve actions use unchanged paths, timing and bytes; their previous playback evidence remains scoped historical reuse.",
+    "Layered assembly retains visible knee/elbow seams; reflection is a production preview, not a finished left rig."
+  ],
+  "failedAttempt": "assembly-playback-attempt1-failed.txt: relocated viewer initially resolved part images one directory too high. Fixed layer paths, reran all18 loads, presets and toggles successfully.",
+  "runtimeIntegrated": false,
+  "pendingStrictScope": [
+    "exact moving-world foot contact/no-slip validation",
+    "dense in-between animation",
+    "independent left raster part drawings if asymmetric design required",
+    "external Live2D/Spine rig",
+    "v12 runtime and installer integration"
+  ]
+}

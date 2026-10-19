@@ -1,0 +1,631 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-19",
+  "status": "C40_CURRENT_SOURCE_CUSTOM_INSTALLER_BUILD_AND_STATIC_BINDING_PASSED_NOT_NATIVE_INSTALLED_OR_PERFORMANCE_QUALIFIED",
+  "recordedAtUtc": "2026-10-18T22:39:56.128498+00:00",
+  "scope": "Actual production Build mode from the current frozen source into a fresh C40 Cargo target, Tauri hidden NSIS engine and branded WPF installer. Separate scoped R5 unit evidence is retained. Not a new headless CLI or a six-stage C39-style three-product seal.",
+  "candidateRoot": "output/build-candidates/c40-current-v1-20261019",
+  "recommendedUserEntry": {
+    "bytes": 128803328,
+    "sha256": "341ECE6E6D81563D6AD28ED4D049DDCFC95D9D9D541385CBFA44ECF58E69578C",
+    "path": "output/build-candidates/c40-current-v1-20261019/release/TokenMeow_0.1.0_x64-custom-setup.exe"
+  },
+  "distributableReleaseFiles": [
+    {
+      "bytes": 128803328,
+      "sha256": "341ECE6E6D81563D6AD28ED4D049DDCFC95D9D9D541385CBFA44ECF58E69578C",
+      "path": "output/build-candidates/c40-current-v1-20261019/release/TokenMeow_0.1.0_x64-custom-setup.exe"
+    },
+    {
+      "path": "output/build-candidates/c40-current-v1-20261019/release/receipt.json",
+      "bytes": 324370,
+      "sha256": "9E86AFF6C851AF5F88BDA5825E33CD815B3B5E8BCE8BF142C036E07BE2F6ECFF"
+    },
+    {
+      "path": "output/build-candidates/c40-current-v1-20261019/release/SHA256SUMS.txt",
+      "bytes": 182,
+      "sha256": "DADE1CB1B0B124A76916210331192AA1DD19625FB0353F8D4A9EB1091A966D41"
+    }
+  ],
+  "internalProducts": {
+    "engine": {
+      "bytes": 126769386,
+      "sha256": "CAB710C44E7353D7A731E1D21B59B2B6F6A008F2A66884644DB1D92BEAFE2814",
+      "path": "output/c40t/x86_64-pc-windows-msvc/release/bundle/nsis/TokenMeow_0.1.0_x64-setup.exe"
+    },
+    "actualNsisApplication": {
+      "bytes": 137782272,
+      "sha256": "6EBAE13471CD2A74F79AAD7F91DA13C693B2868D1F62A8858E45881C1D43C15C",
+      "path": "output/build-candidates/c40-current-v1-20261019/work/application.exe"
+    },
+    "baseTargetApplication": {
+      "path": "output/c40t/x86_64-pc-windows-msvc/release/token-meow.exe",
+      "bytes": 137782272,
+      "sha256": "9A39C02E938762C24FE57FD771900DACC7BFF59FC726ACC005AA8607213ED777"
+    },
+    "embeddedLegalManifest": {
+      "bytes": 268000,
+      "sha256": "2D3C38F86C11C767D1A19B2C0090CFE90C48D7F6C47C7EB88E64BCD2FFD2B01B",
+      "path": "output/build-candidates/c40-current-v1-20261019/work/legal-manifest.json"
+    }
+  },
+  "build": {
+    "entry": "scripts/build-windows-installer.ps1 -Mode Build",
+    "newCargoTarget": "output/c40t",
+    "newCandidateAndTargetRequiredBeforeStart": true,
+    "productionReceipt": {
+      "path": "output/build-candidates/c40-current-v1-20261019/release/receipt.json",
+      "bytes": 324370,
+      "sha256": "9E86AFF6C851AF5F88BDA5825E33CD815B3B5E8BCE8BF142C036E07BE2F6ECFF"
+    },
+    "outerResult": {
+      "path": "output/implementation/c40-full-source-installer-20261019-r2/result.json",
+      "bytes": 3648,
+      "sha256": "3EC2540B4CC2956CEF89C7DCD13859AF6AB6B2649E9301BDEF085D26D7503775"
+    },
+    "outerJob": {
+      "path": "output/implementation/c40-full-source-installer-20261019-r2/job.json",
+      "bytes": 1357267,
+      "sha256": "5B6F3523C8FD7439A53A47C0C723FD17035F69CF13201E50A37C66D4DB85E553"
+    },
+    "outerControlManifest": {
+      "path": "output/implementation/c40-full-source-installer-20261019-r2/control-manifest.json",
+      "bytes": 1981,
+      "sha256": "6B1C0E5AFCB1DA4F9803F51F45F6691FA937D60ED7013F5ED93CDAA5E74B285E"
+    },
+    "allTenPreparedControlHashesMatched": true,
+    "outerControlToolGuard": {
+      "path": "output/implementation/c40-full-source-installer-20261019-r2/control-tool-guards.json",
+      "bytes": 145,
+      "sha256": "82C9DD204526388511EE2E964BCEECC449C776890FB7E5A0110C9C44E42D517D"
+    },
+    "outerControlToolGuardCount": 11,
+    "outerControlToolGuardPostMatchedAndClosed": true,
+    "rootExitCode": 0,
+    "activeProcesses": 0,
+    "observedTotalProcesses": 660,
+    "observedTotalTerminatedProcesses": 0,
+    "naturalWholeJobCompletion": false,
+    "ownedCleanup": true,
+    "cleanupStatus": "build-root-zero-proof-owned-descendants-cleaned",
+    "cleanupVerified": true,
+    "elapsedSeconds": 730.8221293003298,
+    "timeoutSeconds": 1800,
+    "cleanupSeconds": 5,
+    "timedOut": false,
+    "errors": [],
+    "prospectiveTerminalProof": {
+      "validatedBeforeOwnedCleanup": true,
+      "sameFileHandlesHeldAcrossCleanup": true,
+      "files": 5,
+      "folders": 13,
+      "postHashesAndIdentitiesMatched": true,
+      "allOutputHandlesClosed": true,
+      "originalDeadlinePreserved": true
+    },
+    "productionMode": "Build",
+    "applicationRecompiledByThisRun": true,
+    "applicationPayloadManuallyPatchedByWrapper": false,
+    "heldInputCount": 990,
+    "heldInputPostHashesAndIdentitiesMatched": true,
+    "allInputHandlesClosed": true,
+    "producerFinalOutputDirectoryGuardHeldAtReceiptWrite": true,
+    "producerInputClosureExcludesThatFinalDirectoryGuard": true,
+    "outerTerminalProofAndRootExitSeparatelyCloseOutputLifetime": true,
+    "commands": [
+      {
+        "name": "legal",
+        "exitCode": 0,
+        "pipeErrors": [],
+        "executable": "C:\\Program Files\\nodejs\\node.exe",
+        "arguments": [
+          "D:\\project\\宠物\\scripts\\distribution-manifest.mjs"
+        ]
+      },
+      {
+        "name": "tauri",
+        "exitCode": 0,
+        "pipeErrors": [],
+        "executable": "C:\\Program Files\\nodejs\\node.exe",
+        "arguments": [
+          "D:\\project\\宠物\\node_modules\\.pnpm\\@tauri-apps+cli@2.12.3\\node_modules\\@tauri-apps\\cli\\tauri.js",
+          "build",
+          "--ci",
+          "--target",
+          "x86_64-pc-windows-msvc",
+          "--bundles",
+          "nsis",
+          "--",
+          "--locked",
+          "--offline",
+          "--jobs",
+          "1",
+          "--config",
+          "profile.release.package.token-meow.codegen-units=16"
+        ]
+      },
+      {
+        "name": "engine-list",
+        "exitCode": 0,
+        "pipeErrors": [],
+        "executable": "D:\\project\\宠物\\output\\implementation\\c36-nsis-readonly-tools-20261019-r1\\full-cli\\7z.exe",
+        "arguments": [
+          "l",
+          "-slt",
+          "-bd",
+          "-sccUTF-8",
+          "--",
+          "D:\\project\\宠物\\output\\c40t\\x86_64-pc-windows-msvc\\release\\bundle\\nsis\\TokenMeow_0.1.0_x64-setup.exe"
+        ]
+      },
+      {
+        "name": "application",
+        "exitCode": 0,
+        "pipeErrors": [],
+        "executable": "D:\\project\\宠物\\output\\implementation\\c36-nsis-readonly-tools-20261019-r1\\full-cli\\7z.exe",
+        "arguments": [
+          "x",
+          "-so",
+          "-bd",
+          "-bb0",
+          "-sccUTF-8",
+          "--",
+          "D:\\project\\宠物\\output\\c40t\\x86_64-pc-windows-msvc\\release\\bundle\\nsis\\TokenMeow_0.1.0_x64-setup.exe",
+          "token-meow.exe"
+        ]
+      },
+      {
+        "name": "legal-manifest",
+        "exitCode": 0,
+        "pipeErrors": [],
+        "executable": "D:\\project\\宠物\\output\\implementation\\c36-nsis-readonly-tools-20261019-r1\\full-cli\\7z.exe",
+        "arguments": [
+          "x",
+          "-so",
+          "-bd",
+          "-bb0",
+          "-sccUTF-8",
+          "--",
+          "D:\\project\\宠物\\output\\c40t\\x86_64-pc-windows-msvc\\release\\bundle\\nsis\\TokenMeow_0.1.0_x64-setup.exe",
+          "licenses\\manifest.json"
+        ]
+      },
+      {
+        "name": "custom-shell",
+        "exitCode": 0,
+        "pipeErrors": [],
+        "executable": "C:\\Program Files\\PowerShell\\7\\pwsh.exe",
+        "arguments": [
+          "-NoProfile",
+          "-NonInteractive",
+          "-File",
+          "D:\\project\\宠物\\scripts\\build-custom-installer.ps1",
+          "-EnginePath",
+          "D:\\project\\宠物\\output\\c40t\\x86_64-pc-windows-msvc\\release\\bundle\\nsis\\TokenMeow_0.1.0_x64-setup.exe",
+          "-EngineExpectedSha256",
+          "CAB710C44E7353D7A731E1D21B59B2B6F6A008F2A66884644DB1D92BEAFE2814",
+          "-ApplicationPath",
+          "D:\\project\\宠物\\output\\build-candidates\\c40-current-v1-20261019\\work\\application.exe",
+          "-ApplicationExpectedSha256",
+          "6EBAE13471CD2A74F79AAD7F91DA13C693B2868D1F62A8858E45881C1D43C15C",
+          "-OutputDirectory",
+          "D:\\project\\宠物\\output\\build-candidates\\c40-current-v1-20261019\\work\\outer"
+        ]
+      }
+    ],
+    "resolveTauriExitCode": 0,
+    "commandCount": 7,
+    "allCommandsExitZeroNoPipeErrors": true,
+    "configuredBuildProfile": "Cargo release profile O3/thin, jobs1; exact production command overrides root token-meow CGU16. This pipeline does not export per-root Cargo JSON compiler-artifact proof like historical C39.",
+    "freshHeadlessCliBuilt": false
+  },
+  "actualNsisVariant": {
+    "receipt": {
+      "path": "output/implementation/c40-full-source-installer-20261019-r2/variant-binding.json",
+      "bytes": 14557,
+      "sha256": "EF6A9D11A31D4A8DEA489EFE2EDA536031D7B29F95973059C9E18FDDA3FFF9F7"
+    },
+    "baseAndDeliveredShaEqual": false,
+    "baseSha256": "9A39C02E938762C24FE57FD771900DACC7BFF59FC726ACC005AA8607213ED777",
+    "deliveredNsisPayloadSha256": "6EBAE13471CD2A74F79AAD7F91DA13C693B2868D1F62A8858E45881C1D43C15C",
+    "bytesPerFile": 137782272,
+    "asciiMarkerBytes": 27,
+    "sameUniqueMarkerOffset": 12855216,
+    "markerEndExclusive": 12855243,
+    "changedBytes": 3,
+    "changedRangeStart": 12855240,
+    "changedRangeEndExclusive": 12855243,
+    "before": "UNK",
+    "after": "NSS",
+    "allOtherBytesIdentical": true,
+    "actualTauriLogRecordsNsisPatch": true,
+    "localVersionBoundSource": "tauri-utils 2.9.3 platform.rs:344-360, tauri 2.11.5 app/plugin.rs:114-115, Cargo.lock and local manifests SHA-bound in variant receipt",
+    "tenReadOnlyInputGuardsPostMatchedAndClosed": true,
+    "futureNativeMustUseExtractedNsisPayload": true,
+    "filesEditedByReadOnlyComparison": false
+  },
+  "staticInstallerInspection": {
+    "receipt": {
+      "path": "output/implementation/c40-full-source-installer-20261019-r2/static-inspection.json",
+      "bytes": 5352,
+      "sha256": "2FAD3D940056FAC5E50847E8132CBA59E477C5D0F5D5A41FDA472BF105FA3C54"
+    },
+    "checksPassed": 18,
+    "checkNames": [
+      "current-user-only",
+      "in-place-downgrade-disabled",
+      "webview-download-bootstrapper",
+      "nsis-only",
+      "scoped-run-upgrade-hooks",
+      "ordinary-uninstall-removes-only-own-run",
+      "payload-windows-x64",
+      "generated-product-identity",
+      "generated-x64-payload",
+      "generated-in-place-downgrade-disabled",
+      "data-removal-is-selectable",
+      "update-preserves-data-and-run-branches",
+      "data-removal-scoped-to-bundle-id",
+      "missing-webview-failure-aborts",
+      "installer-requires-silent-before-init",
+      "no-active-force-close-paths",
+      "legacy-uninstaller-execwait-refused",
+      "ordinary-uninstall-ui-retained"
+    ],
+    "readOnly": true,
+    "currentUserRegistrationPresent": false,
+    "runValuePresent": false,
+    "notInstallationExecution": true
+  },
+  "r5ScopedComposite": {
+    "receipt": {
+      "path": "docs/acceptance/panel-read-query-tools-scoped-2026-10-19.json",
+      "bytes": 31312,
+      "sha256": "4F6C36F00C087B454EE9B4EEB3158BD34CF160A92B648F891D408C203178E1B8"
+    },
+    "sourcepins": {
+      "path": "output/implementation/panel-read-rust-validation-20261019-r5/sourcepins.json",
+      "bytes": 237302,
+      "sha256": "84AC4BC964CD1C171D83CCA5271FA15CC5B8981D5B8594E11220E4285A3DF5E9"
+    },
+    "freshCorePassed": 126,
+    "retainedNamedCoreOk": 115,
+    "compositeCurrentCoreRoster": 241,
+    "allDesktopNamespacePassed": 113,
+    "testNaturalWholeJobCompletion": true,
+    "compileNaturalWholeJobCompletion": false,
+    "continuousWholeCoreRun": false,
+    "allLibTestsExecuted": false,
+    "retainedR1ThroughR4FailuresUnchanged": true
+  },
+  "r5ToC40SourceProjection": {
+    "scope": "Compare captured R5 rows with the C40 production receipt heldInputs; no old pin is modified or replaced. This is not a claim that all 910 R5 inputs were guarded by C40.",
+    "r5CapturedInputs": 910,
+    "c40HeldInputs": 990,
+    "nonGeneratedContextIntersectionExactBytesAndSha": 193,
+    "matchedPaths": [
+      "index.html",
+      "package.json",
+      "pnpm-lock.yaml",
+      "src-tauri/Cargo.lock",
+      "src-tauri/Cargo.toml",
+      "src-tauri/build.rs",
+      "src-tauri/capabilities/desktop.json",
+      "src-tauri/icons/128x128.png",
+      "src-tauri/icons/32x32.png",
+      "src-tauri/icons/icon.ico",
+      "src-tauri/icons/icon.png",
+      "src-tauri/icons/source.svg",
+      "src-tauri/migrations/001_initial.sql",
+      "src-tauri/migrations/002_multi_source.sql",
+      "src-tauri/migrations/003_fact_references.sql",
+      "src-tauri/migrations/004_usage_lookup_index.sql",
+      "src-tauri/migrations/005_pet_read_models.sql",
+      "src-tauri/migrations/006_retention_time_indexes.sql",
+      "src-tauri/src/account_bridge.rs",
+      "src-tauri/src/budget_clock.rs",
+      "src-tauri/src/core.rs",
+      "src-tauri/src/core/adapter.rs",
+      "src-tauri/src/core/agent_kind.rs",
+      "src-tauri/src/core/agent_kind_tests.rs",
+      "src-tauri/src/core/aggregation_overflow_tests.rs",
+      "src-tauri/src/core/budget.rs",
+      "src-tauri/src/core/budget_midnight_tests.rs",
+      "src-tauri/src/core/discovery_reliability_tests.rs",
+      "src-tauri/src/core/health_tests.rs",
+      "src-tauri/src/core/motion.rs",
+      "src-tauri/src/core/panel_read.rs",
+      "src-tauri/src/core/panel_read_tests.rs",
+      "src-tauri/src/core/pet.rs",
+      "src-tauri/src/core/pet_card_tests.rs",
+      "src-tauri/src/core/pet_tests.rs",
+      "src-tauri/src/core/pricing.rs",
+      "src-tauri/src/core/pricing_sync.rs",
+      "src-tauri/src/core/pricing_sync_tests.rs",
+      "src-tauri/src/core/pricing_tests.rs",
+      "src-tauri/src/core/queries.rs",
+      "src-tauri/src/core/query_index_tests.rs",
+      "src-tauri/src/core/reader.rs",
+      "src-tauri/src/core/reader_reliability_tests.rs",
+      "src-tauri/src/core/retention_index_tests.rs",
+      "src-tauri/src/core/session_scope_tests.rs",
+      "src-tauri/src/core/tests.rs",
+      "src-tauri/src/core/tool_state_tests.rs",
+      "src-tauri/src/core/turn_thread_attribution_tests.rs",
+      "src-tauri/src/core/usage_dashboard.rs",
+      "src-tauri/src/core/usage_dashboard_tests.rs",
+      "src-tauri/src/csv_export.rs",
+      "src-tauri/src/desktop.rs",
+      "src-tauri/src/desktop_companion.rs",
+      "src-tauri/src/desktop_drag.rs",
+      "src-tauri/src/desktop_motion_guard.rs",
+      "src-tauri/src/desktop_pointer.rs",
+      "src-tauri/src/desktop_popup_bounds.rs",
+      "src-tauri/src/desktop_roaming.rs",
+      "src-tauri/src/lib.rs",
+      "src-tauri/src/local_pet_skin.rs",
+      "src-tauri/src/local_pet_skin_tests.rs",
+      "src-tauri/src/main.rs",
+      "src-tauri/src/notification_gate.rs",
+      "src-tauri/src/notification_gate_tests.rs",
+      "src-tauri/src/panel_navigation.rs",
+      "src-tauri/src/pet_pointer_policy.rs",
+      "src-tauri/src/pet_pointer_region.rs",
+      "src-tauri/tauri.conf.json",
+      "src-tauri/windows/installer-engine.nsh",
+      "src-tauri/windows/installer-hooks.nsh",
+      "src-tauri/windows/installer.nsi",
+      "src/App.tsx",
+      "src/features/Panels.tsx",
+      "src/features/companion/DesktopCompanion.tsx",
+      "src/features/companion/motionPresentation.ts",
+      "src/features/companion/useDesktopCompanion.ts",
+      "src/features/companion/useMotionReadiness.ts",
+      "src/features/overview/OfficialUsageTrend.tsx",
+      "src/features/overview/Overview.tsx",
+      "src/features/pet/BuiltinAnimationPreview.tsx",
+      "src/features/pet/CatGirl.tsx",
+      "src/features/pet/LocalPetSkinSettings.tsx",
+      "src/features/pet/TemporaryInteractionSettings.tsx",
+      "src/features/pet/WorkCareBubble.tsx",
+      "src/features/pet/alphaMask.ts",
+      "src/features/pet/animationClipRegistry.ts",
+      "src/features/pet/animationController.ts",
+      "src/features/pet/builtinAnimationPreview.css",
+      "src/features/pet/builtinAnimationRegistry.ts",
+      "src/features/pet/builtinAnimationSkin.ts",
+      "src/features/pet/builtinAnimationSources.ts",
+      "src/features/pet/frameDisplayGate.ts",
+      "src/features/pet/hdPoseLayout.ts",
+      "src/features/pet/keyframePlayer.ts",
+      "src/features/pet/localPetSkin.css",
+      "src/features/pet/localPetSkinClient.ts",
+      "src/features/pet/localPetSkinController.ts",
+      "src/features/pet/localPetSkinRuntime.ts",
+      "src/features/pet/petLifecycle.ts",
+      "src/features/pet/petProjection.ts",
+      "src/features/pet/petWindowLifetime.ts",
+      "src/features/pet/png.ts",
+      "src/features/pet/poseController.ts",
+      "src/features/pet/presenter.ts",
+      "src/features/pet/promptWatermark.ts",
+      "src/features/pet/useAnimationClip.ts",
+      "src/features/pet/useLocalPetSkins.ts",
+      "src/features/pet/usePetExtensionCapabilities.ts",
+      "src/features/pet/usePetPointerMask.ts",
+      "src/features/pet/usePetStore.ts",
+      "src/features/pet/workCareController.ts",
+      "src/features/pet/workCareSession.ts",
+      "src/features/sources/SourceDetails.tsx",
+      "src/features/usage/QueryFilters.tsx",
+      "src/features/usage/UsageDashboard.tsx",
+      "src/features/usage/UsageForecastPanel.tsx",
+      "src/features/usage/UsagePriceCatalog.tsx",
+      "src/features/usage/UsagePriceSyncPanel.tsx",
+      "src/features/usage/UsagePricingPanel.tsx",
+      "src/features/usage/UsageScopeTable.tsx",
+      "src/features/usage/UsageTrend.tsx",
+      "src/features/usage/queryFilters.css",
+      "src/features/usage/usageDashboard.css",
+      "src/features/usage/usageForecast.css",
+      "src/features/usage/usageScopes.css",
+      "src/features/usage/useUsagePriceSync.ts",
+      "src/main.tsx",
+      "src/shared/UI.tsx",
+      "src/shared/accountUsage.test.ts",
+      "src/shared/accountUsage.ts",
+      "src/shared/agentKind.test.ts",
+      "src/shared/alphaMask.test.ts",
+      "src/shared/animationCatalog.test.ts",
+      "src/shared/animationClipRegistry.test.ts",
+      "src/shared/animationV11Catalog.test.ts",
+      "src/shared/animationV12Catalog.test.ts",
+      "src/shared/animationWindowPlayback.test.ts",
+      "src/shared/bridge.test.ts",
+      "src/shared/bridge.ts",
+      "src/shared/contracts.test.ts",
+      "src/shared/contracts.ts",
+      "src/shared/demo.ts",
+      "src/shared/desktopCompanion.test.ts",
+      "src/shared/desktopCompanion.ts",
+      "src/shared/desktopMotion.test.ts",
+      "src/shared/exportResult.ts",
+      "src/shared/filters.ts",
+      "src/shared/format.test.ts",
+      "src/shared/format.ts",
+      "src/shared/hdPoseLayout.test.ts",
+      "src/shared/keyframePlayer.test.ts",
+      "src/shared/localPetSkin.test.ts",
+      "src/shared/localPetSkin.ts",
+      "src/shared/panelNavigation.test.ts",
+      "src/shared/panelNavigation.ts",
+      "src/shared/pet.test.ts",
+      "src/shared/petCardActions.test.ts",
+      "src/shared/petPopover.test.ts",
+      "src/shared/petPopover.ts",
+      "src/shared/petReadModel.test.ts",
+      "src/shared/poseController.test.ts",
+      "src/shared/queryDomain.ts",
+      "src/shared/queryLifecycle.test.ts",
+      "src/shared/queryLifecycle.ts",
+      "src/shared/queryPresentation.test.ts",
+      "src/shared/queryPresentation.ts",
+      "src/shared/querySettings.test.ts",
+      "src/shared/sessionFilter.test.ts",
+      "src/shared/snapshotView.test.ts",
+      "src/shared/snapshotView.ts",
+      "src/shared/sourceCapabilities.test.ts",
+      "src/shared/sourceCapabilities.ts",
+      "src/shared/streamedPoseCompletion.test.ts",
+      "src/shared/usageDashboard.test.ts",
+      "src/shared/usageDashboard.ts",
+      "src/shared/usageDashboardDemo.ts",
+      "src/shared/usageForecast.test.ts",
+      "src/shared/usageForecast.ts",
+      "src/shared/usagePriceCatalog.test.ts",
+      "src/shared/usagePriceCatalog.ts",
+      "src/shared/usagePriceSync.test.ts",
+      "src/shared/usagePriceSync.ts",
+      "src/shared/usageScope.test.ts",
+      "src/shared/usageScope.ts",
+      "src/shared/usageScopeDemo.test.ts",
+      "src/shared/usageTrendGeometry.test.ts",
+      "src/shared/usageTrendGeometry.ts",
+      "src/shared/viewRefreshLoop.test.ts",
+      "src/shared/viewRefreshLoop.ts",
+      "src/shared/workCare.test.ts",
+      "src/styles.css",
+      "tsconfig.json",
+      "vite.config.ts"
+    ],
+    "additionalContextNotInC40HeldInputs": [
+      "pnpm-workspace.yaml",
+      "public/favicon.svg",
+      "src-tauri/examples/account_bridge_audit.rs",
+      "src-tauri/examples/ledger_audit.rs",
+      "tests/fixtures/codex-native.jsonl",
+      "tests/fixtures/multi-semantics.json"
+    ],
+    "additionalContextContinuouslyGuardedByC40Claimed": false,
+    "distFilesNotInC40HeldInputsAndRegeneratedByBeforeBuild": 67,
+    "r5DistHashesReboundToC40": false,
+    "legalFilesWithSameHash": 643,
+    "legalRegeneratedPaths": [
+      "output/distribution-licenses/manifest.json"
+    ],
+    "originalR5SourcepinsUnchanged": true
+  },
+  "retainedInstallerPolicyTests": {
+    "receipt": {
+      "path": "output/implementation/custom-installer-backend-tests-20261019-r5/result.json",
+      "bytes": 1733,
+      "sha256": "4A52F634C6E4522DD7EDEF83B48B89C492213F6897E6BE4A4D84B13A622FAE9B"
+    },
+    "inputs": {
+      "path": "output/implementation/custom-installer-backend-tests-20261019-r5/inputs.json",
+      "bytes": 5600,
+      "sha256": "2BFA7DE37412BA4A8302BC5ED621BEA8C26AC236B6B6CDDA929D3D74ED26F676"
+    },
+    "passed": 18,
+    "actualRerunForC40": false,
+    "historicalFakePlatformAndPrivateFileScopeOnly": true,
+    "sourceHashesStillMatch": [
+      {
+        "path": "installer/TokenMeow.Setup/InstallerNative.cs",
+        "sha256": "F9C03AD28AF6D1D19F736452270EBD34AB215F64465A7EC46B37BD3BA7F4BCF3",
+        "inC40HeldInputs": true
+      },
+      {
+        "path": "installer/TokenMeow.Setup/InstallerService.cs",
+        "sha256": "ADFC64D46F4FD36CEAE5D570715DB356531E87213026F8EAAF0603A62CB2984F",
+        "inC40HeldInputs": true
+      },
+      {
+        "path": "installer/TokenMeow.Setup/InstallerWindow.cs",
+        "sha256": "4EF806407E4EA1A2F96A9CDED5EEE232ECCB7069F659C446F12AF1E73CB37958",
+        "inC40HeldInputs": true
+      },
+      {
+        "path": "installer/TokenMeow.Setup/InstallPolicy.cs",
+        "sha256": "203CFFD6587E503BA2A98F96CDF42DAEC2487AB013F08F3DD479D3C6DE39D6AC",
+        "inC40HeldInputs": true
+      },
+      {
+        "path": "installer/TokenMeow.Setup/Program.cs",
+        "sha256": "AB0007BEAEA484845E52B64FABC37FF2073B4CD2DE6E86A4ED31A3E3D08DD55B",
+        "inC40HeldInputs": true
+      },
+      {
+        "path": "installer/TokenMeow.Setup/SetupContracts.cs",
+        "sha256": "1C334A766E327DC50B8F78447820079C189FBF3F08B1505F35A1281CFEB1D7D8",
+        "inC40HeldInputs": true
+      },
+      {
+        "path": "installer/TokenMeow.Setup/tests/PolicyTests.cs",
+        "sha256": "B6C9F9B9FE6AC0EB15490CED814E0D9E5687A9A96B5EC2EE141168A1E42ABA33",
+        "inC40HeldInputs": false
+      }
+    ],
+    "installationQualified": false
+  },
+  "currentSourceFeatures": [
+    "v12: 63 original transparent PNGs, 16 clips, 33 generation sources; native autonomous gait remains disabled",
+    "Current small-panel popup and manual-drag event-order fixes",
+    "Usage collection coverage notices",
+    "Read-only pinned panel read sessions separate from collector writer locking",
+    "Panel tools detail projection preserves tool-only navigation; tools page requests full details",
+    "Settings/privacy/clear and cross-window query epoch fences"
+  ],
+  "historicalEvidenceRetained": [
+    {
+      "path": "docs/acceptance/c39-current-build-2026-10-19.json",
+      "bytes": 8210,
+      "sha256": "03FB807D5C54E49B3E85E1A94B4E925CCF0FFCB602F70BD3C383C6CAC2E65612"
+    },
+    {
+      "path": "docs/acceptance/c39-ui-native-scoped-2026-10-19.json",
+      "bytes": 7351,
+      "sha256": "07CF00E24222BF7133BDEEF2E5473EC1934876B2AEAF3E35EDB99C8707A07600"
+    },
+    {
+      "path": "docs/acceptance/c39-full379-import-failure-2026-10-19.json",
+      "bytes": 5010,
+      "sha256": "902B7E1D471D73E8F32C21B18253C02AFFD81B1EB2D0A0C9FBB77A27942BF3D1"
+    },
+    {
+      "path": "docs/acceptance/windows-installer-entry-2026-10-19.json",
+      "bytes": 5387,
+      "sha256": "E72D01D03E7CB070CE5D775AD51D68CD6BF527FCE46E76CA2A7A44EBB6DAB707"
+    },
+    {
+      "path": "docs/acceptance/custom-installer-2026-10-19.json",
+      "bytes": 4941,
+      "sha256": "E0B59431A5A991EE9B3FD777D8D6DF3BBE4BE938E7D5DE5B2B6A93BD1F6489DF"
+    }
+  ],
+  "qualification": {
+    "currentSourceBuildPassed": true,
+    "actualNsisAndWpfStaticBindingPassed": true,
+    "codeSigned": false,
+    "installerExecuted": false,
+    "AppExecuted": false,
+    "finalInstallerUiAccepted": false,
+    "cleanInstallQualified": false,
+    "upgradeQualified": false,
+    "uninstallQualified": false,
+    "missingWebView2Qualified": false,
+    "NativeQualified": false,
+    "PerformanceQualified": false,
+    "full379RetestQualified": false,
+    "warmStartupQualified": false,
+    "idleResourcesQualified": false,
+    "wholeV1Qualified": false
+  },
+  "limitations": [
+    "Unsigned candidate; final C40 installer UI has not been accepted. A separate old prototype preview and pending user feedback are not C40 UI qualification.",
+    "No real clean install, same-directory upgrade, uninstall, missing-WebView2 online/offline, startup or shortcut scenario was executed.",
+    "C39 limited Native observations and full379 failure remain bound to C39; C40 has no Native or performance result.",
+    "Current source compilation and unit evidence do not prove speed, RAM reduction, completed full import, warm startup or idle-resource thresholds.",
+    "Only release/ is the user distribution. work/, base target EXE, hidden engine and extracted application are internal evidence. Historical C39 CLI is not a new C40 headless product."
+  ],
+  "commitOrPushPerformed": false
+}

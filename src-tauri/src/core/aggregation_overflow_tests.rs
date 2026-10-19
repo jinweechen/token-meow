@@ -188,13 +188,15 @@ fn source_counter_overflow_is_reported_instead_of_wrapping_health_totals() {
     std::fs::create_dir(&second_root).unwrap();
     let second = fixture.core.add_source(&second_root).unwrap();
     let sources = [fixture.core.source_id.clone(), second];
+    // Use real completed discovery records, retaining all evidence when changing counters.
+    for _ in 0..sources.len() {
+        fixture.core.scan().unwrap();
+    }
     for (source, count) in sources.iter().zip([u64::MAX, 1]) {
-        put_setting(
-            &fixture.core.db,
-            &format!("lastSourceCheck:{source}"),
-            &json!({"checkedAt":now(),"unsupportedFiles":count}),
-        )
-        .unwrap();
+        let key = format!("lastSourceCheck:{source}");
+        let mut check = get_setting(&fixture.core.db, &key).unwrap().unwrap();
+        check["unsupportedFiles"] = json!(count);
+        put_setting(&fixture.core.db, &key, &check).unwrap();
     }
     let error = fixture.core.snapshot(json!({})).unwrap_err();
     assert!(
@@ -202,12 +204,10 @@ fn source_counter_overflow_is_reported_instead_of_wrapping_health_totals() {
         "{error}"
     );
     for (source, count) in sources.iter().zip([u64::MAX, 1]) {
-        put_setting(
-            &fixture.core.db,
-            &format!("lastSourceCheck:{source}"),
-            &json!({"checkedAt":now(),"unsupportedFiles":0}),
-        )
-        .unwrap();
+        let key = format!("lastSourceCheck:{source}");
+        let mut check = get_setting(&fixture.core.db, &key).unwrap().unwrap();
+        check["unsupportedFiles"] = json!(0);
+        put_setting(&fixture.core.db, &key, &check).unwrap();
         put_setting(
             &fixture.core.db,
             &format!("historyPending:{source}"),

@@ -90,3 +90,36 @@ test("finite prompts and sleep finish their exit and return without jumping to t
   }
   assert.equal(playbackClip(blink), blink);
 });
+
+test("window IO pause excludes waiting while preserving the current step's remaining duration", () => {
+  const clock = new KeyframePlayer();
+  clock.start({ id: "turn", fallback: "front", loop: false, sequence: [
+    { frame: "entry", durationMs: 100 }, { frame: "turn", durationMs: 200 },
+    { frame: "front", durationMs: 100 },
+  ] }, 0);
+  const paused = { frame: "turn", nextInMs: 175, stepIndex: 1 };
+  assert.deepEqual(clock.pause(125), paused);
+  assert.deepEqual(clock.pause(5000), paused, "repeated pause does not shift its origin");
+  assert.deepEqual(clock.readPosition(10_000), paused);
+  assert.deepEqual(clock.resume(20_000), paused);
+  assert.deepEqual(clock.readPosition(20_174), { frame: "turn", nextInMs: 1, stepIndex: 1 });
+  assert.deepEqual(clock.readPosition(20_175), { frame: "front", nextInMs: 100, stepIndex: 2 });
+  assert.deepEqual(clock.readPosition(20_275), { frame: "front", nextInMs: null, stepIndex: null });
+});
+
+test("window pause retains loop-body indices and a replacement cannot resume its old timeline", () => {
+  const clock = new KeyframePlayer();
+  clock.start({ id: "active", fallback: "front", loop: true, loopRange: { start: 1, end: 3 }, sequence: [
+    { frame: "entry", durationMs: 100 }, { frame: "body-a", durationMs: 200 },
+    { frame: "body-b", durationMs: 300 }, { frame: "exit", durationMs: 100 },
+  ] }, 0);
+  const paused = { frame: "body-b", nextInMs: 250, stepIndex: 2 };
+  assert.deepEqual(clock.pause(850), paused);
+  assert.deepEqual(clock.resume(10_850), paused);
+  assert.deepEqual(clock.readPosition(11_100), { frame: "body-a", nextInMs: 200, stepIndex: 1 });
+  clock.pause(11_110);
+  clock.start(blink, 11_200);
+  assert.deepEqual(clock.resume(11_250), { frame: "idle/base", nextInMs: 750, stepIndex: 0 });
+  clock.stop();
+  assert.throws(() => clock.readPosition(11_300), /尚未/);
+});

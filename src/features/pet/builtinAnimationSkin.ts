@@ -1,8 +1,9 @@
-import manifestData from "../../../assets/pets/nekomi/manifest-animation-v11.json";
+import manifestData from "../../../assets/pets/nekomi/manifest-animation-v12.json";
 import { bundledAnimationSources } from "./builtinAnimationSources";
 
 export type AnimationClipId = "idle" | "active" | "complete" | "alert" | "sleep" |
-  "shy" | "affection" | "stretch" | "wink" | "happy" | "bow" | "hug-tail" | "walk";
+  "shy" | "affection" | "stretch" | "wink" | "happy" | "bow" | "hug-tail" | "walk" |
+  "walk-right" | "walk-left" | "walk-left-to-right" | "walk-right-to-left";
 type Action = "idle" | "active" | "complete" | "alert" | "sleep";
 export interface AnimationFrameDefinition {
   id: string;
@@ -24,7 +25,7 @@ export interface AnimationClipDefinition {
 }
 export interface BuiltinAnimationManifest {
   schema_version: 2;
-  skin_id: "nekomi-animation-v6" | "nekomi-animation-v11";
+  skin_id: "nekomi-animation-v6" | "nekomi-animation-v11" | "nekomi-animation-v12";
   bounds_alpha_threshold?: number;
   renderer_kind: "builtin-animation-clips";
   author: string;
@@ -62,13 +63,13 @@ export const builtinAnimationFrames = builtinAnimationManifest.frames;
 export const builtinAnimationClips = builtinAnimationManifest.clips;
 
 // Generated explicit ?url imports create strings only, never PNG requests.
-// Only the 52 selected whole-character originals can enter the build.
+// Only the 63 selected whole-character originals can enter the build.
 const sources: Record<string, string> = {};
 const expected = new Set<string>();
 for (const frame of builtinAnimationFrames) {
   const key = frame.path;
   if (key !== `assets/pets/nekomi/${frame.id}.png` ||
-      !/^assets\/pets\/nekomi\/(?:animation-v6\/clips\/[a-z-]+\/|walk-v10-complete\/(?:model-reference\/|actions-v11\/[a-z-]+\/|frames-v11\/))[a-z0-9-]+\.png$/.test(key) ||
+      !/^assets\/pets\/nekomi\/(?:animation-v6\/clips\/[a-z-]+\/|walk-v10-complete\/(?:model-reference\/|actions-v11\/[a-z-]+\/|frames-v11\/|actions-v12\/walk-left\/|frames-left-v12\/))[a-z0-9-]+\.png$/.test(key) ||
       expected.has(key) || !Object.hasOwn(bundledAnimationSources, key) ||
       typeof bundledAnimationSources[key] !== "string" || !bundledAnimationSources[key])
     throw Error(`内置动画帧路径不匹配：${frame.id}`);

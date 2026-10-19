@@ -12,6 +12,7 @@ import { isDesktop } from "../../shared/bridge";
 import { allowPetMotionHeartbeat, createPetMotionReadiness, isPetMotionRenderer } from "../companion/useMotionReadiness";
 import type { LocalPetSkinRuntime } from "./localPetSkinRuntime";
 import { usePetPointerMask } from "./usePetPointerMask";
+import { ANIMATION_ASSET_LIMITS } from "./animationClipRegistry";
 
 const clipDuration = (clips: readonly { id: string; sequence: readonly { durationMs: number }[] }[], id: string) => clips.find((clip) => clip.id === id)!
   .sequence.reduce((sum, step) => sum + step.durationMs, 0);
@@ -60,10 +61,18 @@ export function CatGirl({
   const clips = skinRuntime?.clips ?? builtinAnimationClips;
   const clipsRef = useRef(clips);
   clipsRef.current = clips;
-  const duration = (id: string) => clipDuration(clipsRef.current, id);
+  const poseClip = (id: string) => clipsRef.current.find((clip) => clip.id === id)
+    ?? clipsRef.current.find((clip) => clip.id === (id === "walk-right" ? "walk" : "idle"))!;
+  const duration = (id: string) => clipDuration(clipsRef.current, poseClip(id).id);
   const createAnimationController = () => new AnimationController(duration, true);
   const createPoseController = () => new PoseController(builtinManifest.variants,
-    (frame) => duration(HD_LOGICAL_POSES[frame]), true);
+    (frame) => {
+      const clip = poseClip(HD_LOGICAL_POSES[frame]);
+      // Streaming waits pause the presentation clock. These finite poses finish
+      // on the player's completion ACK; loading cannot consume their later steps.
+      return new Set([clip.fallback, ...clip.sequence.map((step) => step.frame)]).size > ANIMATION_ASSET_LIMITS.clipFrames
+        ? Infinity : duration(clip.id);
+    }, true);
   const controller = useRef(createAnimationController());
   const poses = useRef(createPoseController());
   const companionManaged = useRef(companion !== undefined);

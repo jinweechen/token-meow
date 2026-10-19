@@ -314,89 +314,10 @@ Function PageReinstallUpdateSelection
   ${EndIf}
 FunctionEnd
 Function PageLeaveReinstall
-  ${NSD_GetState} $R2 $R1
-
-  ; If migrating from Wix, always uninstall
-  ${If} $WixMode = 1
-    Goto reinst_uninstall
-  ${EndIf}
-
-  ; In update mode, always proceeds without uninstalling
-  ${If} $UpdateMode = 1
-    Goto reinst_done
-  ${EndIf}
-
-  ; $R0 holds whether same(0)/upgrading(1)/downgrading(-1) version
-  ; $R1 holds the radio buttons state:
-  ;   1 => first choice was selected
-  ;   0 => second choice was selected
-  ${If} $R0 = 0 ; Same version, proceed
-    ${If} $R1 = 1              ; User chose to add/reinstall
-      Goto reinst_done
-    ${Else}                    ; User chose to uninstall
-      Goto reinst_uninstall
-    ${EndIf}
-  ${ElseIf} $R0 = 1 ; Upgrading
-    ${If} $R1 = 1              ; User chose to uninstall
-      Goto reinst_uninstall
-    ${Else}
-      Goto reinst_done         ; User chose NOT to uninstall
-    ${EndIf}
-  ${ElseIf} $R0 = -1 ; Downgrading
-    ${If} $R1 = 1              ; User chose to uninstall
-      Goto reinst_uninstall
-    ${Else}
-      Goto reinst_done         ; User chose NOT to uninstall
-    ${EndIf}
-  ${EndIf}
-
-  reinst_uninstall:
-    HideWindow
-    ClearErrors
-
-    ${If} $WixMode = 1
-      ReadRegStr $R1 HKLM "$R6" "UninstallString"
-      ExecWait '$R1' $0
-    ${Else}
-      ReadRegStr $4 SHCTX "${MANUPRODUCTKEY}" ""
-      ReadRegStr $R1 SHCTX "${UNINSTKEY}" "UninstallString"
-      ${IfThen} $UpdateMode = 1 ${|} StrCpy $R1 "$R1 /UPDATE" ${|} ; append /UPDATE
-      ${IfThen} $PassiveMode = 1 ${|} StrCpy $R1 "$R1 /P" ${|} ; append /P
-      StrCpy $R1 "$R1 _?=$4" ; append uninstall directory
-      ExecWait '$R1' $0
-    ${EndIf}
-
-    BringToFront
-
-    ${IfThen} ${Errors} ${|} StrCpy $0 2 ${|} ; ExecWait failed, set fake exit code
-
-    ${If} $0 <> 0
-    ${OrIf} ${FileExists} "$INSTDIR\${MAINBINARYNAME}.exe"
-      ; User cancelled wix uninstaller? return to select un/reinstall page
-      ${If} $WixMode = 1
-      ${AndIf} $0 = 1602
-        Abort
-      ${EndIf}
-
-      ; User cancelled NSIS uninstaller? return to select un/reinstall page
-      ${If} $0 = 1
-        Abort
-      ${EndIf}
-
-      ; Other errors? show generic error message and return to select un/reinstall page
-      MessageBox MB_ICONEXCLAMATION "$(unableToUninstall)"
-      Abort
-    ${EndIf}
-
-    ; The NSIS uninstaller was run in place (`_?=`), so it cannot delete itself
-    ; and the install directory, clean them up here once the uninstall succeeded
-    ; https://nsis.sourceforge.io/Docs/Chapter3.html#:~:text=path%20contains%20spaces.-,3.2.3%20Examples,-installer.exe%20/NCRC
-    ${If} $WixMode = 0
-    ${AndIf} $4 != ""
-      Delete "$4\uninstall.exe"
-      RMDir "$4"
-    ${EndIf}
-  reinst_done:
+  ; Hidden-engine installs never invoke a legacy uninstaller. Its shutdown
+  ; policy and UI are not trusted by the new shell.
+  SetErrorLevel ${TM_EXIT_UNSUPPORTED_UPGRADE}
+  Quit
 FunctionEnd
 
 ; 5. Choose install directory page
@@ -490,6 +411,7 @@ FunctionEnd
 {{/each}}
 
 Function .onInit
+  !insertmacro TM_ENGINE_REQUIRE_SILENT
   ${GetOptions} $CMDLINE "/P" $PassiveMode
   ${IfNot} ${Errors}
     StrCpy $PassiveMode 1
@@ -532,6 +454,8 @@ Function .onInit
     Call RestorePreviousInstallLocation
   ${EndIf}
 
+  !insertmacro TM_ENGINE_VALIDATE_UPGRADE
+  !insertmacro TM_ENGINE_REQUIRE_APP_STOPPED "$INSTDIR\${MAINBINARYNAME}.exe"
 
   !if "${INSTALLMODE}" == "both"
     !insertmacro MULTIUSER_INIT
@@ -558,7 +482,8 @@ Function .onInit
       ${Else}
         MessageBox MB_ICONSTOP "$(silentDowngrades)"
       ${EndIf}
-      Abort
+      SetErrorLevel ${TM_EXIT_DOWNGRADE}
+      Quit
     ${EndIf}
   ${EndIf}
   !endif
@@ -583,13 +508,14 @@ Section WebView2
       !if "${INSTALLWEBVIEW2MODE}" == "downloadBootstrapper"
         Delete "$TEMP\MicrosoftEdgeWebview2Setup.exe"
         DetailPrint "$(webview2Downloading)"
-        NSISdl::download "https://go.microsoft.com/fwlink/p/?LinkId=2124703" "$TEMP\MicrosoftEdgeWebview2Setup.exe"
+        NSISdl::download_quiet "https://go.microsoft.com/fwlink/p/?LinkId=2124703" "$TEMP\MicrosoftEdgeWebview2Setup.exe"
         Pop $0
         ${If} $0 == "success"
           DetailPrint "$(webview2DownloadSuccess)"
         ${Else}
           DetailPrint "$(webview2DownloadError)"
-          Abort "$(webview2AbortError)"
+          SetErrorLevel ${TM_EXIT_WEBVIEW_FAILED}
+          Quit
         ${EndIf}
         StrCpy $6 "$TEMP\MicrosoftEdgeWebview2Setup.exe"
         Goto install_webview2
@@ -616,12 +542,15 @@ Section WebView2
       install_webview2:
         DetailPrint "$(installingWebview2)"
         ; $6 holds the path to the webview2 installer
-        ExecWait "$6 ${WEBVIEW2INSTALLERARGS} /install" $1
-        ${If} $1 = 0
+        ClearErrors
+        ExecWait '"$6" ${WEBVIEW2INSTALLERARGS} /install' $1
+        ${IfNot} ${Errors}
+        ${AndIf} $1 = 0
           DetailPrint "$(webview2InstallSuccess)"
         ${Else}
           DetailPrint "$(webview2InstallError)"
-          Abort "$(webview2AbortError)"
+          SetErrorLevel ${TM_EXIT_WEBVIEW_FAILED}
+          Quit
         ${EndIf}
       webview2_done:
     ${EndIf}
@@ -642,13 +571,14 @@ Section WebView2
           ${If} $R1 != ""
             ; Chromium updater docs: https://source.chromium.org/chromium/chromium/src/+/main:docs/updater/user_manual.md
             ; Modified from "HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft EdgeWebView\ModifyPath"
+            ClearErrors
             ExecWait `"$R1" /install appguid=${WEBVIEW2APPGUID}&needsadmin=true` $1
-            ${If} $1 = 0
+            ${IfNot} ${Errors}
+            ${AndIf} $1 = 0
               DetailPrint "$(webview2InstallSuccess)"
             ${Else}
-              MessageBox MB_ICONEXCLAMATION|MB_ABORTRETRYIGNORE "$(webview2InstallError)" IDIGNORE ignore IDRETRY update_webview
+              SetErrorLevel ${TM_EXIT_WEBVIEW_FAILED}
               Quit
-              ignore:
             ${EndIf}
           ${EndIf}
       ${EndIf}
@@ -663,7 +593,7 @@ Section Install
     !insertmacro NSIS_HOOK_PREINSTALL
   !endif
 
-  !insertmacro CheckIfAppIsRunning "$INSTDIR\${MAINBINARYNAME}.exe" "${PRODUCTNAME}"
+  !insertmacro TM_ENGINE_REQUIRE_APP_STOPPED "$INSTDIR\${MAINBINARYNAME}.exe"
 
   ; Copy main executable
   File "${MAINBINARYSRCPATH}"
@@ -800,7 +730,7 @@ Section Uninstall
     !insertmacro NSIS_HOOK_PREUNINSTALL
   !endif
 
-  !insertmacro CheckIfAppIsRunning "$INSTDIR\${MAINBINARYNAME}.exe" "${PRODUCTNAME}"
+  !insertmacro TM_ENGINE_REQUIRE_APP_STOPPED "$INSTDIR\${MAINBINARYNAME}.exe"
 
   ; Delete the app directory and its content from disk
   ; Copy main executable

@@ -254,6 +254,8 @@ fn query_index_and_source_reuse_keep_snapshots_csv_and_global_health_semantics()
             native(child, "index-child", 200),
         ],
     );
+    // Observe the primary before adding the deliberately unobserved disabled source.
+    r.core.scan().unwrap();
     let second_root = r._tmp.path().join("disabled-source");
     fs::create_dir(&second_root).unwrap();
     let second = r.core.add_source(&second_root).unwrap();

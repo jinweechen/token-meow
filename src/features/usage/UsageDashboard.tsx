@@ -20,6 +20,7 @@ import { UsagePricingPanel } from "./UsagePricingPanel";
 import { UsageTrend } from "./UsageTrend";
 import { UsageScopeTable } from "./UsageScopeTable";
 import { UsageForecastPanel } from "./UsageForecastPanel";
+import type { UsageCollectionCoverage } from "../../shared/usageScope";
 import "./usageDashboard.css";
 
 const tabs = [
@@ -59,6 +60,8 @@ interface Props {
   query: Query;
   onSelectScope: (next: Query) => void;
   forecastBlockedReason?: string | null;
+  collectionCoverage: UsageCollectionCoverage;
+  onOpenHealth: () => void;
   onRequestChange: (next: UsageDashboardRequest) => void;
   loading: boolean;
   error?: string | null;
@@ -174,6 +177,8 @@ export function UsageDashboard({
   query,
   onSelectScope,
   forecastBlockedReason,
+  collectionCoverage,
+  onOpenHealth,
   onRequestChange,
   loading,
   error,
@@ -240,6 +245,16 @@ export function UsageDashboard({
           {data && <small>保留上次统计，更新时间见上方。</small>}
         </div>
       )}
+      <aside className={`usage-collection-notice${collectionCoverage.attention ? " needs-attention" : ""}`}
+        aria-label="统计覆盖状态">
+        <div>
+          <strong role="status" aria-live="polite">{collectionCoverage.title}</strong>
+          {collectionCoverage.notes.length > 0 && <p>{collectionCoverage.notes.join(" ")}</p>}
+          <small>{isDemo ? "演示样本仅用于界面预览，不代表实际用量。"
+            : "当前统计仅包含所选范围内已采集的本机记录，不代表账户或其它工具的全部用量。"}</small>
+        </div>
+        <button type="button" onClick={onOpenHealth}>查看来源与数据健康 →</button>
+      </aside>
       <div className="usage-metrics">
         <section className="usage-metric">
           <span>

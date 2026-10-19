@@ -2,7 +2,7 @@ node_modules/
 dist/
 src-tauri/target/
 src-tauri/gen/
-# Keep build/runtime evidence local; these eight records are hashed build inputs.
+# Keep build/runtime evidence local; these eleven records are hashed build inputs.
 output/*
 !output/imagegen/
 output/imagegen/*
@@ -16,6 +16,11 @@ output/imagegen/completion-20261018/*
 !output/imagegen/completion-20261018/source-records-actions-c.json
 !output/imagegen/completion-20261018/source-records-actions-d.json
 !output/imagegen/completion-20261018/source-records-actions-e.json
+!output/imagegen/left-completion-20261018/
+output/imagegen/left-completion-20261018/*
+!output/imagegen/left-completion-20261018/source-records.json
+!output/imagegen/left-completion-20261018/integrity.json
+!output/imagegen/left-completion-20261018/review-summary.json
 *.sqlite
 *.sqlite-*
 *.db

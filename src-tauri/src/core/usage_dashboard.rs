@@ -436,7 +436,7 @@ fn normal_input(response: &ResponseUsage) -> Option<i64> {
 }
 
 fn build(
-    core: &Core,
+    core: &QueryReadContext<'_>,
     request: &Request,
     dates: (Option<NaiveDate>, Option<NaiveDate>),
     loaded: &Loaded,
@@ -593,19 +593,23 @@ fn build(
 
 impl Core {
     pub fn usage_dashboard_snapshot(&self, query: Value, request: Value) -> Result<Value> {
-        let request = Request::parse(&request)?;
-        let dates = validate_dates(&query)?;
-        let loaded = load(self, &query)?;
-        let mut dashboard = build(self, &request, dates, &loaded)?;
-        let mut data = snapshot_from_loaded(self, &query, loaded)?;
-        let pricing_summary = dashboard["summary"].take();
-        dashboard["summary"] = data["overview"].clone();
-        for (key, value) in pricing_summary.as_object().unwrap() {
-            dashboard["summary"][key] = value.clone();
-        }
-        data["usageDashboard"] = dashboard;
-        Ok(data)
+        usage_dashboard_snapshot_read(&self.query_read_context(), query, request)
     }
+}
+
+pub(super) fn snapshot_read(core: &QueryReadContext<'_>, query: Value, request: Value, include_tools: bool) -> Result<Value> {
+    let request = Request::parse(&request)?;
+    let dates = validate_dates(&query)?;
+    let loaded = load_read(core, &query)?;
+    let mut dashboard = build(core, &request, dates, &loaded)?;
+    let mut data = snapshot_from_loaded(core, &query, loaded, include_tools)?;
+    let pricing_summary = dashboard["summary"].take();
+    dashboard["summary"] = data["overview"].clone();
+    for (key, value) in pricing_summary.as_object().unwrap() {
+        dashboard["summary"][key] = value.clone();
+    }
+    data["usageDashboard"] = dashboard;
+    Ok(data)
 }
 
 #[cfg(test)]

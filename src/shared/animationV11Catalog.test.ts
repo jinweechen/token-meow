@@ -4,9 +4,7 @@ import { readFile } from "node:fs/promises";
 import { createHash } from "node:crypto";
 import { inflateSync } from "node:zlib";
 import path from "node:path";
-import ts from "typescript";
 import type { BuiltinAnimationManifest } from "../features/pet/builtinAnimationSkin";
-import { HD_LOGICAL_POSES } from "../features/pet/hdPoseLayout";
 
 const root = new URL("../../", import.meta.url);
 const base = "assets/pets/nekomi/";
@@ -179,102 +177,4 @@ test("v11 preserves every catalog step and timing, body-only loops, finite retur
   assert.ok(body.every((step) => step.durationMs === 160 && step.frame.startsWith("walk-v10-complete/frames-v11/")));
   assert.ok(walk.sequence.filter((step) => step.frame.endsWith("master-right-v1"))
     .every((step) => step.segment === "entry" || step.segment === "exit"));
-});
-
-function compile(source: string) {
-  return ts.transpileModule(source, { compilerOptions: {
-    target: ts.ScriptTarget.ES2022, module: ts.ModuleKind.CommonJS, esModuleInterop: true,
-  } }).outputText;
-}
-
-async function moduleFixture() {
-  const { catalog } = await fixture();
-  const [skinText, sourcesText] = await Promise.all([
-    read("src/features/pet/builtinAnimationSkin.ts"), read("src/features/pet/builtinAnimationSources.ts"),
-  ]);
-  const sourceAst = ts.createSourceFile("builtinAnimationSources.ts", sourcesText.toString("utf8"), ts.ScriptTarget.ES2022, true);
-  const sourceImports = sourceAst.statements.filter(ts.isImportDeclaration);
-  assert.equal(sourceImports.length, 52);
-  assert.deepEqual(sourceImports.map((item) => (item.moduleSpecifier as ts.StringLiteral).text),
-    catalog.frames.map((frame) => `../../../${frame.path}?url`));
-  assert.ok(sourceImports.every((item) => item.importClause?.name && !item.importClause.namedBindings));
-  const calls: string[] = [];
-  const bundled: Record<string, unknown> = {};
-  new Function("exports", "require", compile(sourcesText.toString("utf8")))(bundled, (file: string) => {
-    calls.push(file);
-    assert.ok(file.startsWith("../../../assets/pets/nekomi/") && file.endsWith(".png?url"));
-    return { __esModule: true, default: `https://pet.test/${file.slice(9, -4)}` };
-  });
-  assert.equal(calls.length, 52);
-  const sources = bundled.bundledAnimationSources as Record<string, string>;
-  assert.ok(Object.isFrozen(sources));
-  assert.deepEqual(sources, Object.fromEntries(catalog.frames.map((frame) => [frame.path, `https://pet.test/${frame.path}`])));
-  const skinAst = ts.createSourceFile("builtinAnimationSkin.ts", skinText.toString("utf8"), ts.ScriptTarget.ES2022, true);
-  assert.deepEqual(skinAst.statements.filter(ts.isImportDeclaration)
-    .map((item) => (item.moduleSpecifier as ts.StringLiteral).text),
-  ["../../../assets/pets/nekomi/manifest-animation-v11.json", "./builtinAnimationSources"]);
-  assert.ok(!skinText.toString("utf8").includes("import.meta.glob"));
-  const compiledSkin = compile(skinText.toString("utf8"));
-  const bind = (manifest: BuiltinAnimationManifest, urls: Record<string, string>) => {
-    const exports: Record<string, unknown> = {};
-    new Function("exports", "require", compiledSkin)(exports, (file: string) => {
-      if (file === "../../../assets/pets/nekomi/manifest-animation-v11.json")
-        return { __esModule: true, default: manifest };
-      assert.equal(file, "./builtinAnimationSources");
-      return { bundledAnimationSources: urls };
-    });
-    return exports;
-  };
-  return { catalog, sources, bind };
-}
-
-test("v11 imports only the 52 selected PNG URLs, preserves semantic indexes and freezes independent runtime objects", async () => {
-  const { catalog, sources, bind } = await moduleFixture();
-  const old = JSON.parse((await read(`${base}manifest-hd-v1.json`)).toString("utf8")) as BuiltinAnimationManifest;
-  assert.deepEqual(catalog.actions, old.actions);
-  assert.deepEqual(catalog.variants, { idle: [...old.variants.idle, 4, 13], tap: old.variants.tap });
-  assert.equal(catalog.static_pose, old.static_pose);
-  assert.equal(HD_LOGICAL_POSES[13], "walk");
-  assert.ok(catalog.variants.idle.every((index) => catalog.clips.some((clip) => clip.id === HD_LOGICAL_POSES[index])));
-  assert.ok(!catalog.variants.tap.includes(13));
-  const exports = bind(catalog, sources);
-  const manifest = exports.builtinAnimationManifest as BuiltinAnimationManifest;
-  assert.equal(exports.builtinAnimationFrames, manifest.frames);
-  assert.equal(exports.builtinAnimationClips, manifest.clips);
-  assert.deepEqual(exports.builtinAnimationSources, Object.fromEntries(catalog.frames.map((frame) =>
-    [frame.id, sources[frame.path]])));
-  function frozen(value: object) {
-    assert.ok(Object.isFrozen(value));
-    for (const child of Object.values(value)) if (child && typeof child === "object") frozen(child);
-  }
-  frozen(manifest);
-  assert.ok(Object.isFrozen(exports.builtinAnimationSources));
-  assert.notEqual(manifest, catalog);
-  assert.notEqual(manifest.clips[0].sharedTransform, catalog.clips[0].sharedTransform);
-  catalog.frames[0].path = "changed-by-fixture";
-  assert.equal(manifest.frames[0].path, `${base}${front}.png`);
-});
-
-test("v11 URL binding rejects missing, empty, extra, duplicate and redirected frame paths", async () => {
-  const { catalog, sources, bind } = await moduleFixture();
-  const first = catalog.frames[0].path;
-  const missing = { ...sources }; delete missing[first];
-  assert.throws(() => bind(catalog, missing), /路径不匹配/);
-  assert.throws(() => bind(catalog, { ...sources, [first]: "" }), /路径不匹配/);
-  assert.throws(() => bind(catalog, { ...sources,
-    [`${pack}frames-v11/unlisted.png`]: "https://pet.test/unlisted.png" }), /路径不一致/);
-  const duplicate = structuredClone(catalog); duplicate.frames.push(duplicate.frames[0]);
-  assert.throws(() => bind(duplicate, sources), /路径不匹配/);
-  const mismatch = structuredClone(catalog); mismatch.frames[0].id = "animation-v6/clips/idle/base";
-  assert.throws(() => bind(mismatch, sources), /路径不匹配/);
-  for (const redirectedPath of [
-    `${base}animation-v6/layers/tail.png`, `${pack}layers-side-v11/head.png`,
-    `${pack}../walk-v10-complete/model-reference/master-front-v2.png`,
-    "https://external.test/frame.png",
-  ]) {
-    const redirected = structuredClone(catalog);
-    redirected.frames[0].path = redirectedPath;
-    redirected.frames[0].id = frameId(redirectedPath);
-    assert.throws(() => bind(redirected, { ...sources, [redirectedPath]: "https://pet.test/redirected.png" }), /路径不匹配/);
-  }
 });

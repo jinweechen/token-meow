@@ -1,4 +1,10 @@
-import { useCallback, useEffect, useRef, useState } from "react";
+import {
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+  type CSSProperties,
+} from "react";
 import { listen } from "@tauri-apps/api/event";
 import { invoke } from "@tauri-apps/api/core";
 import type {
@@ -23,7 +29,7 @@ import { UsageDashboard } from "./features/usage/UsageDashboard";
 import { QueryFilters } from "./features/usage/QueryFilters";
 import { AccountCard } from "./features/overview/Overview";
 import { demoUsageDashboard } from "./shared/usageDashboardDemo";
-import { usageForecastBlockedReason } from "./shared/usageScope";
+import { usageCollectionCoverage, usageForecastBlockedReason } from "./shared/usageScope";
 import { useUsagePriceSync } from "./features/usage/useUsagePriceSync";
 import {
   HealthPanel,
@@ -46,13 +52,23 @@ import {
   type QueryUpdate,
 } from "./shared/queryLifecycle";
 import {
+  snapshotViewKey,
+  snapshotViewReady,
+  usageDashboardRequestKey,
+} from "./shared/snapshotView";
+import {
   PanelNavigationController,
   PetCardActionController,
   capturePetCard,
   type PanelNavigationIntent,
 } from "./shared/panelNavigation";
 import { exportResultMessage } from "./shared/exportResult";
-import { changesQueryDomain, isQueryDomainChange } from "./shared/queryDomain";
+import {
+  changesQueryDomain,
+  enablesQueryPrivacy,
+  isQueryDomainChange,
+  revokeQueryFacts,
+} from "./shared/queryDomain";
 import { PetPopoverController, type PetPopover } from "./shared/petPopover";
 import { usePetStore } from "./features/pet/usePetStore";
 import { CompanionMenu } from "./features/companion/DesktopCompanion";
@@ -113,7 +129,7 @@ function safeError(error: unknown): string {
       ? error.message
       : "本地操作未完成，请查看数据健康。";
 }
-function useApplication(dashboardEnabled: boolean) {
+function useApplication(dashboardEnabled: boolean, toolsEnabled: boolean) {
   const lifecycle = useRef<QueryLifecycle | null>(null);
   if (!lifecycle.current)
     lifecycle.current = new QueryLifecycle(window.location.search);
@@ -131,20 +147,18 @@ function useApplication(dashboardEnabled: boolean) {
     useState<UsageDashboardRequest>({ page: 0, pageSize: 20, quality: "all" });
   const dashboardView = useRef({
     enabled: dashboardEnabled,
+    includeTools: toolsEnabled,
     request: dashboardRequest,
   });
   dashboardView.current = {
     enabled: dashboardEnabled,
+    includeTools: toolsEnabled,
     request: dashboardRequest,
   };
-  const viewKey = dashboardEnabled
-    ? JSON.stringify(dashboardRequest)
-    : "snapshot";
+  const viewKey = snapshotViewKey(dashboardView.current);
   const [acceptedViewKey, setAcceptedViewKey] = useState<string | null>(
     bridge.isDesktop ? null : viewKey,
   );
-  const queryReady =
-    queryScopeReady(acceptedScope, queryState) && acceptedViewKey === viewKey;
   const [snapshot, setSnapshot] = useState<Snapshot>(() =>
     bridge.isDesktop
       ? emptySnapshot()
@@ -155,6 +169,9 @@ function useApplication(dashboardEnabled: boolean) {
             : undefined,
         },
   );
+  const queryReady =
+    queryScopeReady(acceptedScope, queryState) &&
+    snapshotViewReady(acceptedViewKey, dashboardView.current, snapshot);
   const [demo, setDemo] = useState(!bridge.isDesktop),
     [factsReady, setFactsReady] = useState(!bridge.isDesktop),
     [pending, setPending] = useState(false),
@@ -164,7 +181,6 @@ function useApplication(dashboardEnabled: boolean) {
   const demoRef = useRef(demo);
   const viewVisible = useRef(bridge.isDesktop ? false : !document.hidden),
     loop = useRef<ViewRefreshLoop | null>(null);
-  const pendingDomainMutations = useRef(0);
   demoRef.current = demo;
   const notify = useCallback((message: string) => setToast(message), []);
   const publishQuery = useCallback(() => {
@@ -175,24 +191,28 @@ function useApplication(dashboardEnabled: boolean) {
         : state,
     );
   }, [scope]);
-  const invalidateDomain = useCallback(() => {
-    scope.domainChanged();
-    publishQuery();
-    setAcceptedScope(null);
-    setAcceptedViewKey(null);
-    setFactsReady(false);
-    setSnapshot((previous) => ({
-      ...emptySnapshot(),
-      settings: previous.settings,
-    }));
-  }, [scope, publishQuery]);
+  const invalidateDomain = useCallback(
+    (settings?: Settings) => {
+      scope.domainChanged();
+      publishQuery();
+      setAcceptedScope(null);
+      setAcceptedViewKey(null);
+      setFactsReady(false);
+      setSnapshot((previous) => revokeQueryFacts(previous, settings));
+    },
+    [scope, publishQuery],
+  );
+  const invalidateSettings = useCallback(
+    (settings: unknown) => {
+      if (enablesQueryPrivacy(settings)) invalidateDomain({ privacyMode: true });
+      else scope.invalidate();
+    },
+    [scope, invalidateDomain],
+  );
   const loadSnapshot = useCallback(async () => {
     scope.synchronize();
     publishQuery();
-    if (
-      bridge.isDesktop &&
-      (!viewVisible.current || pendingDomainMutations.current > 0)
-    )
+    if (bridge.isDesktop && (!viewVisible.current || !scope.canRead()))
       return;
     const ticket = scope.begin();
     if (lastRequestedQuery.current !== ticket.key) {
@@ -207,15 +227,12 @@ function useApplication(dashboardEnabled: boolean) {
       ...dashboardView.current,
       request: { ...dashboardView.current.request },
     };
-    const requestKey = view.enabled ? JSON.stringify(view.request) : "snapshot";
+    const requestKey = snapshotViewKey(view);
     const viewIsCurrent = () =>
-      requestKey ===
-      (dashboardView.current.enabled
-        ? JSON.stringify(dashboardView.current.request)
-        : "snapshot");
+      requestKey === snapshotViewKey(dashboardView.current);
     publishQuery();
     if (!bridge.isDesktop) {
-      if (scope.isCurrent(ticket)) {
+      if (scope.isCurrent(ticket) && viewIsCurrent()) {
         setSnapshot((previous) => {
           const next = {
             ...(demoRef.current ? demoSnapshot(ticket.query) : emptySnapshot()),
@@ -240,12 +257,14 @@ function useApplication(dashboardEnabled: boolean) {
     }
     try {
       const data = view.enabled
-        ? await bridge.getUsageDashboardSnapshot(ticket.query, view.request)
-        : await bridge.getSnapshot(ticket.query);
+        ? await bridge.getUsageDashboardSnapshot(ticket.query, view.request, view.includeTools)
+        : await bridge.getSnapshot(ticket.query, view.includeTools);
       const revision = scope.state().revision;
       const current = scope.isCurrent(ticket);
       publishQuery();
       if (current && viewIsCurrent() && viewVisible.current) {
+        if (!snapshotViewReady(requestKey, dashboardView.current, data))
+          throw new Error("工具详情尚未完整载入，请重试。");
         setSnapshot(data);
         setAcceptedScope({
           revision: ticket.revision,
@@ -284,7 +303,7 @@ function useApplication(dashboardEnabled: boolean) {
   const setDashboardRequest = useCallback(
     (next: UsageDashboardRequest) => {
       if (
-        JSON.stringify(next) === JSON.stringify(dashboardView.current.request)
+        usageDashboardRequestKey(next) === usageDashboardRequestKey(dashboardView.current.request)
       )
         return;
       dashboardView.current = { ...dashboardView.current, request: next };
@@ -344,7 +363,7 @@ function useApplication(dashboardEnabled: boolean) {
   useEffect(() => {
     scope.invalidate();
     void refresh();
-  }, [dashboardEnabled, scope, refresh]);
+  }, [dashboardEnabled, toolsEnabled, scope, refresh]);
   useEffect(() => {
     if (!toast) return;
     const timer = window.setTimeout(() => setToast(null), 5500);
@@ -426,6 +445,7 @@ function useApplication(dashboardEnabled: boolean) {
         if (!live) return;
         if (event === "ledger-updated" && isQueryDomainChange(payload.payload))
           invalidateDomain();
+        if (event === "pet-options-changed") invalidateSettings(payload.payload);
         if (event === "pet-visibility-changed" && label === "pet") {
           const detail = payload.payload as { visible?: boolean };
           nativeVisible = detail.visible !== false;
@@ -506,21 +526,19 @@ function useApplication(dashboardEnabled: boolean) {
       window.removeEventListener("initial-view-state", initialState);
       removers.forEach((remove) => remove());
     };
-  }, [scope, publishQuery, refresh, invalidateDomain]);
+  }, [scope, publishQuery, refresh, invalidateDomain, invalidateSettings]);
   async function action(name: string, payload: Record<string, unknown> = {}) {
     const domainMutation = bridge.isDesktop && changesQueryDomain(name);
-    if (domainMutation) {
-      ++pendingDomainMutations.current;
-      invalidateDomain();
-    }
+    if (domainMutation) invalidateDomain();
     setPending(true);
     try {
       if (bridge.isDesktop) {
         try {
-          await bridge.runAction(name, payload);
+          if (domainMutation)
+            await scope.withMutation(() => bridge.runAction(name, payload));
+          else await bridge.runAction(name, payload);
         } finally {
           if (domainMutation) {
-            --pendingDomainMutations.current;
             // Fence reads started before the mutation committed, including a
             // notification received while another local mutation was pending.
             invalidateDomain();
@@ -589,10 +607,13 @@ function useApplication(dashboardEnabled: boolean) {
     }
   }
   async function save(settings: Settings) {
+    if (bridge.isDesktop) invalidateSettings(settings);
     setPending(true);
     try {
       if (bridge.isDesktop) {
-        await bridge.runAction("update_settings", { settings });
+        await scope.withMutation(() =>
+          bridge.runAction("update_settings", { settings }),
+        );
         await refresh();
       } else
         setSnapshot((previous) => ({
@@ -603,6 +624,7 @@ function useApplication(dashboardEnabled: boolean) {
         bridge.isDesktop ? "偏好已保存" : "演示偏好已更新；不会保存到桌面应用",
       );
     } catch (error) {
+      if (bridge.isDesktop) void refresh();
       notify(safeError(error));
     } finally {
       setPending(false);
@@ -696,11 +718,7 @@ function useApplication(dashboardEnabled: boolean) {
         : undefined,
     });
     setAcceptedScope({ revision: state.revision, query: state.query });
-    setAcceptedViewKey(
-      dashboardView.current.enabled
-        ? JSON.stringify(dashboardView.current.request)
-        : "snapshot",
-    );
+    setAcceptedViewKey(snapshotViewKey(dashboardView.current));
   }
   async function resetPet() {
     if (!bridge.isDesktop) {
@@ -769,7 +787,7 @@ function PetApplication() {
 function MainApplication() {
   const [page, setPage] = useState("overview"),
     [sidebarOpen, setSidebarOpen] = useState(false);
-  const store = useApplication(page === "overview");
+  const store = useApplication(page === "overview", page === "tools");
   const panelNavigation = useRef<PanelNavigationController | null>(null);
   const latestApplication = useRef(store);
   latestApplication.current = store;
@@ -1037,6 +1055,8 @@ function MainApplication() {
                 request={store.dashboardRequest}
                 query={store.query}
                 onSelectScope={manualQuery}
+                collectionCoverage={usageCollectionCoverage(snapshot, store.query)}
+                onOpenHealth={() => manualPage("health")}
                 forecastBlockedReason={usageForecastBlockedReason(
                   snapshot,
                   store.query,
@@ -1172,13 +1192,22 @@ function PetWindow({ store }: { store: ReturnType<typeof usePetStore> }) {
     notify: store.notify,
     refresh: store.refresh,
   };
-  const pointer = useRef<{ x: number; y: number; dragged: boolean } | null>(
-    null,
-  );
+  const pointer = useRef<{
+    x: number;
+    y: number;
+    viewportWidth: number;
+    viewportHeight: number;
+    pointerId: number;
+    dragged: boolean;
+  } | null>(null);
   const presentation = store.presentation,
     intent = presentPet(presentation, store.ready),
     settings = presentation?.settings,
     details = store.ready && store.detailsReady ? store.details : null;
+  const stageScale =
+    typeof settings?.petScale === "number" && Number.isFinite(settings.petScale)
+      ? Math.min(2, Math.max(0.5, settings.petScale))
+      : 1;
   const supportsAffection = !!builtinManifest.variants?.tap.length;
   const accountWindow = details?.account?.buckets
     .flatMap((bucket) => [bucket.primary, bucket.secondary])
@@ -1325,6 +1354,12 @@ function PetWindow({ store }: { store: ReturnType<typeof usePetStore> }) {
   return (
     <div
       className="pet-window"
+      style={
+        {
+          "--pet-stage-width": `${280 * stageScale}px`,
+          "--pet-stage-height": `${340 * stageScale}px`,
+        } as CSSProperties
+      }
       data-pet-ready={store.ready}
       onContextMenu={(event) => {
         event.preventDefault();
@@ -1356,10 +1391,15 @@ function PetWindow({ store }: { store: ReturnType<typeof usePetStore> }) {
         className="pet-character-button"
         aria-label="小柚，单击展开统计小卡，拖动移动，右键打开菜单"
         onPointerDown={(event) => {
-          if (event.button !== 0) return;
+          if (event.button !== 0 || !event.isPrimary) return;
+          event.preventDefault();
+          event.currentTarget.setPointerCapture(event.pointerId);
           pointer.current = {
             x: event.clientX,
             y: event.clientY,
+            viewportWidth: window.innerWidth,
+            viewportHeight: window.innerHeight,
+            pointerId: event.pointerId,
             dragged: false,
           };
         }}
@@ -1367,26 +1407,37 @@ function PetWindow({ store }: { store: ReturnType<typeof usePetStore> }) {
           const point = pointer.current;
           if (
             !point ||
+            event.pointerId !== point.pointerId ||
             point.dragged ||
+            (event.buttons & 1) === 0 ||
             Math.hypot(event.clientX - point.x, event.clientY - point.y) < 5
           )
             return;
           point.dragged = true;
           interrupt();
-          close();
           if (bridge.isDesktop)
             void bridge
-              .dragPet()
+              // Native must map the press while the current popup geometry is
+              // still present, then dismiss it before taking over the gesture.
+              .dragPet({
+                clientX: point.x,
+                clientY: point.y,
+                viewportWidth: point.viewportWidth,
+                viewportHeight: point.viewportHeight,
+              })
               .catch((error) => store.notify(safeError(error)));
+          else close();
         }}
-        onPointerUp={() => {
+        onPointerUp={(event) => {
+          if (pointer.current?.pointerId !== event.pointerId) return;
           if (pointer.current && !pointer.current.dragged) {
             toggleCard();
           }
           pointer.current = null;
         }}
-        onPointerCancel={() => {
-          pointer.current = null;
+        onPointerCancel={(event) => {
+          if (pointer.current?.pointerId === event.pointerId)
+            pointer.current = null;
         }}
         onKeyDown={(event) => {
           if (event.key === "Enter" || event.key === " ") {

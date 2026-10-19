@@ -1,0 +1,569 @@
+{
+  "schemaVersion": 1,
+  "status": "PANEL_READ_QUERY_TOOLS_SCOPED_COMPOSITE_TESTS_PASSED_APP_NATIVE_PERFORMANCE_NOT_QUALIFIED",
+  "recordedAtUtc": "2026-10-18T22:21:19.452751+00:00",
+  "scope": "Current Windows default+desktop lib-test compilation, fresh affected Core and all desktop namespace unit tests, combined with named unaffected historical Core observations. Not one continuous whole-Core or all-lib run.",
+  "sourceBinding": {
+    "sourcepins": {
+      "path": "output/implementation/panel-read-rust-validation-20261019-r5/sourcepins.json",
+      "bytes": 237302,
+      "sha256": "84AC4BC964CD1C171D83CCA5271FA15CC5B8981D5B8594E11220E4285A3DF5E9"
+    },
+    "files": 910,
+    "controls": 7,
+    "tools": 3,
+    "historicalBindings": 9,
+    "deltaFromR2": {
+      "added": [
+        "D:\\project\\宠物\\src\\shared\\snapshotView.test.ts",
+        "D:\\project\\宠物\\src\\shared\\snapshotView.ts"
+      ],
+      "removed": [],
+      "changed": [
+        "D:\\project\\宠物\\src-tauri\\src\\core\\adapter.rs",
+        "D:\\project\\宠物\\src-tauri\\src\\core\\aggregation_overflow_tests.rs",
+        "D:\\project\\宠物\\src-tauri\\src\\core\\panel_read.rs",
+        "D:\\project\\宠物\\src-tauri\\src\\core\\panel_read_tests.rs",
+        "D:\\project\\宠物\\src-tauri\\src\\core\\queries.rs",
+        "D:\\project\\宠物\\src-tauri\\src\\core\\query_index_tests.rs",
+        "D:\\project\\宠物\\src-tauri\\src\\core\\usage_dashboard.rs",
+        "D:\\project\\宠物\\src-tauri\\src\\desktop.rs",
+        "D:\\project\\宠物\\src\\App.tsx",
+        "D:\\project\\宠物\\src\\shared\\bridge.ts",
+        "D:\\project\\宠物\\src\\shared\\contracts.ts"
+      ]
+    },
+    "runtimeSourceModifiedByThisReceipt": false,
+    "sourceRehashedAfterBuildStarted": false,
+    "sourceIdentityProof": "Both R5 phases held all 910 captured source/context inputs and verified their hashes and identities before release; later C40-generated dist/legal are not retrospectively compared to R5."
+  },
+  "actualCurrentCompile": {
+    "result": {
+      "path": "output/implementation/panel-read-rust-validation-20261019-r5/compile/result.json",
+      "bytes": 625,
+      "sha256": "94276B16AD301117D9F7F0D2DC4D9393713AADF2767926FDE9755529C91B259F"
+    },
+    "job": {
+      "path": "output/implementation/panel-read-rust-validation-20261019-r5/compile/job.json",
+      "bytes": 237266,
+      "sha256": "BFD717BBE4E57B0D4AA3267A7712CFF036E7C65C617CFA1C44878EDCC7D07898"
+    },
+    "artifactProof": {
+      "path": "output/implementation/panel-read-rust-validation-20261019-r5/compile/artifact.json",
+      "bytes": 2173,
+      "sha256": "7341D8FD2A0CF19C1FDF4E7067A22BFFEEE6B54F8E0F0148031655D0465F8797"
+    },
+    "artifact": {
+      "path": "output/implementation/panel-read-rust-validation-20261019-r5/compile/lib-tests.exe",
+      "bytes": 9817088,
+      "sha256": "55AAF1166C55A4D9A95BBF7674A251BE162AADF70F2BA430C02398F8D3717D25"
+    },
+    "actualCargoJson": {
+      "path": "output/implementation/panel-read-rust-validation-20261019-r5/compile/cargo.jsonl",
+      "bytes": 390443,
+      "sha256": "4D08D72A0B9666210F3F792A30FBE8E1CF90C34E89C98137DB032C69859E49E9"
+    },
+    "actualCargoStderr": {
+      "path": "output/implementation/panel-read-rust-validation-20261019-r5/compile/cargo.stderr.log",
+      "bytes": 11736,
+      "sha256": "BA6BFAC1A47E234A7A9410C33518FE0A53FA4E4931FE4AC26A43DF52398D20E4"
+    },
+    "targetKind": [
+      "rlib"
+    ],
+    "crateTypes": [
+      "rlib"
+    ],
+    "features": [
+      "default",
+      "desktop"
+    ],
+    "fresh": false,
+    "profileTest": true,
+    "rootProfile": "O3 / thin LTO / CGU16 / jobs1 / locked / offline",
+    "peMachine": "AMD64",
+    "optionalHeader": "PE32+",
+    "rootExitCode": 0,
+    "activeProcesses": 0,
+    "naturalWholeJobCompletion": false,
+    "predeclaredOwnedCompilerDescendantCleanup": true,
+    "cleanupVerified": true,
+    "status": "compiled-root-zero-owned-descendants-cleaned",
+    "elapsedSeconds": 110.84940779954195,
+    "errors": []
+  },
+  "scopedComposite": {
+    "actualCurrentTestResult": {
+      "path": "output/implementation/panel-read-rust-validation-20261019-r5/test/result.json",
+      "bytes": 115262,
+      "sha256": "B88A2FE28506883D2DBF639401EE9C26A20F77D81D4E4812C3D57128D32868F3"
+    },
+    "actualCurrentTestJob": {
+      "path": "output/implementation/panel-read-rust-validation-20261019-r5/test/job.json",
+      "bytes": 560649,
+      "sha256": "3173E7F11CDB453B8335E472B84F1EC92081C17AC5FCC609D2EF3579AA95884C"
+    },
+    "actualNamedOutputs": [
+      {
+        "path": "output/implementation/panel-read-rust-validation-20261019-r5/test/0.stdout.log",
+        "bytes": 13935,
+        "sha256": "80C23634D6027640EA21D5DE970B30FEA82FAFBE9BCAAFBAB7849182BA3DB026"
+      },
+      {
+        "path": "output/implementation/panel-read-rust-validation-20261019-r5/test/1.stdout.log",
+        "bytes": 11829,
+        "sha256": "5E37589084A555F3261B02358A90D1CE7547B27AC70E2F112D4E33F1654B68F6"
+      }
+    ],
+    "actualOldCoreList": {
+      "path": "output/implementation/panel-read-rust-validation-20261019-r5/test/old-core.stdout.log",
+      "bytes": 24462,
+      "sha256": "809ED7E87F0D30679E20AB20D997836152C06FC2A7D5922887939F8FE73EA4AE"
+    },
+    "actualCurrentAllList": {
+      "path": "output/implementation/panel-read-rust-validation-20261019-r5/test/current-all.stdout.log",
+      "bytes": 42841,
+      "sha256": "A07780B2D1B8C8C4DD6EFC56C2372C3380CE4B67A542B2D9B9F75C94004CBC8D"
+    },
+    "actualCurrentLibTestRoster": 429,
+    "oldCoreRoster": 239,
+    "newCoreRoster": 241,
+    "newCoreTests": [
+      "core::panel_read::tests::deferred_tools_keep_tool_only_navigation_and_identical_scope_and_date_filters",
+      "core::panel_read::tests::panel_tool_projection_preserves_full_api_and_all_other_facts_in_private_mode"
+    ],
+    "freshCorePassed": 126,
+    "allDesktopNamespacePassed": 113,
+    "freshTotalPassed": 239,
+    "retainedHistoricalCoreExplicitOk": 115,
+    "retainedNames": [
+      "core::adapter::capability_report_tests::capability_metadata_is_version_scoped_and_does_not_claim_live_rpc_success",
+      "core::adapter::discovery_reliability_tests::already_cancelled_discovery_never_opens_a_directory",
+      "core::adapter::discovery_reliability_tests::directory_discovery_observes_cancellation_between_entries",
+      "core::adapter::discovery_reliability_tests::missing_optional_sessions_directories_are_not_coverage_errors",
+      "core::adapter::discovery_reliability_tests::unreadable_directory_does_not_block_readable_sibling_discovery",
+      "core::adapter::lifecycle_order_regression_tests::explicit_terminal_result_is_order_independent_of_later_usage_metadata",
+      "core::adapter::lifecycle_order_regression_tests::newer_known_result_ignores_older_explicit_and_later_generic_without_refreshing_delivery",
+      "core::adapter::tool_state_tests::tool_state_call_identity_stays_separate_across_sources_and_fork_ordinals",
+      "core::adapter::tool_state_tests::tool_state_conflicting_terminal_results_remain_unknown_in_either_order",
+      "core::adapter::tool_state_tests::tool_state_duplicate_and_equal_time_begin_preserve_one_terminal_fact",
+      "core::adapter::tool_state_tests::tool_state_older_explicit_end_upgrades_unknown_output",
+      "core::adapter::tool_state_tests::tool_state_output_before_call_retains_result_and_fills_name",
+      "core::adapter::tool_state_tests::tool_state_plain_output_and_later_begin_preserve_command_failure",
+      "core::adapter::tool_state_tests::tool_state_plain_output_preserves_mcp_error",
+      "core::adapter::tool_state_tests::tool_state_unmarked_or_false_error_output_remains_unknown",
+      "core::motion::tests::motion_cached_ui_check_cannot_refresh_after_mutation_rollback_or_collector_expiry",
+      "core::motion::tests::motion_cached_ui_check_needs_worker_verdict_and_expires_at_500ms_without_renewal",
+      "core::motion::tests::motion_cached_ui_check_uses_bounded_worker_path_observation_without_filesystem_access",
+      "core::motion::tests::motion_cached_ui_clock_high_watermark_closes_rollback_without_renewing_worker_age",
+      "core::motion::tests::motion_idle_blocks_fresh_stale_and_missing_time_active_roots_globally",
+      "core::motion::tests::motion_idle_cache_checks_source_path_and_cannot_hide_query_errors_after_data_change",
+      "core::motion::tests::motion_idle_cache_uses_earliest_observation_deadline_and_closes_on_rollback",
+      "core::motion::tests::motion_idle_cached_verdict_reuses_same_data_but_invalidates_every_mutation",
+      "core::motion::tests::motion_idle_closes_on_paused_cancelled_missing_or_unsupported_sources",
+      "core::motion::tests::motion_idle_database_failures_are_errors_not_permission",
+      "core::motion::tests::motion_idle_does_not_reinterpret_ended_unknown_failed_or_completed_as_running",
+      "core::motion::tests::motion_idle_matches_pet_sql_text_root_semantics_including_unknown_ids",
+      "core::motion::tests::motion_idle_rejects_stale_future_and_previous_process_success",
+      "core::motion::tests::motion_idle_reopened_core_cannot_reuse_persisted_prior_process_admission",
+      "core::motion::tests::motion_idle_requires_current_complete_known_collection_and_does_not_write",
+      "core::motion::tests::motion_idle_requires_each_enabled_source_and_known_history_completion",
+      "core::motion::tests::motion_idle_unknown_or_partial_collector_metrics_never_mean_zero",
+      "core::motion::tests::motion_settings_validate_atomically_and_project_both_keys",
+      "core::pet::card_tests::pet_card_child_and_equal_time_selection_keep_original_thread_and_stable_ttft",
+      "core::pet::card_tests::pet_card_copy_permission_requires_verified_membership_and_known_protocol_failure",
+      "core::pet::card_tests::pet_card_current_source_chat_preserves_all_source_ttft_and_native_thread",
+      "core::pet::card_tests::pet_card_database_and_malformed_json_fail_without_copy_permission",
+      "core::pet::card_tests::pet_card_domain_and_target_reads_need_no_details_tables_or_read_revision",
+      "core::pet::card_tests::pet_card_domain_and_target_reject_source_changes_and_cleanup_boundaries",
+      "core::pet::card_tests::pet_card_new_turn_does_not_replace_the_displayed_verified_chat_action",
+      "core::pet::card_tests::pet_card_newest_incomplete_identity_never_borrows_an_older_chat",
+      "core::pet::card_tests::pet_card_nontext_or_mismatched_metadata_never_verifies_an_identity",
+      "core::pet::card_tests::pet_card_shared_chat_validation_preserves_public_error_contract",
+      "core::pet::card_tests::pet_card_source_enablement_is_required_but_collector_health_is_independent",
+      "core::pet::card_tests::pet_card_strict_domain_and_request_shapes_reject_midnight_and_injection",
+      "core::pet::card_tests::pet_card_today_selection_and_action_reject_yesterday_and_metadata_only",
+      "core::pet::tests::budget_pet_prompts_require_a_current_permit_and_consume_invalid_arrivals_without_writes",
+      "core::pet::tests::pet_cursor_scope_cleanup_restart_and_decimal_precision_are_explicit",
+      "core::pet::tests::pet_details_trust_cache_latest_null_and_scope_rejection_keep_snapshot_semantics",
+      "core::pet::tests::pet_feed_priority_overflow_and_every_observed_sequence_are_consumed_once",
+      "core::pet::tests::pet_pulse_chrono_freshness_midnight_and_unknown_watermarks_match_existing_rules",
+      "core::pet::tests::pet_pulse_matches_snapshot_and_never_reads_unused_fact_tables",
+      "core::pet::tests::pet_v5_backfill_preserves_inbox_and_last_ddl_failure_rolls_back_and_recovers",
+      "core::pricing::tests::absent_native_total_uses_adapter_derived_total_but_bad_native_total_stays_unpriced",
+      "core::pricing::tests::append_only_versions_survive_database_reopen",
+      "core::pricing::tests::cache_buckets_are_subsets_of_input_and_never_added_twice",
+      "core::pricing::tests::duplicate_ids_or_non_monotonic_revisions_in_saved_store_are_rejected",
+      "core::pricing::tests::event_time_and_revision_choose_price_not_collection_time",
+      "core::pricing::tests::exact_provider_precedes_generic_without_cross_provider_leakage",
+      "core::pricing::tests::future_or_corrupt_persistent_schema_fails_closed_and_preserves_original",
+      "core::pricing::tests::invalid_identity_dates_and_lengths_are_rejected",
+      "core::pricing::tests::invalid_sync_origin_and_corrupt_stores_fail_without_resetting_history",
+      "core::pricing::tests::malformed_prices_and_unknown_form_fields_never_mutate_saved_history",
+      "core::pricing::tests::missing_unknown_invalid_and_negative_counts_cannot_become_free_usage",
+      "core::pricing::tests::native_missing_or_disagreeing_counts_are_excluded",
+      "core::pricing::tests::observed_model_is_authoritative_and_requested_model_is_only_fallback",
+      "core::pricing::tests::sub_micro_dollar_costs_remain_exact_and_large_counts_do_not_overflow",
+      "core::pricing::tests::sync_appends_origin_and_server_effective_time_with_monotonic_revisions",
+      "core::pricing::tests::sync_is_idempotent_for_numeric_prices_and_distinguishes_unknown_from_zero",
+      "core::pricing::tests::sync_preserves_latest_manual_price_unless_explicitly_overwritten",
+      "core::pricing::tests::sync_protects_manual_prices_per_exact_target_provider_only",
+      "core::pricing::tests::sync_rejects_unknown_fields_duplicate_targets_and_oversized_batches",
+      "core::pricing::tests::sync_validates_the_whole_batch_before_any_write_even_if_caller_commits_on_error",
+      "core::pricing::tests::unknown_cache_prices_are_preserved_and_only_block_nonzero_cache_usage",
+      "core::pricing::tests::unknown_semantics_intermediate_records_and_inconsistent_totals_are_excluded",
+      "core::pricing::tests::zero_price_and_missing_price_are_distinct",
+      "core::pricing_sync::tests::apply_requires_unique_mapped_sources_and_exact_missing_item_count",
+      "core::pricing_sync::tests::config_save_is_compare_and_swap_and_preserves_previous_receipt",
+      "core::pricing_sync::tests::default_sync_configuration_is_disabled_and_does_not_create_settings",
+      "core::pricing_sync::tests::failure_receipt_preserves_last_success_prices_and_changed_counts",
+      "core::pricing_sync::tests::invalid_later_price_rolls_back_price_versions_and_sync_receipt_together",
+      "core::pricing_sync::tests::invalid_mappings_and_unknown_payload_fields_never_replace_config",
+      "core::pricing_sync::tests::malformed_or_unknown_stored_configuration_fails_closed_without_replacement",
+      "core::pricing_sync::tests::manual_prices_are_preserved_until_overwrite_is_explicitly_enabled",
+      "core::pricing_sync::tests::manual_sync_uses_explicit_mapping_without_enabling_automatic_sync",
+      "core::pricing_sync::tests::receipt_write_failure_rolls_back_already_prepared_price_store",
+      "core::pricing_sync::tests::stale_sync_or_error_cannot_write_after_configuration_changes",
+      "core::pricing_sync::tests::unchanged_prices_are_skipped_without_appending_or_enabling_sync",
+      "core::queries::budget::tests::a_fourteen_second_old_fresh_event_expires_after_its_original_last_second",
+      "core::queries::budget::tests::a_fresh_append_before_the_previous_scan_finished_is_still_new_live_usage",
+      "core::queries::budget::tests::a_measured_future_day_basis_is_not_replaced_by_zero",
+      "core::queries::budget::tests::a_pause_epoch_change_blocks_rollover_and_invalidates_an_unclaimed_budget_alert",
+      "core::queries::budget::tests::a_stable_forward_clock_domain_can_rebuild_a_measured_new_version_baseline",
+      "core::queries::budget::tests::clock_rollback_or_skew_cannot_rearm_from_a_lower_ordinary_anchor",
+      "core::queries::budget::tests::disabled_or_absent_budget_path_never_reads_fact_detail_tables",
+      "core::queries::budget::tests::dnd_enable_then_disable_revokes_claimed_and_unclaimed_budget_permits",
+      "core::queries::budget::tests::handled_period_survives_clear_and_a_conflict_drop_below_then_recross",
+      "core::queries::budget::tests::historical_delta_plus_insufficient_fresh_delta_cannot_borrow_any_live_flag",
+      "core::queries::budget::tests::last_moment_save_or_new_version_cannot_borrow_an_old_rollover_certificate",
+      "core::queries::budget::tests::midnight_first_live_crossing_claims_once_and_duplicate_or_clear_does_not_refill",
+      "core::queries::budget::tests::paused_history_backlog_does_not_block_a_committed_live_crossing",
+      "core::queries::budget::tests::pre_mutex_host_sample_cannot_borrow_resumed_epoch_or_wait_beyond_lifetime",
+      "core::queries::budget::tests::restart_explicit_history_and_long_gap_do_not_turn_the_first_batch_into_live_alerts",
+      "core::queries::budget::tests::root_turn_keeps_its_task_period_and_explicit_child_total_across_midnight",
+      "core::queries::budget::tests::same_day_saved_actual_baseline_allows_only_subsequent_fresh_crossing",
+      "core::queries::budget::tests::saving_or_editing_over_existing_same_day_usage_is_history_only",
+      "core::queries::budget::tests::source_identity_and_project_remapping_do_not_replay_other_usage",
+      "core::queries::budget::tests::unrelated_missing_source_does_not_block_a_committed_live_crossing",
+      "core::reader::reliability_tests::adapter_semantic_issue_prevents_a_false_success_watermark",
+      "core::reader::reliability_tests::cancelled_discovery_does_not_advance_success_or_complete_history",
+      "core::reader::reliability_tests::failed_read_batch_rolls_back_discovery_diagnoses_with_facts_and_cursor",
+      "core::reader::reliability_tests::injected_discovery_result_has_an_independent_read_quantum",
+      "core::reader::reliability_tests::partial_discovery_reads_available_siblings_and_preserves_incomplete_history",
+      "core::reader::reliability_tests::repeated_malformed_line_keeps_explicit_scan_issue_reporting",
+      "core::reader::reliability_tests::repeated_reader_issue_and_new_adapter_issue_are_both_reported"
+    ],
+    "retainedByNamespace": {
+      "adapter": 15,
+      "reader": 7,
+      "pricing": 23,
+      "pricing_sync": 12,
+      "queries::budget": 20,
+      "motion": 18,
+      "pet": 20
+    },
+    "retentionRationale": "No changed panel/snapshot tools projection call path in retained reader/adapter, pricing, budget, motion or pet cases; adapter changed only the failed non-retained fixture. All Core root tests, all queries except unchanged budget and all eight panel tests run fresh.",
+    "oldExplicitOkReexecuted": 101,
+    "previousThreeFailedCasesNowFreshPassed": [
+      "core::tests::query_index_contract::query_index_and_source_reuse_keep_snapshots_csv_and_global_health_semantics",
+      "core::adapter::capability_report_tests::registered_source_snapshot_preserves_declaration_and_runtime_boundaries",
+      "core::queries::aggregation_overflow_tests::source_counter_overflow_is_reported_instead_of_wrapping_health_totals"
+    ],
+    "previousUnfinishedAndNineteenUnseenRerun": true,
+    "requiredEightPanelTests": [
+      "core::panel_read::tests::deferred_tools_keep_tool_only_navigation_and_identical_scope_and_date_filters",
+      "core::panel_read::tests::errors_keep_original_messages_and_drop_releases_the_wal_view",
+      "core::panel_read::tests::interrupt_from_another_thread_releases_active_sql_and_the_read_transaction",
+      "core::panel_read::tests::panel_tool_projection_preserves_full_api_and_all_other_facts_in_private_mode",
+      "core::panel_read::tests::reader_is_readonly_and_cannot_create_a_missing_database",
+      "core::panel_read::tests::session_keeps_the_captured_primary_and_runtime_after_writer_changes_domain",
+      "core::panel_read::tests::session_pins_before_return_writer_commits_and_next_session_reads_new_values",
+      "core::panel_read::tests::snapshot_and_dashboard_share_all_static_facts_with_core"
+    ],
+    "disjointFreshAndRetainedUnionEqualsCurrentCore": true,
+    "exactLibtestSubstringSkipSimulationAndCompletedNameSetsMatched": true,
+    "continuousWholeCoreRun": false,
+    "allLibUnitTestsExecuted": false,
+    "otherLibNamespaceTestsNotExecuted": 75,
+    "rootExitCode": 0,
+    "naturalWholeJobCompletion": true,
+    "totalProcesses": 10,
+    "activeProcesses": 0,
+    "totalTerminatedProcesses": 0,
+    "timeoutSeconds": 300,
+    "cleanupSeconds": 5,
+    "elapsedSeconds": 267.58523879991844,
+    "timedOut": false,
+    "cleanupVerified": true,
+    "errors": []
+  },
+  "guards": {
+    "compile": [
+      {
+        "receipt": {
+          "path": "output/implementation/panel-read-rust-validation-20261019-r5/compile/source-guards.json",
+          "bytes": 147,
+          "sha256": "A356C8250D989418AF017DA2D71D940439324AF5CC27D49F9CF764D5FB02D413"
+        },
+        "count": 910,
+        "postChecksPassed": true,
+        "allHandlesClosed": true,
+        "errors": []
+      },
+      {
+        "receipt": {
+          "path": "output/implementation/panel-read-rust-validation-20261019-r5/compile/control-tool-guards.json",
+          "bytes": 145,
+          "sha256": "DCB0E07C59E5011155710744CAA18E91E3E26427ED02D2ED16109FE502E20C70"
+        },
+        "count": 20,
+        "postChecksPassed": true,
+        "allHandlesClosed": true,
+        "errors": []
+      },
+      {
+        "receipt": {
+          "path": "output/implementation/panel-read-rust-validation-20261019-r5/compile/actual-artifact-guard.json",
+          "bytes": 143,
+          "sha256": "660086A4E7BF79B99BC7392793FBB7ED1D404AE91B5EE0D8F7A70AC2A95210EA"
+        },
+        "count": 1,
+        "postChecksPassed": true,
+        "allHandlesClosed": true,
+        "errors": []
+      }
+    ],
+    "test": [
+      {
+        "receipt": {
+          "path": "output/implementation/panel-read-rust-validation-20261019-r5/test/source-guards.json",
+          "bytes": 147,
+          "sha256": "A356C8250D989418AF017DA2D71D940439324AF5CC27D49F9CF764D5FB02D413"
+        },
+        "count": 910,
+        "postChecksPassed": true,
+        "allHandlesClosed": true,
+        "errors": []
+      },
+      {
+        "receipt": {
+          "path": "output/implementation/panel-read-rust-validation-20261019-r5/test/control-tool-guards.json",
+          "bytes": 145,
+          "sha256": "DCB0E07C59E5011155710744CAA18E91E3E26427ED02D2ED16109FE502E20C70"
+        },
+        "count": 20,
+        "postChecksPassed": true,
+        "allHandlesClosed": true,
+        "errors": []
+      },
+      {
+        "receipt": {
+          "path": "output/implementation/panel-read-rust-validation-20261019-r5/test/artifact-guards.json",
+          "bytes": 143,
+          "sha256": "3296698AAF525AECAF8A3BF7BDE8A2B9AD367DA6D6A99B8D35E2F85F62D97BBF"
+        },
+        "count": 4,
+        "postChecksPassed": true,
+        "allHandlesClosed": true,
+        "errors": []
+      }
+    ]
+  },
+  "focusedFrontend": {
+    "receipt": {
+      "path": "output/implementation/panel-tools-lazy-frontend-20261019-r1/result.json",
+      "bytes": 4316,
+      "sha256": "C15A0CE0AF3E9A798A04D31ED0959571459815A96655C041810C0E7F3CF7E0EB"
+    },
+    "typecheck": {
+      "path": "output/implementation/panel-tools-lazy-frontend-20261019-r1/typecheck-result.json",
+      "bytes": 219,
+      "sha256": "199029417B2D584788701C4C3E910E8118A403AF6055F5D1E18B6F8A393B79E9"
+    },
+    "testsLog": {
+      "path": "output/implementation/panel-tools-lazy-frontend-20261019-r1/tests.log",
+      "bytes": 6404,
+      "sha256": "277D3F4E94A259553B597D6086BE6DAFF7CAD164D6A6D3A48DA4659CD59AAA4A"
+    },
+    "passed": 61,
+    "failed": 0,
+    "typecheckExitCode": 0,
+    "wholeFrontendSuiteClaimed": false
+  },
+  "retainedFailures": [
+    {
+      "revision": 1,
+      "description": "Actual Cargo E0433 test API error: rusqlite 0.40.1 has MAIN_DB rather than DatabaseName. No tests started.",
+      "result": {
+        "path": "output/implementation/panel-read-rust-validation-20261019-r1/compile/result.json",
+        "bytes": 327,
+        "sha256": "5603329E2E2331D020ABA899CEF883029E4FCF177D130998E0EFBF257BD09E90"
+      },
+      "job": {
+        "path": "output/implementation/panel-read-rust-validation-20261019-r1/compile/job.json",
+        "bytes": 517588,
+        "sha256": "71D4C182750D4EF26E5647C0AF4A2C1B5E4751365C5A4EE7EF875BA08A765B47"
+      },
+      "rootExitCode": 1,
+      "activeProcesses": 0,
+      "timedOut": false,
+      "naturalWholeJobCompletion": false,
+      "cleanupVerified": true,
+      "errors": [],
+      "originalPassed": false,
+      "actualCargoStderr": {
+        "path": "output/implementation/panel-read-rust-validation-20261019-r1/compile/cargo.stderr.log",
+        "bytes": 311820,
+        "sha256": "C021381C672C7DFD7532EC8E7A1F2FBC017022AA87B400222E1A2EDDCDC980A9"
+      }
+    },
+    {
+      "revision": 2,
+      "description": "Cargo build-finished success=true and actual test PE existed; wrapper rejected real rlib target as lib and root returned 1. No Cargo success is relabeled as wrapper success.",
+      "result": {
+        "path": "output/implementation/panel-read-rust-validation-20261019-r2/compile/result.json",
+        "bytes": 327,
+        "sha256": "143C46DACC8F592966180AAEEFA9492ECF018E53D7F7FE41381E4BE1A8DE9C1D"
+      },
+      "job": {
+        "path": "output/implementation/panel-read-rust-validation-20261019-r2/compile/job.json",
+        "bytes": 239405,
+        "sha256": "57F8C9E24E42E671025D54D5302F4707158A295FFDD2079B980FDA0CD6E401FC"
+      },
+      "rootExitCode": 1,
+      "activeProcesses": 0,
+      "timedOut": false,
+      "naturalWholeJobCompletion": false,
+      "cleanupVerified": true,
+      "errors": [],
+      "originalPassed": false,
+      "actualCargoBuildFinishedSuccess": true,
+      "cargoJson": {
+        "path": "output/implementation/panel-read-rust-validation-20261019-r2/compile/cargo.jsonl",
+        "bytes": 390443,
+        "sha256": "24CB0AFF43F0C27DE6A3AB8D340181F36561738D8170AED0DD4C078B2A59E442"
+      }
+    },
+    {
+      "revision": 3,
+      "description": "Recovered actual R2 PE without Cargo rerun; Core reached 216 explicit ok and three failures, then 300-second timeout; one unfinished and 19 unseen, Desktop never started.",
+      "result": {
+        "path": "output/implementation/panel-read-rust-validation-20261019-r3/test/result.json",
+        "bytes": 502,
+        "sha256": "A6B18470AF392548208A09481A0D94D8E57662BD3A198531EED627B523A968CE"
+      },
+      "job": {
+        "path": "output/implementation/panel-read-rust-validation-20261019-r3/test/job.json",
+        "bytes": 629674,
+        "sha256": "FC64ACA3A3E56A1C02E1C0CAD81B801D41102AB9615D7B74EFBC5FE8F8684A17"
+      },
+      "rootExitCode": 3758096385,
+      "activeProcesses": 0,
+      "timedOut": true,
+      "naturalWholeJobCompletion": false,
+      "cleanupVerified": true,
+      "errors": [],
+      "originalPassed": false,
+      "explicitOkLog": {
+        "path": "output/implementation/panel-read-rust-validation-20261019-r3/test/0.stdout.log",
+        "bytes": 23817,
+        "sha256": "903F50F8D18BB5987D77F14EABE3225556BE481BE3DD330C4B6AC2E2DC51B8C1"
+      }
+    },
+    {
+      "revision": 4,
+      "description": "Three isolated actual failures confirmed stale fixtures lacked completed discovery evidence. Only public-scan/discovery test setup was repaired; assertions and product algorithms were not changed by these fixture repairs.",
+      "result": {
+        "path": "output/implementation/panel-read-rust-validation-20261019-r4/attempt/result.json",
+        "bytes": 1908,
+        "sha256": "856FF9BC2F49B704C2344F63777A0C7668058C8BEBF57EE39C7AB0FF061D0A4D"
+      },
+      "passed": false,
+      "observationComplete": true,
+      "ownershipClosed": true,
+      "cases": [
+        {
+          "name": "core::tests::query_index_contract::query_index_and_source_reuse_keep_snapshots_csv_and_global_health_semantics",
+          "testExitCode": 101,
+          "workerRootExitCode": 101,
+          "passed": false,
+          "naturalWholeJobCompletion": true,
+          "activeProcesses": 0,
+          "job": {
+            "path": "output/implementation/panel-read-rust-validation-20261019-r4/attempt/0/job.json",
+            "bytes": 6317,
+            "sha256": "C9B72A50266C194881B7223541E91798375E5591EB4662AC8C25A1521ED504DD"
+          },
+          "actualPanicLog": {
+            "path": "output/implementation/panel-read-rust-validation-20261019-r4/attempt/0/test.stdout.log",
+            "bytes": 382,
+            "sha256": "9535815C8D37044C9610E9540F8DAF5E1E5BA4B980963E32252F92AC942B1EB6"
+          }
+        },
+        {
+          "name": "core::adapter::capability_report_tests::registered_source_snapshot_preserves_declaration_and_runtime_boundaries",
+          "testExitCode": 101,
+          "workerRootExitCode": 101,
+          "passed": false,
+          "naturalWholeJobCompletion": true,
+          "activeProcesses": 0,
+          "job": {
+            "path": "output/implementation/panel-read-rust-validation-20261019-r4/attempt/1/job.json",
+            "bytes": 6702,
+            "sha256": "5B43CC0026C4107CB7C1051DC4A38CC9196C27C6CDB90F6F43B7FDE73AB996B5"
+          },
+          "actualPanicLog": {
+            "path": "output/implementation/panel-read-rust-validation-20261019-r4/attempt/1/test.stdout.log",
+            "bytes": 384,
+            "sha256": "08CC5715A14418F4B2CAEAB5D0713033BBB19966A524498519D76DBB4F529C65"
+          }
+        },
+        {
+          "name": "core::queries::aggregation_overflow_tests::source_counter_overflow_is_reported_instead_of_wrapping_health_totals",
+          "testExitCode": 101,
+          "workerRootExitCode": 101,
+          "passed": false,
+          "naturalWholeJobCompletion": true,
+          "activeProcesses": 0,
+          "job": {
+            "path": "output/implementation/panel-read-rust-validation-20261019-r4/attempt/2/job.json",
+            "bytes": 6316,
+            "sha256": "3AD4988EE27BB905B6B7A6F7A42B635EC8283FDE3113821F75B156E7BD83077E"
+          },
+          "actualPanicLog": {
+            "path": "output/implementation/panel-read-rust-validation-20261019-r4/attempt/2/test.stdout.log",
+            "bytes": 386,
+            "sha256": "5848DFE2E69195D8091391530F507463E26337E794221F9664B1B7EE6040EC4A"
+          }
+        }
+      ],
+      "fixtureOnlyDiff": {
+        "path": "output/implementation/panel-read-rust-validation-20261019-r5/three-fixture-only.diff",
+        "bytes": 2803,
+        "sha256": "0867419FA76D96FB8AB631BFBC9B9C2FDEEAECCF76C7F6E49DAB699C5D5B90C9"
+      }
+    }
+  ],
+  "qualification": {
+    "scopedCompositePassed": true,
+    "defaultDesktopLibTestCompilationPassed": true,
+    "currentAppBuilt": false,
+    "currentInstallerBuilt": false,
+    "AppExecuted": false,
+    "liveDatabaseOpened": false,
+    "NativeQualified": false,
+    "ReleaseQualified": false,
+    "PerformanceQualified": false,
+    "full379RetestPassed": false,
+    "V1Complete": false
+  },
+  "releaseBoundary": "At recording, C40 source build was running and not qualified. Current distributable remains the prior C39-backed R3 wrapper; this receipt changes no download path or product qualification.",
+  "notClaimed": [
+    "One continuous whole-Core run",
+    "All 429 lib unit tests executed",
+    "New App or installer generated by R5",
+    "Native UI/exit/installation/upgrade/uninstall acceptance",
+    "Snapshot payload, query latency, RAM, full379 deadline or warm/idle performance improvement",
+    "V1 release completion"
+  ]
+}

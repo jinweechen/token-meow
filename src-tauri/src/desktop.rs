@@ -7,10 +7,95 @@ mod roaming;
 mod motion_guard;
 #[path = "csv_export.rs"]
 mod csv_export;
+#[path = "csv_export_directory.rs"]
+mod csv_export_directory;
 #[path = "panel_navigation.rs"]
 mod panel_navigation_state;
 #[path = "desktop_pointer.rs"]
 mod pointer;
+#[path = "desktop_popup_bounds.rs"]
+mod popup_bounds;
+#[path = "desktop_drag.rs"]
+mod manual_drag;
+
+// BEGIN PURE DRAG HANDOFF
+/// Native work is supplied by the desktop adapter. Admission has no popup side
+/// effects; once geometry starts, final notifications also run on cancellation.
+mod drag_handoff {
+    pub fn run<C, E>(
+        context: &mut C,
+        admit: impl FnOnce(&mut C) -> Result<(), E>,
+        geometry: impl FnOnce(&mut C) -> Result<(), E>,
+        first_step: impl FnOnce(&mut C) -> Result<(), E>,
+        finish: impl FnOnce(&mut C) -> Result<(), E>,
+    ) -> Result<(), E> {
+        admit(context)?;
+        let result = geometry(context).and_then(|_| first_step(context));
+        let final_result = finish(context);
+        result.and(final_result)
+    }
+
+    #[cfg(test)]
+    mod tests {
+        use super::run;
+
+        #[derive(Default)]
+        struct Host { calls: Vec<&'static str>, released: bool, paused: bool, moved: bool }
+        fn admit(host: &mut Host) -> Result<(), &'static str> {
+            host.calls.push("admit");
+            if host.released { Err("released") } else { Ok(()) }
+        }
+        fn geometry(host: &mut Host) -> Result<(), &'static str> {
+            host.calls.push("geometry"); Ok(())
+        }
+        fn step(host: &mut Host) -> Result<(), &'static str> {
+            host.calls.push("resample");
+            if host.released || host.paused { return Err("cancelled"); }
+            host.calls.push("move"); host.moved = true; Ok(())
+        }
+        fn finish(host: &mut Host) -> Result<(), &'static str> {
+            host.calls.push("notify-and-metrics"); Ok(())
+        }
+        #[test]
+        fn released_request_neither_restores_popup_nor_moves_or_notifies() {
+            let mut host = Host { released: true, ..Host::default() };
+            assert_eq!(run(&mut host, admit, geometry, step, finish), Err("released"));
+            assert_eq!(host.calls, ["admit"]);
+            assert!(!host.moved);
+        }
+        #[test]
+        fn first_movement_precedes_popup_notifications_and_metrics() {
+            let mut host = Host::default();
+            assert_eq!(run(&mut host, admit, geometry, step, finish), Ok(()));
+            assert_eq!(host.calls, ["admit", "geometry", "resample", "move", "notify-and-metrics"]);
+        }
+        #[test]
+        fn release_during_geometry_cancels_movement_but_finishes_popup() {
+            let mut host = Host::default();
+            let restore = |host: &mut Host| { geometry(host)?; host.released = true; Ok(()) };
+            assert_eq!(run(&mut host, admit, restore, step, finish), Err("cancelled"));
+            assert_eq!(host.calls, ["admit", "geometry", "resample", "notify-and-metrics"]);
+            assert!(!host.moved);
+        }
+        #[test]
+        fn pause_during_geometry_cannot_authorize_first_movement() {
+            let mut host = Host::default();
+            let restore = |host: &mut Host| { geometry(host)?; host.paused = true; Ok(()) };
+            assert_eq!(run(&mut host, admit, restore, step, finish), Err("cancelled"));
+            assert!(!host.moved);
+            assert_eq!(host.calls.last(), Some(&"notify-and-metrics"));
+        }
+        #[test]
+        fn native_geometry_failure_still_finishes_and_preserves_original_error() {
+            let mut host = Host::default();
+            let restore = |host: &mut Host| { host.calls.push("geometry-failed"); Err("geometry") };
+            let finalizer = |host: &mut Host| { finish(host)?; Err("notification") };
+            assert_eq!(run(&mut host, admit, restore, step, finalizer), Err("geometry"));
+            assert_eq!(host.calls, ["admit", "geometry-failed", "notify-and-metrics"]);
+        }
+    }
+}
+// END PURE DRAG HANDOFF
 
 use crate::core::adapter::{adapter_for, SourceConfig};
 use crate::{account_bridge::AccountBridge, core::Core};
@@ -21,7 +106,7 @@ use std::{
     fs,
     path::PathBuf,
     sync::{
-        atomic::{AtomicBool, AtomicU32, Ordering},
+        atomic::{AtomicBool, AtomicU32, AtomicU64, Ordering},
         Arc, Condvar, Mutex, TryLockError,
     },
     time::{Duration, Instant},
@@ -158,6 +243,7 @@ struct PetInteraction {
     revision: u64,
     active: bool,
     previous_foreground: isize,
+    popup_bounds: Option<popup_bounds::Session>,
 }
 struct MotionRuntime {
     permission: motion_guard::PermissionLease,
@@ -243,10 +329,15 @@ struct Shared {
     panel_navigation: Mutex<panel_navigation_state::Mailbox>,
     companion: Mutex<companion::Companion>,
     motion: Mutex<MotionRuntime>,
+    manual_drag: Mutex<manual_drag::Controller>,
     automatic_positions: Mutex<motion_guard::PositionProvenance>,
     motion_invalidated: AtomicBool,
     motion_tick_pending: AtomicBool,
+    motion_wake: (Mutex<bool>, Condvar),
     core: Mutex<Core>,
+    panel_reads: Mutex<()>,
+    panel_read_revision: AtomicU64,
+    panel_read_interrupt: Mutex<Option<rusqlite::InterruptHandle>>,
     notification_gate: Arc<Gate>,
     csv_export_active: Arc<AtomicBool>,
     projection: Mutex<Value>,
@@ -269,6 +360,7 @@ struct Shared {
     started_at: Instant,
     metrics: Mutex<Value>,
     settings_update: Mutex<()>,
+    settings_revision: AtomicU64,
     scan_wake: (Mutex<bool>, Condvar),
     display_recheck: AtomicBool,
     native_paused: AtomicBool,
@@ -278,6 +370,14 @@ struct Shared {
     pet_interaction: Mutex<PetInteraction>,
 }
 type SharedState = Arc<Shared>;
+struct PanelReadRegistration<'a>(&'a Shared);
+impl Drop for PanelReadRegistration<'_> {
+    fn drop(&mut self) {
+        if let Ok(mut active) = self.0.panel_read_interrupt.lock() {
+            active.take();
+        }
+    }
+}
 fn lock_error() -> String {
     "本地后台状态暂不可用，请重新启动 Token 喵。".into()
 }
@@ -314,6 +414,9 @@ fn record_window_state(window: &WebviewWindow, shared: &Shared) {
 fn record_visibility_change(window: &WebviewWindow, shared: &Shared) {
     let visible = window.is_visible().unwrap_or(false);
     let minimized = window.is_minimized().unwrap_or(false);
+    if window.label() == "pet" && (!visible || minimized) {
+        cancel_manual_drag(shared, manual_drag::StopReason::Hidden);
+    }
     let changed = shared
         .metrics
         .lock()
@@ -378,12 +481,113 @@ fn show_panel(app: &AppHandle) -> Result<(), String> {
     record_window_state(&window, &app.state::<SharedState>());
     Ok(())
 }
+// The pinned Wry runtime executes main-thread tasks inline when already on that
+// thread. Other callers wait without holding a Core/geometry mutex. This keeps
+// open/close/revision and HWND mutations in one serial native event sequence.
+fn popup_on_main<T: Send + 'static>(
+    app: &AppHandle,
+    action: impl FnOnce(AppHandle) -> Result<T, String> + Send + 'static,
+) -> Result<T, String> {
+    let (send, receive) = std::sync::mpsc::sync_channel(1);
+    let cancelled = Arc::new(AtomicBool::new(false));
+    let task_cancelled = cancelled.clone();
+    let handle = app.clone();
+    app.run_on_main_thread(move || {
+        if !task_cancelled.load(Ordering::Acquire) {
+            let _ = send.send(action(handle));
+        }
+    }).map_err(|e| e.to_string())?;
+    match receive.recv_timeout(Duration::from_secs(3)) {
+        Ok(result) => result,
+        Err(_) => {
+            cancelled.store(true, Ordering::Release);
+            Err("桌宠弹层几何更新超时".into())
+        }
+    }
+}
+
+fn pet_has_transient_bounds(shared: &Shared) -> bool {
+    shared.pet_interaction.try_lock()
+        .map(|owner| owner.active || owner.popup_bounds.is_some()).unwrap_or(true)
+}
+
+fn popup_work_area(window: &WebviewWindow, original: popup_bounds::Bounds) -> Result<WorkArea, String> {
+    let monitors = native::work_areas(window)?;
+    monitor_for_rect(&monitors, original.x, original.y, original.width, original.height)
+        .cloned().ok_or_else(|| "桌宠所在屏幕暂不可用".into())
+}
+
+#[derive(Clone, Copy)]
+struct PopupGeometryUpdate {
+    original: popup_bounds::Bounds,
+    target: popup_bounds::Bounds,
+    scale_factor: f64,
+    active: bool,
+}
+fn resize_popup_geometry_on_main(window: &WebviewWindow, shared: &Shared, active: bool) -> Result<Option<PopupGeometryUpdate>, String> {
+    let existing = shared.pet_interaction.lock().map_err(|_| lock_error())?.popup_bounds;
+    let session = if let Some(session) = existing { session }
+    else if active {
+        let position = window.outer_position().map_err(|e| e.to_string())?;
+        let size = window.outer_size().map_err(|e| e.to_string())?;
+        let dpi = window.scale_factor().map_err(|e| e.to_string())?;
+        let session = popup_bounds::Session::capture(popup_bounds::Bounds {
+            x: position.x, y: position.y, width: size.width, height: size.height,
+        }, dpi).ok_or("桌宠原始窗口尺寸无效")?;
+        // Publish the transient owner BEFORE SetWindowPos can send reentrant
+        // move/resize events. Never hold this mutex across an HWND call.
+        shared.pet_interaction.lock().map_err(|_| lock_error())?.popup_bounds = Some(session);
+        session
+    } else { return Ok(None); };
+    let monitor = popup_work_area(window, session.original)?;
+    let work = popup_bounds::Bounds { x: monitor.x, y: monitor.y, width: monitor.width, height: monitor.height };
+    let target = if active { session.expanded(work, monitor.scale_factor) }
+        else { session.restored(work, monitor.scale_factor) }.ok_or("屏幕工作区尺寸无效")?;
+    // Geometry invalidation must not revoke the 15s temporary interaction
+    // lease that allowed a user to open this popup while click-through is on.
+    {
+        let mut pointer = shared.pointer.lock().map_err(|_| lock_error())?;
+        pointer.policy.set_viewport(None);
+    }
+    native::set_popup_bounds_without_activation(window, target)?;
+    if !active {
+        shared.pet_interaction.lock().map_err(|_| lock_error())?.popup_bounds = None;
+    }
+    Ok(Some(PopupGeometryUpdate { original: session.original, target, scale_factor: monitor.scale_factor, active }))
+}
+fn finish_popup_geometry_on_main(window: &WebviewWindow, shared: &Shared, update: PopupGeometryUpdate, sync_pointer: bool) -> Result<(), String> {
+    if sync_pointer { pointer::sync(window, shared)?; }
+    record_window_state(window, shared);
+    record_metric(shared, "petPopupBounds", json!({"temporary":update.active,"original":{
+        "x":update.original.x,"y":update.original.y,"width":update.original.width,"height":update.original.height},
+        "current":{"x":update.target.x,"y":update.target.y,"width":update.target.width,"height":update.target.height},
+        "scaleFactor":update.scale_factor,"persisted":false}));
+    Ok(())
+}
+fn resize_popup_on_main(window: &WebviewWindow, shared: &Shared, active: bool) -> Result<(), String> {
+    if let Some(update) = resize_popup_geometry_on_main(window, shared, active)? {
+        finish_popup_geometry_on_main(window, shared, update, true)?;
+    }
+    Ok(())
+}
+
 fn dismiss_pet_popup(
     window: &WebviewWindow,
-    shared: &Shared,
+    _shared: &Shared,
     reason: &str,
     restore_focus: bool,
 ) -> Result<(), String> {
+    let reason = reason.to_owned();
+    popup_on_main(window.app_handle(), move |app| {
+        let shared = app.state::<SharedState>();
+        let window = app.get_webview_window("pet").ok_or("桌宠窗口尚未就绪")?;
+        dismiss_pet_popup_on_main(&window, &shared, &reason, restore_focus)
+    })
+}
+
+#[derive(Clone, Copy)]
+struct PopupDismissal { was_active: bool, previous: isize, revision: u64 }
+fn take_pet_popup(shared: &Shared) -> Result<PopupDismissal, String> {
     if let Ok(mut pointer) = shared.pointer.lock() { pointer.policy.cancel_temporary(); }
     let (was_active, previous, revision) = {
         let mut interaction = shared.pet_interaction.lock().map_err(|_| lock_error())?;
@@ -396,26 +600,37 @@ fn dismiss_pet_popup(
         interaction.previous_foreground = 0;
         result
     };
-    if !was_active {
-        return Ok(());
-    }
-    native::restore_popup_focus(window, previous, restore_focus);
+    Ok(PopupDismissal { was_active, previous, revision })
+}
+fn finish_pet_popup_dismissal_on_main(window: &WebviewWindow, shared: &Shared, reason: &str, restore_focus: bool, dismissal: PopupDismissal) -> Result<(), String> {
+    if !dismissal.was_active { return Ok(()); }
+    native::restore_popup_focus(window, dismissal.previous, restore_focus);
     window.set_focusable(false).map_err(|e| e.to_string())?;
     record_metric(
         shared,
         "petInteraction",
-        json!({"active":false,"revision":revision,"reason":reason,"at":chrono::Utc::now().to_rfc3339()}),
+        json!({"active":false,"revision":dismissal.revision,"reason":reason,"at":chrono::Utc::now().to_rfc3339()}),
     );
     let _ = window.emit(
         "pet-popover-dismiss",
-        json!({"reason":reason,"revision":revision}),
+        json!({"reason":reason,"revision":dismissal.revision}),
     );
     Ok(())
+}
+fn dismiss_pet_popup_on_main(window: &WebviewWindow, shared: &Shared, reason: &str, restore_focus: bool) -> Result<(), String> {
+    let dismissal = take_pet_popup(shared)?;
+    // Restore even after an earlier focus/resize failure made active=false.
+    let bounds_result = if reason == "destroyed" {
+        shared.pet_interaction.lock().map_err(|_| lock_error())?.popup_bounds = None;
+        Ok(())
+    } else { resize_popup_on_main(window, shared, false) };
+    let final_result = finish_pet_popup_dismissal_on_main(window, shared, reason, restore_focus, dismissal);
+    bounds_result.and(final_result)
 }
 #[tauri::command]
 fn set_pet_interaction(
     window: WebviewWindow,
-    state: State<'_, SharedState>,
+    _state: State<'_, SharedState>,
     active: bool,
     revision: u64,
 ) -> Result<Value, String> {
@@ -425,6 +640,18 @@ fn set_pet_interaction(
     if revision == 0 || revision > 9_007_199_254_740_991 {
         return Err("弹层交互序号无效".into());
     }
+    popup_on_main(window.app_handle(), move |app| {
+        let state = app.state::<SharedState>();
+        let window = app.get_webview_window("pet").ok_or("桌宠窗口尚未就绪")?;
+        set_pet_interaction_on_main(&window, &state, active, revision)
+    })
+}
+fn set_pet_interaction_on_main(
+    window: &WebviewWindow,
+    state: &Shared,
+    active: bool,
+    revision: u64,
+) -> Result<Value, String> {
     if state.exiting.load(Ordering::Relaxed) {
         return Err("应用正在退出".into());
     }
@@ -442,9 +669,14 @@ fn set_pet_interaction(
         }
     }
     if active {
+        cancel_manual_drag(state, manual_drag::StopReason::Cancelled);
         if !window.is_visible().unwrap_or(false) {
             let _ = dismiss_pet_popup(&window, &state, "hidden", false);
             return Err("桌宠隐藏时不能打开弹层".into());
+        }
+        if let Err(error) = resize_popup_on_main(window, state, true) {
+            let _ = dismiss_pet_popup_on_main(window, state, "bounds-unavailable", false);
+            return Err(error);
         }
         let focus_result = window.set_focusable(true).and_then(|_| window.set_focus());
         if let Err(error) = focus_result {
@@ -463,6 +695,19 @@ fn set_pet_interaction(
     Ok(json!({"active":interaction.active,"revision":interaction.revision}))
 }
 fn apply_projection(app: &AppHandle, settings: &Value) -> Result<(), String> {
+    let revision = app.state::<SharedState>().settings_revision.load(Ordering::Acquire);
+    apply_projection_revision(app, settings, revision)
+}
+fn apply_projection_revision(app: &AppHandle, settings: &Value, revision: u64) -> Result<(), String> {
+    let settings = settings.clone();
+    popup_on_main(app, move |app| {
+        if app.state::<SharedState>().settings_revision.load(Ordering::Acquire) != revision {
+            return Ok(());
+        }
+        apply_projection_on_main(&app, &settings)
+    })
+}
+fn apply_projection_on_main(app: &AppHandle, settings: &Value) -> Result<(), String> {
     let window = app.get_webview_window("pet").ok_or("桌宠窗口尚未就绪")?;
     let state = app.state::<SharedState>();
     let prior = state.projection.lock().map_err(|_| lock_error())?.clone();
@@ -472,6 +717,8 @@ fn apply_projection(app: &AppHandle, settings: &Value) -> Result<(), String> {
             .map_err(|e| e.to_string())?;
     }
     if pet_scale(&prior) != pet_scale(settings) || prior.is_null() {
+        cancel_manual_drag(&state, manual_drag::StopReason::Cancelled);
+        dismiss_pet_popup_on_main(&window, &state, "scale-changed", false)?;
         window
             .set_size(LogicalSize::new(
                 280.0 * pet_scale(settings),
@@ -492,6 +739,7 @@ fn apply_projection(app: &AppHandle, settings: &Value) -> Result<(), String> {
         if visible {
             show_without_focus(&window)?;
         } else {
+            cancel_manual_drag(&state, manual_drag::StopReason::Hidden);
             dismiss_pet_popup(&window, &state, "hidden", false)?;
             window.hide().map_err(|e| e.to_string())?;
             let _ = window.emit(
@@ -508,17 +756,18 @@ fn apply_projection(app: &AppHandle, settings: &Value) -> Result<(), String> {
         .map_err(|e| e.to_string())
 }
 fn update_settings(app: &AppHandle, shared: &Shared, patch: &Value) -> Result<Value, String> {
-    let _serial = shared.settings_update.lock().map_err(|_| lock_error())?;
+    let serial = shared.settings_update.lock().map_err(|_| lock_error())?;
     let old_settings = shared.core.lock().map_err(|_| lock_error())?.settings()?;
     let autostart = patch.get("startAtLogin").and_then(Value::as_bool);
     if let Some(enabled) = autostart {
         native::set_autostart(enabled)?;
     }
-    let settings_result = shared
-        .core
-        .lock()
-        .map_err(|_| lock_error())?
-        .action("update_settings", &json!({"settings":patch}));
+    let settings_result = {
+        let mut core = shared.core.lock().map_err(|_| lock_error())?;
+        let result = core.action("update_settings", &json!({"settings":patch}));
+        shared.panel_read_revision.fetch_add(1, Ordering::AcqRel);
+        result
+    };
     let settings = match settings_result {
         Ok(settings) => settings,
         Err(error) => {
@@ -528,11 +777,26 @@ fn update_settings(app: &AppHandle, shared: &Shared, patch: &Value) -> Result<Va
             return Err(error);
         }
     };
-    apply_projection(app, &settings)?;
+    let revision = shared.settings_revision.fetch_add(1, Ordering::AcqRel) + 1;
+    drop(serial);
+    // Persisted privacy/settings must invalidate other views even if a later
+    // native window projection fails. Do not dispatch while holding its mutex.
+    let _ = app.emit("pet-options-changed", &settings);
+    // A synchronous IPC on the UI thread may itself need settings_update.
+    // Never wait for its dispatch while holding that mutex.
+    apply_projection_revision(app, &settings, revision)?;
     Ok(settings)
 }
 fn recover_pet(app: &AppHandle, reposition: bool) -> Result<(), String> {
     let shared = app.state::<SharedState>();
+    popup_on_main(app, move |app| {
+        let shared = app.state::<SharedState>();
+        cancel_manual_drag(&shared, manual_drag::StopReason::Cancelled);
+        if let Some(window) = app.get_webview_window("pet") {
+            dismiss_pet_popup_on_main(&window, &shared, "recovery", false)?;
+        }
+        Ok(())
+    })?;
     pointer::reset(&shared);
     update_settings(
         app,
@@ -549,9 +813,10 @@ fn recover_pet(app: &AppHandle, reposition: bool) -> Result<(), String> {
 async fn get_snapshot(
     state: State<'_, SharedState>,
     query: Option<Value>,
+    include_tools: Option<bool>,
 ) -> Result<Value, String> {
     let shared = state.inner().clone();
-    tauri::async_runtime::spawn_blocking(move || read_panel_snapshot(&shared, query, None))
+    tauri::async_runtime::spawn_blocking(move || read_panel_snapshot(&shared, query, None, include_tools.unwrap_or(true)))
         .await.map_err(|e|e.to_string())?
 }
 #[tauri::command]
@@ -559,21 +824,51 @@ async fn get_usage_dashboard_snapshot(
     state: State<'_, SharedState>,
     query: Option<Value>,
     request: Value,
+    include_tools: Option<bool>,
 ) -> Result<Value, String> {
     let shared = state.inner().clone();
-    tauri::async_runtime::spawn_blocking(move || read_panel_snapshot(&shared, query, Some(request)))
+    tauri::async_runtime::spawn_blocking(move || read_panel_snapshot(&shared, query, Some(request), include_tools.unwrap_or(true)))
         .await.map_err(|e|e.to_string())?
 }
-fn read_panel_snapshot(shared: &SharedState, query: Option<Value>, request: Option<Value>) -> Result<Value, String> {
+fn read_panel_snapshot(shared: &SharedState, query: Option<Value>, request: Option<Value>, include_tools: bool) -> Result<Value, String> {
+        // Serialize heavy panel reads without holding the collector's writer lock.
+        let _panel_read = shared.panel_reads.lock().map_err(|_|lock_error())?;
         if shared.exiting.load(Ordering::Relaxed) {
             return Err("应用正在退出，已停止接受新读取".into());
         }
         let query=query.unwrap_or_else(||json!({}));
-        let (mut snapshot,primary)={let core=shared.core.lock().map_err(|_|lock_error())?;
-            let snapshot=match request {Some(request)=>core.usage_dashboard_snapshot(query.clone(),request)?,None=>core.snapshot(query.clone())?};
+        let (reader, read_revision) = {
+            let core = shared.core.lock().map_err(|_|lock_error())?;
+            if shared.exiting.load(Ordering::Relaxed) {
+                return Err("应用正在退出，已停止接受新读取".into());
+            }
+            let reader = core.begin_panel_read()?;
+            (reader, shared.panel_read_revision.load(Ordering::Acquire))
+        };
+        {
+            let mut active = shared.panel_read_interrupt.lock().map_err(|_|lock_error())?;
+            if shared.exiting.load(Ordering::Acquire) {
+                return Err("应用正在退出，已停止接受新读取".into());
+            }
+            *active = Some(reader.interrupt_handle());
+        }
+        let _active_reader = PanelReadRegistration(shared);
+        let read_result = (|| -> Result<(Value, Value), String> {
+            let snapshot=match request {Some(request)=>reader.usage_dashboard_for_panel(query.clone(),request,include_tools)?,None=>reader.snapshot_for_panel(query.clone(),include_tools)?};
             let mut snapshot=snapshot;
-            snapshot["usagePriceSync"]=core.usage_price_sync()?;
-            (snapshot,core.primary_source()?)};
+            snapshot["usagePriceSync"]=reader.usage_price_sync()?;
+            Ok((snapshot,reader.primary_source()?))
+        })();
+        // Finish the read transaction even when the query fails.
+        let close_result = reader.finish();
+        let (mut snapshot, primary) = read_result?;
+        close_result?;
+        if shared.exiting.load(Ordering::Relaxed) {
+            return Err("应用正在退出，已停止接受新读取".into());
+        }
+        if shared.panel_read_revision.load(Ordering::Acquire) != read_revision {
+            return Err("查询期间设置或数据范围已变化，请重新读取".into());
+        }
         snapshot["primarySourceId"]=primary["id"].clone();
         snapshot["account"]=if query.get("sourceId").and_then(Value::as_str).is_some_and(|id|!id.is_empty()&&Some(id)!=primary["id"].as_str()){
             json!({"status":"unavailable","sourceId":query["sourceId"],"buckets":[],"collectedAt":null,"error":"此来源尚未启用独立账户采集"})
@@ -586,7 +881,14 @@ fn read_panel_snapshot(shared: &SharedState, query: Option<Value>, request: Opti
             "directory":desktop_metrics.get("directory").cloned().unwrap_or(Value::Null),
             "notifications":desktop_metrics.get("notifications").cloned().unwrap_or(Value::Null),
             "autostart":native::autostart_status(),
-            "version":env!("CARGO_PKG_VERSION"),"platform":std::env::consts::OS});Ok(snapshot)
+            "version":env!("CARGO_PKG_VERSION"),"platform":std::env::consts::OS});
+        if shared.exiting.load(Ordering::Relaxed) {
+            return Err("应用正在退出，已停止接受新读取".into());
+        }
+        if shared.panel_read_revision.load(Ordering::Acquire) != read_revision {
+            return Err("查询期间设置或数据范围已变化，请重新读取".into());
+        }
+        Ok(snapshot)
 }
 #[tauri::command]
 async fn save_usage_price(app: AppHandle, state: State<'_, SharedState>, payload: Value) -> Result<Value, String> {
@@ -595,7 +897,12 @@ async fn save_usage_price(app: AppHandle, state: State<'_, SharedState>, payload
         return Err("应用正在退出，已停止接受新操作".into());
     }
     tauri::async_runtime::spawn_blocking(move || {
-        let result = shared.core.lock().map_err(|_|lock_error())?.save_usage_price(payload)?;
+        let result = {
+            let mut core = shared.core.lock().map_err(|_|lock_error())?;
+            let result = core.save_usage_price(payload);
+            shared.panel_read_revision.fetch_add(1, Ordering::AcqRel);
+            result?
+        };
         let _ = app.emit("ledger-updated", json!({"reason":"usage-price-saved"}));
         Ok(result)
     }).await.map_err(|e|e.to_string())?
@@ -618,7 +925,9 @@ async fn change_usage_price_sync(app: AppHandle, shared: SharedState, payload: V
     }
     tauri::async_runtime::spawn_blocking(move || {
         let result={let mut core=shared.core.lock().map_err(|_|lock_error())?;
-            match operation {"save"=>core.save_usage_price_sync(payload)?,"apply"=>core.apply_usage_price_sync(payload)?,_=>core.record_usage_price_sync_error(payload)?}};
+            let result = match operation {"save"=>core.save_usage_price_sync(payload),"apply"=>core.apply_usage_price_sync(payload),_=>core.record_usage_price_sync_error(payload)};
+            shared.panel_read_revision.fetch_add(1, Ordering::AcqRel);
+            result?};
         let _=app.emit("ledger-updated", json!({"reason":"usage-price-sync"}));
         Ok(result)
     }).await.map_err(|e|e.to_string())?
@@ -686,7 +995,11 @@ async fn run_action(
             Ok(result)
         } else {
             let mut core=shared.core.lock().map_err(|_|lock_error())?;
-            let result=core.action(&name,&payload)?;
+            let result=core.action(&name,&payload);
+            // Explicit user mutations invalidate outstanding views; collector
+            // commits remain valid as newer facts after a consistent read.
+            shared.panel_read_revision.fetch_add(1, Ordering::AcqRel);
+            let result=result?;
             if name=="clear_data" {
                 let primary=core.primary_source()?;
                 shared.account_cache.lock().map_err(|_|lock_error())?.clear(&primary);
@@ -978,18 +1291,254 @@ async fn open_pet_chat(
         }
     }).await.map_err(|e| e.to_string())?
 }
+#[derive(Deserialize)]
+#[serde(rename_all = "camelCase", deny_unknown_fields)]
+struct PetDragRequest {
+    client_x: f64,
+    client_y: f64,
+    viewport_width: f64,
+    viewport_height: f64,
+}
 #[tauri::command]
-fn start_pet_drag(app: AppHandle, state: State<'_, SharedState>) -> Result<(), String> {
-    state.motion_invalidated.store(true, Ordering::Release);
-    pointer::reset(&state);
-    if let Ok(mut positions) = state.automatic_positions.lock() { positions.clear(); }
-    app.get_webview_window("pet")
-        .ok_or("桌宠窗口尚未就绪")?
-        .start_dragging()
-        .map_err(|e| e.to_string())
+fn start_pet_drag(window: WebviewWindow, request: PetDragRequest) -> Result<(), String> {
+    if window.label() != "pet" { return Err("仅桌宠窗口可开始拖动".into()); }
+    popup_on_main(window.app_handle(), move |app| {
+        let state = app.state::<SharedState>();
+        let window = app.get_webview_window("pet").ok_or("桌宠窗口尚未就绪")?;
+        #[cfg(windows)]
+        {
+            let mut handoff = ManualDragHandoff { window: &window, shared: &state, request,
+                started: Instant::now(), anchor: None, dismissal: None, geometry: None,
+                owner_started: false, first_step_seen: false,
+                normal_cancellation: false, finish_failure: None,
+                attempt: json!({"phase":"entry","entry":null,"afterGeometry":null,"firstMoveApplied":false,"reason":null}) };
+            let result = drag_handoff::run(&mut handoff, ManualDragHandoff::admit,
+                ManualDragHandoff::restore_geometry, ManualDragHandoff::first_step,
+                ManualDragHandoff::finish);
+            handoff.attempt["elapsedMs"] = json!(handoff.started.elapsed().as_secs_f64() * 1000.0);
+            handoff.attempt["at"] = json!(chrono::Utc::now().to_rfc3339());
+            let result = if let Some(error) = handoff.finish_failure.take() { Err(error) }
+                else if handoff.normal_cancellation { Ok(()) } else { result };
+            handoff.attempt["normalCancellation"] = json!(handoff.normal_cancellation);
+            handoff.attempt["error"] = json!(result.as_ref().err());
+            // Decision/first movement comes before any attempt telemetry I/O.
+            record_metric(&state, "manualDragAttempt", handoff.attempt);
+            result
+        }
+        #[cfg(not(windows))]
+        {
+            let _ = request;
+            dismiss_pet_popup_on_main(&window, &state, "drag", false)?;
+            state.motion_invalidated.store(true, Ordering::Release);
+            pointer::reset(&state);
+            if let Ok(mut positions) = state.automatic_positions.lock() { positions.clear(); }
+            window.start_dragging().map_err(|e| e.to_string())
+        }
+    })
+}
+
+#[cfg(windows)]
+struct ManualDragHandoff<'a> {
+    window: &'a WebviewWindow,
+    shared: &'a Shared,
+    request: PetDragRequest,
+    started: Instant,
+    anchor: Option<manual_drag::Point>,
+    dismissal: Option<PopupDismissal>,
+    geometry: Option<PopupGeometryUpdate>,
+    owner_started: bool,
+    first_step_seen: bool,
+    normal_cancellation: bool,
+    finish_failure: Option<String>,
+    attempt: Value,
+}
+#[cfg(windows)]
+impl ManualDragHandoff<'_> {
+    fn sample(&self) -> manual_drag::Input {
+        native::sample_drag_input(native::motion_window_available(self.window), manual_drag_runtime_available(self.shared))
+    }
+    fn observe(&self, input: manual_drag::Input) -> Value {
+        json!({"elapsedMs":self.started.elapsed().as_secs_f64()*1000.0,
+            "leftDown":input.left_down,"escapeDown":input.escape_down,
+            "cursorAvailable":input.cursor.is_some(),"visible":input.visible,"runtimeAvailable":input.runtime_available})
+    }
+    fn reject(&mut self, reason: manual_drag::StopReason) -> String {
+        self.attempt["reason"] = json!(format!("{reason:?}"));
+        self.normal_cancellation = matches!(reason, manual_drag::StopReason::Released | manual_drag::StopReason::Escape);
+        manual_drag_rejection_message(reason)
+    }
+    fn admit(&mut self) -> Result<(), String> {
+        let input = self.sample();
+        self.attempt["entry"] = self.observe(input);
+        if let Some(reason) = manual_drag_input_rejection(input) {
+            self.attempt["phase"] = json!("entry-rejected");
+            return Err(self.reject(reason));
+        }
+        if self.shared.manual_drag.lock().map_err(|_| lock_error())?.is_active() {
+            self.attempt["phase"] = json!("already-active");
+            self.attempt["reason"] = json!("AlreadyActive");
+            self.normal_cancellation = true;
+            return Err("拖动已经开始，请先松开鼠标".into());
+        }
+        self.attempt["phase"] = json!("anchor-validation");
+        self.anchor = Some(native::map_drag_press(self.window, manual_drag::ClientAnchor {
+            x:self.request.client_x,y:self.request.client_y,
+            viewport_width:self.request.viewport_width,viewport_height:self.request.viewport_height,
+        })?);
+        Ok(())
+    }
+    fn restore_geometry(&mut self) -> Result<(), String> {
+        self.attempt["phase"] = json!("geometry-restoration");
+        self.dismissal = Some(take_pet_popup(self.shared)?);
+        // No pointer sync, focus change, notification or metrics write here.
+        self.geometry = resize_popup_geometry_on_main(self.window, self.shared, false)?;
+        Ok(())
+    }
+    fn first_step(&mut self) -> Result<(), String> {
+        let input = self.sample();
+        self.attempt["afterGeometry"] = self.observe(input);
+        self.attempt["phase"] = json!("after-geometry-admission");
+        if let Some(reason) = manual_drag_input_rejection(input) {
+            return Err(self.reject(reason));
+        }
+        let rect = manual_drag_rect(self.window).ok_or("桌宠窗口尺寸暂不可用")?;
+        let started = self.shared.manual_drag.lock().map_err(|_| lock_error())?
+            .start(manual_drag::Input { cursor:self.anchor, ..input }, rect, self.shared.started_at.elapsed());
+        if let Err(error) = started {
+            self.normal_cancellation = matches!(error, manual_drag::StartError::AlreadyActive |
+                manual_drag::StartError::ButtonNotDown | manual_drag::StartError::EscapeHeld);
+            self.attempt["reason"] = json!(format!("{error:?}"));
+            return Err(format!("当前无法拖动桌宠：{error:?}"));
+        }
+        self.owner_started = true;
+        self.shared.native_dragging.store(true, Ordering::Release);
+        self.shared.motion_invalidated.store(true, Ordering::Release);
+        pointer::reset(self.shared);
+        if let Ok(mut positions) = self.shared.automatic_positions.lock() { positions.clear(); }
+        let first = step_manual_drag_on_main(self.window, self.shared);
+        self.first_step_seen = first.handled;
+        self.attempt["firstMoveApplied"] = json!(first.moved);
+        self.attempt["phase"] = json!(if first.moved { "first-movement-applied" } else { "admitted-without-movement" });
+        if let Some(reason) = first.stopped {
+            self.attempt["phase"] = json!("first-step-cancelled");
+            let message = self.reject(reason);
+            return Err(first.sync_error.unwrap_or(message));
+        }
+        if !first.handled { return Err("拖动在首次移动前已取消".into()); }
+        if let Ok(mut wake) = self.shared.motion_wake.0.lock() {
+            *wake = true; self.shared.motion_wake.1.notify_one();
+        }
+        Ok(())
+    }
+    fn finish(&mut self) -> Result<(), String> {
+        let bounds_result = match self.geometry.take() {
+            Some(update) => finish_popup_geometry_on_main(self.window, self.shared, update, !self.first_step_seen),
+            None => Ok(()),
+        };
+        let final_result = match self.dismissal.take() {
+            Some(dismissal) => finish_pet_popup_dismissal_on_main(self.window, self.shared, "drag", false, dismissal),
+            None => Ok(()),
+        };
+        if self.owner_started && self.shared.manual_drag.lock().is_ok_and(|owner| owner.is_active()) {
+            record_metric(self.shared, "manualDrag", json!({"active":true,"at":chrono::Utc::now().to_rfc3339()}));
+        }
+        let result = bounds_result.and(final_result);
+        if let Err(error) = &result {
+            cancel_manual_drag(self.shared, manual_drag::StopReason::NativeMoveFailed);
+            self.normal_cancellation = false;
+            self.attempt["reason"] = json!("NativeMoveFailed");
+            self.attempt["finishError"] = json!(error);
+            self.finish_failure = Some(error.clone());
+        }
+        result
+    }
+}
+#[cfg(windows)]
+fn manual_drag_input_rejection(input: manual_drag::Input) -> Option<manual_drag::StopReason> {
+    if !input.visible { Some(manual_drag::StopReason::Hidden) }
+    else if !input.runtime_available { Some(manual_drag::StopReason::RuntimeUnavailable) }
+    else if input.escape_down { Some(manual_drag::StopReason::Escape) }
+    else if !input.left_down { Some(manual_drag::StopReason::Released) }
+    else if input.cursor.is_none() { Some(manual_drag::StopReason::CursorUnavailable) }
+    else { None }
+}
+#[cfg(windows)]
+fn manual_drag_rejection_message(reason: manual_drag::StopReason) -> String {
+    match reason {
+        manual_drag::StopReason::Released => "鼠标已松开，未继续拖动；请按住鼠标再移动".into(),
+        manual_drag::StopReason::Escape => "拖动已由 Escape 取消".into(),
+        manual_drag::StopReason::Hidden => "桌宠隐藏时不能拖动".into(),
+        manual_drag::StopReason::RuntimeUnavailable => "系统暂停或退出期间不能拖动".into(),
+        manual_drag::StopReason::CursorUnavailable => "当前鼠标位置暂不可用".into(),
+        _ => format!("拖动已停止：{reason:?}"),
+    }
+}
+
+fn manual_drag_runtime_available(shared: &Shared) -> bool {
+    !shared.native_paused.load(Ordering::Acquire) && !shared.stop.load(Ordering::Acquire) &&
+        !shared.exiting.load(Ordering::Acquire)
+}
+fn finish_manual_drag(shared: &Shared, reason: manual_drag::StopReason) {
+    shared.native_dragging.store(false, Ordering::Release);
+    shared.motion_invalidated.store(true, Ordering::Release);
+    pointer::reset(shared);
+    if let Ok(mut dirty) = shared.position_dirty.lock() { *dirty = Some(Instant::now()); }
+    record_metric(shared, "manualDrag", json!({"active":false,"reason":format!("{reason:?}"),
+        "at":chrono::Utc::now().to_rfc3339()}));
+}
+fn cancel_manual_drag(shared: &Shared, reason: manual_drag::StopReason) {
+    let cancelled = shared.manual_drag.lock().map(|mut owner| owner.cancel(reason)).unwrap_or(false);
+    if cancelled { finish_manual_drag(shared, reason); }
+}
+#[cfg(windows)]
+fn manual_drag_rect(window: &WebviewWindow) -> Option<manual_drag::Rect> {
+    native::motion_snapshot(window).map(|(geometry, position)| manual_drag::Rect {
+        x: position.x, y: position.y, width: geometry.window_width, height: geometry.window_height,
+    })
+}
+/// One physical-cursor sample, one plan, at most one move. No controller lock
+/// survives a native call, which may synchronously deliver window messages.
+#[cfg(windows)]
+#[derive(Default)]
+struct ManualDragStep { handled: bool, moved: bool, stopped: Option<manual_drag::StopReason>, sync_error: Option<String> }
+#[cfg(windows)]
+fn step_manual_drag_on_main(window: &WebviewWindow, shared: &Shared) -> ManualDragStep {
+    if !shared.manual_drag.lock().is_ok_and(|owner| owner.is_active()) { return ManualDragStep::default(); }
+    let rect = manual_drag_rect(window).unwrap_or(manual_drag::Rect { x:0, y:0, width:0, height:0 });
+    let areas = native::work_areas(window).unwrap_or_default().into_iter().map(|area|
+        manual_drag::Rect { x:area.x, y:area.y, width:area.width, height:area.height }).collect::<Vec<_>>();
+    let input = native::sample_drag_input(native::motion_window_available(window), manual_drag_runtime_available(shared));
+    let update = match shared.manual_drag.lock() {
+        Ok(mut owner) => owner.tick(input, rect, &areas, shared.started_at.elapsed()),
+        Err(_) => return ManualDragStep { handled: true, ..ManualDragStep::default() },
+    };
+    let mut result = ManualDragStep { handled: true, stopped: update.stopped, moved: false, sync_error: None };
+    if let Some(reason) = update.stopped { finish_manual_drag(shared, reason); }
+    if let Some(target) = update.target {
+        // Geometry queries above may take time. Never apply a planned movement
+        // after a release/pause that happened during them or during planning.
+        let boundary = native::sample_drag_input(native::motion_window_available(window), manual_drag_runtime_available(shared));
+        if let Some(reason) = manual_drag_input_rejection(boundary) {
+            cancel_manual_drag(shared, reason);
+            result.stopped = Some(reason);
+        } else if !native::move_pet_without_activation(window, roaming::Point { x:target.x, y:target.y }) {
+            cancel_manual_drag(shared, manual_drag::StopReason::NativeMoveFailed);
+            result.stopped = Some(manual_drag::StopReason::NativeMoveFailed);
+        } else {
+            result.moved = true;
+        }
+    }
+    if let Err(error) = pointer::sync(window, shared) {
+        cancel_manual_drag(shared, manual_drag::StopReason::NativeMoveFailed);
+        result.stopped = Some(manual_drag::StopReason::NativeMoveFailed);
+        result.sync_error = Some(error);
+    }
+    result
 }
 
 fn record_pet_move(window: &tauri::Window, shared: &Shared, point: PhysicalPosition<i32>) {
+    // Popup expansion/restoration is not a user drag or a new saved anchor.
+    if pet_has_transient_bounds(shared) { return; }
     if shared.display_recheck.load(Ordering::Acquire) {
         shared.motion_invalidated.store(true, Ordering::Release);
         return;
@@ -1043,10 +1592,17 @@ async fn export_csv(
             .lock()
             .map_err(|_| lock_error())?
             .export_csv(query.unwrap_or_else(|| json!({})))?;
+        let directory = csv_export_directory::first_available([
+            app.path().document_dir().ok(),
+            app.path().download_dir().ok(),
+            app.path().desktop_dir().ok(),
+            app.path().home_dir().ok(),
+        ].into_iter().flatten())?;
         let destination = app
             .dialog()
             .file()
             .set_title("导出本机用量账本")
+            .set_directory(directory)
             .set_file_name(format!(
                 "token-meow-{}.csv",
                 chrono::Utc::now().format("%Y%m%d-%H%M%S")
@@ -1409,6 +1965,12 @@ fn restored_position(
 }
 fn restore_position(app: &AppHandle, shared: &Shared, reset: bool) -> Result<(), String> {
     let window = app.get_webview_window("pet").ok_or("桌宠窗口尚未就绪")?;
+    popup_on_main(app, move |app| {
+        let shared = app.state::<SharedState>();
+        cancel_manual_drag(&shared, manual_drag::StopReason::Cancelled);
+        let window = app.get_webview_window("pet").ok_or("桌宠窗口尚未就绪")?;
+        dismiss_pet_popup_on_main(&window, &shared, "display-recovery", false)
+    })?;
     let monitors = native::work_areas(&window)?;
     let settings = shared.core.lock().map_err(|_| lock_error())?.settings()?;
     let saved = settings
@@ -1436,49 +1998,69 @@ fn restore_position(app: &AppHandle, shared: &Shared, reset: bool) -> Result<(),
         340.0 * scale,
         reset,
     ) {
-        window
-            .set_position(PhysicalPosition::new(x, y))
-            .map_err(|e| e.to_string())?;
+        popup_on_main(app, move |app| {
+            let shared = app.state::<SharedState>();
+            let window = app.get_webview_window("pet").ok_or("桌宠窗口尚未就绪")?;
+            // The worker can yield between the earlier restoration and this
+            // final placement. Revoke any gesture that began in that gap.
+            cancel_manual_drag(&shared, manual_drag::StopReason::Cancelled);
+            dismiss_pet_popup_on_main(&window, &shared, "display-recovery", false)?;
+            window.set_position(PhysicalPosition::new(x, y)).map_err(|e| e.to_string())
+        })?;
     }
     *shared.topology.lock().map_err(|_| lock_error())? = monitors;
     *shared.position_dirty.lock().map_err(|_| lock_error())? = Some(Instant::now());
     Ok(())
 }
 fn persist_settled_position(app: &AppHandle, shared: &Shared) -> Result<(), String> {
+    if shared.native_dragging.load(Ordering::Acquire) || pet_has_transient_bounds(shared) { return Ok(()); }
     let window = app.get_webview_window("pet").ok_or("桌宠窗口尚未就绪")?;
-    let monitors = native::work_areas(&window)?;
-    let p = window.outer_position().map_err(|e| e.to_string())?;
-    let size = window.outer_size().map_err(|e| e.to_string())?;
-    let Some(m) = monitor_for_rect(&monitors, p.x, p.y, size.width, size.height) else {
-        return Ok(());
-    };
+    let Some(m) = popup_on_main(app, move |app| {
+        let shared = app.state::<SharedState>();
+        if shared.native_dragging.load(Ordering::Acquire) || pet_has_transient_bounds(&shared) { return Ok(None); }
+        let window = app.get_webview_window("pet").ok_or("桌宠窗口尚未就绪")?;
+        let monitors = native::work_areas(&window)?;
+        let p = window.outer_position().map_err(|e| e.to_string())?;
+        let size = window.outer_size().map_err(|e| e.to_string())?;
+        Ok(monitor_for_rect(&monitors, p.x, p.y, size.width, size.height).cloned())
+    })? else { return Ok(()); };
     let settings = shared.core.lock().map_err(|_| lock_error())?.settings()?;
-    let fitted = fit_scale(m, pet_scale(&settings));
-    let size = if fitted < pet_scale(&settings) {
+    let fitted = fit_scale(&m, pet_scale(&settings));
+    if fitted < pet_scale(&settings) {
         update_settings(app, shared, &json!({"petScale":fitted}))?;
-        window.outer_size().map_err(|e| e.to_string())?
-    } else {
-        size
-    };
-    let (x, y) = clamp_position(m, p.x, p.y, size.width, size.height);
-    if (x, y) != (p.x, p.y) {
-        window
-            .set_position(PhysicalPosition::new(x, y))
-            .map_err(|e| e.to_string())?;
     }
+    // A popup may open between the worker's initial check and native reads.
+    // Capture ONLY normal geometry in one UI task, before touching settings.
+    let Some((m, x, y, size)) = popup_on_main(app, move |app| {
+        let shared = app.state::<SharedState>();
+        if shared.native_dragging.load(Ordering::Acquire) || pet_has_transient_bounds(&shared) { return Ok(None); }
+        let window = app.get_webview_window("pet").ok_or("桌宠窗口尚未就绪")?;
+        let monitors = native::work_areas(&window)?;
+        let p = window.outer_position().map_err(|e| e.to_string())?;
+        let size = window.outer_size().map_err(|e| e.to_string())?;
+        let Some(m) = monitor_for_rect(&monitors, p.x, p.y, size.width, size.height).cloned() else { return Ok(None); };
+        let (x, y) = clamp_position(&m, p.x, p.y, size.width, size.height);
+        if (x, y) != (p.x, p.y) {
+            window.set_position(PhysicalPosition::new(x, y)).map_err(|e| e.to_string())?;
+        }
+        Ok(Some((m, x, y, size)))
+    })? else { return Ok(()); };
     let saved = SavedPosition {
         monitor_id: m.id.clone(),
         logical_x: (x - m.x) as f64 / m.scale_factor,
         logical_y: (y - m.y) as f64 / m.scale_factor,
         scale_factor: m.scale_factor,
     };
-    let _serial = shared.settings_update.lock().map_err(|_| lock_error())?;
+    let serial = shared.settings_update.lock().map_err(|_| lock_error())?;
     let settings = shared
         .core
         .lock()
         .map_err(|_| lock_error())?
         .action("update_settings", &json!({"petPosition":saved}))?;
-    *shared.projection.lock().map_err(|_| lock_error())? = settings;
+    drop(serial);
+    // Position is not a visual projection acknowledgement. Preserve the last
+    // actually-applied visual flags when another settings projection is queued.
+    shared.projection.lock().map_err(|_| lock_error())?["petPosition"] = settings["petPosition"].clone();
     record_window_state(&window, shared);
     record_metric(
         shared,
@@ -1496,7 +2078,16 @@ fn begin_shutdown(app: &AppHandle) {
     if shared.exiting.swap(true, Ordering::SeqCst) {
         return;
     }
+    // Registration and this exit check share a mutex, so a late reader cannot
+    // start a query after shutdown has observed an empty interrupt slot.
+    if let Ok(active) = shared.panel_read_interrupt.lock() {
+        if let Some(interrupt) = active.as_ref() {
+            interrupt.interrupt();
+        }
+    }
+    cancel_manual_drag(&shared, manual_drag::StopReason::RuntimeUnavailable);
     shared.stop.store(true, Ordering::SeqCst);
+    pointer::refresh_runtime_admission(&shared);
     cancel_panel_navigation(&shared);
     wake_scan(&shared);
     shared.account_cancel.store(true, Ordering::SeqCst);
@@ -1521,7 +2112,8 @@ fn begin_shutdown(app: &AppHandle) {
         let deadline = started + SHUTDOWN_LIMIT;
         while Instant::now() < deadline
             && (!shared.scanner_done.load(Ordering::Acquire)
-                || !shared.account_done.load(Ordering::Acquire))
+                || !shared.account_done.load(Ordering::Acquire)
+                || shared.panel_reads.try_lock().is_err())
         {
             std::thread::sleep(Duration::from_millis(25));
         }
@@ -1531,7 +2123,7 @@ fn begin_shutdown(app: &AppHandle) {
         record_metric(
             &shared,
             "shutdown",
-            json!({"stage":"exit-ready","at":chrono::Utc::now().to_rfc3339(),"waitMs":started.elapsed().as_secs_f64()*1000.0,"scannerFinished":shared.scanner_done.load(Ordering::Acquire),"accountFinished":shared.account_done.load(Ordering::Acquire),"deadlineReached":Instant::now()>=deadline}),
+            json!({"stage":"exit-ready","at":chrono::Utc::now().to_rfc3339(),"waitMs":started.elapsed().as_secs_f64()*1000.0,"scannerFinished":shared.scanner_done.load(Ordering::Acquire),"accountFinished":shared.account_done.load(Ordering::Acquire),"panelReadsFinished":shared.panel_reads.try_lock().is_ok(),"deadlineReached":Instant::now()>=deadline}),
         );
         // Unfinished SQLite transactions roll back; never force a partial scan to commit.
         // The Windows JobObject closes on process exit and owns only bridge descendants.
@@ -1624,13 +2216,10 @@ fn start_file_watcher(shared: SharedState) {
                 .core
                 .lock()
                 .map_err(|_| lock_error())
-                .and_then(|core| core.sources())
+                .and_then(|core| core.enabled_codex_source_roots())
                 .unwrap_or_default();
             let mut desired: Vec<PathBuf> = sources
-                .iter()
-                .filter(|s| flag(s, "enabled", false) && s["clientKind"] == "codex")
-                .filter_map(|s| s["root"].as_str())
-                .map(PathBuf::from)
+                .into_iter()
                 .filter(|p| p.is_dir())
                 .collect();
             desired.sort();
@@ -1929,7 +2518,12 @@ fn schedule_pet_motion(app: &AppHandle, shared: &SharedState) {
 /// Native calls run on the UI thread, so no synchronous HWND getter or move
 /// waits for a UI thread that might itself be waiting for Core/settings locks.
 fn step_pet_motion_on_main(app: &AppHandle, shared: &Shared) {
-    let Some(window) = app.get_webview_window("pet") else { return; };
+    let Some(window) = app.get_webview_window("pet") else {
+        cancel_manual_drag(shared, manual_drag::StopReason::Hidden);
+        return;
+    };
+    #[cfg(windows)]
+    if step_manual_drag_on_main(&window, shared).handled { return; }
     // Pointer leases expire even when roaming is disabled or its mutex is busy.
     let _ = pointer::sync(&window, shared);
     let Ok(mut motion) = shared.motion.try_lock() else { return; };
@@ -2120,10 +2714,14 @@ fn start_workers(app: AppHandle, shared: SharedState) {
         let mut queued_at = None;
         let mut last_sent = None;
         let mut scan_metrics_flushed: Option<Instant> = None;
+        let mut attempt_iteration = 0u64;
+        let mut previous_notification_phase: Option<(u64, bool, f64, f64)> = None;
         while !s.stop.load(Ordering::Relaxed) {
+            attempt_iteration = attempt_iteration.saturating_add(1);
             let scan_started = Instant::now();
             let host = s.notification_gate.snapshot().map(|epoch| (epoch, crate::budget_clock::now()));
             let mut contended = false;
+            let core_wait_started = Instant::now();
             let guard = match s.core.try_lock() {
                 Ok(guard) => Ok(guard),
                 Err(TryLockError::WouldBlock) => {
@@ -2132,7 +2730,11 @@ fn start_workers(app: AppHandle, shared: SharedState) {
                 }
                 Err(TryLockError::Poisoned(_)) => Err(lock_error()),
             };
+            let core_lock_wait_ms = core_wait_started.elapsed().as_secs_f64() * 1000.0;
+            let core_scan_started = Instant::now();
             let result = guard.and_then(|mut core| core.scan_with_cancel_host(&s.stop, host));
+            let core_scan_ms = core_scan_started.elapsed().as_secs_f64() * 1000.0;
+            let scan_succeeded = result.is_ok();
             let mut followup_delay = Duration::from_secs(2);
             match result {
                 Ok(report) => {
@@ -2162,7 +2764,10 @@ fn start_workers(app: AppHandle, shared: SharedState) {
                             .as_u64()
                             .unwrap_or(0)
                             .saturating_add(report.new_responses as u64);
-                        metrics["collector"] = json!({"iterations":iterations,"totalLines":total_lines,"totalNewResponses":total_responses,"lastScanAndWaitMs":scan_started.elapsed().as_secs_f64()*1000.0,"lastReport":report_value,"lastSuccessAt":chrono::Utc::now().to_rfc3339()});
+                        metrics["collector"] = json!({"iterations":iterations,"totalLines":total_lines,"totalNewResponses":total_responses,"lastScanAndWaitMs":scan_started.elapsed().as_secs_f64()*1000.0,"lastReport":report_value,"lastSuccessAt":chrono::Utc::now().to_rfc3339(),
+                            "attemptIteration":attempt_iteration,"coreLockWaitMs":core_lock_wait_ms,"coreScanMs":core_scan_ms,
+                            // Published one successful scan later without another metrics lock or flush.
+                            "previousNotificationPhase":previous_notification_phase.map(|(attempt, succeeded, elapsed, completed)|json!({"attemptIteration":attempt,"scanSucceeded":succeeded,"elapsedMs":elapsed,"completedSinceAppStartMs":completed}))});
                         // The idle collector updates RAM each scan; disk metrics have a bounded cadence.
                         if report.lines > 0
                             || scan_metrics_flushed
@@ -2181,7 +2786,11 @@ fn start_workers(app: AppHandle, shared: SharedState) {
                 }
             }
             if !s.stop.load(Ordering::Relaxed) {
+                let notification_started = Instant::now();
                 process_notifications(&s, &mut notification_queue, &mut queued_at, &mut last_sent);
+                let notification_ms = notification_started.elapsed().as_secs_f64() * 1000.0;
+                previous_notification_phase = Some((attempt_iteration, scan_succeeded, notification_ms,
+                    s.started_at.elapsed().as_secs_f64() * 1000.0));
             }
             if let Ok(pending) = s.scan_wake.0.lock() {
                 if let Ok((mut pending, _)) =
@@ -2338,7 +2947,16 @@ fn start_workers(app: AppHandle, shared: SharedState) {
         let mut companion_checked = Instant::now();
         while !shared.stop.load(Ordering::Relaxed) {
             let moving = shared.companion.try_lock().is_ok_and(|owner| owner.movement().is_some());
-            std::thread::sleep(Duration::from_millis(if moving { 50 } else { 200 }));
+            let dragging = shared.manual_drag.try_lock().is_ok_and(|owner| owner.is_active());
+            let delay = Duration::from_millis(if dragging { 16 } else if moving { 50 } else { 200 });
+            // The first manual gesture wakes an idle worker immediately. The
+            // predicate also retains a notification sent before it starts waiting.
+            if let Ok(wake) = shared.motion_wake.0.lock() {
+                if let Ok((mut wake, _)) = shared.motion_wake.1.wait_timeout_while(wake, delay, |wake| !*wake) {
+                    *wake = false;
+                }
+            }
+            if shared.stop.load(Ordering::Acquire) { break; }
             if companion_checked.elapsed() >= Duration::from_millis(200) {
                 companion_checked = Instant::now();
                 poll_companion(&app, &shared);
@@ -2379,6 +2997,7 @@ fn start_workers(app: AppHandle, shared: SharedState) {
                 if settled
                     && !native::mouse_down()
                     && !shared.native_dragging.load(Ordering::Relaxed)
+                    && !pet_has_transient_bounds(&shared)
                 {
                     if let Ok(mut dirty) = shared.position_dirty.lock() {
                         *dirty = None;
@@ -2593,7 +3212,7 @@ pub fn run() {
         let companion=companion::Companion::new(&data_dir);
         let notification_gate=core.notification_gate();
         let skins=crate::local_pet_skin::LocalPetSkinStore::new(&data_dir);
-        let shared=Arc::new(Shared{pointer:Mutex::new(pointer::Runtime::default()),skins:Mutex::new(skins),panel_navigation:Mutex::new(panel_navigation_state::Mailbox::default()),companion:Mutex::new(companion),motion:Mutex::new(MotionRuntime::default()),automatic_positions:Mutex::new(motion_guard::PositionProvenance::default()),motion_invalidated:AtomicBool::new(false),motion_tick_pending:AtomicBool::new(false),core:Mutex::new(core),notification_gate,csv_export_active:Arc::new(AtomicBool::new(false)),projection:Mutex::new(Value::Null),account:Mutex::new(account),account_cancel,account_cache:Mutex::new(AccountCache{binding:Value::Null,snapshot:json!({"status":"loading","buckets":[],"collectedAt":null}),generation:0}),account_reset_pending:AtomicBool::new(false),last_account_attempt:Mutex::new(None),stop:AtomicBool::new(false),exiting:AtomicBool::new(false),scanner_done:AtomicBool::new(false),account_done:AtomicBool::new(false),hotkey_thread:AtomicU32::new(0),shortcut_ready:AtomicBool::new(false),collector_error:Mutex::new(None),shell_error:Mutex::new(None),position_dirty:Mutex::new(None),topology:Mutex::new(vec![]),data_dir,started_at,settings_update:Mutex::new(()),scan_wake:(Mutex::new(false),Condvar::new()),display_recheck:AtomicBool::new(false),native_paused:AtomicBool::new(false),native_suppress_toast:AtomicBool::new(false),native_dragging:AtomicBool::new(false),watcher_error:Mutex::new(None),pet_interaction:Mutex::new(PetInteraction::default()),metrics:Mutex::new(json!({"version":env!("CARGO_PKG_VERSION"),"processId":std::process::id(),"frontendReadyMs":{},"createdAt":chrono::Utc::now().to_rfc3339()}))});
+        let shared=Arc::new(Shared{pointer:Mutex::new(pointer::Runtime::default()),skins:Mutex::new(skins),panel_navigation:Mutex::new(panel_navigation_state::Mailbox::default()),companion:Mutex::new(companion),motion:Mutex::new(MotionRuntime::default()),manual_drag:Mutex::new(manual_drag::Controller::default()),automatic_positions:Mutex::new(motion_guard::PositionProvenance::default()),motion_invalidated:AtomicBool::new(false),motion_tick_pending:AtomicBool::new(false),motion_wake:(Mutex::new(false),Condvar::new()),core:Mutex::new(core),panel_reads:Mutex::new(()),panel_read_revision:AtomicU64::new(0),panel_read_interrupt:Mutex::new(None),notification_gate,csv_export_active:Arc::new(AtomicBool::new(false)),projection:Mutex::new(Value::Null),account:Mutex::new(account),account_cancel,account_cache:Mutex::new(AccountCache{binding:Value::Null,snapshot:json!({"status":"loading","buckets":[],"collectedAt":null}),generation:0}),account_reset_pending:AtomicBool::new(false),last_account_attempt:Mutex::new(None),stop:AtomicBool::new(false),exiting:AtomicBool::new(false),scanner_done:AtomicBool::new(false),account_done:AtomicBool::new(false),hotkey_thread:AtomicU32::new(0),shortcut_ready:AtomicBool::new(false),collector_error:Mutex::new(None),shell_error:Mutex::new(None),position_dirty:Mutex::new(None),topology:Mutex::new(vec![]),data_dir,started_at,settings_update:Mutex::new(()),settings_revision:AtomicU64::new(0),scan_wake:(Mutex::new(false),Condvar::new()),display_recheck:AtomicBool::new(false),native_paused:AtomicBool::new(false),native_suppress_toast:AtomicBool::new(false),native_dragging:AtomicBool::new(false),watcher_error:Mutex::new(None),pet_interaction:Mutex::new(PetInteraction::default()),metrics:Mutex::new(json!({"version":env!("CARGO_PKG_VERSION"),"processId":std::process::id(),"frontendReadyMs":{},"createdAt":chrono::Utc::now().to_rfc3339()}))});
         app.manage(shared.clone());create_tray(app.handle())?;if let Some(pet)=app.get_webview_window("pet"){pet.set_focusable(false)?;}
         apply_projection(app.handle(),&settings).map_err(std::io::Error::other)?;restore_position(app.handle(),&shared,false).map_err(std::io::Error::other)?;fit_main_window(app.handle()).map_err(std::io::Error::other)?;
         if !std::env::args().any(|a|a=="--background"){if let Some(main)=app.get_webview_window("main"){show_without_focus(&main).map_err(std::io::Error::other)?;}}
@@ -2601,7 +3220,7 @@ pub fn run() {
         native::start_hotkey(app.handle().clone(),shared.clone());start_file_watcher(shared.clone());start_workers(app.handle().clone(),shared);Ok(())
     }).on_window_event(|window,event|{
         let Some(state)=window.try_state::<SharedState>()else{return;};if window.label()=="main"&&matches!(event,WindowEvent::Destroyed){cancel_panel_navigation(&state);}let Some(view)=window.app_handle().get_webview_window(window.label())else{return;};match event{
-            WindowEvent::CloseRequested{api,..}if !state.exiting.load(Ordering::Relaxed)=>{api.prevent_close();if window.label()=="main"{cancel_panel_navigation(&state);}if window.label()=="pet"{let _=dismiss_pet_popup(&view,&state,"closed",false);}let _=window.hide();record_window_state(&view,&state);let _=window.emit("window-visibility-changed",json!({"label":window.label(),"visible":false}));if window.label()=="pet"{let app=window.app_handle().clone();let shared=state.inner().clone();tauri::async_runtime::spawn_blocking(move||{let _=update_settings(&app,&shared,&json!({"petVisible":false}));});}},
+            WindowEvent::CloseRequested{api,..}if !state.exiting.load(Ordering::Relaxed)=>{api.prevent_close();if window.label()=="main"{cancel_panel_navigation(&state);}if window.label()=="pet"{cancel_manual_drag(&state,manual_drag::StopReason::Hidden);let _=dismiss_pet_popup(&view,&state,"closed",false);}let _=window.hide();record_window_state(&view,&state);let _=window.emit("window-visibility-changed",json!({"label":window.label(),"visible":false}));if window.label()=="pet"{let app=window.app_handle().clone();let shared=state.inner().clone();tauri::async_runtime::spawn_blocking(move||{let _=update_settings(&app,&shared,&json!({"petVisible":false}));});}},
             WindowEvent::Resized(_)=>{let visible=window.is_visible().unwrap_or(false)&&!window.is_minimized().unwrap_or(false);let _=window.emit("window-visibility-changed",json!({"label":window.label(),"visible":visible}));record_visibility_change(&view,&state);},
             WindowEvent::Focused(focused)=>{if !focused&&window.label()=="pet"{let _=dismiss_pet_popup(&view,&state,"blur",false);}record_window_state(&view,&state);},
             WindowEvent::Destroyed if window.label()=="pet"=>{let _=dismiss_pet_popup(&view,&state,"destroyed",false);},
@@ -2613,6 +3232,38 @@ pub fn run() {
 
 mod native {
     use super::*;
+    #[cfg(windows)]
+    pub fn map_drag_press(window: &WebviewWindow, press: manual_drag::ClientAnchor) -> Result<manual_drag::Point, String> {
+        use windows_sys::Win32::{Foundation::{POINT, RECT}, Graphics::Gdi::ClientToScreen,
+            UI::{HiDpi::GetDpiForWindow, WindowsAndMessaging::GetClientRect}};
+        let hwnd = window.hwnd().map_err(|e| e.to_string())?.0 as _;
+        let mut rect: RECT = unsafe { std::mem::zeroed() };
+        if unsafe { GetClientRect(hwnd, &mut rect) } == 0 { return Err(std::io::Error::last_os_error().to_string()); }
+        let mut origin = POINT { x: rect.left, y: rect.top };
+        if unsafe { ClientToScreen(hwnd, &mut origin) } == 0 { return Err(std::io::Error::last_os_error().to_string()); }
+        let dpi = unsafe { GetDpiForWindow(hwnd) };
+        let scale = window.scale_factor().map_err(|e| e.to_string())?;
+        if dpi == 0 || !scale.is_finite() || (scale - f64::from(dpi) / 96.0).abs() > 0.01 {
+            return Err("桌宠 DPI 正在变化，请重新拖动".into());
+        }
+        let width = u32::try_from(i64::from(rect.right) - i64::from(rect.left)).map_err(|_| "桌宠客户区宽度无效")?;
+        let height = u32::try_from(i64::from(rect.bottom) - i64::from(rect.top)).map_err(|_| "桌宠客户区高度无效")?;
+        manual_drag::physical_press_anchor(press, manual_drag::Rect { x: origin.x, y: origin.y, width, height }, scale)
+            .ok_or_else(|| "拖动按下坐标或窗口尺寸已失效，请重新拖动".into())
+    }
+    #[cfg(windows)]
+    pub fn sample_drag_input(visible: bool, runtime_available: bool) -> manual_drag::Input {
+        use windows_sys::Win32::{Foundation::POINT,
+            UI::{WindowsAndMessaging::GetPhysicalCursorPos, Input::KeyboardAndMouse::GetAsyncKeyState}};
+        let mut cursor = POINT { x:0, y:0 };
+        let available = unsafe { GetPhysicalCursorPos(&mut cursor) } != 0;
+        manual_drag::Input {
+            cursor:available.then_some(manual_drag::Point { x:cursor.x, y:cursor.y }),
+            left_down:unsafe { GetAsyncKeyState(1) } < 0,
+            escape_down:unsafe { GetAsyncKeyState(0x1b) } < 0,
+            visible, runtime_available,
+        }
+    }
     #[cfg(windows)]
     pub fn motion_input_marker() -> Option<u32> {
         use windows_sys::Win32::UI::Input::KeyboardAndMouse::{GetLastInputInfo, LASTINPUTINFO};
@@ -2681,6 +3332,25 @@ mod native {
     }
     #[cfg(not(windows))]
     pub fn move_pet_without_activation(_window: &WebviewWindow, _target: roaming::Point) -> bool { false }
+
+    #[cfg(windows)]
+    pub fn set_popup_bounds_without_activation(window: &WebviewWindow, target: popup_bounds::Bounds) -> Result<(), String> {
+        use windows_sys::Win32::UI::WindowsAndMessaging::{SetWindowPos, SWP_NOACTIVATE,
+            SWP_NOOWNERZORDER, SWP_NOZORDER};
+        let hwnd = window.hwnd().map_err(|e| e.to_string())?;
+        let width = i32::try_from(target.width).map_err(|_| "弹层宽度无效")?;
+        let height = i32::try_from(target.height).map_err(|_| "弹层高度无效")?;
+        if unsafe { SetWindowPos(hwnd.0 as _, std::ptr::null_mut(), target.x, target.y, width, height,
+            SWP_NOACTIVATE | SWP_NOOWNERZORDER | SWP_NOZORDER) } == 0 {
+            return Err(std::io::Error::last_os_error().to_string());
+        }
+        Ok(())
+    }
+    #[cfg(not(windows))]
+    pub fn set_popup_bounds_without_activation(window: &WebviewWindow, target: popup_bounds::Bounds) -> Result<(), String> {
+        window.set_size(PhysicalSize::new(target.width, target.height)).map_err(|e| e.to_string())?;
+        window.set_position(PhysicalPosition::new(target.x, target.y)).map_err(|e| e.to_string())
+    }
 
     #[cfg(windows)]
     pub fn window_activation_state(window: &WebviewWindow) -> Value {
@@ -2948,7 +3618,9 @@ mod native {
                 self.shared.notification_gate.publish(ready, blocked);
             }
             let paused = blocked || self.power_saver;
-            self.shared.native_paused.store(paused, Ordering::Relaxed);
+            self.shared.native_paused.store(paused, Ordering::Release);
+            if paused { cancel_manual_drag(&self.shared, manual_drag::StopReason::RuntimeUnavailable); }
+            pointer::refresh_runtime_admission(&self.shared);
             self.shared
                 .native_suppress_toast
                 .store(blocked || !ready, Ordering::Release);
@@ -3098,6 +3770,7 @@ mod native {
                 }
             }
             WM_NCDESTROY => {
+                cancel_manual_drag(&context.shared, manual_drag::StopReason::Hidden);
                 context.shared.notification_gate.publish(false, true);
                 context.shared.native_suppress_toast.store(true, Ordering::Release);
                 RemoveWindowSubclass(hwnd, Some(runtime_proc), 0x544d);

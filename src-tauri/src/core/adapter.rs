@@ -732,6 +732,8 @@ mod capability_report_tests {
         let source = fixture.path().join("source");
         fs::create_dir(&source).unwrap();
         let mut core = Core::open(&fixture.path().join("data"), &source).unwrap();
+        // A directory alone has unknown health; complete discovery before asserting availability.
+        core.scan().unwrap();
         let snapshot = core.snapshot(json!({})).unwrap();
         let report = snapshot["sourceCapabilities"]
             .as_array()

@@ -1,0 +1,361 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-19",
+  "recordedAtUtc": "2026-10-18T23:17:41.882270+00:00",
+  "status": "CURRENT_SOURCE_WATCH_CONFIG_READ_DEFAULT_DESKTOP_COMPILED_THREE_EXACT_TESTS_PASSED_SCOPED_ONLY",
+  "scope": "Current default+desktop Windows lib-test compilation includes the production watcher callsite. Execution is limited to three source_watch_tests using owned temporary fixtures; the 432-name lib roster was listed, not executed as a full suite.",
+  "change": {
+    "productionSources": [
+      {
+        "path": "src-tauri/src/core.rs",
+        "bytes": 49448,
+        "sha256": "59463C1F22921894E75EEE25315590A98921660958EF5070FD852C9176729E95"
+      },
+      {
+        "path": "src-tauri/src/desktop.rs",
+        "bytes": 213864,
+        "sha256": "31A82C2A8E32AA03948DD015D455CE78FD4219A556D3D8F9ECBED6CA76C1D0C1"
+      },
+      {
+        "path": "src-tauri/src/core/source_watch_tests.rs",
+        "bytes": 3283,
+        "sha256": "D2631BD07E09D5684F0246AE5C7F8E97841C36223385CA904E8B7E24946CF04F"
+      }
+    ],
+    "configRead": "Core.enabled_codex_source_roots reads only source_instances.root where enabled=1 and client_kind=codex; it does not compute ledger fact or source health aggregates.",
+    "desktopCallsite": "The existing 500 ms watcher loop reads those roots under the Core mutex, then performs filesystem filtering and watcher replacement after releasing it.",
+    "sameContractRetained": "Existing scan budgets, backoff, persistence, Core.sources health API and registered source protection roots remain separate.",
+    "runtimePerformanceBenefitMeasuredByThisReceipt": false
+  },
+  "binding": {
+    "sourcepins": {
+      "path": "output/implementation/source-watch-rust-validation-20261019-r1/sourcepins.json",
+      "bytes": 223373,
+      "sha256": "179995C41AB1E7C335B83783E990221774295E348A305C6EB8331B58AA9040C7"
+    },
+    "sourceInputCount": 911,
+    "runner": {
+      "path": "output/implementation/source-watch-rust-validation-20261019-r1/run.py",
+      "bytes": 13686,
+      "sha256": "C3B93CC9569E3E85273945D7FF828ABD1DC9B651E890FC91EF6261BE7DAC8111"
+    },
+    "artifactSelection": {
+      "path": "output/implementation/source-watch-rust-validation-20261019-r1/compile/artifact.json",
+      "bytes": 2179,
+      "sha256": "10471554BEF1E771E1326844C6E24B31887333C307F0B0E9D97B1368207ECB54"
+    },
+    "actualPrivateTestPe": {
+      "path": "output/implementation/source-watch-rust-validation-20261019-r1/compile/lib-tests.exe",
+      "bytes": 9859584,
+      "sha256": "35E6C3F9DB2879AA6A596931E4E112747ADA9A53755A3889C5B41A069015A6AB"
+    },
+    "cargoJson": {
+      "path": "output/implementation/source-watch-rust-validation-20261019-r1/compile/cargo.jsonl",
+      "bytes": 390443,
+      "sha256": "C8CE6FC8483E7BA9C4D6A554ED12D3461840DB82144C6F20A1055299771DD0A3"
+    },
+    "cargoStderr": {
+      "path": "output/implementation/source-watch-rust-validation-20261019-r1/compile/cargo.stderr.log",
+      "bytes": 11883,
+      "sha256": "26F3D9CADA2157DE4865AE3621D235CD64A7356595DBF408102BE84883B143B5"
+    },
+    "freshCargoArtifact": {
+      "reason": "compiler-artifact",
+      "package_id": "path+file:///D:/project/%E5%AE%A0%E7%89%A9/src-tauri#token-meow@0.1.0",
+      "manifest_path": "D:\\project\\宠物\\src-tauri\\Cargo.toml",
+      "target": {
+        "kind": [
+          "rlib"
+        ],
+        "crate_types": [
+          "rlib"
+        ],
+        "name": "token_meow_lib",
+        "src_path": "D:\\project\\宠物\\src-tauri\\src\\lib.rs",
+        "edition": "2021",
+        "doc": true,
+        "doctest": true,
+        "test": true
+      },
+      "profile": {
+        "opt_level": "3",
+        "debuginfo": 0,
+        "debug_assertions": false,
+        "overflow_checks": false,
+        "test": true
+      },
+      "features": [
+        "default",
+        "desktop"
+      ],
+      "filenames": [
+        "D:\\DevCache\\cargo-token-meow\\release\\deps\\token_meow_lib-a5b33d23e7da7de7.exe",
+        "D:\\DevCache\\cargo-token-meow\\release\\deps\\token_meow_lib-a5b33d23e7da7de7.pdb"
+      ],
+      "executable": "D:\\DevCache\\cargo-token-meow\\release\\deps\\token_meow_lib-a5b33d23e7da7de7.exe",
+      "fresh": false
+    },
+    "allRequiredRootCompileFlagsPresent": [
+      "opt-level=3",
+      "lto=thin",
+      "codegen-units=16"
+    ],
+    "listedRoster": {
+      "path": "output/implementation/source-watch-rust-validation-20261019-r1/test/list.stdout.log",
+      "bytes": 43102,
+      "sha256": "1EA40895D812A916A6D708CEF88B0B669922C74DD1CF24D593D4E07A61680A5B"
+    },
+    "testResultDetails": {
+      "path": "output/implementation/source-watch-rust-validation-20261019-r1/test/tests.json",
+      "bytes": 722,
+      "sha256": "DAEB1C9E6E2C6160877DF0CBB7BFA256F825F408F1B5E31DC8AC18282DF81578"
+    }
+  },
+  "phases": {
+    "compile": {
+      "result": {
+        "path": "output/implementation/source-watch-rust-validation-20261019-r1/compile/result.json",
+        "bytes": 627,
+        "sha256": "D61F1A85B9D1A252035775D2E92BCFFC1FDC7D23569841002509D38A571681F7"
+      },
+      "job": {
+        "path": "output/implementation/source-watch-rust-validation-20261019-r1/compile/job.json",
+        "bytes": 452355,
+        "sha256": "CC2C33CD39E3D692AA6C82E82B189358CFF4745848686F68FC44BCA6F05A55DF"
+      },
+      "status": "compiled-root-zero-owned-descendants-cleaned",
+      "root": {
+        "creationFileTimeDecimal": "134368386686241708",
+        "exitFileTimeDecimal": "134368388821470298",
+        "exitCode": 0,
+        "waitSignaled": true,
+        "exited": true
+      },
+      "jobAccounting": {
+        "totalProcesses": 13,
+        "activeProcesses": 0,
+        "totalTerminatedProcesses": 0
+      },
+      "elapsedSeconds": 213.5806162999943,
+      "naturalWholeJobCompletion": false,
+      "cleanupVerified": true,
+      "timedOut": false,
+      "errors": [],
+      "guards": [
+        {
+          "binding": {
+            "path": "output/implementation/source-watch-rust-validation-20261019-r1/compile/source-guards.json",
+            "bytes": 147,
+            "sha256": "9262EB3A65F6774D223188FC19C95470C3989608816CEAF69F58F739A7130FEF"
+          },
+          "count": 911,
+          "expected": 911,
+          "postChecksPassed": true,
+          "allHandlesClosed": true,
+          "errors": [],
+          "guardBufferBytes": 65536
+        },
+        {
+          "binding": {
+            "path": "output/implementation/source-watch-rust-validation-20261019-r1/compile/control-tool-guards.json",
+            "bytes": 145,
+            "sha256": "55562903B5049EAACDDC9DAB9A6443A6137428BCF7452C737B203AEA6FB83AC7"
+          },
+          "count": 16,
+          "expected": 16,
+          "postChecksPassed": true,
+          "allHandlesClosed": true,
+          "errors": [],
+          "guardBufferBytes": 65536
+        },
+        {
+          "binding": {
+            "path": "output/implementation/source-watch-rust-validation-20261019-r1/compile/actual-artifact-guard.json",
+            "bytes": 143,
+            "sha256": "660086A4E7BF79B99BC7392793FBB7ED1D404AE91B5EE0D8F7A70AC2A95210EA"
+          },
+          "count": 1,
+          "expected": 1,
+          "postChecksPassed": true,
+          "allHandlesClosed": true,
+          "errors": [],
+          "guardBufferBytes": 65536
+        }
+      ]
+    },
+    "test": {
+      "result": {
+        "path": "output/implementation/source-watch-rust-validation-20261019-r1/test/result.json",
+        "bytes": 1155,
+        "sha256": "76A9FF11B74A17F749D998E9D82C3FA6E0A2D3F8FF7B7F8F31F608BAA7D2FF5D"
+      },
+      "job": {
+        "path": "output/implementation/source-watch-rust-validation-20261019-r1/test/job.json",
+        "bytes": 10627,
+        "sha256": "BD1B9014239DB65205308646D70645B5CA9246601FC1B1726E4C375040A736D3"
+      },
+      "status": "completed",
+      "root": {
+        "creationFileTimeDecimal": "134368389113325618",
+        "exitFileTimeDecimal": "134368389146095000",
+        "exitCode": 0,
+        "waitSignaled": true,
+        "exited": true
+      },
+      "jobAccounting": {
+        "totalProcesses": 10,
+        "activeProcesses": 0,
+        "totalTerminatedProcesses": 0
+      },
+      "elapsedSeconds": 3.3268109001219273,
+      "naturalWholeJobCompletion": true,
+      "cleanupVerified": true,
+      "timedOut": false,
+      "errors": [],
+      "guards": [
+        {
+          "binding": {
+            "path": "output/implementation/source-watch-rust-validation-20261019-r1/test/source-guards.json",
+            "bytes": 147,
+            "sha256": "9262EB3A65F6774D223188FC19C95470C3989608816CEAF69F58F739A7130FEF"
+          },
+          "count": 911,
+          "expected": 911,
+          "postChecksPassed": true,
+          "allHandlesClosed": true,
+          "errors": [],
+          "guardBufferBytes": 65536
+        },
+        {
+          "binding": {
+            "path": "output/implementation/source-watch-rust-validation-20261019-r1/test/control-tool-guards.json",
+            "bytes": 145,
+            "sha256": "55562903B5049EAACDDC9DAB9A6443A6137428BCF7452C737B203AEA6FB83AC7"
+          },
+          "count": 16,
+          "expected": 16,
+          "postChecksPassed": true,
+          "allHandlesClosed": true,
+          "errors": [],
+          "guardBufferBytes": 65536
+        },
+        {
+          "binding": {
+            "path": "output/implementation/source-watch-rust-validation-20261019-r1/test/artifact-guards.json",
+            "bytes": 143,
+            "sha256": "87E1FE9B32CE89CD4F588544EC25F5AF86AD10A76B47C1B7CBEFE407664044DE"
+          },
+          "count": 3,
+          "expected": 3,
+          "postChecksPassed": true,
+          "allHandlesClosed": true,
+          "errors": [],
+          "guardBufferBytes": 65536
+        }
+      ]
+    }
+  },
+  "tests": {
+    "actualLibRosterCount": 432,
+    "actualPassed": 3,
+    "otherTestsExecuted": false,
+    "requiredExactNames": [
+      "core::source_watch_tests::watcher_config_read_survives_broken_health_and_missing_fact_tables",
+      "core::source_watch_tests::watcher_roots_exclude_disabled_and_non_codex_sources",
+      "core::source_watch_tests::watcher_roots_follow_relocation_and_reenable"
+    ],
+    "eachExactRun": {
+      "passed": 1,
+      "failed": 0,
+      "ignored": 0,
+      "measured": 0,
+      "filteredOut": 431
+    },
+    "coveredContracts": [
+      "Disabled and non-Codex sources are excluded while registered protection roots still include them.",
+      "Source relocation, disable and re-enable are reflected without requiring a present directory at config-read time.",
+      "Malformed persisted health and missing fact tables can fail the full health API while the narrow watcher config read remains usable."
+    ]
+  },
+  "additionalEvidence": [
+    {
+      "path": "output/implementation/source-watch-rust-validation-20261019-r1/compile/started.json",
+      "bytes": 524,
+      "sha256": "F97861DF09E137B18EC207F47880DFF1799A5398A4099D4B86CFC8EE911C531E"
+    },
+    {
+      "path": "output/implementation/source-watch-rust-validation-20261019-r1/compile/stdout.log",
+      "bytes": 0,
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "path": "output/implementation/source-watch-rust-validation-20261019-r1/compile/stderr.log",
+      "bytes": 0,
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "path": "output/implementation/source-watch-rust-validation-20261019-r1/test/started.json",
+      "bytes": 521,
+      "sha256": "E03FC7BF49F31C5F121BE006F2702B6F0E7DC73A0A58977A4471362581C5C239"
+    },
+    {
+      "path": "output/implementation/source-watch-rust-validation-20261019-r1/test/stdout.log",
+      "bytes": 0,
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "path": "output/implementation/source-watch-rust-validation-20261019-r1/test/stderr.log",
+      "bytes": 0,
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "path": "output/implementation/source-watch-rust-validation-20261019-r1/test/0.stdout.log",
+      "bytes": 219,
+      "sha256": "28912B8B8C377B98958217BE9F26F195E3A7D9235CF7233846F431F61672C6F4"
+    },
+    {
+      "path": "output/implementation/source-watch-rust-validation-20261019-r1/test/0.stderr.log",
+      "bytes": 0,
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "path": "output/implementation/source-watch-rust-validation-20261019-r1/test/1.stdout.log",
+      "bytes": 205,
+      "sha256": "054E999BB38F0FD7C4FB36864A8554CF15700DB24ABD5ACEA5AA909CFBD8421F"
+    },
+    {
+      "path": "output/implementation/source-watch-rust-validation-20261019-r1/test/1.stderr.log",
+      "bytes": 0,
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "path": "output/implementation/source-watch-rust-validation-20261019-r1/test/2.stdout.log",
+      "bytes": 197,
+      "sha256": "0DEFF2B84B2AE03A68AF70ED388B76C19B7737C3ED71C0DEA3D1FBD20BE56F10"
+    },
+    {
+      "path": "output/implementation/source-watch-rust-validation-20261019-r1/test/2.stderr.log",
+      "bytes": 0,
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    }
+  ],
+  "qualification": {
+    "currentDefaultDesktopLibTestCompilation": true,
+    "threeNewWatcherTests": true,
+    "fullLibSuiteRun": false,
+    "fullCoreSuiteRun": false,
+    "wholeJobNaturalCompile": false,
+    "wholeJobNaturalTest": true,
+    "AppBuiltOrExecutedByThisValidation": false,
+    "currentRunningC40ContainsWatcherFix": false,
+    "NativeAccepted": false,
+    "performanceAccepted": false,
+    "installerAccepted": false,
+    "wholeV1Complete": false
+  },
+  "limitations": [
+    "Compile root exit 0 was followed by the predeclared cleanup of only its owned compiler descendants; naturalWholeJobCompletion remains false despite final Job0.",
+    "No Cargo, test, App, active database or running performance process was executed or opened by this independent result review.",
+    "C40/C41 artifacts and all earlier receipts remain unchanged; this record does not transfer watcher behavior or performance to their older App bytes."
+  ]
+}

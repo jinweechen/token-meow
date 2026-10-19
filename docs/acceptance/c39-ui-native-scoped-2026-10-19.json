@@ -1,0 +1,216 @@
+{
+  "status": "C39_SCOPED_EXPANDED_DRAG_QUIT_AND_CLOSED_SETTINGS_PASSED_BASE_SAFE_REJECTION_RETAINED",
+  "recordedAtUtc": "2026-10-18T19:46:17.847205+00:00",
+  "runRoot": "D:\\project\\宠物\\output\\performance\\c39-ui-native-default-20261019-r1",
+  "identity": {
+    "rootProcessId": 55228,
+    "rootCreationFileTimeDecimal": "134368258065517333",
+    "jobId": "f01c6031-80eb-4d5a-bda9-8e5dfe1521ad",
+    "executableSha256": "48CE49F9E8D13A5681F6BAC7FA5F4C5368193C7CC3DE018FAC38B3D0878AC0F7"
+  },
+  "staticBuild": {
+    "path": "D:\\project\\宠物\\docs\\acceptance\\c39-current-build-2026-10-19.json",
+    "bytes": 8210,
+    "sha256": "03FB807D5C54E49B3E85E1A94B4E925CCF0FFCB602F70BD3C383C6CAC2E65612"
+  },
+  "executableBindingFromStaticReceipt": {
+    "name": "token-meow.exe",
+    "path": "D:\\project\\宠物\\output\\build-candidates\\c39-current-v1-20261019\\token-meow.exe",
+    "bytes": 137773056,
+    "sha256": "48CE49F9E8D13A5681F6BAC7FA5F4C5368193C7CC3DE018FAC38B3D0878AC0F7",
+    "archiveSource": "D:\\project\\宠物\\output\\build-candidates\\c39-current-v1-20261019\\extracted-payload\\token-meow.exe"
+  },
+  "frozenSourceManifest": {
+    "path": "D:\\project\\宠物\\output\\build-candidates\\c39-current-v1-20261019\\source-inputs.json",
+    "bytes": 88501,
+    "sha256": "AF841EDDD5770209212AC6322C13D629E3AE174087F667F586FC2931E81A0384"
+  },
+  "postOwnerSourceCheck": {
+    "path": "D:\\project\\宠物\\output\\performance\\c39-ui-native-default-20261019-r1\\source-after.json",
+    "bytes": 440,
+    "sha256": "1099D8E681883E1F864AF2CC5AE9890A5E2AA2E4E4BA5EF8F3D93B6C16F64FB3"
+  },
+  "uiActions": {
+    "path": "D:\\project\\宠物\\output\\performance\\c39-ui-native-default-20261019-r1\\ui\\actions.jsonl",
+    "bytes": 12813,
+    "sha256": "CFC3D9CFFF79B8776B22E0EF666598A2688BE0D31C24A4F272AE378294602EA9"
+  },
+  "actionCount": 8,
+  "independentObservationReview": {
+    "receipt": {
+      "path": "D:\\project\\宠物\\output\\implementation\\c39-drag-observation-review-20261019-r1\\review.json",
+      "bytes": 9350,
+      "sha256": "16B5AD58F850C1F3C7FF85F0A9E3574370179F7E1694E1999C7DA7F2759A7BC0"
+    },
+    "assertionsPassed": 15
+  },
+  "scenarios": [
+    {
+      "id": "02-base-short-drag",
+      "status": "safe-release-rejection-only",
+      "movementQualified": false,
+      "entryLeftDown": false,
+      "reason": "Released",
+      "firstMoveApplied": false,
+      "observedBase": [
+        1624,
+        676,
+        280,
+        340
+      ],
+      "nativeError": null
+    },
+    {
+      "id": "04-expanded-short-drag",
+      "status": "one-scoped-move-passed",
+      "originalBase": [
+        1624,
+        676,
+        280,
+        340
+      ],
+      "expanded": [
+        1624,
+        496,
+        280,
+        520
+      ],
+      "finalBase": [
+        1544,
+        596,
+        280,
+        340
+      ],
+      "actualDelta": [
+        -80,
+        -80
+      ],
+      "entryAndAfterGeometryLeftDown": true,
+      "firstMoveApplied": true,
+      "nativeError": null,
+      "finish": "Released then settled within workarea"
+    }
+  ],
+  "normalMenuQuit": {
+    "outcome": "owned-exit-proven",
+    "rootExitCode": 0,
+    "activeProcesses": 0,
+    "identities": 15,
+    "totalProcesses": 15,
+    "receiverStopped": true,
+    "ownerHandlesClosed": true,
+    "immediateTargetWindows": 2,
+    "settledTargetWindows": 0,
+    "status": "single-run-scoped-passed",
+    "actions": [
+      "05",
+      "06",
+      "07",
+      "08"
+    ],
+    "actualClick": [
+      80,
+      377
+    ],
+    "sameHandleAll15ExitsProven": true,
+    "receiverFrozenThenJoined": true,
+    "forcedTermination": false
+  },
+  "closedAudit": {
+    "receipt": {
+      "path": "D:\\project\\宠物\\output\\implementation\\c39-native-closed-audit-20261019-r1\\result.json",
+      "bytes": 3833,
+      "sha256": "237A8EB195089506A6467CB8ADCBDE2B0C7A31847CC221C9A43DEC9EAD4425B6"
+    },
+    "control": {
+      "path": "D:\\project\\宠物\\output\\implementation\\c39-native-closed-audit-20261019-r1\\control-inputs.json",
+      "bytes": 1617,
+      "sha256": "A0775EC8340CF81DBA05D9D93D57649350E1A4E21E8BD3537B463C85DDB2791A"
+    },
+    "actualBinding": {
+      "path": "D:\\project\\宠物\\output\\implementation\\c39-native-closed-audit-20261019-r1\\binding.actual.json",
+      "bytes": 881,
+      "sha256": "4E8C1261A594E4D227E0D96E774D7FBDE84B13247D2D08BAD9B051E53FEF8CE0"
+    },
+    "checksPassed": 7,
+    "metadataReadGuards": {
+      "count": 44,
+      "postChecksPassed": true,
+      "allHandlesClosed": true,
+      "errors": []
+    },
+    "auditReadGuards": {
+      "count": 51,
+      "postChecksPassed": true,
+      "allHandlesClosed": true,
+      "errors": []
+    },
+    "closedDatabaseSha256FromAudit": "558F93C44412ADF63CDC06129A62EB22D2FCDFAE4F171B52AC1E85700230897B",
+    "schema": 6,
+    "syntheticUsage": {
+      "sourceFiles": 9,
+      "totalTokens": 3050,
+      "responseCount": 8
+    },
+    "finalSettings": {
+      "logicalX": 1544,
+      "logicalY": 596,
+      "monitorScaleFactor": 1,
+      "petScale": 1,
+      "clickThrough": false,
+      "alphaHitTest": false,
+      "petVisible": true
+    },
+    "settingOrigins": {
+      "petScale": "frozen Core default_settings",
+      "clickThrough": "preferences",
+      "alphaHitTest": "frozen Core default_settings",
+      "petVisible": "frozen Core default_settings"
+    },
+    "finalBaseSize": [
+      280,
+      340
+    ],
+    "popupExpandedGeometryPersisted": false,
+    "originalDatabaseWritten": false,
+    "CSVExportedOrAudited": false
+  },
+  "retainedHistory": [
+    {
+      "receipt": {
+        "path": "D:\\project\\宠物\\docs\\acceptance\\c37-ui-native-scoped-2026-10-19.json",
+        "bytes": 18886,
+        "sha256": "B58CD924FCA51572EE11BDD3229BCB76DAC91ABB7917B5F6CEE513052E07E926"
+      },
+      "scope": "C37 popup50/100/200/menu matrix and fast-drag failure remain with C37"
+    },
+    {
+      "receipt": {
+        "path": "D:\\project\\宠物\\docs\\acceptance\\c38-ui-native-scoped-2026-10-19.json",
+        "bytes": 6053,
+        "sha256": "91C1A78EE5FCE73F8A282AFC66EE5023A79BC9524BBDBD781A086603E1E3D046"
+      },
+      "scope": "C38 limited base move and expanded short/long failures remain with C38"
+    }
+  ],
+  "qualification": {
+    "baseShortDragMovementQualified": false,
+    "expandedShortDragLimitedPassed": true,
+    "normalMenuQuitScopedPassed": true,
+    "closedSettingsScopedPassed": true,
+    "fullManualDragQualified": false,
+    "wholeNativeQualified": false,
+    "completeLifecycleQualified": false,
+    "performanceQualified": false,
+    "installationQualified": false,
+    "M4Complete": false,
+    "wholeV1Complete": false
+  },
+  "limits": [
+    "One base gesture and one expanded gesture only; safe Released rejection is not displacement success.",
+    "Actual windows.pet plus independent UI oracle determine final position; popup event coordinates are historical metadata.",
+    "Sampler projections lack embedded PID/birth; association is limited to the fixed run, fresh ordered attempts, final metrics PID and recorded artifact binding.",
+    "No independent no-outline/no-toast visual acceptance, multi-DPI, lock/sleep, full lifecycle, performance or installation acceptance.",
+    "This publisher read metadata receipts only and did not reopen SQLite, launch a product or rehash executable/large source inventories."
+  ]
+}

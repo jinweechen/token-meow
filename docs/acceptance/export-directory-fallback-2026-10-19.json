@@ -1,0 +1,48 @@
+{
+  "date": "2026-10-19",
+  "status": "SOURCE_EXPORT_DIRECTORY_FALLBACK_REGRESSIONS_PASSED_NATIVE_PENDING",
+  "problem": "CSV save dialog inherited an unavailable Desktop under the isolated acceptance profile.",
+  "change": "Choose the first absolute, existing and browsable Documents/Downloads/Desktop/home directory before opening the save dialog. Do not create profile folders. If no directory is available, return an explicit error.",
+  "source": [
+    {
+      "path": "src-tauri/src/csv_export_directory.rs",
+      "bytes": 3111,
+      "sha256": "E084E6EE646BA344436655523B778343E2CB27043E1D9493AD81EDFCCDA9F6E8"
+    },
+    {
+      "path": "src-tauri/src/desktop.rs",
+      "bytes": 215561,
+      "sha256": "04C8876D99D3B3E1B5F5A8A290D6B3BA1DD3255E033D8AE8DF67484981587DD1"
+    }
+  ],
+  "tests": {
+    "directoryFilesystemRegressions": {
+      "passed": 2,
+      "failed": 0,
+      "compiler": "stable-x86_64-pc-windows-msvc rustc --edition 2021 --test",
+      "sourceIncludedDirectlyInFreshWrapper": true,
+      "scope": "Missing Desktop and other absent profile folders fall back without creation; files and relative paths skipped; existing directory chosen; unavailable candidates return error."
+    },
+    "frontend": {
+      "typecheckExitCode": 0,
+      "tests": 262,
+      "passed": 262,
+      "failed": 0,
+      "skipped": 0
+    }
+  },
+  "unchangedContracts": [
+    "Save cancellation returns None",
+    "Protected data and registered source roots re-read after dialog",
+    "Existing atomic CSV save, BOM and formula escaping"
+  ],
+  "productionDesktopRecompiledForThisFix": false,
+  "newNativeSaveDialogTested": false,
+  "runningC42AppContainsThisFix": false,
+  "wholeV1Passed": false,
+  "pending": [
+    "Rebuild the Windows App and installer with this source change",
+    "Verify real save, cancel, fixed-date CSV and formula protection through Native dialogs",
+    "Finish remaining V1 functional, performance, installation and cross-display acceptance"
+  ]
+}

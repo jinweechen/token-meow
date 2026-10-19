@@ -2,7 +2,8 @@ type Action = "idle" | "active" | "complete" | "alert" | "sleep";
 
 export const HD_LOGICAL_POSES = Object.freeze([
   "idle", "active", "complete", "alert", "sleep", "idle", "shy",
-  "affection", "stretch", "wink", "happy", "bow", "hug-tail", "walk",
+  "affection", "stretch", "wink", "happy", "bow", "hug-tail", "walk-right",
+  "walk-left", "walk-left-to-right", "walk-right-to-left",
 ] as const);
 
 export function hdPoseFrame(

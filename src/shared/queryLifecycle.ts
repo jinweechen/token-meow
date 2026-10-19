@@ -51,6 +51,7 @@ export class QueryLifecycle {
   private period: DatePeriod;
   private revision = 0;
   private serial = 0;
+  private pendingMutations = 0;
 
   constructor(search: string, now = new Date()) {
     this.period =
@@ -118,6 +119,7 @@ export class QueryLifecycle {
     // A reply may be the first callback after midnight or a clock rollback.
     this.synchronize(now);
     return (
+      this.canRead() &&
       request.serial === this.serial &&
       request.revision === this.revision &&
       request.key === queryKey(this.query)
@@ -126,6 +128,22 @@ export class QueryLifecycle {
 
   invalidate(): void {
     ++this.serial;
+  }
+
+  canRead(): boolean {
+    return this.pendingMutations === 0;
+  }
+
+  /** Revoke pre-write and mid-write reads, even when a write rejects. */
+  async withMutation<T>(operation: () => Promise<T>): Promise<T> {
+    ++this.pendingMutations;
+    this.invalidate();
+    try {
+      return await operation();
+    } finally {
+      --this.pendingMutations;
+      this.invalidate();
+    }
   }
 
   /** Facts can change even when a source keeps the same ID and all filters match. */

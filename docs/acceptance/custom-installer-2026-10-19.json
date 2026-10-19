@@ -1,0 +1,123 @@
+{
+  "date": "2026-10-19",
+  "status": "CUSTOM_INSTALLER_BUILT_RESOURCES_VERIFIED_VISUAL_ACCEPTANCE_PENDING",
+  "recordedAtUtc": "2026-10-18T20:18:09.061480+00:00",
+  "request": "根据软件功能重新设计安装器，不要使用原生的",
+  "design": {
+    "surface": "Independent frameless WPF shell, cream and sage, embedded original Xiaoyou hero",
+    "featuresPresented": [
+      "Local Codex usage ledger",
+      "Sessions, tools and inbox reminders",
+      "Desktop pet companionship"
+    ],
+    "pages": [
+      "Welcome/options",
+      "Real stages with indeterminate engine progress",
+      "Error and retry",
+      "Verified completion and explicit launch"
+    ],
+    "engine": "New hidden current-user x64 NSIS engine; install entry requires /S",
+    "ordinaryUninstallUiRedesigned": false,
+    "framework": ".NET Framework 4.8 or newer; UI itself does not require WebView2"
+  },
+  "candidate": {
+    "path": "D:\\project\\宠物\\output\\build-candidates\\custom-installer-shell-20261019-r1\\TokenMeow_0.1.0_x64-custom-setup.exe",
+    "bytes": 128812544,
+    "sha256": "9E12941DD45CF5CBD9FFE226F0AE968F8464CA4EFE23CBAF5F9E6BE5E89A6AE2"
+  },
+  "newEngine": {
+    "path": "D:\\project\\宠物\\output\\build-candidates\\custom-installer-engine-20261019-r4\\TokenMeow_0.1.0_x64-engine.exe",
+    "bytes": 126778518,
+    "sha256": "25ADE8F2715C0775A68D83B7392F5EA903EF74C1468378F0D4B62BC529319D26"
+  },
+  "applicationPayload": {
+    "entry": "token-meow.exe",
+    "bytes": 137773056,
+    "sha256": "48CE49F9E8D13A5681F6BAC7FA5F4C5368193C7CC3DE018FAC38B3D0878AC0F7"
+  },
+  "applicationRustOrFrontendRebuilt": false,
+  "reuse": "Exact actual C39 NSIS payload bytes, no new marker patch or Rust build",
+  "checks": {
+    "backendPolicyAndFakePlatformTests": 18,
+    "backendCompilerAndTestsNaturalJobCompletion": true,
+    "newEngineCompileListExtractNaturalJobCompletion": true,
+    "actualEnginePayloadFilesVerified": 645,
+    "actualResourceFilesVerified": 644,
+    "oldResourceFilesUnchanged": 643,
+    "legalManifestOnlyOverlay": {
+      "entry": "licenses/manifest.json",
+      "bytes": 268000,
+      "sha256": "E6A488BB43C1F830D8D0A3F070B0272D87B4D24467AA6C8B5B58D0B34D10ED7C"
+    },
+    "outerEmbeddedEngineAndHeroShaVerified": true,
+    "peMachine": "AMD64",
+    "peOptionalMagic": "PE32+",
+    "outerCompilerExitCode": 0,
+    "outerInputs": 20,
+    "outerHeldInputPostHashMatchedAndClosed": true,
+    "distributionGeneratorNodeSyntax": "passed",
+    "gitDiffWhitespace": "passed"
+  },
+  "preview": {
+    "arguments": "--preview",
+    "windowEnumerated": {
+      "title": "Token 喵 安装",
+      "id": 22743378
+    },
+    "screenCapturedOrInteractionsVerified": false,
+    "toolDenial": "Computer Use was not approved to use 0_x64-custom-setup",
+    "manualReviewRequested": true,
+    "processReceipt": "output/implementation/custom-installer-shell-qa-20261019-r1/welcome-run.json",
+    "status": "Manual visual confirmation pending; preview process may remain open until user closes it"
+  },
+  "retainedFailures": [
+    {
+      "path": "output/implementation/custom-installer-backend-tests-20261019-r3",
+      "scope": "Test directory rename assertion failed; corrected to GENERIC_READ noDelete and retained in later tests; old system error dialog not targetable by Computer Use"
+    },
+    {
+      "path": "output/implementation/custom-installer-engine-build-20261019-r1",
+      "scope": "Harness passed paths instead of stream handles; no compiler process created; input guards closed; R2 is a separate corrected attempt"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "output/build-candidates/custom-installer-shell-20261019-r1/build-receipt.json",
+      "bytes": 1620,
+      "sha256": "62414A144F182CEDBF816F5F8FEBE9078F047A300DBAED35D589862B2D53F3B0"
+    },
+    {
+      "path": "output/implementation/custom-installer-engine-build-20261019-r2/result.json",
+      "bytes": 125156,
+      "sha256": "D4070E6CF6B673A6AA43562891ECC0D328050120028D073B158ED95E66B0F01A"
+    },
+    {
+      "path": "output/implementation/custom-installer-backend-tests-20261019-r5/result.json",
+      "bytes": 1733,
+      "sha256": "4A52F634C6E4522DD7EDEF83B48B89C492213F6897E6BE4A4D84B13A622FAE9B"
+    },
+    {
+      "path": "output/implementation/custom-installer-shell-qa-20261019-r1/resources.json",
+      "bytes": 772,
+      "sha256": "6E8051C0442432E4135943A4CC1F87C80D42647C6FFAABDFD7E25E63707FDDA9"
+    }
+  ],
+  "qualification": {
+    "uiAndBackendImplemented": true,
+    "candidateBuilt": true,
+    "visualAcceptance": false,
+    "installationExecuted": false,
+    "upgradeQualified": false,
+    "shortcutCreationQualified": false,
+    "missingWebView2NetworkInstallQualified": false,
+    "installedApplicationLaunchQualified": false,
+    "uninstallQualified": false,
+    "wholeNativeOrV1Qualified": false,
+    "codeSigned": false
+  },
+  "git": {
+    "committed": false,
+    "pushed": false,
+    "existingWipPreserved": true
+  }
+}

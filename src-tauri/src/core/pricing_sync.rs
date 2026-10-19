@@ -172,9 +172,13 @@ fn store_config(db: &Connection, config: &Config) -> Result<()> {
     put_setting(db, SETTING_KEY, &value(config)?)
 }
 
+pub(super) fn read_usage_price_sync(db: &Connection) -> Result<Value> {
+    value(&read_config(db)?)
+}
+
 impl Core {
     pub fn usage_price_sync(&self) -> Result<Value> {
-        value(&read_config(&self.db)?)
+        read_usage_price_sync(&self.db)
     }
     pub fn save_usage_price_sync(&mut self, payload: Value) -> Result<Value> {
         let input: SaveInput = serde_json::from_value(payload).map_err(err)?;

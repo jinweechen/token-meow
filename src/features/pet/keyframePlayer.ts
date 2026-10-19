@@ -11,6 +11,10 @@ export interface KeyframeSample {
   frame: string;
   nextInMs: number | null;
 }
+export interface KeyframePosition extends KeyframeSample {
+  /** Null denotes the terminal fallback, not a discarded sequence step. */
+  stepIndex: number | null;
+}
 
 /** Static rendering keeps the catalog fallback; finite playback keeps its final return pose. */
 export function playbackClip(clip: KeyframeClip, finite = false): KeyframeClip {
@@ -23,6 +27,7 @@ export class KeyframePlayer {
   private clip: KeyframeClip | null = null;
   private started = 0;
   private previous = 0;
+  private pausedAt: number | null = null;
 
   start(clip: KeyframeClip, now: number) {
     if (!Number.isFinite(now) || clip.sequence.length === 0 ||
@@ -36,22 +41,28 @@ export class KeyframePlayer {
     this.clip = { ...clip, loopRange: clip.loopRange && { ...clip.loopRange },
       sequence: clip.sequence.map((entry) => ({ ...entry })) };
     this.started = this.previous = now;
+    this.pausedAt = null;
     return this.read(now);
   }
 
   read(now: number): KeyframeSample {
+    const { frame, nextInMs } = this.readPosition(now);
+    return { frame, nextInMs };
+  }
+
+  readPosition(now: number): KeyframePosition {
     const clip = this.clip;
     if (!clip) throw Error("动画尚未开始");
     if (!Number.isFinite(now) || now < this.previous) {
       this.stop();
-      return { frame: clip.fallback, nextInMs: null };
+      return { frame: clip.fallback, nextInMs: null, stepIndex: null };
     }
     this.previous = now;
     const duration = clip.sequence.reduce((sum, entry) => sum + entry.durationMs, 0);
-    const elapsed = now - this.started;
+    const elapsed = (this.pausedAt ?? now) - this.started;
     if (!clip.loop && elapsed >= duration) {
       this.stop();
-      return { frame: clip.fallback, nextInMs: null };
+      return { frame: clip.fallback, nextInMs: null, stepIndex: null };
     }
     // A delayed callback samples the current phase. It never queues missed frames.
     const range = clip.loopRange;
@@ -62,13 +73,27 @@ export class KeyframePlayer {
     let phase = clip.loop
       ? elapsed < entryDuration ? elapsed : entryDuration + (elapsed - entryDuration) % bodyDuration
       : elapsed;
-    for (const entry of clip.sequence) {
+    for (const [stepIndex, entry] of clip.sequence.entries()) {
       if (phase < entry.durationMs)
-        return { frame: entry.frame, nextInMs: Math.max(1, entry.durationMs - phase) };
+        return { frame: entry.frame, nextInMs: Math.max(1, entry.durationMs - phase), stepIndex };
       phase -= entry.durationMs;
     }
-    return { frame: clip.fallback, nextInMs: null };
+    return { frame: clip.fallback, nextInMs: null, stepIndex: null };
   }
 
-  stop() { this.clip = null; }
+  /** Exclude bounded-window IO/ACK waiting from the presentation clock. */
+  pause(now: number): KeyframePosition {
+    const sample = this.readPosition(now);
+    if (this.clip && this.pausedAt === null) this.pausedAt = now;
+    return sample;
+  }
+
+  resume(now: number): KeyframePosition {
+    if (!this.clip || !Number.isFinite(now) || now < this.previous) return this.readPosition(now);
+    if (this.pausedAt !== null) this.started += now - this.pausedAt;
+    this.pausedAt = null;
+    return this.readPosition(now);
+  }
+
+  stop() { this.clip = null; this.pausedAt = null; }
 }

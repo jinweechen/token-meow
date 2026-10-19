@@ -411,6 +411,8 @@ export interface Snapshot {
   sessions: Session[];
   turns: Turn[];
   tools: Tool[];
+  /** Missing in legacy full snapshots; false means tool details were not requested. */
+  toolsLoaded?: boolean;
   inbox: InboxEvent[];
   budgets: Budget[];
   settings: Settings;

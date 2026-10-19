@@ -2,11 +2,14 @@
 pub mod adapter;
 mod agent_kind;
 mod motion;
+mod panel_read;
 mod pet;
 pub(super) mod pricing;
 mod pricing_sync;
 mod queries;
 mod reader;
+
+use panel_read::QueryReadContext;
 
 use adapter::SourceAdapter;
 use chrono::{Duration, Utc};
@@ -279,8 +282,11 @@ impl Core {
         self.settings_at(crate::budget_clock::now().utc)
     }
     pub(crate) fn settings_at(&self, at: chrono::DateTime<Utc>) -> Result<Value> {
+        Self::settings_from_db_at(&self.db, at)
+    }
+    fn settings_from_db_at(db: &Connection, at: chrono::DateTime<Utc>) -> Result<Value> {
         let mut projected = default_settings();
-        if let Some(saved) = get_setting(&self.db, "preferences")? {
+        if let Some(saved) = get_setting(db, "preferences")? {
             if let Some(m) = saved.as_object() {
                 for (k, v) in m {
                     projected[k] = v.clone();
@@ -306,10 +312,21 @@ impl Core {
         Ok(projected)
     }
     pub fn primary_source(&self) -> Result<Value> {
-        self.db.query_row("SELECT id,root,enabled,client_kind,environment FROM source_instances WHERE id=?1",[&self.source_id],|r|Ok(json!({"id":r.get::<_,String>(0)?,"root":r.get::<_,String>(1)?,"enabled":r.get::<_,bool>(2)?,"clientKind":r.get::<_,String>(3)?,"environment":r.get::<_,String>(4)?}))).map_err(err)
+        self.query_read_context().primary_source()
     }
     pub fn sources(&self) -> Result<Vec<Value>> {
         queries::source_rows(self)
+    }
+    /// Watch configuration only; filesystem checks and health queries stay outside this read.
+    pub(crate) fn enabled_codex_source_roots(&self) -> Result<Vec<PathBuf>> {
+        let mut statement = self
+            .db
+            .prepare("SELECT root FROM source_instances WHERE enabled=1 AND client_kind='codex'")
+            .map_err(err)?;
+        let rows = statement
+            .query_map([], |row| row.get::<_, String>(0).map(PathBuf::from))
+            .map_err(err)?;
+        rows.collect::<std::result::Result<Vec<_>, _>>().map_err(err)
     }
     /// Configuration roots only, including disabled sources; no fact/health queries.
     pub(crate) fn registered_source_roots(&self) -> Result<Vec<PathBuf>> {
@@ -1082,3 +1099,6 @@ fn validate_path_pair(data: &Path, source: &Path) -> Result<()> {
 
 #[cfg(test)]
 mod tests;
+
+#[cfg(test)]
+mod source_watch_tests;

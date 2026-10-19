@@ -142,6 +142,9 @@ pub(super) fn source_runtime(root: &Path, enabled: bool, health: Option<&Value>)
 }
 
 pub(super) fn source_rows(core: &Core) -> Result<Vec<Value>> {
+    source_rows_read(&core.query_read_context())
+}
+fn source_rows_read(core: &QueryReadContext<'_>) -> Result<Vec<Value>> {
     let mut s = core
         .db
         .prepare("SELECT id,root,client_kind,enabled,environment,created_at FROM source_instances")
@@ -213,11 +216,14 @@ fn for_each_json_value(
     Ok(())
 }
 fn load(core: &Core, q: &Value) -> Result<Loaded> {
+    load_read(&core.query_read_context(), q)
+}
+fn load_read(core: &QueryReadContext<'_>, q: &Value) -> Result<Loaded> {
     agent_kind::validate_query(q)?;
     // Snapshot, dashboard and CSV must reject the same malformed date filter.
     // An empty input is not an instruction to silently widen the export.
     validate_query_dates(q)?;
-    let sources = source_rows(core)?;
+    let sources = source_rows_read(core)?;
     let source_map: BTreeMap<_, _> = sources.iter().map(|s| (strv(s, "id"), s.clone())).collect();
     let mapping = get_setting(&core.db, "projectMappings")?.unwrap_or(json!({}));
     let mut sessions = BTreeMap::new();
@@ -592,9 +598,25 @@ impl Sum {
     }
 }
 pub(super) fn snapshot(core: &Core, q: &Value) -> Result<Value> {
-    snapshot_from_loaded(core, q, load(core, q)?)
+    snapshot_read(&core.query_read_context(), q)
 }
-fn snapshot_from_loaded(core: &Core, q: &Value, mut loaded: Loaded) -> Result<Value> {
+pub(super) fn snapshot_read(core: &QueryReadContext<'_>, q: &Value) -> Result<Value> {
+    snapshot_from_loaded(core, q, load_read(core, q)?, true)
+}
+pub(super) fn snapshot_for_panel_read(core: &QueryReadContext<'_>, q: &Value, include_tools: bool) -> Result<Value> {
+    let mut data = snapshot_from_loaded(core, q, load_read(core, q)?, include_tools)?;
+    data["toolsLoaded"] = json!(include_tools);
+    Ok(data)
+}
+pub(super) fn usage_dashboard_snapshot_read(core: &QueryReadContext<'_>, query: Value, request: Value) -> Result<Value> {
+    usage_dashboard::snapshot_read(core, query, request, true)
+}
+pub(super) fn usage_dashboard_for_panel_read(core: &QueryReadContext<'_>, query: Value, request: Value, include_tools: bool) -> Result<Value> {
+    let mut data = usage_dashboard::snapshot_read(core, query, request, include_tools)?;
+    data["toolsLoaded"] = json!(include_tools);
+    Ok(data)
+}
+fn snapshot_from_loaded(core: &QueryReadContext<'_>, q: &Value, mut loaded: Loaded, include_tools: bool) -> Result<Value> {
     let mut overall = Sum::default();
     let mut days: BTreeMap<String, Sum> = BTreeMap::new();
     let mut models: BTreeMap<String, Sum> = BTreeMap::new();
@@ -774,11 +796,21 @@ fn snapshot_from_loaded(core: &Core, q: &Value, mut loaded: Loaded) -> Result<Va
             source_scope,
         ) && in_dates(q, &strv(&t, "eventTime"))
         {
-            tools.push(t);
+            // Tool-only sessions remain navigable even when their details are not requested.
+            let source = strv(&t, "sourceId");
+            let thread = strv(&t, "threadId");
+            if !source.is_empty() && !thread.is_empty() {
+                selected_sessions.insert(format!("{source}|{thread}"));
+            }
+            if include_tools {
+                tools.push(t);
+            }
         }
         Ok(())
     })?;
-    tools.sort_by_key(|t| std::cmp::Reverse(strv(t, "eventTime")));
+    if include_tools {
+        tools.sort_by_key(|t| std::cmp::Reverse(strv(t, "eventTime")));
+    }
     let mut inbox = Vec::new();
     for_each_json_value(&core.db, "inbox_events", |t| {
         if scoped(
@@ -797,7 +829,7 @@ fn snapshot_from_loaded(core: &Core, q: &Value, mut loaded: Loaded) -> Result<Va
         Ok(())
     })?;
     for i in &mut inbox {
-        let current = i["eligibleRuntime"].as_str() == Some(core.runtime_id.as_str());
+        let current = i["eligibleRuntime"].as_str() == Some(core.runtime_id);
         i["animationEligible"] = json!(
             current
                 && i["notifyEligible"].as_bool().unwrap_or(false)
@@ -811,7 +843,7 @@ fn snapshot_from_loaded(core: &Core, q: &Value, mut loaded: Loaded) -> Result<Va
     // A session can have a timed turn or tool result without any usage record.
     // These facts have already passed the same scope/date filters as their
     // detail views. Keep their navigation entry without inventing token usage.
-    for fact in turns.iter().chain(tools.iter()).chain(inbox.iter()) {
+    for fact in turns.iter().chain(inbox.iter()) {
         let source = strv(fact, "sourceId");
         let thread = strv(fact, "threadId");
         if !source.is_empty() && !thread.is_empty() {
@@ -856,7 +888,7 @@ fn snapshot_from_loaded(core: &Core, q: &Value, mut loaded: Loaded) -> Result<Va
             .query_row(&format!("SELECT COUNT(*) FROM {table}"), [], |r| r.get(0))
             .map_err(err)
     };
-    let budgets = budget_views(core)?;
+    let budgets = budget_views_read(core)?;
     let capabilities = json_rows(&core.db, "source_capabilities")?;
     let channels = json_rows(&core.db, "collection_channels")?;
     let latest_source: Option<String> = core
@@ -1036,15 +1068,21 @@ pub(super) fn budget_views(core: &Core) -> Result<Vec<Value>> {
     budget_views_at(core, crate::budget_clock::now().utc)
 }
 fn budget_views_at(core: &Core, at: chrono::DateTime<Utc>) -> Result<Vec<Value>> {
+    budget_views_read_at(&core.query_read_context(), at)
+}
+fn budget_views_read(core: &QueryReadContext<'_>) -> Result<Vec<Value>> {
+    budget_views_read_at(core, crate::budget_clock::now().utc)
+}
+fn budget_views_read_at(core: &QueryReadContext<'_>, at: chrono::DateTime<Utc>) -> Result<Vec<Value>> {
     let budgets = json_rows(&core.db, "budgets")?;
     if budgets.is_empty() {
         return Ok(vec![]);
     }
     let day = local_day(&at.to_rfc3339()).ok_or("预算日期无效")?;
     let q = json!({"from":day,"to":day});
-    let daily = load(core, &q)?;
+    let daily = load_read(core, &q)?;
     let task = if budgets.iter().any(|b| strv(b, "scope") == "rootTurn") {
-        Some(load(core, &json!({}))?)
+        Some(load_read(core, &json!({}))?)
     } else {
         None
     };
@@ -1198,7 +1236,10 @@ fn csv_cell(value: &str) -> String {
     format!("\"{}\"", safe.replace('"', "\"\""))
 }
 pub(super) fn export_csv(core: &Core, q: &Value) -> Result<String> {
-    let loaded = load(core, q)?;
+    export_csv_read(&core.query_read_context(), q)
+}
+fn export_csv_read(core: &QueryReadContext<'_>, q: &Value) -> Result<String> {
+    let loaded = load_read(core, q)?;
     let private = q
         .get("anonymize")
         .and_then(Value::as_bool)

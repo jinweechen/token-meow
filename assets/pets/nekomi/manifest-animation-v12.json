@@ -1,0 +1,2580 @@
+{
+  "schema_version": 2,
+  "skin_id": "nekomi-animation-v12",
+  "renderer_kind": "builtin-animation-clips",
+  "bounds_alpha_threshold": 127,
+  "author": "Token 喵项目设计 · OpenAI imagegen AI 辅助生成",
+  "source": "AI-assisted，2026-10-18；v12 容差初版的63张原生透明PNG、12动作、左右原地侧走和两段完整掉头，共16片段。保留v11/v6原图字节、步骤和时长；左向新增11张独立绘图，侧面分层镜像不进入运行包。保留服装/比例小差异、离散关键帧及接缝；未认定严格无滑步，不授予Native移动权限，运行时与安装器须独立验收。",
+  "license": "LicenseRef-Project-Owned",
+  "attribution": "小柚 · v12 动作素材 · AI 辅助生成内置资源",
+  "source_archive": {
+    "manifest": {
+      "path": "assets/pets/nekomi/walk-v10-complete/catalog-v12.json",
+      "sha256": "731d2586c16fe2fec25f5004b93b33c4ed4bcb09857e42d88fb28bc54f7fa559"
+    },
+    "generation": [
+      {
+        "path": "assets/pets/nekomi/walk-v10-complete/delivery-manifest-v11.json",
+        "sha256": "64a73c96f27f6b4ed99dc9276f36faeb9d11726e3dec03ad6987c20434b21775"
+      },
+      {
+        "path": "assets/pets/nekomi/walk-v10-complete/generation-manifest-v2.json",
+        "sha256": "987a1f78c490879711cac63fc5a9f6ebdc84e1fb1b2e521cfb580fa583f91465"
+      },
+      {
+        "path": "assets/pets/nekomi/animation-v6/generation-root.json",
+        "sha256": "cf9d44e5f8a42e30567335e81224b1d29189cb882618d2670a997fe8b803deed"
+      },
+      {
+        "path": "assets/pets/nekomi/animation-v6/generation-cute.json",
+        "sha256": "51530a87907563c5cf87177e37ac38dfbc8a1a9ada23a7a34cf87e657cedc8fa"
+      },
+      {
+        "path": "assets/pets/nekomi/walk-v10-complete/DELIVERY-20261018.txt",
+        "sha256": "e0666fc2db053a80013ec42238bd3f1c16b313b5de2abcff8b2ee0319dcaaca1"
+      },
+      {
+        "path": "output/imagegen/completion-20261018/source-records-master.json",
+        "sha256": "b2eef2ad156ba3164c6bb06de1ff4915870722c23929ebc01728a5271ce7fec3"
+      },
+      {
+        "path": "output/imagegen/completion-20261018/source-records-walk-key.json",
+        "sha256": "83de604a89865d4027c9b03e42c06a169ddf03d07c1fb09715ca2d2ed5d9c57b"
+      },
+      {
+        "path": "output/imagegen/completion-20261018/source-records-walk-fill.json",
+        "sha256": "ce195e59ced1787546988e3b0c02ba13828fd986e77e115f1ad48f5884c3fbee"
+      },
+      {
+        "path": "output/imagegen/completion-20261018/source-records-actions-a.json",
+        "sha256": "0bb23c102250dadcb61b4254d4d7d97cef7e4b3e5e11a6281e334691811479d7"
+      },
+      {
+        "path": "output/imagegen/completion-20261018/source-records-actions-b.json",
+        "sha256": "b33a5320e3a0d91a2e9e1adb0584b2ad1a336cf79f8cd80c1f1730de97861556"
+      },
+      {
+        "path": "output/imagegen/completion-20261018/source-records-actions-c.json",
+        "sha256": "c30278076f87289fb88166477aee263b844d6817418026f93012fe850eebe415"
+      },
+      {
+        "path": "output/imagegen/completion-20261018/source-records-actions-d.json",
+        "sha256": "b30b1aef7559f1c13821a634828bd001e2dde61ae6086d0ac074b9a1a164f0d4"
+      },
+      {
+        "path": "output/imagegen/completion-20261018/source-records-actions-e.json",
+        "sha256": "77a2a56714356df2f34e0524a47672494ad2f03a160927f23d4a7e1429eec533"
+      },
+      {
+        "path": "assets/pets/nekomi/walk-v10-complete/catalog-v11.json",
+        "sha256": "aaa468e64eaf04510670441202edfcf2d6c1ad5ca59e9bbb6a5315125a7e7744"
+      },
+      {
+        "path": "assets/pets/nekomi/walk-v10-complete/delivery-manifest-v12.json",
+        "sha256": "287ecaea9b2dc8399d8a56dfbbb1740c3f85bb81ed6c9b975d911accc3c62701"
+      },
+      {
+        "path": "assets/pets/nekomi/walk-v10-complete/DELIVERY-v12-20261018.txt",
+        "sha256": "6e517842eaeaba4b34fafda42a56923455a19dbb276f22bd76915b9cc93a29b4"
+      },
+      {
+        "path": "assets/pets/nekomi/walk-v10-complete/OMISSION-AUDIT-v12.txt",
+        "sha256": "9fe60551f6ebf61a84f47b47cec375ba5861034d7501cabcc4e18076ed03115e"
+      },
+      {
+        "path": "assets/pets/nekomi/walk-v10-complete/sequence-left-v12.json",
+        "sha256": "4de919bbac004213ab0088af2d336e957b169ea02a4abed78e3f937af507035a"
+      },
+      {
+        "path": "assets/pets/nekomi/walk-v10-complete/sequence-right-v12.json",
+        "sha256": "983eee2b0cd81827615065efc26c4ae4c479ac1cfd70c9c8cc19b2c5a664f009"
+      },
+      {
+        "path": "output/imagegen/left-completion-20261018/source-records.json",
+        "sha256": "49fe4f6daf19b3d818384202d98208f8470342f7491f4862b1c3c35be86f0603"
+      },
+      {
+        "path": "output/imagegen/left-completion-20261018/integrity.json",
+        "sha256": "93db70dcc2b6142b8d2ab826814b76cc73f988e62c8a99976521e99832a6421c"
+      },
+      {
+        "path": "output/imagegen/left-completion-20261018/review-summary.json",
+        "sha256": "46dd1096196777988a876e9824075bf0d5bf15fa981bb1edaa9c94aa385560df"
+      },
+      {
+        "path": "assets/pets/nekomi/walk-v10-complete/prompts/v12-master-left.txt",
+        "sha256": "cebf775e6c80cef3ec2e083cd191b56ca6c227ee8c100a1ab0799d4ff87842af"
+      },
+      {
+        "path": "assets/pets/nekomi/walk-v10-complete/prompts/v12-left-01-contact-near.txt",
+        "sha256": "328d46d4e68057e2fd19794a819eef679025c57ecb9adbaf7b20a82acce6153b"
+      },
+      {
+        "path": "assets/pets/nekomi/walk-v10-complete/prompts/v12-left-03-far-passing.txt",
+        "sha256": "bc945612590fd6a56747c986c381bb755fbbb618883acc5dc392ef135db0b27d"
+      },
+      {
+        "path": "assets/pets/nekomi/walk-v10-complete/prompts/v12-left-05-contact-far.txt",
+        "sha256": "42a95d244ddf7891c5763bcb4f78d3bd80adc22c860e3fc447a93a787d9697e2"
+      },
+      {
+        "path": "assets/pets/nekomi/walk-v10-complete/prompts/v12-left-07-near-passing.txt",
+        "sha256": "3a6f148b2d4b7feff2998efbe2a5062e25aaeb7aee52d9c0066b5e41e528158d"
+      },
+      {
+        "path": "assets/pets/nekomi/walk-v10-complete/prompts/v12-left-02-near-flat-recovery.txt",
+        "sha256": "e04748e1636843089bd581cfe2cd5675e5a58516870966c4f0cf087ccddf50a9"
+      },
+      {
+        "path": "assets/pets/nekomi/walk-v10-complete/prompts/v12-left-04-near-toe-far-reach.txt",
+        "sha256": "e96a20cfecd38bdd7a674c7e2c150060b872c883b1ff6c25779ec427e18542f9"
+      },
+      {
+        "path": "assets/pets/nekomi/walk-v10-complete/prompts/v12-left-06-far-flat-recovery.txt",
+        "sha256": "afab4b37f7c900176e69ba70a658316d56c203841279a896d294ace51f3d34de"
+      },
+      {
+        "path": "assets/pets/nekomi/walk-v10-complete/prompts/v12-left-08-far-toe-near-reach.txt",
+        "sha256": "98f802193d3415b5984c6292732f49657eab4b5c8ef49fbd7fe09f422c02cc10"
+      },
+      {
+        "path": "assets/pets/nekomi/walk-v10-complete/prompts/v12-turn-front-left.txt",
+        "sha256": "8d1275814cdf8237b287e18822a0b6d3abc1f1145fbea1e24abd263edf288d21"
+      },
+      {
+        "path": "assets/pets/nekomi/walk-v10-complete/prompts/v12-start-left.txt",
+        "sha256": "cb1cf44db1ef0efa70576583313e9195b9b111d407cfef554adec62f927e7832"
+      }
+    ],
+    "base_pack": "assets/pets/nekomi/walk-v10-complete/",
+    "review_archive": "output/imagegen/left-completion-20261018/"
+  },
+  "variants": {
+    "idle": [
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      4,
+      13,
+      14,
+      15,
+      16
+    ],
+    "tap": [
+      7,
+      6,
+      9,
+      12,
+      10,
+      11,
+      8
+    ]
+  },
+  "actions": {
+    "idle": {
+      "start": 200,
+      "loop": 6000,
+      "end": 200,
+      "fallback": "static",
+      "frames": {
+        "start": 0,
+        "loop": 0,
+        "end": 0
+      }
+    },
+    "active": {
+      "start": 200,
+      "loop": 1800,
+      "end": 200,
+      "fallback": "idle",
+      "frames": {
+        "start": 1,
+        "loop": 1,
+        "end": 1
+      }
+    },
+    "complete": {
+      "start": 250,
+      "loop": 1500,
+      "end": 250,
+      "fallback": "idle",
+      "frames": {
+        "start": 2,
+        "loop": 2,
+        "end": 2
+      }
+    },
+    "alert": {
+      "start": 250,
+      "loop": 2200,
+      "end": 250,
+      "fallback": "idle",
+      "frames": {
+        "start": 3,
+        "loop": 3,
+        "end": 3
+      }
+    },
+    "sleep": {
+      "start": 300,
+      "loop": 7000,
+      "end": 300,
+      "fallback": "idle",
+      "frames": {
+        "start": 4,
+        "loop": 4,
+        "end": 4
+      }
+    }
+  },
+  "static_pose": "idle",
+  "frames": [
+    {
+      "id": "walk-v10-complete/model-reference/master-front-v2",
+      "path": "assets/pets/nekomi/walk-v10-complete/model-reference/master-front-v2.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 1958924,
+      "sha256": "7ec89e91a67884a6e524b788e328a763aaebe502c2a5b5c887b5679fd7620997",
+      "bounds": [
+        93,
+        11,
+        937,
+        1484
+      ]
+    },
+    {
+      "id": "walk-v10-complete/actions-v11/idle/transition",
+      "path": "assets/pets/nekomi/walk-v10-complete/actions-v11/idle/transition.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 1965638,
+      "sha256": "23d70411874767c1a0547f64cab08abecc6815e0261b3e5e2d637189c5fe325d",
+      "bounds": [
+        93,
+        11,
+        938,
+        1485
+      ]
+    },
+    {
+      "id": "animation-v6/clips/idle/half-blink",
+      "path": "assets/pets/nekomi/animation-v6/clips/idle/half-blink.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 1903637,
+      "sha256": "f19592142efa970fd6f1f62eefee59e941bf4444bac697eb91946f7a604663e2",
+      "bounds": [
+        94,
+        10,
+        947,
+        1455
+      ]
+    },
+    {
+      "id": "animation-v6/clips/idle/closed-blink",
+      "path": "assets/pets/nekomi/animation-v6/clips/idle/closed-blink.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 1903446,
+      "sha256": "22d1911bb02b2843ba4d98dd12e5f8f80d5903e1288baf2af04998ceb0b52c8b",
+      "bounds": [
+        94,
+        10,
+        947,
+        1455
+      ]
+    },
+    {
+      "id": "walk-v10-complete/actions-v11/active/transition",
+      "path": "assets/pets/nekomi/walk-v10-complete/actions-v11/active/transition.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 1974263,
+      "sha256": "e1c86e4d91ff8fa110bd73a48468a9a60c663de8fa4746d248e231e433895cf7",
+      "bounds": [
+        91,
+        11,
+        940,
+        1487
+      ]
+    },
+    {
+      "id": "animation-v6/clips/active/enter",
+      "path": "assets/pets/nekomi/animation-v6/clips/active/enter.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 1944259,
+      "sha256": "3f564b553bc3cd2304d86d905e941e5f58a6c10f16d00c4270e8b460b15a7c85",
+      "bounds": [
+        82,
+        10,
+        953,
+        1456
+      ]
+    },
+    {
+      "id": "animation-v6/clips/active/base",
+      "path": "assets/pets/nekomi/animation-v6/clips/active/base.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 1954202,
+      "sha256": "5c36c72372418ca6e904c46d795f5e4b11094a1ce527393b70d2949b26ae651d",
+      "bounds": [
+        82,
+        10,
+        953,
+        1456
+      ]
+    },
+    {
+      "id": "animation-v6/clips/active/accent",
+      "path": "assets/pets/nekomi/animation-v6/clips/active/accent.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 1947323,
+      "sha256": "032c9fcffb9556145bd40ab9240716c95bdfe71cfe7e5e47506f3ec49a360de5",
+      "bounds": [
+        82,
+        10,
+        953,
+        1456
+      ]
+    },
+    {
+      "id": "walk-v10-complete/actions-v11/alert/transition",
+      "path": "assets/pets/nekomi/walk-v10-complete/actions-v11/alert/transition.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 1981596,
+      "sha256": "5a887f537e0bd206af41631b64bcdfd20e7b761ebad16fd3ec300122e6312fd3",
+      "bounds": [
+        94,
+        12,
+        937,
+        1485
+      ]
+    },
+    {
+      "id": "animation-v6/clips/alert/enter",
+      "path": "assets/pets/nekomi/animation-v6/clips/alert/enter.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 1997605,
+      "sha256": "6aa8da48c9095596c1ccd1c4078fc8b7c3688516413cdc3fb617379cfd676b80",
+      "bounds": [
+        84,
+        8,
+        952,
+        1505
+      ]
+    },
+    {
+      "id": "animation-v6/clips/alert/base",
+      "path": "assets/pets/nekomi/animation-v6/clips/alert/base.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 2000182,
+      "sha256": "3f760e7a72b410cb139d1fe26ef12ea9922f9b581b441d37d5cc19969bb38a44",
+      "bounds": [
+        84,
+        8,
+        951,
+        1504
+      ]
+    },
+    {
+      "id": "animation-v6/clips/alert/accent",
+      "path": "assets/pets/nekomi/animation-v6/clips/alert/accent.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 2000107,
+      "sha256": "350eced1c8f8651878f80b8df75c676a8bd2ff22ee51e7594243b442f9926233",
+      "bounds": [
+        84,
+        7,
+        951,
+        1505
+      ]
+    },
+    {
+      "id": "walk-v10-complete/actions-v11/complete/transition",
+      "path": "assets/pets/nekomi/walk-v10-complete/actions-v11/complete/transition.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 1981272,
+      "sha256": "cd76a45be1390ca43ce8826f44cf4caf5f0ddc4d4c8c7bedae6e0a8511ddb222",
+      "bounds": [
+        83,
+        6,
+        947,
+        1484
+      ]
+    },
+    {
+      "id": "animation-v6/clips/complete/enter",
+      "path": "assets/pets/nekomi/animation-v6/clips/complete/enter.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 1914423,
+      "sha256": "dd285c7794a438e5a1c6db9515d56c9f8213adc72de127106dc35a2cf43cb02c",
+      "bounds": [
+        94,
+        10,
+        952,
+        1480
+      ]
+    },
+    {
+      "id": "animation-v6/clips/complete/base",
+      "path": "assets/pets/nekomi/animation-v6/clips/complete/base.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 1925353,
+      "sha256": "99ac410ecefc9a334f5c374be52b82219856414468d55316020b8c3c9716b77b",
+      "bounds": [
+        93,
+        10,
+        951,
+        1478
+      ]
+    },
+    {
+      "id": "animation-v6/clips/complete/accent",
+      "path": "assets/pets/nekomi/animation-v6/clips/complete/accent.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 1918026,
+      "sha256": "0f7ead60ccbe9e06ae747bea6c309a503385c8d9c9ba7d8c0b8925c0d4abf9b0",
+      "bounds": [
+        94,
+        10,
+        952,
+        1478
+      ]
+    },
+    {
+      "id": "walk-v10-complete/actions-v11/happy/transition",
+      "path": "assets/pets/nekomi/walk-v10-complete/actions-v11/happy/transition.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 1971900,
+      "sha256": "025a17a6f24bc3de54036df643ce36d767f67ea989725f1e5e606820828d08d3",
+      "bounds": [
+        88,
+        11,
+        941,
+        1484
+      ]
+    },
+    {
+      "id": "animation-v6/clips/happy/enter",
+      "path": "assets/pets/nekomi/animation-v6/clips/happy/enter.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 1959660,
+      "sha256": "59d9a586b1d5987e74bff067506e3d8b6cd5d02070b87486754dc78f0c10db1a",
+      "bounds": [
+        83,
+        7,
+        971,
+        1498
+      ]
+    },
+    {
+      "id": "animation-v6/clips/happy/base",
+      "path": "assets/pets/nekomi/animation-v6/clips/happy/base.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 1958445,
+      "sha256": "67894210ffafe8d82367dd38d0dbd46cd738f0d4d1bc3c941d5d64d1b6ab8900",
+      "bounds": [
+        83,
+        7,
+        970,
+        1498
+      ]
+    },
+    {
+      "id": "animation-v6/clips/happy/accent",
+      "path": "assets/pets/nekomi/animation-v6/clips/happy/accent.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 1973742,
+      "sha256": "d9d75bfc91b5438f3a14bc3a6d6de0a72f44adb01b82a5b986af70d4a5572644",
+      "bounds": [
+        82,
+        7,
+        972,
+        1499
+      ]
+    },
+    {
+      "id": "walk-v10-complete/actions-v11/wink/transition",
+      "path": "assets/pets/nekomi/walk-v10-complete/actions-v11/wink/transition.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 1970838,
+      "sha256": "f47601a2b57c908df4ed6b4518f381cd39b2a6edd9eda28d921e6a4803ce3029",
+      "bounds": [
+        92,
+        3,
+        951,
+        1487
+      ]
+    },
+    {
+      "id": "animation-v6/clips/wink/enter",
+      "path": "assets/pets/nekomi/animation-v6/clips/wink/enter.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 1917795,
+      "sha256": "95d41af277708f2483a8ca50d0539354f04eae110b0f4b76352005fea5e84666",
+      "bounds": [
+        94,
+        37,
+        955,
+        1470
+      ]
+    },
+    {
+      "id": "animation-v6/clips/wink/base",
+      "path": "assets/pets/nekomi/animation-v6/clips/wink/base.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 1908589,
+      "sha256": "d1920435d7b3f1f36b1dc8b7fb5cc2dfac9d15e5c1680d10c6f9d75840728737",
+      "bounds": [
+        96,
+        38,
+        954,
+        1469
+      ]
+    },
+    {
+      "id": "animation-v6/clips/wink/accent",
+      "path": "assets/pets/nekomi/animation-v6/clips/wink/accent.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 1912690,
+      "sha256": "e77ed16d0773ff295f7463817258a477bfa189d8b0d5d9e0b91960cb2188af76",
+      "bounds": [
+        96,
+        37,
+        954,
+        1470
+      ]
+    },
+    {
+      "id": "walk-v10-complete/actions-v11/affection/transition",
+      "path": "assets/pets/nekomi/walk-v10-complete/actions-v11/affection/transition.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 1986073,
+      "sha256": "d741cea53bb1d7e65f081781c5b343d475e828cc4839df7832e2508c5d00cdd9",
+      "bounds": [
+        92,
+        5,
+        940,
+        1485
+      ]
+    },
+    {
+      "id": "animation-v6/clips/affection/enter",
+      "path": "assets/pets/nekomi/animation-v6/clips/affection/enter.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 1972573,
+      "sha256": "cc04968ff3581961e256a048324c59257a8c0b774159dc337ceb048d116c20ee",
+      "bounds": [
+        72,
+        9,
+        970,
+        1498
+      ]
+    },
+    {
+      "id": "animation-v6/clips/affection/base",
+      "path": "assets/pets/nekomi/animation-v6/clips/affection/base.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 1971820,
+      "sha256": "f018661a8d4b05eaff868a8ee429ed509266a844c9ea0edcd9c955093ee600d9",
+      "bounds": [
+        72,
+        9,
+        969,
+        1497
+      ]
+    },
+    {
+      "id": "animation-v6/clips/affection/accent",
+      "path": "assets/pets/nekomi/animation-v6/clips/affection/accent.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 1967029,
+      "sha256": "9e9389123a0d80788a0bde86ca233a859df2049b394d377853b5ff30276c1291",
+      "bounds": [
+        72,
+        9,
+        970,
+        1498
+      ]
+    },
+    {
+      "id": "walk-v10-complete/actions-v11/shy/transition",
+      "path": "assets/pets/nekomi/walk-v10-complete/actions-v11/shy/transition.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 1990539,
+      "sha256": "e08eb3c81302916e9524753b4ef261de6f52985c29d310e5be49ab4cbf3b842d",
+      "bounds": [
+        93,
+        12,
+        938,
+        1485
+      ]
+    },
+    {
+      "id": "animation-v6/clips/shy/enter",
+      "path": "assets/pets/nekomi/animation-v6/clips/shy/enter.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 1929379,
+      "sha256": "92c36f94f09384d267ba7e94ae11e0edcbf0fcb8509c8399c6893d18084b0b5f",
+      "bounds": [
+        96,
+        5,
+        938,
+        1474
+      ]
+    },
+    {
+      "id": "animation-v6/clips/shy/base",
+      "path": "assets/pets/nekomi/animation-v6/clips/shy/base.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 1910862,
+      "sha256": "58702f963888360a923b62633a8d9a2c21ae828dbe7372696720bcdbe641359b",
+      "bounds": [
+        96,
+        5,
+        937,
+        1474
+      ]
+    },
+    {
+      "id": "animation-v6/clips/shy/accent",
+      "path": "assets/pets/nekomi/animation-v6/clips/shy/accent.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 1921560,
+      "sha256": "a846d6c09d266054958c1e38729a99334fbf4ae756c8fd5b9ca7da82bf12ddcf",
+      "bounds": [
+        96,
+        5,
+        938,
+        1475
+      ]
+    },
+    {
+      "id": "walk-v10-complete/actions-v11/bow/hold",
+      "path": "assets/pets/nekomi/walk-v10-complete/actions-v11/bow/hold.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 2002411,
+      "sha256": "46623833ae83db47979038870995c20b103892b848eeae79848365b29ab3e020",
+      "bounds": [
+        68,
+        16,
+        960,
+        1506
+      ]
+    },
+    {
+      "id": "walk-v10-complete/actions-v11/bow/deep",
+      "path": "assets/pets/nekomi/walk-v10-complete/actions-v11/bow/deep.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 2042791,
+      "sha256": "6f088115f873975bf232a28de8f8a40ac34d0d039fe6d2021df5f55837f29d8a",
+      "bounds": [
+        38,
+        101,
+        986,
+        1509
+      ]
+    },
+    {
+      "id": "walk-v10-complete/actions-v11/stretch/enter",
+      "path": "assets/pets/nekomi/walk-v10-complete/actions-v11/stretch/enter.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 1979464,
+      "sha256": "f711e7ac5fc209eec9e9d135d3a8512552df0327de43c89fb504e8b6e36b29d8",
+      "bounds": [
+        82,
+        15,
+        951,
+        1484
+      ]
+    },
+    {
+      "id": "walk-v10-complete/actions-v11/stretch/hold",
+      "path": "assets/pets/nekomi/walk-v10-complete/actions-v11/stretch/hold.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 2010247,
+      "sha256": "44adb89c857cb1183ef83b597f1edea0539139e651e09f621310880286b1203e",
+      "bounds": [
+        70,
+        6,
+        974,
+        1472
+      ]
+    },
+    {
+      "id": "walk-v10-complete/actions-v11/hug-tail/reach",
+      "path": "assets/pets/nekomi/walk-v10-complete/actions-v11/hug-tail/reach.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 1984321,
+      "sha256": "5638ca6917c8f8b8eee021b7a2381c0b91d5b021502b41b564889bf16829d660",
+      "bounds": [
+        54,
+        7,
+        921,
+        1485
+      ]
+    },
+    {
+      "id": "walk-v10-complete/actions-v11/hug-tail/lift",
+      "path": "assets/pets/nekomi/walk-v10-complete/actions-v11/hug-tail/lift.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 1962794,
+      "sha256": "1bea1cabb89adbb08bb026c462d266737f209bad341200e4ace343ddefffa203",
+      "bounds": [
+        59,
+        12,
+        924,
+        1488
+      ]
+    },
+    {
+      "id": "walk-v10-complete/actions-v11/sleep/lowering-v2",
+      "path": "assets/pets/nekomi/walk-v10-complete/actions-v11/sleep/lowering-v2.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 2029923,
+      "sha256": "3335cfccfbeb760e4e65092af49c554302a0e6b63abd6c63e3dc2403e370078a",
+      "bounds": [
+        64,
+        245,
+        997,
+        1452
+      ]
+    },
+    {
+      "id": "walk-v10-complete/actions-v11/sleep/seated",
+      "path": "assets/pets/nekomi/walk-v10-complete/actions-v11/sleep/seated.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 1881699,
+      "sha256": "870d659d91ad67420e1b0eab5f6d8e613d8859d43fbde85de9355c2798e49422",
+      "bounds": [
+        51,
+        378,
+        1021,
+        1500
+      ]
+    },
+    {
+      "id": "walk-v10-complete/actions-v11/sleep/seated-breath",
+      "path": "assets/pets/nekomi/walk-v10-complete/actions-v11/sleep/seated-breath.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 1886785,
+      "sha256": "eaf0a0364d7dcf197523a082322ad4a03d196c19e91c425ae7eae9f0b8c0c4db",
+      "bounds": [
+        51,
+        351,
+        1021,
+        1470
+      ]
+    },
+    {
+      "id": "walk-v10-complete/model-reference/master-right-v1",
+      "path": "assets/pets/nekomi/walk-v10-complete/model-reference/master-right-v1.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 1757141,
+      "sha256": "9fe601f7ea4a0b400892ae05fb6858cce1755b54e7a45e0f7f12c3ca88f737ce",
+      "bounds": [
+        133,
+        10,
+        868,
+        1517
+      ]
+    },
+    {
+      "id": "walk-v10-complete/model-reference/master-right-v3",
+      "path": "assets/pets/nekomi/walk-v10-complete/model-reference/master-right-v3.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 1763022,
+      "sha256": "4798dd4f33e066e424e0f8177c8cd9a0d3758a60088d98c6ab2879d72233309b",
+      "bounds": [
+        148,
+        8,
+        865,
+        1522
+      ]
+    },
+    {
+      "id": "walk-v10-complete/actions-v11/walk/start",
+      "path": "assets/pets/nekomi/walk-v10-complete/actions-v11/walk/start.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 1858028,
+      "sha256": "4eae3429a3227d9486eff39de92959730c064fe675287bce7bcf9b4f585e7a25",
+      "bounds": [
+        151,
+        11,
+        907,
+        1497
+      ]
+    },
+    {
+      "id": "walk-v10-complete/frames-v11/01-contact-near",
+      "path": "assets/pets/nekomi/walk-v10-complete/frames-v11/01-contact-near.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 1910380,
+      "sha256": "eb6158fbc47641535bba247dc83fecb1e4b292b06c14aa221e6acadbe0bf83c8",
+      "bounds": [
+        84,
+        12,
+        982,
+        1492
+      ]
+    },
+    {
+      "id": "walk-v10-complete/frames-v11/02-near-flat-recovery",
+      "path": "assets/pets/nekomi/walk-v10-complete/frames-v11/02-near-flat-recovery.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 1932624,
+      "sha256": "20900d6b7c7efccbbfa340e98ba7f93e8f58ba327d3844c3540ab7a8ae729135",
+      "bounds": [
+        72,
+        14,
+        935,
+        1500
+      ]
+    },
+    {
+      "id": "walk-v10-complete/frames-v11/03-far-passing",
+      "path": "assets/pets/nekomi/walk-v10-complete/frames-v11/03-far-passing.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 1873888,
+      "sha256": "e4035a49bcf9db50a6afd6ae0cfd94aaf4d79767dfc64e5bc8909f1195098c68",
+      "bounds": [
+        159,
+        12,
+        873,
+        1506
+      ]
+    },
+    {
+      "id": "walk-v10-complete/frames-v11/04-near-toe-far-reach",
+      "path": "assets/pets/nekomi/walk-v10-complete/frames-v11/04-near-toe-far-reach.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 1876290,
+      "sha256": "a787bc62d4917fcaaa127eb2562f7a462901f2566b61492559ed0f3759c3b55a",
+      "bounds": [
+        151,
+        11,
+        951,
+        1517
+      ]
+    },
+    {
+      "id": "walk-v10-complete/frames-v11/05-contact-far",
+      "path": "assets/pets/nekomi/walk-v10-complete/frames-v11/05-contact-far.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 1885584,
+      "sha256": "da5a7ce6ecec5f5ba4a0d6b5199bf240f4b148a2b7aae3c0d78b40dd92e9c95b",
+      "bounds": [
+        156,
+        15,
+        983,
+        1511
+      ]
+    },
+    {
+      "id": "walk-v10-complete/frames-v11/06-far-flat-recovery",
+      "path": "assets/pets/nekomi/walk-v10-complete/frames-v11/06-far-flat-recovery.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 1829946,
+      "sha256": "bb81960fb8ca7bca3a946fdb837f592162007be22693f38710b44c45a717ec94",
+      "bounds": [
+        169,
+        22,
+        937,
+        1498
+      ]
+    },
+    {
+      "id": "walk-v10-complete/frames-v11/07-near-passing",
+      "path": "assets/pets/nekomi/walk-v10-complete/frames-v11/07-near-passing.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 1829604,
+      "sha256": "6529d3b3d8e406be6a05161fc6dbecf86f4c095c78096272adc3dee75634d864",
+      "bounds": [
+        143,
+        9,
+        878,
+        1488
+      ]
+    },
+    {
+      "id": "walk-v10-complete/frames-v11/08-far-toe-near-reach",
+      "path": "assets/pets/nekomi/walk-v10-complete/frames-v11/08-far-toe-near-reach.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 1842574,
+      "sha256": "316198cfd814fc0fd96324205258fbe8c51241ac1934f887dd86a3bd1f8c1646",
+      "bounds": [
+        143,
+        9,
+        944,
+        1489
+      ]
+    },
+    {
+      "id": "walk-v10-complete/actions-v12/walk-left/turn",
+      "path": "assets/pets/nekomi/walk-v10-complete/actions-v12/walk-left/turn.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 1983113,
+      "sha256": "6f1e3a36e4d8a44440660494a688b8db5e73e0959153a0c17a978a63ff6be6f4",
+      "bounds": [
+        121,
+        12,
+        939,
+        1521
+      ]
+    },
+    {
+      "id": "walk-v10-complete/model-reference/master-left-v1",
+      "path": "assets/pets/nekomi/walk-v10-complete/model-reference/master-left-v1.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 1861566,
+      "sha256": "5838c2ced158956e734c5d4c24219020fa8070ed27b3d1e3f0c3215ac4ee5425",
+      "bounds": [
+        134,
+        12,
+        889,
+        1523
+      ]
+    },
+    {
+      "id": "walk-v10-complete/actions-v12/walk-left/start",
+      "path": "assets/pets/nekomi/walk-v10-complete/actions-v12/walk-left/start.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 1910861,
+      "sha256": "3a2a3b01db8746260851d0c6a3bf50e960dc14426c7e25b30b287214c4981508",
+      "bounds": [
+        99,
+        12,
+        975,
+        1501
+      ]
+    },
+    {
+      "id": "walk-v10-complete/frames-left-v12/01-contact-near",
+      "path": "assets/pets/nekomi/walk-v10-complete/frames-left-v12/01-contact-near.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 2015962,
+      "sha256": "584b652748987709a18eb17b941b6cc3e3a75d133c32b213b7b7ff7d3c841ecf",
+      "bounds": [
+        37,
+        16,
+        1009,
+        1500
+      ]
+    },
+    {
+      "id": "walk-v10-complete/frames-left-v12/02-near-flat-recovery",
+      "path": "assets/pets/nekomi/walk-v10-complete/frames-left-v12/02-near-flat-recovery.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 1967956,
+      "sha256": "b5a50a55a52a6cbf0fe5b25a331d38f669f15051bb9fafc13bd3e89692db4e78",
+      "bounds": [
+        62,
+        16,
+        1010,
+        1519
+      ]
+    },
+    {
+      "id": "walk-v10-complete/frames-left-v12/03-far-passing",
+      "path": "assets/pets/nekomi/walk-v10-complete/frames-left-v12/03-far-passing.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 1904779,
+      "sha256": "e46c02c60536aae788129b455b7c60584d242f559f3ad30c37843190beb14fbf",
+      "bounds": [
+        115,
+        12,
+        986,
+        1514
+      ]
+    },
+    {
+      "id": "walk-v10-complete/frames-left-v12/04-near-toe-far-reach",
+      "path": "assets/pets/nekomi/walk-v10-complete/frames-left-v12/04-near-toe-far-reach.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 1930914,
+      "sha256": "5cb9d2b1b0c2eb618fb192169882e4fa3d947caef30bee692a6724c79b4d2331",
+      "bounds": [
+        53,
+        14,
+        984,
+        1496
+      ]
+    },
+    {
+      "id": "walk-v10-complete/frames-left-v12/05-contact-far",
+      "path": "assets/pets/nekomi/walk-v10-complete/frames-left-v12/05-contact-far.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 1971845,
+      "sha256": "ef4a91a560d929852013e3bdae3fa69bc57142658e236118384ef4649049fc06",
+      "bounds": [
+        47,
+        13,
+        997,
+        1494
+      ]
+    },
+    {
+      "id": "walk-v10-complete/frames-left-v12/06-far-flat-recovery",
+      "path": "assets/pets/nekomi/walk-v10-complete/frames-left-v12/06-far-flat-recovery.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 1996511,
+      "sha256": "5e46b36f0ff802c0f0e73ab00db8db2bd12367f366a5ac5fcfce5991de649ebd",
+      "bounds": [
+        62,
+        13,
+        1001,
+        1507
+      ]
+    },
+    {
+      "id": "walk-v10-complete/frames-left-v12/07-near-passing",
+      "path": "assets/pets/nekomi/walk-v10-complete/frames-left-v12/07-near-passing.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 1905537,
+      "sha256": "f2774fe1c957e39f075b9feed2c268783a6c68889ff58cd2bd02e9ac8d674de5",
+      "bounds": [
+        100,
+        10,
+        969,
+        1511
+      ]
+    },
+    {
+      "id": "walk-v10-complete/frames-left-v12/08-far-toe-near-reach",
+      "path": "assets/pets/nekomi/walk-v10-complete/frames-left-v12/08-far-toe-near-reach.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 1914979,
+      "sha256": "70f7e6cdcbd1ad00ef643fae7d5475a85e5ecb7400f5c4c9bc20ed95e8a1224c",
+      "bounds": [
+        66,
+        12,
+        985,
+        1471
+      ]
+    }
+  ],
+  "clips": [
+    {
+      "id": "idle",
+      "fallback": "walk-v10-complete/model-reference/master-front-v2",
+      "canvas": [
+        1024,
+        1536
+      ],
+      "sharedTransform": {
+        "scale": 1,
+        "anchor": [
+          512,
+          1490
+        ],
+        "translate": [
+          0,
+          0
+        ]
+      },
+      "loop": true,
+      "loopRange": {
+        "start": 1,
+        "end": 8
+      },
+      "sequence": [
+        {
+          "frame": "walk-v10-complete/model-reference/master-front-v2",
+          "durationMs": 500,
+          "segment": "entry"
+        },
+        {
+          "frame": "walk-v10-complete/actions-v11/idle/transition",
+          "durationMs": 1200,
+          "segment": "body"
+        },
+        {
+          "frame": "walk-v10-complete/model-reference/master-front-v2",
+          "durationMs": 1600,
+          "segment": "body"
+        },
+        {
+          "frame": "animation-v6/clips/idle/half-blink",
+          "durationMs": 60,
+          "segment": "body"
+        },
+        {
+          "frame": "animation-v6/clips/idle/closed-blink",
+          "durationMs": 100,
+          "segment": "body"
+        },
+        {
+          "frame": "animation-v6/clips/idle/half-blink",
+          "durationMs": 60,
+          "segment": "body"
+        },
+        {
+          "frame": "walk-v10-complete/model-reference/master-front-v2",
+          "durationMs": 1800,
+          "segment": "body"
+        },
+        {
+          "frame": "walk-v10-complete/actions-v11/idle/transition",
+          "durationMs": 1200,
+          "segment": "body"
+        },
+        {
+          "frame": "walk-v10-complete/model-reference/master-front-v2",
+          "durationMs": 500,
+          "segment": "exit"
+        },
+        {
+          "frame": "walk-v10-complete/model-reference/master-front-v2",
+          "durationMs": 1000,
+          "segment": "returnToIdle"
+        }
+      ]
+    },
+    {
+      "id": "active",
+      "fallback": "animation-v6/clips/active/base",
+      "canvas": [
+        1024,
+        1536
+      ],
+      "sharedTransform": {
+        "scale": 1,
+        "anchor": [
+          512,
+          1490
+        ],
+        "translate": [
+          0,
+          0
+        ]
+      },
+      "loop": true,
+      "loopRange": {
+        "start": 2,
+        "end": 6
+      },
+      "sequence": [
+        {
+          "frame": "walk-v10-complete/model-reference/master-front-v2",
+          "durationMs": 350,
+          "segment": "entry"
+        },
+        {
+          "frame": "walk-v10-complete/actions-v11/active/transition",
+          "durationMs": 220,
+          "segment": "entry"
+        },
+        {
+          "frame": "animation-v6/clips/active/enter",
+          "durationMs": 180,
+          "segment": "body"
+        },
+        {
+          "frame": "animation-v6/clips/active/base",
+          "durationMs": 480,
+          "segment": "body"
+        },
+        {
+          "frame": "animation-v6/clips/active/accent",
+          "durationMs": 240,
+          "segment": "body"
+        },
+        {
+          "frame": "animation-v6/clips/active/base",
+          "durationMs": 320,
+          "segment": "body"
+        },
+        {
+          "frame": "walk-v10-complete/actions-v11/active/transition",
+          "durationMs": 260,
+          "segment": "exit"
+        },
+        {
+          "frame": "walk-v10-complete/model-reference/master-front-v2",
+          "durationMs": 350,
+          "segment": "exit"
+        },
+        {
+          "frame": "walk-v10-complete/model-reference/master-front-v2",
+          "durationMs": 700,
+          "segment": "returnToIdle"
+        }
+      ]
+    },
+    {
+      "id": "alert",
+      "fallback": "animation-v6/clips/alert/base",
+      "canvas": [
+        1024,
+        1536
+      ],
+      "sharedTransform": {
+        "scale": 1,
+        "anchor": [
+          512,
+          1490
+        ],
+        "translate": [
+          0,
+          0
+        ]
+      },
+      "loop": true,
+      "loopRange": {
+        "start": 2,
+        "end": 6
+      },
+      "sequence": [
+        {
+          "frame": "walk-v10-complete/model-reference/master-front-v2",
+          "durationMs": 350,
+          "segment": "entry"
+        },
+        {
+          "frame": "walk-v10-complete/actions-v11/alert/transition",
+          "durationMs": 220,
+          "segment": "entry"
+        },
+        {
+          "frame": "animation-v6/clips/alert/enter",
+          "durationMs": 180,
+          "segment": "body"
+        },
+        {
+          "frame": "animation-v6/clips/alert/base",
+          "durationMs": 480,
+          "segment": "body"
+        },
+        {
+          "frame": "animation-v6/clips/alert/accent",
+          "durationMs": 240,
+          "segment": "body"
+        },
+        {
+          "frame": "animation-v6/clips/alert/base",
+          "durationMs": 320,
+          "segment": "body"
+        },
+        {
+          "frame": "walk-v10-complete/actions-v11/alert/transition",
+          "durationMs": 260,
+          "segment": "exit"
+        },
+        {
+          "frame": "walk-v10-complete/model-reference/master-front-v2",
+          "durationMs": 350,
+          "segment": "exit"
+        },
+        {
+          "frame": "walk-v10-complete/model-reference/master-front-v2",
+          "durationMs": 700,
+          "segment": "returnToIdle"
+        }
+      ]
+    },
+    {
+      "id": "complete",
+      "fallback": "walk-v10-complete/model-reference/master-front-v2",
+      "canvas": [
+        1024,
+        1536
+      ],
+      "sharedTransform": {
+        "scale": 1,
+        "anchor": [
+          512,
+          1490
+        ],
+        "translate": [
+          0,
+          0
+        ]
+      },
+      "loop": false,
+      "sequence": [
+        {
+          "frame": "walk-v10-complete/model-reference/master-front-v2",
+          "durationMs": 350,
+          "segment": "entry"
+        },
+        {
+          "frame": "walk-v10-complete/actions-v11/complete/transition",
+          "durationMs": 220,
+          "segment": "entry"
+        },
+        {
+          "frame": "animation-v6/clips/complete/enter",
+          "durationMs": 180,
+          "segment": "body"
+        },
+        {
+          "frame": "animation-v6/clips/complete/base",
+          "durationMs": 480,
+          "segment": "body"
+        },
+        {
+          "frame": "animation-v6/clips/complete/accent",
+          "durationMs": 240,
+          "segment": "body"
+        },
+        {
+          "frame": "animation-v6/clips/complete/base",
+          "durationMs": 320,
+          "segment": "body"
+        },
+        {
+          "frame": "walk-v10-complete/actions-v11/complete/transition",
+          "durationMs": 260,
+          "segment": "exit"
+        },
+        {
+          "frame": "walk-v10-complete/model-reference/master-front-v2",
+          "durationMs": 350,
+          "segment": "exit"
+        },
+        {
+          "frame": "walk-v10-complete/model-reference/master-front-v2",
+          "durationMs": 700,
+          "segment": "returnToIdle"
+        }
+      ]
+    },
+    {
+      "id": "happy",
+      "fallback": "walk-v10-complete/model-reference/master-front-v2",
+      "canvas": [
+        1024,
+        1536
+      ],
+      "sharedTransform": {
+        "scale": 1,
+        "anchor": [
+          512,
+          1490
+        ],
+        "translate": [
+          0,
+          0
+        ]
+      },
+      "loop": false,
+      "sequence": [
+        {
+          "frame": "walk-v10-complete/model-reference/master-front-v2",
+          "durationMs": 350,
+          "segment": "entry"
+        },
+        {
+          "frame": "walk-v10-complete/actions-v11/happy/transition",
+          "durationMs": 220,
+          "segment": "entry"
+        },
+        {
+          "frame": "animation-v6/clips/happy/enter",
+          "durationMs": 180,
+          "segment": "body"
+        },
+        {
+          "frame": "animation-v6/clips/happy/base",
+          "durationMs": 480,
+          "segment": "body"
+        },
+        {
+          "frame": "animation-v6/clips/happy/accent",
+          "durationMs": 240,
+          "segment": "body"
+        },
+        {
+          "frame": "animation-v6/clips/happy/base",
+          "durationMs": 320,
+          "segment": "body"
+        },
+        {
+          "frame": "walk-v10-complete/actions-v11/happy/transition",
+          "durationMs": 260,
+          "segment": "exit"
+        },
+        {
+          "frame": "walk-v10-complete/model-reference/master-front-v2",
+          "durationMs": 350,
+          "segment": "exit"
+        },
+        {
+          "frame": "walk-v10-complete/model-reference/master-front-v2",
+          "durationMs": 700,
+          "segment": "returnToIdle"
+        }
+      ]
+    },
+    {
+      "id": "wink",
+      "fallback": "walk-v10-complete/model-reference/master-front-v2",
+      "canvas": [
+        1024,
+        1536
+      ],
+      "sharedTransform": {
+        "scale": 1,
+        "anchor": [
+          512,
+          1490
+        ],
+        "translate": [
+          0,
+          0
+        ]
+      },
+      "loop": false,
+      "sequence": [
+        {
+          "frame": "walk-v10-complete/model-reference/master-front-v2",
+          "durationMs": 350,
+          "segment": "entry"
+        },
+        {
+          "frame": "walk-v10-complete/actions-v11/wink/transition",
+          "durationMs": 220,
+          "segment": "entry"
+        },
+        {
+          "frame": "animation-v6/clips/wink/enter",
+          "durationMs": 180,
+          "segment": "body"
+        },
+        {
+          "frame": "animation-v6/clips/wink/base",
+          "durationMs": 480,
+          "segment": "body"
+        },
+        {
+          "frame": "animation-v6/clips/wink/accent",
+          "durationMs": 240,
+          "segment": "body"
+        },
+        {
+          "frame": "animation-v6/clips/wink/base",
+          "durationMs": 320,
+          "segment": "body"
+        },
+        {
+          "frame": "walk-v10-complete/actions-v11/wink/transition",
+          "durationMs": 260,
+          "segment": "exit"
+        },
+        {
+          "frame": "walk-v10-complete/model-reference/master-front-v2",
+          "durationMs": 350,
+          "segment": "exit"
+        },
+        {
+          "frame": "walk-v10-complete/model-reference/master-front-v2",
+          "durationMs": 700,
+          "segment": "returnToIdle"
+        }
+      ]
+    },
+    {
+      "id": "affection",
+      "fallback": "walk-v10-complete/model-reference/master-front-v2",
+      "canvas": [
+        1024,
+        1536
+      ],
+      "sharedTransform": {
+        "scale": 1,
+        "anchor": [
+          512,
+          1490
+        ],
+        "translate": [
+          0,
+          0
+        ]
+      },
+      "loop": false,
+      "sequence": [
+        {
+          "frame": "walk-v10-complete/model-reference/master-front-v2",
+          "durationMs": 350,
+          "segment": "entry"
+        },
+        {
+          "frame": "walk-v10-complete/actions-v11/affection/transition",
+          "durationMs": 220,
+          "segment": "entry"
+        },
+        {
+          "frame": "animation-v6/clips/affection/enter",
+          "durationMs": 180,
+          "segment": "body"
+        },
+        {
+          "frame": "animation-v6/clips/affection/base",
+          "durationMs": 480,
+          "segment": "body"
+        },
+        {
+          "frame": "animation-v6/clips/affection/accent",
+          "durationMs": 240,
+          "segment": "body"
+        },
+        {
+          "frame": "animation-v6/clips/affection/base",
+          "durationMs": 320,
+          "segment": "body"
+        },
+        {
+          "frame": "walk-v10-complete/actions-v11/affection/transition",
+          "durationMs": 260,
+          "segment": "exit"
+        },
+        {
+          "frame": "walk-v10-complete/model-reference/master-front-v2",
+          "durationMs": 350,
+          "segment": "exit"
+        },
+        {
+          "frame": "walk-v10-complete/model-reference/master-front-v2",
+          "durationMs": 700,
+          "segment": "returnToIdle"
+        }
+      ]
+    },
+    {
+      "id": "shy",
+      "fallback": "walk-v10-complete/model-reference/master-front-v2",
+      "canvas": [
+        1024,
+        1536
+      ],
+      "sharedTransform": {
+        "scale": 1,
+        "anchor": [
+          512,
+          1490
+        ],
+        "translate": [
+          0,
+          0
+        ]
+      },
+      "loop": false,
+      "sequence": [
+        {
+          "frame": "walk-v10-complete/model-reference/master-front-v2",
+          "durationMs": 350,
+          "segment": "entry"
+        },
+        {
+          "frame": "walk-v10-complete/actions-v11/shy/transition",
+          "durationMs": 220,
+          "segment": "entry"
+        },
+        {
+          "frame": "animation-v6/clips/shy/enter",
+          "durationMs": 180,
+          "segment": "body"
+        },
+        {
+          "frame": "animation-v6/clips/shy/base",
+          "durationMs": 480,
+          "segment": "body"
+        },
+        {
+          "frame": "animation-v6/clips/shy/accent",
+          "durationMs": 240,
+          "segment": "body"
+        },
+        {
+          "frame": "animation-v6/clips/shy/base",
+          "durationMs": 320,
+          "segment": "body"
+        },
+        {
+          "frame": "walk-v10-complete/actions-v11/shy/transition",
+          "durationMs": 260,
+          "segment": "exit"
+        },
+        {
+          "frame": "walk-v10-complete/model-reference/master-front-v2",
+          "durationMs": 350,
+          "segment": "exit"
+        },
+        {
+          "frame": "walk-v10-complete/model-reference/master-front-v2",
+          "durationMs": 700,
+          "segment": "returnToIdle"
+        }
+      ]
+    },
+    {
+      "id": "bow",
+      "fallback": "walk-v10-complete/model-reference/master-front-v2",
+      "canvas": [
+        1024,
+        1536
+      ],
+      "sharedTransform": {
+        "scale": 1,
+        "anchor": [
+          512,
+          1490
+        ],
+        "translate": [
+          0,
+          0
+        ]
+      },
+      "loop": false,
+      "sequence": [
+        {
+          "frame": "walk-v10-complete/model-reference/master-front-v2",
+          "durationMs": 400,
+          "segment": "entry"
+        },
+        {
+          "frame": "walk-v10-complete/actions-v11/bow/hold",
+          "durationMs": 250,
+          "segment": "entry"
+        },
+        {
+          "frame": "walk-v10-complete/actions-v11/bow/deep",
+          "durationMs": 700,
+          "segment": "body"
+        },
+        {
+          "frame": "walk-v10-complete/actions-v11/bow/hold",
+          "durationMs": 300,
+          "segment": "exit"
+        },
+        {
+          "frame": "walk-v10-complete/model-reference/master-front-v2",
+          "durationMs": 400,
+          "segment": "exit"
+        },
+        {
+          "frame": "walk-v10-complete/model-reference/master-front-v2",
+          "durationMs": 700,
+          "segment": "returnToIdle"
+        }
+      ]
+    },
+    {
+      "id": "stretch",
+      "fallback": "walk-v10-complete/model-reference/master-front-v2",
+      "canvas": [
+        1024,
+        1536
+      ],
+      "sharedTransform": {
+        "scale": 1,
+        "anchor": [
+          512,
+          1490
+        ],
+        "translate": [
+          0,
+          0
+        ]
+      },
+      "loop": false,
+      "sequence": [
+        {
+          "frame": "walk-v10-complete/model-reference/master-front-v2",
+          "durationMs": 400,
+          "segment": "entry"
+        },
+        {
+          "frame": "walk-v10-complete/actions-v11/stretch/enter",
+          "durationMs": 300,
+          "segment": "entry"
+        },
+        {
+          "frame": "walk-v10-complete/actions-v11/stretch/hold",
+          "durationMs": 1100,
+          "segment": "body"
+        },
+        {
+          "frame": "walk-v10-complete/actions-v11/stretch/enter",
+          "durationMs": 350,
+          "segment": "exit"
+        },
+        {
+          "frame": "walk-v10-complete/model-reference/master-front-v2",
+          "durationMs": 450,
+          "segment": "exit"
+        },
+        {
+          "frame": "walk-v10-complete/model-reference/master-front-v2",
+          "durationMs": 700,
+          "segment": "returnToIdle"
+        }
+      ]
+    },
+    {
+      "id": "hug-tail",
+      "fallback": "walk-v10-complete/model-reference/master-front-v2",
+      "canvas": [
+        1024,
+        1536
+      ],
+      "sharedTransform": {
+        "scale": 1,
+        "anchor": [
+          512,
+          1490
+        ],
+        "translate": [
+          0,
+          0
+        ]
+      },
+      "loop": false,
+      "sequence": [
+        {
+          "frame": "walk-v10-complete/model-reference/master-front-v2",
+          "durationMs": 400,
+          "segment": "entry"
+        },
+        {
+          "frame": "walk-v10-complete/actions-v11/hug-tail/reach",
+          "durationMs": 350,
+          "segment": "entry"
+        },
+        {
+          "frame": "walk-v10-complete/actions-v11/hug-tail/lift",
+          "durationMs": 400,
+          "segment": "entry"
+        },
+        {
+          "frame": "walk-v10-complete/actions-v11/hug-tail/lift",
+          "durationMs": 1200,
+          "segment": "body"
+        },
+        {
+          "frame": "walk-v10-complete/actions-v11/hug-tail/reach",
+          "durationMs": 450,
+          "segment": "exit"
+        },
+        {
+          "frame": "walk-v10-complete/model-reference/master-front-v2",
+          "durationMs": 450,
+          "segment": "exit"
+        },
+        {
+          "frame": "walk-v10-complete/model-reference/master-front-v2",
+          "durationMs": 700,
+          "segment": "returnToIdle"
+        }
+      ]
+    },
+    {
+      "id": "sleep",
+      "fallback": "walk-v10-complete/actions-v11/sleep/seated",
+      "canvas": [
+        1024,
+        1536
+      ],
+      "sharedTransform": {
+        "scale": 1,
+        "anchor": [
+          512,
+          1490
+        ],
+        "translate": [
+          0,
+          0
+        ]
+      },
+      "loop": false,
+      "sequence": [
+        {
+          "frame": "walk-v10-complete/model-reference/master-front-v2",
+          "durationMs": 500,
+          "segment": "entry"
+        },
+        {
+          "frame": "walk-v10-complete/actions-v11/sleep/lowering-v2",
+          "durationMs": 450,
+          "segment": "entry"
+        },
+        {
+          "frame": "walk-v10-complete/actions-v11/sleep/seated",
+          "durationMs": 700,
+          "segment": "entry"
+        },
+        {
+          "frame": "walk-v10-complete/actions-v11/sleep/seated",
+          "durationMs": 1800,
+          "segment": "body"
+        },
+        {
+          "frame": "walk-v10-complete/actions-v11/sleep/seated-breath",
+          "durationMs": 1700,
+          "segment": "body"
+        },
+        {
+          "frame": "walk-v10-complete/actions-v11/sleep/seated",
+          "durationMs": 1800,
+          "segment": "body"
+        },
+        {
+          "frame": "walk-v10-complete/actions-v11/sleep/seated-breath",
+          "durationMs": 1700,
+          "segment": "body"
+        },
+        {
+          "frame": "walk-v10-complete/actions-v11/sleep/seated",
+          "durationMs": 700,
+          "segment": "exit"
+        },
+        {
+          "frame": "walk-v10-complete/actions-v11/sleep/lowering-v2",
+          "durationMs": 500,
+          "segment": "exit"
+        },
+        {
+          "frame": "walk-v10-complete/model-reference/master-front-v2",
+          "durationMs": 600,
+          "segment": "exit"
+        },
+        {
+          "frame": "walk-v10-complete/model-reference/master-front-v2",
+          "durationMs": 1000,
+          "segment": "returnToIdle"
+        }
+      ]
+    },
+    {
+      "id": "walk-right",
+      "fallback": "walk-v10-complete/model-reference/master-front-v2",
+      "canvas": [
+        1024,
+        1536
+      ],
+      "sharedTransform": {
+        "scale": 1,
+        "anchor": [
+          512,
+          1490
+        ],
+        "translate": [
+          0,
+          0
+        ]
+      },
+      "loop": false,
+      "sequence": [
+        {
+          "frame": "walk-v10-complete/model-reference/master-front-v2",
+          "durationMs": 400,
+          "segment": "entry"
+        },
+        {
+          "frame": "walk-v10-complete/model-reference/master-right-v1",
+          "durationMs": 180,
+          "segment": "entry"
+        },
+        {
+          "frame": "walk-v10-complete/model-reference/master-right-v3",
+          "durationMs": 240,
+          "segment": "entry"
+        },
+        {
+          "frame": "walk-v10-complete/actions-v11/walk/start",
+          "durationMs": 200,
+          "segment": "entry"
+        },
+        {
+          "frame": "walk-v10-complete/frames-v11/01-contact-near",
+          "durationMs": 160,
+          "segment": "body"
+        },
+        {
+          "frame": "walk-v10-complete/frames-v11/02-near-flat-recovery",
+          "durationMs": 160,
+          "segment": "body"
+        },
+        {
+          "frame": "walk-v10-complete/frames-v11/03-far-passing",
+          "durationMs": 160,
+          "segment": "body"
+        },
+        {
+          "frame": "walk-v10-complete/frames-v11/04-near-toe-far-reach",
+          "durationMs": 160,
+          "segment": "body"
+        },
+        {
+          "frame": "walk-v10-complete/frames-v11/05-contact-far",
+          "durationMs": 160,
+          "segment": "body"
+        },
+        {
+          "frame": "walk-v10-complete/frames-v11/06-far-flat-recovery",
+          "durationMs": 160,
+          "segment": "body"
+        },
+        {
+          "frame": "walk-v10-complete/frames-v11/07-near-passing",
+          "durationMs": 160,
+          "segment": "body"
+        },
+        {
+          "frame": "walk-v10-complete/frames-v11/08-far-toe-near-reach",
+          "durationMs": 160,
+          "segment": "body"
+        },
+        {
+          "frame": "walk-v10-complete/frames-v11/01-contact-near",
+          "durationMs": 160,
+          "segment": "body"
+        },
+        {
+          "frame": "walk-v10-complete/frames-v11/02-near-flat-recovery",
+          "durationMs": 160,
+          "segment": "body"
+        },
+        {
+          "frame": "walk-v10-complete/frames-v11/03-far-passing",
+          "durationMs": 160,
+          "segment": "body"
+        },
+        {
+          "frame": "walk-v10-complete/frames-v11/04-near-toe-far-reach",
+          "durationMs": 160,
+          "segment": "body"
+        },
+        {
+          "frame": "walk-v10-complete/frames-v11/05-contact-far",
+          "durationMs": 160,
+          "segment": "body"
+        },
+        {
+          "frame": "walk-v10-complete/frames-v11/06-far-flat-recovery",
+          "durationMs": 160,
+          "segment": "body"
+        },
+        {
+          "frame": "walk-v10-complete/frames-v11/07-near-passing",
+          "durationMs": 160,
+          "segment": "body"
+        },
+        {
+          "frame": "walk-v10-complete/frames-v11/08-far-toe-near-reach",
+          "durationMs": 160,
+          "segment": "body"
+        },
+        {
+          "frame": "walk-v10-complete/frames-v11/01-contact-near",
+          "durationMs": 160,
+          "segment": "exit"
+        },
+        {
+          "frame": "walk-v10-complete/actions-v11/walk/start",
+          "durationMs": 240,
+          "segment": "exit"
+        },
+        {
+          "frame": "walk-v10-complete/model-reference/master-right-v3",
+          "durationMs": 240,
+          "segment": "exit"
+        },
+        {
+          "frame": "walk-v10-complete/model-reference/master-right-v1",
+          "durationMs": 200,
+          "segment": "exit"
+        },
+        {
+          "frame": "walk-v10-complete/model-reference/master-front-v2",
+          "durationMs": 450,
+          "segment": "exit"
+        },
+        {
+          "frame": "walk-v10-complete/model-reference/master-front-v2",
+          "durationMs": 800,
+          "segment": "returnToIdle"
+        }
+      ]
+    },
+    {
+      "id": "walk-left",
+      "fallback": "walk-v10-complete/model-reference/master-front-v2",
+      "canvas": [
+        1024,
+        1536
+      ],
+      "sharedTransform": {
+        "scale": 1,
+        "anchor": [
+          512,
+          1490
+        ],
+        "translate": [
+          0,
+          0
+        ]
+      },
+      "loop": false,
+      "sequence": [
+        {
+          "frame": "walk-v10-complete/model-reference/master-front-v2",
+          "durationMs": 400,
+          "segment": "entry"
+        },
+        {
+          "frame": "walk-v10-complete/actions-v12/walk-left/turn",
+          "durationMs": 180,
+          "segment": "entry"
+        },
+        {
+          "frame": "walk-v10-complete/model-reference/master-left-v1",
+          "durationMs": 240,
+          "segment": "entry"
+        },
+        {
+          "frame": "walk-v10-complete/actions-v12/walk-left/start",
+          "durationMs": 200,
+          "segment": "entry"
+        },
+        {
+          "frame": "walk-v10-complete/frames-left-v12/01-contact-near",
+          "durationMs": 160,
+          "segment": "body"
+        },
+        {
+          "frame": "walk-v10-complete/frames-left-v12/02-near-flat-recovery",
+          "durationMs": 160,
+          "segment": "body"
+        },
+        {
+          "frame": "walk-v10-complete/frames-left-v12/03-far-passing",
+          "durationMs": 160,
+          "segment": "body"
+        },
+        {
+          "frame": "walk-v10-complete/frames-left-v12/04-near-toe-far-reach",
+          "durationMs": 160,
+          "segment": "body"
+        },
+        {
+          "frame": "walk-v10-complete/frames-left-v12/05-contact-far",
+          "durationMs": 160,
+          "segment": "body"
+        },
+        {
+          "frame": "walk-v10-complete/frames-left-v12/06-far-flat-recovery",
+          "durationMs": 160,
+          "segment": "body"
+        },
+        {
+          "frame": "walk-v10-complete/frames-left-v12/07-near-passing",
+          "durationMs": 160,
+          "segment": "body"
+        },
+        {
+          "frame": "walk-v10-complete/frames-left-v12/08-far-toe-near-reach",
+          "durationMs": 160,
+          "segment": "body"
+        },
+        {
+          "frame": "walk-v10-complete/frames-left-v12/01-contact-near",
+          "durationMs": 160,
+          "segment": "body"
+        },
+        {
+          "frame": "walk-v10-complete/frames-left-v12/02-near-flat-recovery",
+          "durationMs": 160,
+          "segment": "body"
+        },
+        {
+          "frame": "walk-v10-complete/frames-left-v12/03-far-passing",
+          "durationMs": 160,
+          "segment": "body"
+        },
+        {
+          "frame": "walk-v10-complete/frames-left-v12/04-near-toe-far-reach",
+          "durationMs": 160,
+          "segment": "body"
+        },
+        {
+          "frame": "walk-v10-complete/frames-left-v12/05-contact-far",
+          "durationMs": 160,
+          "segment": "body"
+        },
+        {
+          "frame": "walk-v10-complete/frames-left-v12/06-far-flat-recovery",
+          "durationMs": 160,
+          "segment": "body"
+        },
+        {
+          "frame": "walk-v10-complete/frames-left-v12/07-near-passing",
+          "durationMs": 160,
+          "segment": "body"
+        },
+        {
+          "frame": "walk-v10-complete/frames-left-v12/08-far-toe-near-reach",
+          "durationMs": 160,
+          "segment": "body"
+        },
+        {
+          "frame": "walk-v10-complete/frames-left-v12/01-contact-near",
+          "durationMs": 160,
+          "segment": "exit"
+        },
+        {
+          "frame": "walk-v10-complete/actions-v12/walk-left/start",
+          "durationMs": 240,
+          "segment": "exit"
+        },
+        {
+          "frame": "walk-v10-complete/model-reference/master-left-v1",
+          "durationMs": 240,
+          "segment": "exit"
+        },
+        {
+          "frame": "walk-v10-complete/actions-v12/walk-left/turn",
+          "durationMs": 200,
+          "segment": "exit"
+        },
+        {
+          "frame": "walk-v10-complete/model-reference/master-front-v2",
+          "durationMs": 450,
+          "segment": "exit"
+        },
+        {
+          "frame": "walk-v10-complete/model-reference/master-front-v2",
+          "durationMs": 800,
+          "segment": "returnToIdle"
+        }
+      ]
+    },
+    {
+      "id": "walk-left-to-right",
+      "fallback": "walk-v10-complete/model-reference/master-front-v2",
+      "canvas": [
+        1024,
+        1536
+      ],
+      "sharedTransform": {
+        "scale": 1,
+        "anchor": [
+          512,
+          1490
+        ],
+        "translate": [
+          0,
+          0
+        ]
+      },
+      "loop": false,
+      "sequence": [
+        {
+          "frame": "walk-v10-complete/model-reference/master-front-v2",
+          "durationMs": 350,
+          "segment": "entry"
+        },
+        {
+          "frame": "walk-v10-complete/actions-v12/walk-left/turn",
+          "durationMs": 180,
+          "segment": "entry"
+        },
+        {
+          "frame": "walk-v10-complete/model-reference/master-left-v1",
+          "durationMs": 200,
+          "segment": "entry"
+        },
+        {
+          "frame": "walk-v10-complete/actions-v12/walk-left/start",
+          "durationMs": 180,
+          "segment": "entry"
+        },
+        {
+          "frame": "walk-v10-complete/frames-left-v12/01-contact-near",
+          "durationMs": 160,
+          "segment": "body"
+        },
+        {
+          "frame": "walk-v10-complete/frames-left-v12/02-near-flat-recovery",
+          "durationMs": 160,
+          "segment": "body"
+        },
+        {
+          "frame": "walk-v10-complete/frames-left-v12/03-far-passing",
+          "durationMs": 160,
+          "segment": "body"
+        },
+        {
+          "frame": "walk-v10-complete/frames-left-v12/04-near-toe-far-reach",
+          "durationMs": 160,
+          "segment": "body"
+        },
+        {
+          "frame": "walk-v10-complete/frames-left-v12/05-contact-far",
+          "durationMs": 160,
+          "segment": "body"
+        },
+        {
+          "frame": "walk-v10-complete/frames-left-v12/06-far-flat-recovery",
+          "durationMs": 160,
+          "segment": "body"
+        },
+        {
+          "frame": "walk-v10-complete/frames-left-v12/07-near-passing",
+          "durationMs": 160,
+          "segment": "body"
+        },
+        {
+          "frame": "walk-v10-complete/frames-left-v12/08-far-toe-near-reach",
+          "durationMs": 160,
+          "segment": "body"
+        },
+        {
+          "frame": "walk-v10-complete/actions-v12/walk-left/start",
+          "durationMs": 200,
+          "segment": "body"
+        },
+        {
+          "frame": "walk-v10-complete/model-reference/master-left-v1",
+          "durationMs": 180,
+          "segment": "body"
+        },
+        {
+          "frame": "walk-v10-complete/actions-v12/walk-left/turn",
+          "durationMs": 180,
+          "segment": "body"
+        },
+        {
+          "frame": "walk-v10-complete/model-reference/master-front-v2",
+          "durationMs": 200,
+          "segment": "body"
+        },
+        {
+          "frame": "walk-v10-complete/model-reference/master-right-v1",
+          "durationMs": 180,
+          "segment": "body"
+        },
+        {
+          "frame": "walk-v10-complete/model-reference/master-right-v3",
+          "durationMs": 200,
+          "segment": "body"
+        },
+        {
+          "frame": "walk-v10-complete/actions-v11/walk/start",
+          "durationMs": 180,
+          "segment": "body"
+        },
+        {
+          "frame": "walk-v10-complete/frames-v11/01-contact-near",
+          "durationMs": 160,
+          "segment": "body"
+        },
+        {
+          "frame": "walk-v10-complete/frames-v11/02-near-flat-recovery",
+          "durationMs": 160,
+          "segment": "body"
+        },
+        {
+          "frame": "walk-v10-complete/frames-v11/03-far-passing",
+          "durationMs": 160,
+          "segment": "body"
+        },
+        {
+          "frame": "walk-v10-complete/frames-v11/04-near-toe-far-reach",
+          "durationMs": 160,
+          "segment": "body"
+        },
+        {
+          "frame": "walk-v10-complete/frames-v11/05-contact-far",
+          "durationMs": 160,
+          "segment": "body"
+        },
+        {
+          "frame": "walk-v10-complete/frames-v11/06-far-flat-recovery",
+          "durationMs": 160,
+          "segment": "body"
+        },
+        {
+          "frame": "walk-v10-complete/frames-v11/07-near-passing",
+          "durationMs": 160,
+          "segment": "body"
+        },
+        {
+          "frame": "walk-v10-complete/frames-v11/08-far-toe-near-reach",
+          "durationMs": 160,
+          "segment": "body"
+        },
+        {
+          "frame": "walk-v10-complete/actions-v11/walk/start",
+          "durationMs": 240,
+          "segment": "exit"
+        },
+        {
+          "frame": "walk-v10-complete/model-reference/master-right-v3",
+          "durationMs": 200,
+          "segment": "exit"
+        },
+        {
+          "frame": "walk-v10-complete/model-reference/master-right-v1",
+          "durationMs": 180,
+          "segment": "exit"
+        },
+        {
+          "frame": "walk-v10-complete/model-reference/master-front-v2",
+          "durationMs": 350,
+          "segment": "exit"
+        },
+        {
+          "frame": "walk-v10-complete/model-reference/master-front-v2",
+          "durationMs": 800,
+          "segment": "returnToIdle"
+        }
+      ]
+    },
+    {
+      "id": "walk-right-to-left",
+      "fallback": "walk-v10-complete/model-reference/master-front-v2",
+      "canvas": [
+        1024,
+        1536
+      ],
+      "sharedTransform": {
+        "scale": 1,
+        "anchor": [
+          512,
+          1490
+        ],
+        "translate": [
+          0,
+          0
+        ]
+      },
+      "loop": false,
+      "sequence": [
+        {
+          "frame": "walk-v10-complete/model-reference/master-front-v2",
+          "durationMs": 350,
+          "segment": "entry"
+        },
+        {
+          "frame": "walk-v10-complete/model-reference/master-right-v1",
+          "durationMs": 180,
+          "segment": "entry"
+        },
+        {
+          "frame": "walk-v10-complete/model-reference/master-right-v3",
+          "durationMs": 200,
+          "segment": "entry"
+        },
+        {
+          "frame": "walk-v10-complete/actions-v11/walk/start",
+          "durationMs": 180,
+          "segment": "entry"
+        },
+        {
+          "frame": "walk-v10-complete/frames-v11/01-contact-near",
+          "durationMs": 160,
+          "segment": "body"
+        },
+        {
+          "frame": "walk-v10-complete/frames-v11/02-near-flat-recovery",
+          "durationMs": 160,
+          "segment": "body"
+        },
+        {
+          "frame": "walk-v10-complete/frames-v11/03-far-passing",
+          "durationMs": 160,
+          "segment": "body"
+        },
+        {
+          "frame": "walk-v10-complete/frames-v11/04-near-toe-far-reach",
+          "durationMs": 160,
+          "segment": "body"
+        },
+        {
+          "frame": "walk-v10-complete/frames-v11/05-contact-far",
+          "durationMs": 160,
+          "segment": "body"
+        },
+        {
+          "frame": "walk-v10-complete/frames-v11/06-far-flat-recovery",
+          "durationMs": 160,
+          "segment": "body"
+        },
+        {
+          "frame": "walk-v10-complete/frames-v11/07-near-passing",
+          "durationMs": 160,
+          "segment": "body"
+        },
+        {
+          "frame": "walk-v10-complete/frames-v11/08-far-toe-near-reach",
+          "durationMs": 160,
+          "segment": "body"
+        },
+        {
+          "frame": "walk-v10-complete/actions-v11/walk/start",
+          "durationMs": 200,
+          "segment": "body"
+        },
+        {
+          "frame": "walk-v10-complete/model-reference/master-right-v3",
+          "durationMs": 180,
+          "segment": "body"
+        },
+        {
+          "frame": "walk-v10-complete/model-reference/master-right-v1",
+          "durationMs": 180,
+          "segment": "body"
+        },
+        {
+          "frame": "walk-v10-complete/model-reference/master-front-v2",
+          "durationMs": 200,
+          "segment": "body"
+        },
+        {
+          "frame": "walk-v10-complete/actions-v12/walk-left/turn",
+          "durationMs": 180,
+          "segment": "body"
+        },
+        {
+          "frame": "walk-v10-complete/model-reference/master-left-v1",
+          "durationMs": 200,
+          "segment": "body"
+        },
+        {
+          "frame": "walk-v10-complete/actions-v12/walk-left/start",
+          "durationMs": 180,
+          "segment": "body"
+        },
+        {
+          "frame": "walk-v10-complete/frames-left-v12/01-contact-near",
+          "durationMs": 160,
+          "segment": "body"
+        },
+        {
+          "frame": "walk-v10-complete/frames-left-v12/02-near-flat-recovery",
+          "durationMs": 160,
+          "segment": "body"
+        },
+        {
+          "frame": "walk-v10-complete/frames-left-v12/03-far-passing",
+          "durationMs": 160,
+          "segment": "body"
+        },
+        {
+          "frame": "walk-v10-complete/frames-left-v12/04-near-toe-far-reach",
+          "durationMs": 160,
+          "segment": "body"
+        },
+        {
+          "frame": "walk-v10-complete/frames-left-v12/05-contact-far",
+          "durationMs": 160,
+          "segment": "body"
+        },
+        {
+          "frame": "walk-v10-complete/frames-left-v12/06-far-flat-recovery",
+          "durationMs": 160,
+          "segment": "body"
+        },
+        {
+          "frame": "walk-v10-complete/frames-left-v12/07-near-passing",
+          "durationMs": 160,
+          "segment": "body"
+        },
+        {
+          "frame": "walk-v10-complete/frames-left-v12/08-far-toe-near-reach",
+          "durationMs": 160,
+          "segment": "body"
+        },
+        {
+          "frame": "walk-v10-complete/actions-v12/walk-left/start",
+          "durationMs": 240,
+          "segment": "exit"
+        },
+        {
+          "frame": "walk-v10-complete/model-reference/master-left-v1",
+          "durationMs": 200,
+          "segment": "exit"
+        },
+        {
+          "frame": "walk-v10-complete/actions-v12/walk-left/turn",
+          "durationMs": 180,
+          "segment": "exit"
+        },
+        {
+          "frame": "walk-v10-complete/model-reference/master-front-v2",
+          "durationMs": 350,
+          "segment": "exit"
+        },
+        {
+          "frame": "walk-v10-complete/model-reference/master-front-v2",
+          "durationMs": 800,
+          "segment": "returnToIdle"
+        }
+      ]
+    }
+  ]
+}

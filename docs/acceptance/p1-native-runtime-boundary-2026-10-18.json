@@ -1,0 +1,140 @@
+{
+  "schemaVersion": 1,
+  "recordedAtUtc": "2026-10-18T04:18:28.475756+00:00",
+  "status": "IMPLEMENTED_SCOPED_POLICY_TESTS_PASSED_NATIVE_PENDING",
+  "scope": "推进第2点中可独立修复的暂停交互边界；不代表完整原生交互、多屏/DPI或睡眠验收",
+  "implemented": [
+    "原生暂停、停止和退出在指标写入及前端事件前撤销帧、掩码和临时交互状态",
+    "同步及临时交互入口检查原生paused/stop/exiting；暂停期间拒绝发布、续租及临时交互",
+    "暂停时清除ACK只释放旧图像资源，不stage可发布帧；恢复后必须以新revision重新握手",
+    "保持当前整体穿透偏好、默认关闭的P1开发门及既有通知条件"
+  ],
+  "sourceContext": [
+    {
+      "path": "src-tauri/src/pet_pointer_policy.rs",
+      "sha256": "EB2B99D0CA72F5117612F1DFF8F61C1BAC2E6982CC82A2E987E19DD46DA49737",
+      "compiledInThisRun": true
+    },
+    {
+      "path": "src-tauri/src/desktop.rs",
+      "sha256": "AD51C9502FE15AA52707DA3AA073028108BF404E713139A9DEBD2E63FB28A5BC",
+      "compiledInThisRun": false
+    },
+    {
+      "path": "src-tauri/src/desktop_pointer.rs",
+      "sha256": "FE5805274E9D7CB6C3B3AD2D974826C1BE111B378C3BA647A256E39314F4E426",
+      "compiledInThisRun": false
+    },
+    {
+      "path": "src-tauri/Cargo.lock",
+      "sha256": "AA612BA45EEF083574081A3B084C45B1B94A4C697A929BDAF188B8C2B4F5172E",
+      "compiledInThisRun": false
+    }
+  ],
+  "verification": {
+    "policyTestsPassed": 9,
+    "policyTestsFailed": 0,
+    "newRegressionTests": 2,
+    "actualSerdeExternOnly": true,
+    "TauriOrGuiLinked": false,
+    "desktopAdapterSourceReviewed": true,
+    "targetedRustfmtPassed": true,
+    "desktopSyntaxParsePassed": true,
+    "fullDesktopTypecheckPerformed": false,
+    "frontendTestsRerun": false,
+    "compile": {
+      "rootExitCode": 0,
+      "activeJobProcesses": 0,
+      "naturalWholeJobCompletion": false,
+      "ownedDescendantsCleanupVerified": true,
+      "peakOwnedJobBytes": 233111552,
+      "minimumSampledSystemAvailableCommitBytes": 1000165376
+    },
+    "test": {
+      "rootExitCode": 0,
+      "activeJobProcesses": 0,
+      "naturalWholeJobCompletion": true
+    },
+    "allSourceControlDependencyAndArtifactGuardsClosed": true,
+    "independentReadOnlyReviewPassed": true
+  },
+  "preflightMemoryAtUtc": "2026-10-18T04:09:58.412551+00:00",
+  "preflightAvailableSystemCommitGiB": 1.215,
+  "artifact": {
+    "bytes": 1073152,
+    "sha256": "AE0B97179D083679674C1DCCE9C1456BB9AC940214A7C790CC11480FEA237114",
+    "kind": "pure-policy-test-harness"
+  },
+  "evidence": [
+    {
+      "path": "output/implementation/p1-native-boundary-20261018-r1/source-bindings.json",
+      "bytes": 2024,
+      "sha256": "a7eb3c26ecba5c121a75571c5e9ead7bc4fb7de7a6c699488ed3207cd53a3be9"
+    },
+    {
+      "path": "output/implementation/p1-native-boundary-20261018-r1/control-manifest.json",
+      "bytes": 3041,
+      "sha256": "b75cf4066353bf46ae3dc61d9e7d7c68b8d3a99b4b2818497743ce267c7f4885"
+    },
+    {
+      "path": "output/implementation/p1-native-boundary-20261018-r1/compile/result.json",
+      "bytes": 485,
+      "sha256": "74aeeb5319cdb8614c8ef381fe9397bd90badbffb73fa354e849b30c81133a4e"
+    },
+    {
+      "path": "output/implementation/p1-native-boundary-20261018-r1/compile/job.json",
+      "bytes": 13175,
+      "sha256": "c5dfe9adf759ae710df86450438af5802fff35a48cdf34aeca746433f58768e1"
+    },
+    {
+      "path": "output/implementation/p1-native-boundary-20261018-r1/test/result.json",
+      "bytes": 1330,
+      "sha256": "fea4b7bc890f3913d0483287327092a1ccb80b48b9d1812ea8f1b8aea32d2bca"
+    },
+    {
+      "path": "output/implementation/p1-native-boundary-20261018-r1/test/job.json",
+      "bytes": 4054,
+      "sha256": "bebee42536326d0c81061441f09599f4472778db7f5a661c0bb889e257dada54"
+    },
+    {
+      "path": "output/implementation/p1-native-boundary-20261018-r1/rustfmt-check.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "output/implementation/p1-native-boundary-20261018-r1/rustfmt-check.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "output/implementation/p1-native-boundary-20261018-r1/desktop-parse-only.rs",
+      "bytes": 187240,
+      "sha256": "667e4fb194506155a413ac3693490c44c1525a440af2dd233fb7f91111cb62bb"
+    },
+    {
+      "path": "output/implementation/p1-native-boundary-20261018-r1/desktop-parse.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "limitations": [
+    "实际HRGN和鼠标穿透恢复仍由既有UI tick应用：空闲200ms、移动50ms，加UI排队；不声明Native事件边界瞬时清除",
+    "当前Desktop适配层仅静态复核与语法解析，未作完整编译或App执行",
+    "多屏、100/150/200% DPI、真实锁屏/睡眠、目录选择、跨进程点击及焦点快捷键仍待新版App验证"
+  ],
+  "P1DefaultEnabled": false,
+  "currentWindowsAppBuilt": false,
+  "currentInstallerBuilt": false,
+  "NativeQualified": false,
+  "point2Complete": false,
+  "wholeV1Qualified": false,
+  "systemSettingsChanged": false,
+  "otherUserProcessesStopped": false,
+  "paidModelCalled": false,
+  "committedOrPushed": false,
+  "remaining": [
+    "资源条件恢复后冻结并生成当前源码App；无需先完成NSIS即可开展定向Native验证",
+    "实际验证新动画和PNG导入、透明命中、焦点/快捷键、多屏DPI、隐藏及睡眠恢复",
+    "另行完成资源、安装及完整发布验收；不改写旧C34失败记录"
+  ]
+}

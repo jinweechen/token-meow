@@ -1,6 +1,7 @@
 ; TokenMeow hooks for the pinned Tauri CLI 2.12.3 stock NSIS template.
 ; The application is currentUser/x64. Never execute a value read from Run.
 ; Keep capture before the stock reinstall page can invoke the old uninstaller.
+!include "${__FILEDIR__}\installer-engine.nsh"
 Var TM_RunCaptured
 Var TM_PreviousRun
 Var TM_PreviousRunOwned

@@ -8,6 +8,7 @@
     "dev": "vite --host 127.0.0.1",
     "typecheck": "tsc --noEmit",
     "build": "tsc --noEmit && vite build",
+    "build:windows": "pwsh -NoProfile -File scripts/build-windows-installer.ps1",
     "preview": "vite preview --host 127.0.0.1",
     "test": "tsx --test src/shared/*.test.ts",
     "tauri": "tauri"

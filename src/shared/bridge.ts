@@ -26,12 +26,13 @@ import type {
 
 export const isDesktop =
   typeof window !== "undefined" && "__TAURI_INTERNALS__" in window;
-export const getSnapshot = (query: Query) =>
-  invoke<Snapshot>("get_snapshot", { query });
+export const getSnapshot = (query: Query, includeTools = true) =>
+  invoke<Snapshot>("get_snapshot", { query, includeTools });
 export const getUsageDashboardSnapshot = (
   query: Query,
   request: UsageDashboardRequest,
-) => invoke<Snapshot>("get_usage_dashboard_snapshot", { query, request });
+  includeTools = true,
+) => invoke<Snapshot>("get_usage_dashboard_snapshot", { query, request, includeTools });
 export const saveUsagePrice = (payload: UsagePriceInput) =>
   invoke<UsagePriceVersion>("save_usage_price", { payload });
 export const saveUsagePriceSync = (payload: UsagePriceSyncConfigInput) =>
@@ -68,7 +69,14 @@ export const openPetChat = (request: PetChatOpenRequest) =>
   invoke<PetChatOpenResult>("open_pet_chat", { request });
 export const openThread = (sourceId: string, threadId: string) =>
   invoke("open_thread", { sourceId, threadId });
-export const dragPet = () => invoke("start_pet_drag");
+export type PetDragRequest = {
+  clientX: number;
+  clientY: number;
+  viewportWidth: number;
+  viewportHeight: number;
+};
+export const dragPet = (request: PetDragRequest) =>
+  invoke("start_pet_drag", { request });
 export const setPetInteraction = (options: {
   active: boolean;
   revision: number;
