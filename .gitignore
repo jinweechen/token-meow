@@ -51,6 +51,7 @@ installer/**/obj/
 /release/*
 !/release/update-public-key.pub
 
-# Local records from the Windows lifecycle implementation.
-/docs/acceptance/windows-lifecycle-2026-10-22.json
-/docs/release/0.1.1/
+# Keep development documents and acceptance records local.
+/docs/
+/开发方案.md
+/installer/README.md
