@@ -2131,7 +2131,7 @@ fn begin_shutdown(app: &AppHandle) {
     });
 }
 #[tauri::command]
-fn quit_app(app: AppHandle) {
+pub(super) fn quit_app(app: AppHandle) {
     begin_shutdown(&app);
 }
 
@@ -3101,9 +3101,13 @@ pub fn run() {
                 let _ = show_panel(&app);
             });
         }))
-        .plugin(tauri_plugin_dialog::init());
+        .plugin(tauri_plugin_dialog::init())
+        .manage(crate::app_update::UpdateState::default());
     #[cfg(debug_assertions)]
     let builder = builder.invoke_handler(tauri::generate_handler![
+        crate::app_update::check_app_update,
+        crate::app_update::download_app_update,
+        crate::app_update::launch_app_update,
         get_desktop_companion_state,
         register_pet_motion_renderer,
         set_pet_motion_readiness,
@@ -3153,6 +3157,9 @@ pub fn run() {
     ]);
     #[cfg(not(debug_assertions))]
     let builder = builder.invoke_handler(tauri::generate_handler![
+        crate::app_update::check_app_update,
+        crate::app_update::download_app_update,
+        crate::app_update::launch_app_update,
         get_desktop_companion_state,
         register_pet_motion_renderer,
         set_pet_motion_readiness,

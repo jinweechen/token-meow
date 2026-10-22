@@ -7,6 +7,9 @@ mod account_bridge;
 pub(crate) mod budget_clock;
 pub(crate) mod notification_gate;
 mod core;
+mod update_policy;
+#[cfg(feature = "desktop")]
+mod app_update;
 #[cfg(feature = "desktop")]
 mod desktop;
 #[cfg(feature = "desktop")]

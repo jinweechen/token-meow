@@ -32,3 +32,25 @@ output/imagegen/left-completion-20261018/*
 .playwright-cli/
 __pycache__/
 *.py[cod]
+
+# Keep installers, build products and private signing material local.
+*.exe
+*.dll
+*.msi
+*.msix
+*.msixbundle
+*.pdb
+*.sig
+*.key
+*.pfx
+*.p12
+installer/**/bin/
+installer/**/obj/
+
+# This public key is a required source input; release assets are not.
+/release/*
+!/release/update-public-key.pub
+
+# Local records from the Windows lifecycle implementation.
+/docs/acceptance/windows-lifecycle-2026-10-22.json
+/docs/release/0.1.1/

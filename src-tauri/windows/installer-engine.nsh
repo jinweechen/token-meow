@@ -12,6 +12,98 @@
 !define TM_EXIT_WEBVIEW_FAILED 69
 Var TM_EngineExit
 Var TM_EngineKnownUninstall
+Var TM_EngineMutex
+Var TM_UninstallError
+
+!macro TM_ENGINE_ACQUIRE_LOCK
+  Push $0
+  Push $1
+  System::Call 'kernel32::CreateMutexW(p 0, i 1, w "Local\TokenMeow.InstallEngine") p.r0'
+  System::Call 'kernel32::GetLastError() i.r1'
+  StrCpy $TM_EngineMutex $0
+  ${If} $0 = 0
+  ${OrIf} $1 = 183
+    SetErrorLevel 70
+    Quit
+  ${EndIf}
+  Pop $1
+  Pop $0
+!macroend
+
+; Refuse reparse points before deleting opted-in data. The ordinary uninstall
+; leaves both app data roots and any explicit TOKEN_MEOW_DATA_DIR untouched.
+Function un.TM_DeletePlainDataTree
+  Exch $R0
+  Push $R1
+  Push $R2
+  Push $R3
+  Push $R4
+  StrCpy $R4 0
+  System::Call 'kernel32::GetFileAttributesW(w R0) i.R1'
+  ${If} $R1 = -1
+    System::Call 'kernel32::GetLastError() i.R3'
+    ${If} $R3 != 2
+    ${AndIf} $R3 != 3
+      StrCpy $TM_UninstallError 1
+    ${EndIf}
+    Goto tm_data_done
+  ${EndIf}
+  IntOp $R2 $R1 & 0x400
+  ${If} $R2 != 0
+    StrCpy $TM_UninstallError 1
+    Goto tm_data_done
+  ${EndIf}
+  System::Call 'kernel32::CreateFileW(w R0, i 0x80000000, i 3, p 0, i 3, i 0x02200000, p 0) p.R4'
+  ${If} $R4 = -1
+    StrCpy $TM_UninstallError 1
+    StrCpy $R4 0
+    Goto tm_data_done
+  ${EndIf}
+  FindFirst $R1 $R2 "$R0\*"
+  ${DoWhile} $R2 != ""
+    ${If} $R2 != "."
+    ${AndIf} $R2 != ".."
+      System::Call 'kernel32::GetFileAttributesW(w "$R0\$R2") i.R3'
+      IntOp $R3 $R3 & 0x400
+      ${If} $R3 != 0
+        StrCpy $TM_UninstallError 1
+      ${Else}
+        ${If} ${FileExists} "$R0\$R2\*"
+          Push "$R0\$R2"
+          Call un.TM_DeletePlainDataTree
+        ${Else}
+          Delete "$R0\$R2"
+          ${If} ${FileExists} "$R0\$R2"
+            StrCpy $TM_UninstallError 1
+          ${EndIf}
+        ${EndIf}
+      ${EndIf}
+    ${EndIf}
+    ${If} $TM_UninstallError != 0
+      ${ExitDo}
+    ${EndIf}
+    FindNext $R1 $R2
+  ${Loop}
+  FindClose $R1
+  System::Call 'kernel32::CloseHandle(p R4)'
+  StrCpy $R4 0
+  ${If} $TM_UninstallError = 0
+    RMDir "$R0"
+    System::Call 'kernel32::GetFileAttributesW(w R0) i.R3'
+    ${If} $R3 != -1
+      StrCpy $TM_UninstallError 1
+    ${EndIf}
+  ${EndIf}
+tm_data_done:
+  ${If} $R4 != 0
+    System::Call 'kernel32::CloseHandle(p R4)'
+  ${EndIf}
+  Pop $R4
+  Pop $R3
+  Pop $R2
+  Pop $R1
+  Pop $R0
+FunctionEnd
 
 !macro TM_ENGINE_REQUIRE_SILENT
   ${IfNot} ${Silent}

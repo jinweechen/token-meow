@@ -19,6 +19,7 @@ namespace TokenMeow.Setup
         IDisposable GuardTarget(string directory);
         bool TargetIsRunning(string executable);
         IEngineLease ExtractEngine();
+        IInstallTransaction BeginTransaction(string directory);
         int RunEngine(IEngineLease engine, string arguments);
         IApplicationProof VerifyInstalled(string directory);
         void Launch(IApplicationProof application);
@@ -56,6 +57,7 @@ namespace TokenMeow.Setup
             {
                 if (disposed) throw new ObjectDisposedException("InstallerService");
                 if (busy) throw new InvalidOperationException("安装正在进行，请等待完成。");
+                if (completed != null) { completed.Dispose(); completed = null; }
                 busy = true;
             }
             return Task.Run(delegate
@@ -84,19 +86,31 @@ namespace TokenMeow.Setup
                 if (platform.TargetIsRunning(Path.Combine(target, "token-meow.exe")))
                     throw new InvalidOperationException(InstallPolicy.EngineError(65));
                 using (IEngineLease engine = platform.ExtractEngine())
+                using (IInstallTransaction transaction = platform.BeginTransaction(target))
                 {
+                    try
+                    {
                     Report(progress, 1, "正在安装 Token 喵", "安装引擎正在处理应用和运行时。缺少 WebView2 时需要联网下载，请等待完成。");
                     int code = platform.RunEngine(engine, InstallPolicy.EngineArguments(target, options.CreateShortcuts));
                     if (code != 0) throw new InvalidOperationException(InstallPolicy.EngineError(code));
                     Report(progress, 2, "验证安装结果", "核验已安装应用的 SHA-256 与当前用户安装记录。");
                     IApplicationProof proof = platform.VerifyInstalled(target);
                     if (proof == null) throw new InvalidOperationException("安装结果未通过核验。");
+                    // Release the proof before rollback if committing the durable marker fails.
+                    try { transaction.Commit(); } catch { proof.Dispose(); throw; }
                     lock (gate)
                     {
                         if (completed != null) completed.Dispose();
                         completed = proof;
                     }
                     return new InstallResult { InstallDirectory = proof.Directory, ExecutablePath = proof.Executable, LaunchAfterInstall = options.LaunchAfterInstall, Preview = false };
+                    }
+                    catch (Exception failure)
+                    {
+                        try { transaction.Rollback(); }
+                        catch (Exception recovery) { throw new InvalidOperationException(failure.Message + "\n" + recovery.Message, recovery); }
+                        throw new InvalidOperationException(failure.Message + "\n本次安装写入已撤回，原有程序和安装记录已恢复。", failure);
+                    }
                 }
             }
         }
@@ -171,12 +185,32 @@ namespace TokenMeow.Setup
 
         public InstallerEnvironment ReadEnvironment()
         {
+            RecoverPendingInstallations();
             Registration installed = ReadRegistration();
             return new InstallerEnvironment {
                 DefaultDirectory = installed == null ? Path.Combine(LocalData(), "TokenMeow") : installed.Directory,
                 InstalledVersion = installed == null ? null : installed.Version,
                 WebView2Present = HasWebView2(), Preview = false
             };
+        }
+
+        private void RecoverPendingInstallations()
+        {
+            string parent=Path.Combine(LocalData(),"TokenMeow.Setup","transactions");
+            using (InstallerNative.GuardExistingDirectories(parent))
+            {
+                if (!Directory.Exists(parent)) return;
+                foreach (string storage in Directory.GetDirectories(parent))
+                {
+                    if (!System.Text.RegularExpressions.Regex.IsMatch(Path.GetFileName(storage),"^[A-F0-9]{64}$")) continue;
+                    string target=InstallTransaction.RecoveryTarget(storage);
+                    if (target==null) continue; // Snapshot preparation ended before any engine writes.
+                    target=InstallPolicy.NormalizeDirectory(target,ForbiddenDirectories());
+                    if (Path.GetFileName(storage)!=InstallTransaction.StorageName(target)) throw new InvalidOperationException("安装恢复目录不匹配，已保留备份。");
+                    if (InstallerNative.TargetIsRunning(Path.Combine(target,"token-meow.exe"))) throw new InvalidOperationException("上次安装未完成，请先退出 Token 喵，再重新运行安装器恢复。");
+                    InstallTransaction.RecoverInterrupted(target,storage,Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory),Environment.GetFolderPath(Environment.SpecialFolder.Programs));
+                }
+            }
         }
 
         public string ValidateTarget(string directory)
@@ -192,6 +226,15 @@ namespace TokenMeow.Setup
 
         public IDisposable GuardTarget(string directory) { return InstallerNative.EnsureAndGuardTarget(directory); }
         public bool TargetIsRunning(string executable) { return InstallerNative.TargetIsRunning(executable); }
+
+        public IInstallTransaction BeginTransaction(string directory)
+        {
+            string parent = Path.Combine(LocalData(), "TokenMeow.Setup", "transactions");
+            using (InstallerNative.EnsureAndGuardTarget(parent))
+                return new InstallTransaction(directory, Path.Combine(parent, InstallTransaction.StorageName(directory)),
+                    BuildInfo.InstalledFiles, Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory),
+                    Environment.GetFolderPath(Environment.SpecialFolder.Programs), true, ReadRegistration() != null);
+        }
 
         public IEngineLease ExtractEngine()
         {

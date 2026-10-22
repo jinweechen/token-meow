@@ -6,6 +6,7 @@ import {
   type CSSProperties,
 } from "react";
 import { listen } from "@tauri-apps/api/event";
+import { version as appVersion } from "../package.json";
 import { invoke } from "@tauri-apps/api/core";
 import type {
   Query,
@@ -938,7 +939,7 @@ function MainApplication() {
                   : "本地桌面应用"
                 : "浏览器演示预览"}
             </span>
-            <span className="version">v0.1</span>
+            <span className="version">v{appVersion}</span>
           </div>
         </div>
       </aside>

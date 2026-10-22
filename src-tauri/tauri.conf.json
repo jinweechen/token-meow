@@ -1,7 +1,7 @@
 {
   "$schema": "https://schema.tauri.app/config/2",
   "productName": "TokenMeow",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "identifier": "local.tokenmeow.desktop",
   "build": {
     "beforeDevCommand": "pnpm dev",
@@ -45,20 +45,33 @@
   },
   "bundle": {
     "active": true,
-    "targets": ["nsis"],
+    "targets": [
+      "nsis"
+    ],
     "shortDescription": "本地只读 Codex 用量账本与二次元猫娘桌宠",
     "longDescription": "Token 喵只读采集本机 Codex 日志，展示有来源的用量、时间、收件箱和数据健康。统计与动画本地运行，不调用模型推理。",
     "category": "Utility",
-    "resources": { "../output/distribution-licenses/": "licenses/" },
-    "icon": ["icons/32x32.png", "icons/128x128.png", "icons/icon.ico"],
+    "resources": {
+      "../output/distribution-licenses/": "licenses/"
+    },
+    "icon": [
+      "icons/32x32.png",
+      "icons/128x128.png",
+      "icons/icon.ico"
+    ],
     "windows": {
       "allowDowngrades": false,
-      "webviewInstallMode": { "type": "downloadBootstrapper", "silent": true },
+      "webviewInstallMode": {
+        "type": "downloadBootstrapper",
+        "silent": true
+      },
       "nsis": {
         "template": "windows/installer.nsi",
         "installerHooks": "windows/installer-hooks.nsh",
         "displayLanguageSelector": false,
-        "languages": ["SimpChinese"],
+        "languages": [
+          "SimpChinese"
+        ],
         "installMode": "currentUser"
       }
     }

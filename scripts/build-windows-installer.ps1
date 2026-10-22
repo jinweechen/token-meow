@@ -185,6 +185,10 @@ try {
     $taskTool = Add-Input $taskSevenZip $SevenZipExpectedSha256
     $taskDll = if ($SevenZipDllPath) { Add-Input $SevenZipDllPath $SevenZipDllExpectedSha256 } else { $null }
     $taskConfig = Read-SmallJson (Join-Path $taskRoot 'src-tauri\tauri.conf.json')
+    $taskPackage = Read-SmallJson (Join-Path $taskRoot 'package.json')
+    $taskCargoVersion = [regex]::Match([IO.File]::ReadAllText((Join-Path $taskRoot 'src-tauri/Cargo.toml')), '(?m)^version = "([^"]+)"').Groups[1].Value
+    $taskLockVersion = [regex]::Match([IO.File]::ReadAllText((Join-Path $taskRoot 'src-tauri/Cargo.lock')), 'name = "token-meow"\r?\nversion = "([^"]+)"').Groups[1].Value
+    if ($taskPackage.version -cne $taskConfig.version -or $taskCargoVersion -cne $taskConfig.version -or $taskLockVersion -cne $taskConfig.version) { throw 'Release versions differ; run node scripts/release-version.mjs --set <version>.' }
     if ($taskConfig.version -notmatch '^\d+\.\d+\.\d+$' -or $taskConfig.productName -cne 'TokenMeow') { throw 'Review the fixed product/version contract before building another product.' }
     if (-not $OutputDirectory) { $OutputDirectory = Join-Path $taskOutputRoot ('windows-installer-' + [DateTime]::UtcNow.ToString('yyyyMMddTHHmmssfffZ') + '-' + [Guid]::NewGuid().ToString('N')) }
     $taskRun = [IO.Path]::GetFullPath($OutputDirectory)
@@ -270,7 +274,7 @@ console.log(JSON.stringify({store, wrapper:{entry,root:wrapperRoot,packageJson,n
             [pscustomobject]@{ status = $taskPreflight.status; receipt = (Join-Path $taskWork 'cli-preflight.json'); distributableCreated = $false } | ConvertTo-Json
             return
         }
-        foreach ($taskRelative in @('pnpm-lock.yaml', 'index.html', 'vite.config.ts', 'tsconfig.json', 'src-tauri/build.rs', 'src-tauri/Cargo.toml', 'src-tauri/Cargo.lock', 'scripts/distribution-manifest.mjs')) { $null = Add-Input (Join-Path $taskRoot $taskRelative) }
+        foreach ($taskRelative in @('pnpm-lock.yaml', 'index.html', 'vite.config.ts', 'tsconfig.json', 'src-tauri/build.rs', 'src-tauri/Cargo.toml', 'src-tauri/Cargo.lock', 'scripts/distribution-manifest.mjs', 'release/update-public-key.pub')) { $null = Add-Input (Join-Path $taskRoot $taskRelative) }
         foreach ($taskFolder in @('src', 'src-tauri/src', 'src-tauri/migrations', 'src-tauri/icons', 'src-tauri/capabilities', 'third-party')) {
             foreach ($taskFile in Get-ChildItem -LiteralPath (Join-Path $taskRoot $taskFolder) -File -Recurse) { $null = Add-Input $taskFile.FullName }
         }
@@ -348,7 +352,11 @@ console.log(JSON.stringify({store, wrapper:{entry,root:wrapperRoot,packageJson,n
     }
     $taskPwsh = (Get-Process -Id $PID).Path
     $taskOuter = Join-Path $taskWork 'outer'
-    Invoke-Tool $taskPwsh @('-NoProfile', '-NonInteractive', '-File', $taskBuilder, '-EnginePath', $taskEngine.path, '-EngineExpectedSha256', $taskEngine.sha256, '-ApplicationPath', $taskApp.path, '-ApplicationExpectedSha256', $taskApp.sha256, '-OutputDirectory', $taskOuter) 'custom-shell'
+    $taskPayloadFiles = @($taskEntries | Where-Object { $_.Path -and (-not $_.ContainsKey('Folder') -or $_.Folder -ne '+') } | ForEach-Object { $_.Path.Replace('\', '/') } | Where-Object { $_ -ceq 'token-meow.exe' -or $_.StartsWith('licenses/', [StringComparison]::Ordinal) })
+    $taskPayloadFilesPath = Join-Path $taskWork 'payload-files.json'
+    Write-NewText $taskPayloadFilesPath (($taskPayloadFiles | ConvertTo-Json) + "`n")
+    $null = Add-Input $taskPayloadFilesPath
+    Invoke-Tool $taskPwsh @('-NoProfile', '-NonInteractive', '-File', $taskBuilder, '-EnginePath', $taskEngine.path, '-EngineExpectedSha256', $taskEngine.sha256, '-ApplicationPath', $taskApp.path, '-ApplicationExpectedSha256', $taskApp.sha256, '-PayloadFilesPath', $taskPayloadFilesPath, '-OutputDirectory', $taskOuter) 'custom-shell'
     $taskOuterReceipt = Read-SmallJson (Join-Path $taskOuter 'build-receipt.json')
     if ($taskOuterReceipt.status -cne 'CUSTOM_INSTALLER_COMPILED_NOT_INSTALLED' -or $taskOuterReceipt.compilerExitCode -ne 0 -or -not $taskOuterReceipt.heldInputsPostHashMatched -or -not $taskOuterReceipt.allInputHandlesClosed -or $taskOuterReceipt.engine.sha256 -cne $taskEngine.sha256 -or $taskOuterReceipt.application.sha256 -cne $taskApp.sha256) { throw 'Custom shell build receipt binding differs.' }
     $taskExpectedShell = Join-Path $taskOuter "TokenMeow_$($taskConfig.version)_x64-custom-setup.exe"
@@ -375,7 +383,7 @@ console.log(JSON.stringify({store, wrapper:{entry,root:wrapperRoot,packageJson,n
         heldInputPostHashesAndIdentitiesMatched = $true; allInputHandlesClosed = $false
         finalOutputDirectoryGuardHeldAtReceiptWrite = $true
         inputClosureExcludesFinalOutputDirectoryGuard = $true
-        installerExecuted = $false; applicationExecuted = $false; upgradeQualified = $false; uninstallQualified = $false; wholeV1Qualified = $false; codeSignedByThisRun = $false
+        installerExecuted = $false; applicationExecuted = $false; upgradeQualified = $false; uninstallQualified = $false; wholeV1Qualified = $false; codeSignedByThisRun = ((Get-AuthenticodeSignature -LiteralPath $taskReleaseSetup).Status -eq 'Valid')
         limitations = @('Compilation and extraction do not validate installation, upgrade, WebView2 download, shortcuts, launch or uninstall.', 'Tools are observed by retained Process objects; this script does not claim whole-Job lifecycle or Native qualification.', 'Only release/ is distributable. work/, Cargo bundle/nsis and all raw engine EXEs are internal build inputs.')
     }
     # Transfer output-directory protection before closing the input guard set.

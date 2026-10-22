@@ -28,6 +28,7 @@ import { localPetSkinClient } from "./pet/localPetSkinClient";
 import { TemporaryInteractionSettings } from "./pet/TemporaryInteractionSettings";
 import { usePetExtensionCapabilities } from "./pet/usePetExtensionCapabilities";
 import { BuiltinAnimationPreview } from "./pet/BuiltinAnimationPreview";
+import { AppUpdatePanel } from "./updates/AppUpdatePanel";
 import {
   agentKindLabel,
   identityValue,
@@ -1023,6 +1024,7 @@ export function SettingsPanel({
           ["notifications", "提醒与隐私"],
           ["budgets", "软预算"],
           ["data", "数据与账户"],
+          ["updates", "应用更新"],
         ].map(([key, text]) => (
           <button
             key={key}
@@ -1033,6 +1035,7 @@ export function SettingsPanel({
           </button>
         ))}
       </div>
+      {tab === "updates" && <AppUpdatePanel />}
       {tab === "pet" && (
         <>
           <section className="card">

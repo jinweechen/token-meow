@@ -3,6 +3,7 @@ param(
     [Parameter(Mandatory)][ValidatePattern('^[A-Fa-f0-9]{64}$')][string]$EngineExpectedSha256,
     [Parameter(Mandatory)][string]$ApplicationPath,
     [Parameter(Mandatory)][ValidatePattern('^[A-Fa-f0-9]{64}$')][string]$ApplicationExpectedSha256,
+    [Parameter(Mandatory)][string]$PayloadFilesPath,
     [Parameter(Mandatory)][string]$OutputDirectory
 )
 
@@ -60,6 +61,14 @@ try {
     if (-not (Test-Path -LiteralPath (Split-Path -Parent $taskOutput) -PathType Container)) { throw 'The output parent must exist.' }
     $taskEngine = Add-Input $EnginePath $EngineExpectedSha256
     $taskApplication = Add-Input $ApplicationPath $ApplicationExpectedSha256
+    $null = Add-Input $PayloadFilesPath
+    $taskPayloadFiles = @(Get-Content -LiteralPath $PayloadFilesPath -Raw | ConvertFrom-Json)
+    if ($taskPayloadFiles.Count -lt 2 -or $taskPayloadFiles.Count -gt 8192 -or 'token-meow.exe' -cnotin $taskPayloadFiles -or 'licenses/manifest.json' -cnotin $taskPayloadFiles) { throw 'The actual engine payload file list is incomplete.' }
+    foreach ($taskPayloadName in $taskPayloadFiles) {
+        if ($taskPayloadName -cne 'token-meow.exe' -and $taskPayloadName -notmatch '^licenses/[^:]+$') { throw 'Unsupported payload destination.' }
+        foreach ($taskPart in $taskPayloadName.Split('/')) { if ($taskPart -in @('', '.', '..') -or $taskPart -ne $taskPart.Trim() -or $taskPart.EndsWith('.') -or $taskPart.IndexOfAny([IO.Path]::GetInvalidFileNameChars()) -ge 0) { throw 'Invalid payload destination.' } }
+    }
+    $taskPayloadCSharp = ($taskPayloadFiles | ForEach-Object { '"' + (Escape-CSharp $_) + '"' }) -join ', '
     $taskHeroRecord = Add-Input $taskHero $taskHeroSha
     $null = Add-Input $taskIcon
     $null = Add-Input $taskManifest
@@ -95,6 +104,7 @@ namespace TokenMeow.Setup {
         public const string EngineSha256 = "$($taskEngine.sha256)";
         public const string AppSha256 = "$($taskApplication.sha256)";
         public const string HeroResourceName = "TokenMeow.Hero.png";
+        public static readonly string[] InstalledFiles = new string[] { $taskPayloadCSharp };
     }
 }
 "@
@@ -121,7 +131,7 @@ using System.Runtime.Versioning;
     $taskArguments += '/win32icon:"' + $taskIcon + '"'
     $taskArguments += '/resource:"' + $taskEngine.path + '",TokenMeow.Engine.exe'
     $taskArguments += '/resource:"' + $taskHero + '",TokenMeow.Hero.png'
-    $taskArguments += @('/reference:System.dll', '/reference:System.Core.dll', '/reference:System.Security.dll')
+    $taskArguments += @('/reference:System.dll', '/reference:System.Core.dll', '/reference:System.Security.dll', '/reference:System.Xml.dll')
     foreach ($taskReference in $taskReferences) { $taskArguments += '/reference:"' + $taskReference + '"' }
     foreach ($taskFile in $taskSources) { $taskArguments += '"' + $taskFile.FullName + '"' }
     $taskArguments += '"' + $taskBuildInfoPath + '"'
@@ -133,6 +143,18 @@ using System.Runtime.Versioning;
     & $taskCompiler "@$taskResponse" 1> (Join-Path $taskOutput 'compiler.stdout.log') 2> (Join-Path $taskOutput 'compiler.stderr.log')
     $taskExit = $LASTEXITCODE
     if ($taskExit -ne 0) { throw "Installer compiler exited $taskExit; preserve logs in $taskOutput" }
+    $taskWindows = $taskConfig.bundle.windows
+    if ($taskWindows.PSObject.Properties.Name -contains 'certificateThumbprint' -and $taskWindows.certificateThumbprint) {
+        $taskThumbprint = [string]$taskWindows.certificateThumbprint
+        if ($taskThumbprint -notmatch '^[A-Fa-f0-9]{40}$') { throw 'Invalid Windows code signing certificate thumbprint.' }
+        $taskCertificate = Get-Item -LiteralPath ('Cert:\CurrentUser\My\' + $taskThumbprint) -ErrorAction SilentlyContinue
+        if (-not $taskCertificate) { $taskCertificate = Get-Item -LiteralPath ('Cert:\LocalMachine\My\' + $taskThumbprint) -ErrorAction SilentlyContinue }
+        if (-not $taskCertificate -or -not $taskCertificate.HasPrivateKey) { throw 'Windows code signing certificate/private key is unavailable.' }
+        $taskSignArguments = @{ FilePath=$taskExecutable; Certificate=$taskCertificate; HashAlgorithm='SHA256' }
+        if ($taskWindows.PSObject.Properties.Name -contains 'timestampUrl' -and $taskWindows.timestampUrl) { $taskSignArguments.TimestampServer=[string]$taskWindows.timestampUrl }
+        $taskSigned = Set-AuthenticodeSignature @taskSignArguments
+        if ($taskSigned.Status -ne 'Valid') { throw 'The outer setup signature is not valid; retain the failed build evidence.' }
+    }
     foreach ($taskIndex in 0..($taskInputs.Count - 1)) {
         if ((Get-StreamSha $taskStreams[$taskIndex]) -cne $taskInputs[$taskIndex].sha256 -or $taskStreams[$taskIndex].Length -ne $taskInputs[$taskIndex].bytes) {
             throw 'Held source/resource input changed during compilation.'

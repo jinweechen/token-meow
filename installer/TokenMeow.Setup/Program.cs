@@ -1,6 +1,7 @@
 using System;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Threading;
 
 namespace TokenMeow.Setup
 {
@@ -8,6 +9,16 @@ namespace TokenMeow.Setup
     {
         [STAThread]
         private static int Main(string[] args)
+        {
+            bool created;
+            using (var mutex = new Mutex(true, "Local\\TokenMeow.Setup." + System.Security.Principal.WindowsIdentity.GetCurrent().User.Value, out created))
+            {
+                if (!created) return 70;
+                try { return Run(args); } finally { mutex.ReleaseMutex(); }
+            }
+        }
+
+        private static int Run(string[] args)
         {
             string previewMode;
             bool valid = ParseArguments(args, out previewMode);

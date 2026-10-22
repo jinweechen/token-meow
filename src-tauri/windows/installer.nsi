@@ -411,6 +411,7 @@ FunctionEnd
 {{/each}}
 
 Function .onInit
+  !insertmacro TM_ENGINE_ACQUIRE_LOCK
   !insertmacro TM_ENGINE_REQUIRE_SILENT
   ${GetOptions} $CMDLINE "/P" $PassiveMode
   ${IfNot} ${Errors}
@@ -705,6 +706,7 @@ Function .onInstSuccess
 FunctionEnd
 
 Function un.onInit
+  !insertmacro TM_ENGINE_ACQUIRE_LOCK
   !insertmacro SetContext
 
   !if "${INSTALLMODE}" == "both"
@@ -733,12 +735,37 @@ Section Uninstall
   !insertmacro TM_ENGINE_REQUIRE_APP_STOPPED "$INSTDIR\${MAINBINARYNAME}.exe"
 
   ; Delete the app directory and its content from disk
+  ; Explicit data removal runs before deleting the recovery/uninstall entry.
+  ${If} $DeleteAppDataCheckboxState = 1
+  ${AndIf} $UpdateMode <> 1
+    SetShellVarContext current
+    StrCpy $TM_UninstallError 0
+    Push "$APPDATA\${BUNDLEID}"
+    Call un.TM_DeletePlainDataTree
+    Push "$LOCALAPPDATA\${BUNDLEID}"
+    Call un.TM_DeletePlainDataTree
+    ${If} $TM_UninstallError != 0
+      ${IfNot} ${Silent}
+        MessageBox MB_ICONEXCLAMATION "应用数据含链接、被占用或无法删除。已保留程序与卸载入口，请关闭占用程序后重试。自定义数据目录需自行管理。"
+      ${EndIf}
+      SetErrorLevel 71
+      Quit
+    ${EndIf}
+  ${EndIf}
   ; Copy main executable
   Delete "$INSTDIR\${MAINBINARYNAME}.exe"
+  ${If} ${FileExists} "$INSTDIR\${MAINBINARYNAME}.exe"
+    SetErrorLevel 72
+    Quit
+  ${EndIf}
 
   ; Delete resources
   {{#each resources}}
     Delete "$INSTDIR\\{{this.[1]}}"
+    ${If} ${FileExists} "$INSTDIR\\{{this.[1]}}"
+      SetErrorLevel 72
+      Quit
+    ${EndIf}
   {{/each}}
 
   ; Delete external binaries
@@ -836,8 +863,7 @@ Section Uninstall
     DeleteRegKey /ifempty HKCU "${MANUKEY}"
 
     SetShellVarContext current
-    RmDir /r "$APPDATA\${BUNDLEID}"
-    RmDir /r "$LOCALAPPDATA\${BUNDLEID}"
+    ; Data was removed by the guarded tree walker before program deletion.
   ${EndIf}
 
   !ifmacrodef NSIS_HOOK_POSTUNINSTALL

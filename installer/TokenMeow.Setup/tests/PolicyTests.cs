@@ -43,9 +43,18 @@ internal static class PolicyTests
         public IDisposable GuardTarget(string directory) { Log.Add("guard"); return new FakeGuard(this); }
         public bool TargetIsRunning(string executable) { Log.Add("running-check"); return Running; }
         public IEngineLease ExtractEngine() { Log.Add("extract"); return new FakeLease(this); }
+        public IInstallTransaction BeginTransaction(string directory) { Log.Add("transaction"); return new FakeTransaction(this); }
         public int RunEngine(IEngineLease engine, string arguments) { Log.Add("run"); Arguments = arguments; return ExitCode; }
         public IApplicationProof VerifyInstalled(string directory) { Log.Add("verify"); if (FailVerification) throw new InvalidOperationException("fake installed SHA mismatch"); return new FakeProof(directory); }
         public void Launch(IApplicationProof application) { Log.Add("launch"); if (FailLaunch) throw new InvalidOperationException("fake launch failure"); }
+    }
+    private sealed class FakeTransaction : IInstallTransaction
+    {
+        private readonly Fake owner;
+        internal FakeTransaction(Fake owner) { this.owner=owner; }
+        public void Commit() { owner.Log.Add("commit"); }
+        public void Rollback() { owner.Log.Add("rollback"); }
+        public void Dispose() { }
     }
 
     private static int Main()
@@ -118,7 +127,7 @@ internal static class PolicyTests
                 options.InstallDirectory = @"C:\Mutated";
                 InstallResult result = task.GetAwaiter().GetResult();
                 Check(result.Preview == false && platform.Chosen == @"C:\Apps\Token Meow", "snapshot options");
-                Check(String.Join(",", platform.Log) == "step0,validate,guard,running-check,extract,step1,run,step2,verify,engine-dispose,guard-dispose", "real ordering");
+                Check(String.Join(",", platform.Log) == "step0,validate,guard,running-check,extract,transaction,step1,run,step2,verify,commit,engine-dispose,guard-dispose", "real ordering");
                 Check(platform.Arguments == @"/S /NS /D=C:\Apps\Token Meow", "fixed arguments");
                 Check(!platform.Log.Contains("launch"), "no auto launch");
                 service.LaunchInstalled();
@@ -172,7 +181,7 @@ internal static class PolicyTests
                 {
                     Reject(delegate { service.InstallAsync(Options(), null).GetAwaiter().GetResult(); });
                     Reject(delegate { service.LaunchInstalled(); });
-                    Check(!platform.Log.Contains("verify") && !platform.Log.Contains("launch") && platform.Log.Contains("engine-dispose") && platform.Log.Contains("guard-dispose"), "failed engine gate");
+                    Check(!platform.Log.Contains("verify") && !platform.Log.Contains("launch") && platform.Log.Contains("engine-dispose") && platform.Log.Contains("guard-dispose") && platform.Log.Contains("rollback") && !platform.Log.Contains("commit"), "failed engine gate restores before release");
                 }
             }
         });
@@ -182,7 +191,7 @@ internal static class PolicyTests
             {
                 Reject(delegate { service.InstallAsync(Options(), null).GetAwaiter().GetResult(); });
                 Reject(delegate { service.LaunchInstalled(); });
-                Check(platform.Log.Contains("verify") && platform.Log.Contains("engine-dispose"), "verification reached and resources disposed");
+                Check(platform.Log.Contains("verify") && platform.Log.Contains("engine-dispose") && platform.Log.Contains("rollback") && !platform.Log.Contains("commit"), "failed verification rolls back");
             }
         });
         Test("launch failure keeps the independently verified installation fact", delegate {
@@ -247,7 +256,95 @@ internal static class PolicyTests
             }
             finally { if (File.Exists(child)) File.Delete(child); if (Directory.Exists(target)) Directory.Delete(target, false); if (Directory.Exists(middle)) Directory.Delete(middle, false); if (Directory.Exists(parent)) Directory.Delete(parent, false); }
         });
-        Console.WriteLine("RESULT " + passed + " passed; no installation, registry write, engine or App execution");
+        Test("transaction restores old bytes and removes only declared new files", delegate {
+            string parent=Path.Combine(AppDomain.CurrentDomain.BaseDirectory,"rollback-"+Guid.NewGuid().ToString("N"));
+            string target=Path.Combine(parent,"app"), storage=Path.Combine(parent,"backup");
+            Directory.CreateDirectory(target); File.WriteAllText(Path.Combine(target,"token-meow.exe"),"old exe");
+            File.WriteAllText(Path.Combine(target,"user-note.txt"),"preserved");
+            using(var tx=new InstallTransaction(target,storage,new string[]{"token-meow.exe","new.dll"},null,null,false,true))
+            {
+                File.WriteAllText(Path.Combine(target,"token-meow.exe"),"broken upgrade");
+                File.WriteAllText(Path.Combine(target,"new.dll"),"new");
+                File.WriteAllText(Path.Combine(target,"concurrent-note.txt"),"outside payload");
+                tx.Rollback();
+            }
+            Check(File.ReadAllText(Path.Combine(target,"token-meow.exe"))=="old exe","old exe restored");
+            Check(!File.Exists(Path.Combine(target,"new.dll")),"declared introduced file removed");
+            Check(File.ReadAllText(Path.Combine(target,"user-note.txt"))=="preserved" && File.Exists(Path.Combine(target,"concurrent-note.txt")),"user files retained");
+            Check(!Directory.Exists(storage),"completed rollback backup cleaned");
+        });
+        Test("pending journal recovers after installer interruption before next attempt", delegate {
+            string parent=Path.Combine(AppDomain.CurrentDomain.BaseDirectory,"recover-"+Guid.NewGuid().ToString("N"));
+            string target=Path.Combine(parent,"app"), storage=Path.Combine(parent,"backup");
+            Directory.CreateDirectory(target);File.WriteAllText(Path.Combine(target,"token-meow.exe"),"original");
+            var interrupted=new InstallTransaction(target,storage,new string[]{"token-meow.exe"},null,null,false,true);
+            File.WriteAllText(Path.Combine(target,"token-meow.exe"),"interrupted");interrupted.Dispose();
+            using(var retry=new InstallTransaction(target,storage,new string[]{"token-meow.exe"},null,null,false,true))
+            { Check(File.ReadAllText(Path.Combine(target,"token-meow.exe"))=="original","pending attempt restored before new snapshot");retry.Commit(); }
+        });
+        Test("corrupt backup refuses recovery and preserves evidence", delegate {
+            string parent=Path.Combine(AppDomain.CurrentDomain.BaseDirectory,"corrupt-"+Guid.NewGuid().ToString("N"));
+            string target=Path.Combine(parent,"app"), storage=Path.Combine(parent,"backup");
+            Directory.CreateDirectory(target);File.WriteAllText(Path.Combine(target,"token-meow.exe"),"original");
+            var interrupted=new InstallTransaction(target,storage,new string[]{"token-meow.exe"},null,null,false,true);
+            File.WriteAllText(Path.Combine(target,"token-meow.exe"),"changed");
+            File.WriteAllText(Directory.GetFiles(storage,"*.bak")[0],"corruption");
+            Reject(delegate { interrupted.Rollback(); });
+            Check(File.Exists(Path.Combine(storage,"journal.xml")) && File.ReadAllText(Path.Combine(target,"token-meow.exe"))=="changed","no destructive recovery after bad hash");
+        });
+        Test("fresh install rejects nonempty destinations and traversal payloads", delegate {
+            string parent=Path.Combine(AppDomain.CurrentDomain.BaseDirectory,"fresh-"+Guid.NewGuid().ToString("N"));
+            string target=Path.Combine(parent,"app"), storage=Path.Combine(parent,"backup");
+            Directory.CreateDirectory(target);File.WriteAllText(Path.Combine(target,"user.txt"),"keep");
+            Reject(delegate { new InstallTransaction(target,storage,new string[]{"token-meow.exe"},null,null,false,false); });
+            foreach(string name in new string[]{"../escape","C:/escape","/root","one//two","one/../two","one/other:stream"}) Reject(delegate { InstallTransaction.ValidRelative(name); });
+            Check(File.ReadAllText(Path.Combine(target,"user.txt"))=="keep","existing files unchanged");
+        });
+        Test("rollback restores typed registry values only inside owned test namespace", delegate {
+            string parent=Path.Combine(AppDomain.CurrentDomain.BaseDirectory,"registry-"+Guid.NewGuid().ToString("N"));
+            string target=Path.Combine(parent,"app"), storage=Path.Combine(parent,"backup");Directory.CreateDirectory(target);
+            string key=@"Software\TokenMeow.LifecycleTests\"+Guid.NewGuid().ToString("N");
+            using(var hive=Microsoft.Win32.RegistryKey.OpenBaseKey(Microsoft.Win32.RegistryHive.CurrentUser,Microsoft.Win32.RegistryView.Registry64))
+            {
+                using(var install=hive.CreateSubKey(key+@"\Install")) {install.SetValue("DisplayVersion","0.1.0");install.SetValue("Flags",17,Microsoft.Win32.RegistryValueKind.DWord);install.SetValue("Blob",new byte[]{1,2,3},Microsoft.Win32.RegistryValueKind.Binary);}
+                using(var run=hive.CreateSubKey(key+@"\Run")) {run.SetValue("TokenMeow","%LOCALAPPDATA%\\old.exe",Microsoft.Win32.RegistryValueKind.ExpandString);run.SetValue("OtherApp","untouched");}
+                using(var tx=new InstallTransaction(target,storage,new string[]{"token-meow.exe"},null,null,true,true,key))
+                {
+                    using(var install=hive.CreateSubKey(key+@"\Install")) {install.SetValue("DisplayVersion","0.1.1");install.SetValue("NewValue","new");}
+                    using(var run=hive.CreateSubKey(key+@"\Run")) run.SetValue("TokenMeow","new.exe");
+                    tx.Rollback();
+                }
+                using(var install=hive.OpenSubKey(key+@"\Install")) {Check((string)install.GetValue("DisplayVersion")=="0.1.0" && (int)install.GetValue("Flags")==17 && ((byte[])install.GetValue("Blob"))[2]==3 && install.GetValue("NewValue")==null,"old typed install state restored");}
+                using(var run=hive.OpenSubKey(key+@"\Run")) {Check(run.GetValueKind("TokenMeow")==Microsoft.Win32.RegistryValueKind.ExpandString && (string)run.GetValue("TokenMeow",null,Microsoft.Win32.RegistryValueOptions.DoNotExpandEnvironmentNames)=="%LOCALAPPDATA%\\old.exe" && (string)run.GetValue("OtherApp")=="untouched","only named Run value restored");}
+                // Keep the exact private registry fixture as evidence; never touch product registrations.
+            }
+        });
+        Test("failed fresh installation removes introduced empty directories and permits retry",delegate {
+            string parent=Path.Combine(AppDomain.CurrentDomain.BaseDirectory,"fresh-retry-"+Guid.NewGuid().ToString("N"));
+            string target=Path.Combine(parent,"app"),storage=Path.Combine(parent,"backup");Directory.CreateDirectory(target);
+            using(var tx=new InstallTransaction(target,storage,new string[]{"token-meow.exe","licenses/a/license.txt"},null,null,false,false))
+            {Directory.CreateDirectory(Path.Combine(target,"licenses/a"));File.WriteAllText(Path.Combine(target,"licenses/a/license.txt"),"partial");tx.Rollback();}
+            Check(Directory.GetFileSystemEntries(target).Length==0,"fresh target restored to empty");
+            using(var retry=new InstallTransaction(target,storage,new string[]{"token-meow.exe"},null,null,false,false))retry.Commit();
+        });
+        Test("startup recovery entry point restores a pending filesystem journal",delegate {
+            string parent=Path.Combine(AppDomain.CurrentDomain.BaseDirectory,"startup-recovery-"+Guid.NewGuid().ToString("N"));
+            string target=Path.Combine(parent,"app"),storage=Path.Combine(parent,"backup");Directory.CreateDirectory(target);
+            File.WriteAllText(Path.Combine(target,"token-meow.exe"),"old");
+            using(var tx=new InstallTransaction(target,storage,new string[]{"token-meow.exe"},null,null,false,true))File.WriteAllText(Path.Combine(target,"token-meow.exe"),"partial");
+            InstallTransaction.RecoverInterrupted(target,storage,null,null);
+            Check(File.ReadAllText(Path.Combine(target,"token-meow.exe"))=="old"&&!Directory.Exists(storage),"startup restored and closed journal");
+        });
+        Test("incomplete commit marker never suppresses interrupted installation recovery",delegate {
+            string parent=Path.Combine(AppDomain.CurrentDomain.BaseDirectory,"commit-recovery-"+Guid.NewGuid().ToString("N"));
+            string target=Path.Combine(parent,"app"),storage=Path.Combine(parent,"backup");Directory.CreateDirectory(target);
+            File.WriteAllText(Path.Combine(target,"token-meow.exe"),"old");
+            using(var tx=new InstallTransaction(target,storage,new string[]{"token-meow.exe"},null,null,false,true))File.WriteAllText(Path.Combine(target,"token-meow.exe"),"partial");
+            File.WriteAllBytes(Path.Combine(storage,"committed"),new byte[0]);File.WriteAllBytes(Path.Combine(storage,"commit.pending"),new byte[]{1});
+            InstallTransaction.RecoverInterrupted(target,storage,null,null);
+            Check(File.ReadAllText(Path.Combine(target,"token-meow.exe"))=="old"&&!Directory.Exists(storage),"torn marker restored old state and closed journal");
+        });
+        Console.WriteLine("RESULT " + passed + " passed; no production installation, product registry, engine or App execution");
         return 0;
     }
 }
