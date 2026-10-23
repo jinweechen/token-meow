@@ -1,5 +1,12 @@
 import type { DesktopCompanionState } from "../../shared/desktopCompanion";
 
+export const PET_REACTIONS = Object.freeze([
+  { id: "affection", label: "摸摸", frame: 7 },
+  { id: "wink", label: "打个招呼", frame: 9 },
+  { id: "stretch", label: "伸个懒腰", frame: 8 },
+] as const);
+export type PetReaction = typeof PET_REACTIONS[number]["id"];
+
 export const POSE_LIMITS = {
   idleInterval: 18_000,
   idleDuration: 2_400,
@@ -12,7 +19,8 @@ export interface CutePose {
 }
 
 /** Natural native play expiry may finish visually; fresh input or lost authority may not. */
-export function allowsCompanionPose(state: DesktopCompanionState | null | undefined, enabled = true) {
+export function allowsCompanionPose(state: DesktopCompanionState | null | undefined, enabled = true, naturallyExpired = false) {
+  if (!state) return enabled && naturallyExpired;
   return !!state && enabled && state.capabilities.systemIdle &&
     (state.phase === "playing" || state.phase === "idle") && state.pauseReason === null &&
     state.inputIdleMs !== null && state.inputIdleMs >= 120_000;
@@ -90,17 +98,18 @@ export class PoseController {
     }
     return this.current;
   }
-  tap(eligible: boolean, now: number): boolean {
+  tap(eligible: boolean, now: number, reaction?: unknown): boolean {
     if (this.destroyed || !eligible) {
       this.interrupt();
       return false;
     }
-    if (
+    const selected = PET_REACTIONS.find((item) => item.id === reaction);
+    if ((reaction !== undefined && !selected) ||
       !this.variants.tap.length ||
       now - this.lastTap < POSE_LIMITS.tapCooldown
     )
       return false;
-    this.start(this.variants.tap[this.tapIndex++ % this.variants.tap.length], "tap", now, "tap");
+    this.start(selected?.frame ?? this.variants.tap[this.tapIndex++ % this.variants.tap.length], "tap", now, "tap");
     this.lastTap = now;
     this.nextIdle = now + POSE_LIMITS.idleInterval;
     return true;

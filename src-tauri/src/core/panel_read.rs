@@ -7,14 +7,15 @@ pub(super) struct QueryReadContext<'a> {
     pub(super) source_root: &'a Path,
     pub(super) source_id: &'a str,
     pub(super) runtime_id: &'a str,
+    pub(super) temporary_dnd: &'a temporary_dnd::SharedRuntime,
 }
 
 impl QueryReadContext<'_> {
     pub(super) fn settings(&self) -> Result<Value> {
-        Core::settings_from_db_at(self.db, crate::budget_clock::now().utc)
+        Core::settings_from_db_at(self.db, crate::budget_clock::now().utc, self.temporary_dnd)
     }
     pub(super) fn primary_source(&self) -> Result<Value> {
-        self.db.query_row("SELECT id,root,enabled,client_kind,environment FROM source_instances WHERE id=?1",[self.source_id],|r|Ok(json!({"id":r.get::<_,String>(0)?,"root":r.get::<_,String>(1)?,"enabled":r.get::<_,bool>(2)?,"clientKind":r.get::<_,String>(3)?,"environment":r.get::<_,String>(4)?}))).map_err(err)
+        self.db.query_row("SELECT id,root,enabled,client_kind,environment,configuration_revision FROM source_instances WHERE id=?1",[self.source_id],|r|Ok(json!({"id":r.get::<_,String>(0)?,"root":r.get::<_,String>(1)?,"enabled":r.get::<_,bool>(2)?,"clientKind":r.get::<_,String>(3)?,"environment":r.get::<_,String>(4)?,"configurationRevision":r.get::<_,i64>(5)?.to_string()}))).map_err(err)
     }
     pub(super) fn usage_price_sync(&self) -> Result<Value> {
         pricing_sync::read_usage_price_sync(self.db)
@@ -30,6 +31,7 @@ pub(crate) struct PanelReadSession {
     source_root: PathBuf,
     source_id: String,
     runtime_id: String,
+    temporary_dnd: temporary_dnd::SharedRuntime,
 }
 
 impl Core {
@@ -39,6 +41,7 @@ impl Core {
             source_root: &self.source_root,
             source_id: &self.source_id,
             runtime_id: &self.runtime_id,
+            temporary_dnd: &self.temporary_dnd,
         }
     }
 
@@ -59,6 +62,7 @@ impl Core {
             source_root: self.source_root.clone(),
             source_id: self.source_id.clone(),
             runtime_id: self.runtime_id.clone(),
+            temporary_dnd: self.temporary_dnd.clone(),
         };
         session.connection().execute_batch("PRAGMA query_only=ON; BEGIN DEFERRED;").map_err(err)?;
         // SELECT 1 would not establish a database snapshot. Read a real table.
@@ -81,6 +85,7 @@ impl PanelReadSession {
             source_root: &self.source_root,
             source_id: &self.source_id,
             runtime_id: &self.runtime_id,
+            temporary_dnd: &self.temporary_dnd,
         }
     }
     pub(crate) fn snapshot(&self, query: Value) -> Result<Value> {

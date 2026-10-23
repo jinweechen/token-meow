@@ -30,6 +30,7 @@ export class PetPopoverController {
   private revision = 0;
   private disposed = false;
   private removers: (() => void)[] = [];
+  private settlement: Promise<boolean> = Promise.resolve(true);
 
   constructor(private readonly host: PetPopoverHost) {
     const on = (
@@ -110,17 +111,26 @@ export class PetPopoverController {
     this.setInteraction(false);
   }
 
+  /** 动作必须等同一代原生关闭完成，不能沿用尚未收起的弹窗几何。 */
+  async closeForAction(): Promise<boolean> {
+    this.close();
+    const revision = this.revision;
+    return await this.settlement && !this.disposed && this.value === null && revision === this.revision;
+  }
+
   private setInteraction(active: boolean) {
     const revision = (this.revision = nextRevision());
-    void this.host
+    this.settlement = Promise.resolve(this.host
       .interaction?.({ active, revision })
-      .then((state) => {
-        observeRevision(state.revision);
+    ).then((state) => {
+        observeRevision(state?.revision);
+        return !this.disposed && this.revision === revision && (!state || state.active === active && state.revision >= revision);
       })
       .catch((error) => {
-        if (this.disposed || this.revision !== revision) return;
+        if (this.disposed || this.revision !== revision) return false;
         if (active) this.close();
         this.host.error(error);
+        return false;
       });
   }
 

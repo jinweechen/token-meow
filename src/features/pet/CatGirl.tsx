@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, type CSSProperties } from "react";
+import { useEffect, useLayoutEffect, useRef, useState, type CSSProperties } from "react";
 import type { PetPresentation, PetState } from "../../shared/contracts";
 import { builtinAnimationManifest as builtinManifest, builtinAnimationClips } from "./builtinAnimationSkin";
 import { HD_LOGICAL_POSES, hdPoseFrame } from "./hdPoseLayout";
@@ -13,6 +13,10 @@ import { allowPetMotionHeartbeat, createPetMotionReadiness, isPetMotionRenderer 
 import type { LocalPetSkinRuntime } from "./localPetSkinRuntime";
 import { usePetPointerMask } from "./usePetPointerMask";
 import { ANIMATION_ASSET_LIMITS } from "./animationClipRegistry";
+import { roamingAnimation, roamingFrameReady, roamingPlayback, type RoamingAnimation } from "./roamingAnimation";
+import { imagePetPhysicsContact, samePetPhysicsTicket, type PetPhysicsRenderBinding } from "../../shared/petPhysics";
+
+const gaitClips = { left: roamingPlayback(builtinAnimationClips, "left"), right: roamingPlayback(builtinAnimationClips, "right") };
 
 const clipDuration = (clips: readonly { id: string; sequence: readonly { durationMs: number }[] }[], id: string) => clips.find((clip) => clip.id === id)!
   .sequence.reduce((sum, step) => sum + step.durationMs, 0);
@@ -25,8 +29,11 @@ export function CatGirl({
   onStateText,
   onPromptDelivered,
   companion,
+  companionMotionExpired = false,
   skinRuntime = null,
   pointerEnabled = false,
+  roamingEnabled = false,
+  physics,
 }: {
   presentation: PetPresentation | null;
   ready: boolean;
@@ -35,8 +42,11 @@ export function CatGirl({
   onStateText?: (text: string) => void;
   onPromptDelivered?: (id: string) => void;
   companion?: DesktopCompanionState | null;
+  companionMotionExpired?: boolean;
   skinRuntime?: LocalPetSkinRuntime | null;
   pointerEnabled?: boolean;
+  roamingEnabled?: boolean;
+  physics?: PetPhysicsRenderBinding;
 }) {
   const [documentVisible, setDocumentVisible] = useState(!document.hidden);
   const [nativeVisible, setNativeVisible] = useState(true);
@@ -79,9 +89,19 @@ export function CatGirl({
   companionManaged.current = companion !== undefined;
   const companionRef = useRef(companion);
   companionRef.current = companion;
+  const companionExpiredRef = useRef(companionMotionExpired);
+  companionExpiredRef.current = companionMotionExpired;
   const motionReadiness = useRef<ReturnType<typeof createPetMotionReadiness> | null>(null);
   const interactionFenceUntil = useRef(0);
   const rendererEnabled = isPetMotionRenderer(isDesktop, decorative, window.location.search);
+  const gaitAvailable = rendererEnabled && roamingEnabled && !skinRuntime && !!gaitClips.left && !!gaitClips.right;
+  const gaitAvailableRef = useRef(gaitAvailable);
+  gaitAvailableRef.current = gaitAvailable;
+  const requestedMotion = useRef<RoamingAnimation | null>(null);
+  const paintedMotion = useRef<string | null>(null);
+  const renderedImage = useRef<HTMLImageElement | null>(null);
+  const renderedSprite = useRef<ReturnType<typeof useAnimationClip>>(null);
+  const [imageFailed, setImageFailed] = useState(false);
   const presentationRuntimeEpoch = (presentation as { runtimeEpoch?: string } | null)?.runtimeEpoch ?? null;
   const { characterRef, beforeDisplay } = usePetPointerMask(
     rendererEnabled && pointerEnabled && presentation?.settings.alphaHitTest === true,
@@ -124,15 +144,15 @@ export function CatGirl({
   }, [rendererEnabled]);
   useEffect(() => {
     const domain = presentationRuntimeEpoch && presentation?.sourceScopeRevision
-      ? JSON.stringify([presentationRuntimeEpoch, presentation.sourceScopeRevision]) : null;
+      ? JSON.stringify([presentationRuntimeEpoch, presentation.sourceScopeRevision, skinRuntime?.key ?? "builtin"]) : null;
     if (readinessDomain.current !== domain) {
       if (readinessDomain.current !== null) interactionFenceUntil.current = Date.now() + 500;
       motionReadiness.current?.update({ ready: false, gaitAvailable: false, gaitReady: false });
       readinessDomain.current = domain;
     }
-    if (paused || !ready || !presentation || (companionManaged.current && !companion))
+    if (paused || !ready || !presentation || (companionManaged.current && !companion && !companionMotionExpired))
       motionReadiness.current?.update({ ready: false, gaitAvailable: false, gaitReady: false });
-  }, [presentationRuntimeEpoch, presentation?.sourceScopeRevision, paused, ready, companion]);
+  }, [presentationRuntimeEpoch, presentation?.sourceScopeRevision, skinRuntime?.key, paused, ready, companion, companionMotionExpired]);
   useEffect(() => {
     const change = () => setDocumentVisible(!document.hidden);
     const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -157,7 +177,7 @@ export function CatGirl({
       poses.current.interrupt();
       updateClock.current?.();
     };
-    const affection = () => {
+    const affection = (event: Event) => {
       motionReadiness.current?.update({ ready: false, gaitAvailable: false, gaitReady: false });
       const now = Date.now(),
         intent = presentPet(current.current, readyRef.current);
@@ -171,7 +191,7 @@ export function CatGirl({
           !animation.prompt &&
           intent.active === 0 &&
           intent.uncertain === 0,
-        now,
+        now, (event as CustomEvent<{ pose?: string }>).detail?.pose,
       );
       updateClock.current?.();
     };
@@ -230,7 +250,7 @@ export function CatGirl({
           intent.active === 0 &&
           intent.uncertain === 0;
       const desktop = companionRef.current;
-      const companionIdle = allowsCompanionPose(desktop, current.current?.settings.idlePlayEnabled !== false);
+      const companionIdle = allowsCompanionPose(desktop, current.current?.settings.idlePlayEnabled !== false, companionExpiredRef.current);
       if (!companionIdle) poses.current.stopCompanion();
       if (desktop?.phase === "playing" && builtinManifest.variants.idle.length) {
         const variants = builtinManifest.variants.idle;
@@ -242,16 +262,22 @@ export function CatGirl({
         !companionManaged.current && current.current?.settings.idlePlayEnabled !== false);
       const poseInstance = poses.current.playbackKey();
       const promptId = next.prompt?.id ?? null;
-      motionReadiness.current?.update({
-        ready: allowPetMotionHeartbeat(current.current, {
+      const canRenderMotion = allowPetMotionHeartbeat(current.current, {
           ready: readyRef.current, paused: pausedRef.current, sourceScopeRevision: sourceScope.current,
           hasPrompt: !!next.prompt, tap: pose?.kind === "tap", action: next.action,
           interactionBlocked: now < interactionFenceUntil.current ||
-            (companionManaged.current && !companionRef.current),
-        }, now),
-        // The walk clip is an in-place demonstration; native gait remains unavailable.
-        gaitAvailable: false,
-        gaitReady: false,
+            (companionManaged.current && !companionRef.current && !companionExpiredRef.current),
+        }, now);
+      const request = requestedMotion.current;
+      const gaitReady = gaitAvailableRef.current && canRenderMotion && roamingFrameReady(request,
+        renderedSprite.current, paintedMotion.current, request ? gaitClips[request.direction] : null);
+      motionReadiness.current?.update({
+        ready: canRenderMotion,
+        gaitAvailable: gaitAvailableRef.current,
+        gaitReady,
+        nativeMotionPhase: companionRef.current?.phase ?? (companionExpiredRef.current ? "expired" : undefined),
+        motionGeneration: gaitReady ? request!.generation : null,
+        motionDirection: gaitReady ? request!.direction : null,
       });
       if (next.prompt && delivered.current !== next.prompt.id) {
         delivered.current = next.prompt.id;
@@ -295,6 +321,7 @@ export function CatGirl({
     presentation?.settings.idlePlayEnabled,
     companion?.runtimeEpoch,
     companion?.revision,
+    companionMotionExpired,
     onStateText,
     onPromptDelivered,
   ]);
@@ -318,19 +345,50 @@ export function CatGirl({
     motionPaused,
     quiet,
   );
-  const displayedPose = currentScope && intent.active === 0 && intent.uncertain === 0 &&
+  const displayedPose = !physics?.holdStill && currentScope && intent.active === 0 && intent.uncertain === 0 &&
     (state.pose?.kind !== "idle" || !companionManaged.current ||
-      allowsCompanionPose(companion, presentation?.settings.idlePlayEnabled !== false)) ? state.pose : null;
+      allowsCompanionPose(companion, presentation?.settings.idlePlayEnabled !== false, companionMotionExpired)) ? state.pose : null;
   const frame =
     semanticFrame && displayedPose && !paused && semanticFrame.action === "idle"
       ? { ...semanticFrame, frame: displayedPose.frame }
       : semanticFrame;
   const requestedPose = HD_LOGICAL_POSES[frame.frame];
-  const sprite = useAnimationClip(requestedPose, !paused,
+  const motion = physics?.ticket ? null : roamingAnimation(companion, { available: gaitAvailable,
+    eligible: currentScope && !paused && intent.active === 0 && intent.uncertain === 0 &&
+      frame.action === "idle" && !state.promptId && displayedPose?.kind !== "tap",
+    scope: presentationRuntimeEpoch && presentation?.sourceScopeRevision
+      ? JSON.stringify([presentationRuntimeEpoch, presentation.sourceScopeRevision]) : null,
+    enabled: presentation?.settings.idlePlayEnabled !== false && presentation?.settings.idleRoamingEnabled === true });
+  requestedMotion.current = motion;
+  const sprite = useAnimationClip(motion?.clip ?? requestedPose, !paused && !physics?.holdStill,
     visible && !runtimePaused && presentation?.settings.petVisible !== false,
-    JSON.stringify([presentation?.sourceScopeRevision ?? null, presentationRuntimeEpoch,
+    motion?.key ?? JSON.stringify([presentation?.sourceScopeRevision ?? null, presentationRuntimeEpoch,
       currentScope ? state.promptId : null, displayedPose ? state.poseInstance : null]),
-    currentScope && state.promptId !== null, skinRuntime, beforeDisplay);
+    currentScope && state.promptId !== null, skinRuntime, beforeDisplay, undefined,
+    motion ? gaitClips[motion.direction] ?? undefined : undefined);
+  renderedSprite.current = imageFailed ? null : sprite;
+  useEffect(() => { setImageFailed(false); }, [sprite?.url]);
+  useEffect(() => {
+    const image = renderedImage.current;
+    if (!motion || !sprite?.current || sprite.error || imageFailed || !image) {
+      paintedMotion.current = null;
+      return;
+    }
+    let live = true;
+    let paint = 0;
+    const acknowledge = () => {
+      cancelAnimationFrame(paint);
+      paint = requestAnimationFrame(() => {
+        if (!live || requestedMotion.current?.key !== motion.key || renderedSprite.current?.url !== sprite.url ||
+            !image.complete || image.naturalWidth === 0 || image.currentSrc !== sprite.url) return;
+        paintedMotion.current = motion.key;
+        updateClock.current?.();
+      });
+    };
+    image.addEventListener("load", acknowledge);
+    acknowledge();
+    return () => { live = false; cancelAnimationFrame(paint); image.removeEventListener("load", acknowledge); };
+  }, [motion?.key, sprite?.url, sprite?.current, sprite?.error, imageFailed]);
   useEffect(() => {
     if (!sprite?.current || paused || !currentScope) return;
     if (sprite.error || sprite.complete) {
@@ -342,8 +400,34 @@ export function CatGirl({
       if (state.promptId) controller.current.startPlayback(state.promptId, sprite.startedAt);
     }
   }, [sprite, paused, currentScope, state.poseInstance, state.promptId]);
-  const error = sprite?.error === true;
+  const error = sprite?.error === true || imageFailed;
   const loaded = !!sprite?.url && !error;
+  const physicsEligible = rendererEnabled && !!physics && !paused && currentScope && ready && loaded
+    && !!sprite?.current && frame.action === "idle" && !state.promptId && displayedPose?.kind !== "tap" && !motion
+    && intent.active === 0 && intent.uncertain === 0 && physics.ticket?.kind !== "climb";
+  const physicsFrame = useRef({ physics, eligible: physicsEligible, url: sprite?.url, frameKey: `${sprite?.runtimeKey}:${sprite?.frame}` });
+  physicsFrame.current = { physics, eligible: physicsEligible, url: sprite?.url, frameKey: `${sprite?.runtimeKey}:${sprite?.frame}` };
+  useLayoutEffect(() => {
+    const image = renderedImage.current;
+    if (!physicsEligible || !physics || !image || !sprite) { physics?.onUnavailable(); return; }
+    let live = true, scheduled = 0;
+    const ticket = physics.ticket, frameKey = `${sprite.runtimeKey}:${sprite.frame}`, url = sprite.url;
+    const acknowledge = () => {
+      cancelAnimationFrame(scheduled);
+      scheduled = requestAnimationFrame(() => {
+        const latest = physicsFrame.current;
+        if (!live || !latest.eligible || !latest.physics || latest.url !== url || latest.frameKey !== frameKey
+            || !samePetPhysicsTicket(ticket, latest.physics.ticket) || image.dataset.pointerFrameKey !== frameKey
+            || !image.complete || image.naturalWidth < 1 || image.currentSrc !== url || document.hidden) return;
+        const contact = imagePetPhysicsContact(image);
+        if (contact) latest.physics.onPainted({ contact, ticket, climbReady: false }); else latest.physics.onUnavailable();
+      });
+    };
+    const resize = new ResizeObserver(acknowledge); resize.observe(image); if (image.parentElement) resize.observe(image.parentElement);
+    image.addEventListener("load", acknowledge); window.addEventListener("resize", acknowledge); acknowledge();
+    return () => { live = false; cancelAnimationFrame(scheduled); resize.disconnect(); image.removeEventListener("load", acknowledge); window.removeEventListener("resize", acknowledge); };
+  }, [physics, physicsEligible, sprite?.url, sprite?.runtimeKey, sprite?.frame]);
+  useEffect(() => () => physics?.onUnavailable(), [physics?.rendererEpoch]);
   return (
     <div
       ref={characterRef}
@@ -356,7 +440,9 @@ export function CatGirl({
         <div
           className="pet-sprite pet-hd-sprite"
           data-frame={frame.frame}
-          data-hd-pose={requestedPose}
+          data-hd-pose={motion?.clip ?? requestedPose}
+          data-roaming-generation={motion?.generation}
+          data-roaming-direction={motion?.direction}
           data-animation-clip={sprite.clip}
           data-animation-frame={sprite.frame}
           data-pose={displayedPose && !paused ? displayedPose.kind : undefined}
@@ -367,8 +453,14 @@ export function CatGirl({
             } as CSSProperties
           }
         >
-          <img src={sprite.url} alt="" draggable={false} data-pointer-frame-key={`${sprite.runtimeKey}:${sprite.frame}`}
-            onError={() => { if (sprite.current) skinRuntime?.reportFailure(); }} style={{
+          <img ref={renderedImage} src={sprite.url} alt="" draggable={false} data-pointer-frame-key={`${sprite.runtimeKey}:${sprite.frame}`}
+            onError={() => {
+              physics?.onUnavailable();
+              paintedMotion.current = null;
+              motionReadiness.current?.update({ ready: false, gaitAvailable: false, gaitReady: false });
+              setImageFailed(true);
+              if (sprite.current) skinRuntime?.reportFailure();
+            }} style={{
             position: "absolute", maxHeight: "none",
             width: `${sprite.sharedTransform.scale * 100}%`,
             left: `${sprite.sharedTransform.translate[0] / 1024 * 100}%`,

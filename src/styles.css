@@ -2169,6 +2169,11 @@ body.pet-mode #root {
   width: 100%;
   max-height: var(--pet-character-max-height);
 }
+/* 指针捕获归稳定按钮，切换动画图片不会中断同一次手势。 */
+.pet-character-button .character,
+.pet-character-button .character * {
+  pointer-events: none;
+}
 .pet-character-button .pet-sprite {
   width: min(100%, calc(var(--pet-character-max-height) * var(--pet-frame-ratio, 1)));
   margin-inline: auto;

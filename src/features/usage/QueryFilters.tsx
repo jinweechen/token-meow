@@ -20,6 +20,7 @@ import {
   type ScopeFilterKey,
 } from "../../shared/queryPresentation";
 import { Icon } from "../../shared/UI";
+import { sourceKindName } from "../../shared/sourceKind";
 import "./queryFilters.css";
 
 interface Props {
@@ -91,7 +92,7 @@ export function QueryFilters({
       case "model":
         return `模型：${query.model}`;
       case "clientKind":
-        return `工具：${query.clientKind === "codex" ? "Codex" : query.clientKind}`;
+        return `工具：${sourceKindName(query.clientKind)}`;
       case "providerId":
         return `提供商：${query.providerId === "unknown" ? "未知" : query.providerId}`;
       case "agentKind":
@@ -303,12 +304,12 @@ export function QueryFilters({
                   query.clientKind,
                 ) && (
                   <option value={query.clientKind}>
-                    {query.clientKind === "codex" ? "Codex" : query.clientKind}
+                    {sourceKindName(query.clientKind)}
                   </option>
                 )}
               {(snapshot.filters?.clientKinds ?? ["codex"]).map((kind) => (
                 <option key={kind} value={kind}>
-                  {kind === "codex" ? "Codex" : kind}
+                  {sourceKindName(kind)}
                 </option>
               ))}
             </select>

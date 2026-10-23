@@ -15,7 +15,7 @@ export function projectSnapshotPresentation(snapshot: Snapshot): PetPresentation
     prompts: snapshot.inbox.map((event) => ({
       id: event.id,
       kind: event.kind,
-      status: event.status,
+      status: event.status ?? "unknown",
       createdAt: event.createdAt,
       animationEligible: event.animationEligible === true,
     })),

@@ -15,7 +15,7 @@ fn backups(data: &Path) -> Vec<PathBuf> {
             entry
                 .file_name()
                 .to_string_lossy()
-                .starts_with("ledger-before-v6-")
+                .starts_with("ledger-before-v9-")
         })
         .map(|entry| entry.path())
         .collect()
@@ -56,7 +56,7 @@ fn advance_fixture(db: &Connection, target: i64) {
 #[test]
 fn query_index_fresh_schema_and_newer_schema_rejection_do_not_create_backups_or_rewrite_data() {
     let r = Rig::new();
-    assert_eq!(version(&r.core.db), 6);
+    assert_eq!(version(&r.core.db), 9);
     let columns: Vec<String> = r
         .core
         .db
@@ -72,7 +72,7 @@ fn query_index_fresh_schema_and_newer_schema_rejection_do_not_create_backups_or_
     let source = r.source.clone();
     r.core
         .db
-        .execute_batch("PRAGMA user_version=7; PRAGMA wal_checkpoint(TRUNCATE);")
+        .execute_batch("PRAGMA user_version=10; PRAGMA wal_checkpoint(TRUNCATE);")
         .unwrap();
     drop(r.core);
     let before = fs::read(data.join("ledger.sqlite3")).unwrap();
@@ -113,7 +113,7 @@ fn query_index_v3_committed_wal_backup_retains_facts_cursors_preferences_and_reo
         )
         .unwrap();
     let core = Core::open(&fixture.data, &fixture.source).unwrap();
-    assert_eq!(version(&core.db), 6);
+    assert_eq!(version(&core.db), 9);
     assert_eq!(facts(&core.db), original_facts);
     assert_eq!(core.settings().unwrap()["petScale"], 1.25);
     assert_eq!(core.source_id, "v1-stable-source");
@@ -162,7 +162,7 @@ fn query_index_v3_committed_wal_backup_retains_facts_cursors_preferences_and_reo
     drop(writer);
     drop(core);
     let reopened = Core::open(&fixture.data, &fixture.source).unwrap();
-    assert_eq!(version(&reopened.db), 6);
+    assert_eq!(version(&reopened.db), 9);
     assert_eq!(facts(&reopened.db), original_facts);
     assert_eq!(backups(&fixture.data).len(), 1);
     assert_eq!(
@@ -223,7 +223,7 @@ fn query_index_last_ddl_failure_rolls_back_every_pending_generation_and_backup_c
                 .unwrap();
         }
         let recovered = Core::open(&recovered_data, &fixture.source).unwrap();
-        assert_eq!(version(&recovered.db), 6);
+        assert_eq!(version(&recovered.db), 9);
         assert_eq!(facts(&recovered.db), original_facts);
         assert_v1_migrated_snapshot(&recovered);
         let original = Connection::open_with_flags(

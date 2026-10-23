@@ -140,6 +140,32 @@ fn missing_budget_permit_is_dropped_without_removing_completion() {
 }
 
 #[test]
+fn guarded_completion_is_revoked_after_dnd_round_trip_without_affecting_legacy_completion() {
+    let gate = open_gate();
+    let mut queue = vec![
+        queued("guarded", "completion", Some(fresh_permit(&gate))),
+        queued("legacy", "completion", None),
+    ];
+    gate.invalidate();
+    gate.invalidate();
+    assert_eq!(discard_invalid(&mut queue, &at(1)), vec!["guarded"]);
+    assert_eq!(queue.iter().filter_map(QueuedNotification::id).collect::<Vec<_>>(), vec!["legacy"]);
+}
+
+#[test]
+fn guarded_completion_revoked_during_com_preparation_is_never_submitted() {
+    let gate = open_gate();
+    let events = vec![queued("guarded", "completion", Some(fresh_permit(&gate)))];
+    let submitted = Cell::new(false);
+    let delivery = deliver_batch(&events, |_| { gate.invalidate(); Ok(()) },
+        |_| { submitted.set(true); Ok(()) }, || true, || at(1));
+    assert!(!submitted.get());
+    assert_eq!(delivery.suppressed, vec!["guarded"]);
+    assert!(delivery.failed.is_empty());
+    assert!(delivery.error.is_none());
+}
+
+#[test]
 fn queued_budget_cannot_survive_suspend_resume_during_merge_or_throttle() {
     let gate = open_gate();
     let events = vec![queued("budget", "budget", Some(fresh_permit(&gate))), queued("completion", "completion", None)];

@@ -3,6 +3,14 @@ use super::adapter::{
 };
 use super::*;
 use std::io::Write;
+#[path = "subscription_migration_tests.rs"]
+mod subscription_migration_contract;
+#[path = "subscription_learning_migration_tests.rs"]
+mod subscription_learning_migration_contract;
+#[path = "local_schedules_migration_tests.rs"]
+mod local_schedules_migration_contract;
+#[path = "local_schedule_source_contract_tests.rs"]
+mod local_schedule_source_contract;
 const THREAD: &str = "00000000-0000-4000-8000-000000000001";
 struct Rig {
     _tmp: tempfile::TempDir,
@@ -1100,7 +1108,7 @@ fn migration_takes_backup_and_keeps_existing_settings_and_source_identity() {
         .filter(|e| {
             e.file_name()
                 .to_string_lossy()
-                .starts_with("ledger-before-v6-")
+                .starts_with("ledger-before-v9-")
         })
         .count();
     assert_eq!(backups, 1);
@@ -1108,7 +1116,7 @@ fn migration_takes_backup_and_keeps_existing_settings_and_source_identity() {
         core.db
             .query_row("PRAGMA user_version", [], |r| r.get::<_, i64>(0))
             .unwrap(),
-        6
+        9
     );
 }
 
@@ -2030,7 +2038,7 @@ fn v1_migration_preserves_existing_native_facts_physical_cursor_and_replay_after
         core.db
             .query_row("PRAGMA user_version", [], |row| row.get::<_, i64>(0))
             .unwrap(),
-        6
+        9
     );
     let identity: (String, String) = core
         .db
@@ -2133,7 +2141,7 @@ fn v1_migration_ddl_failure_rolls_back_and_readable_backup_recovers_original_met
             entry
                 .file_name()
                 .to_string_lossy()
-                .starts_with("ledger-before-v6-")
+                .starts_with("ledger-before-v9-")
         })
         .map(|entry| entry.path())
         .collect();

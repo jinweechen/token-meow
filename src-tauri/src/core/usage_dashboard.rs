@@ -144,11 +144,11 @@ impl Group {
     }
 }
 
-struct Fact<'a> {
-    response: &'a ResponseUsage,
-    time: DateTime<FixedOffset>,
+pub(super) struct Fact<'a> {
+    pub(super) response: &'a ResponseUsage,
+    pub(super) time: DateTime<FixedOffset>,
     key: String,
-    cost: CostEstimate,
+    pub(super) cost: CostEstimate,
 }
 
 type TurnKey = (String, String, String);
@@ -440,6 +440,7 @@ fn build(
     request: &Request,
     dates: (Option<NaiveDate>, Option<NaiveDate>),
     loaded: &Loaded,
+    query: &Value,
 ) -> Result<Value> {
     let as_of = Utc::now();
     let versions = pricing::versions(&core.db)?;
@@ -580,12 +581,13 @@ fn build(
         });
         groups
     };
+    let observed_insights = super::observed_insights::project(core, loaded, query, &from.to_string(), &to.to_string(), &facts)?;
     Ok(
         json!({"asOf":as_of.to_rfc3339(),"request":request.value(),"totalRows":total_rows,
         "summary":{"estimatedCostUsd":total.value(),"pricedResponses":total.priced,"unpricedResponses":facts.len()-total.priced},
         "granularity":if hourly{"hour"}else{"day"},"timezone":"Asia/Shanghai","from":from.to_string(),"to":to.to_string(),
         "trend":trend,"rows":rows,"models":groups(models),"providers":groups(providers),
-        "projects":projects,"sessions":sessions,"forecastBasis":forecast_basis,
+        "projects":projects,"sessions":sessions,"forecastBasis":forecast_basis,"observedInsights":observed_insights,
         "modelKind":"requested","pricingVersions":versions,"costScope":"trusted-metered-responses",
         "timingScope":"turn","source":"local-response-ledger"}),
     )
@@ -601,7 +603,7 @@ pub(super) fn snapshot_read(core: &QueryReadContext<'_>, query: Value, request: 
     let request = Request::parse(&request)?;
     let dates = validate_dates(&query)?;
     let loaded = load_read(core, &query)?;
-    let mut dashboard = build(core, &request, dates, &loaded)?;
+    let mut dashboard = build(core, &request, dates, &loaded, &query)?;
     let mut data = snapshot_from_loaded(core, &query, loaded, include_tools)?;
     let pricing_summary = dashboard["summary"].take();
     dashboard["summary"] = data["overview"].clone();

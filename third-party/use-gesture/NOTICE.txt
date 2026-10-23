@@ -1,0 +1,19 @@
+Token 喵桌宠手势组件复用说明
+
+直接依赖：@use-gesture/react 10.3.1
+传递依赖：@use-gesture/core 10.3.1
+项目：https://github.com/pmndrs/use-gesture
+文档：https://use-gesture.netlify.app/docs/options/
+许可：MIT
+
+用途：使用官方 React useGesture 识别点击、拖动、指针捕获和取消；
+本项目的原生侧继续核验按下位置、输入状态、工作区及移动许可。
+
+版本和发布包完整性固定在 package.json 与 pnpm-lock.yaml。
+LICENSE-react-MIT.txt 和 LICENSE-core-MIT.txt 从对应已安装发布包的 LICENSE
+逐字节复制。两个原始文件的 SHA-256 均为：
+B99672EF9AF57432E6D025A66D34F8B968564E4E0A1E2005EA9018457A7E38DC
+
+不包含第三方角色素材。角色、资源校验、账本和原生控制的许可分别记录。
+发行时，scripts/distribution-manifest.mjs 会按生产依赖递归收集这两个包
+实际安装的许可文本；本说明不代表本轮已经制作或发布新安装包。

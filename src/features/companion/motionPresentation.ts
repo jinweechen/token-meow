@@ -52,6 +52,7 @@ export class CompanionMotionPresentation {
   private generation: bigint | null = null;
   private retired = new Set<ActivePhase>();
   private lease: Omit<MotionPresentation, "remainingMs"> | null = null;
+  private expired: Pick<MotionPresentation, "runtimeEpoch" | "motionGeneration" | "phase"> | null = null;
   private lastNow: number | null = null;
 
   bindEpoch(epoch: string, now: number): boolean {
@@ -71,6 +72,7 @@ export class CompanionMotionPresentation {
     this.revision = this.generation = null;
     this.retired.clear();
     this.lease = null;
+    this.expired = null;
     return true;
   }
 
@@ -89,6 +91,7 @@ export class CompanionMotionPresentation {
       this.generation = generation;
       this.retired.clear();
       this.lease = null;
+      this.expired = null;
     } else if (this.lease && this.lease.phase !== value.phase) {
       this.clear();
     }
@@ -114,10 +117,21 @@ export class CompanionMotionPresentation {
   clear() {
     if (this.lease) this.retired.add(this.lease.phase);
     this.lease = null;
+    this.expired = null;
+  }
+
+  /** 已知自然到期与失联、隐藏、时钟异常分开；不把最后的原生状态改写为空闲。 */
+  naturallyExpired(value: CompanionMotionState) {
+    return this.expired !== null && this.expired.runtimeEpoch === value.runtimeEpoch &&
+      this.expired.motionGeneration === value.motionGeneration && this.expired.phase === value.phase;
   }
 
   private expire(now: number) {
-    if (this.lease && now >= this.lease.expiresAt) this.clear();
+    if (this.lease && now >= this.lease.expiresAt) {
+      const ended = this.lease;
+      this.clear();
+      this.expired = { runtimeEpoch: ended.runtimeEpoch, motionGeneration: ended.motionGeneration, phase: ended.phase };
+    }
   }
   private clock(now: number) {
     if (!Number.isFinite(now) || now < 0 || now > Number.MAX_SAFE_INTEGER - MOTION_PRESENTATION_LIMITS.movingMs) {

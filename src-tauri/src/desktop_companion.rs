@@ -101,6 +101,53 @@ pub(super) struct LauncherSummary {
     label: String,
     work_app_enabled: bool,
 }
+
+#[derive(Deserialize)]
+#[serde(rename_all = "camelCase", deny_unknown_fields)]
+pub(super) struct LauncherUpdateOptions {
+    launcher_id: String,
+    #[serde(default, deserialize_with = "present_launcher_option")]
+    label: Option<String>,
+    #[serde(default, deserialize_with = "present_launcher_option")]
+    work_app_enabled: Option<bool>,
+}
+
+#[derive(Clone, Copy, Deserialize)]
+#[serde(rename_all = "lowercase")]
+pub(super) enum LauncherMoveDirection {
+    Up,
+    Down,
+}
+
+#[derive(Deserialize)]
+#[serde(rename_all = "camelCase", deny_unknown_fields)]
+pub(super) struct LauncherMoveOptions {
+    launcher_id: String,
+    direction: LauncherMoveDirection,
+}
+
+// 省略表示不修改；显式 null 和错误类型不能变成一个被忽略的补丁。
+fn present_launcher_option<'de, D, T>(deserializer: D) -> Result<Option<T>, D::Error>
+where
+    D: serde::Deserializer<'de>,
+    T: Deserialize<'de>,
+{
+    T::deserialize(deserializer).map(Some)
+}
+
+fn normalized_launcher_label(value: &str) -> Result<String, String> {
+    if value.chars().any(|character| character.is_control()
+        || matches!(character, '\u{061c}' | '\u{200e}'..='\u{200f}'
+            | '\u{202a}'..='\u{202e}' | '\u{2066}'..='\u{2069}')) {
+        return Err("应用名称不能包含控制字符或双向文字控制字符。".into());
+    }
+    let trimmed = value.trim();
+    if trimmed.is_empty() || trimmed.chars().count() > 80 {
+        return Err("应用名称去除首尾空格后须为1至80个字符。".into());
+    }
+    Ok(trimmed.to_owned())
+}
+
 impl Launcher {
     fn summary(&self) -> LauncherSummary {
         LauncherSummary {
@@ -349,7 +396,8 @@ pub(super) fn settings_pause(settings: &Value) -> Option<&'static str> {
             .as_str()
             .and_then(|value| chrono::NaiveTime::parse_from_str(value, "%H:%M").ok())
     };
-    let now = chrono::Utc::now()
+    let reading = crate::budget_clock::now();
+    let now = reading.utc
         .with_timezone(&chrono::FixedOffset::east_opt(8 * 3600).unwrap())
         .time();
     let scheduled = match (parse("dndStart"), parse("dndEnd")) {
@@ -357,7 +405,11 @@ pub(super) fn settings_pause(settings: &Value) -> Option<&'static str> {
         (Some(start), Some(end)) if start > end => now >= start || now < end,
         _ => false,
     };
-    if settings["doNotDisturb"].as_bool().unwrap_or(false) || scheduled {
+    let temporary = &settings["temporaryDoNotDisturb"];
+    // 投影不会逐帧重写；用单调截止时间判断到期，非法活动许可保持暂停。
+    let temporary_active = temporary["active"].as_bool() == Some(true)
+        && temporary["deadlineMonoMs"].as_u64().is_none_or(|deadline| reading.mono_ms < deadline);
+    if settings["doNotDisturb"].as_bool().unwrap_or(false) || scheduled || temporary_active {
         Some("doNotDisturb")
     } else {
         None
@@ -431,7 +483,7 @@ impl Companion {
                     roaming: false,
                     work_apps: cfg!(windows) && registry_ok,
                     launchers: cfg!(windows) && registry_ok,
-                    file_drop: false,
+                    file_drop: cfg!(windows) && registry_ok,
                     window_edges: false,
                 },
             },
@@ -524,7 +576,7 @@ impl Companion {
             RoamingContext {
                 available: cfg!(windows)
                     && roaming.available
-                    && settings["idleRoamingEnabled"].as_bool().unwrap_or(true),
+                    && settings["idleRoamingEnabled"].as_bool().unwrap_or(false),
                 direction: roaming.direction,
             },
         );
@@ -658,8 +710,10 @@ impl Companion {
             .and_then(|value| value.to_str())
             .unwrap_or("应用")
             .chars()
+            .map(|character| if character.is_control() || matches!(character, '\u{061c}' | '\u{200e}' | '\u{200f}' | '\u{202a}'..='\u{202e}' | '\u{2066}'..='\u{2069}') { '\u{fffd}' } else { character })
             .take(80)
-            .collect();
+            .collect::<String>();
+        let label = if label.trim().is_empty() { "应用".to_owned() } else { label.trim().to_owned() };
         let entry = Launcher {
             id: uuid::Uuid::new_v4().to_string(),
             label,
@@ -689,6 +743,46 @@ impl Companion {
         self.app_sample_at = None;
         Ok(())
     }
+    pub(super) fn update(&mut self, options: LauncherUpdateOptions) -> Result<LauncherSummary, String> {
+        self.registry_ready()?;
+        if options.label.is_none() && options.work_app_enabled.is_none() {
+            return Err("请至少修改应用名称或工作陪伴设置。".into());
+        }
+        let index = self.entries.iter().position(|entry| entry.id == options.launcher_id)
+            .ok_or("启动项已不存在，请刷新列表。")?;
+        let label = options.label.as_deref().map(normalized_launcher_label).transpose()?;
+        let mut updated = self.entries.clone();
+        if let Some(label) = label { updated[index].label = label; }
+        if let Some(enabled) = options.work_app_enabled { updated[index].work_app_enabled = enabled; }
+        if updated[index].label == self.entries[index].label
+            && updated[index].work_app_enabled == self.entries[index].work_app_enabled {
+            return Ok(self.entries[index].summary());
+        }
+        // 保存完成后才发布内存数据；失败时保留旧列表和正在使用的采样。
+        self.persist(&updated)?;
+        self.entries = updated;
+        self.app_sample_at = None;
+        self.active_app = None;
+        Ok(self.entries[index].summary())
+    }
+    pub(super) fn move_launcher(&mut self, options: LauncherMoveOptions) -> Result<(), String> {
+        self.registry_ready()?;
+        let index = self.entries.iter().position(|entry| entry.id == options.launcher_id)
+            .ok_or("启动项已不存在，请刷新列表。")?;
+        let adjacent = match options.direction {
+            LauncherMoveDirection::Up => index.checked_sub(1),
+            LauncherMoveDirection::Down => index.checked_add(1).filter(|next| *next < self.entries.len()),
+        };
+        let Some(adjacent) = adjacent else { return Ok(()); };
+        // 调用方持有原生锁；只基于最新列表交换相邻项，不接收客户端完整列表。
+        let mut updated = self.entries.clone();
+        updated.swap(index, adjacent);
+        self.persist(&updated)?;
+        self.entries = updated;
+        self.app_sample_at = None;
+        self.active_app = None;
+        Ok(())
+    }
     pub(super) fn target(&self, id: &str) -> Result<PathBuf, String> {
         self.registry_ready()?;
         self.entries
@@ -698,6 +792,10 @@ impl Companion {
             .ok_or_else(|| "启动项已不存在，请刷新列表。".into())
     }
 }
+
+#[cfg(test)]
+#[path = "launcher_management_tests.rs"]
+mod launcher_management_tests;
 
 pub(super) fn launch_selected(path: &Path) -> Result<(), String> {
     if !executable_path(path) || !path.is_file() {

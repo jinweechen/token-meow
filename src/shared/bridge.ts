@@ -95,6 +95,10 @@ export const chooseCompanionLauncher = () =>
   invoke<CompanionLauncher | null>("choose_companion_launcher");
 export const removeCompanionLauncher = (launcherId: string) =>
   invoke("remove_companion_launcher", { options: { launcherId } });
+export const updateCompanionLauncher = (options: { launcherId: string; label?: string; workAppEnabled?: boolean }) =>
+  invoke<CompanionLauncher>("update_companion_launcher", { options });
+export const moveCompanionLauncher = (launcherId: string, direction: "up" | "down") =>
+  invoke<void>("move_companion_launcher", { options: { launcherId, direction } });
 export const launchCompanionApp = (launcherId: string) =>
   invoke<{ accepted: boolean }>("launch_companion_app", {
     options: { launcherId },

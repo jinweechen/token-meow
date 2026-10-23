@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react";
-import { invoke } from "@tauri-apps/api/core";
-import { isDesktop } from "../../shared/bridge";
 import { AnimationClipRegistry } from "./animationClipRegistry";
 import { builtinAnimationClips, builtinAnimationFrames, builtinAnimationSources } from "./builtinAnimationSkin";
 import { useAnimationClip } from "./useAnimationClip";
+import { useAnimationPreviewEnvironment } from "./useAnimationPreviewEnvironment";
 import "./builtinAnimationPreview.css";
 
 const labels: Record<string, string> = {
@@ -19,60 +18,19 @@ function PreviewPlayer({ reducedMotion }: { reducedMotion: boolean }) {
   const [phase, setPhase] = useState<"static" | "playing" | "complete" | "error">("static");
   const [generation, setGeneration] = useState(0);
   const [imageFailed, setImageFailed] = useState(false);
-  const [visible, setVisible] = useState(!document.hidden);
-  const [nativeVisible, setNativeVisible] = useState(true);
-  const [runtimePaused, setRuntimePaused] = useState(isDesktop);
-  const [systemReduced, setSystemReduced] = useState(() => window.matchMedia("(prefers-reduced-motion: reduce)").matches);
+  const { visible, runtimePaused, staticOnly } = useAnimationPreviewEnvironment(reducedMotion);
   useEffect(() => {
     const owner = new AnimationClipRegistry(builtinAnimationFrames, builtinAnimationSources, builtinAnimationClips);
     setRegistry(owner);
     return () => owner.dispose();
   }, []);
-  useEffect(() => {
-    let live = true;
-    let runtimeRevision = 0;
-    let visibilityRevision = 0;
-    const change = () => setVisible(!document.hidden);
-    const media = window.matchMedia("(prefers-reduced-motion: reduce)");
-    const preference = () => setSystemReduced(media.matches);
-    const nativeVisibility = (event: Event) => {
-      visibilityRevision++;
-      const detail = (event as CustomEvent).detail;
-      setNativeVisible(typeof detail === "boolean" ? detail : detail?.visible !== false);
-    };
-    const runtime = (event: Event) => {
-      runtimeRevision++;
-      setRuntimePaused((event as CustomEvent).detail?.paused === true);
-    };
-    document.addEventListener("visibilitychange", change);
-    media.addEventListener("change", preference);
-    window.addEventListener("view-visibility", nativeVisibility);
-    window.addEventListener("desktop-runtime-state", runtime);
-    if (isDesktop) {
-      const requestedRevision = runtimeRevision;
-      const requestedVisibility = visibilityRevision;
-      void invoke<{ runtime?: { paused?: boolean }; windows?: { main?: { visible?: boolean } } }>("desktop_metrics").then((value) => {
-        if (!live) return;
-        if (requestedRevision === runtimeRevision) setRuntimePaused(value.runtime?.paused !== false);
-        if (requestedVisibility === visibilityRevision) setNativeVisible(value.windows?.main?.visible !== false);
-      }).catch(() => { /* Native admission remains conservative until a fresh runtime event. */ });
-    }
-    return () => {
-      live = false;
-      document.removeEventListener("visibilitychange", change);
-      media.removeEventListener("change", preference);
-      window.removeEventListener("view-visibility", nativeVisibility);
-      window.removeEventListener("desktop-runtime-state", runtime);
-    };
-  }, []);
-  const staticOnly = reducedMotion || systemReduced;
   const playing = phase === "playing" || phase === "complete";
   const sprite = useAnimationClip(clip, playing && !staticOnly,
-    !!registry && visible && nativeVisible && !runtimePaused && !imageFailed && phase !== "error",
+    !!registry && visible && !runtimePaused && !imageFailed && phase !== "error",
     `builtin-preview:${generation}`, true, null, undefined, registry ?? undefined);
   useEffect(() => {
-    if (!visible || !nativeVisible || runtimePaused || staticOnly) setPhase("static");
-  }, [visible, nativeVisible, runtimePaused, staticOnly]);
+    if (!visible || runtimePaused || staticOnly) setPhase("static");
+  }, [visible, runtimePaused, staticOnly]);
   useEffect(() => {
     if (!sprite?.current) return;
     if (sprite.error) setPhase("error");
@@ -90,6 +48,8 @@ function PreviewPlayer({ reducedMotion }: { reducedMotion: boolean }) {
       }}>{builtinAnimationClips.map((item) => <option key={item.id} value={item.id}>{labels[item.id] ?? item.id}</option>)}</select></label>
       <button type="button" className="button secondary" onClick={replay} disabled={staticOnly || runtimePaused}>播放一次</button>
       <button type="button" className="button secondary" onClick={() => setPhase("static")} disabled={!playing}>静态预览</button>
+      {(phase === "error" || sprite?.error || imageFailed) && <button type="button" className="button secondary" disabled={!visible || runtimePaused}
+        onClick={() => { setImageFailed(false); setPhase("static"); setGeneration((value) => value + 1); }}>重新加载静态预览</button>}
     </div>
     <div className="builtin-animation-stage" data-builtin-preview-clip={clip}>
       {sprite?.current && sprite.url && !sprite.error && !imageFailed

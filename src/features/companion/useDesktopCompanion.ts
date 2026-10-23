@@ -9,6 +9,7 @@ export function companionError(error: unknown) {
 }
 export function useDesktopCompanion() {
   const [state, setState] = useState<DesktopCompanionState | null>(null);
+  const [motionExpired, setMotionExpired] = useState(false);
   const [error, setError] = useState<string | null>(null);
   useEffect(() => {
     if (!bridge.isDesktop) return;
@@ -22,7 +23,7 @@ export function useDesktopCompanion() {
       if (!live) return;
       if (expiry !== undefined) { window.clearTimeout(expiry); expiry = undefined; }
       const value = reader.state();
-      if (!value) { setState(null); return; }
+      if (!value) { setState(null); setMotionExpired(false); return; }
       const now = performance.now();
       motion.observe(value, now);
       const lease = motion.read(now);
@@ -30,6 +31,7 @@ export function useDesktopCompanion() {
       const matchingLease = lease?.runtimeEpoch === value.runtimeEpoch &&
         lease.motionGeneration === value.motionGeneration && lease.phase === value.phase ? lease : null;
       setState(active && !matchingLease ? null : value);
+      setMotionExpired(active && !matchingLease && motion.naturallyExpired(value));
       if (active && matchingLease) expiry = window.setTimeout(() => {
         expiry = undefined;
         motion.read(performance.now());
@@ -79,7 +81,7 @@ export function useDesktopCompanion() {
       window.removeEventListener("pagehide", invalidateMotion);
     };
   }, []);
-  return { state, error };
+  return { state, error, motionExpired };
 }
 
 /** Requested only while settings/menu is mounted; no polling or executable paths. */
@@ -89,24 +91,35 @@ export function useCompanionLaunchers(enabled: boolean) {
   const [pending, setPending] = useState(false);
   const refreshRef = useRef<(() => Promise<void>) | null>(null);
   const liveRef = useRef(false);
+  const mountedRef = useRef(false);
+  const epochRef = useRef(0);
   const busyRef = useRef(false);
   useEffect(() => {
-    if (!bridge.isDesktop || !enabled) { setLaunchers([]); return; }
-    let live = true, running = false, again = false;
+    mountedRef.current = true;
+    return () => { mountedRef.current = false; };
+  }, []);
+  useEffect(() => {
+    const epoch = ++epochRef.current;
+    setPending(busyRef.current);
+    if (!bridge.isDesktop || !enabled) { liveRef.current = false; setLaunchers([]); setError(null); return; }
+    let live = true, again = false;
+    let reading: Promise<void> | undefined;
     liveRef.current = true;
     let remove: (() => void) | undefined;
-    const refresh = async () => {
-      if (!live) return;
-      if (running) { again = true; return; }
-      running = true;
-      try {
-        const apps = await bridge.listCompanionLaunchers();
-        if (live) { setLaunchers(apps); setError(null); }
-      } catch (cause) { if (live) setError(companionError(cause)); }
-      finally {
-        running = false;
-        if (live && again) { again = false; void refresh(); }
-      }
+    const refresh = (): Promise<void> => {
+      if (!live) return Promise.resolve();
+      if (reading) { again = true; return reading; }
+      // 保存和事件刷新共用读取承诺；补读完成前不能用旧开关值开始下一次修改。
+      reading = (async () => {
+        do {
+          again = false;
+          try {
+            const apps = await bridge.listCompanionLaunchers();
+            if (live) { setLaunchers(apps); setError(null); }
+          } catch (cause) { if (live) setError(companionError(cause)); }
+        } while (live && again);
+      })().finally(() => { reading = undefined; });
+      return reading;
     };
     refreshRef.current = refresh;
     void listen("companion-launchers-changed", () => { void refresh(); }).then((unsubscribe) => {
@@ -114,6 +127,7 @@ export function useCompanionLaunchers(enabled: boolean) {
     }).catch((cause) => { if (live) setError(companionError(cause)); });
     return () => {
       live = false; liveRef.current = false;
+      if (epochRef.current === epoch) ++epochRef.current;
       if (refreshRef.current === refresh) refreshRef.current = null;
       remove?.();
     };
@@ -121,19 +135,21 @@ export function useCompanionLaunchers(enabled: boolean) {
   const perform = useCallback(async (operation: () => Promise<unknown>) => {
     if (!bridge.isDesktop || !enabled || busyRef.current) return false;
     busyRef.current = true;
+    const epoch = epochRef.current;
     setPending(true);
     try {
       const result = await operation();
+      if (!liveRef.current || epoch !== epochRef.current) return false;
       if (result && typeof result === "object" && "accepted" in result && result.accepted !== true)
         throw new Error("应用未接受这次打开请求");
       await refreshRef.current?.();
-      return true;
+      return liveRef.current && epoch === epochRef.current;
     } catch (cause) {
-      if (liveRef.current) setError(companionError(cause));
+      if (liveRef.current && epoch === epochRef.current) setError(companionError(cause));
       return false;
     } finally {
       busyRef.current = false;
-      if (liveRef.current) setPending(false);
+      if (mountedRef.current) setPending(false);
     }
   }, [enabled]);
   return { launchers, pending, error, perform };

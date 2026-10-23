@@ -3,6 +3,10 @@ use super::reader::Context;
 use super::*;
 use serde::{Deserialize, Serialize};
 use std::collections::BTreeMap;
+#[path = "adapter_claude.rs"]
+mod claude;
+#[path = "adapter_gemini.rs"]
+mod gemini;
 
 pub const SEMANTICS: &str = "codex-native-0.147-v1";
 #[derive(Clone, Debug, Serialize, Deserialize, PartialEq)]
@@ -183,6 +187,9 @@ pub trait SourceAdapter: Sync {
     fn client_kind(&self) -> &'static str;
     fn capabilities(&self) -> Value;
     fn normalize(&self, observation: &Observation) -> Result<Vec<StandardEvent>>;
+    fn parse_line(&self, bytes: &[u8]) -> Result<Value> { serde_json::from_slice(bytes).map_err(err) }
+    fn is_json_snapshot(&self, _path: &Path) -> bool { false }
+    fn snapshot_records(&self, _reader: &mut dyn std::io::Read) -> Result<Vec<Value>> { Err("此来源不支持整体 JSON 快照。".into()) }
     fn allows_revisions(&self) -> bool {
         false
     }
@@ -274,11 +281,18 @@ pub trait SourceAdapter: Sync {
                 _ => None,
             })
     }
+    fn fact_reference_with_context(&self, observation: &Observation, _state: &Context) -> Option<String> {
+        self.fact_reference(observation)
+    }
 }
 static CODEX: CodexAdapter = CodexAdapter;
+static CLAUDE: claude::ClaudeAdapter = claude::ClaudeAdapter;
+static GEMINI: gemini::GeminiAdapter = gemini::GeminiAdapter;
 pub fn adapter_for(client_kind: &str) -> Option<&'static dyn SourceAdapter> {
     match client_kind {
         "codex" => Some(&CODEX),
+        "claude" => Some(&CLAUDE),
+        "gemini" => Some(&GEMINI),
         _ => None,
     }
 }
@@ -1286,6 +1300,7 @@ pub(super) fn ingest(
             "event_msg",
             "response_item",
             "token_usage_record",
+            "compacted",
         ]
         .contains(&kind.as_str())
         {
@@ -1313,6 +1328,7 @@ pub(super) fn ingest(
                 .unwrap_or(false)
         })
         .unwrap_or(true);
+    super::queries::observed_insights::ingest_metadata(db, source, &time, v, ctx, within)?;
     if kind == "session_meta" {
         let id = strv(p, "id");
         if id.is_empty() {
@@ -1367,6 +1383,9 @@ pub(super) fn ingest(
             t["modelSource"] = json!("turn_context");
         }
         t["lastEventAt"] = json!(time);
+        t["reasoningEffort"] = json!(super::queries::observed_insights::safe_text(&p["effort"],512)
+            .or_else(||super::queries::observed_insights::safe_text(&p["reasoning_effort"],512)));
+        t["serviceTier"] = json!(super::queries::observed_insights::safe_text(&p["service_tier"],512));
         save_turn(db, &id, &t, &time)?;
         return Ok(0);
     }

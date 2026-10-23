@@ -17,15 +17,19 @@
     "tauri": "tauri"
   },
   "dependencies": {
+    "@pixiv/three-vrm": "3.5.5",
     "@tauri-apps/api": "2.11.1",
+    "@use-gesture/react": "10.3.1",
     "react": "19.2.0",
-    "react-dom": "19.2.0"
+    "react-dom": "19.2.0",
+    "three": "0.180.0"
   },
   "devDependencies": {
     "@tauri-apps/cli": "2.12.3",
     "@types/node": "24.7.2",
     "@types/react": "19.2.2",
     "@types/react-dom": "19.2.2",
+    "@types/three": "0.180.0",
     "@vitejs/plugin-react": "5.0.4",
     "tsx": "4.20.6",
     "typescript": "5.9.3",

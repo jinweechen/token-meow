@@ -769,32 +769,57 @@ fn pet_details_trust_cache_latest_null_and_scope_rejection_keep_snapshot_semanti
 #[test]
 fn pet_v5_backfill_preserves_inbox_and_last_ddl_failure_rolls_back_and_recovers() {
     for collide in [false, true] {
-        let mut r = Rig::new();
+        let tmp = tempfile::tempdir().unwrap();
+        let data = tmp.path().join("pet");
+        let source = tmp.path().join("source");
+        fs::create_dir_all(&data).unwrap();
+        fs::create_dir_all(&source).unwrap();
+        let db = Connection::open(data.join("ledger.sqlite3")).unwrap();
+        // 直接执行真实 v1～v4 迁移，不能从当前版本伪降级而残留后续表、列或索引。
+        for migration in [
+            include_str!("../../migrations/001_initial.sql"),
+            include_str!("../../migrations/002_multi_source.sql"),
+            include_str!("../../migrations/003_fact_references.sql"),
+            include_str!("../../migrations/004_usage_lookup_index.sql"),
+        ] {
+            db.execute_batch(migration).unwrap();
+        }
         let time = at();
-        inbox(&r.core, "old-one", &iso(time), "unknown", "completion");
-        inbox(&r.core, "old-two", &iso(time), "completed", "completion");
-        let original: Vec<String> = r
-            .core
-            .db
+        db.execute(
+            "INSERT INTO source_instances(id,root,created_at) VALUES('pet-v4-source',?1,?2)",
+            params![source.to_string_lossy(), iso(time)],
+        )
+        .unwrap();
+        for (id, status) in [("old-one", "unknown"), ("old-two", "completed")] {
+            let value = json!({"id":id,"sourceId":"pet-v4-source","threadId":"thread","turnId":id,
+                "kind":"completion","status":status,"createdAt":iso(time),"read":false,
+                "eligibleRuntime":"pet-v4-runtime","notifyEligible":true,"animationAcknowledged":false,
+                "notified":false,"notificationState":"pending"});
+            db.execute("INSERT INTO inbox_events(id,thread_id,turn_id,event_time,data) VALUES(?1,'thread',?1,?2,?3)",
+                params![id,iso(time),value.to_string()]).unwrap();
+        }
+        let original: Vec<String> = db
             .prepare("SELECT data FROM inbox_events ORDER BY id")
             .unwrap()
             .query_map([], |row| row.get(0))
             .unwrap()
             .collect::<std::result::Result<_, _>>()
             .unwrap();
-        // Construct a genuine pre-v5 fixture: remove v6-only DDL as well as the feed.
-        // Otherwise a successful 005 followed by 006 would collide with indexes
-        // left over from Rig's fresh current schema rather than test v5 backfill.
-        r.core.db.execute_batch("DROP INDEX legacy_usage_event_time; DROP INDEX usage_aggregate_event_time; DROP INDEX context_snapshot_event_time; DROP INDEX timing_observation_event_time; DROP INDEX fact_observation_event_time; DROP TRIGGER pet_inbox_feed_after_insert; DROP TABLE pet_inbox_feed; PRAGMA user_version=4;").unwrap();
+        assert_eq!(
+            db.query_row("PRAGMA user_version", [], |row| row.get::<_, i64>(0)).unwrap(),
+            4
+        );
+        assert_eq!(db.query_row("SELECT COUNT(*) FROM sqlite_schema WHERE name IN ('pet_inbox_feed','quota_calibrations','usage_plans','plan_period_state','local_schedule_templates','local_schedule_instances','local_manual_consumption')", [], |row|row.get::<_,i64>(0)).unwrap(), 0);
+        assert_eq!(db.query_row("SELECT COUNT(*) FROM pragma_table_info('source_instances') WHERE name='configuration_revision'", [], |row|row.get::<_,i64>(0)).unwrap(), 0);
         if collide {
-            r.core.db.execute_batch("CREATE TRIGGER pet_inbox_feed_after_insert AFTER INSERT ON source_instances BEGIN SELECT 1; END;").unwrap();
+            db.execute_batch("CREATE TRIGGER pet_inbox_feed_after_insert AFTER INSERT ON source_instances BEGIN SELECT 1; END;").unwrap();
         }
-        r.core.shutdown().unwrap();
-        drop(r.core);
-        let opened = Core::open(&r.data, &r.source);
+        db.execute_batch("PRAGMA wal_checkpoint(TRUNCATE);").unwrap();
+        drop(db);
+        let opened = Core::open(&data, &source);
         if collide {
             assert!(opened.is_err());
-            let old = Connection::open(r.data.join("ledger.sqlite3")).unwrap();
+            let old = Connection::open(data.join("ledger.sqlite3")).unwrap();
             assert_eq!(
                 old.query_row("PRAGMA user_version", [], |row| row.get::<_, i64>(0))
                     .unwrap(),
@@ -818,18 +843,20 @@ fn pet_v5_backfill_preserves_inbox_and_last_ddl_failure_rolls_back_and_recovers(
                 .collect::<std::result::Result<_, _>>()
                 .unwrap();
             assert_eq!(rows, original);
+            assert_eq!(old.query_row("SELECT COUNT(*) FROM sqlite_schema WHERE name IN ('quota_calibrations','usage_plans','plan_period_state','local_schedule_templates','local_schedule_instances','local_manual_consumption')", [], |row|row.get::<_,i64>(0)).unwrap(), 0);
+            assert_eq!(old.query_row("SELECT COUNT(*) FROM pragma_table_info('source_instances') WHERE name='configuration_revision'", [], |row|row.get::<_,i64>(0)).unwrap(), 0);
             drop(old);
-            let backup = fs::read_dir(&r.data)
+            let backup = fs::read_dir(&data)
                 .unwrap()
                 .map(|e| e.unwrap().path())
                 .find(|p| {
                     p.file_name()
                         .unwrap()
                         .to_string_lossy()
-                        .starts_with("ledger-before-v6-")
+                        .starts_with("ledger-before-v9-")
                 })
                 .unwrap();
-            let recovery = r.data.with_file_name("recovery");
+            let recovery = data.with_file_name("recovery");
             fs::create_dir(&recovery).unwrap();
             fs::copy(backup, recovery.join("ledger.sqlite3")).unwrap();
             let backup = Connection::open(recovery.join("ledger.sqlite3")).unwrap();
@@ -839,12 +866,16 @@ fn pet_v5_backfill_preserves_inbox_and_last_ddl_failure_rolls_back_and_recovers(
                     .unwrap(),
                 "ok"
             );
+            assert_eq!(backup.query_row("PRAGMA user_version", [], |row|row.get::<_,i64>(0)).unwrap(), 4);
             backup
                 .execute_batch("DROP TRIGGER pet_inbox_feed_after_insert;")
                 .unwrap();
             drop(backup);
-            let recovered = Core::open(&recovery, &r.source).unwrap();
+            let recovered = Core::open(&recovery, &source).unwrap();
             assert_eq!(feed_high_watermark(&recovered).unwrap(), 2);
+            let rows: Vec<String> = recovered.db.prepare("SELECT data FROM inbox_events ORDER BY id").unwrap()
+                .query_map([], |row|row.get(0)).unwrap().collect::<std::result::Result<_,_>>().unwrap();
+            assert_eq!(rows, original);
         } else {
             let mut core = opened.unwrap();
             assert_eq!(feed_high_watermark(&core).unwrap(), 2);
@@ -867,7 +898,7 @@ fn pet_v5_backfill_preserves_inbox_and_last_ddl_failure_rolls_back_and_recovers(
             assert_eq!(feed_high_watermark(&core).unwrap(), 3);
             core.shutdown().unwrap();
             drop(core);
-            let reopened = Core::open(&r.data, &r.source).unwrap();
+            let reopened = Core::open(&data, &source).unwrap();
             assert_eq!(feed_high_watermark(&reopened).unwrap(), 3);
         }
     }

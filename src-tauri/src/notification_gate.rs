@@ -101,9 +101,18 @@ pub(crate) struct QueuedNotification {
     pub(crate) event: Value,
     pub(crate) permit: Option<NotificationPermit>,
 }
+/// Completion has its existing delivery semantics. Every other reminder domain
+/// must supply an explicit live permit, including newly introduced plan kinds.
+pub(crate) fn requires_domain_permit(event: &Value) -> bool {
+    event["kind"] != "completion"
+}
 impl QueuedNotification {
     fn current_at(&self, at: &Reading) -> bool {
-        self.event["kind"] != "budget" || self.permit.as_ref().is_some_and(|permit| permit.is_current_at(at))
+        match &self.permit {
+            // 完成提醒也可带宿主守卫；免打扰往返后不能复活队列里的旧提醒。
+            Some(permit) => permit.is_current_at(at),
+            None => !requires_domain_permit(&self.event),
+        }
     }
     fn id(&self) -> Option<String> { self.event["id"].as_str().map(str::to_owned) }
 }
@@ -154,8 +163,8 @@ pub(crate) struct Delivery {
     pub(crate) error: Option<String>,
 }
 
-/// Preparation may call COM and take time. Revalidate after it, rebuild only when
-/// at least one stale budget was removed, and keep unrelated completions intact.
+/// 准备阶段可能等待 COM；完成后重新校验所有守卫。
+/// 移除失效提醒后重建剩余批次，保留没有守卫的完成提醒兼容行为。
 pub(crate) fn deliver_batch<P>(
     events: &[QueuedNotification],
     mut prepare: impl FnMut(&[QueuedNotification]) -> Result<P, String>,

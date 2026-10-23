@@ -1,5 +1,24 @@
 import assert from "node:assert/strict";
 import test from "node:test";
+import { PET_REACTIONS } from "../features/pet/poseController";
+
+test("三种轻互动共用冷却和事实准入，未知动作与迟到播放回调不能覆盖当前姿态", () => {
+  const poses = new PoseController({ idle: [], tap: [7, 9, 8] }, () => 1800, true);
+  assert.equal(poses.tap(true, 0, "unknown"), false);
+  let now = 0;
+  for (const reaction of PET_REACTIONS) {
+    assert.equal(poses.tap(true, now, reaction.id), true);
+    assert.deepEqual(poses.tick(true, now), { kind: "tap", frame: reaction.frame });
+    const instance = poses.playbackKey()!;
+    assert.equal(poses.tap(true, now + 100, "wink"), false);
+    poses.interrupt();
+    poses.startPlayback(instance, now + 200);
+    assert.equal(poses.tick(true, now + 200, false), null);
+    now += 3000;
+  }
+  assert.equal(poses.tap(false, now, "affection"), false);
+  assert.equal(poses.tick(true, now, false), null);
+});
 import { allowsCompanionPose, PoseController, POSE_LIMITS } from "../features/pet/poseController";
 import type { DesktopCompanionState } from "./desktopCompanion";
 
@@ -92,4 +111,7 @@ test("native expiry permits completion while input, pause and authority loss sto
     { ...state, capabilities: { ...state.capabilities, systemIdle: false } }])
     assert.equal(allowsCompanionPose(value), false);
   assert.equal(allowsCompanionPose(state, false), false);
+  assert.equal(allowsCompanionPose(null, true, true), true);
+  assert.equal(allowsCompanionPose(null, false, true), false);
+  assert.equal(allowsCompanionPose({ ...state, phase: "paused" }, true, true), false);
 });

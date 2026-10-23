@@ -5,6 +5,9 @@ use std::collections::{BTreeMap, BTreeSet};
 #[path = "usage_dashboard.rs"]
 mod usage_dashboard;
 
+#[path = "observed_insights.rs"]
+pub(super) mod observed_insights;
+
 #[path = "budget.rs"]
 pub(super) mod budget;
 
@@ -147,9 +150,9 @@ pub(super) fn source_rows(core: &Core) -> Result<Vec<Value>> {
 fn source_rows_read(core: &QueryReadContext<'_>) -> Result<Vec<Value>> {
     let mut s = core
         .db
-        .prepare("SELECT id,root,client_kind,enabled,environment,created_at FROM source_instances")
+        .prepare("SELECT id,root,client_kind,enabled,environment,created_at,configuration_revision FROM source_instances")
         .map_err(err)?;
-    let mut sources=s.query_map([],|r|Ok(json!({"id":r.get::<_,String>(0)?,"root":r.get::<_,String>(1)?,"clientKind":r.get::<_,String>(2)?,"enabled":r.get::<_,bool>(3)?,"environment":r.get::<_,String>(4)?,"createdAt":r.get::<_,String>(5)?}))).map_err(err)?.collect::<std::result::Result<Vec<_>,_>>().map_err(err)?;
+    let mut sources=s.query_map([],|r|Ok(json!({"id":r.get::<_,String>(0)?,"root":r.get::<_,String>(1)?,"clientKind":r.get::<_,String>(2)?,"enabled":r.get::<_,bool>(3)?,"environment":r.get::<_,String>(4)?,"createdAt":r.get::<_,String>(5)?,"configurationRevision":r.get::<_,i64>(6)?.to_string()}))).map_err(err)?.collect::<std::result::Result<Vec<_>,_>>().map_err(err)?;
     for source in &mut sources {
         let id = strv(source, "id");
         source["primary"] = json!(id == core.source_id);
@@ -217,6 +220,11 @@ fn for_each_json_value(
 }
 fn load(core: &Core, q: &Value) -> Result<Loaded> {
     load_read(&core.query_read_context(), q)
+}
+// Reuse alias, conflict, semantics and metered-subset rules for subscription plans.
+// Response-model plans never fall back to a requested model.
+pub(super) fn subscription_responses(core: &Core) -> Result<Vec<ResponseUsage>> {
+    Ok(load(core, &json!({}))?.responses)
 }
 fn load_read(core: &QueryReadContext<'_>, q: &Value) -> Result<Loaded> {
     agent_kind::validate_query(q)?;
@@ -481,6 +489,20 @@ fn scoped(
     metadata: &BTreeMap<String, Value>,
     sources: &[Value],
 ) -> bool {
+    scoped_with_provider(q, source, thread, turn, explicit_model, None, sessions, metadata, sources)
+}
+// 配置事件可独立于回合存在，显式供应商不能被缺失的回合元数据覆盖。
+fn scoped_with_provider(
+    q: &Value,
+    source: &str,
+    thread: &str,
+    turn: &str,
+    explicit_model: Option<&str>,
+    explicit_provider: Option<&str>,
+    sessions: &BTreeMap<String, Value>,
+    metadata: &BTreeMap<String, Value>,
+    sources: &[Value],
+) -> bool {
     let session = sessions.get(&format!("{source}|{thread}"));
     let meta = metadata.get(&format!("{source}|{thread}|{turn}"));
     let client = sources
@@ -509,7 +531,7 @@ fn scoped(
         && matches(
             q,
             "providerId",
-            meta.and_then(|m| m["providerId"].as_str())
+            explicit_provider.or_else(|| meta.and_then(|m| m["providerId"].as_str()))
                 .unwrap_or("unknown"),
         )
         && matches(
@@ -1223,6 +1245,7 @@ pub(super) fn apply_retention(core: &mut Core) -> Result<()> {
     put_setting(&tx, "retentionWatermark", &json!(cutoff))?;
     tx.commit().map_err(err)?;
     if budget_facts_removed { core.budget_observer.invalidate(); }
+    core.retain_subscription_observations()?;
     Ok(())
 }
 fn csv_cell(value: &str) -> String {

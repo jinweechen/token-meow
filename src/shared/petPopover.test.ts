@@ -65,6 +65,27 @@ const settle = async () => {
   await Promise.resolve();
 };
 
+test("窗口动作等原生关闭完成，重开或关闭失败不能启动旧动作", async () => {
+  const pending: { value: { active: boolean; revision: number }; resolve: (value: { active: boolean; revision: number }) => void }[] = [];
+  const fixture = setup({ interaction: value => new Promise(resolve => pending.push({ value, resolve })) });
+  fixture.controller.toggle("menu");
+  let finished = false;
+  const closed = fixture.controller.closeForAction().then(value => { finished = true; return value; });
+  await settle();
+  assert.equal(finished, false);
+  pending[1].resolve(pending[1].value);
+  assert.equal(await closed, true);
+  fixture.controller.toggle("menu");
+  const superseded = fixture.controller.closeForAction();
+  fixture.controller.toggle("card");
+  pending[3].resolve(pending[3].value);
+  assert.equal(await superseded, false);
+  const denied = fixture.controller.closeForAction();
+  pending[5].resolve({ ...pending[5].value, active: true });
+  assert.equal(await denied, false);
+  fixture.controller.dispose();
+});
+
 test("production popover focus lease closes on native desktop blur and rejects stale dismissals", async () => {
   const fixture = setup();
   await settle();

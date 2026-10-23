@@ -17,6 +17,12 @@ pub(super) struct Readiness {
     pub gait_available: bool,
     pub gait_ready: bool,
 }
+impl Readiness {
+    /// 前端状态不能打开未授权的原生扩展入口。
+    pub fn restrict_to_feature(self, enabled: bool) -> Self {
+        if enabled { self } else { Self { ready: false, gait_available: false, gait_ready: false } }
+    }
+}
 
 #[derive(Default)]
 pub(super) struct PermissionLease {
@@ -219,6 +225,19 @@ impl PositionProvenance {
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    #[test]
+    fn renderer_flags_cannot_open_a_closed_native_feature() {
+        let ready = Readiness { ready: true, gait_available: true, gait_ready: true };
+        assert_eq!(ready.restrict_to_feature(true), ready);
+        let closed = ready.restrict_to_feature(false);
+        assert_eq!(closed, Readiness { ready: false, gait_available: false, gait_ready: false });
+        let mut lease = PermissionLease::default();
+        lease.register("renderer".into(), "token".into(), Duration::ZERO);
+        assert!(lease.accept("renderer", "token", 1, closed, Duration::ZERO));
+        assert!(!lease.feature_available());
+        assert_eq!(lease.readiness(Duration::ZERO), Some(closed));
+    }
 
     fn ms(value: u64) -> Duration { Duration::from_millis(value) }
     fn point(x: i32) -> Point { Point { x, y: -40 } }

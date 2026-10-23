@@ -34,6 +34,8 @@ export interface MotionReadinessInput {
   gaitReady: boolean;
   motionGeneration?: string | null;
   motionDirection?: "left" | "right" | null;
+  /** 原生已自然结束移动段时，只释放步态，不重置系统空闲计时。 */
+  nativeMotionPhase?: "idle" | "playing" | "moving" | "paused" | "expired";
   visible?: boolean;
   reducedMotion?: boolean;
   paused?: boolean;
@@ -104,8 +106,9 @@ export class PetMotionReadinessOwner {
     // Do not erase a queued revocation with a newly eligible frame. The next
     // existing animation tick can reacquire after the false command settles.
     if (this.revoking) return;
+    const nativeEnded = input.nativeMotionPhase === "idle" || input.nativeMotionPhase === "playing" || input.nativeMotionPhase === "expired";
     if (this.desired && ((this.desired.gaitAvailable && !flags.gaitAvailable) ||
-        (this.desired.gaitReady && !flags.gaitReady))) {
+        (this.desired.gaitReady && !flags.gaitReady && !nativeEnded))) {
       const restriction = closed(flags.gaitAvailable);
       this.desired = restriction;
       this.revoking = true;

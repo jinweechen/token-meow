@@ -297,11 +297,20 @@ impl LocalPetSkinStore {
     /// Even a damaged manifest can be removed; selected healthy skins require an
     /// explicit switch first, so removal cannot silently change the shown role.
     pub fn remove(&mut self, skin_id: &str) -> Result<PetSkinState> {
+        self.remove_checked(skin_id, false)
+    }
+
+    /// 宿主的独立选择记录已确认此 ID 未激活；损坏的旧选择文件不阻断清理。
+    pub(crate) fn remove_inactive(&mut self, skin_id: &str) -> Result<PetSkinState> {
+        self.remove_checked(skin_id, true)
+    }
+
+    fn remove_checked(&mut self, skin_id: &str, inactive: bool) -> Result<PetSkinState> {
         let _store_guards = guard_storage_directory_chain(&self.root, &self.root)?;
         if !valid_skin_id(skin_id) {
             return Err("非法本地皮肤标识".into());
         }
-        if self.state()?.selected_skin_id.as_deref() == Some(skin_id) {
+        if !inactive && self.state()?.selected_skin_id.as_deref() == Some(skin_id) {
             return Err("请先切换到内置或其它皮肤，再移除此皮肤".into());
         }
         let path = self.root.join(skin_id);
@@ -798,7 +807,7 @@ fn json_error(error: serde_json::Error) -> String {
     format!("本地皮肤清单格式无效：{error}")
 }
 
-fn validate_absolute_local(path: &Path) -> Result<()> {
+pub(crate) fn validate_absolute_local(path: &Path) -> Result<()> {
     if !path.is_absolute()
         || path
             .components()
@@ -856,13 +865,13 @@ fn guarded_open(path: &Path, directory: bool, owned_directory_write_share: bool)
     }
     Ok(file)
 }
-fn guarded_file(path: &Path) -> Result<File> {
+pub(crate) fn guarded_file(path: &Path) -> Result<File> {
     guarded_open(path, false, false)
 }
-fn guard_directory_chain(path: &Path) -> Result<Vec<File>> {
+pub(crate) fn guard_directory_chain(path: &Path) -> Result<Vec<File>> {
     guard_directory_chain_mode(path, None)
 }
-fn guard_storage_directory_chain(path: &Path, store: &Path) -> Result<Vec<File>> {
+pub(crate) fn guard_storage_directory_chain(path: &Path, store: &Path) -> Result<Vec<File>> {
     if !path.starts_with(store) {
         return Err("皮肤存储目录守卫越界".into());
     }
@@ -883,7 +892,7 @@ fn guard_directory_chain_mode(path: &Path, store: Option<&Path>) -> Result<Vec<F
         })
         .collect()
 }
-fn read_file_bounded(file: &mut File, limit: u64) -> Result<Vec<u8>> {
+pub(crate) fn read_file_bounded(file: &mut File, limit: u64) -> Result<Vec<u8>> {
     let length = file.metadata().map_err(io_error)?.len();
     if length == 0 || length > limit {
         return Err("皮肤文件大小超限或为空".into());
@@ -941,7 +950,7 @@ fn verify_roster(directory: &Path, manifest: &LocalPetSkinManifestV1) -> Result<
     }
     Ok(())
 }
-fn write_new(path: &Path, raw: &[u8]) -> Result<()> {
+pub(crate) fn write_new(path: &Path, raw: &[u8]) -> Result<()> {
     let mut file = OpenOptions::new()
         .write(true)
         .create_new(true)

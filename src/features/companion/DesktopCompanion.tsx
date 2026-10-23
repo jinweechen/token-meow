@@ -3,6 +3,7 @@ import { companionText, type CompanionCapabilities } from "../../shared/desktopC
 import * as bridge from "../../shared/bridge";
 import { Icon, Toggle } from "../../shared/UI";
 import { useCompanionLaunchers, useDesktopCompanion } from "./useDesktopCompanion";
+import { LauncherManager } from "./LauncherManager";
 
 export function CompanionSettings({ settings, save, pending }: { settings: Settings; save: (settings: Settings) => Promise<void>; pending: boolean }) {
   const companion = useDesktopCompanion();
@@ -11,7 +12,7 @@ export function CompanionSettings({ settings, save, pending }: { settings: Setti
   const native = bridge.isDesktop;
   const row = (key: "idlePlayEnabled" | "idleRoamingEnabled" | "workAppLinkEnabled", label: string, detail: string, available: boolean) => <div className="setting-row">
     <div><strong>{label}</strong><p>{detail}</p></div>
-    <Toggle label={label} checked={available && settings[key] !== false} disabled={pending || !native || !available} onChange={(value) => void save({ [key]: value })} />
+    <Toggle label={label} checked={available && (key === "idleRoamingEnabled" ? settings[key] === true : settings[key] !== false)} disabled={pending || !native || !available} onChange={(value) => void save({ [key]: value })} />
   </div>;
   return <section className="card companion-settings">
     <div className="section-heading"><h2>桌面活动与应用</h2><Icon name="sparkles" size={20} /></div>
@@ -19,9 +20,9 @@ export function CompanionSettings({ settings, save, pending }: { settings: Setti
     <p className="companion-context" role="status">{native ? companionText(companion.state, !!settings.privacyMode) : "浏览器演示预览"}</p>
     {row("idlePlayEnabled", "空闲时原地玩耍", "鼠标键盘空闲 2 分钟后，小柚会伸懒腰、做小动作；恢复操作即停。菜单、拖动、免打扰或系统暂停时保持安静。", capabilities?.systemIdle === true)}
     {capabilities?.roaming === true && <>
-      {row("idleRoamingEnabled", "空闲时走动", "空闲 2 分钟后，在选定范围内散步；恢复操作或打开菜单时立即停止。", true)}
+      {row("idleRoamingEnabled", "空闲时走动", "默认关闭。开启后，空闲 2 分钟且任务已空闲时，在选定范围内短暂散步；操作、菜单和换肤会停止移动。本地皮肤只原地播放。", true)}
       <div className="setting-row"><div><strong>走动范围</strong><p>范围按完整角色窗口计算，保持在当前屏幕工作区内。</p></div>
-        <select aria-label="走动范围" value={settings.idleRoamRange === "nearby" ? "nearby" : "workArea"} disabled={pending || !native || settings.idleRoamingEnabled === false} onChange={(event) => void save({ idleRoamRange: event.target.value === "nearby" ? "nearby" : "workArea" })}>
+        <select aria-label="走动范围" value={settings.idleRoamRange === "workArea" ? "workArea" : "nearby"} disabled={pending || !native || settings.idleRoamingEnabled !== true} onChange={(event) => void save({ idleRoamRange: event.target.value === "nearby" ? "nearby" : "workArea" })}>
           <option value="nearby">附近（左右各 160 逻辑像素）</option><option value="workArea">当前屏幕工作区</option>
         </select>
       </div>
@@ -30,10 +31,8 @@ export function CompanionSettings({ settings, save, pending }: { settings: Setti
     <div className="section-heading companion-launcher-heading"><h3>快捷启动</h3>
       <button className="button secondary small" disabled={!native || capabilities?.launchers !== true || items.pending} onClick={() => void items.perform(() => bridge.chooseCompanionLauncher())}><Icon name="plus" size={14} />添加应用</button>
     </div>
-    {items.launchers.length ? <ul className="companion-launcher-list">{items.launchers.map((app) => <li key={app.id}>
-      <div><strong>{app.label}</strong><small>{app.workAppEnabled ? "参与工作应用陪伴" : "快捷启动"}</small></div>
-      <div className="companion-actions"><button className="button secondary small" disabled={items.pending} onClick={() => void items.perform(() => bridge.launchCompanionApp(app.id))}>启动</button><button className="button secondary small" disabled={items.pending} onClick={() => void items.perform(() => bridge.removeCompanionLauncher(app.id))}>移除</button></div>
-    </li>)}</ul> : <p className="subtle-note">添加常用应用后，可从小柚的右键菜单直接启动。</p>}
+    <LauncherManager launchers={items.launchers} pending={items.pending} disabled={!native || capabilities?.launchers !== true} perform={items.perform} />
+    {native && capabilities?.fileDrop === true && <p className="subtle-note">也可以把一个 .exe 拖入此窗口，确认后加入快捷启动。把最多 8 个文件拖给桌宠，可选择登记的应用打开。</p>}
     {native && companion.state && capabilities?.launchers === false && <p className="companion-error" role="alert">快捷启动登记暂时不可用，已有记录会保留。</p>}
     {(companion.error || items.error) && <p className="companion-error" role="alert">{companion.error ?? items.error}</p>}
   </section>;

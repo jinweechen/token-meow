@@ -188,6 +188,24 @@ fn import_is_isolated_and_selection_is_explicit_and_reversible() {
 }
 
 #[test]
+fn host_confirmed_inactive_skin_can_be_removed_without_rewriting_a_broken_old_selection() {
+    let temporary = tempfile::tempdir().unwrap();
+    let source = temporary.path().join("source");
+    source_fixture(&source);
+    let data = temporary.path().join("data");
+    fs::create_dir(&data).unwrap();
+    let mut store = LocalPetSkinStore::new(&data).unwrap();
+    let package = store.import_directory(&source).unwrap();
+    let selection = data.join("local-pet-skins-v1/selection.json");
+    fs::write(&selection, b"broken selection").unwrap();
+    let state = store.remove_inactive(&package.skin_id).unwrap();
+    assert!(state.skins.is_empty());
+    assert!(!state.problems.is_empty());
+    assert_eq!(fs::read(selection).unwrap(), b"broken selection");
+    assert!(store.remove_inactive("../foreign").is_err());
+}
+
+#[test]
 fn rejects_extra_files_and_detects_installed_frame_corruption_before_select() {
     let temporary = tempfile::tempdir().unwrap();
     let source = temporary.path().join("source");

@@ -27,8 +27,12 @@ import {
 } from "./shared/format";
 import { Badge, Icon, type IconName } from "./shared/UI";
 import { UsageDashboard } from "./features/usage/UsageDashboard";
+import { SubscriptionPanel } from "./features/subscription/SubscriptionPanel";
+import { LocalSchedulePanel } from "./features/subscription/LocalSchedulePanel";
+import { MixtureStudyPanel } from "./features/subscription/MixtureStudyPanel";
 import { QueryFilters } from "./features/usage/QueryFilters";
 import { AccountCard } from "./features/overview/Overview";
+import { SourceAccountOverview } from "./features/account/SourceAccountOverview";
 import { demoUsageDashboard } from "./shared/usageDashboardDemo";
 import { usageCollectionCoverage, usageForecastBlockedReason } from "./shared/usageScope";
 import { useUsagePriceSync } from "./features/usage/useUsagePriceSync";
@@ -40,6 +44,8 @@ import {
   ToolsPanel,
 } from "./features/Panels";
 import { CatGirl } from "./features/pet/CatGirl";
+import { usePetGesture } from "./features/pet/usePetGesture";
+import { PET_REACTIONS, type PetReaction } from "./features/pet/poseController";
 import { WorkCareBubble } from "./features/pet/WorkCareBubble";
 import { presentPet } from "./features/pet/presenter";
 import { builtinAnimationManifest as builtinManifest } from "./features/pet/builtinAnimationSkin";
@@ -73,11 +79,19 @@ import {
 import { PetPopoverController, type PetPopover } from "./shared/petPopover";
 import { usePetStore } from "./features/pet/usePetStore";
 import { CompanionMenu } from "./features/companion/DesktopCompanion";
+import { CompanionDropDialog } from "./features/companion/CompanionDropDialog";
 import { useDesktopCompanion } from "./features/companion/useDesktopCompanion";
 import { companionText } from "./shared/desktopCompanion";
 import { useCurrentPetSkinRuntime } from "./features/pet/useLocalPetSkins";
 import { localPetSkinClient } from "./features/pet/localPetSkinClient";
 import { usePetExtensionCapabilities } from "./features/pet/usePetExtensionCapabilities";
+import { TemporaryDoNotDisturbMenu } from "./features/notifications/TemporaryDoNotDisturb";
+import { VrmPetCharacter } from "./features/pet/VrmPetCharacter";
+import { useVrmSkins } from "./features/pet/useVrmSkins";
+import { vrmSkinClient } from "./features/pet/vrmSkinClient";
+import { ExtraPetApplication } from "./features/pet/ExtraPetApplication";
+import { usePetPhysics } from "./features/pet/usePetPhysics";
+import { PetPhysicsMenu } from "./features/pet/PetPhysicsMenu";
 
 const navigation: {
   id: string;
@@ -85,6 +99,12 @@ const navigation: {
   icon: IconName;
   caption: string;
 }[] = [
+  {
+    id: "subscription",
+    name: "订阅与计划",
+    icon: "grid",
+    caption: "查看会员额度、模型用量与使用计划。",
+  },
   {
     id: "overview",
     name: "用量概览",
@@ -437,6 +457,7 @@ function useApplication(dashboardEnabled: boolean, toolsEnabled: boolean) {
       "ledger-updated",
       "pet-options-changed",
       "account-updated",
+      "source-accounts-updated",
       "pet-visibility-changed",
       "desktop-runtime-state",
       "window-visibility-changed",
@@ -767,8 +788,9 @@ function useApplication(dashboardEnabled: boolean, toolsEnabled: boolean) {
 }
 
 export default function App() {
+  const extraWindow = new URLSearchParams(window.location.search).get("window") === "companion";
   const petWindow =
-    new URLSearchParams(window.location.search).get("window") === "pet";
+    extraWindow || new URLSearchParams(window.location.search).get("window") === "pet";
   useEffect(() => {
     document.documentElement.classList.toggle("pet-mode", petWindow);
     document.body.classList.toggle("pet-mode", petWindow);
@@ -777,7 +799,7 @@ export default function App() {
       document.body.classList.remove("pet-mode");
     };
   }, [petWindow]);
-  return petWindow ? <PetApplication /> : <MainApplication />;
+  return extraWindow ? <ExtraPetApplication /> : petWindow ? <PetApplication /> : <MainApplication />;
 }
 
 function PetApplication() {
@@ -880,6 +902,7 @@ function MainApplication() {
   const exportScope = `${store.query.from ?? "起始日期"} 至 ${store.query.to ?? "当前日期"} · ${store.query.threadId ? "所选会话" : store.query.project ? "所选项目" : "当前筛选范围"}`;
   return (
     <div className={`app-shell ${sidebarOpen ? "sidebar-open" : ""}`}>
+      <CompanionDropDialog />
       <aside className="sidebar">
         <a
           className="brand"
@@ -966,8 +989,8 @@ function MainApplication() {
             )}
             <button
               className={`icon-button ${snapshot.settings.doNotDisturb ? "selected" : ""}`}
-              title="免打扰"
-              aria-label="切换免打扰"
+              title="手动免打扰"
+              aria-label="切换手动免打扰"
               onClick={() =>
                 void store.save({
                   doNotDisturb: !snapshot.settings.doNotDisturb,
@@ -1082,8 +1105,36 @@ function MainApplication() {
                     onRefresh={() => void store.accountRefresh()}
                     pending={store.pending}
                   />
+                  <SourceAccountOverview
+                    sources={snapshot.sources ?? []}
+                    privacyMode={privateMode}
+                    scopeKey={`${store.queryRevision}:${privateMode}:${JSON.stringify((snapshot.sources ?? []).map(source => [source.id, source.root, source.clientKind, source.enabled, source.environment, source.configurationRevision]))}`}
+                    enabled={bridge.isDesktop && store.queryReady && !store.demo}
+                  />
                 </details>
               )}
+            </>
+          )}
+          {page === "subscription" && (
+            <>
+              <SubscriptionPanel
+                sourceId={snapshot.primarySourceId}
+                scopeKey={`${store.queryRevision}:${privateMode}`}
+                enabled={bridge.isDesktop && store.queryReady && !store.pending}
+                privacyMode={privateMode}
+              />
+              <LocalSchedulePanel
+                sources={snapshot.sources ?? []}
+                scopeKey={`${store.queryRevision}:${privateMode}`}
+                enabled={bridge.isDesktop && store.queryReady && !store.pending && !store.demo}
+                privacyMode={privateMode}
+              />
+              <MixtureStudyPanel
+                sources={snapshot.sources ?? []}
+                scopeKey={`${store.queryRevision}:${privateMode}`}
+                enabled={bridge.isDesktop && store.queryReady && !store.pending && !store.demo}
+                privacyMode={privateMode}
+              />
             </>
           )}
           {page === "sessions" && store.queryReady && (
@@ -1120,6 +1171,7 @@ function MainApplication() {
               navigationRevision={inboxNavigation?.intent.revision}
               onNavigationMounted={inboxMounted}
               onFilterChange={cancelPanelNavigation}
+              onSubscription={() => setPage("subscription")}
               snapshot={snapshot}
               onChat={(id, sourceId) => void store.chat(id, sourceId)}
               action={store.action}
@@ -1174,6 +1226,7 @@ function MainApplication() {
 function PetWindow({ store }: { store: ReturnType<typeof usePetStore> }) {
   const extensions = usePetExtensionCapabilities();
   const skins = useCurrentPetSkinRuntime(localPetSkinClient, extensions.enabled);
+  const vrmSkins = useVrmSkins(vrmSkinClient, extensions.enabled);
   const companion = useDesktopCompanion();
   const [popover, setPopover] = useState<PetPopover>(null),
     [careTap, setCareTap] = useState(0),
@@ -1193,18 +1246,16 @@ function PetWindow({ store }: { store: ReturnType<typeof usePetStore> }) {
     notify: store.notify,
     refresh: store.refresh,
   };
-  const pointer = useRef<{
-    x: number;
-    y: number;
-    viewportWidth: number;
-    viewportHeight: number;
-    pointerId: number;
-    dragged: boolean;
-  } | null>(null);
   const presentation = store.presentation,
     intent = presentPet(presentation, store.ready),
     settings = presentation?.settings,
     details = store.ready && store.detailsReady ? store.details : null;
+  const physics = usePetPhysics({
+    enabled: extensions.enabled && (!vrmSkins.selected || !!vrmSkins.active) && (!skins.selected || !!skins.runtime),
+    presentation, ready: store.ready,
+    rendererKind: vrmSkins.active ? "vrm" : skins.runtime ? "png" : "builtin",
+    resourceKey: vrmSkins.active ? `vrm:${vrmSkins.active.modelId}` : skins.runtime ? `png:${skins.runtime.skinId}` : "builtin",
+  });
   const stageScale =
     typeof settings?.petScale === "number" && Number.isFinite(settings.petScale)
       ? Math.min(2, Math.max(0.5, settings.petScale))
@@ -1331,14 +1382,13 @@ function PetWindow({ store }: { store: ReturnType<typeof usePetStore> }) {
       ?.focus({ preventScroll: true });
   }, [popover]);
   const close = () => controller.current?.close();
-  const affection = () => {
+  const affection = (pose: PetReaction = "affection") => {
     close();
     setCareTap((value) => value + 1);
-    window.dispatchEvent(new Event("pet-affection"));
+    window.dispatchEvent(new CustomEvent("pet-affection", { detail: { pose } }));
   };
   const toggleCard = () => {
     controller.current?.toggle("card");
-    window.dispatchEvent(new Event("pet-affection"));
   };
   const open = async () => {
     close();
@@ -1352,6 +1402,11 @@ function PetWindow({ store }: { store: ReturnType<typeof usePetStore> }) {
     capturePetCard(latestCard.current.state, Date.now()) !== null;
   const canReturnChat = bridge.isDesktop && shortcutsReady && !shortcutBusy &&
     capturePetCard(latestCard.current.state, Date.now(), true) !== null;
+  const petGesture = usePetGesture({ tap: affection, interrupt,
+    drag: (origin) => {
+      if (bridge.isDesktop) void bridge.dragPet(origin).catch((error) => store.notify(safeError(error)));
+      else close();
+    } });
   return (
     <div
       className="pet-window"
@@ -1383,77 +1438,35 @@ function PetWindow({ store }: { store: ReturnType<typeof usePetStore> }) {
           className="pet-affection-button"
           aria-label="摸摸小柚"
           title="摸摸小柚 · 进行中的任务优先显示真实状态"
-          onClick={affection}
+          onClick={() => affection()}
         >
           <Icon name="heart" size={15} />
         </button>
       )}
       <button
+        {...petGesture()}
         className="pet-character-button"
-        aria-label="小柚，单击展开统计小卡，拖动移动，右键打开菜单"
-        onPointerDown={(event) => {
-          if (event.button !== 0 || !event.isPrimary) return;
-          event.preventDefault();
-          event.currentTarget.setPointerCapture(event.pointerId);
-          pointer.current = {
-            x: event.clientX,
-            y: event.clientY,
-            viewportWidth: window.innerWidth,
-            viewportHeight: window.innerHeight,
-            pointerId: event.pointerId,
-            dragged: false,
-          };
-        }}
-        onPointerMove={(event) => {
-          const point = pointer.current;
-          if (
-            !point ||
-            event.pointerId !== point.pointerId ||
-            point.dragged ||
-            (event.buttons & 1) === 0 ||
-            Math.hypot(event.clientX - point.x, event.clientY - point.y) < 5
-          )
-            return;
-          point.dragged = true;
-          interrupt();
-          if (bridge.isDesktop)
-            void bridge
-              // Native must map the press while the current popup geometry is
-              // still present, then dismiss it before taking over the gesture.
-              .dragPet({
-                clientX: point.x,
-                clientY: point.y,
-                viewportWidth: point.viewportWidth,
-                viewportHeight: point.viewportHeight,
-              })
-              .catch((error) => store.notify(safeError(error)));
-          else close();
-        }}
-        onPointerUp={(event) => {
-          if (pointer.current?.pointerId !== event.pointerId) return;
-          if (pointer.current && !pointer.current.dragged) {
-            toggleCard();
-          }
-          pointer.current = null;
-        }}
-        onPointerCancel={(event) => {
-          if (pointer.current?.pointerId === event.pointerId)
-            pointer.current = null;
-        }}
+        aria-label="小柚，单击摸摸，拖动移动，右键打开菜单"
         onKeyDown={(event) => {
           if (event.key === "Enter" || event.key === " ") {
             event.preventDefault();
-            toggleCard();
+            affection();
           }
         }}
       >
-        <CatGirl
+        {vrmSkins.active ? <VrmPetCharacter key={`${vrmSkins.active.modelId}:${vrmSkins.revision}`}
+          {...physics.rendererProps}
+          model={vrmSkins.active} readModel={vrmSkinClient.readModel} presentation={presentation} ready={store.ready}
+          onStateText={setStateText} onPromptDelivered={delivered} onFailure={vrmSkins.onFailure} /> : <CatGirl
+          {...physics.rendererProps}
           presentation={presentation}
           skinRuntime={skins.runtime}
-          pointerEnabled={extensions.enabled}
+          pointerEnabled={extensions.enabled && !vrmSkins.selected}
+          roamingEnabled={extensions.roaming && !skins.selected && !vrmSkins.selected}
           ready={store.ready}
           onStateText={setStateText}
           onPromptDelivered={delivered}
+          companionMotionExpired={bridge.isDesktop && !companion.error && !popover && companion.motionExpired}
           companion={
             bridge.isDesktop
               ? companion.error || popover
@@ -1461,14 +1474,18 @@ function PetWindow({ store }: { store: ReturnType<typeof usePetStore> }) {
                 : companion.state
               : undefined
           }
-        />
+        />}
       </button>
       <div className="pet-status-badge" aria-live="polite">
         <span className={`status-dot ${intent.uncertain ? "amber" : ""}`} />
         <span>{stateText}</span>
         {store.ready && intent.badge && <b>{presentation?.unreadCount}</b>}
       </div>
-      {skins.runtimeError && <span className="pet-health-badge" title={skins.runtimeError}>皮肤加载失败 · 已恢复内置角色</span>}
+      {vrmSkins.active && vrmSkins.active.meta.creditNotation !== "unnecessary" && <span className="pet-vrm-credit"
+        title={`${vrmSkins.active.name} · ${vrmSkins.active.authors.join("、")}\n${typeof vrmSkins.active.meta.copyrightInformation === "string" ? vrmSkins.active.meta.copyrightInformation : ""}`}>
+        {vrmSkins.active.authors.join("、")}
+      </span>}
+      {(skins.runtimeError || vrmSkins.runtimeError) && <span className="pet-health-badge" title={skins.runtimeError ?? vrmSkins.runtimeError ?? ""}>皮肤加载失败 · 已恢复内置角色</span>}
       {(intent.health || store.connectionError) && (
         <span className="pet-health-badge">
           {store.connectionError ? "活动数据待更新" : intent.health}
@@ -1607,12 +1624,18 @@ function PetWindow({ store }: { store: ReturnType<typeof usePetStore> }) {
               companion.error ? undefined : companion.state?.capabilities
             }
           />
-          {supportsAffection && (
-            <button onClick={affection}>
-              <Icon name="heart" size={17} />
-              摸摸小柚
+          {extensions.enabled && <PetPhysicsMenu physics={physics}
+            onBeforeRequest={async () => await controller.current?.closeForAction() ?? false} />}
+          {supportsAffection && PET_REACTIONS.map((reaction) => (
+            <button key={reaction.id} onClick={() => affection(reaction.id)}>
+              <Icon name={reaction.id === "affection" ? "heart" : "sparkles"} size={17} />
+              {reaction.id === "affection" ? "摸摸小柚" : reaction.label}
             </button>
-          )}
+          ))}
+          <button onClick={toggleCard}>
+            <Icon name="grid" size={17} />
+            打开统计小卡
+          </button>
           <button onClick={() => void open()}>
             <Icon name="grid" size={17} />
             打开主面板
@@ -1637,8 +1660,13 @@ function PetWindow({ store }: { store: ReturnType<typeof usePetStore> }) {
             }}
           >
             <Icon name="moon" size={17} />
-            {settings?.doNotDisturb ? "关闭免打扰" : "开启免打扰"}
+            {settings?.doNotDisturb ? "关闭手动免打扰" : "开启手动免打扰"}
           </button>
+          <TemporaryDoNotDisturbMenu settings={settings ?? {}} pending={!store.ready || store.pending}
+            onRequest={(temporaryDoNotDisturbMinutes) => {
+              close();
+              void store.save({ temporaryDoNotDisturbMinutes });
+            }} />
           <button
             onClick={() => {
               close();

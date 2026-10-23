@@ -54,10 +54,12 @@ export function presentPet(presentation: PetPresentation | null, ready = true): 
   };
 }
 export function promptAction(prompt: Prompt): PetState {
-  return isSuccess(prompt.status) ? "complete" : "alert";
+  return ["subscription_plan", "quota_eta", "budget"].includes(prompt.kind ?? "") ? "alert" : isSuccess(prompt.status ?? "unknown") ? "complete" : "alert";
 }
 export function promptText(prompt: Prompt): string {
-  return prompt.kind === "budget"
+  return prompt.kind === "quota_eta" ? "近期用量可能在重置前触限，可打开订阅与计划查看"
+    : prompt.kind === "subscription_plan" ? "使用计划达到提醒目标，可打开收件箱查看"
+    : prompt.kind === "budget"
     ? "已达到本地软预算提醒阈值"
-    : statusLabel(prompt.status);
+    : statusLabel(prompt.status ?? "unknown");
 }

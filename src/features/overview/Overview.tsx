@@ -7,8 +7,6 @@ import {
   formatNumber,
   latestTimedTurn,
   percent,
-  statusLabel,
-  isSuccess,
   accountExpired,
 } from "../../shared/format";
 import { Badge, Empty, Icon } from "../../shared/UI";
@@ -16,6 +14,7 @@ import { CatGirl } from "../pet/CatGirl";
 import { projectSnapshotPresentation } from "../pet/petProjection";
 import { OfficialUsageTrend } from "./OfficialUsageTrend";
 import { sourceLabel } from "../../shared/filters";
+import { RecentInboxEvent } from "../inbox/InboxEvent";
 
 export function Trend({ snapshot }: { snapshot: Snapshot }) {
   const [hover, setHover] = useState<number | null>(null);
@@ -500,28 +499,13 @@ export function Overview({
           </div>
           {snapshot.inbox.length ? (
             snapshot.inbox.slice(0, 2).map((event) => (
-              <button
-                className="recent-event"
+              <RecentInboxEvent
                 key={event.id}
-                onClick={() => onChat(event.threadId, event.sourceId)}
-              >
-                <span
-                  className={`event-icon ${isSuccess(event.status) ? "success" : "warning"}`}
-                >
-                  <Icon
-                    name={isSuccess(event.status) ? "check" : "info"}
-                    size={16}
-                  />
-                </span>
-                <span>
-                  <strong>{privateMode ? "私密会话" : event.title}</strong>
-                  <small>
-                    {statusLabel(event.status)} ·{" "}
-                    {dateTime(event.createdAt, true)}
-                  </small>
-                </span>
-                <Icon name="chevron" size={15} />
-              </button>
+                event={event}
+                privacy={!!privateMode}
+                onChat={onChat}
+                onInbox={() => onPage("inbox")}
+              />
             ))
           ) : (
             <p className="quiet-empty">

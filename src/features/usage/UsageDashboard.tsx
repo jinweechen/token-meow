@@ -18,6 +18,7 @@ import {
 } from "../../shared/usageDashboard";
 import { UsagePricingPanel } from "./UsagePricingPanel";
 import { UsageTrend } from "./UsageTrend";
+import { ObservedInsightsPanel } from "./ObservedInsightsPanel";
 import { UsageScopeTable } from "./UsageScopeTable";
 import { UsageForecastPanel } from "./UsageForecastPanel";
 import type { UsageCollectionCoverage } from "../../shared/usageScope";
@@ -734,6 +735,7 @@ export function UsageDashboard({
           </div>
         </section>
       )}
+      {data && <ObservedInsightsPanel value={data.observedInsights} privacyMode={privacyMode} />}
       {data && tab !== "pricing" && (
         <details className="usage-forecast-disclosure" ref={forecastRef}>
           <summary>

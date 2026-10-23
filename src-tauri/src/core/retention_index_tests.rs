@@ -32,7 +32,7 @@ fn backups(data: &Path) -> Vec<PathBuf> {
             path.file_name()
                 .unwrap()
                 .to_string_lossy()
-                .starts_with("ledger-before-v6-")
+                .starts_with("ledger-before-v9-")
         })
         .collect()
 }
@@ -52,8 +52,14 @@ fn schema(db: &Connection) -> Vec<(String, String, Option<String>)> {
 fn rows(db: &Connection, table: &str) -> Vec<Vec<rusqlite::types::Value>> {
     // Only fixed test-owned table names are passed here. Preserve SQL values,
     // rather than normalizing fact JSON or cursor/settings strings.
+    // v9 为来源新增修订列；保留旧六列逐值比较，新列在 assert_current_schema 中单独断言。
+    let columns = if table == "source_instances" {
+        "id,root,created_at,client_kind,enabled,environment"
+    } else {
+        "*"
+    };
     let mut statement = db
-        .prepare(&format!("SELECT * FROM {table} ORDER BY rowid"))
+        .prepare(&format!("SELECT {columns} FROM {table} ORDER BY rowid"))
         .unwrap();
     let columns = statement.column_count();
     let rows = statement
@@ -64,6 +70,33 @@ fn rows(db: &Connection, table: &str) -> Vec<Vec<rusqlite::types::Value>> {
         })
         .unwrap();
     rows.collect::<std::result::Result<_, _>>().unwrap()
+}
+
+fn assert_current_schema(db: &Connection) {
+    assert_eq!(version(db), 9);
+    let column: (String, i64, String) = db
+        .query_row(
+            "SELECT type,\"notnull\",dflt_value FROM pragma_table_info('source_instances') WHERE name='configuration_revision'",
+            [],
+            |row| Ok((row.get(0)?, row.get(1)?, row.get(2)?)),
+        )
+        .unwrap();
+    assert_eq!(column, ("INTEGER".into(), 1, "0".into()));
+    assert_eq!(
+        db.query_row("SELECT count(*) FROM source_instances WHERE configuration_revision<>0", [], |row| row.get::<_, i64>(0)).unwrap(),
+        0
+    );
+    for table in [
+        "local_schedule_templates",
+        "local_schedule_instances",
+        "local_manual_consumption",
+    ] {
+        assert_eq!(
+            db.query_row(&format!("SELECT count(*) FROM {table}"), [], |row| row.get::<_, i64>(0)).unwrap(),
+            0,
+            "旧账本迁移不能制造周期或手动记账事实"
+        );
+    }
 }
 
 fn business_rows(db: &Connection) -> Vec<(&'static str, Vec<Vec<rusqlite::types::Value>>)> {
@@ -158,7 +191,7 @@ fn retention_v6_upgrade_preserves_v5_wal_facts_cursors_settings_and_reopen_is_id
     let feed = rows(&writer, "pet_inbox_feed");
     let sequence = rows(&writer, "sqlite_sequence");
     let core = Core::open(&fixture.data, &fixture.source).unwrap();
-    assert_eq!(version(&core.db), 6);
+    assert_current_schema(&core.db);
     assert_eq!(business_rows(&core.db), before);
     assert_eq!(rows(&core.db, "pet_inbox_feed"), feed);
     assert_eq!(rows(&core.db, "sqlite_sequence"), sequence);
@@ -177,7 +210,7 @@ fn retention_v6_upgrade_preserves_v5_wal_facts_cursors_settings_and_reopen_is_id
     drop(core);
     drop(writer);
     let mut reopened = Core::open(&fixture.data, &fixture.source).unwrap();
-    assert_eq!(version(&reopened.db), 6);
+    assert_current_schema(&reopened.db);
     assert_eq!(business_rows(&reopened.db), before);
     assert_eq!(rows(&reopened.db, "pet_inbox_feed"), feed);
     assert_eq!(rows(&reopened.db, "sqlite_sequence"), sequence);
@@ -237,7 +270,7 @@ fn retention_v6_last_ddl_failure_rolls_back_all_pending_generations_and_backup_r
             .unwrap();
         drop(recovery_db);
         let recovered = Core::open(&recovery_data, &fixture.source).unwrap();
-        assert_eq!(version(&recovered.db), 6);
+        assert_current_schema(&recovered.db);
         assert_eq!(business_rows(&recovered.db), original_rows);
         assert_v1_fixture_retained(&recovered.db, &fixture, true);
         if let Some(feed) = &original_feed {
@@ -292,11 +325,10 @@ fn retention_delete_plans_use_time_searches_and_preserve_strict_cutoff_and_inbox
             .execute_batch(&format!("DROP INDEX {index};"))
             .unwrap();
     }
-    previous
-        .core
-        .db
-        .execute_batch("PRAGMA user_version=5;")
-        .unwrap();
+    // 此处隔离时间索引对 DELETE 的影响；两侧均使用真实当前 schema，
+    // 不把残留后续列/表的数据库改写 user_version 冒充旧版迁移夹具。
+    assert_current_schema(&previous.core.db);
+    assert_current_schema(&indexed.core.db);
     // A future protected watermark makes the cutoff independent of test wall
     // time. Existing monotonic-watermark code, not an altered DELETE, chooses it.
     let cutoff = "2100-01-01T00:00:00.000Z";
@@ -319,7 +351,7 @@ fn retention_delete_plans_use_time_searches_and_preserve_strict_cutoff_and_inbox
     for table in RETAINED_TABLES {
         let before_plan = delete_plan(&previous.core.db, table, cutoff);
         let after_plan = delete_plan(&indexed.core.db, table, cutoff);
-        println!("retention DELETE {table}: v5={before_plan:?}; v6={after_plan:?}");
+        println!("retention DELETE {table}: without_time_indexes={before_plan:?}; with_time_indexes={after_plan:?}");
         if matches!(
             table,
             "legacy_usage_segments"

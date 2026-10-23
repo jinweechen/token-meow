@@ -1,0 +1,31 @@
+.companion-launcher-list .launcher-manager-item {
+  display: grid;
+  grid-template-columns: minmax(120px, 1fr) auto;
+  gap: 10px 16px;
+  align-items: center;
+}
+.launcher-manager-details { min-width: 0; }
+.launcher-manager-name { overflow-wrap: anywhere; }
+.launcher-manager-actions { justify-content: flex-end; }
+.launcher-manager-work-app {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--text-muted);
+  font-size: 12px;
+}
+.launcher-manager-editor {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.launcher-manager-input { display: grid; gap: 6px; flex: 1 1 180px; min-width: 0; font-size: 12px; }
+.launcher-manager-input input { width: 100%; min-width: 0; }
+.launcher-manager-editor .companion-error { flex-basis: 100%; margin: 0; }
+@media (max-width: 800px) {
+  .companion-launcher-list .launcher-manager-item { grid-template-columns: minmax(0, 1fr); }
+  .launcher-manager-actions { justify-content: flex-start; }
+}

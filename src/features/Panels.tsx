@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { invoke } from "@tauri-apps/api/core";
 import { isDesktop } from "../shared/bridge";
 import type {
@@ -21,6 +21,7 @@ import { Badge, Empty, Icon, Modal, Toggle } from "../shared/UI";
 import { builtinAnimationManifest as builtinManifest } from "./pet/builtinAnimationSkin";
 import { AccountCard } from "./overview/Overview";
 import { SourceDetails } from "./sources/SourceDetails";
+import { SOURCE_KINDS, isSourceKind, sourceKindName, sourceLogDescription, type SourceKind } from "../shared/sourceKind";
 import { CompanionSettings } from "./companion/DesktopCompanion";
 import { LocalPetSkinSettings } from "./pet/LocalPetSkinSettings";
 import { useLocalPetSkins } from "./pet/useLocalPetSkins";
@@ -28,7 +29,13 @@ import { localPetSkinClient } from "./pet/localPetSkinClient";
 import { TemporaryInteractionSettings } from "./pet/TemporaryInteractionSettings";
 import { usePetExtensionCapabilities } from "./pet/usePetExtensionCapabilities";
 import { BuiltinAnimationPreview } from "./pet/BuiltinAnimationPreview";
+import { VrmSkinSettings } from "./pet/VrmSkinSettings";
+import { useVrmSkins } from "./pet/useVrmSkins";
+import { vrmSkinClient } from "./pet/vrmSkinClient";
+import { ExtraPetManager } from "./pet/ExtraPetManager";
 import { AppUpdatePanel } from "./updates/AppUpdatePanel";
+import { InboxEventRow, inboxEventSuccess } from "./inbox/InboxEvent";
+import { TemporaryDoNotDisturb } from "./notifications/TemporaryDoNotDisturb";
 import {
   agentKindLabel,
   identityValue,
@@ -467,6 +474,7 @@ export function InboxPanel({
   navigationRevision,
   onNavigationMounted,
   onFilterChange,
+  onSubscription,
 }: {
   snapshot: Snapshot;
   onChat: (id: string, sourceId?: string) => void;
@@ -475,6 +483,7 @@ export function InboxPanel({
   navigationRevision?: string;
   onNavigationMounted?: (revision: string) => void;
   onFilterChange?: () => void;
+  onSubscription?: () => void;
 }) {
   const [filter, setFilter] = useState(initialFilter);
   useEffect(() => {
@@ -485,7 +494,7 @@ export function InboxPanel({
   const entries = snapshot.inbox.filter(
     (item) =>
       filter === "all" ||
-      (filter === "unread" ? !item.read : !isSuccess(item.status)),
+      (filter === "unread" ? !item.read : !inboxEventSuccess(item)),
   );
   const [confirmClear, setConfirmClear] = useState(false);
   return (
@@ -495,7 +504,7 @@ export function InboxPanel({
           {[
             ["all", "全部回音"],
             ["unread", `未读 ${unread}`],
-            ["other", "失败 / 中断 / 未知"],
+            ["other", "提醒 / 失败 / 中断 / 未知"],
           ].map(([key, text]) => (
             <button
               key={key}
@@ -531,67 +540,22 @@ export function InboxPanel({
       <section className="card inbox-card">
         {entries.length ? (
           entries.map((entry, index) => (
-            <article
-              className={`inbox-item ${entry.read ? "" : "unread"}`}
+            <InboxEventRow
               key={entry.id}
-            >
-              <div
-                className={`event-icon ${isSuccess(entry.status) ? "success" : "warning"}`}
-              >
-                <Icon
-                  name={isSuccess(entry.status) ? "check" : "info"}
-                  size={21}
-                />
-              </div>
-              <div className="inbox-body">
-                <div className="inbox-title">
-                  <h3>
-                    {snapshot.settings.privacyMode
-                      ? `私密会话 ${index + 1}`
-                      : entry.title || "回合结束记录"}
-                  </h3>
-                  {!entry.read && <span className="unread-dot" />}
-                  <Badge tone={isSuccess(entry.status) ? "mint" : "amber"}>
-                    {entry.kind === "budget"
-                      ? "预算阈值提醒"
-                      : statusLabel(entry.status)}
-                  </Badge>
-                </div>
-                <p>
-                  {entry.kind === "budget"
-                    ? "本地软预算提醒，不改变 AI 工具执行。"
-                    : "来源记录的根回合结果，可返回原会话查看。"}
-                </p>
-                <time>
-                  {dateTime(entry.createdAt)} · {entry.read ? "已读" : "待查看"}
-                </time>
-              </div>
-              <div className="inbox-actions">
-                {!entry.read && (
-                  <button
-                    className="text-button"
-                    onClick={() => void action("mark_read", { id: entry.id })}
-                  >
-                    标为已读
-                  </button>
-                )}
-                {entry.threadId && (
-                  <button
-                    className="button secondary small"
-                    onClick={() => onChat(entry.threadId, entry.sourceId)}
-                  >
-                    {entry.sourceId ? "返回聊天" : "复制会话标识"}
-                    <Icon name="external" size={14} />
-                  </button>
-                )}
-              </div>
-            </article>
+              event={entry}
+              index={index}
+              privacy={!!snapshot.settings.privacyMode}
+              canViewPlan={!!entry.sourceId && entry.sourceId === snapshot.primarySourceId}
+              onRead={(id) => { void action("mark_read", { id }); }}
+              onChat={onChat}
+              onPlan={onSubscription}
+            />
           ))
         ) : (
           <Empty
             icon="inbox"
             title={filter === "unread" ? "所有回音都看过啦" : "还没有新的回音"}
-            detail="根回合结束后会记录在这里。历史补导只进入历史视图，不补弹旧通知。"
+            detail="回合结果、预算与使用计划提醒会记录在这里。历史补导不补弹旧通知。"
           />
         )}
       </section>
@@ -640,22 +604,33 @@ export function HealthPanel({
   const count = issueCount(health.issues);
   const [from, setFrom] = useState("2026-09-15");
   const [sourceError, setSourceError] = useState<string | null>(null);
+  const [sourceKind, setSourceKind] = useState<SourceKind>("codex");
+  const [choosingSource, setChoosingSource] = useState(false);
+  const choosingSourceRef = useRef(false);
   async function chooseSource(id?: string) {
+    if (choosingSourceRef.current) return;
     if (!isDesktop) {
       setSourceError(
         "浏览器预览不能选择本机目录；请在 Windows 桌面应用登记来源。",
       );
       return;
     }
+    const clientKind = sourceKind;
+    choosingSourceRef.current = true;
+    setChoosingSource(true);
+    setSourceError(null);
     try {
       const path = await invoke<string | null>("choose_source_directory");
       if (path)
         await action(
           id ? "update_source" : "add_source",
-          id ? { id, path } : { path },
+          id ? { id, path } : { path, clientKind },
         );
     } catch (error) {
       setSourceError(String(error));
+    } finally {
+      choosingSourceRef.current = false;
+      setChoosingSource(false);
     }
   }
   return (
@@ -759,14 +734,23 @@ export function HealthPanel({
       <section className="card">
         <div className="section-heading">
           <h2>来源与能力</h2>
+          <label className="inline-select">
+            新来源工具
+            <select aria-label="新来源工具" value={sourceKind} disabled={choosingSource}
+              onChange={event => { if (isSourceKind(event.target.value)) setSourceKind(event.target.value); }}>
+              {SOURCE_KINDS.map(kind => <option key={kind} value={kind}>{sourceKindName(kind)}</option>)}
+            </select>
+          </label>
           <button
             className="button secondary small"
+            disabled={choosingSource}
             onClick={() => void chooseSource()}
           >
             <Icon name="plus" size={15} />
-            登记 Codex 来源
+            {choosingSource ? "正在选择来源…" : `登记 ${sourceKindName(sourceKind)} 来源`}
           </button>
         </div>
+        <p className="subtle-note">{sourceLogDescription(sourceKind)} 选择要读取的数据目录；不会自动改用其它目录。</p>
         {sourceError && <div className="notice inset">{sourceError}</div>}
         {snapshot.sources?.length ? (
           snapshot.sources.map((source, index) => (
@@ -776,6 +760,7 @@ export function HealthPanel({
               index={index}
               snapshot={snapshot}
               chooseSource={chooseSource}
+              choosingDirectory={choosingSource}
               action={action}
             />
           ))
@@ -798,14 +783,9 @@ export function HealthPanel({
           </div>
         )}
         <p className="subtle-note">
-          迁移目录保留同一来源身份；登记新来源会创建新身份。跨来源疑点会从可信总计排除，不按目录名自动合并。
+          迁移目录保留同一来源身份和工具类型；登记新来源会创建新来源身份。来源不等于账号，跨来源疑点会从可信总计排除，不按目录名自动合并。
         </p>
-        <div className="future-sources">
-          <span>Claude Code</span>
-          <Badge>后续扩展 · 未接入</Badge>
-          <span>Gemini CLI</span>
-          <Badge>后续扩展 · 未接入</Badge>
-        </div>
+        <p className="subtle-note">Claude Code / Gemini CLI 当前仅读取日志用量；活动状态和任务结果未知，官方账户身份未知，官方额度与账户日用量未支持。用量记录不证明任务成功或当前空闲。</p>
       </section>
       <div className="bottom-grid">
         <section className="card">
@@ -972,6 +952,7 @@ export function SettingsPanel({
 }) {
   const extensions = usePetExtensionCapabilities();
   const skins = useLocalPetSkins(localPetSkinClient, extensions.enabled);
+  const vrmSkins = useVrmSkins(vrmSkinClient, extensions.enabled);
   const [tab, setTab] = useState("pet"),
     [budgetOpen, setBudgetOpen] = useState(false),
     [scope, setScope] = useState("daily"),
@@ -1108,7 +1089,9 @@ export function SettingsPanel({
             pending={pending}
           />
           {!extensions.enabled && <p className="muted">本地皮肤、透明命中与临时交互待新版 Windows 原生验收，当前尚未开放。</p>}
-          <LocalPetSkinSettings model={skins} client={localPetSkinClient} disabled={pending || !extensions.enabled} />
+          <LocalPetSkinSettings model={skins} client={localPetSkinClient} disabled={pending || !extensions.enabled} reducedMotion={settings.reducedMotion === true} />
+          <VrmSkinSettings model={vrmSkins} client={vrmSkinClient} disabled={pending || !extensions.enabled} reducedMotion={settings.reducedMotion === true} />
+          <ExtraPetManager enabled={extensions.enabled} png={skins.library?.skins} vrm={vrmSkins.library?.models} />
           <BuiltinAnimationPreview reducedMotion={settings.reducedMotion === true} />
           <section className="card character-info">
             <Icon name="cat" size={26} />
@@ -1206,9 +1189,11 @@ export function SettingsPanel({
           {row("muted", "静音", "默认开启。关闭后，仅已支持的提示可使用声音。")}
           {row(
             "doNotDisturb",
-            "免打扰",
-            "不主动弹窗或发声；收件箱继续记录，短提示不补播。",
+            "手动免打扰",
+            "不主动弹窗或发声；收件箱继续记录，短提示不补播。关闭后，临时免打扰和每日时段仍按各自设置生效。",
           )}
+          <TemporaryDoNotDisturb settings={settings} pending={pending}
+            onRequest={(temporaryDoNotDisturbMinutes) => void save({ temporaryDoNotDisturbMinutes })} />
           {row(
             "privacyMode",
             "隐私模式",

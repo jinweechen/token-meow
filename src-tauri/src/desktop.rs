@@ -17,6 +17,22 @@ mod pointer;
 mod popup_bounds;
 #[path = "desktop_drag.rs"]
 mod manual_drag;
+#[path = "desktop_drop.rs"]
+mod file_drop;
+#[path = "desktop_drop_adapter.rs"]
+mod drop_adapter;
+#[path = "desktop_vrm.rs"]
+mod vrm_adapter;
+#[path = "desktop_skin_selection.rs"]
+mod skin_selection;
+#[path = "desktop_extra_pets.rs"]
+mod extra_pets;
+#[path = "desktop_physics_adapter.rs"]
+mod physics_adapter;
+#[path = "desktop_position_anchor.rs"]
+mod position_anchor;
+#[path = "source_accounts.rs"]
+mod source_accounts;
 
 // BEGIN PURE DRAG HANDOFF
 /// Native work is supplied by the desktop adapter. Admission has no popup side
@@ -131,13 +147,16 @@ fn require_p1_development() -> Result<(), String> {
 }
 #[tauri::command]
 fn get_pet_extension_capabilities() -> Value {
-    json!({"enabled":p1_development_enabled(),"nativeQualified":false})
+    json!({"enabled":p1_development_enabled(),"roaming":p1_development_enabled() && cfg!(windows),"nativeQualified":false})
 }
 
 #[tauri::command]
 async fn get_pet_skin_state(state: State<'_, SharedState>) -> Result<crate::local_pet_skin::PetSkinState, String> {
     let shared = state.inner().clone();
-    tauri::async_runtime::spawn_blocking(move || shared.skins.lock().map_err(|_| lock_error())?.as_mut().map_err(|error| error.clone())?.state())
+    tauri::async_runtime::spawn_blocking(move || {
+        let _selection = shared.skin_selection.lock().map_err(|_| lock_error())?;
+        skin_selection::png_state(&shared)
+    })
         .await.map_err(|e| e.to_string())?
 }
 #[tauri::command]
@@ -162,17 +181,23 @@ async fn select_pet_skin(app: AppHandle, state: State<'_, SharedState>, skin_id:
     require_p1_development()?;
     let shared = state.inner().clone();
     tauri::async_runtime::spawn_blocking(move || {
-        let selected = shared.skins.lock().map_err(|_| lock_error())?.as_mut().map_err(|error| error.clone())?.select(skin_id.as_deref())?;
+        physics_adapter::cancel(&shared);
+        let result = skin_selection::select_png(&shared, skin_id.as_deref());
+        physics_adapter::cancel(&shared);
+        drop_adapter::clear(&shared);
+        shared.motion_invalidated.store(true, Ordering::Release);
+        interrupt_motion(&app, &shared, "animationUnavailable");
         pointer::reset(&shared);
-        app.emit("pet-skin-library-changed", json!({"kind":"selected","selectedSkinId":selected.selected_skin_id})).map_err(|e| e.to_string())?;
-        Ok(selected)
+        let _ = app.emit("pet-skin-library-changed", json!({"kind":"selected"}));
+        result
     }).await.map_err(|e| e.to_string())?
 }
 #[tauri::command]
-async fn read_pet_skin_frame(state: State<'_, SharedState>, skin_id: String, frame_id: String)
+async fn read_pet_skin_frame(window: WebviewWindow, state: State<'_, SharedState>, skin_id: String, frame_id: String)
     -> Result<tauri::ipc::Response, String>
 {
     require_p1_development()?;
+    if !matches!(window.label(), "main" | "pet") && !extra_pets::allows_asset_read(&state, window.label(), &skin_id, false) { return Err("此辅助视图不能读取该皮肤。".into()); }
     let shared = state.inner().clone();
     tauri::async_runtime::spawn_blocking(move || {
         shared.skins.lock().map_err(|_| lock_error())?.as_mut().map_err(|error| error.clone())?.read_frame(&skin_id, &frame_id).map(tauri::ipc::Response::new)
@@ -185,7 +210,7 @@ async fn remove_pet_skin(app: AppHandle, state: State<'_, SharedState>, skin_id:
     require_p1_development()?;
     let shared = state.inner().clone();
     tauri::async_runtime::spawn_blocking(move || {
-        let selected = shared.skins.lock().map_err(|_| lock_error())?.as_mut().map_err(|error| error.clone())?.remove(&skin_id)?;
+        let selected = skin_selection::remove_png(&shared, &skin_id)?;
         app.emit("pet-skin-library-changed", json!({"kind":"removed"})).map_err(|e| e.to_string())?;
         Ok(selected)
     }).await.map_err(|e| e.to_string())?
@@ -237,6 +262,14 @@ struct SavedPosition {
     logical_x: f64,
     logical_y: f64,
     scale_factor: f64,
+}
+#[derive(Clone)]
+struct FrozenPetPosition {
+    saved: SavedPosition,
+    monitor: WorkArea,
+    x: i32,
+    y: i32,
+    size: PhysicalSize<u32>,
 }
 #[derive(Default)]
 struct PetInteraction {
@@ -324,8 +357,15 @@ impl AccountCache {
     }
 }
 struct Shared {
+    extra_pets: Mutex<extra_pets::Runtime>,
+    physics: Mutex<physics_adapter::Runtime>,
+    physics_revision: AtomicU64,
+    file_drop: Mutex<drop_adapter::Runtime>,
+    drop_revision: AtomicU64,
     pointer: Mutex<pointer::Runtime>,
     skins: Mutex<Result<crate::local_pet_skin::LocalPetSkinStore, String>>,
+    vrm_skins: Mutex<Result<crate::vrm_skin::VrmSkinStore, String>>,
+    skin_selection: Mutex<()>,
     panel_navigation: Mutex<panel_navigation_state::Mailbox>,
     companion: Mutex<companion::Companion>,
     motion: Mutex<MotionRuntime>,
@@ -343,6 +383,8 @@ struct Shared {
     projection: Mutex<Value>,
     account: Mutex<AccountBridge>,
     account_cache: Mutex<AccountCache>,
+    source_accounts: Mutex<source_accounts::Cache>,
+    account_transport_binding: Mutex<Value>,
     account_reset_pending: AtomicBool,
     last_account_attempt: Mutex<Option<Instant>>,
     account_cancel: Arc<AtomicBool>,
@@ -355,6 +397,7 @@ struct Shared {
     collector_error: Mutex<Option<String>>,
     shell_error: Mutex<Option<String>>,
     position_dirty: Mutex<Option<Instant>>,
+    position_anchor: Mutex<position_anchor::Owner<FrozenPetPosition>>,
     topology: Mutex<Vec<WorkArea>>,
     data_dir: PathBuf,
     started_at: Instant,
@@ -414,6 +457,10 @@ fn record_window_state(window: &WebviewWindow, shared: &Shared) {
 fn record_visibility_change(window: &WebviewWindow, shared: &Shared) {
     let visible = window.is_visible().unwrap_or(false);
     let minimized = window.is_minimized().unwrap_or(false);
+    if !visible || minimized {
+        let was_visible = shared.metrics.try_lock().ok().is_some_and(|metrics| metrics["windows"][window.label()]["visible"] == true);
+        if was_visible { drop_adapter::clear(shared); }
+    }
     if window.label() == "pet" && (!visible || minimized) {
         cancel_manual_drag(shared, manual_drag::StopReason::Hidden);
     }
@@ -740,6 +787,7 @@ fn apply_projection_on_main(app: &AppHandle, settings: &Value) -> Result<(), Str
             show_without_focus(&window)?;
         } else {
             cancel_manual_drag(&state, manual_drag::StopReason::Hidden);
+            drop_adapter::clear(&state);
             dismiss_pet_popup(&window, &state, "hidden", false)?;
             window.hide().map_err(|e| e.to_string())?;
             let _ = window.emit(
@@ -756,8 +804,12 @@ fn apply_projection_on_main(app: &AppHandle, settings: &Value) -> Result<(), Str
         .map_err(|e| e.to_string())
 }
 fn update_settings(app: &AppHandle, shared: &Shared, patch: &Value) -> Result<Value, String> {
+    update_settings_for_anchor(app, shared, patch, None)
+}
+fn update_settings_for_anchor(app: &AppHandle, shared: &Shared, patch: &Value, anchor_ticket: Option<position_anchor::Ticket>) -> Result<Value, String> {
     let serial = shared.settings_update.lock().map_err(|_| lock_error())?;
     let old_settings = shared.core.lock().map_err(|_| lock_error())?.settings()?;
+    if anchor_ticket.is_some_and(|ticket| !position_job_writable(shared, ticket)) { return Ok(old_settings); }
     let autostart = patch.get("startAtLogin").and_then(Value::as_bool);
     if let Some(enabled) = autostart {
         native::set_autostart(enabled)?;
@@ -787,6 +839,33 @@ fn update_settings(app: &AppHandle, shared: &Shared, patch: &Value) -> Result<Va
     apply_projection_revision(app, &settings, revision)?;
     Ok(settings)
 }
+fn temporary_dnd_projection_changed(prior: &Value, settings: &Value) -> bool {
+    ["active", "until", "deadlineMonoMs"].iter().any(|key|
+        prior["temporaryDoNotDisturb"][*key] != settings["temporaryDoNotDisturb"][*key])
+}
+fn refresh_temporary_dnd_projection(app: &AppHandle, shared: &Shared) {
+    let Ok(serial) = shared.settings_update.try_lock() else { return; };
+    let settings = {
+        let Ok(core) = shared.core.try_lock() else { return; };
+        let Ok(settings) = core.settings() else { return; };
+        settings
+    };
+    let changed = shared.projection.try_lock().is_ok_and(|prior|
+        temporary_dnd_projection_changed(&prior, &settings));
+    if !changed { return; }
+    shared.panel_read_revision.fetch_add(1, Ordering::AcqRel);
+    let revision = shared.settings_revision.fetch_add(1, Ordering::AcqRel) + 1;
+    // 与显式设置共用版本屏障，所有锁释放后才等待主线程更新和发送事件。
+    drop(serial);
+    if let Err(error) = apply_projection_revision(app, &settings, revision) {
+        if let Ok(mut stored) = shared.shell_error.try_lock() { *stored = Some(error); }
+    }
+}
+
+#[cfg(test)]
+#[path = "temporary_dnd_desktop_tests.rs"]
+mod temporary_dnd_desktop_tests;
+
 fn recover_pet(app: &AppHandle, reposition: bool) -> Result<(), String> {
     let shared = app.state::<SharedState>();
     popup_on_main(app, move |app| {
@@ -871,7 +950,7 @@ fn read_panel_snapshot(shared: &SharedState, query: Option<Value>, request: Opti
         }
         snapshot["primarySourceId"]=primary["id"].clone();
         snapshot["account"]=if query.get("sourceId").and_then(Value::as_str).is_some_and(|id|!id.is_empty()&&Some(id)!=primary["id"].as_str()){
-            json!({"status":"unavailable","sourceId":query["sourceId"],"buckets":[],"collectedAt":null,"error":"此来源尚未启用独立账户采集"})
+            json!({"status":"unavailable","sourceId":query["sourceId"],"buckets":[],"collectedAt":null,"error":"此卡沿用主来源读取；请在逐来源账户快照中查看与刷新其它登记来源。"})
         }else{shared.account_cache.lock().map_err(|_|lock_error())?.for_source(&primary)
             .unwrap_or_else(||json!({"status":"unavailable","sourceId":primary["id"],"buckets":[],"collectedAt":null,"error":"主来源已变化或停用，等待对应来源重新采集"}))};
         let desktop_metrics=shared.metrics.lock().map_err(|_|lock_error())?.clone();
@@ -985,6 +1064,7 @@ async fn run_action(
         return Err("应用正在退出，已停止接受新操作".into());
     }
     tauri::async_runtime::spawn_blocking(move || {
+        physics_adapter::cancel(&shared);
         let payload = payload.unwrap_or_else(|| json!({}));
         if matches!(name.as_str(), "save_settings" | "update_settings") {
             let patch = payload.get("settings").unwrap_or(&payload);
@@ -1003,11 +1083,14 @@ async fn run_action(
             if name=="clear_data" {
                 let primary=core.primary_source()?;
                 shared.account_cache.lock().map_err(|_|lock_error())?.clear(&primary);
+                shared.source_accounts.lock().map_err(|_|lock_error())?.clear();
                 shared.account_reset_pending.store(true,Ordering::SeqCst);
                 *shared.last_account_attempt.lock().map_err(|_|lock_error())?=None;
                 record_metric(&shared,"directory",json!({"status":"unavailable","sourceId":primary["id"],"lastSuccessAt":null,"count":null,"error":"本地目录缓存已清除；后续新读取可重新采集"}));
             }
+            shared.source_accounts.lock().map_err(|_|lock_error())?.sync(&core.source_account_bindings()?);
             if matches!(name.as_str(), "clear_data" | "clear_inbox" | "set_primary_source" | "add_source" | "update_source" | "relocate_source") {
+                drop_adapter::clear(&shared);
                 pointer::reset(&shared);
                 // Invalidate other windows before waiting on optional bridge
                 // cleanup. A pre-mutation pet reply cannot become a new batch.
@@ -1374,7 +1457,7 @@ impl ManualDragHandoff<'_> {
             self.attempt["phase"] = json!("entry-rejected");
             return Err(self.reject(reason));
         }
-        if self.shared.manual_drag.lock().map_err(|_| lock_error())?.is_active() {
+        if self.shared.manual_drag.lock().map_err(|_| lock_error())?.is_active() || extra_pets::dragging(self.shared) {
             self.attempt["phase"] = json!("already-active");
             self.attempt["reason"] = json!("AlreadyActive");
             self.normal_cancellation = true;
@@ -1411,6 +1494,8 @@ impl ManualDragHandoff<'_> {
             return Err(format!("当前无法拖动桌宠：{error:?}"));
         }
         self.owner_started = true;
+        if let Ok(mut anchor) = self.shared.position_anchor.lock() { anchor.invalidate(); }
+        physics_adapter::begin_drag(self.shared, input, self.shared.started_at.elapsed());
         self.shared.native_dragging.store(true, Ordering::Release);
         self.shared.motion_invalidated.store(true, Ordering::Release);
         pointer::reset(self.shared);
@@ -1479,6 +1564,7 @@ fn manual_drag_runtime_available(shared: &Shared) -> bool {
         !shared.exiting.load(Ordering::Acquire)
 }
 fn finish_manual_drag(shared: &Shared, reason: manual_drag::StopReason) {
+    if reason != manual_drag::StopReason::Released { physics_adapter::cancel(shared); }
     shared.native_dragging.store(false, Ordering::Release);
     shared.motion_invalidated.store(true, Ordering::Release);
     pointer::reset(shared);
@@ -1487,6 +1573,7 @@ fn finish_manual_drag(shared: &Shared, reason: manual_drag::StopReason) {
         "at":chrono::Utc::now().to_rfc3339()}));
 }
 fn cancel_manual_drag(shared: &Shared, reason: manual_drag::StopReason) {
+    if reason != manual_drag::StopReason::Released { physics_adapter::cancel(shared); }
     let cancelled = shared.manual_drag.lock().map(|mut owner| owner.cancel(reason)).unwrap_or(false);
     if cancelled { finish_manual_drag(shared, reason); }
 }
@@ -1508,6 +1595,7 @@ fn step_manual_drag_on_main(window: &WebviewWindow, shared: &Shared) -> ManualDr
     let areas = native::work_areas(window).unwrap_or_default().into_iter().map(|area|
         manual_drag::Rect { x:area.x, y:area.y, width:area.width, height:area.height }).collect::<Vec<_>>();
     let input = native::sample_drag_input(native::motion_window_available(window), manual_drag_runtime_available(shared));
+    capture_drag_for_physics(window, shared, input);
     let update = match shared.manual_drag.lock() {
         Ok(mut owner) => owner.tick(input, rect, &areas, shared.started_at.elapsed()),
         Err(_) => return ManualDragStep { handled: true, ..ManualDragStep::default() },
@@ -1519,6 +1607,7 @@ fn step_manual_drag_on_main(window: &WebviewWindow, shared: &Shared) -> ManualDr
         // after a release/pause that happened during them or during planning.
         let boundary = native::sample_drag_input(native::motion_window_available(window), manual_drag_runtime_available(shared));
         if let Some(reason) = manual_drag_input_rejection(boundary) {
+            capture_drag_for_physics(window, shared, boundary);
             cancel_manual_drag(shared, reason);
             result.stopped = Some(reason);
         } else if !native::move_pet_without_activation(window, roaming::Point { x:target.x, y:target.y }) {
@@ -1551,6 +1640,9 @@ fn record_pet_move(window: &tauri::Window, shared: &Shared, point: PhysicalPosit
         positions.observe(event, actual, dragging, shared.started_at.elapsed()))
         .unwrap_or(motion_guard::MoveOrigin::Stale);
     if origin == motion_guard::MoveOrigin::External {
+        if let Ok(mut anchor) = shared.position_anchor.lock() {
+            if !anchor.invalidate_unless_frozen_matches(|frozen| frozen.x == point.x && frozen.y == point.y) { return; }
+        }
         shared.motion_invalidated.store(true, Ordering::Release);
         if let Ok(mut dirty) = shared.position_dirty.lock() { *dirty = Some(Instant::now()); }
     }
@@ -1652,6 +1744,92 @@ fn update_account(shared: &Shared, manual_retry: bool) -> Result<Value, String> 
     record_account_bridge_resource(shared);
     result
 }
+// 调用者始终持有唯一 bridge owner；逻辑来源切换也必须销毁旧快照。
+fn bind_account_transport(shared: &Shared, bridge: &mut AccountBridge, source: &Value) -> Result<(), String> {
+    let next = source_accounts::binding(source);
+    let mut binding = shared.account_transport_binding.lock().map_err(|_|lock_error())?;
+    if *binding != next {
+        bridge.clear_cached_data();
+        *binding = next;
+    }
+    bridge.set_source_root(&PathBuf::from(source["root"].as_str().ok_or("来源缺少目录。")?));
+    Ok(())
+}
+fn source_accounts_view(shared: &Shared) -> Result<Value, String> {
+    if shared.exiting.load(Ordering::Acquire) { return Err("应用正在退出。".into()); }
+    let core = shared.core.lock().map_err(|_|lock_error())?;
+    let sources = core.source_account_bindings()?;
+    let primary = core.primary_source()?;
+    let mut cache = shared.source_accounts.lock().map_err(|_|lock_error())?;
+    cache.sync(&sources);
+    Ok(cache.view(&sources, primary["id"].as_str().unwrap_or_default()))
+}
+fn refresh_registered_account(shared: &Shared, source_id: &str) -> Result<Value, String> {
+    if shared.stop.load(Ordering::Acquire) || shared.exiting.load(Ordering::Acquire) { return Err("应用正在退出。".into()); }
+    // 所有来源共用一个受预算限制的桥接进程，整个读取与发布保持串行。
+    let mut bridge = shared.account.lock().map_err(|_|lock_error())?;
+    if shared.stop.load(Ordering::Acquire) || shared.exiting.load(Ordering::Acquire) { return Err("应用正在退出。".into()); }
+    let (source, ticket, primary_generation, subscription_scope) = {
+        let core = shared.core.lock().map_err(|_|lock_error())?;
+        let sources = core.source_account_bindings()?;
+        let source = sources.iter().find(|s| s["id"].as_str() == Some(source_id)).cloned().ok_or("未知登记来源。")?;
+        if source["clientKind"] != "codex" { return Err("此工具尚未提供官方账户读取。".into()); }
+        if !flag(&source,"enabled",false) { return Err("此来源已停用。".into()); }
+        {
+            let mut last = shared.last_account_attempt.lock().map_err(|_|lock_error())?;
+            if last.is_some_and(|at|at.elapsed()<Duration::from_secs(10)) { return Err("官方账户读取间隔为十秒，请稍后重试。".into()); }
+            *last=Some(Instant::now());
+        }
+        let primary_generation = if core.primary_source()?["id"] == source["id"] {
+            let mut primary = shared.account_cache.lock().map_err(|_|lock_error())?;
+            primary.rebind(&core.primary_source()?);
+            Some(primary.generation)
+        } else { None };
+        let mut cache = shared.source_accounts.lock().map_err(|_|lock_error())?;
+        cache.sync(&sources);
+        let ticket = cache.begin(&source)?;
+        (source,ticket,primary_generation,core.subscription_scope_token()?)
+    };
+    if shared.account_reset_pending.swap(false,Ordering::SeqCst) { bridge.clear_cached_data(); }
+    bind_account_transport(shared,&mut bridge,&source)?;
+    bridge.retry_manually();
+    let config = source_config(&source)?;
+    let mut snapshot = adapter_for("codex").ok_or("Codex 适配器未注册。")?.read_account(&config,&mut *bridge)
+        .unwrap_or_else(|error|json!({"status":"unavailable","buckets":[],"collectedAt":null,"error":error}));
+    if shared.stop.load(Ordering::Acquire) || shared.exiting.load(Ordering::Acquire) { return Err("应用正在退出，已丢弃账户回复。".into()); }
+    let mut core=shared.core.lock().map_err(|_|lock_error())?;
+    let sources=core.source_account_bindings()?;
+    let current=sources.iter().find(|s|s["id"]==source["id"]).ok_or("来源已移除，已丢弃旧快照。")?;
+    if source_accounts::binding(current)!=source_accounts::binding(&source) { return Err("读取期间来源已变化，已丢弃旧快照。".into()); }
+    if core.subscription_scope_token()?!=subscription_scope { return Err("读取期间数据范围已变化，已丢弃旧快照。".into()); }
+    snapshot["sourceId"]=source["id"].clone();
+    let primary=core.primary_source()?;
+    if let Some(generation)=primary_generation.filter(|_|primary["id"]==source["id"]) {
+        let mut cache=shared.account_cache.lock().map_err(|_|lock_error())?;
+        if cache.generation!=generation || cache.binding!=primary { return Err("主来源缓存已变化，已丢弃旧快照。".into()); }
+        snapshot=core.settle_subscription_observation(generation,snapshot)?;
+        cache.publish(&primary,generation,snapshot.clone())?;
+    }
+    let mut cache=shared.source_accounts.lock().map_err(|_|lock_error())?;
+    cache.sync(&sources);
+    cache.publish(&ticket,snapshot)?;
+    Ok(cache.view(&sources,primary["id"].as_str().unwrap_or_default()))
+}
+#[tauri::command]
+async fn read_source_accounts(state: State<'_, SharedState>) -> Result<Value,String> {
+    let shared=state.inner().clone();
+    tauri::async_runtime::spawn_blocking(move||source_accounts_view(&shared)).await.map_err(|e|e.to_string())?
+}
+#[tauri::command]
+async fn refresh_source_account(app: AppHandle, state: State<'_, SharedState>, source_id: String) -> Result<Value,String> {
+    let shared=state.inner().clone();
+    tauri::async_runtime::spawn_blocking(move||{
+        let result=refresh_registered_account(&shared,&source_id);
+        record_account_bridge_resource(&shared);
+        let _=app.emit("source-accounts-updated",json!({}));
+        result
+    }).await.map_err(|e|e.to_string())?
+}
 fn update_account_inner(shared: &Shared, manual_retry: bool) -> Result<Value, String> {
     if shared.stop.load(Ordering::Relaxed) {
         return Err("应用正在退出".into());
@@ -1659,12 +1837,13 @@ fn update_account_inner(shared: &Shared, manual_retry: bool) -> Result<Value, St
     let mut bridge = shared.account.lock().map_err(|_| lock_error())?;
     // A manual read may have held the bridge while the user switched sources.
     // Resolve ownership after acquiring it; never begin another RPC for that old source.
-    let (source, changed, generation) = {
+    let (source, changed, generation, subscription_scope) = {
         let core = shared.core.lock().map_err(|_| lock_error())?;
         let source = core.primary_source()?;
         let mut cache = shared.account_cache.lock().map_err(|_| lock_error())?;
         let changed = cache.rebind(&source);
-        (source, changed, cache.generation)
+        let subscription_scope=core.subscription_scope_token()?;
+        (source, changed, cache.generation, subscription_scope)
     };
     if shared.account_reset_pending.swap(false, Ordering::SeqCst) {
         bridge.clear_cached_data();
@@ -1673,14 +1852,12 @@ fn update_account_inner(shared: &Shared, manual_retry: bool) -> Result<Value, St
         // Binding includes the selected source id and adapter, not only its path.
         // A failed first read must not reuse a previous logical source's snapshot.
         bridge.clear_cached_data();
-        bridge.set_source_root(&PathBuf::from(
-            source["root"].as_str().ok_or("主来源缺少目录")?,
-        ));
         *shared
             .last_account_attempt
             .lock()
             .map_err(|_| lock_error())? = None;
     }
+    bind_account_transport(shared,&mut bridge,&source)?;
     if !flag(&source, "enabled", false) {
         bridge.shutdown();
         let snapshot = json!({"status":"unavailable","sourceId":source["id"],"buckets":[],"collectedAt":null,"error":"主来源已停用，账户采集已停止"});
@@ -1725,17 +1902,30 @@ fn update_account_inner(shared: &Shared, manual_retry: bool) -> Result<Value, St
             json!({"status":"unavailable","buckets":[],"collectedAt":null,"error":"主来源适配器尚未发布账户读取能力"})
         }
     };
-    drop(bridge);
-    let core = shared.core.lock().map_err(|_| lock_error())?;
+    // Keep the bridge owner until Core settles this outcome and publishes it.
+    // A later round cannot overtake an earlier round waiting for the writer.
+    let mut core = shared.core.lock().map_err(|_| lock_error())?;
     if core.primary_source()? != source {
         return Err("账户读取期间主来源已变化，已丢弃旧快照".into());
     }
+    if core.subscription_scope_token()? != subscription_scope {
+        return Err("账户读取期间上下文已变化，已丢弃旧快照".into());
+    }
     snapshot["sourceId"] = source["id"].clone();
-    shared
+    let mut cache = shared
         .account_cache
         .lock()
-        .map_err(|_| lock_error())?
-        .publish(&source, generation, snapshot)
+        .map_err(|_| lock_error())?;
+    if cache.generation != generation || cache.binding != source {
+        return Err("账户读取期间绑定已变化，已丢弃旧快照".into());
+    }
+    snapshot = core.settle_subscription_observation(generation, snapshot)?;
+    let snapshot = cache.publish(&source, generation, snapshot)?;
+    let sources=core.source_account_bindings()?;
+    let mut overview=shared.source_accounts.lock().map_err(|_|lock_error())?;
+    overview.sync(&sources);
+    overview.observe(&source,snapshot.clone())?;
+    Ok(snapshot)
 }
 fn directory_failure(previous: &Value, source: &Value, generation: u64, error: &str) -> Value {
     let same_binding = previous["sourceId"] == source["id"]
@@ -1779,6 +1969,7 @@ fn apply_resource_stop(
 }
 
 fn observe_account_resource_stop(
+    app: &AppHandle,
     shared: &Shared,
     source: &Value,
     generation: u64,
@@ -1787,9 +1978,16 @@ fn observe_account_resource_stop(
     let Some(error) = bridge.observe_resource_stop() else {
         return Ok(None);
     };
+    let transport_binding=shared.account_transport_binding.lock().map_err(|_|lock_error())?.clone();
     // Keep the bridge lock through publication so a concurrent manual retry
     // cannot publish a fresh read before this older stop is applied.
-    let core = shared.core.lock().map_err(|_| lock_error())?;
+    let mut core = shared.core.lock().map_err(|_| lock_error())?;
+    let mut overview=shared.source_accounts.lock().map_err(|_|lock_error())?;
+    overview.sync(&core.source_account_bindings()?);
+    let overview_changed=overview.resource_stop(&transport_binding,error);
+    drop(overview);
+    if overview_changed { let _=app.emit("source-accounts-updated",json!({})); }
+    if transport_binding != source_accounts::binding(source) { return Ok(None); }
     if core.primary_source()? != *source {
         return Ok(None);
     }
@@ -1797,6 +1995,7 @@ fn observe_account_resource_stop(
     let mut metrics = shared.metrics.lock().map_err(|_| lock_error())?;
     let (snapshot, directory_changed) =
         apply_resource_stop(&mut cache, source, generation, &mut metrics, error);
+    if snapshot.is_some() { core.subscription_unavailable(); }
     // Mutations are complete under the binding guards. Keep only metrics locked
     // during I/O: a later clear/source update cannot be persisted ahead of this one.
     drop(cache);
@@ -1817,12 +2016,82 @@ async fn refresh_account(state: State<'_, SharedState>) -> Result<Value, String>
         .map_err(|e| e.to_string())?
 }
 
+async fn subscription_command(shared: SharedState, command: &'static str, payload: Value) -> Result<Value, String> {
+    tauri::async_runtime::spawn_blocking(move || {
+        if shared.exiting.load(Ordering::Acquire) { return Err("应用正在退出".into()); }
+        let mut core = shared.core.lock().map_err(|_| lock_error())?;
+        core.subscription_command(command,&payload)
+    }).await.map_err(|e|e.to_string())?
+}
+#[tauri::command]
+async fn read_subscription_overview(state: State<'_, SharedState>) -> Result<Value, String> { subscription_command(state.inner().clone(),"read",Value::Null).await }
+#[tauri::command]
+async fn save_usage_plan(state: State<'_, SharedState>, payload: Value) -> Result<Value, String> { subscription_command(state.inner().clone(),"save",payload).await }
+#[tauri::command]
+async fn set_usage_plan_status(state: State<'_, SharedState>, payload: Value) -> Result<Value, String> { subscription_command(state.inner().clone(),"status",payload).await }
+#[tauri::command]
+async fn save_quota_assumption(state: State<'_, SharedState>, payload: Value) -> Result<Value, String> { subscription_command(state.inner().clone(),"assumption",payload).await }
+#[tauri::command]
+async fn generate_usage_plan_draft(state: State<'_, SharedState>, payload: Value) -> Result<Value, String> { subscription_command(state.inner().clone(),"draft",payload).await }
+
+async fn local_schedule_command(app: AppHandle, shared: SharedState, command: &'static str, payload: Value) -> Result<Value,String> {
+    tauri::async_runtime::spawn_blocking(move||{
+        if shared.stop.load(Ordering::Acquire) || shared.exiting.load(Ordering::Acquire) { return Err("应用正在退出。".into()); }
+        let mut core=shared.core.lock().map_err(|_|lock_error())?;
+        if shared.stop.load(Ordering::Acquire) || shared.exiting.load(Ordering::Acquire) { return Err("应用正在退出，已取消排队的日程操作。".into()); }
+        let result=match command {
+            "read"=>core.read_local_schedules(payload["sourceId"].as_str().ok_or("请选择登记来源。")?),
+            "save"=>core.save_local_schedule(&payload),
+            "status"=>core.set_local_schedule_status(&payload),
+            "record"=>core.record_local_consumption(&payload),
+            "void"=>core.void_local_consumption(&payload),
+            _=>Err("未知本地日程操作。".into()),
+        };
+        drop(core);
+        if command!="read" && result.is_ok() { let _=app.emit("local-schedules-updated",json!({})); }
+        result
+    }).await.map_err(|error|error.to_string())?
+}
+#[tauri::command]
+async fn read_local_schedules(app: AppHandle,state: State<'_,SharedState>,source_id: String)->Result<Value,String>{ local_schedule_command(app,state.inner().clone(),"read",json!({"sourceId":source_id})).await }
+#[tauri::command]
+async fn save_local_schedule(app: AppHandle,state: State<'_,SharedState>,payload: Value)->Result<Value,String>{ local_schedule_command(app,state.inner().clone(),"save",payload).await }
+#[tauri::command]
+async fn set_local_schedule_status(app: AppHandle,state: State<'_,SharedState>,payload: Value)->Result<Value,String>{ local_schedule_command(app,state.inner().clone(),"status",payload).await }
+#[tauri::command]
+async fn record_local_consumption(app: AppHandle,state: State<'_,SharedState>,payload: Value)->Result<Value,String>{ local_schedule_command(app,state.inner().clone(),"record",payload).await }
+#[tauri::command]
+async fn void_local_consumption(app: AppHandle,state: State<'_,SharedState>,payload: Value)->Result<Value,String>{ local_schedule_command(app,state.inner().clone(),"void",payload).await }
+
+async fn mixture_study_command(app: AppHandle, shared: SharedState, command: &'static str, payload: Value) -> Result<Value,String> {
+    tauri::async_runtime::spawn_blocking(move || {
+        if shared.stop.load(Ordering::Acquire) || shared.exiting.load(Ordering::Acquire) { return Err("应用正在退出。".into()); }
+        let mut core = shared.core.lock().map_err(|_|lock_error())?;
+        if shared.stop.load(Ordering::Acquire) || shared.exiting.load(Ordering::Acquire) { return Err("应用正在退出，已取消排队的条件实验。".into()); }
+        let result = match command {
+            "read" => core.read_mixture_studies(payload["sourceId"].as_str().ok_or("请选择登记来源。")?),
+            "save" => core.save_mixture_study(&payload),
+            "delete" => core.delete_mixture_study(&payload),
+            _ => Err("未知条件实验操作。".into()),
+        };
+        drop(core);
+        if command != "read" && result.is_ok() { let _ = app.emit("mixture-studies-updated",json!({})); }
+        result
+    }).await.map_err(|error|error.to_string())?
+}
+#[tauri::command]
+async fn read_mixture_studies(app: AppHandle,state: State<'_,SharedState>,source_id: String)->Result<Value,String>{ mixture_study_command(app,state.inner().clone(),"read",json!({"sourceId":source_id})).await }
+#[tauri::command]
+async fn save_mixture_study(app: AppHandle,state: State<'_,SharedState>,payload: Value)->Result<Value,String>{ mixture_study_command(app,state.inner().clone(),"save",payload).await }
+#[tauri::command]
+async fn delete_mixture_study(app: AppHandle,state: State<'_,SharedState>,payload: Value)->Result<Value,String>{ mixture_study_command(app,state.inner().clone(),"delete",payload).await }
+
 #[tauri::command]
 async fn choose_source_directory(app: AppHandle) -> Result<Option<String>, String> {
     tauri::async_runtime::spawn_blocking(move || {
         app.dialog()
             .file()
-            .set_title("选择受支持的 Codex 数据目录（只读）")
+            .set_title("选择工具数据目录（只读）")
             .blocking_pick_folder()
             .map(|path| {
                 path.into_path()
@@ -1968,6 +2237,7 @@ fn restore_position(app: &AppHandle, shared: &Shared, reset: bool) -> Result<(),
     popup_on_main(app, move |app| {
         let shared = app.state::<SharedState>();
         cancel_manual_drag(&shared, manual_drag::StopReason::Cancelled);
+        if let Ok(mut anchor) = shared.position_anchor.lock() { anchor.invalidate(); }
         let window = app.get_webview_window("pet").ok_or("桌宠窗口尚未就绪")?;
         dismiss_pet_popup_on_main(&window, &shared, "display-recovery", false)
     })?;
@@ -2014,10 +2284,16 @@ fn restore_position(app: &AppHandle, shared: &Shared, reset: bool) -> Result<(),
 }
 fn persist_settled_position(app: &AppHandle, shared: &Shared) -> Result<(), String> {
     if shared.native_dragging.load(Ordering::Acquire) || pet_has_transient_bounds(shared) { return Ok(()); }
-    let window = app.get_webview_window("pet").ok_or("桌宠窗口尚未就绪")?;
+    refresh_position_anchor(shared);
+    let selection = shared.position_anchor.lock().map_err(|_| lock_error())?.select();
+    let ticket = match selection {
+        position_anchor::Selection::Wait => return Ok(()),
+        position_anchor::Selection::Frozen(ticket, value) => return persist_position_value(app, shared, ticket, value),
+        position_anchor::Selection::Capture(ticket) => ticket,
+    };
     let Some(m) = popup_on_main(app, move |app| {
         let shared = app.state::<SharedState>();
-        if shared.native_dragging.load(Ordering::Acquire) || pet_has_transient_bounds(&shared) { return Ok(None); }
+        if !position_job_writable(&shared, ticket) { return Ok(None); }
         let window = app.get_webview_window("pet").ok_or("桌宠窗口尚未就绪")?;
         let monitors = native::work_areas(&window)?;
         let p = window.outer_position().map_err(|e| e.to_string())?;
@@ -2027,13 +2303,13 @@ fn persist_settled_position(app: &AppHandle, shared: &Shared) -> Result<(), Stri
     let settings = shared.core.lock().map_err(|_| lock_error())?.settings()?;
     let fitted = fit_scale(&m, pet_scale(&settings));
     if fitted < pet_scale(&settings) {
-        update_settings(app, shared, &json!({"petScale":fitted}))?;
+        update_settings_for_anchor(app, shared, &json!({"petScale":fitted}), Some(ticket))?;
     }
     // A popup may open between the worker's initial check and native reads.
     // Capture ONLY normal geometry in one UI task, before touching settings.
     let Some((m, x, y, size)) = popup_on_main(app, move |app| {
         let shared = app.state::<SharedState>();
-        if shared.native_dragging.load(Ordering::Acquire) || pet_has_transient_bounds(&shared) { return Ok(None); }
+        if !position_job_writable(&shared, ticket) { return Ok(None); }
         let window = app.get_webview_window("pet").ok_or("桌宠窗口尚未就绪")?;
         let monitors = native::work_areas(&window)?;
         let p = window.outer_position().map_err(|e| e.to_string())?;
@@ -2047,25 +2323,83 @@ fn persist_settled_position(app: &AppHandle, shared: &Shared) -> Result<(), Stri
     })? else { return Ok(()); };
     let saved = SavedPosition {
         monitor_id: m.id.clone(),
-        logical_x: (x - m.x) as f64 / m.scale_factor,
-        logical_y: (y - m.y) as f64 / m.scale_factor,
+        logical_x: (f64::from(x) - f64::from(m.x)) / m.scale_factor,
+        logical_y: (f64::from(y) - f64::from(m.y)) / m.scale_factor,
         scale_factor: m.scale_factor,
     };
+    persist_position_value(app, shared, ticket, FrozenPetPosition { saved, monitor: m, x, y, size })
+}
+
+/// 捕获在任何设置/Core锁之前完成；设置序列使旧采样任务无法跨过本次冻结写入。
+fn freeze_position_anchor_on_main(window: &WebviewWindow, shared: &Shared) -> Result<position_anchor::Ticket, String> {
+    if pet_has_transient_bounds(shared) { return Err("菜单尚未恢复，请稍后再试。".into()); }
+    let monitors = native::work_areas(window)?;
+    let point = window.outer_position().map_err(|error| error.to_string())?;
+    let size = window.outer_size().map_err(|error| error.to_string())?;
+    let monitor = monitor_for_rect(&monitors, point.x, point.y, size.width, size.height).cloned().ok_or("无法冻结当前屏幕位置。")?;
+    let (x, y) = clamp_position(&monitor, point.x, point.y, size.width, size.height);
+    if size.width > monitor.width || size.height > monitor.height || (x, y) != (point.x, point.y) {
+        return Err("角色需要先恢复到当前屏幕工作区内。".into());
+    }
+    let value = FrozenPetPosition { saved: SavedPosition { monitor_id: monitor.id.clone(),
+        logical_x: (f64::from(x) - f64::from(monitor.x)) / monitor.scale_factor,
+        logical_y: (f64::from(y) - f64::from(monitor.y)) / monitor.scale_factor, scale_factor: monitor.scale_factor }, monitor, x, y, size };
+    let _serial = shared.settings_update.try_lock().map_err(|_| "位置正在保存，请稍后再试。")?;
+    let ticket = shared.position_anchor.try_lock().map_err(|_| "位置状态正在变化。")?.prepare(value, shared.started_at.elapsed())?;
+    *shared.position_dirty.lock().map_err(|_| lock_error())? = Some(Instant::now());
+    Ok(ticket)
+}
+
+fn complete_position_anchor(shared: &Shared, ticket: position_anchor::Ticket, started: bool) {
+    if let Ok(mut anchor) = shared.position_anchor.lock() { anchor.complete(ticket, started); }
+}
+
+fn refresh_position_anchor(shared: &Shared) {
+    let ticket = match shared.position_anchor.try_lock() { Ok(anchor) => anchor.version(), Err(_) => return };
+    let active = physics_adapter::has_work(shared);
+    if let Ok(mut anchor) = shared.position_anchor.try_lock() { anchor.refresh(ticket, active, shared.started_at.elapsed()); }
+}
+
+fn position_job_writable(shared: &Shared, ticket: position_anchor::Ticket) -> bool {
+    !shared.native_dragging.load(Ordering::Acquire) && !pet_has_transient_bounds(shared) && !physics_adapter::has_work(shared)
+        && shared.position_anchor.try_lock().is_ok_and(|anchor| anchor.writable(ticket))
+}
+
+#[cfg(windows)]
+fn capture_drag_for_physics(window: &WebviewWindow, shared: &Shared, input: manual_drag::Input) {
+    if input.left_down { physics_adapter::capture_drag_input(shared, input, shared.started_at.elapsed()); return; }
+    match freeze_position_anchor_on_main(window, shared) {
+        Ok(ticket) => {
+            physics_adapter::capture_drag_input(shared, input, shared.started_at.elapsed());
+            complete_position_anchor(shared, ticket, physics_adapter::has_work(shared));
+        },
+        Err(_) => physics_adapter::cancel(shared),
+    }
+}
+
+fn persist_position_value(app: &AppHandle, shared: &Shared, ticket: position_anchor::Ticket, value: FrozenPetPosition) -> Result<(), String> {
     let serial = shared.settings_update.lock().map_err(|_| lock_error())?;
-    let settings = shared
-        .core
-        .lock()
-        .map_err(|_| lock_error())?
-        .action("update_settings", &json!({"petPosition":saved}))?;
-    drop(serial);
+    if shared.native_dragging.load(Ordering::Acquire) || pet_has_transient_bounds(shared) || physics_adapter::has_work(shared)
+        || !shared.position_anchor.lock().map_err(|_| lock_error())?.writable(ticket) { return Ok(()); }
+    let mut core = shared.core.lock().map_err(|_| lock_error())?;
+    // 新物理段也必须取得同一个设置序列；此后不会插入新冻结点。
+    if shared.native_dragging.load(Ordering::Acquire) || physics_adapter::has_work(shared)
+        || !shared.position_anchor.lock().map_err(|_| lock_error())?.writable(ticket) { return Ok(()); }
+    let settings = core.action("update_settings", &json!({"petPosition":value.saved}))?;
+    drop(core);
+    if shared.position_anchor.lock().map_err(|_| lock_error())?.writable(ticket) {
+        shared.position_anchor.lock().map_err(|_| lock_error())?.finish(ticket);
+        *shared.position_dirty.lock().map_err(|_| lock_error())? = None;
+    }
     // Position is not a visual projection acknowledgement. Preserve the last
     // actually-applied visual flags when another settings projection is queued.
     shared.projection.lock().map_err(|_| lock_error())?["petPosition"] = settings["petPosition"].clone();
-    record_window_state(&window, shared);
+    drop(serial);
+    if let Some(window) = app.get_webview_window("pet") { record_window_state(&window, shared); }
     record_metric(
         shared,
         "positionSettled",
-        json!({"at":chrono::Utc::now().to_rfc3339(),"withinWorkArea":x>=m.x&&y>=m.y&&(x as i64+size.width as i64)<=m.x as i64+m.width as i64&&(y as i64+size.height as i64)<=m.y as i64+m.height as i64,"dragging":false,"scaleFactor":m.scale_factor}),
+        json!({"at":chrono::Utc::now().to_rfc3339(),"withinWorkArea":value.x>=value.monitor.x&&value.y>=value.monitor.y&&(i64::from(value.x)+i64::from(value.size.width))<=i64::from(value.monitor.x)+i64::from(value.monitor.width)&&(i64::from(value.y)+i64::from(value.size.height))<=i64::from(value.monitor.y)+i64::from(value.monitor.height),"dragging":false,"scaleFactor":value.monitor.scale_factor}),
     );
     Ok(())
 }
@@ -2087,6 +2421,8 @@ fn begin_shutdown(app: &AppHandle) {
     }
     cancel_manual_drag(&shared, manual_drag::StopReason::RuntimeUnavailable);
     shared.stop.store(true, Ordering::SeqCst);
+    extra_pets::shutdown(app, &shared);
+    drop_adapter::clear(&shared);
     pointer::refresh_runtime_admission(&shared);
     cancel_panel_navigation(&shared);
     wake_scan(&shared);
@@ -2216,7 +2552,7 @@ fn start_file_watcher(shared: SharedState) {
                 .core
                 .lock()
                 .map_err(|_| lock_error())
-                .and_then(|core| core.enabled_codex_source_roots())
+                .and_then(|core| core.enabled_local_source_roots())
                 .unwrap_or_default();
             let mut desired: Vec<PathBuf> = sources
                 .into_iter()
@@ -2244,10 +2580,14 @@ fn start_file_watcher(shared: SharedState) {
 }
 
 fn notification_summary(events: &[Value]) -> String {
-    let mut counts = [0usize; 5];
+    let mut counts = [0usize; 7];
     for event in events {
         let index = if event["kind"] == "budget" {
             4
+        } else if event["kind"] == "subscription_plan" {
+            5
+        } else if event["kind"] == "quota_eta" {
+            6
         } else {
             match event["status"].as_str().unwrap_or("") {
                 "failed" => 0,
@@ -2264,6 +2604,8 @@ fn notification_summary(events: &[Value]) -> String {
         "个回合正常结束",
         "个回合已结束，结果未知",
         "项本地软预算提醒",
+        "项使用计划提醒",
+        "项官方额度风险提醒",
     ];
     let parts: Vec<String> = counts
         .iter()
@@ -2272,6 +2614,39 @@ fn notification_summary(events: &[Value]) -> String {
         .map(|(n, label)| format!("{n}{label}"))
         .collect();
     format!("{}。详情保留在本地收件箱。", parts.join("；"))
+}
+fn initialize_notification_transport(shared: &Shared, registration: &mut crate::notification_registration::Registration) -> bool {
+    let step = native::initialize_notifications(registration, &shared.notification_gate, || {
+        !shared.stop.load(Ordering::Acquire)
+            && !shared.native_suppress_toast.load(Ordering::Acquire)
+            && shared.core.try_lock().ok().and_then(|core| core.settings().ok())
+                .is_some_and(|settings| !flag(&settings, "effectiveDoNotDisturb", true))
+    });
+    match step {
+        crate::notification_registration::Step::Deferred => false,
+        crate::notification_registration::Step::Finished(outcome) => {
+            record_metric(shared, "notificationRegistration", json!({"completedAt":chrono::Utc::now().to_rfc3339(),"transportOnly":true,"outcome":outcome}));
+            true
+        }
+        crate::notification_registration::Step::AlreadyFinished => true,
+    }
+}
+fn guard_claimed_notifications(
+    events: Vec<Value>,
+    mut permit: impl FnMut(&Value) -> Option<notification_gate::NotificationPermit>,
+) -> (Vec<QueuedNotification>, Vec<String>) {
+    let mut admitted = Vec::new();
+    let mut suppressed = Vec::new();
+    for event in events {
+        let guard = permit(&event);
+        // 真实领取的完成提醒必须有守卫，不能退回纯模块保留的旧兼容路径。
+        if event["kind"] == "completion" && guard.is_none() {
+            if let Some(id) = event["id"].as_str() { suppressed.push(id.to_owned()); }
+        } else {
+            admitted.push(QueuedNotification { event, permit: guard });
+        }
+    }
+    (admitted, suppressed)
 }
 fn process_notifications(
     shared: &Shared,
@@ -2283,11 +2658,14 @@ fn process_notifications(
         .core
         .lock()
         .ok()
-        .and_then(|mut core| core.claim_notifications().ok().map(|events| {
-            events.into_iter().map(|event| QueuedNotification {
-                permit: core.budget_notification_permit(&event), event,
-            }).collect::<Vec<_>>()
-        }))
+        .and_then(|mut core| {
+            let events = core.claim_notifications().ok()?;
+            let (admitted, suppressed) = guard_claimed_notifications(events, |event| core.notification_permit(event));
+            if !suppressed.is_empty() {
+                let _ = core.finish_notification(&suppressed, "suppressed", None);
+            }
+            Some(admitted)
+        })
         .unwrap_or_default();
     let admission = notification_gate::admit_notifications(queue, claimed, &crate::budget_clock::now());
     if admission.reset_queued_at { *queued_at = None; }
@@ -2340,8 +2718,14 @@ fn process_notifications(
                 !shared.stop.load(Ordering::Acquire)
                     && shared.notification_gate.snapshot().is_some()
                     && !shared.native_suppress_toast.load(Ordering::Acquire)
-                    && shared.core.try_lock().ok().and_then(|core| core.settings().ok())
-                        .is_some_and(|settings| !flag(&settings, "effectiveDoNotDisturb", true))
+                    && shared.core.try_lock().ok().is_some_and(|core| {
+                        // Revalidate committed domain facts after COM preparation.
+                        // Denial revokes the same permit clones held by this queue.
+                        for queued in queue.iter().filter(|q|notification_gate::requires_domain_permit(&q.event)) {
+                            let _=core.notification_permit(&queued.event);
+                        }
+                        core.settings().is_ok_and(|settings| !flag(&settings, "effectiveDoNotDisturb", true))
+                    })
             },
         )
     };
@@ -2425,7 +2809,8 @@ fn set_pet_motion_readiness(
         });
     let valid_gait = !readiness.gait_ready || presented.is_some();
     let flags = motion_guard::Readiness { ready: readiness.ready && valid_gait,
-        gait_available: readiness.gait_available, gait_ready: readiness.gait_ready && valid_gait };
+        gait_available: readiness.gait_available, gait_ready: readiness.gait_ready && valid_gait }
+        .restrict_to_feature(p1_development_enabled());
     let accepted = {
         let mut motion = state.motion.try_lock().map_err(|_| lock_error())?;
         let accepted = motion.permission.accept(&readiness.renderer_epoch, &readiness.token,
@@ -2455,7 +2840,7 @@ fn poll_companion(app: &AppHandle, shared: &Shared) {
     let edge_snapshot = inspect_edge.then(|| pet_window.as_ref()
         .and_then(native::motion_snapshot)).flatten();
     let (available, renderer_ready, direction) = shared.motion.try_lock().map(|mut motion| {
-        let available = motion.permission.feature_available() && cfg!(windows);
+        let available = p1_development_enabled() && motion.permission.feature_available() && cfg!(windows);
         let ready = motion.permission.readiness(shared.started_at.elapsed()).is_some_and(|flags| flags.ready);
         if available && motion.request.is_none() {
             if let Some((geometry, position)) = edge_snapshot {
@@ -2509,6 +2894,7 @@ fn schedule_pet_motion(app: &AppHandle, shared: &SharedState) {
     let handle = app.clone();
     if app.run_on_main_thread(move || {
         step_pet_motion_on_main(&handle, &pending.0);
+        extra_pets::step_on_main(&handle, &pending.0);
         drop(pending);
     }).is_err() {
         shared.motion_tick_pending.store(false, Ordering::Release);
@@ -2526,6 +2912,7 @@ fn step_pet_motion_on_main(app: &AppHandle, shared: &Shared) {
     if step_manual_drag_on_main(&window, shared).handled { return; }
     // Pointer leases expire even when roaming is disabled or its mutex is busy.
     let _ = pointer::sync(&window, shared);
+    if physics_adapter::step_on_main(app, shared) { return; }
     let Ok(mut motion) = shared.motion.try_lock() else { return; };
     if shared.motion_invalidated.swap(false, Ordering::AcqRel) {
         motion.cancel(true);
@@ -2542,14 +2929,14 @@ fn step_pet_motion_on_main(app: &AppHandle, shared: &Shared) {
     let permission = motion.permission.readiness(now);
     let settings = shared.projection.try_lock().ok().map(|value| value.clone());
     let interacting = shared.pet_interaction.try_lock().map(|value| value.active).unwrap_or(true);
-    let blocked = shared.stop.load(Ordering::Acquire) || shared.exiting.load(Ordering::Acquire) ||
+    let blocked = !p1_development_enabled() || shared.stop.load(Ordering::Acquire) || shared.exiting.load(Ordering::Acquire) ||
         shared.native_paused.load(Ordering::Acquire) || shared.native_dragging.load(Ordering::Acquire) ||
         shared.display_recheck.load(Ordering::Acquire) || interacting || native::mouse_down() ||
         !native::motion_window_available(&window) || !native::motion_environment_allowed() ||
         native::motion_input_marker() != Some(movement.input_marker) ||
         !permission.is_some_and(|flags| flags.ready && flags.gait_available) ||
         settings.as_ref().is_none_or(|value| !flag(value, "idlePlayEnabled", true) ||
-            !flag(value, "idleRoamingEnabled", true) || !flag(value, "petVisible", true) ||
+            !flag(value, "idleRoamingEnabled", false) || !flag(value, "petVisible", true) ||
             companion::settings_pause(value).is_some());
     if blocked {
         motion.cancel(false);
@@ -2574,9 +2961,9 @@ fn step_pet_motion_on_main(app: &AppHandle, shared: &Shared) {
     let Some((geometry, position)) = native::motion_snapshot(&window) else {
         motion.cancel(true); drop(core); drop(motion); interrupt_motion(app, shared, "geometryUnavailable"); return;
     };
-    let range = if settings.as_ref().is_some_and(|value| value["idleRoamRange"] == "nearby") {
-        roaming::Range::Nearby
-    } else { roaming::Range::WorkArea };
+    let range = if settings.as_ref().is_some_and(|value| value["idleRoamRange"] == "workArea") {
+        roaming::Range::WorkArea
+    } else { roaming::Range::Nearby };
     if motion.request.is_some_and(|request| request.range != range) {
         motion.cancel(false); drop(core); drop(motion); interrupt_motion(app, shared, "interaction"); return;
     }
@@ -2696,6 +3083,38 @@ async fn remove_companion_launcher(app: AppHandle, state: State<'_, SharedState>
 }
 
 #[tauri::command]
+async fn update_companion_launcher(app: AppHandle, state: State<'_, SharedState>, options: companion::LauncherUpdateOptions) -> Result<companion::LauncherSummary, String> {
+    let shared = state.inner().clone();
+    tauri::async_runtime::spawn_blocking(move || {
+        if shared.exiting.load(Ordering::Relaxed) { return Err("应用正在退出。".into()); }
+        let (entry, listed) = {
+            let mut companion = shared.companion.lock().map_err(|_| lock_error())?;
+            let entry = companion.update(options)?;
+            (entry, companion.list()?)
+        };
+        let _ = app.emit("companion-launchers-changed", listed);
+        poll_companion(&app, &shared);
+        Ok(entry)
+    }).await.map_err(|error| error.to_string())?
+}
+
+#[tauri::command]
+async fn move_companion_launcher(app: AppHandle, state: State<'_, SharedState>, options: companion::LauncherMoveOptions) -> Result<(), String> {
+    let shared = state.inner().clone();
+    tauri::async_runtime::spawn_blocking(move || {
+        if shared.exiting.load(Ordering::Relaxed) { return Err("应用正在退出。".into()); }
+        let listed = {
+            let mut companion = shared.companion.lock().map_err(|_| lock_error())?;
+            companion.move_launcher(options)?;
+            companion.list()?
+        };
+        let _ = app.emit("companion-launchers-changed", listed);
+        poll_companion(&app, &shared);
+        Ok(())
+    }).await.map_err(|error| error.to_string())?
+}
+
+#[tauri::command]
 async fn launch_companion_app(state: State<'_, SharedState>, options: CompanionLauncherOptions) -> Result<Value, String> {
     let shared = state.inner().clone();
     tauri::async_runtime::spawn_blocking(move || {
@@ -2713,10 +3132,13 @@ fn start_workers(app: AppHandle, shared: SharedState) {
         let mut notification_queue = vec![];
         let mut queued_at = None;
         let mut last_sent = None;
+        let mut notification_registration = crate::notification_registration::Registration::default();
         let mut scan_metrics_flushed: Option<Instant> = None;
         let mut attempt_iteration = 0u64;
         let mut previous_notification_phase: Option<(u64, bool, f64, f64)> = None;
         while !s.stop.load(Ordering::Relaxed) {
+            // Finish transport registration before this scan can issue or claim new domain permits.
+            let notification_transport_ready = initialize_notification_transport(&s, &mut notification_registration);
             attempt_iteration = attempt_iteration.saturating_add(1);
             let scan_started = Instant::now();
             let host = s.notification_gate.snapshot().map(|epoch| (epoch, crate::budget_clock::now()));
@@ -2785,7 +3207,7 @@ fn start_workers(app: AppHandle, shared: SharedState) {
                     }
                 }
             }
-            if !s.stop.load(Ordering::Relaxed) {
+            if !s.stop.load(Ordering::Relaxed) && notification_transport_ready {
                 let notification_started = Instant::now();
                 process_notifications(&s, &mut notification_queue, &mut queued_at, &mut last_sent);
                 let notification_ms = notification_started.elapsed().as_secs_f64() * 1000.0;
@@ -2867,6 +3289,7 @@ fn start_workers(app: AppHandle, shared: SharedState) {
                     if s.account_reset_pending.swap(false, Ordering::SeqCst) {
                         bridge.clear_cached_data();
                     }
+                    bind_account_transport(&s,&mut bridge,&source)?;
                     adapter.list_sessions(&config, &mut *bridge)
                 });
                 match rows {
@@ -2924,7 +3347,7 @@ fn start_workers(app: AppHandle, shared: SharedState) {
                 }
             }
             if let Ok(Some(snapshot)) =
-                observe_account_resource_stop(&s, &source, source_generation)
+                observe_account_resource_stop(&a, &s, &source, source_generation)
             {
                 let _ = a.emit("account-updated", snapshot);
             }
@@ -2947,8 +3370,8 @@ fn start_workers(app: AppHandle, shared: SharedState) {
         let mut companion_checked = Instant::now();
         while !shared.stop.load(Ordering::Relaxed) {
             let moving = shared.companion.try_lock().is_ok_and(|owner| owner.movement().is_some());
-            let dragging = shared.manual_drag.try_lock().is_ok_and(|owner| owner.is_active());
-            let delay = Duration::from_millis(if dragging { 16 } else if moving { 50 } else { 200 });
+            let dragging = shared.manual_drag.try_lock().is_ok_and(|owner| owner.is_active()) || extra_pets::dragging(&shared);
+            let delay = Duration::from_millis(if dragging { 16 } else if moving || physics_adapter::has_work(&shared) { 50 } else { 200 });
             // The first manual gesture wakes an idle worker immediately. The
             // predicate also retains a notification sent before it starts waiting.
             if let Ok(wake) = shared.motion_wake.0.lock() {
@@ -2959,7 +3382,9 @@ fn start_workers(app: AppHandle, shared: SharedState) {
             if shared.stop.load(Ordering::Acquire) { break; }
             if companion_checked.elapsed() >= Duration::from_millis(200) {
                 companion_checked = Instant::now();
+                refresh_temporary_dnd_projection(&app, &shared);
                 poll_companion(&app, &shared);
+                physics_adapter::poll_work(&shared);
             }
             schedule_pet_motion(&app, &shared);
             if let Some(window) = app.get_webview_window("pet") {
@@ -2999,9 +3424,6 @@ fn start_workers(app: AppHandle, shared: SharedState) {
                     && !shared.native_dragging.load(Ordering::Relaxed)
                     && !pet_has_transient_bounds(&shared)
                 {
-                    if let Ok(mut dirty) = shared.position_dirty.lock() {
-                        *dirty = None;
-                    }
                     if let Err(error) = persist_settled_position(&app, &shared) {
                         if let Ok(mut stored) = shared.shell_error.lock() {
                             *stored = Some(error);
@@ -3043,6 +3465,7 @@ async fn desktop_debug(
             restore_position(&app, &state, false)?;
             fit_main_window(&app)?;
         }
+        "notification_status" => return Ok(native::notification_status()),
         "notification" => {
             native::show_diagnostic_notification(|| {
                 state.notification_gate.snapshot().is_some()
@@ -3104,16 +3527,22 @@ pub fn run() {
         .plugin(tauri_plugin_dialog::init())
         .manage(crate::app_update::UpdateState::default());
     #[cfg(debug_assertions)]
-    let builder = builder.invoke_handler(tauri::generate_handler![
+    let builder = builder.invoke_handler(extra_pets::restrict_handler(tauri::generate_handler![
         crate::app_update::check_app_update,
         crate::app_update::download_app_update,
         crate::app_update::launch_app_update,
         get_desktop_companion_state,
+        drop_adapter::get_companion_drop,
+        drop_adapter::register_companion_drop,
+        drop_adapter::open_companion_drop,
+        drop_adapter::cancel_companion_drop,
         register_pet_motion_renderer,
         set_pet_motion_readiness,
         list_companion_launchers,
         choose_companion_launcher,
         remove_companion_launcher,
+        update_companion_launcher,
+        move_companion_launcher,
         launch_companion_app,
         get_snapshot,
         get_usage_dashboard_snapshot,
@@ -3135,6 +3564,27 @@ pub fn run() {
         pointer::begin_pet_temporary_interaction,
         pointer::cancel_pet_temporary_interaction,
         get_pet_extension_capabilities,
+        vrm_adapter::get_vrm_skin_state,
+        vrm_adapter::choose_import_vrm_skin,
+        vrm_adapter::select_vrm_skin,
+        vrm_adapter::remove_vrm_skin,
+        vrm_adapter::read_vrm_skin_model,
+        physics_adapter::register_pet_physics_renderer,
+        physics_adapter::set_pet_physics_readiness,
+        physics_adapter::get_pet_physics_state,
+        physics_adapter::request_pet_physics,
+        physics_adapter::set_pet_throw_enabled,
+        physics_adapter::cancel_pet_physics,
+        extra_pets::list_extra_pets,
+        extra_pets::create_extra_pet,
+        extra_pets::configure_extra_pet,
+        extra_pets::remove_extra_pet,
+        extra_pets::extra_pet_context,
+        extra_pets::extra_pet_pulse,
+        extra_pets::register_extra_pet_renderer,
+        extra_pets::unregister_extra_pet_renderer,
+        extra_pets::start_extra_pet_drag,
+        extra_pets::close_extra_pet,
         get_pet_skin_state,
         choose_import_pet_skin,
         select_pet_skin,
@@ -3147,6 +3597,21 @@ pub fn run() {
         start_pet_drag,
         export_csv,
         refresh_account,
+        read_source_accounts,
+        refresh_source_account,
+        read_subscription_overview,
+        save_usage_plan,
+        set_usage_plan_status,
+        save_quota_assumption,
+        generate_usage_plan_draft,
+        read_mixture_studies,
+        save_mixture_study,
+        delete_mixture_study,
+        read_local_schedules,
+        save_local_schedule,
+        set_local_schedule_status,
+        record_local_consumption,
+        void_local_consumption,
         reset_pet_position,
         quit_app,
         choose_source_directory,
@@ -3154,18 +3619,24 @@ pub fn run() {
         desktop_metrics,
         desktop_diagnostics,
         desktop_debug
-    ]);
+    ]));
     #[cfg(not(debug_assertions))]
-    let builder = builder.invoke_handler(tauri::generate_handler![
+    let builder = builder.invoke_handler(extra_pets::restrict_handler(tauri::generate_handler![
         crate::app_update::check_app_update,
         crate::app_update::download_app_update,
         crate::app_update::launch_app_update,
         get_desktop_companion_state,
+        drop_adapter::get_companion_drop,
+        drop_adapter::register_companion_drop,
+        drop_adapter::open_companion_drop,
+        drop_adapter::cancel_companion_drop,
         register_pet_motion_renderer,
         set_pet_motion_readiness,
         list_companion_launchers,
         choose_companion_launcher,
         remove_companion_launcher,
+        update_companion_launcher,
+        move_companion_launcher,
         launch_companion_app,
         get_snapshot,
         get_usage_dashboard_snapshot,
@@ -3187,6 +3658,27 @@ pub fn run() {
         pointer::begin_pet_temporary_interaction,
         pointer::cancel_pet_temporary_interaction,
         get_pet_extension_capabilities,
+        vrm_adapter::get_vrm_skin_state,
+        vrm_adapter::choose_import_vrm_skin,
+        vrm_adapter::select_vrm_skin,
+        vrm_adapter::remove_vrm_skin,
+        vrm_adapter::read_vrm_skin_model,
+        physics_adapter::register_pet_physics_renderer,
+        physics_adapter::set_pet_physics_readiness,
+        physics_adapter::get_pet_physics_state,
+        physics_adapter::request_pet_physics,
+        physics_adapter::set_pet_throw_enabled,
+        physics_adapter::cancel_pet_physics,
+        extra_pets::list_extra_pets,
+        extra_pets::create_extra_pet,
+        extra_pets::configure_extra_pet,
+        extra_pets::remove_extra_pet,
+        extra_pets::extra_pet_context,
+        extra_pets::extra_pet_pulse,
+        extra_pets::register_extra_pet_renderer,
+        extra_pets::unregister_extra_pet_renderer,
+        extra_pets::start_extra_pet_drag,
+        extra_pets::close_extra_pet,
         get_pet_skin_state,
         choose_import_pet_skin,
         select_pet_skin,
@@ -3199,12 +3691,27 @@ pub fn run() {
         start_pet_drag,
         export_csv,
         refresh_account,
+        read_source_accounts,
+        refresh_source_account,
+        read_subscription_overview,
+        save_usage_plan,
+        set_usage_plan_status,
+        save_quota_assumption,
+        generate_usage_plan_draft,
+        read_mixture_studies,
+        save_mixture_study,
+        delete_mixture_study,
+        read_local_schedules,
+        save_local_schedule,
+        set_local_schedule_status,
+        record_local_consumption,
+        void_local_consumption,
         reset_pet_position,
         quit_app,
         choose_source_directory,
         frontend_ready,
         desktop_metrics
-    ]);
+    ]));
     builder.setup(move|app|{
         let data_dir = match std::env::var_os("TOKEN_MEOW_DATA_DIR").map(PathBuf::from).filter(|p| p.is_absolute()) {
             Some(path) => path,
@@ -3219,15 +3726,16 @@ pub fn run() {
         let companion=companion::Companion::new(&data_dir);
         let notification_gate=core.notification_gate();
         let skins=crate::local_pet_skin::LocalPetSkinStore::new(&data_dir);
-        let shared=Arc::new(Shared{pointer:Mutex::new(pointer::Runtime::default()),skins:Mutex::new(skins),panel_navigation:Mutex::new(panel_navigation_state::Mailbox::default()),companion:Mutex::new(companion),motion:Mutex::new(MotionRuntime::default()),manual_drag:Mutex::new(manual_drag::Controller::default()),automatic_positions:Mutex::new(motion_guard::PositionProvenance::default()),motion_invalidated:AtomicBool::new(false),motion_tick_pending:AtomicBool::new(false),motion_wake:(Mutex::new(false),Condvar::new()),core:Mutex::new(core),panel_reads:Mutex::new(()),panel_read_revision:AtomicU64::new(0),panel_read_interrupt:Mutex::new(None),notification_gate,csv_export_active:Arc::new(AtomicBool::new(false)),projection:Mutex::new(Value::Null),account:Mutex::new(account),account_cancel,account_cache:Mutex::new(AccountCache{binding:Value::Null,snapshot:json!({"status":"loading","buckets":[],"collectedAt":null}),generation:0}),account_reset_pending:AtomicBool::new(false),last_account_attempt:Mutex::new(None),stop:AtomicBool::new(false),exiting:AtomicBool::new(false),scanner_done:AtomicBool::new(false),account_done:AtomicBool::new(false),hotkey_thread:AtomicU32::new(0),shortcut_ready:AtomicBool::new(false),collector_error:Mutex::new(None),shell_error:Mutex::new(None),position_dirty:Mutex::new(None),topology:Mutex::new(vec![]),data_dir,started_at,settings_update:Mutex::new(()),settings_revision:AtomicU64::new(0),scan_wake:(Mutex::new(false),Condvar::new()),display_recheck:AtomicBool::new(false),native_paused:AtomicBool::new(false),native_suppress_toast:AtomicBool::new(false),native_dragging:AtomicBool::new(false),watcher_error:Mutex::new(None),pet_interaction:Mutex::new(PetInteraction::default()),metrics:Mutex::new(json!({"version":env!("CARGO_PKG_VERSION"),"processId":std::process::id(),"frontendReadyMs":{},"createdAt":chrono::Utc::now().to_rfc3339()}))});
+        let shared=Arc::new(Shared{extra_pets:Mutex::new(extra_pets::Runtime::default()),physics:Mutex::new(physics_adapter::Runtime::default()),physics_revision:AtomicU64::new(0),file_drop:Mutex::new(drop_adapter::Runtime::default()),drop_revision:AtomicU64::new(0),pointer:Mutex::new(pointer::Runtime::default()),skins:Mutex::new(skins),vrm_skins:Mutex::new(crate::vrm_skin::VrmSkinStore::new(&data_dir)),skin_selection:Mutex::new(()),panel_navigation:Mutex::new(panel_navigation_state::Mailbox::default()),companion:Mutex::new(companion),motion:Mutex::new(MotionRuntime::default()),manual_drag:Mutex::new(manual_drag::Controller::default()),automatic_positions:Mutex::new(motion_guard::PositionProvenance::default()),motion_invalidated:AtomicBool::new(false),motion_tick_pending:AtomicBool::new(false),motion_wake:(Mutex::new(false),Condvar::new()),core:Mutex::new(core),panel_reads:Mutex::new(()),panel_read_revision:AtomicU64::new(0),panel_read_interrupt:Mutex::new(None),notification_gate,csv_export_active:Arc::new(AtomicBool::new(false)),projection:Mutex::new(Value::Null),account:Mutex::new(account),account_cancel,source_accounts:Mutex::new(source_accounts::Cache::default()),account_transport_binding:Mutex::new(Value::Null),account_cache:Mutex::new(AccountCache{binding:Value::Null,snapshot:json!({"status":"loading","buckets":[],"collectedAt":null}),generation:0}),account_reset_pending:AtomicBool::new(false),last_account_attempt:Mutex::new(None),stop:AtomicBool::new(false),exiting:AtomicBool::new(false),scanner_done:AtomicBool::new(false),account_done:AtomicBool::new(false),hotkey_thread:AtomicU32::new(0),shortcut_ready:AtomicBool::new(false),collector_error:Mutex::new(None),shell_error:Mutex::new(None),position_dirty:Mutex::new(None),position_anchor:Mutex::new(position_anchor::Owner::default()),topology:Mutex::new(vec![]),data_dir,started_at,settings_update:Mutex::new(()),settings_revision:AtomicU64::new(0),scan_wake:(Mutex::new(false),Condvar::new()),display_recheck:AtomicBool::new(false),native_paused:AtomicBool::new(false),native_suppress_toast:AtomicBool::new(false),native_dragging:AtomicBool::new(false),watcher_error:Mutex::new(None),pet_interaction:Mutex::new(PetInteraction::default()),metrics:Mutex::new(json!({"version":env!("CARGO_PKG_VERSION"),"processId":std::process::id(),"frontendReadyMs":{},"createdAt":chrono::Utc::now().to_rfc3339()}))});
         app.manage(shared.clone());create_tray(app.handle())?;if let Some(pet)=app.get_webview_window("pet"){pet.set_focusable(false)?;}
         apply_projection(app.handle(),&settings).map_err(std::io::Error::other)?;restore_position(app.handle(),&shared,false).map_err(std::io::Error::other)?;fit_main_window(app.handle()).map_err(std::io::Error::other)?;
         if !std::env::args().any(|a|a=="--background"){if let Some(main)=app.get_webview_window("main"){show_without_focus(&main).map_err(std::io::Error::other)?;}}
         if let Err(error)=native::install_runtime_events(app.handle(),shared.clone()){if let Ok(mut stored)=shared.shell_error.lock(){*stored=Some(error);}}
         native::start_hotkey(app.handle().clone(),shared.clone());start_file_watcher(shared.clone());start_workers(app.handle().clone(),shared);Ok(())
     }).on_window_event(|window,event|{
-        let Some(state)=window.try_state::<SharedState>()else{return;};if window.label()=="main"&&matches!(event,WindowEvent::Destroyed){cancel_panel_navigation(&state);}let Some(view)=window.app_handle().get_webview_window(window.label())else{return;};match event{
-            WindowEvent::CloseRequested{api,..}if !state.exiting.load(Ordering::Relaxed)=>{api.prevent_close();if window.label()=="main"{cancel_panel_navigation(&state);}if window.label()=="pet"{cancel_manual_drag(&state,manual_drag::StopReason::Hidden);let _=dismiss_pet_popup(&view,&state,"closed",false);}let _=window.hide();record_window_state(&view,&state);let _=window.emit("window-visibility-changed",json!({"label":window.label(),"visible":false}));if window.label()=="pet"{let app=window.app_handle().clone();let shared=state.inner().clone();tauri::async_runtime::spawn_blocking(move||{let _=update_settings(&app,&shared,&json!({"petVisible":false}));});}},
+        let Some(state)=window.try_state::<SharedState>()else{return;};if extra_pets::on_window_event(window,event,&state){return;}if window.label()=="main"&&matches!(event,WindowEvent::Destroyed){cancel_panel_navigation(&state);}if matches!(event,WindowEvent::Destroyed){if window.label()=="pet"{physics_adapter::cancel(&state);}drop_adapter::clear(&state);}let Some(view)=window.app_handle().get_webview_window(window.label())else{return;};match event{
+            WindowEvent::DragDrop(tauri::DragDropEvent::Drop{paths,..})=>{drop_adapter::capture(window.app_handle().clone(),state.inner().clone(),window.label().to_owned(),paths.clone());},
+            WindowEvent::CloseRequested{api,..}if !state.exiting.load(Ordering::Relaxed)=>{api.prevent_close();drop_adapter::clear(&state);if window.label()=="main"{cancel_panel_navigation(&state);}if window.label()=="pet"{cancel_manual_drag(&state,manual_drag::StopReason::Hidden);let _=dismiss_pet_popup(&view,&state,"closed",false);}let _=window.hide();record_window_state(&view,&state);let _=window.emit("window-visibility-changed",json!({"label":window.label(),"visible":false}));if window.label()=="pet"{let app=window.app_handle().clone();let shared=state.inner().clone();tauri::async_runtime::spawn_blocking(move||{let _=update_settings(&app,&shared,&json!({"petVisible":false}));});}},
             WindowEvent::Resized(_)=>{let visible=window.is_visible().unwrap_or(false)&&!window.is_minimized().unwrap_or(false);let _=window.emit("window-visibility-changed",json!({"label":window.label(),"visible":visible}));record_visibility_change(&view,&state);},
             WindowEvent::Focused(focused)=>{if !focused&&window.label()=="pet"{let _=dismiss_pet_popup(&view,&state,"blur",false);}record_window_state(&view,&state);},
             WindowEvent::Destroyed if window.label()=="pet"=>{let _=dismiss_pet_popup(&view,&state,"destroyed",false);},
@@ -3423,7 +3931,7 @@ mod native {
     #[cfg(windows)]
     impl PreparedToast {
         fn submit(self) -> Result<(), String> {
-            self.notifier.Show(&self.toast).map_err(notification_error)
+            self.notifier.Show(&self.toast).map_err(|error| notification_error("show", error))
         }
     }
     #[cfg(windows)]
@@ -3435,38 +3943,98 @@ mod native {
         }
     }
     #[cfg(windows)]
-    fn notification_error(error: windows::core::Error) -> String {
-        format!("系统通知未能提交；请检查Windows通知设置或安装状态（{:#x}）。收件箱事实仍保留。", error.code().0)
+    const TOAST_APP_ID: &str = "local.tokenmeow.desktop";
+    #[cfg(windows)]
+    pub fn initialize_notifications(
+        registration: &mut crate::notification_registration::Registration,
+        gate: &Arc<crate::notification_gate::Gate>,
+        allowed: impl Fn() -> bool,
+    ) -> crate::notification_registration::Step {
+        use crate::notification_registration::{windows_transport::WindowsTransport, Failure};
+        let host = gate.snapshot();
+        let at = crate::budget_clock::now();
+        registration.advance(|| {
+            let epoch = host.ok_or(Failure { stage:"registration_host", hresult:0x80004004u32 as i32 })?;
+            let utc = at.utc.checked_add_signed(chrono::Duration::seconds(15))
+                .ok_or(Failure { stage:"registration_deadline", hresult:0x80070057u32 as i32 })?;
+            let mono = at.mono_ms.checked_add(15_000)
+                .ok_or(Failure { stage:"registration_deadline", hresult:0x80070057u32 as i32 })?;
+            let permit = crate::notification_gate::NotificationPermit::new(gate.clone(), epoch, utc, mono);
+            WindowsTransport::connect(TOAST_APP_ID, permit)
+        }, || host.is_some_and(|epoch| gate.snapshot() == Some(epoch)) && allowed())
+    }
+    #[cfg(not(windows))]
+    pub fn initialize_notifications(
+        _registration: &mut crate::notification_registration::Registration,
+        _gate: &Arc<crate::notification_gate::Gate>,
+        _allowed: impl Fn() -> bool,
+    ) -> crate::notification_registration::Step {
+        crate::notification_registration::Step::AlreadyFinished
+    }
+
+    #[cfg(windows)]
+    fn notification_error(stage: &str, error: windows::core::Error) -> String {
+        notification_error_code(stage, error.code().0)
+    }
+    #[cfg(windows)]
+    fn notification_error_code(stage: &str, code: i32) -> String {
+        format!("系统通知未能提交（阶段：{stage}，HRESULT：{:#010x}）；请检查通知设置与应用安装身份。收件箱事实仍保留。", code as u32)
+    }
+    #[cfg(windows)]
+    struct NotificationContext {
+        // Release the notifier before ending its COM apartment, including errors.
+        notifier: windows::UI::Notifications::ToastNotifier,
+        setting: windows::UI::Notifications::NotificationSetting,
+        apartment: NotificationApartment,
+    }
+    #[cfg(windows)]
+    fn notification_context() -> Result<NotificationContext, (&'static str, i32)> {
+        use windows::{core::HSTRING, Win32::System::WinRT::{RoInitialize, RO_INIT_MULTITHREADED}, UI::Notifications::ToastNotificationManager};
+        let initialized = unsafe { RoInitialize(RO_INIT_MULTITHREADED) };
+        if let Err(error) = &initialized {
+            if error.code().0 != 0x80010106u32 as i32 { return Err(("initialize", error.code().0)); }
+        }
+        let apartment = NotificationApartment(initialized.is_ok());
+        let notifier = ToastNotificationManager::CreateToastNotifierWithId(&HSTRING::from(TOAST_APP_ID))
+            .map_err(|error| ("create_notifier", error.code().0))?;
+        let setting = notifier.Setting().map_err(|error| ("read_setting", error.code().0))?;
+        Ok(NotificationContext { notifier, setting, apartment })
+    }
+    /// Does not create, submit, register, enable, or retry a toast. This debug
+    /// read distinguishes an unavailable COM stage from an observed OS setting.
+    #[cfg(all(windows, debug_assertions))]
+    pub fn notification_status() -> Value {
+        match notification_context() {
+            Ok(context) => json!({"readOnly":true,"appId":TOAST_APP_ID,"status":if context.setting == windows::UI::Notifications::NotificationSetting::Enabled {"enabled"}else{"disabled"},"setting":context.setting.0,"stage":"read_setting","toastsSubmitted":0}),
+            Err((stage,code)) => json!({"readOnly":true,"appId":TOAST_APP_ID,"status":"unavailable","stage":stage,"hresult":format!("{:#010x}",code as u32),"error":notification_error_code(stage,code),"toastsSubmitted":0}),
+        }
+    }
+    #[cfg(all(not(windows), debug_assertions))]
+    pub fn notification_status() -> Value {
+        json!({"readOnly":true,"status":"unsupported","toastsSubmitted":0})
     }
     #[cfg(windows)]
     fn prepare_toast(title: &str, body: &str, muted: bool, deadline: Option<chrono::DateTime<chrono::Utc>>) -> Result<PreparedToast, String> {
         use windows::{
             core::{HSTRING, Interface}, Data::Xml::Dom::XmlDocument,
             Foundation::{DateTime, IReference, PropertyValue},
-            Win32::System::WinRT::{RoInitialize, RO_INIT_MULTITHREADED},
-            UI::Notifications::{NotificationSetting, ToastNotification, ToastNotificationManager},
+            UI::Notifications::{NotificationSetting, ToastNotification},
         };
-        let initialized = unsafe { RoInitialize(RO_INIT_MULTITHREADED) };
-        if let Err(error) = &initialized {
-            if error.code().0 != 0x80010106u32 as i32 { return Err(notification_error(error.clone())); }
+        let context = notification_context().map_err(|(stage,code)| notification_error_code(stage,code))?;
+        if context.setting != NotificationSetting::Enabled {
+            return Err("系统通知未启用，提醒保留在本地收件箱（阶段：read_setting）".into());
         }
-        let apartment = NotificationApartment(initialized.is_ok());
-        let notifier = ToastNotificationManager::CreateToastNotifierWithId(&HSTRING::from("local.tokenmeow.desktop")).map_err(notification_error)?;
-        if notifier.Setting().map_err(notification_error)? != NotificationSetting::Enabled {
-            return Err("系统通知未启用，提醒保留在本地收件箱".into());
-        }
-        let xml = XmlDocument::new().map_err(notification_error)?;
-        xml.LoadXml(&HSTRING::from(format!("<toast duration=\"short\"><visual><binding template=\"ToastGeneric\"><text>{}</text><text>{}</text></binding></visual>{}</toast>",xml_text(title),xml_text(body),if muted{"<audio silent=\"true\"/>"}else{""}))).map_err(notification_error)?;
-        let toast = ToastNotification::CreateToastNotification(&xml).map_err(notification_error)?;
-        toast.SetTag(&HSTRING::from("token-meow-summary")).map_err(notification_error)?;
+        let xml = XmlDocument::new().map_err(|error| notification_error("create_xml",error))?;
+        xml.LoadXml(&HSTRING::from(format!("<toast duration=\"short\"><visual><binding template=\"ToastGeneric\"><text>{}</text><text>{}</text></binding></visual>{}</toast>",xml_text(title),xml_text(body),if muted{"<audio silent=\"true\"/>"}else{""}))).map_err(|error| notification_error("load_xml",error))?;
+        let toast = ToastNotification::CreateToastNotification(&xml).map_err(|error| notification_error("create_toast",error))?;
+        toast.SetTag(&HSTRING::from("token-meow-summary")).map_err(|error| notification_error("set_tag",error))?;
         if let Some(deadline) = deadline {
             let ticks = notification_gate::windows_deadline_ticks(deadline).ok_or("系统通知期限超出范围")?;
-            // Verified windows 0.61.3 binding: IReference<Foundation::DateTime>.
             let boxed: IReference<DateTime> = PropertyValue::CreateDateTime(DateTime { UniversalTime: ticks })
-                .map_err(notification_error)?.cast().map_err(notification_error)?;
-            toast.SetExpirationTime(&boxed).map_err(notification_error)?;
+                .map_err(|error| notification_error("box_expiration",error))?.cast().map_err(|error| notification_error("cast_expiration",error))?;
+            toast.SetExpirationTime(&boxed).map_err(|error| notification_error("set_expiration",error))?;
         }
-        Ok(PreparedToast { notifier, toast, _apartment: apartment })
+        Ok(PreparedToast { notifier: context.notifier, toast, _apartment: context.apartment })
     }
     #[cfg(windows)]
     pub fn show_notification(title: &str, events: &[QueuedNotification], muted: bool, allowed: impl Fn() -> bool) -> notification_gate::Delivery {
@@ -3626,6 +4194,8 @@ mod native {
             }
             let paused = blocked || self.power_saver;
             self.shared.native_paused.store(paused, Ordering::Release);
+            extra_pets::runtime_changed(&self.app, &self.shared, paused);
+            if paused { drop_adapter::clear(&self.shared); }
             if paused { cancel_manual_drag(&self.shared, manual_drag::StopReason::RuntimeUnavailable); }
             pointer::refresh_runtime_admission(&self.shared);
             self.shared

@@ -137,6 +137,7 @@ export interface UsageForecastBasis {
   omittedIncompleteTurns: number;
 }
 export interface UsageDashboardData {
+  observedInsights?: unknown;
   asOf: string;
   request: UsageDashboardRequest;
   totalRows: number;
@@ -229,7 +230,8 @@ export interface InboxEvent {
   threadId: string;
   turnId: string | null;
   title: string;
-  status: string;
+  status?: string;
+  message?: string;
   createdAt: string;
   read: boolean;
   notifyEligible?: boolean;
@@ -268,6 +270,15 @@ export interface Settings {
   dndStart?: string;
   dndEnd?: string;
   effectiveDoNotDisturb?: boolean;
+  scheduledDoNotDisturb?: boolean;
+  temporaryDoNotDisturb?: {
+    active: boolean;
+    until: string | null;
+    remainingMs: number;
+    deadlineMonoMs: number | null;
+  };
+  // 仅用于设置请求，由原生生成截止时间，不作为持久偏好保存。
+  temporaryDoNotDisturbMinutes?: 0 | 30 | 60;
   [key: string]: unknown;
 }
 export interface Health {
@@ -325,6 +336,7 @@ export interface SourceInstance {
   clientKind: string;
   enabled: boolean;
   environment?: string;
+  configurationRevision?: string;
   createdAt?: string;
   primary?: boolean;
   runtime?: string;

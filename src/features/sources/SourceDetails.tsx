@@ -1,6 +1,7 @@
 import type { Snapshot, SourceInstance } from "../../shared/contracts";
 import { dateTime, formatNumber } from "../../shared/format";
 import { Badge, Toggle } from "../../shared/UI";
+import { sourceChannelName, sourceHasUsageOnlyEvidence, sourceKindMark, sourceKindName, sourceLogDescription } from "../../shared/sourceKind";
 import {
   capabilityFields,
   capabilityGranularity,
@@ -12,12 +13,14 @@ export function SourceDetails({
   index,
   snapshot,
   chooseSource,
+  choosingDirectory = false,
   action,
 }: {
   source: SourceInstance;
   index: number;
   snapshot: Snapshot;
   chooseSource: (id: string) => Promise<void>;
+  choosingDirectory?: boolean;
   action: (name: string, payload?: Record<string, unknown>) => Promise<void>;
 }) {
   const primary = source.id === snapshot.primarySourceId;
@@ -28,7 +31,8 @@ export function SourceDetails({
     snapshot.sourceCapabilities?.filter(
       (report) => report.sourceId === source.id,
     ) ?? [];
-  const client = source.clientKind === "codex" ? "Codex" : "未知客户端";
+  const client = sourceKindName(source.clientKind);
+  const usageOnly = sourceHasUsageOnlyEvidence(source.clientKind);
   return (
     <article
       className="source-instance"
@@ -36,7 +40,7 @@ export function SourceDetails({
     >
       <div className="source-card">
         <span className="source-logo">
-          {source.clientKind === "codex" ? "C" : "?"}
+          {sourceKindMark(source.clientKind)}
         </span>
         <div>
           <h3>
@@ -50,13 +54,14 @@ export function SourceDetails({
             {snapshot.settings.privacyMode ? "来源路径已隐藏" : source.root}
           </p>
           <small className="subtle-note">
-            稳定身份 {source.id.slice(0, 12)} ·{" "}
-            {primary ? "主账户来源；快照单独读取" : "账户能力：未启用独立采集"}
+            来源标识 {source.id.slice(0, 12)} ·{" "}
+            {usageOnly ? "账号身份未知；官方账户读取未支持" : primary ? "主账户来源；快照单独读取" : "账户能力：未启用独立采集"}
           </small>
         </div>
         <div className="source-actions">
           <button
             className="text-button"
+            disabled={choosingDirectory}
             onClick={() => void chooseSource(source.id)}
           >
             更改目录
@@ -83,6 +88,8 @@ export function SourceDetails({
           />
         </div>
       </div>
+      <p className="subtle-note">{sourceLogDescription(source.clientKind)}</p>
+      {usageOnly && <p className="subtle-note">活动状态：未知；任务结果：未知；官方额度与账户日用量：未支持。日志用量不证明任务成功或当前空闲，也不授予桌宠移动资格。</p>}
       <dl className="source-health">
         <div>
           <dt>最近检查</dt>
@@ -153,7 +160,7 @@ export function SourceDetails({
             {channels.map((channel) => (
               <p key={channel.id}>
                 <strong>
-                  {channel.kind === "jsonl" ? "JSONL 本地文件" : "未知通道"}
+                  {sourceChannelName(channel.kind)}
                 </strong>
                 <Badge
                   tone={source.enabled && channel.enabled ? "mint" : "amber"}
@@ -173,8 +180,8 @@ export function SourceDetails({
           <p className="subtle-note">此来源尚未提供通道登记信息。</p>
         )}
         <p className="subtle-note">
-          通道登记与来源启用共同决定是否启用；来源运行态只表示目录与采集状况，未自动探测当前客户端版本。能力声明仅覆盖所列版本及证据，缺项为未验证。账户能力通过独立
-          app-server 通道，当前状态只取本来源绑定的账户快照。
+          通道登记与来源启用共同决定是否启用；来源运行态只表示目录与采集状况，未自动探测当前客户端版本。能力声明仅覆盖所列版本及证据，缺项为未验证。
+          {source.clientKind === "codex" ? "账户能力通过独立 app-server 通道，当前状态只取本来源绑定的账户快照。" : "日志来源与官方账户能力分别记录，不借用 Codex 的账户通道。"}
         </p>
         {capabilities.length ? (
           capabilities.map((report, reportIndex) => (

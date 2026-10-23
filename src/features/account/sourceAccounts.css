@@ -1,0 +1,9 @@
+.source-account-overview > p { margin-block: 12px; }
+.source-account-row { border-top: 1px solid var(--border, #dce7df); padding-block: 16px; }
+.source-account-heading { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; }
+.source-account-heading h3 { display: flex; align-items: center; gap: 8px; flex: 1; margin: 0; }
+.source-account-row > p { margin-block: 8px; }
+.source-account-buckets { display: grid; gap: 10px; }
+.source-account-bucket { padding: 10px 12px; border-radius: 10px; background: var(--surface-soft, #f3f6f3); }
+.source-account-window { display: flex; align-items: baseline; flex-wrap: wrap; gap: 8px 16px; margin-top: 8px; }
+.source-account-window small { color: var(--muted, #65776b); }

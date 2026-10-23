@@ -17,6 +17,8 @@ use std::{
 };
 
 const REQUEST_TIMEOUT: Duration = Duration::from_secs(4);
+const ACCOUNT_READ_BUDGET: Duration = Duration::from_secs(12);
+const IDENTITY_UNPROVEN: &str = "当前协议未证明跨 RPC 身份绑定及通知完备性；身份一致性待确认";
 const MAX_MESSAGE: usize = 2 * 1024 * 1024;
 const UNSUPPORTED: &str = "当前 Codex 不支持该读取能力";
 const RPC_REJECTED: &str = "账户读取被拒绝或服务暂不可用";
@@ -330,8 +332,32 @@ pub struct AccountSnapshot {
     pub error: Option<String>,
     pub auth_mode: Option<String>,
     pub account_scope: Option<String>,
+    pub plan_type: Option<String>,
+    pub identity_epoch: String,
+    pub identity_consistency: String,
+    pub identity_consistency_reason: String,
+    pub observation_sequence: Option<String>,
+    pub observation_outcome: Option<String>,
+    pub read_started_at: Option<String>,
+    pub read_finished_at: Option<String>,
+    pub account_read: Option<AccountSubRead>,
+    pub quota_read: Option<AccountSubRead>,
+    pub usage_read: Option<AccountSubRead>,
     pub buckets: Vec<QuotaBucket>,
     pub usage: Option<Value>,
+}
+
+/// Local request timing is not evidence of when an upstream cached value was produced.
+#[derive(Clone, Debug, Serialize)]
+#[serde(rename_all = "camelCase")]
+pub struct AccountSubRead {
+    pub request_started_at: String,
+    pub response_received_at: String,
+    pub freshness_anchor: Option<String>,
+    pub fact_time_lower: Option<String>,
+    pub fact_time_upper: Option<String>,
+    pub time_basis: String,
+    pub outcome: String,
 }
 
 #[derive(Clone, Debug, Serialize)]
@@ -360,6 +386,17 @@ impl Default for AccountSnapshot {
             error: Some("账户尚未采集".into()),
             auth_mode: None,
             account_scope: None,
+            plan_type: None,
+            identity_epoch: "0".into(),
+            identity_consistency: "unproven".into(),
+            identity_consistency_reason: IDENTITY_UNPROVEN.into(),
+            observation_sequence: None,
+            observation_outcome: None,
+            read_started_at: None,
+            read_finished_at: None,
+            account_read: None,
+            quota_read: None,
+            usage_read: None,
             buckets: vec![],
             usage: None,
         }
@@ -373,6 +410,9 @@ pub struct AccountBridge {
     next_attempt: Option<Instant>,
     cancel: Arc<AtomicBool>,
     identity_observation: Option<String>,
+    // Bridge lifetime counters never reset on cache clearing or source rebinding.
+    observation_sequence: u64,
+    identity_epoch: u64,
     source_root: Option<PathBuf>,
     // Process protection is global to this bridge, not owned by cached account data.
     // Neither changing source nor clearing observations may revive a stopped service.
@@ -400,6 +440,8 @@ impl AccountBridge {
             next_attempt: None,
             cancel: Arc::new(AtomicBool::new(false)),
             identity_observation: None,
+            observation_sequence: 0,
+            identity_epoch: 0,
             source_root: None,
             resource_stop: Arc::new(AtomicU8::new(0)),
             diagnostics: Arc::new(BridgeDiagnostics::new()),
@@ -429,6 +471,9 @@ impl AccountBridge {
         self.shutdown();
         self.snapshot = AccountSnapshot::default();
         self.identity_observation = None;
+        // A cleared observation must never be joined to the preceding runtime segment.
+        self.identity_epoch = self.identity_epoch.checked_add(1).unwrap_or(u64::MAX);
+        self.snapshot.identity_epoch = self.identity_epoch.to_string();
     }
 
     /// Only an explicit user retry clears admission failure gates. No account facts,
@@ -477,6 +522,11 @@ impl AccountBridge {
             Arc<BridgeDiagnostics>,
         ) -> Result<Transport, String>,
     ) -> AccountSnapshot {
+        self.clear_read_metadata();
+        if self.observation_sequence == u64::MAX || self.identity_epoch == u64::MAX {
+            self.mark_unavailable("账户观测序号或身份代次已耗尽，请重新启动应用".into());
+            return self.snapshot.clone();
+        }
         if let Err(error) = self.ensure_transport_with(start) {
             if let Some(at) = error.attempted_at {
                 self.snapshot.last_attempt_at = Some(at);
@@ -484,17 +534,69 @@ impl AccountBridge {
             self.mark_unavailable(error.message);
             return self.snapshot.clone();
         }
-        self.snapshot.last_attempt_at = Some(chrono::Utc::now().to_rfc3339());
+        if self
+            .transport
+            .as_ref()
+            .is_some_and(|transport| transport.unsupported.contains("account/read"))
+        {
+            self.mark_unavailable(UNSUPPORTED.into());
+            return self.snapshot.clone();
+        }
+        if let Err(error) = self.begin_account_read() {
+            self.mark_unavailable(error);
+            return self.snapshot.clone();
+        }
         let result = self.fetch();
+        self.complete_account_read(result)
+    }
+
+    fn clear_read_metadata(&mut self) {
+        self.snapshot.observation_sequence = None;
+        self.snapshot.observation_outcome = None;
+        self.snapshot.read_started_at = None;
+        self.snapshot.read_finished_at = None;
+        self.snapshot.account_read = None;
+        self.snapshot.quota_read = None;
+        self.snapshot.usage_read = None;
+    }
+
+    fn begin_account_read(&mut self) -> Result<(), String> {
+        let sequence = self
+            .observation_sequence
+            .checked_add(1)
+            .ok_or("账户观测序号已耗尽，请重新启动应用")?;
+        let epoch = self
+            .identity_epoch
+            .checked_add(1)
+            .ok_or("账户身份代次已耗尽，请重新启动应用")?;
+        self.observation_sequence = sequence;
+        // Without a completeness guarantee, each real read is a new isolated segment.
+        self.identity_epoch = epoch;
+        self.clear_read_metadata();
+        self.snapshot.identity_epoch = epoch.to_string();
+        self.snapshot.observation_sequence = Some(sequence.to_string());
+        self.snapshot.observation_outcome = Some("failure".into());
+        let started = chrono::Utc::now().to_rfc3339();
+        self.snapshot.read_started_at = Some(started.clone());
+        self.snapshot.last_attempt_at = Some(started);
+        Ok(())
+    }
+
+    fn complete_account_read(
+        &mut self,
+        result: Result<AccountSnapshot, String>,
+    ) -> AccountSnapshot {
         match self.finish_read(result) {
             Ok(mut current) => {
                 current.last_attempt_at = self.snapshot.last_attempt_at.clone();
+                current.observation_outcome = Some("success".into());
                 self.snapshot = current;
             }
             Err(error) => {
                 self.mark_unavailable(error);
             }
         }
+        self.snapshot.read_finished_at = Some(chrono::Utc::now().to_rfc3339());
         self.snapshot.clone()
     }
 
@@ -626,8 +728,65 @@ impl Drop for AccountBridge {
     }
 }
 
+#[cfg(test)]
+#[path = "account_bridge_subscription_tests.rs"]
+mod subscription_tests;
+#[cfg(all(test, windows))]
+#[path = "account_bridge_source_tests.rs"]
+mod source_transport_tests;
+
 trait ReadRpc {
     fn read(&mut self, method: &str, params: Value) -> Result<Value, String>;
+    fn known_unsupported(&self, _method: &str) -> bool {
+        false
+    }
+    fn read_with_timeout(
+        &mut self,
+        method: &str,
+        params: Value,
+        _timeout: Duration,
+    ) -> Result<Value, String> {
+        self.read(method, params)
+    }
+}
+
+fn account_sub_read(
+    rpc: &mut impl ReadRpc,
+    method: &str,
+    params: Value,
+    deadline: Instant,
+    metadata: &mut Option<AccountSubRead>,
+) -> Result<Value, String> {
+    if rpc.known_unsupported(method) {
+        // A cached capability rejection did not transmit a new RPC.
+        return Err(UNSUPPORTED.into());
+    }
+    let remaining = deadline
+        .checked_duration_since(Instant::now())
+        .filter(|remaining| !remaining.is_zero())
+        .ok_or("账户整轮读取超时，稍后重试")?;
+    let started = chrono::Utc::now().to_rfc3339();
+    let result = rpc.read_with_timeout(method, params, REQUEST_TIMEOUT.min(remaining));
+    let result = if Instant::now() > deadline {
+        Err("账户整轮读取超时，稍后重试".into())
+    } else {
+        result
+    };
+    let outcome = match &result {
+        Ok(_) => "success",
+        Err(error) if error == UNSUPPORTED || error == RPC_REJECTED => "unavailable",
+        Err(_) => "failure",
+    };
+    *metadata = Some(AccountSubRead {
+        request_started_at: started.clone(),
+        response_received_at: chrono::Utc::now().to_rfc3339(),
+        freshness_anchor: result.is_ok().then_some(started),
+        fact_time_lower: None,
+        fact_time_upper: None,
+        time_basis: "unbounded-upstream".into(),
+        outcome: outcome.into(),
+    });
+    result
 }
 
 fn read_account_snapshot(
@@ -635,14 +794,24 @@ fn read_account_snapshot(
     previous: &mut AccountSnapshot,
     observation: &mut Option<String>,
 ) -> Result<AccountSnapshot, String> {
-    let account = rpc.read("account/read", json!({"refreshToken":false}))?;
+    let deadline = Instant::now() + ACCOUNT_READ_BUDGET;
+    let account = account_sub_read(
+        rpc,
+        "account/read",
+        json!({"refreshToken":false}),
+        deadline,
+        &mut previous.account_read,
+    )?;
     let Some(identity) = account.get("account").filter(|v| !v.is_null()) else {
         *observation = None;
-        *previous = AccountSnapshot::default();
+        clear_account_facts(previous, None);
         return Ok(AccountSnapshot {
-            collected_at: Some(chrono::Utc::now().to_rfc3339()),
+            collected_at: previous
+                .account_read
+                .as_ref()
+                .and_then(|read| read.freshness_anchor.clone()),
             error: Some("Codex 未登录或来源未提供账户".into()),
-            ..AccountSnapshot::default()
+            ..previous.clone()
         });
     };
     // An email/plan observation can invalidate cached values. It cannot prove an account,
@@ -650,15 +819,23 @@ fn read_account_snapshot(
     let seen = format!("{:x}", Sha256::digest(json!({"type":identity.get("type"),"id":identity.get("id"),"accountId":identity.get("accountId"),"email":identity.get("email"),"planType":identity.get("planType"),"organizationId":identity.get("organizationId"),"subscriptionId":identity.get("subscriptionId")}).to_string().as_bytes()));
     let scope = account_scope(identity);
     if observation.as_deref() != Some(&seen) {
-        *previous = AccountSnapshot {
-            last_attempt_at: previous.last_attempt_at.clone(),
-            account_scope: scope.clone(),
-            ..AccountSnapshot::default()
-        };
+        clear_account_facts(previous, scope.clone());
         *observation = Some(seen);
     }
-    let limits = rpc.read("account/rateLimits/read", json!({}))?;
-    let (usage, mut warning) = match rpc.read("account/usage/read", json!({})) {
+    let limits = account_sub_read(
+        rpc,
+        "account/rateLimits/read",
+        json!({}),
+        deadline,
+        &mut previous.quota_read,
+    )?;
+    let (usage, mut warning) = match account_sub_read(
+        rpc,
+        "account/usage/read",
+        json!({}),
+        deadline,
+        &mut previous.usage_read,
+    ) {
         Ok(value) => (Some(sanitize_usage(&value)), None),
         Err(error) if error == UNSUPPORTED => (
             None,
@@ -680,7 +857,10 @@ fn read_account_snapshot(
     }
     Ok(AccountSnapshot {
         status: "connected".into(),
-        collected_at: Some(chrono::Utc::now().to_rfc3339()),
+        collected_at: previous
+            .quota_read
+            .as_ref()
+            .and_then(|read| read.freshness_anchor.clone()),
         last_attempt_at: None,
         error: warning,
         auth_mode: identity
@@ -688,9 +868,21 @@ fn read_account_snapshot(
             .and_then(Value::as_str)
             .map(str::to_owned),
         account_scope: scope,
+        plan_type: safe_text(identity.get("planType"), 120),
         buckets,
         usage,
+        ..previous.clone()
     })
+}
+
+fn clear_account_facts(snapshot: &mut AccountSnapshot, scope: Option<String>) {
+    snapshot.status = "unavailable".into();
+    snapshot.collected_at = None;
+    snapshot.auth_mode = None;
+    snapshot.account_scope = scope;
+    snapshot.plan_type = None;
+    snapshot.buckets.clear();
+    snapshot.usage = None;
 }
 
 fn account_scope(account: &Value) -> Option<String> {
@@ -1019,6 +1211,15 @@ impl Transport {
     }
 
     fn request(&mut self, method: &str, params: Value) -> Result<Value, String> {
+        self.request_with_timeout(method, params, REQUEST_TIMEOUT)
+    }
+
+    fn request_with_timeout(
+        &mut self,
+        method: &str,
+        params: Value,
+        timeout: Duration,
+    ) -> Result<Value, String> {
         if !ALLOWED.contains(&method) {
             return Err("拒绝非只读账户方法".into());
         }
@@ -1047,7 +1248,7 @@ impl Transport {
             self.messages.as_ref().ok_or("桥接读取已关闭")?,
             id,
             &self.cancel,
-            REQUEST_TIMEOUT,
+            REQUEST_TIMEOUT.min(timeout),
             Some(&self.resource_stop),
         );
         if method != "initialize" {
@@ -1115,8 +1316,20 @@ fn await_response_with_resource(
 }
 
 impl ReadRpc for Transport {
+    fn known_unsupported(&self, method: &str) -> bool {
+        self.unsupported.contains(method)
+    }
     fn read(&mut self, method: &str, params: Value) -> Result<Value, String> {
         self.request(method, params)
+    }
+
+    fn read_with_timeout(
+        &mut self,
+        method: &str,
+        params: Value,
+        timeout: Duration,
+    ) -> Result<Value, String> {
+        self.request_with_timeout(method, params, timeout)
     }
 }
 

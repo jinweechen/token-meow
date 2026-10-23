@@ -10,6 +10,8 @@ const PET_SETTINGS: &[&str] = &[
     "reducedMotion",
     "doNotDisturb",
     "effectiveDoNotDisturb",
+    "scheduledDoNotDisturb",
+    "temporaryDoNotDisturb",
     "petVisible",
     "petScale",
     "clickThrough",
@@ -192,8 +194,9 @@ fn prompts(
     day: &str,
     at: DateTime<Utc>,
 ) -> Result<(Vec<Value>, Dropped)> {
+    let (_, temporary_filter) = temporary_dnd::read(&core.temporary_dnd, &core.db)?;
     let mut statement = core.db.prepare(
-        "SELECT i.id,json_extract(i.data,'$.kind'),json_extract(i.data,'$.status'),json_extract(i.data,'$.createdAt'),json_extract(i.data,'$.eligibleRuntime'),json_type(i.data,'$.notifyEligible')='true',json_type(i.data,'$.animationAcknowledged')='true' FROM pet_inbox_feed f JOIN inbox_events i ON i.id=f.inbox_id WHERE f.sequence>?1 AND f.sequence<=?2 ORDER BY f.sequence",
+        "SELECT i.id,json_extract(i.data,'$.kind'),json_extract(i.data,'$.status'),json_extract(i.data,'$.createdAt'),json_extract(i.data,'$.eligibleRuntime'),json_type(i.data,'$.notifyEligible')='true',json_type(i.data,'$.animationAcknowledged')='true',f.sequence FROM pet_inbox_feed f JOIN inbox_events i ON i.id=f.inbox_id WHERE f.sequence>?1 AND f.sequence<=?2 ORDER BY f.sequence",
     ).map_err(err)?;
     let mut rows = statement.query(params![after, high]).map_err(err)?;
     let mut selected = Vec::<Candidate>::new();
@@ -221,6 +224,7 @@ fn prompts(
         if text(row, 4)?.as_deref() != Some(core.runtime_id.as_str())
             || !flag_at(row, 5)?
             || flag_at(row, 6)?
+            || temporary_filter.suppresses(Some(row.get::<_,i64>(7).map_err(err)?), Some(time))
         {
             dropped.ineligible += 1;
             continue;
@@ -229,7 +233,7 @@ fn prompts(
         let kind = text(row, 1)?.unwrap_or_else(|| "unknown".into());
         // Persistent eligibility is not a fresh delivery permit. A revoked,
         // expired, or pre-suspend budget must still advance the arrival cursor.
-        if kind == "budget" && !core.budget_prompt_is_current(&id) {
+        if kind != "completion" && !core.domain_prompt_is_current(&kind,&id) {
             dropped.ineligible += 1;
             continue;
         }

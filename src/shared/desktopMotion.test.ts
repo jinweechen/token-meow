@@ -10,6 +10,33 @@ const state = (revision: string, generation = "1", epoch = "epoch-a"): Companion
   capabilities: { roaming: true }, motion: { direction: "right", remainingMs: 8000 },
 });
 
+test("原生自然结束移动仅释放步态；移动中丢帧和丢失能力仍必须撤销许可", async () => {
+  let now = 0;
+  const calls: MotionReadinessPayload[] = [];
+  const owner = new PetMotionReadinessOwner({ register: async () => "token", send: async value => { calls.push(value); return true; }, now: () => now, rendererEpoch: "renderer" });
+  const settle = () => new Promise<void>(resolve => setImmediate(resolve));
+  const moving = { ready: true, gaitAvailable: true, gaitReady: true, motionGeneration: "1", motionDirection: "right" as const, nativeMotionPhase: "moving" as const };
+  owner.update(moving); await settle();
+  now = 2400;
+  owner.update({ ready: true, gaitAvailable: true, gaitReady: false, nativeMotionPhase: "expired" }); await settle();
+  assert.equal(calls.at(-1)?.ready, true);
+  assert.equal(calls.at(-1)?.gaitReady, false);
+  assert.equal(calls.at(-1)?.motionGeneration, null);
+  now = 20_400;
+  owner.update({ ready: true, gaitAvailable: true, gaitReady: false, nativeMotionPhase: "playing" }); await settle();
+  assert.equal(calls.at(-1)?.ready, true);
+  now = 40_800;
+  owner.update({ ...moving, motionGeneration: "3" }); await settle();
+  assert.equal(calls.at(-1)?.gaitReady, true);
+  now++;
+  owner.update({ ...moving, gaitReady: false }); await settle();
+  assert.equal(calls.at(-1)?.ready, false);
+  now++;
+  owner.update({ ...moving, gaitAvailable: false, gaitReady: false, nativeMotionPhase: "idle" }); await settle();
+  assert.equal(calls.at(-1)?.ready, false);
+  owner.dispose();
+});
+
 test("motion extension rejects unsupported/invalid moving and requires null motion outside moving", () => {
   assert.equal(validCompanionMotion(state("1")), true);
   for (const remainingMs of [0, -1, 8001, 1.5, NaN, Infinity])
@@ -23,6 +50,25 @@ test("motion extension rejects unsupported/invalid moving and requires null moti
   }
   assert.equal(validCompanionMotion({ ...state("-1"), motion: null }), false);
   assert.equal(validCompanionMotion({ ...state("1"), motionGeneration: "01" }), false);
+});
+
+test("自然计时到期保留段身份，但显式失效、换域与时钟异常不能冒充自然结束", () => {
+  const owner = new CompanionMotionPresentation(), first = state("1");
+  owner.bindEpoch("epoch-a", 0); owner.observe(first, 0);
+  assert.equal(owner.naturallyExpired(first), false);
+  assert.equal(owner.read(8000), null);
+  assert.equal(owner.naturallyExpired(first), true);
+  assert.equal(owner.naturallyExpired(state("2", "2")), false);
+  owner.observe(state("2"), 8100);
+  assert.equal(owner.naturallyExpired(first), true);
+  owner.clear();
+  assert.equal(owner.naturallyExpired(first), false);
+  owner.observe(state("3", "2"), 8200); owner.read(16200);
+  assert.equal(owner.naturallyExpired(state("3", "2")), true);
+  owner.read(16000);
+  assert.equal(owner.naturallyExpired(state("3", "2")), false);
+  owner.bindEpoch("epoch-b", 16300);
+  assert.equal(owner.naturallyExpired(first), false);
 });
 
 test("moving direction/app/revision updates only shorten the earliest finite lease and cannot revive expiry", () => {

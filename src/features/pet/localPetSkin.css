@@ -4,7 +4,14 @@
 .local-skin-list li { display: flex; align-items: center; justify-content: space-between; gap: .75rem; padding: .5rem 0; border-bottom: 1px solid #e5ede7; }
 .local-skin-list small { display: block; color: #687b74; overflow-wrap: anywhere; }
 .local-skin-preview { display: flex; gap: 1rem; align-items: flex-start; }
-.local-skin-preview img { width: min(34%, 120px); height: auto; background: repeating-conic-gradient(#e4ece7 0% 25%, #fafcfb 0% 50%) 50% / 12px 12px; border-radius: 8px; }
+.local-skin-preview .local-skin-player { flex: 0 1 200px; min-width: 130px; }
+.local-skin-preview-stage { display: grid; place-items: center; min-height: 180px; aspect-ratio: 2 / 3; background: repeating-conic-gradient(#e4ece7 0% 25%, #fafcfb 0% 50%) 50% / 12px 12px; border-radius: 8px; }
+.local-skin-preview-stage img { display: block; width: 100%; height: auto; }
+.local-skin-preview-stage span { padding: .75rem; font-size: .8rem; }
+.local-skin-player label { display: grid; gap: .3rem; margin: .5rem 0; font-size: .8rem; }
+.local-skin-player select { width: 100%; min-width: 0; }
+.local-skin-player .local-skin-actions { gap: .3rem; }
+@media (max-width: 560px) { .local-skin-preview { flex-wrap: wrap; } }
 .local-skin-preview > div { flex: 1; min-width: 0; }
 .local-skin-preview h4 { margin: 0 0 .5rem; }
 .local-skin-preview dl { display: grid; grid-template-columns: auto 1fr; gap: .3rem .6rem; font-size: .8rem; }

@@ -147,7 +147,7 @@ fn agent_kind_late_file_metadata_and_reopen_keep_v3_facts_and_cursor_identity() 
             .db
             .query_row("PRAGMA user_version", [], |row| row.get::<_, i64>(0))
             .unwrap(),
-        6
+        9
     );
     r.scan();
     assert_eq!(r.snapshot()["overview"]["totalTokens"], 120);

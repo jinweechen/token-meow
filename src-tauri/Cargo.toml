@@ -26,9 +26,11 @@ desktop = [
   "dep:open",
   "dep:windows",
   "dep:reqwest",
+  "dep:rapier2d",
 ]
 custom-protocol = ["desktop", "tauri/custom-protocol"]
 headless-audit = []
+subscription-native-audit = []
 
 [build-dependencies]
 tauri-build = { version = "=2.6.3", features = [], optional = true }
@@ -38,7 +40,7 @@ tauri = { version = "=2.11.5", features = ["tray-icon", "image-png"], optional =
 tauri-plugin-dialog = { version = "=2.7.2", optional = true }
 tauri-plugin-single-instance = { version = "=2.4.3", optional = true }
 serde = { version = "1", features = ["derive"] }
-serde_json = "1"
+serde_json = { version = "1", features = ["float_roundtrip"] }
 rusqlite = { version = "=0.40.1", features = ["bundled"] }
 chrono = { version = "0.4", features = ["serde"] }
 sha2 = "0.10"
@@ -48,9 +50,11 @@ reqwest = { version = "=0.13.4", default-features = false, features = ["blocking
 base64 = "=0.22.1"
 minisign-verify = "=0.2.5"
 semver = "=1.0.28"
+nalgebra = { version = "=0.35.0", default-features = false, features = ["std"] }
+rapier2d = { version = "=0.36.1", default-features = false, features = ["dim2", "f32", "std", "block-solver"], optional = true }
 
 [target.'cfg(windows)'.dependencies]
-windows-sys = { version = "=0.61.2", features = ["Win32_Foundation", "Win32_System_Threading", "Win32_UI_WindowsAndMessaging", "Win32_UI_Input_KeyboardAndMouse", "Win32_System_JobObjects", "Win32_System_IO", "Win32_System_Pipes", "Win32_System_Memory", "Win32_Security", "Win32_Storage_FileSystem", "Win32_Graphics_Gdi", "Win32_UI_HiDpi", "Win32_System_Registry", "Win32_UI_Shell", "Win32_System_Power", "Win32_System_RemoteDesktop", "Win32_System_SystemServices"] }
+windows-sys = { version = "=0.61.2", features = ["Win32_Foundation", "Win32_System_Threading", "Win32_UI_WindowsAndMessaging", "Win32_UI_Input_KeyboardAndMouse", "Win32_System_JobObjects", "Win32_System_IO", "Win32_System_Pipes", "Win32_System_Memory", "Win32_Security", "Win32_Storage_FileSystem", "Win32_Graphics_Gdi", "Win32_Graphics_Dwm", "Win32_UI_HiDpi", "Win32_System_Registry", "Win32_UI_Shell", "Win32_System_Power", "Win32_System_RemoteDesktop", "Win32_System_SystemServices"] }
 windows = { version = "=0.61.3", features = ["Data_Xml_Dom", "UI_Notifications", "Win32_System_WinRT"], optional = true }
 
 [dev-dependencies]

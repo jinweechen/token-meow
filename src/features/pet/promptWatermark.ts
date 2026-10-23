@@ -5,7 +5,7 @@ import type { Prompt } from "./presenter";
 export class PromptWatermark {
   private initialized = false;
   private seen = new Set<string>();
-  consume(events: readonly (Omit<PetPrompt, "animationEligible"> & { animationEligible?: boolean })[], now: number, suppressed: boolean): Prompt[] {
+  consume(events: readonly (Omit<PetPrompt, "animationEligible" | "status"> & { animationEligible?: boolean; status?: string })[], now: number, suppressed: boolean): Prompt[] {
     const prompts: Prompt[] = [];
     for (const event of events) {
       const alreadySeen = this.seen.has(event.id);
@@ -22,7 +22,7 @@ export class PromptWatermark {
       )
         prompts.push({
           id: event.id,
-          status: event.status,
+          status: event.status ?? "unknown",
           createdAt,
           kind: event.kind,
         });

@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { builtinAnimationClips } from "./builtinAnimationSkin";
+import { builtinAnimationClips, type AnimationClipDefinition } from "./builtinAnimationSkin";
 import { getBuiltinAnimationRegistry } from "./builtinAnimationRegistry";
 import { KeyframePlayer, playbackClip, type KeyframePosition } from "./keyframePlayer";
 import { AnimationClipRegistry, loadAnimationWindow, planAnimationWindow } from "./animationClipRegistry";
@@ -8,7 +8,8 @@ import { createFrameDisplayGate } from "./frameDisplayGate";
 
 export function useAnimationClip(clipId: string, animate: boolean, enabled = true,
   scope: string | null = null, finite = false, runtime: LocalPetSkinRuntime | null = null,
-  beforeDisplay?: (frameKey: string) => Promise<void>, registryOverride?: AnimationClipRegistry) {
+  beforeDisplay?: (frameKey: string) => Promise<void>, registryOverride?: AnimationClipRegistry,
+  playbackOverride?: AnimationClipDefinition) {
   const runtimeKey = runtime?.key ?? "builtin";
   const effectOwner = useRef(0);
   const lastRegistry = useRef<ReturnType<typeof getBuiltinAnimationRegistry> | null>(null);
@@ -31,7 +32,8 @@ export function useAnimationClip(clipId: string, animate: boolean, enabled = tru
     // names. New built-in directions must never widen that untrusted contract.
     const localId = clipId === "walk-right" ? "walk" : clipId;
     const actualId = runtime ? runtime.clips.some((clip) => clip.id === localId) ? localId : "idle" : clipId;
-    const clip = (runtime?.clips ?? builtinAnimationClips).find((item) => item.id === actualId)!;
+    const clip = !runtime && playbackOverride?.id === actualId ? playbackOverride
+      : (runtime?.clips ?? builtinAnimationClips).find((item) => item.id === actualId)!;
     const windowed = new Set([clip.fallback, ...clip.sequence.map((step) => step.frame)]).size > 12;
     runtime?.setBeforeRelease(beforeDisplay ? () => beforeDisplay(`${runtimeKey}:release`) : undefined);
     const gate = createFrameDisplayGate(beforeDisplay, () => live);
@@ -64,6 +66,8 @@ export function useAnimationClip(clipId: string, animate: boolean, enabled = tru
       registry = registryOverride ?? (runtime ? runtime.getRegistry() : getBuiltinAnimationRegistry());
       if (lastRegistry.current !== registry) lastRegistry.current?.cancel();
       lastRegistry.current = registry;
+      if (animate && !runtime && playbackOverride?.id === actualId)
+        return registry.loadWindow(actualId, [...new Set([clip.fallback, ...clip.sequence.map((step) => step.frame)])]);
       return animate && windowed ? registry.loadWindow(actualId, planAnimationWindow(clip, 0))
         : registry.load(actualId, !animate);
     };
@@ -140,7 +144,7 @@ export function useAnimationClip(clipId: string, animate: boolean, enabled = tru
         }
       });
     };
-  }, [clipId, animate, enabled, scope, finite, runtimeKey, runtime, beforeDisplay, registryOverride]);
+  }, [clipId, animate, enabled, scope, finite, runtimeKey, runtime, beforeDisplay, registryOverride, playbackOverride]);
   return state ? { ...state, current: enabled && state.clip === clipId && state.animate === animate &&
     state.scope === scope && state.finite === finite && state.runtimeKey === runtimeKey && state.source === runtime } : null;
 }

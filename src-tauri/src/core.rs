@@ -8,6 +8,9 @@ pub(super) mod pricing;
 mod pricing_sync;
 mod queries;
 mod reader;
+mod source_path;
+mod temporary_dnd;
+pub mod subscription_quota;
 
 use panel_read::QueryReadContext;
 
@@ -89,7 +92,9 @@ pub struct Core {
     pet_read_revision: std::cell::Cell<u64>,
     desktop_motion_cache: motion::DesktopMotionCache,
     notification_gate: std::sync::Arc<crate::notification_gate::Gate>,
+    temporary_dnd: temporary_dnd::SharedRuntime,
     budget_observer: queries::budget::Observer,
+    subscription: subscription_quota::Runtime,
 }
 pub struct ValidatedChatTarget {
     uri: String,
@@ -131,13 +136,13 @@ impl Core {
         let version: i64 = db
             .query_row("PRAGMA user_version", [], |r| r.get(0))
             .map_err(err)?;
-        if version > 6 {
+        if version > 9 {
             return Err("账本版本比应用更新；保留原数据库，请升级应用".into());
         }
-        if existed && version < 6 {
+        if existed && version < 9 {
             // VACUUM INTO takes a consistent SQLite snapshot, including committed WAL content.
             let backup =
-                data_dir.join(format!("ledger-before-v6-{}.sqlite3", uuid::Uuid::new_v4()));
+                data_dir.join(format!("ledger-before-v9-{}.sqlite3", uuid::Uuid::new_v4()));
             db.execute("VACUUM INTO ?1", [backup.to_string_lossy().to_string()])
                 .map_err(err)?;
         }
@@ -145,7 +150,7 @@ impl Core {
             "PRAGMA journal_mode=WAL; PRAGMA foreign_keys=ON; PRAGMA synchronous=FULL;",
         )
         .map_err(err)?;
-        if version < 6 {
+        if version < 9 {
             // All pending generations commit together. A later index failure
             // must not leave an older ledger half upgraded.
             let tx = db
@@ -174,7 +179,19 @@ impl Core {
                 tx.execute_batch(include_str!("../migrations/005_pet_read_models.sql"))
                     .map_err(err)?;
             }
-            tx.execute_batch(include_str!("../migrations/006_retention_time_indexes.sql"))
+            if version < 6 {
+                tx.execute_batch(include_str!("../migrations/006_retention_time_indexes.sql"))
+                    .map_err(err)?;
+            }
+            if version < 7 {
+                tx.execute_batch(include_str!("../migrations/007_subscription_plans.sql"))
+                    .map_err(err)?;
+            }
+            if version < 8 {
+                tx.execute_batch(include_str!("../migrations/008_subscription_learning.sql"))
+                    .map_err(err)?;
+            }
+            tx.execute_batch(include_str!("../migrations/009_local_schedules.sql"))
                 .map_err(err)?;
             tx.commit().map_err(err)?;
         }
@@ -214,6 +231,12 @@ impl Core {
         )
         .map_err(err)?;
         register_channel(&db, &source_id)?;
+        let source_ids = {
+            let mut statement = db.prepare("SELECT id FROM source_instances WHERE client_kind IN ('codex','claude','gemini')").map_err(err)?;
+            let values = statement.query_map([], |row| row.get::<_, String>(0)).map_err(err)?.collect::<std::result::Result<Vec<_>, _>>().map_err(err)?;
+            values
+        };
+        for id in source_ids { if id != source_id { register_channel(&db, &id)?; } }
         put_setting(&db, "primarySourceId", &json!(source_id))?;
         if get_setting(&db, "importSince")?.is_none() {
             put_setting(
@@ -227,6 +250,8 @@ impl Core {
             put_setting(&db, "preferences", &json!({}))?;
         }
         validate_path_pair(data_dir, source_root)?;
+        let notification_gate = std::sync::Arc::new(crate::notification_gate::Gate::new());
+        let temporary_dnd = temporary_dnd::Runtime::shared(notification_gate.clone());
         Ok(Self {
             db,
             data_dir: data_dir.to_path_buf(),
@@ -236,8 +261,10 @@ impl Core {
             runtime_id: uuid::Uuid::new_v4().to_string(),
             pet_read_revision: std::cell::Cell::new(0),
             desktop_motion_cache: motion::DesktopMotionCache::new(),
-            notification_gate: std::sync::Arc::new(crate::notification_gate::Gate::new()),
+            notification_gate,
+            temporary_dnd,
             budget_observer: queries::budget::Observer::default(),
+            subscription: subscription_quota::Runtime::default(),
         })
     }
     pub fn scan(&mut self) -> Result<ScanReport> {
@@ -258,6 +285,9 @@ impl Core {
         let observation = queries::budget::begin(self,host)?;
         let result = reader::scan(self,cancel,observation);
         if result.is_err() { self.budget_observer.invalidate(); }
+        if result.is_ok() && !cancel.load(std::sync::atomic::Ordering::Acquire) {
+            self.advance_local_schedules()?;
+        }
         result
     }
     pub(crate) fn notification_gate(&self) -> std::sync::Arc<crate::notification_gate::Gate> {
@@ -265,6 +295,27 @@ impl Core {
     }
     pub(crate) fn budget_notification_permit(&self, event: &Value) -> Option<crate::notification_gate::NotificationPermit> {
         (event["kind"] == "budget").then(||self.budget_observer.permit(&self.db,&strv(event,"id"))).flatten()
+    }
+    pub(crate) fn notification_permit(&self, event: &Value) -> Option<crate::notification_gate::NotificationPermit> {
+        match event["kind"].as_str() {
+            Some("completion") => {
+                let at = crate::budget_clock::now();
+                if self.settings().ok()?["effectiveDoNotDisturb"] == true { return None; }
+                let epoch = self.notification_gate.snapshot()?;
+                let deadline = at.checked_deadline(30_000)?;
+                Some(crate::notification_gate::NotificationPermit::new(
+                    self.notification_gate.clone(), epoch, deadline.utc, deadline.mono_ms))
+            }
+            Some("budget") => self.budget_notification_permit(event),
+            Some("subscription_plan" | "quota_eta") => self.subscription_notification_permit(event),
+            _ => None,
+        }
+    }
+    pub(super) fn domain_prompt_is_current(&self,kind:&str,id:&str)->bool {
+        adapter::load_fact(&self.db,"inbox_events",id).ok().flatten().filter(|v|v["kind"]==kind).is_some_and(|v| {
+            if matches!(kind, "subscription_plan" | "quota_eta") { self.subscription_prompt_is_current(&v) }
+            else { self.notification_permit(&v).is_some() }
+        })
     }
     pub(super) fn budget_prompt_is_current(&self, id: &str) -> bool {
         self.budget_observer.permit(&self.db,id).is_some()
@@ -282,9 +333,9 @@ impl Core {
         self.settings_at(crate::budget_clock::now().utc)
     }
     pub(crate) fn settings_at(&self, at: chrono::DateTime<Utc>) -> Result<Value> {
-        Self::settings_from_db_at(&self.db, at)
+        Self::settings_from_db_at(&self.db, at, &self.temporary_dnd)
     }
-    fn settings_from_db_at(db: &Connection, at: chrono::DateTime<Utc>) -> Result<Value> {
+    fn settings_from_db_at(db: &Connection, at: chrono::DateTime<Utc>, temporary: &temporary_dnd::SharedRuntime) -> Result<Value> {
         let mut projected = default_settings();
         if let Some(saved) = get_setting(db, "preferences")? {
             if let Some(m) = saved.as_object() {
@@ -307,15 +358,28 @@ impl Core {
             (Some(a), Some(b)) if a > b => time >= a || time < b,
             _ => false,
         };
-        projected["effectiveDoNotDisturb"] =
-            json!(projected["doNotDisturb"].as_bool().unwrap_or(false) || scheduled);
+        let (temporary, _) = temporary_dnd::read(temporary, db)?;
+        projected["scheduledDoNotDisturb"] = json!(scheduled);
+        projected["effectiveDoNotDisturb"] = json!(projected["doNotDisturb"].as_bool().unwrap_or(false)
+            || scheduled || temporary["active"] == true);
+        projected["temporaryDoNotDisturb"] = temporary;
         Ok(projected)
+    }
+    fn temporary_notification_filter(&self) -> Result<temporary_dnd::Filter> {
+        temporary_dnd::read(&self.temporary_dnd, &self.db).map(|(_, filter)| filter)
     }
     pub fn primary_source(&self) -> Result<Value> {
         self.query_read_context().primary_source()
     }
     pub fn sources(&self) -> Result<Vec<Value>> {
         queries::source_rows(self)
+    }
+    /// 账户桥接只需要登记配置，不能把持续变化的健康统计当成绑定身份。
+    pub(crate) fn source_account_bindings(&self) -> Result<Vec<Value>> {
+        let mut statement = self.db.prepare("SELECT id,root,client_kind,enabled,environment,configuration_revision FROM source_instances ORDER BY id").map_err(err)?;
+        let rows = statement.query_map([], |row| Ok(json!({"id":row.get::<_,String>(0)?,"root":row.get::<_,String>(1)?,
+            "clientKind":row.get::<_,String>(2)?,"enabled":row.get::<_,bool>(3)?,"environment":row.get::<_,String>(4)?,"configurationRevision":row.get::<_,i64>(5)?.to_string()}))).map_err(err)?;
+        rows.collect::<std::result::Result<Vec<_>,_>>().map_err(err)
     }
     /// Watch configuration only; filesystem checks and health queries stay outside this read.
     pub(crate) fn enabled_codex_source_roots(&self) -> Result<Vec<PathBuf>> {
@@ -326,6 +390,11 @@ impl Core {
         let rows = statement
             .query_map([], |row| row.get::<_, String>(0).map(PathBuf::from))
             .map_err(err)?;
+        rows.collect::<std::result::Result<Vec<_>, _>>().map_err(err)
+    }
+    pub(crate) fn enabled_local_source_roots(&self) -> Result<Vec<PathBuf>> {
+        let mut statement = self.db.prepare("SELECT root FROM source_instances WHERE enabled=1 AND client_kind IN ('codex','claude','gemini')").map_err(err)?;
+        let rows = statement.query_map([], |row| row.get::<_, String>(0).map(PathBuf::from)).map_err(err)?;
         rows.collect::<std::result::Result<Vec<_>, _>>().map_err(err)
     }
     /// Configuration roots only, including disabled sources; no fact/health queries.
@@ -344,25 +413,31 @@ impl Core {
             .as_bool()
             .unwrap_or(false);
         let runtime = self.runtime_id.clone();
-        let tx = self.db.transaction().map_err(err)?;
-        let mut statement=tx.prepare("SELECT data FROM inbox_events WHERE json_extract(data,'$.notifyEligible')=1 AND json_extract(data,'$.eligibleRuntime')=?1 AND COALESCE(json_extract(data,'$.notified'),0)=0 ORDER BY event_time LIMIT 100").map_err(err)?;
+        let temporary_filter = self.temporary_notification_filter()?;
+        let mut statement=self.db.prepare("SELECT i.data,f.sequence FROM inbox_events i LEFT JOIN pet_inbox_feed f ON f.inbox_id=i.id WHERE json_extract(i.data,'$.notifyEligible')=1 AND json_extract(i.data,'$.eligibleRuntime')=?1 AND COALESCE(json_extract(i.data,'$.notified'),0)=0 ORDER BY i.event_time LIMIT 100").map_err(err)?;
         let rows = statement
-            .query_map([&runtime], |r| r.get::<_, String>(0))
+            .query_map([&runtime], |r| Ok((r.get::<_, String>(0)?,r.get::<_,Option<i64>>(1)?)))
             .map_err(err)?
             .collect::<std::result::Result<Vec<_>, _>>()
             .map_err(err)?;
         drop(statement);
+        // The new domain can only issue permits from committed state. The
+        // budget observer retains its existing transaction-aware validation.
+        let subscription_permitted:std::collections::BTreeSet<String>=rows.iter().filter_map(|(row,_)|serde_json::from_str::<Value>(row).ok()).filter(|v|matches!(v["kind"].as_str(),Some("subscription_plan"|"quota_eta")) && self.subscription_notification_permit(v).is_some()).map(|v|strv(&v,"id")).collect();
+        let tx = self.db.transaction().map_err(err)?;
         let mut claimed = Vec::new();
-        for row in rows {
+        let mut subscription_suppressed=Vec::new();
+        for (row, sequence) in rows {
             let mut value: Value = serde_json::from_str(&row).map_err(err)?;
-            let budget_invalid = value["kind"] == "budget"
-                && self.budget_observer.permit(&tx,&strv(&value,"id")).is_none();
-            let suppressed = dnd || budget_invalid;
+            let budget_invalid = crate::notification_gate::requires_domain_permit(&value)
+                && match value["kind"].as_str(){Some("budget")=>self.budget_observer.permit(&tx,&strv(&value,"id")).is_none(),Some("subscription_plan"|"quota_eta")=>!subscription_permitted.contains(&strv(&value,"id")),_=>true};
+            let suppressed = dnd || budget_invalid || temporary_filter.suppresses_event(&value, sequence);
             value["notified"] = json!(true);
             value["notificationState"] = json!(if suppressed { "suppressed" } else { "claimed" });
             if suppressed {
                 value["animationAcknowledged"] = json!(true);
                 if value["kind"] == "budget" { self.budget_observer.finish(&strv(&value,"id")); }
+                if matches!(value["kind"].as_str(),Some("subscription_plan"|"quota_eta")) {subscription_suppressed.push(strv(&value,"id"));}
             }
             value["claimedAt"] = json!(now());
             tx.execute(
@@ -375,6 +450,9 @@ impl Core {
             }
         }
         tx.commit().map_err(err)?;
+        for id in subscription_suppressed{self.finish_subscription_notification(&id);}
+        let rejected:Vec<_>=claimed.iter().filter(|v|matches!(v["kind"].as_str(),Some("subscription_plan"|"quota_eta")) && self.subscription_notification_permit(v).is_none()).map(|v|strv(v,"id")).collect();
+        if !rejected.is_empty(){self.finish_notification(&rejected,"suppressed",None)?;claimed.retain(|v|!rejected.contains(&strv(v,"id")));}
         Ok(claimed)
     }
     pub fn finish_notification(
@@ -403,7 +481,7 @@ impl Core {
             }
         }
         tx.commit().map_err(err)?;
-        for id in ids.iter().take(100) { self.budget_observer.finish(id); }
+        for id in ids.iter().take(100) { self.budget_observer.finish(id);self.settle_subscription_notification(id,status); }
         Ok(())
     }
     pub fn migrate_desktop_settings(&mut self, legacy: Option<Value>) -> Result<Value> {
@@ -509,26 +587,23 @@ impl Core {
         queries::export_csv(self, &query)
     }
     pub fn add_source(&mut self, root: &Path) -> Result<String> {
+        self.add_source_with_kind(root, "codex")
+    }
+    pub fn add_source_with_kind(&mut self, root: &Path, client_kind: &str) -> Result<String> {
+        if adapter::adapter_for(client_kind).is_none() { return Err("未支持的工具来源类型。".into()); }
         validate_path_pair(&self.data_dir, root)?;
-        let path = root.to_string_lossy().to_string();
-        if let Some(id) = self
-            .db
-            .query_row(
-                "SELECT id FROM source_instances WHERE root=?1",
-                [&path],
-                |r| r.get::<_, String>(0),
-            )
-            .optional()
-            .map_err(err)?
-        {
-            return Ok(id);
+        let registered = source_path::registered(&self.db)?;
+        if let Some(existing) = source_path::matching_source(&registered, root, client_kind, None)? {
+            if existing.client_kind != client_kind { return Err("此日志入口已登记为另一工具类型，请使用独立数据目录。".into()); }
+            return Ok(existing.id.clone());
         }
+        let path = root.to_string_lossy().to_string();
         let id = hash(format!("source|{path}|{}", now()).as_bytes());
         self.budget_observer.invalidate();
         let tx = self.db.transaction().map_err(err)?;
         tx.execute(
-                "INSERT INTO source_instances(id,root,created_at) VALUES(?1,?2,?3)",
-                params![id, path, now()],
+                "INSERT INTO source_instances(id,root,created_at,client_kind) VALUES(?1,?2,?3,?4)",
+                params![id, path, now(), client_kind],
             )
             .map_err(err)?;
         register_channel(&tx, &id)?;
@@ -536,6 +611,11 @@ impl Core {
         Ok(id)
     }
     pub fn action(&mut self, name: &str, payload: &Value) -> Result<Value> {
+        if ["set_primary_source", "update_source", "relocate_source", "clear_data"].contains(&name) {
+            self.invalidate_subscription();
+        }
+        if ["set_primary_source","update_source","relocate_source","clear_data","apply_retention","pause_history","resume_history","cancel_history","import_history","clear_inbox","merge_session_directory","save_settings","update_settings"].contains(&name){self.revoke_subscription_deliveries();}
+        if ["save_settings","update_settings"].contains(&name) && payload.get("settings").unwrap_or(payload).get("privacyMode").is_some(){self.invalidate_subscription();}
         // Invalidate before a destructive/rebinding operation, even if a partial
         // failure follows. Ordinary preferences and inbox clearing keep carry.
         if ["set_primary_source","update_source","relocate_source","set_project_mapping",
@@ -547,7 +627,7 @@ impl Core {
         }
         if name == "clear_inbox" { self.budget_observer.revoke_all(); }
         if ["save_settings","update_settings"].contains(&name)
-            && ["retentionDays","doNotDisturb","dndStart","dndEnd"].iter()
+            && ["retentionDays","doNotDisturb","dndStart","dndEnd","temporaryDoNotDisturbMinutes"].iter()
                 .any(|key| payload.get("settings").unwrap_or(payload).get(*key).is_some()) {
             self.budget_observer.invalidate();
         }
@@ -569,13 +649,14 @@ impl Core {
                 let source: Option<Value> = self
                     .db
                     .query_row(
-                        "SELECT id,root,enabled,client_kind,environment FROM source_instances WHERE id=?1",
+                        "SELECT id,root,enabled,client_kind,environment,configuration_revision FROM source_instances WHERE id=?1",
                         [&id],
-                        |r| Ok(json!({"id":r.get::<_,String>(0)?,"root":r.get::<_,String>(1)?,"enabled":r.get::<_,bool>(2)?,"clientKind":r.get::<_,String>(3)?,"environment":r.get::<_,String>(4)?})),
+                        |r| Ok(json!({"id":r.get::<_,String>(0)?,"root":r.get::<_,String>(1)?,"enabled":r.get::<_,bool>(2)?,"clientKind":r.get::<_,String>(3)?,"environment":r.get::<_,String>(4)?,"configurationRevision":r.get::<_,i64>(5)?.to_string()})),
                     )
                     .optional()
                     .map_err(err)?;
                 let source = source.ok_or("未知来源实例")?;
+                if source["clientKind"] != "codex" { return Err("此工具尚未提供官方账户桥接，不能设为主账户来源。".into()); }
                 let root = PathBuf::from(strv(&source, "root"));
                 put_setting(&self.db, "primarySourceId", &json!(id))?;
                 // Publish the in-memory binding only after its durable write succeeds.
@@ -586,12 +667,16 @@ impl Core {
             "add_source" => {
                 let path = strv(payload, "path");
                 if path.is_empty() || !Path::new(&path).is_dir() {
-                    return Err("请选择存在的 Codex 来源目录".into());
+                    return Err("请选择存在的工具数据目录".into());
                 }
-                let id = self.add_source(Path::new(&path))?;
+                let client_kind = payload.get("clientKind").and_then(Value::as_str).unwrap_or("codex");
+                let id = self.add_source_with_kind(Path::new(&path), client_kind)?;
                 Ok(json!({"ok":true,"id":id}))
             }
             "update_source" => {
+                if payload.get("clientKind").is_some() { return Err("已登记来源不能更换工具类型，请登记独立来源。".into()); }
+                if payload.get("path").is_some_and(|value| !value.is_string()) { return Err("来源目录必须是字符串。".into()); }
+                if payload.get("enabled").is_some_and(|value| !value.is_boolean()) { return Err("来源启用状态必须是布尔值。".into()); }
                 let id = strv(payload, "id");
                 let exists: bool = self
                     .db
@@ -604,16 +689,25 @@ impl Core {
                 if !exists {
                     return Err("未知来源实例".into());
                 }
+                let registered = source_path::registered(&self.db)?;
+                let current = registered.iter().find(|row| row.id == id).ok_or("未知来源实例")?;
                 let path = payload.get("path").and_then(Value::as_str);
                 if let Some(path) = path {
                     validate_path_pair(&self.data_dir, Path::new(path))?;
                     if !Path::new(path).is_dir() {
                         return Err("来源目录不存在".into());
                     }
-                    let duplicate:bool=self.db.query_row("SELECT EXISTS(SELECT 1 FROM source_instances WHERE root=?1 AND id<>?2)",params![path,id],|r|r.get(0)).map_err(err)?;
-                    if duplicate {
-                        return Err("此目录已经登记为另一来源，请先停用重复来源".into());
-                    }
+                }
+                let next_root = path.unwrap_or(&current.root);
+                let remains_enabled = payload.get("enabled").and_then(Value::as_bool).unwrap_or(current.enabled);
+                let collision_candidates: Vec<_> = registered.iter().filter(|row| path.is_some() || row.enabled).cloned().collect();
+                if (path.is_some() || remains_enabled)
+                    && source_path::matching_source(&collision_candidates, Path::new(next_root), &current.client_kind, Some(&id))?.is_some()
+                {
+                    return Err("此日志入口已经登记为另一来源，请更改为独立目录；历史记录不会自动合并。".into());
+                }
+                if path.is_none() && remains_enabled {
+                    source_path::ensure_enable_keeps_cursor_owner(&self.db, &registered, &id)?;
                 }
                 let tx = self.db.transaction().map_err(err)?;
                 if let Some(path) = path {
@@ -630,6 +724,10 @@ impl Core {
                         )
                         .map_err(err)?;
                 }
+                if tx.execute("UPDATE source_instances SET configuration_revision=configuration_revision+1 WHERE id=?1 AND configuration_revision<9007199254740991",[&id]).map_err(err)? != 1 {
+                    return Err("来源配置修订已耗尽，操作未提交。".into());
+                }
+                register_channel(&tx, &id)?;
                 tx.commit().map_err(err)?;
                 if id == self.source_id {
                     if let Some(path) = path {
@@ -692,6 +790,12 @@ impl Core {
             "save_settings" | "update_settings" => {
                 let mut v = get_setting(&self.db, "preferences")?.unwrap_or(json!({}));
                 let p = payload.get("settings").unwrap_or(payload);
+                let temporary_command = temporary_dnd::prepare(&self.db, p)?;
+                if let Some(saved) = v.as_object_mut() {
+                    for key in ["temporaryDoNotDisturbMinutes", "temporaryDoNotDisturb", "scheduledDoNotDisturb", "effectiveDoNotDisturb"] {
+                        saved.remove(key);
+                    }
+                }
                 for key in ["idlePlayEnabled", "workAppLinkEnabled", "idleRoamingEnabled"] {
                     if p.get(key).is_some_and(|value| !value.is_boolean()) {
                         return Err(format!("{key} 必须是布尔值"));
@@ -770,6 +874,9 @@ impl Core {
                     }
                 }
                 put_setting(&self.db, "preferences", &v)?;
+                if let Some(command) = temporary_command {
+                    self.temporary_dnd.lock().map_err(|_| "临时免打扰状态暂不可用")?.apply(command)?;
+                }
                 self.settings()
             }
             "mark_read" => {
@@ -972,11 +1079,21 @@ impl Core {
                     "fact_aliases",
                     "excluded_facts",
                     "account_bindings",
+                    "local_manual_consumption",
+                    "local_schedule_instances",
+                    "local_schedule_templates",
+                    "usage_plans",
+                    "plan_period_state",
                 ] {
                     tx.execute(&format!("DELETE FROM {table}"), [])
                         .map_err(err)?;
                 }
                 put_setting(&tx, "clearWatermark", &json!(watermark))?;
+                tx.execute("DELETE FROM settings WHERE key IN ('localSchedulesRevision','localSchedulesLastUtc')",[]).map_err(err)?;
+                tx.execute("DELETE FROM settings WHERE key='mixtureStudiesV1'",[]).map_err(err)?;
+                tx.execute("UPDATE source_files SET context=json_remove(context,'$.observed_settings','$.live_cursor.context.observed_settings')",[]).map_err(err)?;
+                tx.execute("DELETE FROM quota_calibrations",[]).map_err(err)?;
+                tx.execute("DELETE FROM settings WHERE key IN ('subscriptionAssumptions','subscriptionRevision') OR key LIKE 'subscriptionHoldout:%' OR key LIKE 'subscriptionEvidenceRetention:%'", []).map_err(err)?;
                 tx.execute(
                     "UPDATE source_files SET context=json_set(context,'$.legacy',json('{}'))",
                     [],
@@ -1003,6 +1120,7 @@ impl Core {
                         )
                         .map_err(err)?;
                 }
+                self.acknowledge_subscription_prompt(&id);
                 Ok(json!({"ok":true}))
             }
             "apply_retention" => {
@@ -1015,29 +1133,32 @@ impl Core {
 }
 
 fn default_settings() -> Value {
-    json!({"muted":true,"privacyMode":false,"alwaysOnTop":true,"clickThrough":false,"alphaHitTest":false,"petScale":1.0,"doNotDisturb":false,"reducedMotion":false,"startAtLogin":false,"petVisible":true,"retentionDays":90,"skin":"anime-catgirl","idlePlayEnabled":true,"workAppLinkEnabled":true,"idleRoamingEnabled":true,"idleRoamRange":"workArea","workCareEnabled":true,"careTone":"mixed","careIntervalMinutes":25})
+    json!({"muted":true,"privacyMode":false,"alwaysOnTop":true,"clickThrough":false,"alphaHitTest":false,"petScale":1.0,"doNotDisturb":false,"reducedMotion":false,"startAtLogin":false,"petVisible":true,"retentionDays":90,"skin":"anime-catgirl","idlePlayEnabled":true,"workAppLinkEnabled":true,"idleRoamingEnabled":false,"idleRoamRange":"nearby","workCareEnabled":true,"careTone":"mixed","careIntervalMinutes":25})
 }
 fn register_channel(db: &Connection, source: &str) -> Result<()> {
     let channel = format!("{source}:jsonl");
-    let mut capabilities = adapter::CodexAdapter.capabilities();
-    capabilities["sourceId"] = json!(source);
-    capabilities["channelId"] = json!(channel);
-    let root: String = db
+    let (root, client_kind, environment): (String, String, String) = db
         .query_row(
-            "SELECT root FROM source_instances WHERE id=?1",
+            "SELECT root,client_kind,environment FROM source_instances WHERE id=?1",
             [source],
-            |r| r.get(0),
+            |r| Ok((r.get(0)?, r.get(1)?, r.get(2)?)),
         )
         .map_err(err)?;
+    let adapter = adapter::adapter_for(&client_kind).ok_or("来源适配器未注册。")?;
+    let mut capabilities = adapter.capabilities();
+    capabilities["sourceId"] = json!(source);
+    capabilities["channelId"] = json!(channel);
     let config = adapter::SourceConfig {
         id: source.into(),
         root: PathBuf::from(root),
-        environment: "windows-local".into(),
+        environment,
     };
-    capabilities["probe"] = adapter::CodexAdapter.probe(&config);
+    capabilities["probe"] = adapter.probe(&config);
     capabilities["identityPolicy"] =
-        serde_json::to_value(adapter::CodexAdapter.identity_policy()).map_err(err)?;
-    db.execute("INSERT OR IGNORE INTO collection_channels(id,source_id,kind,adapter_version,data) VALUES(?1,?2,'jsonl','codex-0.147-v1',?3)",params![channel,source,json!({"id":channel,"sourceId":source,"kind":"jsonl","enabled":true}).to_string()]).map_err(err)?;
+        serde_json::to_value(adapter.identity_policy()).map_err(err)?;
+    let version = if client_kind == "codex" { "codex-0.147-v1".to_owned() } else { format!("{client_kind}-native-v1") };
+    let file_kind = if client_kind == "gemini" { "jsonl-and-json" } else { "jsonl" };
+    db.execute("INSERT INTO collection_channels(id,source_id,kind,adapter_version,data) VALUES(?1,?2,?3,?4,?5) ON CONFLICT(id) DO UPDATE SET kind=excluded.kind,adapter_version=excluded.adapter_version,data=excluded.data",params![channel,source,file_kind,version,json!({"id":channel,"sourceId":source,"kind":file_kind,"enabled":true}).to_string()]).map_err(err)?;
     db.execute("INSERT INTO source_capabilities(id,source_id,data) VALUES(?1,?2,?3) ON CONFLICT(id) DO UPDATE SET data=excluded.data",params![channel,source,capabilities.to_string()]).map_err(err)?;
     Ok(())
 }
@@ -1092,7 +1213,7 @@ fn validate_path_pair(data: &Path, source: &Path) -> Result<()> {
     let d = key(&data);
     let s = key(&source);
     if d == s || d.starts_with(&format!("{s}/")) || s.starts_with(&format!("{d}/")) {
-        return Err("宠物数据目录与 Codex 来源目录不得相同或互相包含；源文件始终只读".into());
+        return Err("宠物数据目录与工具来源目录不得相同或互相包含；源文件始终只读".into());
     }
     Ok(())
 }

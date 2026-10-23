@@ -484,8 +484,8 @@ mod tests {
     #[test]
     fn motion_settings_validate_atomically_and_project_both_keys() {
         let mut fixture = Fixture::new();
-        assert_eq!(fixture.core.settings().unwrap()["idleRoamingEnabled"], true);
-        assert_eq!(fixture.core.settings().unwrap()["idleRoamRange"], "workArea");
+        assert_eq!(fixture.core.settings().unwrap()["idleRoamingEnabled"], false);
+        assert_eq!(fixture.core.settings().unwrap()["idleRoamRange"], "nearby");
         fixture.core.action("update_settings", &json!({"idleRoamingEnabled":false,"idleRoamRange":"nearby"})).unwrap();
         let baseline = get_setting(&fixture.core.db, "preferences").unwrap();
         for patch in [
